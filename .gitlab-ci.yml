@@ -5,15 +5,10 @@ stages:
 
 image: python:alpine
 
-#before_script:
-#  - pip install mkdocs
-#  # add your custom theme (https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes) if not inside a theme_dir
-#  # - pip install mkdocs-material
-
 build site:
   stage: build
   script:
-  - pip install mkdocs
+  - pip install mkdocs mkdocs-material pymdown-extensions
   - mkdocs build
   - mv site public
   artifacts:     
