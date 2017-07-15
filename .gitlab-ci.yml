@@ -1,0 +1,38 @@
+stages:   
+  - build
+  - test
+  - deploy
+
+image: python:alpine
+
+#before_script:
+#  - pip install mkdocs
+#  # add your custom theme (https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes) if not inside a theme_dir
+#  # - pip install mkdocs-material
+
+build site:
+  stage: build
+  script:
+  - pip install mkdocs
+  - mkdocs build
+  - mv site public
+  artifacts:     
+    expire_in: 1 day
+    paths:
+    - public
+  only:
+  - master
+
+test site:
+  stage: test
+  script:
+    - echo fake result as a placeholder
+
+deploy site:
+  image: garland/docker-s3cmd
+  stage: deploy
+  environment: production
+  script:
+    - export LC_ALL=C.UTF-8
+    - export LANG=C.UTF-8
+    - s3cmd --no-mime-magic --access_key=$ACCESS_KEY --secret_key=$SECRET_KEY --acl-public --delete-removed --delete-after --no-ssl --host=$S3HOST --host-bucket='$S3HOSTBUCKET' sync public s3://geeks-cookbook

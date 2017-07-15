@@ -1,0 +1,110 @@
+site_name: Funky Penguin's Self-Hosted Geek's Cookbook
+site_description: 'A short description of my project'
+site_author: 'David Young'
+site_url: 'http://localhost:8000'
+
+# Repository
+# repo_name: 'funkypenguin/geek-cookbook'
+# repo_url: 'https://github.com/john-doe/my-project'
+
+# Copyright
+copyright: 'Copyright &copy; 2016 - 2017 David Young'
+
+
+theme: null
+theme_dir: 'mkdocs-material/material'
+pages:
+    - Home : index.md
+    - Introduction:
+        - README: README.md
+        - whoami: whoami.md
+
+    - Docker (Standalone):
+        - Getting Started:
+          - Basic Setup: beginner/beginner.md
+          - LVM-Backed storage: beginner/beginner.md
+          - LetsEncrypt Proxy: advanced/about.md
+
+        - Tiny Tiny RSS:
+          - Basic: advanced/tiny-tiny-rss.md
+          - Plugins: advanced/tiny-tiny-rss.md
+          - Themes: advanced/tiny-tiny-rss.md
+
+#        - Home Assistant:
+#          - About: advanced/home-assistant/basic.md
+#          - Basic: advanced/home-assistant/basic.md
+#          - Grafana: advanced/home-assistant/grafana.md
+#          - Limitless LED: advanced/home-assistant/limitless-led.md
+#          - OwnTracks: advanced/home-assistant/limitless-led.md
+
+    - Docker (HA Swarm):
+
+        - Getting Started:
+          - Basic Setup: beginner/beginner.md
+          - Persistent Storage: beginner/beginner.md
+          - Keepalived: advanced/keepalived.md
+
+        - Tiny Tiny RSS:
+          - Basic: advanced/tiny-tiny-rss.md
+          - Plugins: advanced/tiny-tiny-rss.md
+          - Themes: advanced/tiny-tiny-rss.md
+
+#        - Home Assistant:
+
+#          - About: advanced/home-assistant/basic.md
+#          - Basic: advanced/home-assistant/basic.md
+#          - Grafana: advanced/home-assistant/grafana.md
+#          - Limitless LED: advanced/home-assistant/limitless-led.md
+#          - OwnTracks: advanced/home-assistant/limitless-led.md
+
+#        - Huginn: advanced/huginn.md
+#        - Nextcloud: advanced/nextcloud.md
+#        - OwnTracks: advanced/owntracks.md
+#        - Shaarli: advanced/shaarli.md
+#        - Wallabag: advanced/wallabag.md
+
+
+
+
+extra:
+  logo: 'images/site-logo.png'
+  feature:
+    tabs: false
+  palette:
+    primary: 'indigo'
+    accent: 'indigo'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  social:
+    - type: 'github'
+      link: 'https://github.com/john-doe'
+    - type: 'twitter'
+      link: 'https://twitter.com/john-doe'
+    - type: 'linkedin'
+      link: 'https://de.linkedin.com/in/john-doe'
+
+# Google Analytics
+google_analytics:
+  - 'UA-XXXXXXXX-X'
+  - 'auto'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite(linenums=true)
+  - toc(permalink=true)
+  - footnotes
+  - pymdownx.arithmatex
+  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tilde
