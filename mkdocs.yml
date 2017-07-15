@@ -1,18 +1,17 @@
-site_name: Funky Penguin's Self-Hosted Geek's Cookbook
+site_name: Funky Penguin's Geek's Cookbook
 site_description: 'A short description of my project'
 site_author: 'David Young'
-site_url: 'http://localhost:8000'
+site_url: 'https://geeks-cookbook.funkypenguin.co.nz'
 
 # Repository
-# repo_name: 'funkypenguin/geek-cookbook'
-# repo_url: 'https://github.com/john-doe/my-project'
+repo_name: 'funkypenguin/geek-cookbook'
+repo_url: 'https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook'
 
 # Copyright
 copyright: 'Copyright &copy; 2016 - 2017 David Young'
 
 
-theme: null
-theme_dir: 'mkdocs-material/material'
+theme: material
 pages:
     - Home : index.md
     - Introduction:
@@ -78,16 +77,14 @@ extra:
     code: 'Roboto Mono'
   social:
     - type: 'github'
-      link: 'https://github.com/john-doe'
+      link: 'https://github.com/funkypenguin'
     - type: 'twitter'
-      link: 'https://twitter.com/john-doe'
-    - type: 'linkedin'
-      link: 'https://de.linkedin.com/in/john-doe'
+      link: 'https://twitter.com/funkypenguin'
 
 # Google Analytics
-google_analytics:
-  - 'UA-XXXXXXXX-X'
-  - 'auto'
+#google_analytics:
+#  - 'UA-XXXXXXXX-X'
+#  - 'auto'
 
 # Extensions
 markdown_extensions:
