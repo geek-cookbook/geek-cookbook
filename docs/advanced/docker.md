@@ -203,7 +203,7 @@ echo "$HOSTNAME:/gv0                /srv/data       glusterfs       defaults,_ne
 mount -a && mount
 ```
 
-mount -t glusterfs ds1:/gv0 /srv/data/
+  mount -t glusterfs ds1:/gv0 /srv/data/
 
 
 on secondary
@@ -239,8 +239,8 @@ https://github.com/dpw/selinux-dockersock
 ````
 mkdir ~/dockersock
 cd ~/dockersock
-curl -O https://github.com/dpw/selinux-dockersock/raw/master/dockersock.te
-curl -O https://github.com/dpw/selinux-dockersock/raw/master/Makefile
+curl -O https://raw.githubusercontent.com/dpw/selinux-dockersock/master/Makefile
+curl -O https://raw.githubusercontent.com/dpw/selinux-dockersock/master/dockersock.te
 make && semodule -i dockersock.pp
 ````
 
@@ -287,3 +287,10 @@ To this:
 }```
 
 !!! note the comma after "false" above
+
+
+
+
+
+
+docker run -d --name nfsd --restart always --privileged -v /mnt/data:/mnt/data  -e SHARED_DIRECTORY=/mnt/data --network=host itsthenetwork/nfs-server-alpine:latest

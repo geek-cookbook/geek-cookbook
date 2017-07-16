@@ -15,19 +15,21 @@ theme: material
 pages:
     - Home : index.md
     - Introduction:
-        - README: README.md
-        - whoami: whoami.md
-
-    - Docker (Standalone):
-        - Getting Started:
-          - Basic Setup: beginner/beginner.md
-          - LVM-Backed storage: beginner/beginner.md
-          - LetsEncrypt Proxy: advanced/about.md
-
-        - Tiny Tiny RSS:
-          - Basic: advanced/tiny-tiny-rss.md
-          - Plugins: advanced/tiny-tiny-rss.md
-          - Themes: advanced/tiny-tiny-rss.md
+      - README: README.md
+      - whoami: whoami.md
+    - HA Docker Swarm:
+      - Index: ha-docker-swarm/index.md
+      - Design: ha-docker-swarm/design.md
+      - VMs: ha-docker-swarm/design.md
+      - Persistent Storage: beginner/beginner.md
+      - Keepalived: advanced/keepalived.md
+      - Docker Swarm Mode: advanced/keepalived.md
+      - Traefik: advanced/keepalived.md
+      - S3-like Storage: advanced/keepalived.md
+    - Tiny Tiny RSS:
+      - Basic: advanced/tiny-tiny-rss.md
+      - Plugins: advanced/tiny-tiny-rss.md
+      - Themes: advanced/tiny-tiny-rss.md
 
 #        - Home Assistant:
 #          - About: advanced/home-assistant/basic.md
@@ -35,18 +37,6 @@ pages:
 #          - Grafana: advanced/home-assistant/grafana.md
 #          - Limitless LED: advanced/home-assistant/limitless-led.md
 #          - OwnTracks: advanced/home-assistant/limitless-led.md
-
-    - Docker (HA Swarm):
-
-        - Getting Started:
-          - Basic Setup: beginner/beginner.md
-          - Persistent Storage: beginner/beginner.md
-          - Keepalived: advanced/keepalived.md
-
-        - Tiny Tiny RSS:
-          - Basic: advanced/tiny-tiny-rss.md
-          - Plugins: advanced/tiny-tiny-rss.md
-          - Themes: advanced/tiny-tiny-rss.md
 
 #        - Home Assistant:
 
