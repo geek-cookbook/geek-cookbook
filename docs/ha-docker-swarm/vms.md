@@ -13,29 +13,68 @@ I chose the "[Atomic](https://www.projectatomic.io/)" CentOS/Fedora image for th
 
 ## Ingredients
 
-3 x Virtual Machines, each with:
+!!! summary "Ingredients"
+    3 x Virtual Machines, each with:
 
-* CentOS/Fedora Atomic
-* At least 1GB RAM
-* At least 20GB disk space (_but it'll be tight_)
-* Connectivity to each other within the same subnet, and on a low-latency link (_i.e., no WAN links_)
+    * [ ] CentOS/Fedora Atomic
+    * [ ] At least 1GB RAM
+    * [ ] At least 20GB disk space (_but it'll be tight_)
+    * [ ] Connectivity to each other within the same subnet, and on a low-latency link (_i.e., no WAN links_)
+
 
 ## Preparation
 
 ### Install Virtual machines
 
 1. Install / launch virtual machines.
-2. The default username on CentOS atomic is "centos", and you'll have needed to supply your SSH key during the build process. If you're not using a platform with cloud-init support (i.e., you're building a VM manually, not provisioning it through a cloud provider), you'll need to refer to [trick #1][atomic-trick1] and [#2][atomic-trick2] for a means to override the automated setup, apply a manual password to the CentOS account, and enable SSH password logins.
+2. The default username on CentOS atomic is "centos", and you'll have needed to supply your SSH key during the build process.
+
+!!! tip
+    If you're not using a platform with cloud-init support (i.e., you're building a VM manually, not provisioning it through a cloud provider), you'll need to refer to [trick #1][atomic-trick1] and [#2][atomic-trick2] for a means to override the automated setup, apply a manual password to the CentOS account, and enable SSH password logins.
+
+### Change to latest docker
+
+Run the following on each node to replace the default docker 1.12 with docker 1.13 (_which we need for swarm mode_):
+```
+systemctl disable docker --now
+systemctl enable docker-latest --now
+sed -i '/DOCKERBINARY/s/^#//g' /etc/sysconfig/docker
+```
+
+### Enable docker experimental features
+
+In order to be able to watch the logs of any service from any manager node, we need to enable "experimental features" in docker. (It's no longer experimental in mainstream, but under the current Atomic).
+
+To effect this, on each node, edit **/etc/docker-latest/daemon.json**, and change from:
+
+```
+{
+    "log-driver": "journald",
+    "signature-verification": false
+}
+```
+
+To:
+
+```
+{
+    "log-driver": "journald",
+    "signature-verification": false,
+    "experimental": true
+}
+```
+
+!!! tip ""
+    Note the extra comma required after "false" above
 
 
 ### Upgrade Atomic
 
-Run ```atomic host upgrade```, and reboot if necessary.
+Finally, apply any Atomic host updates, and reboot, by running: ```atomic host upgrade && systemctl reboot```.
 
 
-## Serving
+!!! summary "Ready to serve..."
+    After completing the above, you should have:
 
-After completing the above, you should have:
-
-* [X] 3 fresh atomic instances, at the latest releases
-* [X] A user belonging to the docker group for administration
+    * [X] 3 fresh atomic instances, at the latest releases
+    * [X] Docker 1.13, with experimental features enabled 

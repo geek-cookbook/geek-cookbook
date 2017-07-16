@@ -11,10 +11,3 @@ We start building our cloud with virtual machines. You could use bare-metal mach
 * Connectivity to each other within the same subnet, and on a low-latency link (i.e., no WAN links)
 
 ## Preparation
-
-### Install latest docker
-```
-systemctl disable docker --now
-systemctl enable docker-latest --now
-sed -i '/DOCKERBINARY/s/^#//g' /etc/sysconfig/docker
-```

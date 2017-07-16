@@ -18,7 +18,6 @@ pages:
       - README: README.md
       - whoami: whoami.md
     - HA Docker Swarm:
-      - Index: ha-docker-swarm/index.md
       - Design: ha-docker-swarm/design.md
       - VMs: ha-docker-swarm/vms.md
       - Persistent Storage: beginner/beginner.md
