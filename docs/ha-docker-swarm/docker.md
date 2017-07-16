@@ -12,8 +12,9 @@ We start building our cloud with virtual machines. You could use bare-metal mach
 
 ## Preparation
 
-1. Install Virtual machines
-
-* Hosts must be within the same subnet, and connected on a low-latency link (i.e., no WAN links)
-
-2. Setup super-user access for your admin user, as a member of the "docker" group
+### Install latest docker
+```
+systemctl disable docker --now
+systemctl enable docker-latest --now
+sed -i '/DOCKERBINARY/s/^#//g' /etc/sysconfig/docker
+```

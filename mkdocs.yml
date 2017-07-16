@@ -20,7 +20,7 @@ pages:
     - HA Docker Swarm:
       - Index: ha-docker-swarm/index.md
       - Design: ha-docker-swarm/design.md
-      - VMs: ha-docker-swarm/design.md
+      - VMs: ha-docker-swarm/vms.md
       - Persistent Storage: beginner/beginner.md
       - Keepalived: advanced/keepalived.md
       - Docker Swarm Mode: advanced/keepalived.md
