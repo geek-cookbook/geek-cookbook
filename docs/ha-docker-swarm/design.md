@@ -62,3 +62,13 @@ When the failed (or upgraded) host is restored to service, the following is illu
 
 
 ![HA function](images/docker-swarm-node-restore.png)
+
+### Total cluster failure
+
+A day after writing this, my environment suffered a fault whereby all 3 VMs were unexpectedly and simultaneously powered off.
+
+Upon restore, docker failed to start on one of the VMs due to local disk space issue[^1]. However, the other two VMs started, established the swarm, mounted their shared storage, and started up all the containers (services) which were managed by the swarm.
+
+In summary, although I suffered an **unplanned power outage to all of my infrastructure**, followed by a **failure of a third of my hosts**... ==all my platforms are 100% available with **absolutely no manual intervention**==.
+
+[^1]: Since there's no impact to availability, I can fix (or just reinstall) the failed node whenever convenient.
