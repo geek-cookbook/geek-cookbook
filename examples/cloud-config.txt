@@ -1,0 +1,16 @@
+#cloud-config
+ssh_authorized_keys:
+  - ssh-rsa ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkmE2zK7uE9q75nzQxa9tQPHiCgaEUkIDj9xdoPL911 davidy@funkypenguin.co.nz
+write_files:
+  - path: /etc/docker-latest/daemon.json
+    content: |
+      {
+      "log-driver": "journald",
+      "signature-verification": false,
+      "experimental": true
+      }
+runcmd:
+  - systemctl disable docker --now
+  - systemctl enable docker-latest --now
+  - sed -i '/DOCKERBINARY/s/^#//g' /etc/sysconfig/docker
+  - /bin/atomic host upgrade
