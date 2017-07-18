@@ -251,17 +251,6 @@ need to add something to rc.local to make glustetr fs mount
 __ maybe __this works:
 setsebool -P virt_sandbox_use_fusefs on
 
-https://docs.openshift.org/latest/install_config/persistent_storage/persistent_storage_glusterfs.html#selinux
-
-
-Stupid cloud-init makes the system slow to boot:
-
-[root@ds1 ~]# systemctl mask cloud-final.service
-Created symlink from /etc/systemd/system/cloud-final.service to /dev/null.
-[root@ds1 ~]# systemctl mask cloud-config.service
-Created symlink from /etc/systemd/system/cloud-config.service to /dev/null.
-[root@ds1 ~]#
-
 
 
 
@@ -287,10 +276,3 @@ To this:
 }```
 
 !!! note the comma after "false" above
-
-
-
-
-
-
-docker run -d --name nfsd --restart always --privileged -v /mnt/data:/mnt/data  -e SHARED_DIRECTORY=/mnt/data --network=host itsthenetwork/nfs-server-alpine:latest

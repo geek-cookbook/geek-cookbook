@@ -20,7 +20,7 @@ pages:
     - HA Docker Swarm:
       - Design: ha-docker-swarm/design.md
       - VMs: ha-docker-swarm/vms.md
-      - Persistent Storage: ha-docker-swarm/persistent-storage.md
+      - Shared Storage: ha-docker-swarm/shared-storage.md
       - Keepalived: ha-docker-swarm/keepalived.md
       - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
       - Traefik: ha-docker-swarm/traefik.md

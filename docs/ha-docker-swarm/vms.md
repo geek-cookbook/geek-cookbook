@@ -67,14 +67,32 @@ To:
 !!! tip ""
     Note the extra comma required after "false" above
 
+Add some handy bash auto-completion for docker. Without this, you'll get annoyed that you can't autocomplete ```docker stack deploy <blah> -c <blah.yml>``` commands.
+
+```
+cd /etc/bash_completion.d/
+curl -O https://raw.githubusercontent.com/docker/cli/b75596e1e4d5295ac69b9934d1bd8aff691a0de8/contrib/completion/bash/docker
+```
+
 
 ### Upgrade Atomic
 
 Finally, apply any Atomic host updates, and reboot, by running: ```atomic host upgrade && systemctl reboot```.
+
+### Permit connectivity between VMs
+
+By default, Atomic only permits incoming SSH. We'll want to allow all traffic between our nodes, so add something like this to /etc/sysconfig/iptables:
+
+```
+# Allow all inter-node communication
+-A INPUT -s 192.168.31.0/24 -j ACCEPT
+```
+
+And restart iptables with ```systemctl restart iptables```
 
 
 !!! summary "Ready to serve..."
     After completing the above, you should have:
 
     * [X] 3 fresh atomic instances, at the latest releases
-    * [X] Docker 1.13, with experimental features enabled 
+    * [X] Docker 1.13, with experimental features enabled
