@@ -34,9 +34,11 @@ No, seriously (_but yes, I do want your money - see below_), If the above applie
 
 I'm also writing it as a formal book, on Leanpub (https://leanpub.com/geeks-cookbook). Buy it for $0.99 (which is really just a token gesture of support) - you can get it for free (in PDF, mobi, or epub format), or pay me what you think it's worth!
 
-### Patreonize me 💰
+### [Patreonize me 💰](https://www.patreon.com/funkypenguin)
 
 <a href="https://www.patreon.com/bePatron?u=6982506" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+- [My Patreon page](https://www.patreon.com/funkypenguin)!
+
 
 ### Hire me 🏢
 
