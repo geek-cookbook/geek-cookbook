@@ -32,11 +32,11 @@ No, seriously (_but yes, I do want your money - see below_), If the above applie
 
 ### Buy my book 📖
 
-I'm also writing it as a formal book, on Leanpub (https://leanpub.com/geeks-cookbook). While it's in draft, you can get it for free (in PDF, mobi, or epub format), or you can pay me what you think it's worth.
+I'm also writing it as a formal book, on Leanpub (https://leanpub.com/geeks-cookbook). Buy it for $0.99 (which is really just a token gesture of support) - you can get it for free (in PDF, mobi, or epub format), or pay me what you think it's worth.
 
 ### Patreonize me 💰
 
-Apparently there's this thing called "Patreon". I still need to set it up though. Ping me if you want to "Patreonize" me.
+<a href="https://www.patreon.com/bePatron?u=6982506" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
 
 ### Hire me 🏢
 

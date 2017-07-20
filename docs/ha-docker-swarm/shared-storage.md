@@ -121,7 +121,7 @@ From one other host, run ```docker exec -it glusterfs-server bash``` to shell in
 
 ### Mount gluster volume
 
-On the host (i.e., outside of the container - type ```exit``` if you're still shelled in), create a mountpoint for the data, by running ```mkdir /var/data```, and add an entry to fstab to ensure the volume is auto-mounted on boot:
+On the host (i.e., outside of the container - type ```exit``` if you're still shelled in), create a mountpoint for the data, by running ```mkdir /var/data```, add an entry to fstab to ensure the volume is auto-mounted on boot, and ensure the volume is actually _mounted_ if there's a network / boot delay getting access to the gluster volume:
 
 ```
 mkdir /var/data
@@ -130,6 +130,9 @@ echo '' >> /etc/fstab >> /etc/fstab
 echo '# Mount glusterfs volume' >> /etc/fstab
 echo "$MYHOST:/gv0                /var/data      glusterfs       defaults,_netdev,context="system_u:object_r:svirt_sandbox_file_t:s0"  0  0"  >> /etc/fstab
 mount -a
+echo -e "\n\n# Give GlusterFS 10s to start before \
+mounting\nsleep 10s && mount -a" >> /etc/rc.local
+systemctl enable rc-local.service
 ```
 
 For non-gluster nodes, you'll need to replace $MYHOST above with the name of one of the gluster hosts (I haven't worked out how to make this fully HA yet)
