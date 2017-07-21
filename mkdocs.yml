@@ -75,6 +75,9 @@ extra:
 #  - 'UA-XXXXXXXX-X'
 #  - 'auto'
 
+extra_javascript:
+  - 'extras/javascript/piwik.js'
+
 # Extensions
 markdown_extensions:
   - admonition
