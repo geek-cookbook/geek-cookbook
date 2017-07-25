@@ -5,7 +5,8 @@ write_files:
       {
       "log-driver": "journald",
       "signature-verification": false,
-      "experimental": true
+      "experimental": true,
+      "registry-mirrors": ["https://registry-mirror.funkypenguin.co.nz"]
       }
 # Add users to the system. Users are added after groups are added.
 users:

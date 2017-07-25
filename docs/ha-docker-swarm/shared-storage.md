@@ -130,6 +130,10 @@ echo '' >> /etc/fstab >> /etc/fstab
 echo '# Mount glusterfs volume' >> /etc/fstab
 echo "$MYHOST:/gv0                /var/data      glusterfs       defaults,_netdev,context="system_u:object_r:svirt_sandbox_file_t:s0"  0  0"  >> /etc/fstab
 mount -a
+```
+
+For some reason, my nodes won't auto-mount this volume on boot. I even tried the trickery below, but they stubbornly refuse to automount.
+```
 echo -e "\n\n# Give GlusterFS 10s to start before \
 mounting\nsleep 10s && mount -a" >> /etc/rc.local
 systemctl enable rc-local.service
@@ -137,9 +141,17 @@ systemctl enable rc-local.service
 
 For non-gluster nodes, you'll need to replace $MYHOST above with the name of one of the gluster hosts (I haven't worked out how to make this fully HA yet)
 
+## Serving
 
 !!! summary "Ready to serve..."
     After completing the above, you should have:
 
     * [X] Persistent storage available to every node
     * [X] Resiliency in the event of the failure of a single (gluster) node
+
+## Sides
+
+Future enhancements to this recipe inculde:
+
+1. Migration of shared storage from GlusterFS to Ceph ()[#2](https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook/issues/2))
+2. Correct the fact that volumes don't automount on boot ([#3](https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook/issues/3))
