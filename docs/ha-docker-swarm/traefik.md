@@ -137,7 +137,7 @@ You now have:
 2. Automatic SSL support for all proxied resources
 
 
-## Extra Toppings
+## Chef's Notes
 
 Additional features I'd like to see in this recipe are:
 

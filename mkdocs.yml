@@ -24,7 +24,6 @@ pages:
       - Keepalived: ha-docker-swarm/keepalived.md
       - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
       - Traefik: ha-docker-swarm/traefik.md
-      - S3-like Storage: ha-docker-swarm/s3-storage.md
     - Tiny Tiny RSS:
       - Basic: advanced/tiny-tiny-rss.md
       - Plugins: advanced/tiny-tiny-rss.md

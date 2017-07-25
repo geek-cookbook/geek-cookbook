@@ -143,15 +143,16 @@ For non-gluster nodes, you'll need to replace $MYHOST above with the name of one
 
 ## Serving
 
-!!! summary "Ready to serve..."
-    After completing the above, you should have:
+After completing the above, you should have:
 
-    * [X] Persistent storage available to every node
-    * [X] Resiliency in the event of the failure of a single (gluster) node
+```
+[X] Persistent storage available to every node
+[X] Resiliency in the event of the failure of a single (gluster) node
+```
 
-## Sides
+## Chef's Notes
 
-Future enhancements to this recipe inculde:
+Future enhancements to this recipe include:
 
 1. Migration of shared storage from GlusterFS to Ceph ()[#2](https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook/issues/2))
 2. Correct the fact that volumes don't automount on boot ([#3](https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook/issues/3))
