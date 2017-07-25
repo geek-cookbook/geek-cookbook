@@ -4,6 +4,4 @@
 
 1. "Recipies" are sorted by degree of geekiness required to complete them. Relatively straightforward projects are "beginner", more complex projects are "intermediate", and the really fun ones are "advanced".
 2. Each recipe contains enough detail in a single page to take a project to completion.
-3. When there are optional add-ons/integrations possible to a project (i.e., the addition of "smart LED bulbs" to Home Assistant), this will be reflected as a sub-page of the main project.
-
-## Requirements
+3. When there are optional add-ons/integrations possible to a project (i.e., the addition of "smart LED bulbs" to Home Assistant), this will be reflected either as a brief "Chef's note" after the recipe, or if they're substantial enough, as a sub-page of the main project

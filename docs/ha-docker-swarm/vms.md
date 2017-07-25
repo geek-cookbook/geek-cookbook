@@ -33,7 +33,7 @@ I chose the "[Atomic](https://www.projectatomic.io/)" CentOS/Fedora image for th
     If you're not using a platform with cloud-init support (i.e., you're building a VM manually, not provisioning it through a cloud provider), you'll need to refer to [trick #1][atomic-trick1] and [#2][atomic-trick2] for a means to override the automated setup, apply a manual password to the CentOS account, and enable SSH password logins.
 
 
-### Change to latest docker
+### Prefer docker-latest
 
 Run the following on each node to replace the default docker 1.12 with docker 1.13 (_which we need for swarm mode_):
 ```
@@ -59,9 +59,22 @@ By default, Atomic only permits incoming SSH. We'll want to allow all traffic be
 
 And restart iptables with ```systemctl restart iptables```
 
+### Enable host resolution
 
-!!! summary "Ready to serve..."
-    After completing the above, you should have:
+Depending on your hosting environment, you may have DNS automatically setup for your VMs. If not, it's useful to set up static entries in /etc/hosts for the nodes. For example, I setup the following:
 
-    * [X] 3 fresh atomic instances, at the latest releases
-    * [X] Docker 1.13, with experimental features enabled
+```
+192.168.31.11   ds1     ds1.funkypenguin.co.nz
+192.168.31.12   ds2     ds2.funkypenguin.co.nz
+192.168.31.13   ds3     ds3.funkypenguin.co.nz
+```
+
+
+## Serving
+
+After completing the above, you should have:
+
+```
+[X] 3 x fresh atomic instances, at the latest releases,
+    running Docker v1.13 (docker-latest)
+```
