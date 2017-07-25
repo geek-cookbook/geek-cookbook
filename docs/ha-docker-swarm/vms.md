@@ -59,6 +59,16 @@ By default, Atomic only permits incoming SSH. We'll want to allow all traffic be
 
 And restart iptables with ```systemctl restart iptables```
 
+### Enable host resolution
+
+Depending on your hosting environment, you may have DNS automatically setup for your VMs. If not, it's useful to set up static entries in /etc/hosts for the nodes. For example, I setup the following:
+
+```
+192.168.31.11   ds1     ds1.funkypenguin.co.nz
+192.168.31.12   ds2     ds2.funkypenguin.co.nz
+192.168.31.13   ds3     ds3.funkypenguin.co.nz
+```
+
 
 !!! summary "Ready to serve..."
     After completing the above, you should have:
