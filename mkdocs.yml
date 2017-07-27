@@ -20,7 +20,8 @@ pages:
     - HA Docker Swarm:
       - Design: ha-docker-swarm/design.md
       - VMs: ha-docker-swarm/vms.md
-      - Shared Storage: ha-docker-swarm/shared-storage.md
+      - Shared Storage (Ceph): ha-docker-swarm/shared-storage-ceph.md
+      - Shared Storage (GlusterFS): ha-docker-swarm/shared-storage-gluster.md
       - Keepalived: ha-docker-swarm/keepalived.md
       - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
       - Traefik: ha-docker-swarm/traefik.md
