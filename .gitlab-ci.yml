@@ -35,8 +35,8 @@ deploy dev:
     - export LANG=C.UTF-8
     - mkdir .ssh
     - chmod 700 .ssh
-    - echo $SSHKEY > .ssh/id_rsa
-    - chmod 600 .ssh/id_rsa
+    - echo -e $SSHKEY | sed 's/^ //' > .ssh/id_ed25519 
+    - chmod 600 .ssh/id_ed25519
     - rsync -avr public $SSHUSER@$SSHHOST:$SSHPATH/geeks-cookbook-dev
 #    - export LC_ALL=C.UTF-8
 #    - export LANG=C.UTF-8
