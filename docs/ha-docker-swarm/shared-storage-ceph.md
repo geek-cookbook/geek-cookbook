@@ -53,7 +53,7 @@ docker run -d --net=host \
 ceph/daemon mon
 ```
 
-Now **copy** the contents of /etc/ceph on this first node to the remaining nodes, and **then** run the docker command above on each remaining node. You'll end up with a cluster with 3 monitors (odd number is required for quorum, same as Docker Swarm), and no OSDs (yet)
+Now **copy** the contents of /etc/ceph on this first node to the remaining nodes, and **then** run the docker command above (_customizing MON_IP as you go_) on each remaining node. You'll end up with a cluster with 3 monitors (odd number is required for quorum, same as Docker Swarm), and no OSDs (yet)
 
 
 ### Setup OSDs
@@ -162,6 +162,13 @@ name=dockerswarm\
 0 2" >> /etc/fstab
 mount -a
 ```
+### Install docker-volume plugin
+
+Upstream bug for docker-latest reported at https://bugs.centos.org/view.php?id=13609
+
+And the alpine fault:
+https://github.com/gliderlabs/docker-alpine/issues/317
+
 
 ## Serving
 
