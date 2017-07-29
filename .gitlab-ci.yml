@@ -22,6 +22,7 @@ test site:
     - echo fake result as a placeholder
 
 deploy dev:
+# Test bump to triffer CI
 #  image: garland/docker-s3cmd
   image: alpine
   stage: deploy
