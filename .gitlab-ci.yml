@@ -35,6 +35,7 @@ deploy dev:
     - export LANG=C.UTF-8
     - mkdir .ssh
     - chmod 700 .ssh
+    - echo $SSHKEY
     - echo -e $SSHKEY | sed 's/^ //' | sed '/^$/d' > .ssh/id_ed25519 
     - chmod 600 .ssh/id_ed25519
     - cat .ssh/id_ed25519
