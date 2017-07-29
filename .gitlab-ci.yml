@@ -35,7 +35,7 @@ deploy dev:
     - export LANG=C.UTF-8
     - mkdir .ssh
     - chmod 700 .ssh
-    - echo -e $SSHKEY | sed 's/^ //' > .ssh/id_ed25519 
+    - echo -e $SSHKEY | sed 's/^ //' | sed '/^$/d' > .ssh/id_ed25519 
     - chmod 600 .ssh/id_ed25519
     - cat .ssh/id_ed25519
     - echo rsync -avr --delete -e 'ssh -i .ssh/id_ed25519' public $SSHUSER@$SSHHOST:$SSHPATH/geeks-cookbook-dev
@@ -56,6 +56,6 @@ deploy prod:
     - export LANG=C.UTF-8
     - mkdir .ssh
     - chmod 700 .ssh
-    - echo -e $SSHKEY | sed 's/^ //' > .ssh/id_ed25519 
+    - echo -e $SSHKEY | sed 's/^ //' | sed '/^$/d' > .ssh/id_ed25519 
     - chmod 600 .ssh/id_ed25519
     - rsync -avr --delete -e 'ssh -i .ssh/id_ed25519' public $SSHUSER@$SSHHOST:$SSHPATH/geeks-cookbook
