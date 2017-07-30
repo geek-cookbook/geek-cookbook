@@ -22,9 +22,7 @@ test site:
     - echo fake result as a placeholder
 
 deploy dev:
-# Test bump to triffer CI
-#  image: garland/docker-s3cmd
-  image: alpine
+  image: garland/docker-s3cmd
   stage: deploy
   environment: development
   except:
@@ -35,7 +33,7 @@ deploy dev:
     - s3cmd --no-mime-magic --access_key=$ACCESS_KEY --secret_key=$SECRET_KEY --acl-public --delete-removed --delete-after --no-ssl --host=$S3HOST --host-bucket='$S3HOSTBUCKET' sync public s3://geeks-cookbook-dev
 
 deploy prod:
-  image: alpine
+  image: garland/docker-s3cmd
   stage: deploy
   environment: production
   except:
