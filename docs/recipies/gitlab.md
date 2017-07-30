@@ -74,23 +74,6 @@ services:
     - DB_NAME=gitlabhq_production
     - DB_EXTENSION=pg_trgm
 
-# Remove these runners if you don't plan to use CI
-  runner-1:
-    image: gitlab/gitlab-runner:alpine
-    networks:
-    - internal
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /var/data/gitlab/runners/1:/etc/gitlab-runner:Z
-
-  runner-2:
-    image: gitlab/gitlab-runner:alpine
-    networks:
-    - internal
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /var/data/gitlab/runners/2:/etc/gitlab-runner:Z
-
   gitlab:
     image: sameersbn/gitlab:latest
     networks:
@@ -131,34 +114,9 @@ Launch the mail server stack by running ```docker stack deploy gitlab -c <path -
 
 Log into your new instance at https://<your FQDN>, with user "root" and the password you specified in gitlab.env.
 
-### Configure runners (optional)
-
-If you're using runners, you'll need to configure them after completing the UI-based setup of your GitLab instance. You can do this either by creating config.toml in each runner's bind-mounted folder (example below), or by "docker exec'ing" into each runner container and running ```gitlab-container register``` interactively to generate config.toml.
-
-Sample runner config.toml:
-```
-concurrent = 1
-check_interval = 0
-
-[[runners]]
-  name = "myrunner1"
-  url = "https://gitlab.example.com"
-  token = "<long string here>"
-  executor = "docker"
-  [runners.docker]
-    tls_verify = false
-    image = "ruby:2.1"
-    privileged = false
-    disable_cache = false
-    volumes = ["/cache"]
-    shm_size = 0
-  [runners.cache]
-```
-
 
 ## Chef's Notes
 
 A few comments on decisions taken in this design:
 
-1. You'll note that I setup 2 runners. One is locked to a single project (this cookbook build), and the other is a shared runner. No particular reason, I just wanted to get experience with each type. You could easily customize this to your use case.
-2. I use the **sameersbn/gitlab:latest** image, rather than a specific version. This lets me execute updates simply by redeploying the stack (and why **wouldn't** I want the latest version?)
+1. I use the **sameersbn/gitlab:latest** image, rather than a specific version. This lets me execute updates simply by redeploying the stack (and why **wouldn't** I want the latest version?)

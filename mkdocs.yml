@@ -13,6 +13,7 @@ copyright: 'Copyright &copy; 2016 - 2017 David Young'
 
 
 theme: material
+theme_dir: mkdocs-material
 pages:
     - Home : index.md
     - Introduction:
