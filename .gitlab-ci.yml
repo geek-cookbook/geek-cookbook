@@ -36,7 +36,7 @@ deploy prod:
   image: garland/docker-s3cmd
   stage: deploy
   environment: production
-  except:
+  only:
   - master
   script:
     - apk add rsync openssh --no-cache
