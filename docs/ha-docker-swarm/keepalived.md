@@ -1,4 +1,4 @@
-# Introduction
+# Keepalived
 
 While having a self-healing, scalable docker swarm is great for availability and scalability, none of that is any good if nobody can connect to your cluster.
 

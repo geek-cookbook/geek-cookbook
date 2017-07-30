@@ -1,3 +1,0 @@
- mkdir {maildata,mailstate,config}
-
- 

@@ -30,20 +30,9 @@ deploy dev:
   except:
   - master
   script:
-    - apk add rsync openssh --no-cache
     - export LC_ALL=C.UTF-8
     - export LANG=C.UTF-8
-    - mkdir .ssh
-    - chmod 700 .ssh
-    - echo $SSHKEY
-    - echo $SSHKEY | sed 's/^ //' | sed '/^$/d' > .ssh/id_ed25519 
-    - chmod 600 .ssh/id_ed25519
-    - cat .ssh/id_ed25519
-    - echo rsync -avr --delete -e 'ssh -i .ssh/id_ed25519' public $SSHUSER@$SSHHOST:$SSHPATH/geeks-cookbook-dev
-    - rsync -avr --delete -e 'ssh -i .ssh/id_ed25519' public $SSHUSER@$SSHHOST:$SSHPATH/geeks-cookbook-dev
-#    - export LC_ALL=C.UTF-8
-#    - export LANG=C.UTF-8
-#    - s3cmd --no-mime-magic --access_key=$ACCESS_KEY --secret_key=$SECRET_KEY --acl-public --delete-removed --delete-after --no-ssl --host=$S3HOST --host-bucket='$S3HOSTBUCKET' sync public s3://geeks-cookbook-dev
+    - s3cmd --no-mime-magic --access_key=$ACCESS_KEY --secret_key=$SECRET_KEY --acl-public --delete-removed --delete-after --no-ssl --host=$S3HOST --host-bucket='$S3HOSTBUCKET' sync public s3://geeks-cookbook-dev
 
 deploy prod:
   image: alpine
@@ -55,8 +44,4 @@ deploy prod:
     - apk add rsync openssh --no-cache
     - export LC_ALL=C.UTF-8
     - export LANG=C.UTF-8
-    - mkdir .ssh
-    - chmod 700 .ssh
-    - echo -e $SSHKEY | sed 's/^ //' | sed '/^$/d' > .ssh/id_ed25519 
-    - chmod 600 .ssh/id_ed25519
-    - rsync -avr --delete -e 'ssh -i .ssh/id_ed25519' public $SSHUSER@$SSHHOST:$SSHPATH/geeks-cookbook
+    - s3cmd --no-mime-magic --access_key=$ACCESS_KEY --secret_key=$SECRET_KEY --acl-public --delete-removed --delete-after --no-ssl --host=$S3HOST --host-bucket='$S3HOSTBUCKET' sync public s3://geeks-cookbook

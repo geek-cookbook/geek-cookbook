@@ -1,4 +1,4 @@
-# Introduction
+# Design
 
 In the design described below, the "private cloud" platform is:
 
@@ -35,7 +35,7 @@ Under this design, the only inbound connections we're permitting to our docker s
 
 ### Authentication
 
-* Where the proxied application provides a trusted level of authentication, or where the application requires public exposure, 
+* Where the proxied application provides a trusted level of authentication, or where the application requires public exposure,
 
 
 ## High availability
