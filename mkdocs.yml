@@ -28,6 +28,7 @@ pages:
       - Traefik: ha-docker-swarm/traefik.md
     - Recommended:
       - Mail Server: recipies/mail.md
+      - GitLab: recipies/gitlab.md
 #      - Basic: advanced/tiny-tiny-rss.md
 #      - Plugins: advanced/tiny-tiny-rss.md
 #      - Themes: advanced/tiny-tiny-rss.md
