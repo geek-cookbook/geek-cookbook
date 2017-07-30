@@ -1,6 +1,6 @@
 # Mail Server
 
-Many of the recipies that follow require email access of some kind. It's quite accepmatebl normally possible to use a hosted service such as SendGrid, or just a gmail account. If (like me) you'd like to self-host email for your stacks, then the following recipe provides a full-stack mail server running on the docker HA swarm.
+Many of the recipies that follow require email access of some kind. It's  normally possible to use a hosted service such as SendGrid, or just a gmail account. If (like me) you'd like to self-host email for your stacks, then the following recipe provides a full-stack mail server running on the docker HA swarm.
 
 Of value to me in choosing docker-mailserver were:
 
