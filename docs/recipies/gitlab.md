@@ -19,7 +19,7 @@ We'll need several directories to bind-mount into our container, so create them 
 cd /var/data
 mkdir gitlab
 cd gitlab
-mkdir -p {postgresql,redis,gitlab,runners/1,runners/2}
+mkdir -p {postgresql,redis,gitlab}
 ```
 
 ### Prepare environment
@@ -112,7 +112,7 @@ networks:
 
 Launch the mail server stack by running ```docker stack deploy gitlab -c <path -to-docker-compose.yml>```
 
-Log into your new instance at https://<your FQDN>, with user "root" and the password you specified in gitlab.env.
+Log into your new instance at https://[your FQDN], with user "root" and the password you specified in gitlab.env.
 
 
 ## Chef's Notes
