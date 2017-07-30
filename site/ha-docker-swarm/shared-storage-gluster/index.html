@@ -1,0 +1,904 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A short description of my project">
+      
+      
+        <link rel="canonical" href="https://geeks-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-gluster/">
+      
+      
+        <meta name="author" content="David Young">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.4">
+    
+    
+      
+        <title>Shared Storage (GlusterFS) - Funky Penguin's Geek's Cookbook</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-769c285a91.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-02c2a4388f.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="https://geeks-cookbook.funkypenguin.co.nz" title="Funky Penguin's Geek's Cookbook" class="md-logo md-header-nav__button">
+            <img src="../../images/site-logo.png" width="24" height="24">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Essential
+                </span>
+              
+            
+            Shared Storage (GlusterFS)
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-logo md-nav__button">
+        <img src="../../images/site-logo.png">
+      </i>
+    
+    Funky Penguin's Geek's Cookbook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../README/" title="README" class="md-nav__link">
+      README
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../whoami/" title="whoami" class="md-nav__link">
+      whoami
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Essential
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Essential
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../design/" title="Design" class="md-nav__link">
+      Design
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vms/" title="VMs" class="md-nav__link">
+      VMs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../shared-storage-ceph/" title="Shared Storage (Ceph)" class="md-nav__link">
+      Shared Storage (Ceph)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Shared Storage (GlusterFS)
+      </label>
+    
+    <a href="./" title="Shared Storage (GlusterFS)" class="md-nav__link md-nav__link--active">
+      Shared Storage (GlusterFS)
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#design" title="Design" class="md-nav__link">
+    Design
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-glusterfs" title="Why GlusterFS?" class="md-nav__link">
+    Why GlusterFS?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingredients" title="Ingredients" class="md-nav__link">
+    Ingredients
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" title="Preparation" class="md-nav__link">
+    Preparation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-gluster-bricks" title="Create Gluster "bricks"" class="md-nav__link">
+    Create Gluster "bricks"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-glusterfs-container" title="Create glusterfs container" class="md-nav__link">
+    Create glusterfs container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-trusted-pool" title="Create trusted pool" class="md-nav__link">
+    Create trusted pool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-gluster-volume" title="Create gluster volume" class="md-nav__link">
+    Create gluster volume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount-gluster-volume" title="Mount gluster volume" class="md-nav__link">
+    Mount gluster volume
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serving" title="Serving" class="md-nav__link">
+    Serving
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chefs-notes" title="Chef's Notes" class="md-nav__link">
+    Chef's Notes
+  </a>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../keepalived/" title="Keepalived" class="md-nav__link">
+      Keepalived
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../docker-swarm-mode/" title="Docker Swarm Mode" class="md-nav__link">
+      Docker Swarm Mode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../traefik/" title="Traefik" class="md-nav__link">
+      Traefik
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Recommended
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Recommended
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../recipies/mail/" title="Mail Server" class="md-nav__link">
+      Mail Server
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#design" title="Design" class="md-nav__link">
+    Design
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-glusterfs" title="Why GlusterFS?" class="md-nav__link">
+    Why GlusterFS?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingredients" title="Ingredients" class="md-nav__link">
+    Ingredients
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" title="Preparation" class="md-nav__link">
+    Preparation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-gluster-bricks" title="Create Gluster "bricks"" class="md-nav__link">
+    Create Gluster "bricks"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-glusterfs-container" title="Create glusterfs container" class="md-nav__link">
+    Create glusterfs container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-trusted-pool" title="Create trusted pool" class="md-nav__link">
+    Create trusted pool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-gluster-volume" title="Create gluster volume" class="md-nav__link">
+    Create gluster volume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount-gluster-volume" title="Mount gluster volume" class="md-nav__link">
+    Mount gluster volume
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serving" title="Serving" class="md-nav__link">
+    Serving
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chefs-notes" title="Chef's Notes" class="md-nav__link">
+    Chef's Notes
+  </a>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="shared-storage-glusterfs">Shared Storage (GlusterFS)<a class="headerlink" href="#shared-storage-glusterfs" title="Permanent link">&para;</a></h1>
+<p>While Docker Swarm is great for keeping containers running (<em>and restarting those that fail</em>), it does nothing for persistent storage. This means if you actually want your containers to keep any data persistent across restarts (<em>hint: you do!</em>), you need to provide shared storage to every docker node.</p>
+<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">&para;</a></h2>
+<h3 id="why-glusterfs">Why GlusterFS?<a class="headerlink" href="#why-glusterfs" title="Permanent link">&para;</a></h3>
+<p>This GlusterFS recipe was my original design for shared storage, but I <a href="../ha-docker-swarm/shared-storage-ceph/#why-not-glusterfs">found it to be flawed</a>, and I replaced it with a <a href="http://localhost:8000/ha-docker-swarm/shared-storage-ceph/#why-ceph">design which employs Ceph instead</a>. This recipe is an alternate to the Ceph design, if you happen to prefer GlusterFS.</p>
+<h2 id="ingredients">Ingredients<a class="headerlink" href="#ingredients" title="Permanent link">&para;</a></h2>
+<div class="admonition summary">
+<p class="admonition-title">Ingredients</p>
+<p>3 x Virtual Machines (configured earlier), each with:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> CentOS/Fedora Atomic</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> At least 1GB RAM</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> At least 20GB disk space (<em>but it'll be tight</em>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Connectivity to each other within the same subnet, and on a low-latency link (<em>i.e., no WAN links</em>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> A second disk, or adequate space on the primary disk for a dedicated data partition</li>
+</ul>
+</div>
+<h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">&para;</a></h2>
+<h3 id="create-gluster-bricks">Create Gluster "bricks"<a class="headerlink" href="#create-gluster-bricks" title="Permanent link">&para;</a></h3>
+<p>To build our Gluster volume, we need 2 out of the 3 VMs to provide one "brick". The bricks will be used to create the replicated volume. Assuming a replica count of 2 (<em>i.e., 2 copies of the data are kept in gluster</em>), our total number of bricks must be divisible by our replica count. (<em>I.e., you can't have 3 bricks if you want 2 replicas. You can have 4 though - We have to have minimum 3 swarm manager nodes for fault-tolerance, but only 2 of those nodes need to run as gluster servers.</em>)</p>
+<p>On each host, run a variation following to create your bricks, adjusted for the path to your disk.</p>
+<div class="admonition note">
+<p class="admonition-title">The example below assumes /dev/vdb is dedicated to the gluster volume</p>
+</div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>(
+echo o # Create a new empty DOS partition table
+echo n # Add a new partition
+echo p # Primary partition
+echo 1 # Partition number
+echo   # First sector (Accept default: 1)
+echo   # Last sector (Accept default: varies)
+echo w # Write changes
+) | sudo fdisk /dev/vdb
+
+mkfs.xfs -i size=512 /dev/vdb1
+mkdir -p /var/no-direct-write-here/brick1
+echo &#39;&#39; &gt;&gt; /etc/fstab &gt;&gt; /etc/fstab
+echo &#39;# Mount /dev/vdb1 so that it can be used as a glusterfs volume&#39; &gt;&gt; /etc/fstab
+echo &#39;/dev/vdb1 /var/no-direct-write-here/brick1 xfs defaults 1 2&#39; &gt;&gt; /etc/fstab
+mount -a &amp;&amp; mount
+</pre></div>
+</td></tr></table>
+
+<div class="admonition warning">
+<p class="admonition-title">Don't provision all your LVM space</p>
+<p>Atomic uses LVM to store docker data, and <strong>automatically grows</strong> Docker's volumes as requried. If you commit all your free LVM space to your brick, you'll quickly find (as I did) that docker will start to fail with error messages about insufficient space. If you're going to slice off a portion of your LVM space in /dev/atomicos, make sure you leave enough space for Docker storage, where "enough" depends on how much you plan to pull images, make volumes, etc. I ate through 20GB very quickly doing development, so I ended up provisioning 50GB for atomic alone, with a separate volume for the brick.</p>
+</div>
+<h3 id="create-glusterfs-container">Create glusterfs container<a class="headerlink" href="#create-glusterfs-container" title="Permanent link">&para;</a></h3>
+<p>Atomic doesn't include the Gluster server components.  This means we'll have to run glusterd from within a container, with privileged access to the host. Although convoluted, I've come to prefer this design since it once again makes the OS "disposable", moving all the config into containers and code.</p>
+<p>Run the following on each host:
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>docker run \
+   -h glusterfs-server \
+   -v /etc/glusterfs:/etc/glusterfs:z \
+   -v /var/lib/glusterd:/var/lib/glusterd:z \
+   -v /var/log/glusterfs:/var/log/glusterfs:z \
+   -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+   -v /var/no-direct-write-here/brick1:/var/no-direct-write-here/brick1 \
+   -d --privileged=true --net=host \
+   --restart=always \
+   --name=&quot;glusterfs-server&quot; \
+   gluster/gluster-centos
+</pre></div>
+</td></tr></table></p>
+<h3 id="create-trusted-pool">Create trusted pool<a class="headerlink" href="#create-trusted-pool" title="Permanent link">&para;</a></h3>
+<p>On a single node (doesn't matter which), run <code class="codehilite">docker exec -it glusterfs-server bash</code> to launch a shell inside the container.</p>
+<p>From the node, run
+<code class="codehilite">gluster peer probe &lt;other host&gt;</code></p>
+<p>Example output:
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[root@glusterfs-server /]# gluster peer probe ds1
+peer probe: success.
+[root@glusterfs-server /]#
+</pre></div>
+</td></tr></table></p>
+<p>Run <code class="codehilite">gluster peer status</code> on both nodes to confirm that they're properly connected to each other:</p>
+<p>Example output:
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[root@glusterfs-server /]# gluster peer status
+Number of Peers: 1
+
+Hostname: ds3
+Uuid: 3e115ba9-6a4f-48dd-87d7-e843170ff499
+State: Peer in Cluster (Connected)
+[root@glusterfs-server /]#
+</pre></div>
+</td></tr></table></p>
+<h3 id="create-gluster-volume">Create gluster volume<a class="headerlink" href="#create-gluster-volume" title="Permanent link">&para;</a></h3>
+<p>Now we create a <em>replicated volume</em> out of our individual "bricks".</p>
+<p>Create the gluster volume by running
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>gluster volume create gv0 replica 2 \
+ server1:/var/no-direct-write-here/brick1 \
+ server2:/var/no-direct-write-here/brick1
+</pre></div>
+</td></tr></table></p>
+<p>Example output:
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[root@glusterfs-server /]# gluster volume create gv0 replica 2 ds1:/var/no-direct-write-here/brick1/gv0  ds3:/var/no-direct-write-here/brick1/gv0
+volume create: gv0: success: please start the volume to access data
+[root@glusterfs-server /]#
+</pre></div>
+</td></tr></table></p>
+<p>Start the volume by running <code class="codehilite">gluster volume start gv0</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[root@glusterfs-server /]# gluster volume start gv0
+volume start: gv0: success
+[root@glusterfs-server /]#
+</pre></div>
+</td></tr></table>
+
+<p>The volume is only present on the host you're shelled into though. To add the other hosts to the volume, run <code class="codehilite">gluster peer probe &lt;servername&gt;</code>. Don't probe host from itself.</p>
+<p>From one other host, run <code class="codehilite">docker exec -it glusterfs-server bash</code> to shell into the gluster-server container, and run <code class="codehilite">gluster peer probe &lt;original server name&gt;</code> to update the name of the host which started the volume.</p>
+<h3 id="mount-gluster-volume">Mount gluster volume<a class="headerlink" href="#mount-gluster-volume" title="Permanent link">&para;</a></h3>
+<p>On the host (i.e., outside of the container - type <code class="codehilite">exit</code> if you're still shelled in), create a mountpoint for the data, by running <code class="codehilite">mkdir /var/data</code>, add an entry to fstab to ensure the volume is auto-mounted on boot, and ensure the volume is actually <em>mounted</em> if there's a network / boot delay getting access to the gluster volume:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mkdir /var/data
+MYHOST=`hostname -s`
+echo &#39;&#39; &gt;&gt; /etc/fstab &gt;&gt; /etc/fstab
+echo &#39;# Mount glusterfs volume&#39; &gt;&gt; /etc/fstab
+echo &quot;$MYHOST:/gv0                /var/data      glusterfs       defaults,_netdev,context=&quot;system_u:object_r:svirt_sandbox_file_t:s0&quot;  0  0&quot;  &gt;&gt; /etc/fstab
+mount -a
+</pre></div>
+</td></tr></table>
+
+<p>For some reason, my nodes won't auto-mount this volume on boot. I even tried the trickery below, but they stubbornly refuse to automount.
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>echo -e &quot;\n\n# Give GlusterFS 10s to start before \
+mounting\nsleep 10s &amp;&amp; mount -a&quot; &gt;&gt; /etc/rc.local
+systemctl enable rc-local.service
+</pre></div>
+</td></tr></table></p>
+<p>For non-gluster nodes, you'll need to replace $MYHOST above with the name of one of the gluster hosts (I haven't worked out how to make this fully HA yet)</p>
+<h2 id="serving">Serving<a class="headerlink" href="#serving" title="Permanent link">&para;</a></h2>
+<p>After completing the above, you should have:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>[X] Persistent storage available to every node
+[X] Resiliency in the event of the failure of a single (gluster) node
+</pre></div>
+</td></tr></table>
+
+<h2 id="chefs-notes">Chef's Notes<a class="headerlink" href="#chefs-notes" title="Permanent link">&para;</a></h2>
+<p>Future enhancements to this recipe include:</p>
+<ol>
+<li>Migration of shared storage from GlusterFS to Ceph ()<a href="https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook/issues/2">#2</a>)</li>
+<li>Correct the fact that volumes don't automount on boot (<a href="https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook/issues/3">#3</a>)</li>
+</ol>
+                
+                  
+                
+              
+              
+                
+                  <h2 id="__comments">Comments</h2>
+                  <div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = "https://geeks-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-gluster/";
+    this.page.identifier =
+      "/ha-docker-swarm/shared-storage-gluster/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "//geeks-cookbook.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../shared-storage-ceph/" title="Shared Storage (Ceph)" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Shared Storage (Ceph)
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../keepalived/" title="Keepalived" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Keepalived
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 - 2017 David Young
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/funkypenguin" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/funkypenguin" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-c35428f87f.js"></script>
+      
+      
+      <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="../../extras/javascript/piwik.js"></script>
+      
+    
+    
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-139253-18","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      
+    
+  </body>
+</html>

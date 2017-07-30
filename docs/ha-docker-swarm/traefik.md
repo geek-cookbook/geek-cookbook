@@ -1,4 +1,4 @@
-# Introduction
+# Traefik
 
 The platforms we plan to run on our cloud are generally web-based, and each listening on their own unique TCP port. When a container in a swarm exposes a port, then connecting to **any** swarm member on that port will result in your request being forwarded to the appropriate host running the container. (_Docker calls this the swarm "[routing mesh](https://docs.docker.com/engine/swarm/ingress/)"_)
 
@@ -21,7 +21,7 @@ The traefik container is aware of the __other__ docker containers in the swarm, 
 
 Run the following to build and activate policy to permit containers to access docker.sock:
 
-````
+```
 mkdir ~/dockersock
 cd ~/dockersock
 curl -O https://raw.githubusercontent.com/dpw/\
@@ -29,7 +29,7 @@ selinux-dockersock/master/Makefile
 curl -O https://raw.githubusercontent.com/dpw/\
 selinux-dockersock/master/dockersock.te
 make && semodule -i dockersock.pp
-````
+```
 
 ### Prepare traefik.toml
 

@@ -1,4 +1,4 @@
-# Introduction
+# Virtual Machines
 
 Let's start building our cloud with virtual machines. You could use bare-metal machines as well, the configuration would be the same. Given that most readers (myself included) will be using virtual infrastructure, from now on I'll be referring strictly to VMs.
 

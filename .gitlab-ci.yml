@@ -24,7 +24,7 @@ test site:
 deploy dev:
   image: garland/docker-s3cmd
   stage: deploy
-  environment: production
+  environment: development
   except:
   - master
   script:
@@ -36,9 +36,10 @@ deploy prod:
   image: garland/docker-s3cmd
   stage: deploy
   environment: production
-  only:
+  except:
   - master
   script:
+    - apk add rsync openssh --no-cache
     - export LC_ALL=C.UTF-8
     - export LANG=C.UTF-8
     - s3cmd --no-mime-magic --access_key=$ACCESS_KEY --secret_key=$SECRET_KEY --acl-public --delete-removed --delete-after --no-ssl --host=$S3HOST --host-bucket='$S3HOSTBUCKET' sync public s3://geeks-cookbook

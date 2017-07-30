@@ -1,4 +1,4 @@
-# Introduction
+# Design
 
 In the design described below, the "private cloud" platform is:
 
@@ -23,6 +23,20 @@ This means that:
 
 * Services are defined using docker-compose v3 YAML syntax
 * Services are portable, meaning a particular stack could be shut down and moved to a new provider with minimal effort.
+
+## Security
+
+Under this design, the only inbound connections we're permitting to our docker swarm are:
+
+### Network Flows
+
+* HTTP (TCP 80) : Redirects to https
+* HTTPS (TCP 443) : Serves individual docker containers via SSL-encrypted reverse proxy
+
+### Authentication
+
+* Where the proxied application provides a trusted level of authentication, or where the application requires public exposure,
+
 
 ## High availability
 

@@ -1,0 +1,709 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A short description of my project">
+      
+      
+        <link rel="canonical" href="https://geeks-cookbook.funkypenguin.co.nz/ha-docker-swarm/keepalived/">
+      
+      
+        <meta name="author" content="David Young">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.4">
+    
+    
+      
+        <title>Keepalived - Funky Penguin's Geek's Cookbook</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-769c285a91.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-02c2a4388f.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="https://geeks-cookbook.funkypenguin.co.nz" title="Funky Penguin's Geek's Cookbook" class="md-logo md-header-nav__button">
+            <img src="../../images/site-logo.png" width="24" height="24">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Essential
+                </span>
+              
+            
+            Keepalived
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-logo md-nav__button">
+        <img src="../../images/site-logo.png">
+      </i>
+    
+    Funky Penguin's Geek's Cookbook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../README/" title="README" class="md-nav__link">
+      README
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../whoami/" title="whoami" class="md-nav__link">
+      whoami
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Essential
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Essential
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../design/" title="Design" class="md-nav__link">
+      Design
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vms/" title="VMs" class="md-nav__link">
+      VMs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../shared-storage-ceph/" title="Shared Storage (Ceph)" class="md-nav__link">
+      Shared Storage (Ceph)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../shared-storage-gluster/" title="Shared Storage (GlusterFS)" class="md-nav__link">
+      Shared Storage (GlusterFS)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Keepalived
+      </label>
+    
+    <a href="./" title="Keepalived" class="md-nav__link md-nav__link--active">
+      Keepalived
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ingredients" title="Ingredients" class="md-nav__link">
+    Ingredients
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" title="Preparation" class="md-nav__link">
+    Preparation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-ipvs-module" title="Enable IPVS module" class="md-nav__link">
+    Enable IPVS module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-nodes" title="Setup nodes" class="md-nav__link">
+    Setup nodes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serving" title="Serving" class="md-nav__link">
+    Serving
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chefs-notes" title="Chef's notes" class="md-nav__link">
+    Chef's notes
+  </a>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../docker-swarm-mode/" title="Docker Swarm Mode" class="md-nav__link">
+      Docker Swarm Mode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../traefik/" title="Traefik" class="md-nav__link">
+      Traefik
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Recommended
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Recommended
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../recipies/mail/" title="Mail Server" class="md-nav__link">
+      Mail Server
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ingredients" title="Ingredients" class="md-nav__link">
+    Ingredients
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" title="Preparation" class="md-nav__link">
+    Preparation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-ipvs-module" title="Enable IPVS module" class="md-nav__link">
+    Enable IPVS module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-nodes" title="Setup nodes" class="md-nav__link">
+    Setup nodes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serving" title="Serving" class="md-nav__link">
+    Serving
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chefs-notes" title="Chef's notes" class="md-nav__link">
+    Chef's notes
+  </a>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="keepalived">Keepalived<a class="headerlink" href="#keepalived" title="Permanent link">&para;</a></h1>
+<p>While having a self-healing, scalable docker swarm is great for availability and scalability, none of that is any good if nobody can connect to your cluster.</p>
+<p>In order to provide seamless external access to clustered resources, regardless of which node they're on and tolerant of node failure, you need to present a single IP to the world for external access.</p>
+<p>Normally this is done using a HA loadbalancer, but since Docker Swarm aready provides the load-balancing capabilities (routing mesh), all we need for seamless HA is a virtual IP which will be provided by more than one docker node.</p>
+<p>This is accomplished with the use of keepalived on at least two nodes.</p>
+<h2 id="ingredients">Ingredients<a class="headerlink" href="#ingredients" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Already deployed:
+[X] At least 2 x CentOS/Fedora Atomic VMs
+[X] low-latency link (i.e., no WAN links)
+
+New:
+[ ] 3 x IPv4 addresses (one for each node and one for the virtual IP)
+</pre></div>
+</td></tr></table>
+
+<h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">&para;</a></h2>
+<h3 id="enable-ipvs-module">Enable IPVS module<a class="headerlink" href="#enable-ipvs-module" title="Permanent link">&para;</a></h3>
+<p>On all nodes which will participate in keepalived, we need the "ip_vs" kernel module, in order to permit serivces to bind to non-local interface addresses.</p>
+<p>Set this up once for both the primary and secondary nodes, by running:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>echo &quot;modprobe ip_vs&quot; &gt;&gt; /etc/rc.local
+modprobe ip_vs
+</pre></div>
+</td></tr></table>
+
+<h3 id="setup-nodes">Setup nodes<a class="headerlink" href="#setup-nodes" title="Permanent link">&para;</a></h3>
+<p>Assuming your IPs are as follows:</p>
+<ul>
+<li>192.168.4.1 : Primary</li>
+<li>192.168.4.2 : Secondary</li>
+<li>192.168.4.3 : Virtual</li>
+</ul>
+<p>Run the following on the primary
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>docker run -d --name keepalived --restart=always \
+  --cap-add=NET_ADMIN --net=host \
+  -e KEEPALIVED_UNICAST_PEERS=&quot;#PYTHON2BASH:[&#39;192.168.4.1&#39;, &#39;192.168.4.2&#39;]&quot; \
+  -e KEEPALIVED_VIRTUAL_IPS=192.168.4.3 \
+  -e KEEPALIVED_PRIORITY=200 \
+  osixia/keepalived:1.3.5
+</pre></div>
+</td></tr></table></p>
+<p>And on the secondary:
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>docker run -d --name keepalived --restart=always \
+  --cap-add=NET_ADMIN --net=host \
+  -e KEEPALIVED_UNICAST_PEERS=&quot;#PYTHON2BASH:[&#39;192.168.4.1&#39;, &#39;192.168.4.2&#39;]&quot; \
+  -e KEEPALIVED_VIRTUAL_IPS=192.168.4.3 \
+  -e KEEPALIVED_PRIORITY=100 \
+  osixia/keepalived:1.3.5
+</pre></div>
+</td></tr></table></p>
+<h2 id="serving">Serving<a class="headerlink" href="#serving" title="Permanent link">&para;</a></h2>
+<p>That's it. Each node will talk to the other via unicast (no need to un-firewall multicast addresses), and the node with the highest priority gets to be the master. When ingress traffic arrives on the master node via the VIP, docker's routing mesh will deliver it to the appropriate docker node.</p>
+<h2 id="chefs-notes">Chef's notes<a class="headerlink" href="#chefs-notes" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Some hosting platforms (OpenStack, for one) won't allow you to simply "claim" a virtual IP. Each node is only able to receive traffic targetted to its unique IP. In this case, keepalived is not the right solution, and a platform-specific load-balancing solution should be used. In OpenStack, this is Neutron's "Load Balancer As A Service" (LBAAS) component. AWS and Azure would likely include similar protections.</li>
+<li>More than 2 nodes can participate in keepalived. Simply ensure that each node has the appropriate priority set, and the node with the highest priority will become the master.</li>
+</ol>
+                
+                  
+                
+              
+              
+                
+                  <h2 id="__comments">Comments</h2>
+                  <div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = "https://geeks-cookbook.funkypenguin.co.nz/ha-docker-swarm/keepalived/";
+    this.page.identifier =
+      "/ha-docker-swarm/keepalived/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "//geeks-cookbook.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../shared-storage-gluster/" title="Shared Storage (GlusterFS)" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Shared Storage (GlusterFS)
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../docker-swarm-mode/" title="Docker Swarm Mode" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Docker Swarm Mode
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 - 2017 David Young
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/funkypenguin" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/funkypenguin" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-c35428f87f.js"></script>
+      
+      
+      <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="../../extras/javascript/piwik.js"></script>
+      
+    
+    
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-139253-18","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      
+    
+  </body>
+</html>

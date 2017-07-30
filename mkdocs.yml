@@ -4,7 +4,8 @@ site_author: 'David Young'
 site_url: 'https://geeks-cookbook.funkypenguin.co.nz'
 
 # Repository
-# repo_name: 'funkypenguin/geek-cookbook'
+#repo_name: 'funkypenguin/geek-cookbook'
+#repo_url: 'https://github.com/funkypenguin/geeks-cookbook'
 # repo_url: 'https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook'
 
 # Copyright
@@ -17,14 +18,16 @@ pages:
     - Introduction:
       - README: README.md
       - whoami: whoami.md
-    - HA Docker Swarm:
+    - Essential:
       - Design: ha-docker-swarm/design.md
       - VMs: ha-docker-swarm/vms.md
-      - Shared Storage: ha-docker-swarm/shared-storage.md
+      - Shared Storage (Ceph): ha-docker-swarm/shared-storage-ceph.md
+      - Shared Storage (GlusterFS): ha-docker-swarm/shared-storage-gluster.md
       - Keepalived: ha-docker-swarm/keepalived.md
       - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
       - Traefik: ha-docker-swarm/traefik.md
-#    - Tiny Tiny RSS:
+    - Recommended:
+      - Mail Server: recipies/mail.md
 #      - Basic: advanced/tiny-tiny-rss.md
 #      - Plugins: advanced/tiny-tiny-rss.md
 #      - Themes: advanced/tiny-tiny-rss.md
@@ -54,6 +57,7 @@ pages:
 
 
 extra:
+  disqus: 'geeks-cookbook'
   logo: 'images/site-logo.png'
   feature:
     tabs: false
@@ -70,9 +74,9 @@ extra:
       link: 'https://twitter.com/funkypenguin'
 
 # Google Analytics
-#google_analytics:
-#  - 'UA-XXXXXXXX-X'
-#  - 'auto'
+google_analytics:
+  - 'UA-139253-18'
+  - 'auto'
 
 extra_javascript:
   - 'extras/javascript/piwik.js'

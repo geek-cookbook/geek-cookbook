@@ -1,0 +1,767 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A short description of my project">
+      
+      
+        <link rel="canonical" href="https://geeks-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/">
+      
+      
+        <meta name="author" content="David Young">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.4">
+    
+    
+      
+        <title>Design - Funky Penguin's Geek's Cookbook</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-769c285a91.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-02c2a4388f.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="https://geeks-cookbook.funkypenguin.co.nz" title="Funky Penguin's Geek's Cookbook" class="md-logo md-header-nav__button">
+            <img src="../../images/site-logo.png" width="24" height="24">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Essential
+                </span>
+              
+            
+            Design
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-logo md-nav__button">
+        <img src="../../images/site-logo.png">
+      </i>
+    
+    Funky Penguin's Geek's Cookbook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../README/" title="README" class="md-nav__link">
+      README
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../whoami/" title="whoami" class="md-nav__link">
+      whoami
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Essential
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Essential
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Design
+      </label>
+    
+    <a href="./" title="Design" class="md-nav__link md-nav__link--active">
+      Design
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#design-decisions" title="Design Decisions" class="md-nav__link">
+    Design Decisions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" title="Security" class="md-nav__link">
+    Security
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-flows" title="Network Flows" class="md-nav__link">
+    Network Flows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" title="Authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-availability" title="High availability" class="md-nav__link">
+    High availability
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normal-function" title="Normal function" class="md-nav__link">
+    Normal function
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-failure" title="Node failure" class="md-nav__link">
+    Node failure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-restore" title="Node restore" class="md-nav__link">
+    Node restore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#total-cluster-failure" title="Total cluster failure" class="md-nav__link">
+    Total cluster failure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vms/" title="VMs" class="md-nav__link">
+      VMs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../shared-storage-ceph/" title="Shared Storage (Ceph)" class="md-nav__link">
+      Shared Storage (Ceph)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../shared-storage-gluster/" title="Shared Storage (GlusterFS)" class="md-nav__link">
+      Shared Storage (GlusterFS)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../keepalived/" title="Keepalived" class="md-nav__link">
+      Keepalived
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../docker-swarm-mode/" title="Docker Swarm Mode" class="md-nav__link">
+      Docker Swarm Mode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../traefik/" title="Traefik" class="md-nav__link">
+      Traefik
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Recommended
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Recommended
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../recipies/mail/" title="Mail Server" class="md-nav__link">
+      Mail Server
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#design-decisions" title="Design Decisions" class="md-nav__link">
+    Design Decisions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" title="Security" class="md-nav__link">
+    Security
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-flows" title="Network Flows" class="md-nav__link">
+    Network Flows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" title="Authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-availability" title="High availability" class="md-nav__link">
+    High availability
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normal-function" title="Normal function" class="md-nav__link">
+    Normal function
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-failure" title="Node failure" class="md-nav__link">
+    Node failure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-restore" title="Node restore" class="md-nav__link">
+    Node restore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#total-cluster-failure" title="Total cluster failure" class="md-nav__link">
+    Total cluster failure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="design">Design<a class="headerlink" href="#design" title="Permanent link">&para;</a></h1>
+<p>In the design described below, the "private cloud" platform is:</p>
+<ul>
+<li><strong>Highly-available</strong> (<em>can tolerate the failure of a single component</em>)</li>
+<li><strong>Scalable</strong> (<em>can add resource or capacity as required</em>)</li>
+<li><strong>Portable</strong> (<em>run it on your garage server today, run it in AWS tomorrow</em>)</li>
+<li><strong>Secure</strong> (<em>access protected with LetsEncrypt certificates</em>)</li>
+<li><strong>Automated</strong> (<em>requires minimal care and feeding</em>)</li>
+</ul>
+<h2 id="design-decisions">Design Decisions<a class="headerlink" href="#design-decisions" title="Permanent link">&para;</a></h2>
+<p><strong>Where possible, services will be highly available.</strong></p>
+<p>This means that:</p>
+<ul>
+<li>At least 3 docker swarm manager nodes are required, to provide fault-tolerance of a single failure.</li>
+<li>GlusterFS is employed for share filesystem, because it too can be made tolerant of a single failure.</li>
+</ul>
+<p><strong>Where multiple solutions to a requirement exist, preference will be given to the most portable solution.</strong></p>
+<p>This means that:</p>
+<ul>
+<li>Services are defined using docker-compose v3 YAML syntax</li>
+<li>Services are portable, meaning a particular stack could be shut down and moved to a new provider with minimal effort.</li>
+</ul>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
+<p>Under this design, the only inbound connections we're permitting to our docker swarm are:</p>
+<h3 id="network-flows">Network Flows<a class="headerlink" href="#network-flows" title="Permanent link">&para;</a></h3>
+<ul>
+<li>HTTP (TCP 80) : Redirects to https</li>
+<li>HTTPS (TCP 443) : Serves individual docker containers via SSL-encrypted reverse proxy</li>
+</ul>
+<h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Where the proxied application provides a trusted level of authentication, or where the application requires public exposure,</li>
+</ul>
+<h2 id="high-availability">High availability<a class="headerlink" href="#high-availability" title="Permanent link">&para;</a></h2>
+<h3 id="normal-function">Normal function<a class="headerlink" href="#normal-function" title="Permanent link">&para;</a></h3>
+<p>Assuming 3 nodes, under normal circumstances the following is illustrated:</p>
+<ul>
+<li>All 3 nodes provide shared storage via GlusterFS, which is provided by a docker container on each node. (i.e., not running in swarm mode)</li>
+<li>All 3 nodes participate in the Docker Swarm as managers.</li>
+<li>The various containers belonging to the application "stacks" deployed within Docker Swarm are automatically distributed amongst the swarm nodes.</li>
+<li>Persistent storage for the containers is provide via GlusterFS mount.</li>
+<li>The <strong>traefik</strong> service (in swarm mode) receives incoming requests (on http and https), and forwards them to individual containers. Traefik knows the containers names because it's able to access the docker socket.</li>
+<li>All 3 nodes run keepalived, at different priorities. Since traefik is running as a swarm service and listening on TCP 80/443, requests made to the keepalived VIP and arriving at <strong>any</strong> of the swarm nodes will be forwarded to the traefik container (no matter which node it's on), and then onto the target backend.</li>
+</ul>
+<p><img alt="HA function" src="../images/docker-swarm-ha-function.png" /></p>
+<h3 id="node-failure">Node failure<a class="headerlink" href="#node-failure" title="Permanent link">&para;</a></h3>
+<p>In the case of a failure (or scheduled maintenance) of one of the nodes, the following is illustrated:</p>
+<ul>
+<li>The failed node no longer participates in GlusterFS, but the remaining nodes provide enough fault-tolerance for the cluster to operate.</li>
+<li>The remaining two nodes in Docker Swarm achieve a quorum and agree that the failed node is to be removed.</li>
+<li>The (possibly new) leader manager node reschedules the containers known to be running on the failed node, onto other nodes.</li>
+<li>The <strong>traefik</strong> service is either restarted or unaffected, and as the backend containers stop/start and change IP, traefik is aware and updates accordingly.</li>
+<li>The keepalived VIP continues to function on the remaining nodes, and docker swarm continues to forward any traffic received on TCP 80/443 to the appropriate node.</li>
+</ul>
+<p><img alt="HA function" src="../images/docker-swarm-node-failure.png" /></p>
+<h3 id="node-restore">Node restore<a class="headerlink" href="#node-restore" title="Permanent link">&para;</a></h3>
+<p>When the failed (or upgraded) host is restored to service, the following is illustrated:</p>
+<ul>
+<li>GlusterFS regains full redundancy</li>
+<li>Docker Swarm managers become aware of the recovered node, and will use it for scheduling <strong>new</strong> containers</li>
+<li>Existing containers which were migrated off the node are not migrated backend</li>
+<li>Keepalived VIP regains full redundancy</li>
+</ul>
+<p><img alt="HA function" src="../images/docker-swarm-node-restore.png" /></p>
+<h3 id="total-cluster-failure">Total cluster failure<a class="headerlink" href="#total-cluster-failure" title="Permanent link">&para;</a></h3>
+<p>A day after writing this, my environment suffered a fault whereby all 3 VMs were unexpectedly and simultaneously powered off.</p>
+<p>Upon restore, docker failed to start on one of the VMs due to local disk space issue<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>. However, the other two VMs started, established the swarm, mounted their shared storage, and started up all the containers (services) which were managed by the swarm.</p>
+<p>In summary, although I suffered an <strong>unplanned power outage to all of my infrastructure</strong>, followed by a <strong>failure of a third of my hosts</strong>... <mark>all my platforms are 100% available with <strong>absolutely no manual intervention</strong></mark>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Since there's no impact to availability, I can fix (or just reinstall) the failed node whenever convenient.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+                  
+                
+              
+              
+                
+                  <h2 id="__comments">Comments</h2>
+                  <div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    this.page.url = "https://geeks-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/";
+    this.page.identifier =
+      "/ha-docker-swarm/design/";
+  };
+  (function() {
+    var d = document, s = d.createElement("script");
+    s.src = "//geeks-cookbook.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../whoami/" title="whoami" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                whoami
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../vms/" title="VMs" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                VMs
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 - 2017 David Young
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/funkypenguin" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/funkypenguin" class="md-footer-social__link fa fa-twitter"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-c35428f87f.js"></script>
+      
+      
+      <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="../../extras/javascript/piwik.js"></script>
+      
+    
+    
+      
+      <script>!function(e,t,a,n,o,c,i){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,c=t.createElement(a),i=t.getElementsByTagName(a)[0],c.async=1,c.src=n,i.parentNode.insertBefore(c,i)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-139253-18","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var t=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",t,e.href)})});var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})</script>
+      
+    
+  </body>
+</html>
