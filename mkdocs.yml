@@ -30,7 +30,8 @@ pages:
     - Recommended:
       - Mail Server: recipies/mail.md
       - GitLab: recipies/gitlab.md
-      - GitLab Runner: recipies/gitlab-runner.md      
+      - GitLab Runner: recipies/gitlab-runner.md
+      - Wekan: recipies/wekan.md
 #      - Basic: advanced/tiny-tiny-rss.md
 #      - Plugins: advanced/tiny-tiny-rss.md
 #      - Themes: advanced/tiny-tiny-rss.md
