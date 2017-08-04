@@ -1,4 +1,7 @@
-# Compiled source #
+# Don't include built site
+site/
+
+ Compiled source #
 ###################
 *.com
 *.class

@@ -2,11 +2,14 @@ site_name: Funky Penguin's Geek's Cookbook
 site_description: 'A short description of my project'
 site_author: 'David Young'
 site_url: 'https://geeks-cookbook.funkypenguin.co.nz'
+edit_uri: 'edit/master/manuscript/'
 
 # Repository
-#repo_name: 'funkypenguin/geek-cookbook'
-#repo_url: 'https://github.com/funkypenguin/geeks-cookbook'
-# repo_url: 'https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook'
+repo_name: 'funkypenguin/geek-cookbook'
+repo_url: 'https://github.com/funkypenguin/geek-cookbook'
+
+# Set this to "manuscript" so that we can produce leanpub content
+docs_dir: 'manuscript'
 
 # Copyright
 copyright: 'Copyright &copy; 2016 - 2017 David Young'
@@ -25,7 +28,7 @@ pages:
       - Shared Storage (Ceph): ha-docker-swarm/shared-storage-ceph.md
       - Shared Storage (GlusterFS): ha-docker-swarm/shared-storage-gluster.md
       - Keepalived: ha-docker-swarm/keepalived.md
-      - Traefik: ha-docker-swarm/traefik.md      
+      - Traefik: ha-docker-swarm/traefik.md
       - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
     - Recommended:
       - Mail Server: recipies/mail.md
@@ -69,7 +72,7 @@ extra:
   feature:
     tabs: false
   palette:
-    primary: 'indigo'
+    primary: 'brown'
     accent: 'indigo'
   font:
     text: 'Roboto'
@@ -79,14 +82,23 @@ extra:
       link: 'https://github.com/funkypenguin'
     - type: 'twitter'
       link: 'https://twitter.com/funkypenguin'
+    - type: 'stack-overflow'
+      link: 'https://stackoverflow.com/cv/funkypenguin'
+    - type: 'rss'
+      link: 'https://www.funkypenguin.co.nz/blog/'
+    - type: 'envelope'
+      link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'
+    - type: 'book'
+      link: 'https://leanpub.com/geeks-cookbook'
 
 # Google Analytics
 google_analytics:
   - 'UA-139253-18'
   - 'auto'
 
-extra_javascript:
-  - 'extras/javascript/piwik.js'
+# disabled until this is running
+#extra_javascript:
+#  - 'extras/javascript/piwik.js'
 
 # Extensions
 markdown_extensions:
