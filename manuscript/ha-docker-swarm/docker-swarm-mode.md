@@ -79,9 +79,9 @@ Finally, ```docker node ls``` should reflect that you have 3 reachable manager n
 ```
 [root@ds3 ~]# docker node ls
 ID                           HOSTNAME                      STATUS  AVAILABILITY  MANAGER STATUS
-36b4twca7i3hkb7qr77i0pr9i    ds1.openstack.dev.safenz.net  Ready   Active        Reachable
-l14rfzazbmibh1p9wcoivkv1s *  ds3.openstack.dev.safenz.net  Ready   Active        Reachable
-tfsgxmu7q23nuo51wwa4ycpsj    ds2.openstack.dev.safenz.net  Ready   Active        Leader
+36b4twca7i3hkb7qr77i0pr9i    ds1.example.com  Ready   Active        Reachable
+l14rfzazbmibh1p9wcoivkv1s *  ds3.example.com  Ready   Active        Reachable
+tfsgxmu7q23nuo51wwa4ycpsj    ds2.example.com  Ready   Active        Leader
 [root@ds3 ~]#
 ```
 
@@ -200,53 +200,3 @@ cd ~
 curl -O https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook-recipies/raw/master/bash/gcb-aliases.sh
 echo 'source ~/gcb-aliases.sh' >> ~/.bash_profile
 ```
-
-
-
-
-````
-mkdir ~/dockersock
-cd ~/dockersock
-curl -O https://raw.githubusercontent.com/dpw/selinux-dockersock/master/Makefile
-curl -O https://raw.githubusercontent.com/dpw/selinux-dockersock/master/dockersock.te
-make && semodule -i dockersock.pp
-````
-
-## Setup registry
-
-docker run -d \
-  -p 5000:5000 \
-  --restart=always \
-  --name registry \
-  -v /mnt/registry:/var/lib/registry \
-  registry:2
-
-
-
-{
-"log-driver": "journald",
-"signature-verification": false,
-"experimental": true,
-"registry-mirrors": ["https://registry-mirror.funkypenguin.co.nz"]
-}
-
-
-
-  registry-mirror:
-    image: registry:2
-    ports:
-      - 5000:5000
-    environment:
-    volumes:
-      - /var/data/registry:/var/lib/registry
-
-
-
-      [root@ds1 dockersock]# docker swarm join-token manager
-      To add a manager to this swarm, run the following command:
-
-          docker swarm join \
-          --token SWMTKN-1-09c94wv0opw0y6xg67uzjl13pnv8lxxn586hrg5f47spso9l6j-6zn3dxk7c4zkb19r61owasi15 \
-          192.168.31.11:2377
-
-      [root@ds1 dockersock]#
