@@ -28,6 +28,7 @@ mkdir -p {runners/1,runners/2}
 From your GitLab UI, you can retrieve a "token" necessary to register a new runner. To register the runner, you can either create config.toml in each runner's bind-mounted folder (example below), or just "docker exec" into each runner container and execute ```gitlab-container register``` to interactively generate config.toml.
 
 Sample runner config.toml:
+
 ```
 concurrent = 1
 check_interval = 0
@@ -46,6 +47,7 @@ check_interval = 0
     shm_size = 0
   [runners.cache]
 ```
+
 ## Serving
 
 ### Launch runners
