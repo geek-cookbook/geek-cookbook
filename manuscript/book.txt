@@ -4,12 +4,21 @@ index.md
 README.md
 whoami.md
 
-docker-ha-swarm/design.md
-docker-ha-swarm/vms.md
-docker-ha-swarm/shared-storage.md
-docker-ha-swarm/keepalived.md
-docker-ha-swarm/traefik.md
+sections/ha-docker-swarm.md
+ha-docker-swarm/design.md
+ha-docker-swarm/vms.md
+ha-docker-swarm/shared-storage-ceph.md
+ha-docker-swarm/shared-storage-glustermd
+ha-docker-swarm/keepalived.md
+ha-docker-swarm/traefik.md
+ha-docker-swarm/docker-swarm-mode.md
 
-#tiny-tiny-rss
-#chapter1.txt
-#chapter2.txt
+sections/recipies.md
+recipies/mail.md
+recipies/gitlab.md
+recipies/gitlab-runner.md
+recipies/wekan.md
+
+sections/reference.md
+reference/oauth_proxy.md
+reference/networks.md
