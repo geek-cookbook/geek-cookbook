@@ -101,9 +101,11 @@ networks:
     driver: overlay
     ipam:
       config:
-        - subnet: 172.16.1.0/24
+        - subnet: 172.16.2.0/24
+        - 
 ```
-
+!!! tip
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
 
 
 ## Serving

@@ -31,6 +31,10 @@ pages:
       - Mail Server: recipies/mail.md
       - GitLab: recipies/gitlab.md
       - GitLab Runner: recipies/gitlab-runner.md
+      - Wekan: recipies/wekan.md
+    - Reference:
+      - OAuth Proxy: reference/oauth_proxy.md
+      - Networks: reference/networks.md
 #      - Basic: advanced/tiny-tiny-rss.md
 #      - Plugins: advanced/tiny-tiny-rss.md
 #      - Themes: advanced/tiny-tiny-rss.md
