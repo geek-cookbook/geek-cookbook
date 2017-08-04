@@ -1,0 +1,16 @@
+# This file determines what documents are loaded into the book, and in what sequence.
+# I try to make them mirror sections from the geeks-cookbook mkdocs-based website
+
+introduction/index.md
+introduction/readme.md
+introduction/whoami.md
+
+docker-ha-swarm/design.md
+docker-ha-swarm/vms.md
+docker-ha-swarm/shared-storage.md
+docker-ha-swarm/keepalived.md
+docker-ha-swarm/traefik.md
+
+#tiny-tiny-rss
+#chapter1.txt
+#chapter2.txt
