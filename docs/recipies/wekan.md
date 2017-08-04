@@ -9,7 +9,7 @@ Wekan allows to create Boards, on which Cards can be moved around between a numb
 There's a [video](https://www.youtube.com/watch?v=N3iMLwCNOro) of the developer showing off the app, as well as a f[unctional demo](https://wekan.indie.host/b/t2YaGmyXgNkppcFBq/wekan-fork-roadmap).
 
 !!! note
-    For added privacy, this design secures wekan behind an oauth2 proxy, so that in order to gain access to the wekan UI at all, oauth2 authentication (to GitHub, GitLab, Google, etc) must have already occured.
+    For added privacy, this design secures wekan behind an [oauth2 proxy](/reference/oauth_proxy/), so that in order to gain access to the wekan UI at all, oauth2 authentication (to GitHub, GitLab, Google, etc) must have already occured.
 
 ## Ingredients
 
@@ -40,7 +40,7 @@ OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=
 MONGO_URL=mongodb://wekandb:27017/wekan
 ROOT_URL=https://wekan.example.com
-MAIL_URL=smtp://wekan\@wekan.example.com:password@mail.example.com:587/
+MAIL_URL=smtp://wekan@wekan.example.com:password@mail.example.com:587/
 MAIL_FROM="Wekan <wekan@wekan.example.com>"
 ```
 
@@ -94,11 +94,11 @@ networks:
     driver: overlay
     ipam:
       config:
-        - subnet: 172.16.5.0/24
+        - subnet: 172.16.3.0/24
 ```
 
 !!! tip
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
 
 
 
