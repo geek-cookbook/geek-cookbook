@@ -25,8 +25,8 @@ pages:
       - Shared Storage (Ceph): ha-docker-swarm/shared-storage-ceph.md
       - Shared Storage (GlusterFS): ha-docker-swarm/shared-storage-gluster.md
       - Keepalived: ha-docker-swarm/keepalived.md
+      - Traefik: ha-docker-swarm/traefik.md      
       - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
-      - Traefik: ha-docker-swarm/traefik.md
     - Recommended:
       - Mail Server: recipies/mail.md
       - GitLab: recipies/gitlab.md
