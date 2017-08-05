@@ -35,6 +35,7 @@ pages:
       - GitLab: recipies/gitlab.md
       - GitLab Runner: recipies/gitlab-runner.md
       - Wekan: recipies/wekan.md
+      - Piwik: recipies/piwik.md
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
       - Networks: reference/networks.md
@@ -96,9 +97,8 @@ google_analytics:
   - 'UA-139253-18'
   - 'auto'
 
-# disabled until this is running
-#extra_javascript:
-#  - 'extras/javascript/piwik.js'
+extra_javascript:
+  - 'extras/javascript/piwik.js'
 
 # Extensions
 markdown_extensions:
