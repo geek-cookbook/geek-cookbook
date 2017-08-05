@@ -4,7 +4,8 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 
 Network  | Range
 --|--
-[Traefik](/ha-docker-swarm/traefik/)  | _unspecified_
-[Mail Server](/recipies/mail/)  | 172.16.1.0/24
-[Gitlab](/recipies/gitlab/) | 172.16.2.0/24
-[Wekan](/recipies/wekan/)  |  172.16.3.0/24
+[Traefik](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik/)  | _unspecified_
+[Mail Server](https://geek-cookbook.funkypenguin.co.nz/recipies/mail/)  | 172.16.1.0/24
+[Gitlab](https://geek-cookbook.funkypenguin.co.nz/recipies/gitlab/) | 172.16.2.0/24
+[Wekan](https://geek-cookbook.funkypenguin.co.nz/recipies/wekan/)  |  172.16.3.0/24
+[Piwik](https://geek-cookbook.funkypenguin.co.nz/recipies/piwki/)  |  172.16.4.0/24
