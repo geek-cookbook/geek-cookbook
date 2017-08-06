@@ -1,7 +1,7 @@
-site_name: Funky Penguin's Geek's Cookbook
+site_name: Funky Penguin's Geek Cookbook
 site_description: 'A short description of my project'
 site_author: 'David Young'
-site_url: 'https://geeks-cookbook.funkypenguin.co.nz'
+site_url: 'https://geek-cookbook.funkypenguin.co.nz'
 edit_uri: 'edit/master/manuscript/'
 
 # Repository
@@ -37,28 +37,10 @@ pages:
       - Wekan: recipies/wekan.md
       - Piwik: recipies/piwik.md
       - Tiny Tiny RSS: recipies/tiny-tiny-rss.md
+      - Huginn: recipies/huginn.md
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
       - Networks: reference/networks.md
-#      - Basic: advanced/tiny-tiny-rss.md
-#      - Plugins: advanced/tiny-tiny-rss.md
-#      - Themes: advanced/tiny-tiny-rss.md
-
-#        - Home Assistant:
-#          - About: advanced/home-assistant/basic.md
-#          - Basic: advanced/home-assistant/basic.md
-#          - Grafana: advanced/home-assistant/grafana.md
-#          - Limitless LED: advanced/home-assistant/limitless-led.md
-#          - OwnTracks: advanced/home-assistant/limitless-led.md
-
-#        - Home Assistant:
-
-#          - About: advanced/home-assistant/basic.md
-#          - Basic: advanced/home-assistant/basic.md
-#          - Grafana: advanced/home-assistant/grafana.md
-#          - Limitless LED: advanced/home-assistant/limitless-led.md
-#          - OwnTracks: advanced/home-assistant/limitless-led.md
-
 #        - Huginn: advanced/huginn.md
 #        - Nextcloud: advanced/nextcloud.md
 #        - OwnTracks: advanced/owntracks.md
