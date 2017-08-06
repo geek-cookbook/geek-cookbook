@@ -36,6 +36,7 @@ pages:
       - GitLab Runner: recipies/gitlab-runner.md
       - Wekan: recipies/wekan.md
       - Piwik: recipies/piwik.md
+      - Tiny Tiny RSS: recipies/tiny-tiny-rss.md
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
       - Networks: reference/networks.md
