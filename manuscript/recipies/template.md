@@ -1,15 +1,10 @@
-# Wekan
+# NAME
 
-Wekan is an open-source kanban board which allows a card-based task and to-do management, similar to tools like WorkFlowy or Trello.
+Intro
 
-![Wekan Screenshot](../images/wekan.jpg)
+![NAME Screenshot](../images/name.jpg)
 
-Wekan allows to create Boards, on which Cards can be moved around between a number of Columns. Boards can have many members, allowing for easy collaboration, just add everyone that should be able to work with you on the board to it, and you are good to go! You can assign colored Labels to cards to facilitate grouping and filtering, additionally you can add members to a card, for example to assign a task to someone.
-
-There's a [video](https://www.youtube.com/watch?v=N3iMLwCNOro) of the developer showing off the app, as well as a f[unctional demo](https://wekan.indie.host/b/t2YaGmyXgNkppcFBq/wekan-fork-roadmap).
-
-!!! note
-    For added privacy, this design secures wekan behind an [oauth2 proxy](/reference/oauth_proxy/), so that in order to gain access to the wekan UI at all, oauth2 authentication (to GitHub, GitLab, Google, etc) must have already occured.
+Details
 
 ## Ingredients
 
@@ -30,10 +25,7 @@ mkdir -p {wekan-db,wekan-db-dump}
 
 ### Prepare environment
 
-You'll need to know the following:
-
-1. Choose an oauth provider, and obtain a client ID and secret
-2. Create wekan.env, and populate with the following variables
+Create wekan.env, and populate with the following variables
 ```
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
@@ -68,8 +60,6 @@ services:
     networks:
       - traefik
       - internal
-    volumes:
-      - /var/data/oauth_proxy/authenticated-emails.txt:/authenticated-emails.txt
     deploy:
       labels:
         - traefik.frontend.rule=Host:wekan.example.com
@@ -82,7 +72,6 @@ services:
       -http-address=http://0.0.0.0:4180
       -email-domain=example.com
       -provider=github
-      -authenticated-emails-file=/authenticated-emails.txt
 
   wekan:
     image: wekanteam/wekan:latest

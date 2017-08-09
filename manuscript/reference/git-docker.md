@@ -2,7 +2,20 @@
 
 Our HA platform design relies on Atomic OS, which only contains bare minimum elements to run containers.
 
-So how can we use git on this system, to push/pull the changes we make to config files?
+So how can we use git on this system, to push/pull the changes we make to config files? With a container, of course!
+
+## git-docker
+
+I [made a simple container](https://github.com/funkypenguin/git-docker/blob/master/Dockerfile) which just basically executes git in the CWD:
+
+To use it transparently, add an alias for the "git" command:
+
+```
+alias git='docker run -v $PWD:/var/data -v \
+/var/data/git-docker/data:/root funkypenguin/git-docker git'
+```
+
+## Limitations
 
 docker run -v /var/data/git-docker/data:/root funkypenguin/git-docker ssh-keygen -t ed25519 -f /root/.ssh/id_ed25519
 Generating public/private ed25519 key pair.
@@ -24,6 +37,3 @@ The key's randomart image is:
 |...=OX+.+.       |
 +----[SHA256]-----+
 [root@ds3 data]#
-
-
-alias git='docker run -v $PWD:/var/data -v /var/data/git-docker/data:/root funkypenguin/git-docker git'
