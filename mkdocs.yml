@@ -4,6 +4,9 @@ site_author: 'David Young'
 site_url: 'https://geek-cookbook.funkypenguin.co.nz'
 edit_uri: 'edit/master/manuscript/'
 
+# Fail to build if we have broken links
+strict: true
+
 # Repository
 repo_name: 'funkypenguin/geek-cookbook'
 repo_url: 'https://github.com/funkypenguin/geek-cookbook'
@@ -41,6 +44,7 @@ pages:
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
       - Networks: reference/networks.md
+#      - git-docker: reference/git-docker.md
 #        - Huginn: advanced/huginn.md
 #        - Nextcloud: advanced/nextcloud.md
 #        - OwnTracks: advanced/owntracks.md
