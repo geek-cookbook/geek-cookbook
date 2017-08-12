@@ -71,23 +71,45 @@ services:
 
   huginn:
     image: huginn/huginn
-    env_file: /var/data/huginn/huginn.env
+    env_file: /var/data/config/huginn/huginn.env
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
     networks:
     - internal
     - traefik
     deploy:
       labels:
-        - traefik.frontend.rule=Host:huginn.example.com
+        - traefik.frontend.rule=Host:huginn.funkypenguin.co.nz
         - traefik.docker.network=traefik
         - traefik.port=3000
 
   db:
-    env_file: /var/data/huginn/huginn.env
+    env_file: /var/data/config/huginn/huginn.env
     image: postgres:latest
     volumes:
-    - /var/data/huginn/database:/var/lib/postgresql/data
+      - /var/data/runtime/huginn/database:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
     networks:
-    - internal   
+      - internal
+
+  db-backup:
+    image: postgres:latest
+    env_file: /var/data/config/huginn/huginn.env
+    volumes:
+      - /var/data/huginn/database-dump:/dump
+      - /etc/localtime:/etc/localtime:ro
+    entrypoint: |
+      bash -c 'bash -s <<EOF
+      trap "break;exit" SIGHUP SIGINT SIGTERM
+      sleep 2m
+      while /bin/true; do
+        pg_dump -Fc > /dump/dump_\`date +%d-%m-%Y"_"%H_%M_%S\`.psql
+        (ls -t /dump/dump*.psql|head -n $$BACKUP_NUM_KEEP;ls /dump/dump*.psql)|sort|uniq -u|xargs rm -- {}
+        sleep $$BACKUP_FREQUENCY
+      done
+      EOF'
+    networks:
+    - internal
 
 networks:
   traefik:
