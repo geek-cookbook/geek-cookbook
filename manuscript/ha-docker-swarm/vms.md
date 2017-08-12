@@ -69,6 +69,13 @@ Depending on your hosting environment, you may have DNS automatically setup for 
 192.168.31.13   ds3     ds3.funkypenguin.co.nz
 ```
 
+### Set timezone
+
+Set your local timezone, by running:
+
+```
+ln -sf /usr/share/zoneinfo/<your timezone> /etc/localtime
+```
 
 ## Serving
 

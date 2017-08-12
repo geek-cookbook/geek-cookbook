@@ -15,6 +15,16 @@
 
 ## Preparation
 
+### Setup data locations
+
+We'll need several directories to bind-mount into our container, so create them in /var/data/ttrss:
+
+```
+mkdir /var/data/ttrss
+cd /var/data/ttrss
+mkdir -p {database,database-dump}
+```
+
 ### Prepare environment
 
 Create ttrss.env, and populate with the following variables, customizing at least the database password (POSTGRES_PASSWORD **and** DB_PASS) and the TTRSS_SELF_URL to point to your installation.
@@ -24,6 +34,13 @@ Create ttrss.env, and populate with the following variables, customizing at leas
 POSTGRES_USER=ttrss
 POSTGRES_PASSWORD=mypassword
 DB_EXTENSION=pg_trgm
+
+# Variables for pg_dump running in postgres/latest (used for db-backup)
+PGUSER=ttrss
+PGPASSWORD=mypassword
+PGHOST=db
+BACKUP_NUM_KEEP=3
+BACKUP_FREQUENCY=1d
 
 # Variables for funkypenguin/docker-ttrss
 DB_USER=ttrss
@@ -44,32 +61,41 @@ version: '3'
 services:
     db:
       image: postgres:latest
-      env_file: /var/data/ttrss/ttrss.env      
-      networks:
-        - internal
+      env_file: /var/data/ttrss/ttrss.env
       volumes:
         - /var/data/ttrss/database:/var/lib/postgresql/data
-      deploy:
-        restart_policy:
-          delay: 10s
-          max_attempts: 10
-          window: 60s
+      networks:
+        - internal
 
     app:
-      image: x86dev/docker-ttrss
+      image: funkypenguin/docker-ttrss
       env_file: /var/data/ttrss/ttrss.env
       deploy:
         labels:
-          - traefik.frontend.rule=Host:ttrss.example.com
+          - traefik.frontend.rule=Host:ttrss.funkypenguin.co.nz
           - traefik.docker.network=traefik
           - traefik.port=8080
-        restart_policy:
-          delay: 10s
-          max_attempts: 10
-          window: 60s
       networks:
         - internal
         - traefik
+
+    db-backup:
+      image: postgres:latest
+      env_file: /var/data/ttrss/ttrss.env
+      volumes:
+        - /var/data/ttrss/database-dump:/dump
+      entrypoint: |
+        bash -c 'bash -s <<EOF
+        trap "break;exit" SIGHUP SIGINT SIGTERM
+        sleep 2m
+        while /bin/true; do
+          pg_dump -Fc > /dump/dump_\`date +%d-%m-%Y"_"%H_%M_%S\`.psql
+          (ls -t /dump/dump*.psql|head -n $$BACKUP_NUM_KEEP;ls /dump/dump*.psql)|sort|uniq -u|xargs rm -- {}
+          sleep $$BACKUP_FREQUENCY
+        done
+        EOF'
+      networks:
+      - internal
 
 networks:
   traefik:
