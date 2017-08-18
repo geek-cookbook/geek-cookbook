@@ -42,6 +42,10 @@ MONGO_URL=mongodb://wekandb:27017/wekan
 ROOT_URL=https://wekan.example.com
 MAIL_URL=smtp://wekan@wekan.example.com:password@mail.example.com:587/
 MAIL_FROM="Wekan <wekan@wekan.example.com>"
+
+# Mongodb specific database dump details
+BACKUP_NUM_KEEP=7
+BACKUP_FREQUENCY=1d
 ```
 
 ### Setup Docker Swarm
@@ -54,17 +58,17 @@ version: '3'
 services:
 
   wekandb:
-    image: mongo:3.2.15
+    image: mongo:latest
     command: mongod --smallfiles --oplogSize 128
     networks:
       - internal
     volumes:
-      - /var/data/wekan/wekan-db:/data/db
-      - /var/data/wekan/wekan-db-dump:/dump
+      - /var/data/runtime/wekan/database:/data/db
+      - /var/data/wekan/database-dump:/dump
 
   proxy:
     image: zappi/oauth2_proxy
-    env_file: /var/data/wekan/wekan.env
+    env_file: /var/data/config/wekan/wekan.env
     networks:
       - traefik
       - internal
@@ -88,7 +92,26 @@ services:
     image: wekanteam/wekan:latest
     networks:
       - internal
-    env_file: /var/data/wekan/wekan.env
+    env_file: /var/data/config/wekan/wekan.env
+
+  db-backup:
+    image: mongo:latest
+    env_file : /var/data/config/wekan/wekan.env
+    volumes:
+      - /var/data/wekan/database-dump:/dump
+      - /etc/localtime:/etc/localtime:ro
+    entrypoint: |
+      bash -c 'bash -s <<EOF
+      trap "break;exit" SIGHUP SIGINT SIGTERM
+      sleep 2m
+      while /bin/true; do
+        mongodump -h db --gzip --archive=/dump/dump_\`date +%d-%m-%Y"_"%H_%M_%S\`.mongo.gz
+        (ls -t /dump/dump*.mongo.gz|head -n $$BACKUP_NUM_KEEP;ls /dump/dump*.mongo.gz)|sort|uniq -u|xargs rm -- {}
+        sleep $$BACKUP_FREQUENCY
+      done
+      EOF'
+    networks:
+    - internal    
 
 networks:
   traefik:

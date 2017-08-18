@@ -84,6 +84,7 @@ services:
       env_file: /var/data/ttrss/ttrss.env
       volumes:
         - /var/data/ttrss/database-dump:/dump
+        - /etc/localtime:/etc/localtime:ro 
       entrypoint: |
         bash -c 'bash -s <<EOF
         trap "break;exit" SIGHUP SIGINT SIGTERM
