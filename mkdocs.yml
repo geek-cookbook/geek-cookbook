@@ -33,16 +33,18 @@ pages:
       - Keepalived: ha-docker-swarm/keepalived.md
       - Traefik: ha-docker-swarm/traefik.md
       - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
-      - Mail Server: recipies/mail.md      
+      - Mail Server: recipies/mail.md
     - Chef's Favorites:
-      - Wekan: recipies/wekan.md
       - Huginn: recipies/huginn.md
+      - Kanboard: recipies/kanboard.md
       - Miniflux: recipies/miniflux.md
     - Menu:
-      - Tiny Tiny RSS: recipies/tiny-tiny-rss.md
+      - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md
       - GitLab Runner: recipies/gitlab-runner.md
       - Piwik: recipies/piwik.md
+      - Wekan: recipies/wekan.md
+      - Tiny Tiny RSS: recipies/tiny-tiny-rss.md
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
       - Networks: reference/networks.md

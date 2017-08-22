@@ -57,7 +57,7 @@ networks:
 
 ### Launch Miniflux stack
 
-Launch the Huginn stack by running ```docker stack deploy miniflux -c <path -to-docker-compose.yml>```
+Launch the Miniflux stack by running ```docker stack deploy miniflux -c <path -to-docker-compose.yml>```
 
 Log into your new instance at https://**YOUR-FQDN**. Default credentials are admin/admin, after which you can change (under 'profile') and add more users.
 
