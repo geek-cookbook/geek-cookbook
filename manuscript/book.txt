@@ -18,6 +18,11 @@ recipies/mail.md
 recipies/gitlab.md
 recipies/gitlab-runner.md
 recipies/wekan.md
+recipies/huginn.md
+recipies/kanboard.md
+recipies/miniflux.md
+recipies/ghost.md
+recipies/piwik.md
 
 sections/reference.md
 reference/oauth_proxy.md

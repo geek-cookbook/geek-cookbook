@@ -11,3 +11,6 @@ Network  | Range
 [Piwik](https://geek-cookbook.funkypenguin.co.nz/recipies/piwki/)  |  172.16.4.0/24
 [Tiny Tiny RSS](https://geek-cookbook.funkypenguin.co.nz/recipies/tiny-tiny-rss/)  |  172.16.5.0/24
 [Huginn](https://geek-cookbook.funkypenguin.co.nz/recipies/huginn/)  |  172.16.6.0/24
+[Unifi](https://geek-cookbook.funkypenguin.co.nz/recipies/unifi/)  |  172.16.7.0/24
+[Kanboard](https://geek-cookbook.funkypenguin.co.nz/recipies/unifi/)  |  172.16.8.0/24
+[Gollum](https://geek-cookbook.funkypenguin.co.nz/recipies/unifi/)  |  172.16.9.0/24

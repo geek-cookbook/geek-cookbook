@@ -38,6 +38,7 @@ pages:
       - Huginn: recipies/huginn.md
       - Kanboard: recipies/kanboard.md
       - Miniflux: recipies/miniflux.md
+      - Gollum: recipies/gollum.md      
     - Menu:
       - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md
