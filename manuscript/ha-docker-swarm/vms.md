@@ -5,11 +5,9 @@ Let's start building our cloud with virtual machines. You could use bare-metal m
 I chose the "[Atomic](https://www.projectatomic.io/)" CentOS/Fedora image for the VM layer because:
 
 1. I want less responsibility for maintaining the system, including ensuring regular software updates and reboots. Atomic's idempotent nature means the OS is largely real-only, and updates/rollbacks are "atomic" (haha) procedures, which can be easily rolled back if required.
-2. For someone used to administrating servers individually, Atomic is a PITA. You have to employ [tricky](atomic-trick2) [tricks](atomic-trick1) to get it to install in a non-cloud environment. It's not designed for tweaking or customizing beyond what cloud-config is capable of. For my purposes, this is good, because it forces me to change my thinking - to consider every daemon as a container, and every config as code, to be checked in and version-controlled. Atomic forces this thinking on you.
+2. For someone used to administrating servers individually, Atomic is a PITA. You have to employ [tricky](https://spinningmatt.wordpress.com/2014/01/08/a-recipe-for-starting-cloud-images-with-virt-install/) [tricks](http://blog.oddbit.com/2015/03/10/booting-cloud-images-with-libvirt/) to get it to install in a non-cloud environment. It's not designed for tweaking or customizing beyond what cloud-config is capable of. For my purposes, this is good, because it forces me to change my thinking - to consider every daemon as a container, and every config as code, to be checked in and version-controlled. Atomic forces this thinking on you.
 3. I want the design to be as "portable" as possible. While I run it on VPSs now, I may want to migrate it to a "cloud" provider in the future, and I'll want the most portable, reproducible design.
 
-[atomic-trick1]:https://spinningmatt.wordpress.com/2014/01/08/a-recipe-for-starting-cloud-images-with-virt-install/
-[atomic-trick2]:http://blog.oddbit.com/2015/03/10/booting-cloud-images-with-libvirt/
 
 ## Ingredients
 
