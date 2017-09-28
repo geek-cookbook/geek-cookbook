@@ -35,6 +35,7 @@ I originally provided shared storage to my nodes using GlusterFS (see the next r
 Since our Ceph components will be containerized, we need to ensure the SELinux context on the base OS's ceph files is set correctly:
 
 ```
+mkdir /var/lib/ceph
 chcon -Rt svirt_sandbox_file_t /etc/ceph
 chcon -Rt svirt_sandbox_file_t /var/lib/ceph
 ```
