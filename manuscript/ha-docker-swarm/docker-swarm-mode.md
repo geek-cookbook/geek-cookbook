@@ -70,9 +70,7 @@ xmw49jt5a1j87a6ihul76gbgy *  ds2.funkypenguin.co.nz  Ready   Active        Reach
 [root@ds2 davidy]#
 ````
 
-Repeat the process to add your third node. **You need a new token for the third node, don't re-use the manager token you generated for the second node**.
-
-!!! warning "Seriously. Don't use a token more than once, else it's swarm-rebuilding time."
+Repeat the process to add your third node.
 
 Finally, ```docker node ls``` should reflect that you have 3 reachable manager nodes, one of whom is the "Leader":
 

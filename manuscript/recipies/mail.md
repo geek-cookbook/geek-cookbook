@@ -21,12 +21,12 @@ docker-mailserver doesn't include a webmail client, and one is not strictly need
 
 ### Setup data locations
 
-We'll need several directories to bind-mount into our container, so create them in /var/data/mailserver:
+We'll need several directories to bind-mount into our container, so create them in /var/data/docker-mailserver:
 
 ```
 cd /var/data
-mkdir mailserver
-cd mailserver
+mkdir docker-mailserver
+cd docker-mailserver
 mkdir {maildata,mailstate,config,letsencrypt}
 ```
 
@@ -106,18 +106,18 @@ services:
       - "587:587"
       - "993:993"
     volumes:
-      - /var/data/mail/maildata:/var/mail
-      - /var/data/mail/mailstate:/var/mail-state
-      - /var/data/mail/config:/tmp/docker-mailserver
-      - /var/data/mail/letsencrypt:/etc/letsencrypt
-    env_file: /var/data/mail/.env
+      - /var/data/docker-mailserver/maildata:/var/mail
+      - /var/data/docker-mailserver/mailstate:/var/mail-state
+      - /var/data/docker-mailserver/config:/tmp/docker-mailserver
+      - /var/data/docker-mailserver/letsencrypt:/etc/letsencrypt
+    env_file: /var/data/docker-mailserver/docker-mailserver.env
     networks:
       - internal
     deploy:
       replicas: 1
 
 networks:
-  traefik:
+  traefik_public:
     external: true
   internal:
     driver: overlay
@@ -129,7 +129,7 @@ networks:
 !!! note
     Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot.
 
-A sample .env file looks like this:
+A sample docker-mailserver.env file looks like this:
 
 ```
 ENABLE_SPAMASSASSIN=1
@@ -148,7 +148,7 @@ SSL_TYPE=letsencrypt
 
 ### Launch mailserver
 
-Launch the mail server stack by running ```docker stack deploy mailserver -c <path -to-docker-compose.yml>```
+Launch the mail server stack by running ```docker stack deploy docker-mailserver -c <path-to-docker-mailserver.yml>```
 
 ## Chef's Notes
 
