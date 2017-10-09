@@ -14,4 +14,4 @@ Network  | Range
 [Unifi](https://geek-cookbook.funkypenguin.co.nz/recipies/unifi/)  |  172.16.7.0/24
 [Kanboard](https://geek-cookbook.funkypenguin.co.nz/recipies/kanboard/)  |  172.16.8.0/24
 [Gollum](https://geek-cookbook.funkypenguin.co.nz/recipies/gollum/)  |  172.16.9.0/24
-[Wallabag](https://geek-cookbook.funkypenguin.co.nz/recipies/wallabag/)  |  172.16.10.0/24
+[Duplicity](https://geek-cookbook.funkypenguin.co.nz/recipies/duplicity/)  |  172.16.10.0/24

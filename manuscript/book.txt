@@ -12,6 +12,7 @@ ha-docker-swarm/shared-storage-glustermd
 ha-docker-swarm/keepalived.md
 ha-docker-swarm/traefik.md
 ha-docker-swarm/docker-swarm-mode.md
+ha-docker-swarm/duplicity.md
 
 sections/recipies.md
 recipies/mail.md
@@ -26,4 +27,5 @@ recipies/piwik.md
 
 sections/reference.md
 reference/oauth_proxy.md
+reference/data_layout.md
 reference/networks.md

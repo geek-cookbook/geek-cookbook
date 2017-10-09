@@ -34,6 +34,7 @@ pages:
       - Traefik: ha-docker-swarm/traefik.md
       - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
       - Mail Server: recipies/mail.md
+      - Duplicity: recipies/duplicity.md
     - Chef's Favorites:
       - Huginn: recipies/huginn.md
       - Kanboard: recipies/kanboard.md
@@ -48,6 +49,7 @@ pages:
       - Tiny Tiny RSS: recipies/tiny-tiny-rss.md
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
+      - Data Layout: reference/data_layout.md
       - Networks: reference/networks.md
 #      - git-docker: reference/git-docker.md
 #        - Huginn: advanced/huginn.md
@@ -62,7 +64,7 @@ pages:
 extra:
   disqus: 'geeks-cookbook'
   logo: 'images/site-logo.png'
-  favicon: 'images/favicon.ico'
+  site_favicon: 'images/favicon.ico'
   feature:
     tabs: false
   palette:
