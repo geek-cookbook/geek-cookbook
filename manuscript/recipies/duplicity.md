@@ -137,6 +137,7 @@ services:
           - /var/data/duplicity/archive:/archive
 
 
+networks:
   internal:
     driver: overlay
     ipam:
