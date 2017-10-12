@@ -195,6 +195,6 @@ curl -O https://raw.githubusercontent.com/docker/cli/b75596e1e4d5295ac69b9934d1b
 Install some useful bash aliases on each host
 ```
 cd ~
-curl -O https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook-recipies/raw/master/bash/gcb-aliases.sh
+curl -O https://raw.githubusercontent.com/funkypenguin/geek-cookbook/master/examples/scripts/gcb-aliases.sh
 echo 'source ~/gcb-aliases.sh' >> ~/.bash_profile
 ```
