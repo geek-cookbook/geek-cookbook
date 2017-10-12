@@ -148,6 +148,8 @@ proxy:
   remoteurl: https://registry-1.docker.io
 ```
 
+Launch the registry stack by running ```docker stack deploy registry -c <path-to-docker-compose.yml>```
+
 ### Enable registry mirror and experimental features
 
 To tell docker to use the registry mirror, and in order to be able to watch the logs of any service from any manager node (_an experimental feature in the current Atomic docker build_), edit **/etc/docker-latest/daemon.json** on each node, and change from:
@@ -214,7 +216,7 @@ networks:
 !!! note
     Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
 
-Launch the cleanup stack by running ```docker stack deploy docker-clenaup -c <path-to-docker-compose.yml>```
+Launch the cleanup stack by running ```docker stack deploy docker-cleanup -c <path-to-docker-compose.yml>```
 
 ### Tweaks
 
