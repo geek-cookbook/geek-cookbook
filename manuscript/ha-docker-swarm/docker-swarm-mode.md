@@ -175,13 +175,46 @@ To:
 
 ### Setup automated cleanup
 
-This needs to be a docker-compose.yml file, excluding trusted images (like glusterfs, traefik, etc)
+Docker swarm doesn't do any cleanup of old images, so as you experiment with various stacks, and as updated containers are released upstream, you'll soon find yourself loosing gigabytes of disk space to old, unused images.
+
+To address this, we'll run the "[meltwater/docker-cleanup](https://github.com/meltwater/docker-cleanup)" container on all of our nodes. The container will clean up unused images after 30 minutes.
+
+First, create docker-cleanup.env (_mine is under /var/data/config/docker-cleanup_), and exclude container images we **know** we want to keep:
+
 ```
-docker run -d  \
--v /var/run/docker.sock:/var/run/docker.sock:rw \
--v /var/lib/docker:/var/lib/docker:rw  \
-meltwater/docker-cleanup:latest
+KEEP_IMAGES=traefik,keepalived,docker-mailserver
+DEBUG=1
 ```
+
+Then create a docker-compose.yml as follows:
+
+```
+version: "3"
+
+services:
+  docker-cleanup:
+    image: meltwater/docker-cleanup:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker:/var/lib/docker
+    networks:
+      - internal
+    deploy:
+      mode: global
+    env_file: /var/data/config/docker-cleanup/docker-cleanup.env
+
+networks:
+  internal:
+    driver: overlay
+    ipam:
+      config:
+        - subnet: 172.16.0.0/24
+```
+
+!!! note
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+
+Launch the cleanup stack by running ```docker stack deploy docker-clenaup -c <path-to-docker-compose.yml>```
 
 ### Tweaks
 
