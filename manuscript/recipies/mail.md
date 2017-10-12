@@ -27,7 +27,7 @@ We'll need several directories to bind-mount into our container, so create them 
 cd /var/data
 mkdir docker-mailserver
 cd docker-mailserver
-mkdir {maildata,mailstate,config,letsencrypt}
+mkdir {maildata,mailstate,config,letsencrypt,rainloop}
 ```
 
 ### Get LetsEncrypt certificate
@@ -115,6 +115,19 @@ services:
       - internal
     deploy:
       replicas: 1
+
+	rainloop:
+    image: hardware/rainloop
+    networks:
+      - internal
+      - traefik_public
+    deploy:
+      labels:
+        - traefik.frontend.rule=Host:rainloop.example.com
+        - traefik.docker.network=traefik_public
+        - traefik.port=8888
+    volumes:
+      - /var/data/mailserver/rainloop:/rainloop/data
 
 networks:
   traefik_public:
