@@ -39,7 +39,7 @@ pages:
       - Kanboard: recipies/kanboard.md
       - Miniflux: recipies/miniflux.md
       - Gollum: recipies/gollum.md
-      - AutoPirate: recipies/autopirate.md
+#      - AutoPirate: recipies/autopirate.md
     - Menu:
       - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md
