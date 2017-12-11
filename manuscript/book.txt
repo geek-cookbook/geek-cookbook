@@ -29,3 +29,5 @@ sections/reference.md
 reference/oauth_proxy.md
 reference/data_layout.md
 reference/networks.md
+reference/git-docker.md
+reference/openvpn.md

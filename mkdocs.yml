@@ -52,6 +52,7 @@ pages:
       - Data Layout: reference/data_layout.md
       - Networks: reference/networks.md
       - git-docker : reference/git-docker.md
+      - OpenVPN : reference/openvpn.md
 
 extra:
   disqus: 'geeks-cookbook'

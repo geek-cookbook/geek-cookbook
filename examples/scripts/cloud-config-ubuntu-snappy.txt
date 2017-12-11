@@ -1,0 +1,14 @@
+#cloud-config
+snappy:
+  ssh_enabled: True
+  packages:
+    – docker
+
+# Add users to the system. Users are added after groups are added.
+users:
+  - name: davidy
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkmE2zK7uE9q75nzQxa9tQPHiCgaEUkIDj9xdoPL911 davidy@funkypenguin.co.nz
+runcmd:
+  - /usr/bin/snap refresh 
