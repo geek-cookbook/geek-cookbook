@@ -1,113 +1,483 @@
 # AutoPirate
 
-Usenet is a geeky alternative to torrents for file-sharing. Because it's so damn complicated, a host of automated tools exist to automate the process of finding, downloading, and managing content.
+Usenet is a geeky alternative to torrents for file-sharing. A good starter for the usenet scene is https://www.reddit.com/r/usenet/. Because it's so damn complicated, a host of automated tools exist to automate the process of finding, downloading, and managing content. The tools included in this recipe are as follows:
+
+* **[SABnzbd](http://sabnzbd.org)** : downloads data from usenet servers based on .nzb definitions
+* **[NZBHydra](https://github.com/theotherp/nzbhydra)** : acts as a "meta-indexer", so that your downloading tools (radarr, sonarr, etc) only need to be setup for a single indexes. Also produces interesting stats on indexers, which helps when evaluating which indexers are performing well.
+* **[Sonarr](https://sonarr.tv)** : finds, downloads and manages TV shows
+* **[Radarr](https://radarr.video)** : finds, downloads and manages movies
+* **[Mylar](https://github.com/evilhero/mylar)** : finds, downloads and manages comic books
+* **[Headphones](https://github.com/rembo10/headphones)** : finds, downloads and manages music
+* **[Lazy Librarian](https://github.com/itsmegb/LazyLibrarian)** : finds, downloads and manages ebooks
+* **[ombi](https://github.com/tidusjar/Ombi)** : provides an interface to request additions to a plex library using the above tools
+* **[plexpy](https://github.com/JonnyWong16/plexpy)** : provides interesting stats on your plex server's usage
 
 This recipe presents a method to combine these tools into a single swarm deployment, and make them available securely.
 
 ![NAME Screenshot](../images/name.jpg)
 
-Details
+This is a long recipe. It contains 18 containers, and could easily scale to more.
+
+What you'll quickly notice about this recipe is that __every__ web interface is protected by an [OAuth proxy](/reference/oauth_proxy/).
+
+Why? Because these tools are developed by a handful of volunteer developers who are focused on adding features, not necessarily implementing robust security. Most users wouldn't expose these tools directly to the internet, so the tools have rudimentary (if any) access control.
+
+To mitigate the risk associated with public exposure of these tools (_you're on your smartphone and you want to add a movie to your watchlist, what do you do, hotshot?_), in order to gain access to each tool you'll first need to authenticate against your given OAuth provider.
 
 ## Ingredients
 
 1. [Docker swarm cluster](/ha-docker-swarm/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
 2. [Traefik](/ha-docker-swarm/traefik) configured per design
+3. Access to NZB indexers and Usenet servers
+4. DNS entries configured for each of the NZB tools in this recipe that you want to use
 
 ## Preparation
 
 ### Setup data locations
 
-We'll need several directories to bind-mount into our container, so create them in /var/data/wekan:
+We'll need a unique directories for each tool in the stack, bind-mounted into our containers, so create them upfront, in /var/data/autopirate:
 
 ```
-mkdir /var/data/wekan
-cd /var/data/wekan
-mkdir -p {wekan-db,wekan-db-dump}
+mkdir /var/data/autopirate
+cd /var/data/autopirate
+mkdir -p {lazylibrarian,mylar,ombi,sonarr,radarr,headphones,plexpy,nzbhydra,sabnzbd}
 ```
 
-### Prepare environment
+Create a user to "own" this directory structure, and note the uid and gid of the created user. You'll need to specify the UID/GID in the enviroment variables passed to the container (below).
 
-Create wekan.env, and populate with the following variables
+### Setup OAUTH access
+
+This is tedious. Each tool (Sonarr, Radarr, etc) to be protected by an OAuth proxy, requires unique configuration. I use github to provide my oauth, giving each tool a unique logo while I'm at it.
+
+For each tool, create /var/data/autopirate/<tool>.env, and set the following:
+
 ```
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=
-MONGO_URL=mongodb://wekandb:27017/wekan
-ROOT_URL=https://wekan.example.com
-MAIL_URL=smtp://wekan@wekan.example.com:password@mail.example.com:587/
-MAIL_FROM="Wekan <wekan@wekan.example.com>"
+PUID=4242
+PGID=4242
 ```
 
-### Setup Docker Swarm
+Create at least /var/data/autopirate/authenticated-emails.txt, containing at least your own email address with your OAuth provider. If you wanted to grant access to a specific tool to other users, you'd need a unique authenticated-emails-<tool>.txt which included both normal email address as well as any addresses to be granted tool-specific access.
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+### Setup components
 
-!!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+#### Stack basics
 
+**Start** with a swarm config file in docker-compose syntax, like this:
 
-```
+````
 version: '3'
 
 services:
+````
 
-  wekandb:
-    image: mongo:3.2.15
-    command: mongod --smallfiles --oplogSize 128
-    networks:
-      - internal
-    volumes:
-      - /var/data/wekan/wekan-db:/data/db
-      - /var/data/wekan/wekan-db-dump:/dump
+And **end** with a stanza like this:
 
-  proxy:
-    image: zappi/oauth2_proxy
-    env_file: /var/data/wekan/wekan.env
-    networks:
-      - traefik
-      - internal
-    deploy:
-      labels:
-        - traefik.frontend.rule=Host:wekan.example.com
-        - traefik.docker.network=traefik
-        - traefik.port=4180
-    command: |
-      -cookie-secure=false
-      -upstream=http://wekan:80
-      -redirect-url=https://wekan.example.com
-      -http-address=http://0.0.0.0:4180
-      -email-domain=example.com
-      -provider=github
-
-  wekan:
-    image: wekanteam/wekan:latest
-    networks:
-      - internal
-    env_file: /var/data/wekan/wekan.env
-
+````
 networks:
-  traefik:
+  traefik_public:
     external: true
   internal:
     driver: overlay
     ipam:
       config:
-        - subnet: 172.16.3.0/24
-```
+        - subnet: 172.16.11.0/24
+````
 
 !!! note
     Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
 
+What comes next, goes inbetween...
+
+#### Sabnzbd
+
+````
+sabnzbd:
+  image: linuxserver/sabnzbd:latest
+  volumes:
+   - /srv/data/:/data
+   - /var/data/autopirate/sabnzbd:/config
+  networks:
+  - traefik_public
+
+sabnzbd_proxy:
+  image: zappi/oauth2_proxy
+  env_file : /var/data/config/autopirate/sabnzbd.env
+  networks:
+    - internal
+    - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:sabnzbd.example.com
+      - traefik.docker.network=traefik_public
+      - traefik.port=4180
+  volumes:
+    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
+  command: |
+    -cookie-secure=false
+    -upstream=http://sabnzbd:8080
+    -redirect-url=https://sabnzbd.example.com
+    -http-address=http://0.0.0.0:4180
+    -email-domain=example.com
+    -provider=github
+    -authenticated-emails-file=/authenticated-emails.txt
+````
+
+#### Lazy Librarian
+
+If you plan to use Lazy Librarian, add the following to your swarm config file:
+
+````
+lazylibrarian:
+  image: linuxserver/lazylibrarian:latest
+  env_file : /var/data/config/autopirate/lazylibrarian.env
+  volumes:
+   - /var/data/autopirate/lazylibrarian:/config
+   - /mnt/kvm/srv/data:/data
+  networks:
+  - traefik_public
+  ports:
+  - 5299:5299
+
+lazylibrarian_proxy:
+  image: zappi/oauth2_proxy
+  env_file : /var/data/config/autopirate/lazylibrarian.env
+  networks:
+    - internal
+    - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:lazylibrarian.example.com
+      - traefik.docker.network=traefik_public
+      - traefik.port=4180
+  volumes:
+    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
+  command: |
+    -cookie-secure=false
+    -upstream=http://lazylibrarian:5299
+    -redirect-url=https://lazylibrarian.example.com
+    -http-address=http://0.0.0.0:4180
+    -email-domain=example.com
+    -provider=github
+    -authenticated-emails-file=/authenticated-emails.txt
+````
+
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+
+
+
+#### Mylar
+
+If you plan to use Mylar, add the following to your swarm config file:
+
+````
+mylar:
+  image: linuxserver/mylar:latest
+  env_file : /var/data/config/autopirate/mylar.env
+  volumes:
+   - /var/data/autopirate/mylar:/config
+   - /mnt/kvm/srv/data:/data
+  networks:
+  - traefik_public
+  ports:
+  - 8090:8090
+
+mylar_proxy:
+  image: zappi/oauth2_proxy
+  env_file : /var/data/config/autopirate/mylar.env
+  networks:
+    - internal
+    - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:mylar.example.com
+      - traefik.docker.network=traefik_public
+      - traefik.port=4180
+  volumes:
+    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
+  command: |
+    -cookie-secure=false
+    -upstream=http://mylar:8090
+    -redirect-url=https://mylar.example.com
+    -http-address=http://0.0.0.0:4180
+    -email-domain=example.com
+    -provider=github
+    -authenticated-emails-file=/authenticated-emails.txt
+````
+
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+
+
+#### Ombi
+
+If you plan to use Ombi, add the following to your swarm config file:
+
+````
+ombi:
+  image: linuxserver/ombi:latest
+  env_file : /var/data/config/autopirate/ombi.env
+  volumes:
+   - /var/data/autopirate/ombi:/config
+  networks:
+  - traefik_public
+  ports:
+  - 3579:3579
+
+ombi_proxy:
+  image: zappi/oauth2_proxy
+  env_file : /var/data/config/autopirate/ombi.env
+  networks:
+    - internal
+    - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:ombi.example.com
+      - traefik.docker.network=traefik_public
+      - traefik.port=4180
+  volumes:
+    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
+  command: |
+    -cookie-secure=false
+    -upstream=http://ombi:3579
+    -redirect-url=https://ombi.example.com
+    -http-address=http://0.0.0.0:4180
+    -email-domain=example.com
+    -provider=github
+    -authenticated-emails-file=/authenticated-emails.txt
+````
+
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+
+
+#### Headphones
+
+If you plan to use Headphones, add the following to your swarm config file:
+
+````
+headphones:
+  image: linuxserver/headphones:latest
+  env_file : /var/data/config/autopirate/headphones.env
+  volumes:
+   - /var/data/autopirate/headphones:/config
+   - /mnt/kvm/srv/data:/data
+  networks:
+  - traefik_public
+  ports:
+  - 8181:8181
+
+headphones_proxy:
+  image: zappi/oauth2_proxy
+  env_file : /var/data/config/autopirate/headphones.env
+  networks:
+    - internal
+    - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:headphones.example.com
+      - traefik.docker.network=traefik_public
+      - traefik.port=4180
+  volumes:
+    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
+  command: |
+    -cookie-secure=false
+    -upstream=http://headphones:8181
+    -redirect-url=https://headphones.example.com
+    -http-address=http://0.0.0.0:4180
+    -email-domain=example.com
+    -provider=github
+    -authenticated-emails-file=/authenticated-emails.txt
+````
+
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+
+
+#### Plexpy
+
+If you plan to use Plexpy, add the following to your swarm config file:
+
+````
+plexpy:
+  image: linuxserver/plexpy:latest
+  env_file : /var/data/config/autopirate/plexpy.env
+  volumes:
+   - /var/data/autopirate/plexpy:/config
+  networks:
+  - traefik_public
+  ports:
+  - 8182:8182
+
+plexpy_proxy:
+  image: zappi/oauth2_proxy
+  env_file : /var/data/config/autopirate/plexpy.env
+  networks:
+    - internal
+    - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:plexpy.example.com
+      - traefik.docker.network=traefik_public
+      - traefik.port=4180
+  volumes:
+    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
+  command: |
+    -cookie-secure=false
+    -upstream=http://plexpy:8181
+    -redirect-url=https://plexpy.example.com
+    -http-address=http://0.0.0.0:4180
+    -email-domain=example.com
+    -provider=github
+    -authenticated-emails-file=/authenticated-emails.txt
+````
+
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+
+
+#### Radarr
+
+If you plan to use Radarr, add the following to your swarm config file:
+
+````
+radarr:
+  image: linuxserver/radarr:latest
+  env_file : /var/data/config/autopirate/radarr.env
+  volumes:
+   - /var/data/autopirate/radarr:/config
+   - /mnt/kvm/srv/data:/kvm/data
+  networks:
+  - traefik_public
+  ports:
+  - 7878:7878
+
+radarr_proxy:
+  image: zappi/oauth2_proxy
+  env_file : /var/data/config/autopirate/radarr.env
+  networks:
+    - internal
+    - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:radarr.example.com
+      - traefik.docker.network=traefik_public
+      - traefik.port=4180
+  volumes:
+    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
+  command: |
+    -cookie-secure=false
+    -upstream=http://radarr:7878
+    -redirect-url=https://radarr.example.com
+    -http-address=http://0.0.0.0:4180
+    -email-domain=example.com
+    -provider=github
+    -authenticated-emails-file=/authenticated-emails.txt
+````
+
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+
+
+#### Sonarr
+
+If you plan to use Sonarr, add the following to your swarm config file:
+
+````
+sonarr:
+  image: linuxserver/sonarr:latest
+  env_file : /var/data/config/autopirate/sonarr.env
+  volumes:
+   - /var/data/autopirate/sonarr:/config
+   # - /mnt/kvm/srv/data:/data
+  networks:
+  - traefik_public
+  ports:
+  - 8989:8989
+
+sonarr_proxy:
+  image: zappi/oauth2_proxy
+  env_file : /var/data/config/autopirate/sonarr.env
+  networks:
+    - internal
+    - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:sonarr.example.com
+      - traefik.docker.network=traefik_public
+      - traefik.port=4180
+  volumes:
+    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
+  command: |
+    -cookie-secure=false
+    -upstream=http://sonarr:8989
+    -redirect-url=https://sonarr.example.com
+    -http-address=http://0.0.0.0:4180
+    -email-domain=example.com
+    -provider=github
+    -authenticated-emails-file=/authenticated-emails.txt
+````
+
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+
+
+
+#### NZBHydra
+
+If you plan to use NZBHydra, add the following to your swarm config file:
+
+````
+nzbhydra:
+  image: linuxserver/hydra:latest
+  env_file : /var/data/config/autopirate/nzbhydra.env
+  volumes:
+   - /var/data/autopirate/nzbhydra:/config
+  networks:
+  - traefik_public
+  ports:
+  - 5075:5075
+
+nzbhydra_proxy:
+  image: zappi/oauth2_proxy
+  env_file : /var/data/config/autopirate/nzbhydra.env
+  networks:
+    - internal
+    - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:nzbhydra.example.com
+      - traefik.docker.network=traefik_public
+      - traefik.port=4180
+  volumes:
+    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
+  command: |
+    -cookie-secure=false
+    -upstream=http://nzbhydra:5075
+    -redirect-url=https://nzbhydra.example.com
+    -http-address=http://0.0.0.0:4180
+    -email-domain=example.com
+    -provider=github
+    -authenticated-emails-file=/authenticated-emails.txt
+````
+
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
 
 
 ## Serving
 
-### Launch Wekan stack
+### Launch Autopirate stack
 
-Launch the Wekan stack by running ```docker stack deploy wekan -c <path -to-docker-compose.yml>```
+Launch the Wekan stack by running ```docker stack deploy autopirate -c <path -to-docker-compose.yml>```
 
-Log into your new instance at https://**YOUR-FQDN**, with user "root" and the password you specified in gitlab.env.
+Confirm the container status by running "docker stack ps autopirate", and wait for all containers to enter the "Running" state.
+
+Log into each of your new tools at its respective HTTPS URL. You'll be prompted to authenticate against your OAuth provider, and upon success, redirected to the tool's UI.
 
 ## Chef's Notes
 
-1. If you wanted to expose the Wekan UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the wekan container. You'd also need to add the traefik network to the wekan container.
+1.

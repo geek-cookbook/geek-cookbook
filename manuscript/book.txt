@@ -24,6 +24,7 @@ recipies/kanboard.md
 recipies/miniflux.md
 recipies/ghost.md
 recipies/piwik.md
+recipies/autopirate.md
 
 sections/reference.md
 reference/oauth_proxy.md
