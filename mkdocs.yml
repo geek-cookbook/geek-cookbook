@@ -18,8 +18,7 @@ docs_dir: 'manuscript'
 copyright: 'Copyright &copy; 2016 - 2017 David Young'
 
 
-theme: material
-theme_dir: mkdocs-material
+#theme_dir: mkdocs-material
 pages:
     - Home : index.md
     - Introduction:
@@ -40,6 +39,7 @@ pages:
       - Kanboard: recipies/kanboard.md
       - Miniflux: recipies/miniflux.md
       - Gollum: recipies/gollum.md
+      - AutoPirate: recipies/autopirate.md
     - Menu:
       - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md
@@ -54,10 +54,12 @@ pages:
       - git-docker : reference/git-docker.md
       - OpenVPN : reference/openvpn.md
 
-extra:
+theme:
+  name: 'material'
+  custom_dir: 'mkdocs-material'
   disqus: 'geeks-cookbook'
   logo: 'images/site-logo.png'
-  site_favicon: 'images/favicon.ico'
+  favicon: 'images/favicon.ico'
   feature:
     tabs: false
   palette:
