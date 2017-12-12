@@ -1,3 +1,5 @@
+hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and organising your media 📺 🎥 🎵 📖
+
 # AutoPirate
 
 Once the cutting edge of the "internet" (pre-world-wide-web and mosiac days), Usenet is now a murky, geeky alternative to torrents for file-sharing. However, it's **cool** geeky, especially if you're into having a fully automated media platform.
