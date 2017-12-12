@@ -1,6 +1,10 @@
 # AutoPirate
 
-Usenet is a geeky alternative to torrents for file-sharing. A good starter for the usenet scene is https://www.reddit.com/r/usenet/. Because it's so damn complicated, a host of automated tools exist to automate the process of finding, downloading, and managing content. The tools included in this recipe are as follows:
+Once the cutting edge of the "internet" (pre-world-wide-web and mosiac days), Usenet is now a murky, geeky alternative to torrents for file-sharing. However, it's **cool** geeky, especially if you're into having a fully automated media platform.
+
+A good starter for the usenet scene is https://www.reddit.com/r/usenet/. Because it's so damn complicated, a host of automated tools exist to automate the process of finding, downloading, and managing content. The tools included in this recipe are as follows:
+
+![Autopirate Screenshot](../images/autopirate.png)
 
 * **[SABnzbd](http://sabnzbd.org)** : downloads data from usenet servers based on .nzb definitions
 * **[NZBHydra](https://github.com/theotherp/nzbhydra)** : acts as a "meta-indexer", so that your downloading tools (radarr, sonarr, etc) only need to be setup for a single indexes. Also produces interesting stats on indexers, which helps when evaluating which indexers are performing well.
@@ -14,9 +18,9 @@ Usenet is a geeky alternative to torrents for file-sharing. A good starter for t
 
 This recipe presents a method to combine these tools into a single swarm deployment, and make them available securely.
 
-![NAME Screenshot](../images/name.jpg)
 
-This is a long recipe. It contains 18 containers, and could easily scale to more.
+!!! note
+    This is a **looong** recipe. It contains 18 containers, and could easily scale to more.
 
 What you'll quickly notice about this recipe is that __every__ web interface is protected by an [OAuth proxy](/reference/oauth_proxy/).
 
@@ -43,7 +47,13 @@ cd /var/data/autopirate
 mkdir -p {lazylibrarian,mylar,ombi,sonarr,radarr,headphones,plexpy,nzbhydra,sabnzbd}
 ```
 
-Create a user to "own" this directory structure, and note the uid and gid of the created user. You'll need to specify the UID/GID in the enviroment variables passed to the container (below).
+Create a directory for the storage of your downloaded media, i.e., something like:
+
+```
+mkdir /var/data/media
+```
+
+Create a user to "own" the above directories, and note the uid and gid of the created user. You'll need to specify the UID/GID in the environment variables passed to the container (in the example below, I used 4242 - twice the meaning of life).
 
 ### Setup OAUTH access
 
@@ -97,8 +107,8 @@ What comes next, goes inbetween...
 sabnzbd:
   image: linuxserver/sabnzbd:latest
   volumes:
-   - /srv/data/:/data
    - /var/data/autopirate/sabnzbd:/config
+   - /var/data/media:/media
   networks:
   - traefik_public
 
@@ -135,11 +145,9 @@ lazylibrarian:
   env_file : /var/data/config/autopirate/lazylibrarian.env
   volumes:
    - /var/data/autopirate/lazylibrarian:/config
-   - /mnt/kvm/srv/data:/data
+   - /var/data/media:/media
   networks:
   - traefik_public
-  ports:
-  - 5299:5299
 
 lazylibrarian_proxy:
   image: zappi/oauth2_proxy
@@ -179,12 +187,10 @@ mylar:
   env_file : /var/data/config/autopirate/mylar.env
   volumes:
    - /var/data/autopirate/mylar:/config
-   - /mnt/kvm/srv/data:/data
+   - /var/data/media:/media
   networks:
   - traefik_public
-  ports:
-  - 8090:8090
-
+  -
 mylar_proxy:
   image: zappi/oauth2_proxy
   env_file : /var/data/config/autopirate/mylar.env
@@ -224,8 +230,6 @@ ombi:
    - /var/data/autopirate/ombi:/config
   networks:
   - traefik_public
-  ports:
-  - 3579:3579
 
 ombi_proxy:
   image: zappi/oauth2_proxy
@@ -264,11 +268,9 @@ headphones:
   env_file : /var/data/config/autopirate/headphones.env
   volumes:
    - /var/data/autopirate/headphones:/config
-   - /mnt/kvm/srv/data:/data
+   - /var/data/media:/media
   networks:
   - traefik_public
-  ports:
-  - 8181:8181
 
 headphones_proxy:
   image: zappi/oauth2_proxy
@@ -309,8 +311,6 @@ plexpy:
    - /var/data/autopirate/plexpy:/config
   networks:
   - traefik_public
-  ports:
-  - 8182:8182
 
 plexpy_proxy:
   image: zappi/oauth2_proxy
@@ -349,11 +349,9 @@ radarr:
   env_file : /var/data/config/autopirate/radarr.env
   volumes:
    - /var/data/autopirate/radarr:/config
-   - /mnt/kvm/srv/data:/kvm/data
+   - /var/data/media:/media
   networks:
   - traefik_public
-  ports:
-  - 7878:7878
 
 radarr_proxy:
   image: zappi/oauth2_proxy
@@ -392,11 +390,9 @@ sonarr:
   env_file : /var/data/config/autopirate/sonarr.env
   volumes:
    - /var/data/autopirate/sonarr:/config
-   # - /mnt/kvm/srv/data:/data
+   - /var/data/media:/media
   networks:
   - traefik_public
-  ports:
-  - 8989:8989
 
 sonarr_proxy:
   image: zappi/oauth2_proxy
@@ -438,8 +434,6 @@ nzbhydra:
    - /var/data/autopirate/nzbhydra:/config
   networks:
   - traefik_public
-  ports:
-  - 5075:5075
 
 nzbhydra_proxy:
   image: zappi/oauth2_proxy
@@ -472,7 +466,7 @@ nzbhydra_proxy:
 
 ### Launch Autopirate stack
 
-Launch the Wekan stack by running ```docker stack deploy autopirate -c <path -to-docker-compose.yml>```
+Launch the AutoPirate stack by running ```docker stack deploy autopirate -c <path -to-docker-compose.yml>```
 
 Confirm the container status by running "docker stack ps autopirate", and wait for all containers to enter the "Running" state.
 
@@ -480,4 +474,4 @@ Log into each of your new tools at its respective HTTPS URL. You'll be prompted 
 
 ## Chef's Notes
 
-1.
+1. In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.

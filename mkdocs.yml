@@ -56,7 +56,7 @@ pages:
 
 theme:
   name: 'material'
-  custom_dir: 'mkdocs-material'
+  custom_dir: 'overrides'
   disqus: 'geeks-cookbook'
   logo: 'images/site-logo.png'
   favicon: 'images/favicon.ico'
