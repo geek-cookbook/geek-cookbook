@@ -28,7 +28,7 @@ So what does this mean for our stack? It means we can leverage Duplicity to back
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
 2. Credentials for one of the Duplicity's supported upload destinations
 
 ## Preparation

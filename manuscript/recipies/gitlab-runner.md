@@ -6,7 +6,7 @@ While a runner isn't strictly required to use GitLab, if you want to do CI, you'
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
 2. [GitLab](/ha-docker-swarm/gitlab) installation (see previous recipe)
 
 ## Preparation
