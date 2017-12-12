@@ -56,3 +56,6 @@ docker run -d --name vpn-client \
 ````
 
 Now every time my node boots, it establishes a VPN tunnel back to my pfsense host and (_by using custom configuration directives in OpenVPN_) is assigned a static VPN IP.
+
+
+## Your comments?

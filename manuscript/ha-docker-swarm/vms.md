@@ -83,3 +83,6 @@ After completing the above, you should have:
 [X] 3 x fresh atomic instances, at the latest releases,
     running Docker v1.13 (docker-latest)
 ```
+
+
+## Your comments?

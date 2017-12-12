@@ -200,3 +200,6 @@ Future enhancements to this recipe include:
 
 1. Rather than pasting a secret key into /etc/fstab (which feels wrong), I'd prefer to be able to set "secretfile" in /etc/fstab (which just points ceph.mount to a file containing the secret), but under the current CentOS Atomic, we're stuck with "secret", per https://bugzilla.redhat.com/show_bug.cgi?id=1030402
 2. This recipe was written with Ceph v11 "Jewel".  Ceph have subsequently releaesd v12 "Kraken". I've updated the recipe for the addition of "Manager" daemons, but it should be noted that the [only reader so far](https://discourse.geek-kitchen.funkypenguin.co.nz/u/ggilley) to attempt a Ceph install using CentOS Atomic and Ceph v12 had issues with OSDs, which lead him to [move to Ubuntu 1604](https://discourse.geek-kitchen.funkypenguin.co.nz/t/shared-storage-ceph-funky-penguins-geek-cookbook/47/24?u=funkypenguin) instead.
+
+
+## Your comments?

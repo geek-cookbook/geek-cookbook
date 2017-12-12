@@ -5,7 +5,7 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 Network  | Range
 --|--
 [Traefik](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik/)  | _unspecified_
-[Docker-cleanup](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/docker-swarm-mode/#setup-automated-cleanup) | 
+[Docker-cleanup](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/docker-swarm-mode/#setup-automated-cleanup) |
 172.16.0.0/24
 [Mail Server](https://geek-cookbook.funkypenguin.co.nz/recipies/mail/)  | 172.16.1.0/24
 [Gitlab](https://geek-cookbook.funkypenguin.co.nz/recipies/gitlab/) | 172.16.2.0/24
@@ -17,3 +17,6 @@ Network  | Range
 [Kanboard](https://geek-cookbook.funkypenguin.co.nz/recipies/kanboard/)  |  172.16.8.0/24
 [Gollum](https://geek-cookbook.funkypenguin.co.nz/recipies/gollum/)  |  172.16.9.0/24
 [Duplicity](https://geek-cookbook.funkypenguin.co.nz/recipies/duplicity/)  |  172.16.10.0/24
+
+
+## Your comments?

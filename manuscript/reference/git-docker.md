@@ -50,3 +50,6 @@ The key's randomart image is:
 ```
 
 Now add the contents of /var/data/git-docker/data/.ssh/id_ed25519.pub to your git account, and off you go - just run "git" from your Atomic host as usual, and pretend that you have the client installed!
+
+
+## Your comments?

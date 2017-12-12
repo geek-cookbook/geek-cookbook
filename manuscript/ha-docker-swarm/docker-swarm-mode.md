@@ -233,3 +233,6 @@ cd ~
 curl -O https://raw.githubusercontent.com/funkypenguin/geek-cookbook/master/examples/scripts/gcb-aliases.sh
 echo 'source ~/gcb-aliases.sh' >> ~/.bash_profile
 ```
+
+
+## Your comments?

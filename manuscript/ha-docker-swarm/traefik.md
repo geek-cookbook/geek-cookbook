@@ -144,3 +144,6 @@ Additional features I'd like to see in this recipe are:
 1. Include documentation of oauth2_proxy container for protecting individual backends
 2. Traefik webUI is available via HTTPS, protected with oauth_proxy
 3. Pending a feature in docker-swarm to avoid NAT on routing-mesh-delivered traffic, update the design
+
+
+## Your comments?

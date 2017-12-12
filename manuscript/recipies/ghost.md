@@ -69,3 +69,5 @@ Create your first administrative account at https://**YOUR-FQDN**/admin/
 548K	/var/data/ghost/
 [root@ds1 ghost]#
 ```
+
+## Your comments?

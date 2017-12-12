@@ -70,3 +70,6 @@ Log into your new instance at https://**YOUR-FQDN**. Default credentials are adm
 
 1. I chose [saghul/miniflux](https://hub.docker.com/r/saghul/miniflux/)'s over the "official" [miniflux/miniflux](https://hub.docker.com/r/miniflux/miniflux/) image, because currently the official image doesn't log to stdout (which you want, for docker logging commands), and because I have an expectation that nginx is more lightweight (faster) than apache.
 2. Find the bookmarklet under the "about" page. I know, it took me ages too.
+
+
+## Your comments?

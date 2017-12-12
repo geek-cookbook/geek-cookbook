@@ -142,3 +142,6 @@ Log into your new instance at https://**YOUR-FQDN**, with user "root" and the pa
 ## Chef's Notes
 
 1. If you wanted to expose the Wekan UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the wekan container. You'd also need to add the traefik network to the wekan container.
+
+
+## Your comments?

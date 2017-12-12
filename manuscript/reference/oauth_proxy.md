@@ -77,3 +77,6 @@ Note above how:
 * Labels are required to tell Traefik to forward the traffic to the proxy, rather than the backend container running the app
 * An environment file is defined, but..
 * The redirect URL must still be passed to the oauth_proxy in the command argument
+
+
+## Your comments?
