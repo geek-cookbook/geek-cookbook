@@ -1,3 +1,5 @@
+hero: Kanboard - A recipe to get your personal kanban on
+
 # Kanboard
 
 Kanboard is a Kanban tool, developed by [Frédéric Guillot](https://github.com/fguillot). (Who also happens to be the developer of my favorite RSS reader, [Miniflux](/recipies/miniflux/))

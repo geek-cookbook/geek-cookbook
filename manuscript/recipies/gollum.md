@@ -1,3 +1,5 @@
+hero: Gollum - A recipe for your own git-based wiki
+
 # Gollum
 
 Gollum is a simple wiki system built on top of Git. A Gollum Wiki is simply a git repository (_either bare or regular_) of a specific nature:

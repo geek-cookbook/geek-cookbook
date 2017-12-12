@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+
+{% block disqus %}
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">
@@ -10,3 +13,4 @@
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
 </script>
+{% endblock %}

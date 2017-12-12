@@ -1,3 +1,5 @@
+hero: Ghost - A recipe for beautiful online publication.
+
 # Ghost
 
 [Ghost](https://ghost.org) is "a fully open source, hackable platform for building and running a modern online publication."

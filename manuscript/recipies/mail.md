@@ -1,3 +1,5 @@
+hero: Docker-mailserver - A recipe for a self-contained mailserver and friends ✉️
+
 # Mail Server
 
 Many of the recipies that follow require email access of some kind. It's  normally possible to use a hosted service such as SendGrid, or just a gmail account. If (like me) you'd like to self-host email for your stacks, then the following recipe provides a full-stack mail server running on the docker HA swarm.

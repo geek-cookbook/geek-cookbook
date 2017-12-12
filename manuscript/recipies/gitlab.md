@@ -1,3 +1,5 @@
+hero: Gitlab - A recipe for a self-hosted GitHub alternative
+
 # GitLab
 
 GitLab is a self-hosted [alternative to GitHub](https://about.gitlab.com/comparison/). The most common use case is (a set of) developers with the desire for the rich feature-set of GitHub, but with unlimited private repositories.

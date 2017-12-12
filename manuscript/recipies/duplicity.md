@@ -1,3 +1,5 @@
+hero: Duplicity - A boring recipe to backup your exciting stuff. Boring is good.
+
 # Duplicity
 
 Intro
