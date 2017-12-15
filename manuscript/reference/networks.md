@@ -17,6 +17,8 @@ Network  | Range
 [Kanboard](https://geek-cookbook.funkypenguin.co.nz/recipies/kanboard/)  |  172.16.8.0/24
 [Gollum](https://geek-cookbook.funkypenguin.co.nz/recipies/gollum/)  |  172.16.9.0/24
 [Duplicity](https://geek-cookbook.funkypenguin.co.nz/recipies/duplicity/)  |  172.16.10.0/24
-
+[Autopirate](https://geek-cookbook.funkypenguin.co.nz/recipies/autopirate/)  |  172.16.11.0/24
+[Nextcloud](https://geek-cookbook.funkypenguin.co.nz/recipies/nextcloud/)  |  172.16.12.0/24
+[Portainer](https://geek-cookbook.funkypenguin.co.nz/recipies/portainer/)  |  172.16.13.0/24
 
 ## Your comments?

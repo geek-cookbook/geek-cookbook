@@ -9,6 +9,7 @@ A good starter for the usenet scene is https://www.reddit.com/r/usenet/. Because
 ![Autopirate Screenshot](../images/autopirate.png)
 
 * **[SABnzbd](http://sabnzbd.org)** : downloads data from usenet servers based on .nzb definitions
+* **[NZBGet](https://nzbget.net/)** : downloads data from usenet servers based on .nzb definitions, but written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources (_this is a popular alternative to SABnzbd_)
 * **[NZBHydra](https://github.com/theotherp/nzbhydra)** : acts as a "meta-indexer", so that your downloading tools (radarr, sonarr, etc) only need to be setup for a single indexes. Also produces interesting stats on indexers, which helps when evaluating which indexers are performing well.
 * **[Sonarr](https://sonarr.tv)** : finds, downloads and manages TV shows
 * **[Radarr](https://radarr.video)** : finds, downloads and manages movies
@@ -46,7 +47,7 @@ We'll need a unique directories for each tool in the stack, bind-mounted into ou
 ```
 mkdir /var/data/autopirate
 cd /var/data/autopirate
-mkdir -p {lazylibrarian,mylar,ombi,sonarr,radarr,headphones,plexpy,nzbhydra,sabnzbd}
+mkdir -p {lazylibrarian,mylar,ombi,sonarr,radarr,headphones,plexpy,nzbhydra,sabnzbd,nzbget}
 ```
 
 Create a directory for the storage of your downloaded media, i.e., something like:
@@ -59,7 +60,7 @@ Create a user to "own" the above directories, and note the uid and gid of the cr
 
 ### Setup OAUTH access
 
-This is tedious. Each tool (Sonarr, Radarr, etc) to be protected by an OAuth proxy, requires unique configuration. I use github to provide my oauth, giving each tool a unique logo while I'm at it.
+This is tedious. Each tool (Sonarr, Radarr, etc) to be protected by an OAuth proxy, requires unique configuration. I use github to provide my oauth, giving each tool a unique logo while I'm at it (make up your own random string for OAUTH2_PROXY_COOKIE_SECRET)
 
 For each tool, create /var/data/autopirate/<tool>.env, and set the following:
 
@@ -136,6 +137,43 @@ sabnzbd_proxy:
     -provider=github
     -authenticated-emails-file=/authenticated-emails.txt
 ````
+
+#### NZBGet
+
+````
+nzbget:
+  image: linuxserver/nzbget
+  volumes:
+   - /var/data/autopirate/nzbget:/config
+   - /var/data/media:/data
+  networks:
+  - traefik_public
+
+nzbget_proxy:
+  image: zappi/oauth2_proxy
+  env_file : /var/data/config/autopirate/nzbget.env
+  networks:
+    - internal
+    - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:nzbget.example.com
+      - traefik.docker.network=traefik_public
+      - traefik.port=4180
+  volumes:
+    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
+  command: |
+    -cookie-secure=false
+    -upstream=http://nzbget:6789
+    -redirect-url=https://nzbget.example.com
+    -http-address=http://0.0.0.0:4180
+    -email-domain=example.com
+    -provider=github
+    -authenticated-emails-file=/authenticated-emails.txt
+````
+
+!!! note
+    NZBGet uses a 401 header to prompt for authentication. When you use OAuth2_proxy, this seems to break. Since we trust OAuth to authenticate us, we can just disable NZGet's own authentication, by changing AddPassword to null in nzbget.conf (i.e. ```AddPassword=```)
 
 #### Lazy Librarian
 

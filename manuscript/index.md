@@ -22,8 +22,6 @@ I want your money.
 
 No, seriously (_but yes, I do want your money - see below_), If the above applies to you, then you're like me. I want everything I wrote above, so I ended up learning all this as I went along. I enjoy it, and I'm good at it. So I created this website, partly to make sure I documented my own setup properly.
 
-## How can I support you?
-
 ### Buy my book 📖
 
 I'm also writing it as a formal book, on Leanpub (https://leanpub.com/geeks-cookbook). Buy it for $0.99 (which is really just a token gesture of support) - you can get it for free (in PDF, mobi, or epub format), or pay me what you think it's worth!
