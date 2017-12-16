@@ -1,3 +1,5 @@
+hero: A recipe for a sexy view of your Docker Swarm
+
 # Portainer
 
 [Portainer](https://portainer.io/) is a lightweight sexy UI for visualizing your docker environment. It also happens to integrate well with Docker Swarm clusters, which makes it a great fit for our stack.
