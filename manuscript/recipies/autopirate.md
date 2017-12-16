@@ -173,7 +173,7 @@ nzbget_proxy:
 ````
 
 !!! note
-    NZBGet uses a 401 header to prompt for authentication. When you use OAuth2_proxy, this seems to break. Since we trust OAuth to authenticate us, we can just disable NZGet's own authentication, by changing AddPassword to null in nzbget.conf (i.e. ```AddPassword=```)
+    NZBGet uses a 401 header to prompt for authentication. When you use OAuth2_proxy, this seems to break. Since we trust OAuth to authenticate us, we can just disable NZGet's own authentication, by changing ControlPassword to null in nzbget.conf (i.e. ```ControlPassword=```)
 
 #### Lazy Librarian
 
