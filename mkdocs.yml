@@ -48,6 +48,7 @@ pages:
       - Piwik: recipies/piwik.md
       - Wekan: recipies/wekan.md
       - Tiny Tiny RSS: recipies/tiny-tiny-rss.md
+      - Portainer: recipies/portainer.md
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
       - Data Layout: reference/data_layout.md
