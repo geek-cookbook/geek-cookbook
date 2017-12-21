@@ -22,6 +22,11 @@ I want your money.
 
 No, seriously (_but yes, I do want your money - see below_), If the above applies to you, then you're like me. I want everything I wrote above, so I ended up learning all this as I went along. I enjoy it, and I'm good at it. So I created this website, partly to make sure I documented my own setup properly.
 
+### Get in touch 👋
+
+* Tweet me up, I'm [@funkypenguin](https://twitter.com/funkypenguin)! 🐦
+* or better yet, come into the  [kitchen](https://discourse.geek-kitchen.funkypenguin.co.nz/) (discussion forums) to say hi, ask a question, or suggest a new recipe!
+
 ### Buy my book 📖
 
 I'm also writing it as a formal book, on Leanpub (https://leanpub.com/geeks-cookbook). Buy it for $0.99 (which is really just a token gesture of support) - you can get it for free (in PDF, mobi, or epub format), or pay me what you think it's worth!

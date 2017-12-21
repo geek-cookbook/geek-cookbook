@@ -41,6 +41,7 @@ pages:
       - Gollum: recipies/gollum.md
       - AutoPirate: recipies/autopirate.md
       - NextCloud: recipies/nextcloud.md
+      - Plex: recipies/plex.md      
     - Menu:
       - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md

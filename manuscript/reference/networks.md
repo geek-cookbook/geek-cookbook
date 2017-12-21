@@ -20,5 +20,8 @@ Network  | Range
 [Autopirate](https://geek-cookbook.funkypenguin.co.nz/recipies/autopirate/)  |  172.16.11.0/24
 [Nextcloud](https://geek-cookbook.funkypenguin.co.nz/recipies/nextcloud/)  |  172.16.12.0/24
 [Portainer](https://geek-cookbook.funkypenguin.co.nz/recipies/portainer/)  |  172.16.13.0/24
+[Home-Assistant](https://geek-cookbook.funkypenguin.co.nz/recipies/home-assistant/)  |  172.16.14.0/24
+[OwnTracks](https://geek-cookbook.funkypenguin.co.nz/recipies/owntracks/)  |  172.16.15.0/24
+[Plex](https://geek-cookbook.funkypenguin.co.nz/recipies/plex/)  |  172.16.16.0/24
 
 ## Your comments?
