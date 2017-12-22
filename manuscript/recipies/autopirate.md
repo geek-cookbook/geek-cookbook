@@ -178,7 +178,7 @@ nzbget_proxy:
 !!! note
     NZBGet uses a 401 header to prompt for authentication. When you use OAuth2_proxy, this seems to break. Since we trust OAuth to authenticate us, we can just disable NZGet's own authentication, by changing ControlPassword to null in nzbget.conf (i.e. ```ControlPassword=```)
 
-#### RTorrent
+#### RTorrent / ruTorrent
 
 When using a torrent client from behind NAT (_which swarm, by nature, is_), you typically need to set a static port for inbound torrent communications. In the example below, I've set the port to 36258. You'll need to configure /var/data/autopirate/rtorrent/rtorrent/rtorrent.rc with the equivalent port.
 
