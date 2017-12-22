@@ -29,7 +29,7 @@ No, seriously (_but yes, I do want your money - see below_), If the above applie
 
 ### Buy my book 📖
 
-I'm also writing it as a formal book, on Leanpub (https://leanpub.com/geeks-cookbook). Buy it for $0.99 (which is really just a token gesture of support) - you can get it for free (in PDF, mobi, or epub format), or pay me what you think it's worth!
+I'm also writing it as a formal book, on Leanpub (https://leanpub.com/geeks-cookbook). Buy it for $0.99 (_which is really just a token gesture of support_) - you can get it for free (_in PDF, mobi, or epub format_), or pay me what you think it's worth!
 
 ### [Patreonize me 💰](https://www.patreon.com/funkypenguin)
 

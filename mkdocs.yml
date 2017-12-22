@@ -41,7 +41,7 @@ pages:
       - Gollum: recipies/gollum.md
       - AutoPirate: recipies/autopirate.md
       - NextCloud: recipies/nextcloud.md
-      - Plex: recipies/plex.md      
+      - Plex: recipies/plex.md
     - Menu:
       - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md
@@ -56,6 +56,7 @@ pages:
       - Networks: reference/networks.md
       - git-docker : reference/git-docker.md
       - OpenVPN : reference/openvpn.md
+    - Support: support.md
 
 theme:
   name: 'material'
