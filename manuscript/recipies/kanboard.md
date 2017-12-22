@@ -23,6 +23,8 @@ Features include:
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
 2. [Traefik](/ha-docker-swarm/traefik) configured per design
+3. DNS entry pointing your NextCloud url (_kanboard.example.com_) to your [keepalived](ha-docker-swarm/keepalived/) IP
+
 
 ## Preparation
 
@@ -60,9 +62,34 @@ services:
         - traefik.docker.network=traefik
         - traefik.port=80
 
+  cron:
+    image: kanboard/kanboard
+    volumes:
+     - /var/data/kanboard/data:/var/www/app/data
+    user: nginx
+    networks:
+      - internal
+    entrypoint: |
+      bash -c 'bash -s <<EOF
+        trap "break;exit" SIGHUP SIGINT SIGTERM
+        while [ ! -f /var/www/html/config/config.php ]; do
+          sleep 1
+        done
+        while true; do
+          cd /var/www/app
+          ./cli cron
+          sleep 8h
+        done
+      EOF'
+
 networks:
   traefik:
     external: true
+  internal:
+    driver: overlay
+    ipam:
+      config:
+        - subnet: 172.16.8.0/24    
 ```
 
 
