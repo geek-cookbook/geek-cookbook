@@ -49,13 +49,17 @@ MYSQL_ROOT_PASSWORD=<set to something secure>
 MYSQL_DATABASE=nextcloud
 MYSQL_USER=nextcloud
 MYSQL_PASSWORD=set to something secure>
+```
 
+Now create a **separate** nextcloud-db-backup.env file, to capture the environment variables necessary to perform the backup. (_If the same variables are shared with the mariadb container, they [cause]https://discourse.geek-kitchen.funkypenguin.co.nz/t/nextcloud-funky-penguins-geek-cookbook/254/3?u=funkypenguin) issues with database access_)
+
+````
 # For database backup (keep 7 days daily backups)
 MYSQL_PWD=<set to something secure, same as MYSQL_ROOT_PASSWORD above>
 MYSQL_USER=root
 BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
-```
+````
 
 ### Setup Docker Swarm
 
