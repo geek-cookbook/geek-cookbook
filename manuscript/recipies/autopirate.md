@@ -10,6 +10,7 @@ A good starter for the usenet scene is https://www.reddit.com/r/usenet/. Because
 
 * **[SABnzbd](http://sabnzbd.org)** : downloads data from usenet servers based on .nzb definitions
 * **[NZBGet](https://nzbget.net/)** : downloads data from usenet servers based on .nzb definitions, but written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources (_this is a popular alternative to SABnzbd_)
+* [RTorrent](https://github.com/rakshasa/rtorrent/wiki) is a CLI-based torrent client, which when combined with [ruTorrent](https://github.com/Novik/ruTorrent) becomes a powerful and fully browser-managed torrent client.
 * **[NZBHydra](https://github.com/theotherp/nzbhydra)** : acts as a "meta-indexer", so that your downloading tools (radarr, sonarr, etc) only need to be setup for a single indexes. Also produces interesting stats on indexers, which helps when evaluating which indexers are performing well.
 * **[Sonarr](https://sonarr.tv)** : finds, downloads and manages TV shows
 * **[Radarr](https://radarr.video)** : finds, downloads and manages movies
@@ -176,6 +177,50 @@ nzbget_proxy:
 
 !!! note
     NZBGet uses a 401 header to prompt for authentication. When you use OAuth2_proxy, this seems to break. Since we trust OAuth to authenticate us, we can just disable NZGet's own authentication, by changing ControlPassword to null in nzbget.conf (i.e. ```ControlPassword=```)
+
+#### RTorrent
+
+When using a torrent client from behind NAT (_which swarm, by nature, is_), you typically need to set a static port for inbound torrent communications. In the example below, I've set the port to 36258. You'll need to configure /var/data/autopirate/rtorrent/rtorrent/rtorrent.rc with the equivalent port.
+
+```
+rtorrent:
+  image: linuxserver/rutorrent
+  env_file : /var/data/config/autopirate/rtorrent.env
+  ports:
+   - 36258:36258
+  volumes:
+   - /var/data/media/:/media
+   - /var/data/autopirate/rtorrent:/config
+  networks:
+  - internal
+
+rtorrent_proxy:
+  image: skippy/oauth2_proxy
+  env_file : /var/data/config/autopirate/rtorrent.env
+  dns_search: myswarm.example.com
+  networks:
+    - internal
+    - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:rtorrent.example.com
+      - traefik.docker.network=traefik_public
+      - traefik.port=4180
+  volumes:
+    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
+  command: |
+    -cookie-secure=false
+    -upstream=http://rtorrent:80
+    -redirect-url=https://rtorrent.example.com
+    -http-address=http://0.0.0.0:4180
+    -email-domain=example.com
+    -provider=github
+    -authenticated-emails-file=/authenticated-emails.txt
+```
+
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+
 
 #### Lazy Librarian
 
