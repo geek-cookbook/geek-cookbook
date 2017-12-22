@@ -118,6 +118,7 @@ sabnzbd:
 sabnzbd_proxy:
   image: zappi/oauth2_proxy
   env_file : /var/data/config/autopirate/sabnzbd.env
+  dns_search: myswarm.example.com
   networks:
     - internal
     - traefik_public
@@ -152,6 +153,7 @@ nzbget:
 nzbget_proxy:
   image: zappi/oauth2_proxy
   env_file : /var/data/config/autopirate/nzbget.env
+  dns_search: myswarm.example.com
   networks:
     - internal
     - traefik_public
@@ -192,6 +194,7 @@ lazylibrarian:
 lazylibrarian_proxy:
   image: zappi/oauth2_proxy
   env_file : /var/data/config/autopirate/lazylibrarian.env
+  dns_search: myswarm.example.com  
   networks:
     - internal
     - traefik_public
@@ -234,6 +237,7 @@ mylar:
 mylar_proxy:
   image: zappi/oauth2_proxy
   env_file : /var/data/config/autopirate/mylar.env
+  dns_search: myswarm.example.com  
   networks:
     - internal
     - traefik_public
@@ -274,6 +278,7 @@ ombi:
 ombi_proxy:
   image: zappi/oauth2_proxy
   env_file : /var/data/config/autopirate/ombi.env
+  dns_search: myswarm.example.com  
   networks:
     - internal
     - traefik_public
@@ -315,6 +320,7 @@ headphones:
 headphones_proxy:
   image: zappi/oauth2_proxy
   env_file : /var/data/config/autopirate/headphones.env
+  dns_search: myswarm.example.com  
   networks:
     - internal
     - traefik_public
@@ -355,6 +361,7 @@ plexpy:
 plexpy_proxy:
   image: zappi/oauth2_proxy
   env_file : /var/data/config/autopirate/plexpy.env
+  dns_search: myswarm.example.com  
   networks:
     - internal
     - traefik_public
@@ -396,6 +403,7 @@ radarr:
 radarr_proxy:
   image: zappi/oauth2_proxy
   env_file : /var/data/config/autopirate/radarr.env
+  dns_search: myswarm.example.com  
   networks:
     - internal
     - traefik_public
@@ -437,6 +445,7 @@ sonarr:
 sonarr_proxy:
   image: zappi/oauth2_proxy
   env_file : /var/data/config/autopirate/sonarr.env
+  dns_search: myswarm.example.com  
   networks:
     - internal
     - traefik_public
@@ -478,6 +487,7 @@ nzbhydra:
 nzbhydra_proxy:
   image: zappi/oauth2_proxy
   env_file : /var/data/config/autopirate/nzbhydra.env
+  dns_search: myswarm.example.com  
   networks:
     - internal
     - traefik_public
