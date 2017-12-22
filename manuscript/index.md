@@ -1,6 +1,6 @@
 # What is this?
 
-The "**[Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of guides for establishing your own highly-available docker container cluster (swarm). This swarm enables you to run self-hosted services such as [GitLab](https://gitlab.com/), [Plex](https://www.plex.tv/), [NextCloud](https://nextcloud.com), etc.
+The "**[Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of guides for establishing your own highly-available docker container cluster (swarm). This swarm enables you to run self-hosted services such as [GitLab](/recipies/gitlab/), [Plex](/recipies/plex/), [NextCloud](/recipies/nextcloud/), etc.
 
 ## Who is this for?
 

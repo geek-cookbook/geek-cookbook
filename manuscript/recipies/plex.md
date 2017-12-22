@@ -2,7 +2,7 @@ hero: A recipe to manage your Media 🎥 📺 🎵
 
 # Plex
 
-Plex is a client-server media player system and software suite comprising two main components (a media server and client applications)
+[Plex](https://www.plex.tv/) is a client-server media player system and software suite comprising two main components (a media server and client applications)
 
 ![Plex Screenshot](../images/plex.jpg)
 

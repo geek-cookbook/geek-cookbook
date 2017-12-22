@@ -2,7 +2,7 @@ hero: Backup all your stuff. Share it. Privately.
 
 # NextCloud
 
-Nextcloud (_a [fork of OwnCloud](https://owncloud.org/blog/owncloud-statement-concerning-the-formation-of-nextcloud-by-frank-karlitschek/), led by original developer Frank Karlitschek_) is a suite of client-server software for creating and using file hosting services. It is functionally similar to Dropbox, although Nextcloud is free and open-source, allowing anyone to install and operate it on a private server.
+[NextCloud](https://www.nextcloud.org/) (_a [fork of OwnCloud](https://owncloud.org/blog/owncloud-statement-concerning-the-formation-of-nextcloud-by-frank-karlitschek/), led by original developer Frank Karlitschek_) is a suite of client-server software for creating and using file hosting services. It is functionally similar to Dropbox, although Nextcloud is free and open-source, allowing anyone to install and operate it on a private server.
  - https://en.wikipedia.org/wiki/Nextcloud
 
 ![NextCloud Screenshot](../images/nextcloud.png)
