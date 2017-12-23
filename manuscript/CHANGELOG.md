@@ -6,6 +6,7 @@
 
 ## Recently added recipes
 
+* [Home Assistant](/recipies/homeassistant/) - Home automation platform with support for a [bazillion](https://home-assistant.io/components/) components (_24 Dec 2017_)
 * [Plex](/recipies/plex/) : Media management and playback platform to **play** all the media you acquired using [AutoPirate](/recipies/autopirate/) :grin: (_21 Dec 2017_)
 * [Portainer](/recipies/portainer/) : Sexy management UI for your docker container/swarm (_16 Dec 2017_)
 * [NextCloud](/recipies/nextcloud/) : A personal dropbox-style online storage platform with a large ecosystem of 3rd-party apps for Calendaring, Contacts, Document Editing, etc. (_16 Dec 2017_)
