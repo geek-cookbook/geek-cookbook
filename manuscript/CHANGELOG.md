@@ -2,7 +2,7 @@
 
 ## Subscribe to updates
 
-[Sign up](http://eepurl.com/dfx95n) (double-opt-in) to receive email updates on new and improve recipes!
+Sign up [here](http://eepurl.com/dfx95n) (double-opt-in) to receive email updates on new and improve recipes!
 
 ## Recently added recipes
 
