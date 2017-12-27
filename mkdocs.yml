@@ -23,7 +23,7 @@ pages:
     - Home : index.md
     - Introduction:
       - README: README.md
-      - CHANGELOG: CHANGELOG.md      
+      - CHANGELOG: CHANGELOG.md
       - whoami: whoami.md
     - Essential:
       - Design: ha-docker-swarm/design.md
@@ -43,6 +43,7 @@ pages:
       - AutoPirate: recipies/autopirate.md
       - NextCloud: recipies/nextcloud.md
       - Plex: recipies/plex.md
+      - Emby: recipies/emby.md
       - Home Assistant: recipies/homeassistant.md
     - Menu:
       - Ghost: recipies/ghost.md

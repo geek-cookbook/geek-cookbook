@@ -23,5 +23,6 @@ Network  | Range
 [Home-Assistant](https://geek-cookbook.funkypenguin.co.nz/recipies/home-assistant/)  |  172.16.14.0/24
 [OwnTracks](https://geek-cookbook.funkypenguin.co.nz/recipies/owntracks/)  |  172.16.15.0/24
 [Plex](https://geek-cookbook.funkypenguin.co.nz/recipies/plex/)  |  172.16.16.0/24
+[Emby](https://geek-cookbook.funkypenguin.co.nz/recipies/emby/)  |  172.16.17.0/24
 
 ## Your comments?
