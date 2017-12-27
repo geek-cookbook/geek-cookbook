@@ -121,7 +121,12 @@ networks:
       - subnet: 10.1.0.0/24
 ```
 
-Docker won't start an image with a bind-mount to a non-existent file, so prepare acme.json by running ```touch /var/data/traefik/acme.json```.
+Docker won't start an image with a bind-mount to a non-existent file, so prepare acme.json (_with the appropriate permissions_) by running:
+
+```
+touch /var/data/traefik/acme.json
+chmod 600 /var/data/traefik/acme.json
+```.
 
 ### Launch
 
