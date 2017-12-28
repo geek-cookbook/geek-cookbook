@@ -59,6 +59,7 @@ pages:
       - Networks: reference/networks.md
       - git-docker : reference/git-docker.md
       - OpenVPN : reference/openvpn.md
+      - Troubleshooting: reference/troubleshooting.md      
     - Support: support.md
 
 theme:
