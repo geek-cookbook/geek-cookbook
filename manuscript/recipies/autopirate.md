@@ -145,6 +145,7 @@ sabnzbd_proxy:
 ````
 nzbget:
   image: linuxserver/nzbget
+  env_file : /var/data/config/autopirate/nzbget.env  
   volumes:
    - /var/data/autopirate/nzbget:/config
    - /var/data/media:/data

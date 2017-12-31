@@ -40,7 +40,18 @@ pages:
       - Kanboard: recipies/kanboard.md
       - Miniflux: recipies/miniflux.md
       - Gollum: recipies/gollum.md
-      - AutoPirate: recipies/autopirate.md
+      - Auto Pirate:
+        - Start: recipies/autopirate.md
+        - SABnzbd: recipies/autopirate/sabnzbd.md
+        - NZBGet: recipies/autopirate/nzbget.md
+        - Rtorrent: recipies/autopirate/rtorrent.md
+        - Sonarr: recipies/autopirate/sonarr.md
+        - Radarr: recipies/autopirate/radarr.md
+        - Mylar: recipies/autopirate/mylar.md
+        - Lazy Librarian: recipies/autopirate/lazylibrarian.md
+        - Ombi: recipies/autopirate/ombi.md
+        - Plexpy: recipies/autopirate/plexpy.md
+        - End: recipies/autopirate/end.md
       - NextCloud: recipies/nextcloud.md
       - Plex: recipies/plex.md
       - Emby: recipies/emby.md
@@ -59,7 +70,7 @@ pages:
       - Networks: reference/networks.md
       - git-docker : reference/git-docker.md
       - OpenVPN : reference/openvpn.md
-      - Troubleshooting: reference/troubleshooting.md      
+      - Troubleshooting: reference/troubleshooting.md
     - Support: support.md
 
 theme:
