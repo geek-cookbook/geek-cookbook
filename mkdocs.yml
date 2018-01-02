@@ -49,8 +49,9 @@ pages:
         - Radarr: recipies/autopirate/radarr.md
         - Mylar: recipies/autopirate/mylar.md
         - Lazy Librarian: recipies/autopirate/lazylibrarian.md
+        - Headphones: recipies/autopirate/headphones.md
+        - NZBHydra: recipies/autopirate/nzbhydra.md
         - Ombi: recipies/autopirate/ombi.md
-        - Plexpy: recipies/autopirate/plexpy.md
         - End: recipies/autopirate/end.md
       - NextCloud: recipies/nextcloud.md
       - Plex: recipies/plex.md

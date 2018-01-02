@@ -1,5 +1,5 @@
-hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and organising your media 📺 🎥 🎵 📖
-
+!!! warning
+    This is not a complete recipe - it's the conclusion to the [AutoPirate](/recipies/autopirate/start/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 ### Launch Autopirate stack
 
