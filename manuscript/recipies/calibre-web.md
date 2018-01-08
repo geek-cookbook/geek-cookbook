@@ -118,7 +118,7 @@ networks:
 
 ### Launch Calibre-Web
 
-Launch the Wekan stack by running ```docker stack deploy calibre-web -c <path -to-docker-compose.yml>```
+Launch the Calibre-Web stack by running ```docker stack deploy calibre-web -c <path -to-docker-compose.yml>```
 
 Log into your new instance at https://**YOUR-FQDN**. You'll be directed to the initial GUI configuraition. Set the first field (_Location of Calibre database_) to "_/books/_", and when complete, login using defaults username of "**admin**" with password "**admin123**".
 
@@ -127,4 +127,8 @@ Log into your new instance at https://**YOUR-FQDN**. You'll be directed to the i
 1. Yes, Calibre does provide a server component. But it's not as fully-featured as Calibre-Web (_i.e., you can't use it to send ebooks directly to your Kindle_)
 2. A future enhancement might be integrating this recipe with the filestore for [NextCloud](/recipies/nextcloud/), so that the desktop database (Calibre) can be kept synced with Calibre-Web.
 
-## Your comments?
+### Tip your waiter (donate) 👏
+
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬
