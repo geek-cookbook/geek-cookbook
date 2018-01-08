@@ -144,5 +144,8 @@ Log into your new instance at https://**YOUR-FQDN**. You'll need to use the "Sig
 
 1. I initially considered putting an oauth proxy in front of Huginn, but since the invitation code logic prevents untrusted access, and since using a proxy would break oauth for sevices like Twitter integration, I left it out.
 
+### Tip your waiter (donate) 👏
 
-## Your comments?
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬

@@ -17,4 +17,10 @@ Realtime data (typically database files or files-in-use) are stored in /var/data
 Static data goes into /var/data/[recipe name], and includes anything that can be safely backed up while a container is running. This includes database exports of the runtime data above.
 
 
-## Your comments?
+## Chef's Notes
+
+### Tip your waiter (donate) 👏
+
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬
