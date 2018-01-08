@@ -45,6 +45,7 @@ pages:
       - Plex: recipies/plex.md
       - Emby: recipies/emby.md
       - Home Assistant: recipies/homeassistant.md
+      - Calibre-Web: recipies/calibre-web.md
     - Menu:
       - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md
@@ -59,7 +60,7 @@ pages:
       - Networks: reference/networks.md
       - git-docker : reference/git-docker.md
       - OpenVPN : reference/openvpn.md
-      - Troubleshooting: reference/troubleshooting.md      
+      - Troubleshooting: reference/troubleshooting.md
     - Support: support.md
 
 theme:
