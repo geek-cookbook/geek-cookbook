@@ -6,7 +6,7 @@ Sign up [here](http://eepurl.com/dfx95n) (double-opt-in) to receive email update
 
 ## Recently added recipes
 
-* [Emby](/recipies/emby/) - Geekier alternative to Plex, with improved parental controls (_28 Dec 2017_)
+* [Emby](/recipies/emby/) - Geekier alternative to [Plex](/recipies/plex/), with improved parental controls (_28 Dec 2017_)
 * [Home Assistant](/recipies/homeassistant/) - Home automation platform with support for a [bazillion](https://home-assistant.io/components/) components (_24 Dec 2017_)
 * [Plex](/recipies/plex/) : Media management and playback platform to **play** all the media you acquired using [AutoPirate](/recipies/autopirate/) :grin: (_21 Dec 2017_)
 * [Portainer](/recipies/portainer/) : Sexy management UI for your docker container/swarm (_16 Dec 2017_)
