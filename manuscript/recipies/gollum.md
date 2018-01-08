@@ -129,5 +129,8 @@ Authenticate against your OAuth provider, and then start editing your wiki!
 
 1. In the current implementation, Gollum is a "single user" tool only. The contents of the wiki are saved as markdown files under /var/data/gollum, and all the git commits are currently "Anonymous"
 
+### Tip your waiter (donate) 👏
 
-## Your comments?
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬

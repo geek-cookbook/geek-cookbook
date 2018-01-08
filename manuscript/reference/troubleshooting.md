@@ -15,3 +15,12 @@ SSH to the host node, and attach to the container using ```docker exec -it <cont
 ## Watching logs of container
 
 Need to see what a particular container is doing? Run ```docker service logs -f <stack name>_<container name>``` to watch a particular service. As the service dies and is recreated, the logs will continue to be displayed.
+
+
+## Chef's Notes
+
+### Tip your waiter (donate) 👏
+
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬

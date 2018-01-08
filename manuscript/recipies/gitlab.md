@@ -134,4 +134,8 @@ A few comments on decisions taken in this design:
 1. I use the **sameersbn/gitlab:latest** image, rather than a specific version. This lets me execute updates simply by redeploying the stack (and why **wouldn't** I want the latest version?)
 
 
-## Your comments?
+### Tip your waiter (donate) 👏
+
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬

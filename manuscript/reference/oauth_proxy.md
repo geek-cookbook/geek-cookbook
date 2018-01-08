@@ -79,4 +79,10 @@ Note above how:
 * The redirect URL must still be passed to the oauth_proxy in the command argument
 
 
-## Your comments?
+## Chef's Notes
+
+### Tip your waiter (donate) 👏
+
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬
