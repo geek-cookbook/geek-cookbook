@@ -1,8 +1,34 @@
+hero: We dig dig digga-dig dig!
+
 # CryptoMiner
 
-This is a diversion from my usual recipies - since a hardware-based crypto currency miner can't really use docker swarm :)
+This is a diversion from my usual recipes - since a hardware-based crypto currency miner can't really use a docker swarm :)
 
-![NAME Screenshot](../images/name.jpg)
+Ultimately I hope to move all the configuration / mining executables into docker containers, but for now, they're running on a CentOS7 host for direct access to GPUs. (Apparently it _may_ be possible to pass-thru the GPUs to docker containers, but I wanted stability first, before abstracting my hardware away from my miners)
+
+![NAME Screenshot](../images/cryptominer.png)
+
+
+## Menu
+
+
+
+## Ingredients
+
+1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](/ha-docker-swarm/traefik) configured per design
+3. Access to NZB indexers and Usenet servers
+4. DNS entries configured for each of the NZB tools in this recipe that you want to use
+
+## Preparation
+
+### Setup data locations
+
+
+
+## Your comments?
+
+
 
 Details
 
@@ -30,8 +56,75 @@ You'll want to setup accounts at the following (if you use the URLs below, I get
 # For flashing
 https://bitcointalk.org/index.php?topic=1809527.0
 
+# Testing
 
+--
+/opt/minerhotel/bin/claymore/ethdcrminer64 -epool stratum+tcp://daggerhashimoto.usa.nicehash.com:3353 -ewal 394LeTTJFXkY6yGR95kY5q2Er68P81fDtv -epsw x -esm 3 -allpools 1 -estale 0 -dpool stratum+tcp://decred.usa.nicehash.com:3354 -dwal 394LeTTJFXkY6yGR95kY5q2Er68P81fDtv -di 012 -dcri 28 -cclock 1200 -cvddc 900 -mclock 2250 -mvddc 850 -tstop 85 -tt 65 -fanmin 10 -fanmax 60 -gser 5 -lidag 5 -asm 1
+---
 
+## Results of the flash
+
+```
+GPU #0: Ellesmere, 4078 MB available, 36 compute units
+GPU #1: Ellesmere, 4082 MB available, 36 compute units
+```
+
+Speed:
+```
+ETH: GPU0 30.115 Mh/s, GPU1 22.176 Mh/s
+```
+
+Power consumption (stock)
+```
+GFX Clocks and Power:
+        1750 MHz (MCLK)
+        1411 MHz (SCLK)
+        144.107 W (VDDC)
+        16.0 W (VDDCI)
+        171.161 W (max GPU)
+        172.209 W (average GPU)
+
+GPU Temperature: 67 C
+GPU Load: 100 %
+```
+
+Power consumption (flashed)
+
+```
+GFX Clocks and Power:
+        2050 MHz (MCLK)
+        1150 MHz (SCLK)
+        87.155 W (VDDC)
+        16.0 W (VDDCI)
+        117.152 W (max GPU)
+        116.1 W (average GPU)
+
+GPU Temperature: 62 C
+GPU Load: 100 %
+```
+
+R290 flash. Started with 290X elpida. Not elpida. Trying hynix.
+
+```
+[root@kvm ~]# ./atiflash -f -p 0 Insan1ty\ R9\ 390X\ BIOS\ v1.81/R9\ 290X/MEM\ MOD\ --\ ELPIDA/290X_ELPIDA_MOD_V1.8.rom
+Old SSID: E285
+New SSID: 9395
+Old P/N: 113-E285FOC-U005
+New P/N: 113-GRENADA_XT_C671_D5_8GB_HY_W
+Old DeviceID: 67B1
+New DeviceID: 67B0
+Old Product Name: C67111 Hawaii PRO OC GDDR5 4GB 64Mx32 300e/150m
+New Product Name: C67130 Grenada XT A0 GDDR5 8GB 128Mx32 300e/150m
+Old BIOS Version: 015.044.000.011.000000
+New BIOS Version: 015.049.000.000.000000
+Flash type: M25P10/c
+Burst size is 256
+20000/20000h bytes programmed
+20000/20000h bytes verified
+
+Restart System To Complete VBIOS Update.
+[root@kvm ~]#
+```
 
 
 ### Setup data locations

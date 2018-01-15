@@ -121,4 +121,8 @@ Now work your way through the list of tools below, adding whichever tools your w
 * [Ombi](/recipies/autopirate/ombi/)
 * [End](/recipies/autopirate/end/) (launch the stack)
 
-## Your comments?
+### Tip your waiter (donate) 👏
+
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬

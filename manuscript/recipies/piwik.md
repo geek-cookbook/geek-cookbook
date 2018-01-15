@@ -92,4 +92,8 @@ Launch the Piwik stack by running ```docker stack deploy piwik -c <path -to-dock
 
 Log into your new instance at https://**YOUR-FQDN**, and follow the wizard to complete the setup.
 
-## Your comments?
+### Tip your waiter (donate) 👏
+
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬

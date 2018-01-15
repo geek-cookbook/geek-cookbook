@@ -190,4 +190,8 @@ Then navigate to https://<your FQDN>/index.php/settings/admin/additional, scroll
 
 1. Since many of my other recipies use PostgreSQL, I'd have preferred to use Postgres over MariaDB, but MariaDB seems to be the [preferred database type](https://github.com/nextcloud/server/issues/5912).
 
-## Your comments?
+### Tip your waiter (donate) 👏
+
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬

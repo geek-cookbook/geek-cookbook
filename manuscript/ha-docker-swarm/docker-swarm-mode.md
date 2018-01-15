@@ -234,5 +234,10 @@ curl -O https://raw.githubusercontent.com/funkypenguin/geek-cookbook/master/exam
 echo 'source ~/gcb-aliases.sh' >> ~/.bash_profile
 ```
 
+## Chef's Notes
 
-## Your comments?
+### Tip your waiter (donate) 👏
+
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬

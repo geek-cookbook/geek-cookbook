@@ -24,5 +24,13 @@ Network  | Range
 [OwnTracks](https://geek-cookbook.funkypenguin.co.nz/recipies/owntracks/)  |  172.16.15.0/24
 [Plex](https://geek-cookbook.funkypenguin.co.nz/recipies/plex/)  |  172.16.16.0/24
 [Emby](https://geek-cookbook.funkypenguin.co.nz/recipies/emby/)  |  172.16.17.0/24
+[Calibre-Web](https://geek-cookbook.funkypenguin.co.nz/recipies/calibre-web/)  |  172.16.18.0/24
 
-## Your comments?
+
+## Chef's Notes
+
+### Tip your waiter (donate) 👏
+
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬

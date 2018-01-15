@@ -89,4 +89,8 @@ Log into your new instance at https://**YOUR-FQDN**, and complete the wizard-bas
 2. I used the LinuxServer docker container, even though still under "active development", to maintain consistency with the [Plex](/recipies/plex/) and [autopirate](/recipies/autopirate/) recipies.
 3. We don't bother exposing the HTTPS port for Emby, since [Traefik](/ha-docker-swarm/traefik/) is doing the SSL termination for us already.
 
-## Your comments?
+### Tip your waiter (donate) 👏
+
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬
