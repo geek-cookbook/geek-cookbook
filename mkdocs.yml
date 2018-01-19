@@ -40,12 +40,22 @@ pages:
       - Kanboard: recipies/kanboard.md
       - Miniflux: recipies/miniflux.md
       - Gollum: recipies/gollum.md
-      - AutoPirate: recipies/autopirate.md
+# Not completed yet in this branch
+#      - AutoPirate: recipies/autopirate.md
       - NextCloud: recipies/nextcloud.md
       - Plex: recipies/plex.md
       - Emby: recipies/emby.md
       - Home Assistant: recipies/homeassistant.md
       - Calibre-Web: recipies/calibre-web.md
+      - CryptoMiner:
+        - Start: recipies/cryptominer.md
+        - Mining Rig: recipies/cryptominer/mining-rig.md
+        - AMD GPU: recipies/cryptominer/amd-gpu.md
+        - NVidia GPU: recipies/cryptominer/nvidia-gpu.md
+        - Minerhotel: recipies/cryptominer/minerhotel.md
+        - Monitoring: recipies/cryptominer/monitor.md
+        - Exchanges: recipies/cryptominer/exchange.md
+        - Profit!: recipies/cryptominer/profit.md
     - Menu:
       - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md
