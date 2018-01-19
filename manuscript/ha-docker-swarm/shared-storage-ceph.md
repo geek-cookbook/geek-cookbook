@@ -68,7 +68,7 @@ docker run -d --net=host \
 -v /var/lib/ceph/:/var/lib/ceph/ \
 --name="ceph-mgr" \
 --restart=always \
-ceph/daemon mgs
+ceph/daemon mgr
 ```
 
 ### Setup OSDs
