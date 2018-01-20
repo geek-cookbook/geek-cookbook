@@ -79,7 +79,7 @@ swarmmode = true
 Create /var/data/traefik/docker-compose.yml as follows:
 
 ```
-version: "3.2"
+version: "3"
 
 services:
   traefik:
