@@ -91,23 +91,18 @@ docker run -d --net=host \
 -v /etc/ceph:/etc/ceph \
 -v /var/lib/ceph/:/var/lib/ceph/ \
 -v /dev/:/dev/ \
+-e OSD_FORCE_ZAP=1
 -e OSD_DEVICE=/dev/vdd \
 -e OSD_TYPE=disk \
 --name="ceph-osd" \
 --restart=always \
-ceph/daemon osd
+ceph/daemon osd_ceph_disk
 ```
 
 Watch the output by running ```docker logs ceph-osd -f```, and confirm success.
 
-!!! note "Zapping the device"
-    The Ceph OSD container will refuse to destroy a partition containing existing data, so it may be necessary to "zap" the target disk, using:
-    ```    
-    docker run -d --privileged=true \
-    -v /dev/:/dev/ \
-    -e OSD_DEVICE=/dev/sdd \
-    ceph/daemon zap_device
-    ```
+!!! warning "Zapping the device"
+    The Ceph OSD container will normally refuse to destroy a partition containing existing data, but above we are instructing ceph to zap (destroy) whatever is on the partition currently. Don't run this against a device you care about, and if you're unsure, omit the "OSD_FORCE_ZAP" variable
 
 ### Setup MDSs
 
@@ -173,7 +168,7 @@ echo -e "
 $MYHOST:6789:/      /var/data/      ceph      \
 name=dockerswarm\
 ,secret=<YOUR SECRET HERE>\
-,noatime,_netdev,context=system_u:object_r:svirt_sandbox_file_t:s0\
+,noatime,_netdev,context=system_u:object_r:svirt_sandbox_file_t:s0 \
 0 2" >> /etc/fstab
 mount -a
 ```
