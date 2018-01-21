@@ -51,7 +51,7 @@ reboot
 
 Of course, you want to squeeze the optimal performance out of your GPU. This is where the X11 environment is required - to adjust GPU clock/memory settings, you need to use the ```nvidia-settings``` command, which (_stupidly_) **requires** an X11 display, even if you're just using the command line.
 
-The following command: configures X11 for a "fake" screen so that X11 will run, even on a headless machine managed by SSH only, and ensures that the PCI bus ID of every NVidia device is added to the xorg.conf file (to avoid errors about )
+The following command: configures X11 for a "fake" screen so that X11 will run, even on a headless machine managed by SSH only, and ensures that the PCI bus ID of every NVidia device is added to the xorg.conf file (to avoid errors about "_(EE) no screens found(EE)_")
 
 ```
 nvidia-xconfig -a --allow-empty-initial-configuration --cool-bits=28 --use-display-device="DFP-0" --connected-monitor="DFP-0" --enable-all-gpus --separate-x-screens
