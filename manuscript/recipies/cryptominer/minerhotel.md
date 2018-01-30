@@ -8,7 +8,7 @@ So, you have GPUs. You can mine cryptocurrency. But **what** cryptocurrency shou
 1. You could manually keep track of [whattomine](http://whattomine.com/), and launch/stop miners based on profitability/convenience, as you see fit.
 2. You can automate the process of mining the most profitable coin based on your GPUs' capabilities and the current market prices, and do better things with your free time! (_[receiving alerts](/recipies/crytominer/monitor/), of course, if anything stops working!_)
 
-This recipe covers option #2 :)
+This recipe covers option #2 😁
 
 [Miner hotel](http://minerhotel.com/) is a collection of scripts and config files to fully automate your mining across AMD or Nvidia cards.
 
@@ -16,6 +16,7 @@ This recipe covers option #2 :)
 ## Ingredients
 
 * [Latest Minerhotel release](http://minerhotel.com/download.html) for Linux
+* Time and patience
 
 ## Preparation
 
@@ -54,10 +55,50 @@ For the whattomine bot to select the most profitable coin to mine for **your** G
 
 ### Test miners
 
-Before trusting the whattomine service to launch your miners, test each one first by starting them manually, and then checking their status.
+Before trusting the whattomine service to automatically launch your miners, test each one first by starting them manually, and then checking their status.
 
 For example, to test the **miner-amd-eth-ethhash-ethermine** miner, run
 
 1. ```systemctl start miner-amd-eth-ethhash-ethermine.service``` to start the service
 2. And then watch the output by running ```journalctl -u miner-amd-eth-ethhash-ethermine -f```
 3. When you're satisfied it's working correctly (_without errors and with a decent hashrate_), stop the miner again by running ```systemctl stop miner-amd-eth-ethhash-ethermine```, and move onto testing the next one.
+
+## Serving
+
+### Launch whattomine
+
+Finally, run ```systemctl start minerhotel-whattomine``` and then ```journalctl -u minerhotel-whattomine -f``` to watch the output. Within a minute, you should see whattomime launching the most profitable miner, as illustrated below:
+
+```
+Jan 29 13:49:38 kvm.funkypenguin.co.nz whattomine-linux[2057]: 2018-01-29T13:49:38+1300 <INF> whattomine.js Loading whattominebot
+Jan 29 13:49:38 kvm.funkypenguin.co.nz whattomine-linux[2057]: 2018-01-29T13:49:38+1300 <INF> whattomine.js Starting whattominebot now.
+Jan 29 13:50:45 kvm.funkypenguin.co.nz whattomine-linux[2057]: 2018-01-29T13:50:45+1300 <INF> whattomine.js Mining Ethereum|ETH|Ethash|0.0089|0.00093|100
+Jan 29 13:50:45 kvm.funkypenguin.co.nz whattomine-linux[2057]: 2018-01-29T13:50:45+1300 <INF> whattomine.js Could not find a miner for Ubiq.
+Jan 29 13:51:39 kvm.funkypenguin.co.nz whattomine-linux[2057]: 2018-01-29T13:51:39+1300 <INF> whattomine.js Mining Ethereum|ETH|Ethash|0.0089|0.00094|100
+Jan 29 13:51:39 kvm.funkypenguin.co.nz whattomine-linux[2057]: 2018-01-29T13:51:39+1300 <INF> whattomine.js Could not find a miner for Ubiq.
+```
+
+!!! note
+    The messages about "Could not find miner" can be ignored, they indicate that one of the preferred coins on whattomine does not have a miner defined.
+
+To make whattomine start automatically in future, run ```systemctl enable minerhotel-whattomine```
+
+## Continue your adventure
+
+Now, continue to the next stage of your grand mining adventure:
+
+1. Build your [mining rig](/recipies/cryptominer/mining-rig/) 💻
+2. Setup your [AMD](/recipies/cryptominer/amd-gpu/) or [Nvidia](/recipies/cryptominer/nvidia-gpu/) GPUs 🎨
+3. Setup your miners with Miner Hotel] 🏨 (This page)
+4. Send your coins to [exchanges](/recipies/cryptominer/exchange/) or [wallets](/recipies/cryptominer/wallet/) 💹
+5. [Monitor](/recipies/cryptominer/monitor/) your empire :heartbeat:
+6. [Profit](/recipies/cryptominer/profit/)! 💰
+
+
+## Chef's Notes
+
+### Tip your waiter (donate) 👏
+
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬
