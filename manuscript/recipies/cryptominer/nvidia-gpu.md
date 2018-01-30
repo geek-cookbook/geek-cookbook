@@ -1,5 +1,8 @@
 # NVidia GPU
 
+!!! warning
+    This is not a complete recipe - it's a component of the [cryptominer](/recipies/cryptominer/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+
 ## Ingredients
 
 1. [Nvidia drivers](http://www.nvidia.com/Download/driverResults.aspx/104284/en-us) for your GPU
