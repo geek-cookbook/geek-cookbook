@@ -151,6 +151,7 @@ Now, continue to the next stage of your grand mining adventure:
 
 1. Build your [mining rig](/recipies/cryptominer/mining-rig/) 💻
 2. Setup your AMD (_this page_) or [Nvidia](/recipies/cryptominer/nvidia-gpu/) GPUs 🎨
+3. Sign up for [mining pools](/recipies/cryptominer/mining-pool/) :swimmer:
 3. Setup your miners with [Miner Hotel](/recipies/cryptominer/minerhotel/) 🏨
 4. Send your coins to [exchanges](/recipies/cryptominer/exchange/) or [wallets](/recipies/cryptominer/wallet/) 💹
 5. [Monitor](/recipies/cryptominer/monitor/) your empire :heartbeat:

@@ -52,9 +52,11 @@ pages:
         - Mining Rig: recipies/cryptominer/mining-rig.md
         - AMD GPU: recipies/cryptominer/amd-gpu.md
         - NVidia GPU: recipies/cryptominer/nvidia-gpu.md
+        - Mining Pools : recipies/cryptominer/mining-pool.md
+        - Wallets : recipies/cryptominer/wallet.md
+        - Exchanges: recipies/cryptominer/exchange.md
         - Minerhotel: recipies/cryptominer/minerhotel.md
         - Monitoring: recipies/cryptominer/monitor.md
-        - Exchanges: recipies/cryptominer/exchange.md
         - Profit!: recipies/cryptominer/profit.md
     - Menu:
       - Ghost: recipies/ghost.md

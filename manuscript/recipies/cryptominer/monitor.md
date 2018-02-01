@@ -49,7 +49,9 @@ I've tried several iOS apps for monitoring my performance across various. The mo
 
 ### Track your portfolio
 
-Now that you've got your coins happily cha-chinging into you wallets (and potentially various exchanges), you'll want to monitor the performance of your portfolio over time.
+Now that you've got your coins happily cha-chinging into you [wallets](/recipies/cryptominer/wallet/) (_and potentially various [exchanges](/recipies/cryptominer/exchange/)_), you'll want to monitor the performance of your portfolio over time.
+
+#### Web Apps
 
 There's a detailed breakdown of porfolio-management apps [here](https://www.cryptostache.com/2017/11/10/keeping-track-cryptocurrency-portfolio-best-apps-2017/).
 
@@ -58,8 +60,15 @@ Personally, I use:
 * [Altpocket](https://altpocket.io/?ref=ilVqdeWbAv) (A free web app which can auto-sync with certain exchanges and wallets)
 * [CoinTracking](https://cointracking.info?ref=F560640) - The top crypto-portfolio manager, by far. But it's expensive when you get to > 200 trades. You get what you pay for ;)
 
+#### Mobile Apps
+
+I've found the following iOS apps to be useful in tracking my portfolio (_really more for investing than mining though, since portfolio tracking requires a manual entry for each trade_)
+
+* [Delta](https://itunes.apple.com/us/app/delta-crypto-ico-portfolio/id1288676542?mt=8) (iOS) - Track your portfolio (losses/gains) and alert you to changes in the coins you watch
+* [Bitscreener](https://itunes.apple.com/app/apple-store/id1240849311?mt=8) )(iOS) - Track multiple currencies on a watchlist, and quickly view news/discussion per coin
+
 !!! note
-    Both of the links above are referral links. I get some goodies when you use them.
+    Some of the links above are referral links. I get some goodies when you use them.
 
 ## Continue your adventure
 
@@ -67,14 +76,15 @@ Now, continue to the next stage of your grand mining adventure:
 
 1. Build your [mining rig](/recipies/cryptominer/mining-rig/) 💻
 2. Setup your [AMD](/recipies/cryptominer/amd-gpu/) or [Nvidia](/recipies/cryptominer/nvidia-gpu/) GPUs 🎨
-3. Setup your miners with [Miner Hotel](/recipies/cryptominer/minerhotel/) 🏨
-4. Send your coins to [exchanges](/recipies/cryptominer/exchange/) or [wallets](/recipies/cryptominer/wallet/) 💹
-5. Monitor your empire :heartbeat: (_this page_)
-6. [Profit](/recipies/cryptominer/profit/)! 💰
+3. Sign up for [mining pools](/recipies/cryptominer/mining-pool/) :swimmer:
+4. Setup your miners with [Miner Hotel](/recipies/cryptominer/minerhotel/) 🏨
+5. Send your coins to [exchanges](/recipies/cryptominer/exchange/) or [wallets](/recipies/cryptominer/wallet/) 💹
+6. Monitor your empire :heartbeat: (_this page_)
+7. [Profit](/recipies/cryptominer/profit/)! 💰
 
 ## Chef's Notes
 
-1. Ultimately I hope to move all the configuration / mining executables into docker containers, but for now, they're running on a CentOS7 host for direct access to GPUs. (Apparently it _may_ be possible to pass-thru the GPUs to docker containers, but I wanted stability first, before abstracting my hardware away from my miners)
+1. Ultimately I hope to move all the configuration / mining executables into docker containers, but for now, they're running on a CentOS7 host for direct access to GPUs. (_Apparently it **may** be possible to pass-thru the GPUs to docker containers, but I wanted stability first, before abstracting my hardware away from my miners_)
 
 ### Tip your waiter (donate) 👏
 

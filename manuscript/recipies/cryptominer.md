@@ -25,10 +25,11 @@ For readability, I've split this recipe into multiple sub-recipies, which can be
 
 1. Build your [mining rig](/recipies/cryptominer/mining-rig/) 💻
 2. Setup your [AMD](/recipies/cryptominer/amd-gpu/) or [Nvidia](/recipies/cryptominer/nvidia-gpu/) GPUs 🎨
-3. Setup your miners with [Miner Hotel](/recipies/cryptominer/minerhotel/) 🏨
-4. Send your coins to [exchanges](/recipies/cryptominer/exchange/) or [wallets](/recipies/cryptominer/wallet/) 💹
-5. [Monitor](/recipies/cryptominer/monitor/) your empire :heartbeat:
-6. [Profit](/recipies/cryptominer/profit/)! 💰
+3. Sign up for [mining pools](/recipies/cryptominer/mining-pool/) :swimmer:
+4. Setup your miners with [Miner Hotel](/recipies/cryptominer/minerhotel/) 🏨
+5. Send your coins to [exchanges](/recipies/cryptominer/exchange/) or [wallets](/recipies/cryptominer/wallet/) 💹
+6. [Monitor](/recipies/cryptominer/monitor/) your empire :heartbeat:
+7. [Profit](/recipies/cryptominer/profit/)! 💰
 
 ## Chef's Notes
 

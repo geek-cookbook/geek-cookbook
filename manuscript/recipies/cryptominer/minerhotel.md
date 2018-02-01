@@ -89,10 +89,11 @@ Now, continue to the next stage of your grand mining adventure:
 
 1. Build your [mining rig](/recipies/cryptominer/mining-rig/) 💻
 2. Setup your [AMD](/recipies/cryptominer/amd-gpu/) or [Nvidia](/recipies/cryptominer/nvidia-gpu/) GPUs 🎨
-3. Setup your miners with Miner Hotel] 🏨 (This page)
-4. Send your coins to [exchanges](/recipies/cryptominer/exchange/) or [wallets](/recipies/cryptominer/wallet/) 💹
-5. [Monitor](/recipies/cryptominer/monitor/) your empire :heartbeat:
-6. [Profit](/recipies/cryptominer/profit/)! 💰
+3. Sign up for [mining pools](/recipies/cryptominer/mining-pool/) :swimmer:
+4. Setup your miners with Miner Hotel 🏨 (_This page_)
+5. Send your coins to [exchanges](/recipies/cryptominer/exchange/) or [wallets](/recipies/cryptominer/wallet/) 💹
+6. [Monitor](/recipies/cryptominer/monitor/) your empire :heartbeat:
+7. [Profit](/recipies/cryptominer/profit/)! 💰
 
 
 ## Chef's Notes
