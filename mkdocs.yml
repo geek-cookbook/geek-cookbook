@@ -40,8 +40,7 @@ pages:
       - Kanboard: recipies/kanboard.md
       - Miniflux: recipies/miniflux.md
       - Gollum: recipies/gollum.md
-# Not completed yet in this branch
-#      - AutoPirate: recipies/autopirate.md
+      - AutoPirate: recipies/autopirate.md
       - NextCloud: recipies/nextcloud.md
       - Plex: recipies/plex.md
       - Emby: recipies/emby.md
