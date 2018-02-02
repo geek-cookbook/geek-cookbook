@@ -6,13 +6,10 @@ Sign up [here](http://eepurl.com/dfx95n) (double-opt-in) to receive email update
 
 ## Recently added recipes
 
+* [CryptoMiner](/recipies/cryto-miner/start/) - Become a cryptocurrency miner, put your GPU to work!
 * [Calibre-Web](/recipies/calibre-web/) - Plex for EBooks (_8 Jan 2017_)
 * [Emby](/recipies/emby/) - Geekier alternative to Plex, with improved parental controls (_28 Dec 2017_)
 * [Home Assistant](/recipies/homeassistant/) - Home automation platform with support for a [bazillion](https://home-assistant.io/components/) components (_24 Dec 2017_)
-* [Plex](/recipies/plex/) : Media management and playback platform to **play** all the media you acquired using [AutoPirate](/recipies/autopirate/) :grin: (_21 Dec 2017_)
-* [Portainer](/recipies/portainer/) : Sexy management UI for your docker container/swarm (_16 Dec 2017_)
-* [NextCloud](/recipies/nextcloud/) : A personal dropbox-style online storage platform with a large ecosystem of 3rd-party apps for Calendaring, Contacts, Document Editing, etc. (_16 Dec 2017_)
-* [AutoPirate](/recipies/autopirate/) : A full stack of NZB/Torrent tools for discovering, managing your media. (_12 Dec 2017_)
 
 
 ## Recent improvements
