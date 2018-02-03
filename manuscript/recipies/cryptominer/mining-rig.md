@@ -21,6 +21,9 @@ You don't need anything fancy. Here's a photo of the rig my wife built me:
 
 I recommend this design (_with the board with little holes in it_) - it takes up more space, but I have more room to place extra components (_PSUs, hard drives, etc_), as illustrated below:
 
+!!! note
+    You'll note the hard drives in the picture - that's not part of the mining requirements, it's because my rig doubles as my [Plex](/recipies/plex/) server ;)
+
 ![My mining rig, populated](../../images/mining_rig_populated.jpg)
 
 ## Continue your adventure
