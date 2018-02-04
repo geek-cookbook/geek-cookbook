@@ -13,6 +13,8 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 
 ## Ingredients
 
+1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+
 ## Preparation
 
 ### Prepare the host
