@@ -101,11 +101,11 @@ services:
   registry-mirror:
     image: registry:2
     networks:
-      - traefik
+      - traefik_public
     deploy:
       labels:
         - traefik.frontend.rule=Host:<your mirror FQDN>
-        - traefik.docker.network=traefik
+        - traefik.docker.network=traefik_public
         - traefik.port=5000
     ports:
       - 5000:5000
@@ -114,7 +114,7 @@ services:
       - /var/data/registry/registry-mirror-config.yml:/etc/docker/registry/config.yml
 
 networks:
-  traefik:
+  traefik_public:
     external: true
 ```
 

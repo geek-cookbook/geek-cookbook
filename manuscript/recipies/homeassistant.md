@@ -59,7 +59,7 @@ services:
         - /etc/localtime:/etc/localtime:ro
 
     homeassistant:
-      image: homeassistant/homeassistant
+      image: homeassistant/home-assistant
       dns_search: hq.example.com
       volumes:
         - /var/data/homeassistant/homeassistant:/config
