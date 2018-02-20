@@ -126,6 +126,40 @@ networks:
 
 Launch the cleanup stack by running ```docker stack deploy docker-cleanup -c <path-to-docker-compose.yml>```
 
+### Setup automatic updates
+
+If your swarm runs for a long time, you might find yourself running older container images, after newer versions have been released. If you're the sort of geek who wants to live on the edge, configure [shepherd](https://github.com/djmaze/shepherd) to auto-update your container images regularly.
+
+Create /var/data/config/shepherd/shepherd.env as follows:
+
+```
+# Don't auto-update Plex or Emby, I might be watching a movie! (Customize this for the containers you _don't_ want to auto-update)
+BLACKLIST_SERVICES="plex_plex emby_emby"
+# Run every 24 hours. I _really_ don't need new images more frequently than that!
+SLEEP_TIME=1440
+```
+
+Then create /var/data/config/shepherd/shepherd.yml as follows:
+
+```
+version: "3"
+
+services:
+  shepherd-app:
+    image: mazzolino/shepherd
+    env_file : /var/data/config/shepherd/shepherd.env
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    labels:
+      - "traefik.enable=false"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+```
+
+Launch shepherd by running ```docker stack deploy shepherd -c /var/data/config/shepherd/shepherd.yml```, and then just forget about it, comfortable in the knowledge that every day, Shepherd will check that your images are the latest available, and if not, will destroy and recreate the container on the latest available image.
+
+
 ### Tweaks
 
 Add some handy bash auto-completion for docker. Without this, you'll get annoyed that you can't autocomplete ```docker stack deploy <blah> -c <blah.yml>``` commands.
