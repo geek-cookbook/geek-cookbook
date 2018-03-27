@@ -44,7 +44,7 @@ We'll need a unique directories for each tool in the stack, bind-mounted into ou
 ```
 mkdir /var/data/autopirate
 cd /var/data/autopirate
-mkdir -p {lazylibrarian,mylar,ombi,sonarr,radarr,headphones,plexpy,nzbhydra,sabnzbd,nzbget,rtorrent}
+mkdir -p {lazylibrarian,mylar,ombi,sonarr,radarr,headphones,plexpy,nzbhydra,sabnzbd,nzbget,rtorrent,jackett}
 ```
 
 Create a directory for the storage of your downloaded media, i.e., something like:
@@ -119,6 +119,7 @@ Now work your way through the list of tools below, adding whichever tools your w
 * [Headphones](/recipies/autopirate/headphones/)
 * [NZBHydra](/recipies/autopirate/nzbhydra/)
 * [Ombi](/recipies/autopirate/ombi/)
+* [Jackett](/recipies/autopirate/jackett/)
 * [End](/recipies/autopirate/end/) (launch the stack)
 
 ## Your comments?

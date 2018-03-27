@@ -25,7 +25,7 @@ nzbget:
    - /var/data/autopirate/nzbget:/config
    - /var/data/media:/data
   networks:
-  - traefik_public
+  - internal
 
 nzbget_proxy:
   image: zappi/oauth2_proxy
@@ -69,6 +69,7 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [Headphones](/recipies/autopirate/headphones/)
 * [NZBHydra](/recipies/autopirate/nzbhydra/)
 * [Ombi](/recipies/autopirate/ombi/)
+* [Jackett](/recipies/autopirate/jackett/)
 * [End](/recipies/autopirate/end/) (launch the stack)
 
 

@@ -11,11 +11,8 @@ SABnzbd is the workhorse of the stack. It takes .nzb files as input (_manually o
 
 ## Inclusion into AutoPirate
 
-To include SABNZBD in your [AutoPirate](/recipies/autopirate/start/) stack
+To include SABnzbd in your [AutoPirate](/recipies/autopirate/start/) stack
 (_The only reason you **wouldn't** use SABnzbd, would be if you were using [NZBGet](/recipies/autopirate/nzbget.md) instead_), include the following in your autopirate.yml stack definition file:
-
-!!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
 
 ````
 sabnzbd:
@@ -25,7 +22,7 @@ sabnzbd:
    - /var/data/autopirate/sabnzbd:/config
    - /var/data/media:/media
   networks:
-  - traefik_public
+  - internal
 
 sabnzbd_proxy:
   image: zappi/oauth2_proxy
@@ -51,6 +48,10 @@ sabnzbd_proxy:
     -authenticated-emails-file=/authenticated-emails.txt
 ````
 
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+
+
 ## Assemble more tools..
 
 Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipies/autopirate/end/)** section:
@@ -65,6 +66,7 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [Headphones](/recipies/autopirate/headphones/)
 * [NZBHydra](/recipies/autopirate/nzbhydra/)
 * [Ombi](/recipies/autopirate/ombi/)
+* [Jackett](/recipies/autopirate/jackett/)
 * [End](/recipies/autopirate/end/) (launch the stack)
 
 
