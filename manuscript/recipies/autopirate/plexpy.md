@@ -1,5 +1,5 @@
 !!! warning
-    This is not a complete recipe - it's a component of the [AutoPirate](/recipies/autopirate/start/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [AutoPirate](/recipies/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # NAME
 
@@ -18,7 +18,7 @@ Details
 
 ## Inclusion into AutoPirate
 
-To include NZBGet in your [AutoPirate](/recipies/autopirate/start/) stack, include the following in your autopirate.yml stack definition file:
+To include NZBGet in your [AutoPirate](/recipies/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
 !!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍

@@ -1,5 +1,5 @@
 !!! warning
-    This is not a complete recipe - it's a component of the [AutoPirate](/recipies/autopirate/start/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [AutoPirate](/recipies/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # NZBGet
 
@@ -11,7 +11,7 @@ NZBGet performs the same function as [SABnzbd](/recipies/autopirate/sabnzbd.md) 
 
 ## Inclusion into AutoPirate
 
-To include NZBGet in your [AutoPirate](/recipies/autopirate/start/) stack
+To include NZBGet in your [AutoPirate](/recipies/autopirate/) stack
 (_The only reason you **wouldn't** use NZBGet, would be if you were using [SABnzbd](/recipies/autopirate/sabnzbd/) instead_), include the following in your autopirate.yml stack definition file:
 
 !!! tip

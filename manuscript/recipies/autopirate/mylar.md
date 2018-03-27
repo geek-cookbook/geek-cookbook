@@ -1,5 +1,5 @@
 !!! warning
-    This is not a complete recipe - it's a component of the [autopirate](/recipies/autopirate/start/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [autopirate](/recipies/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # Mylar
 
@@ -9,7 +9,7 @@
 
 ## Inclusion into AutoPirate
 
-To include Mylar in your [AutoPirate](/recipies/autopirate/start/) stack, include the following in your autopirate.yml stack definition file:
+To include Mylar in your [AutoPirate](/recipies/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
 ````
 mylar:

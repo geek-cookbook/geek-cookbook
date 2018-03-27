@@ -1,5 +1,5 @@
 !!! warning
-    This is not a complete recipe - it's a component of the [AutoPirate](/recipies/autopirate/start/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [AutoPirate](/recipies/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 
 # Sonarr
@@ -11,7 +11,7 @@
 
 ## Inclusion into AutoPirate
 
-To include Sonarr in your [AutoPirate](/recipies/autopirate/start/) stack, include the following in your autopirate.yml stack definition file:
+To include Sonarr in your [AutoPirate](/recipies/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
 ````
 sonarr:

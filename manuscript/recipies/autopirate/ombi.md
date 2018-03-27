@@ -1,9 +1,9 @@
 !!! warning
-    This is not a complete recipe - it's a component of the [AutoPirate](/recipies/autopirate/start/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [AutoPirate](/recipies/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # Ombi
 
-[Ombi](https://github.com/tidusjar/Ombi) is a useful addition to the [autopirate](/recipies/autopirate/start/) stack. Features include:
+[Ombi](https://github.com/tidusjar/Ombi) is a useful addition to the [autopirate](/recipies/autopirate/) stack. Features include:
 
 * Lets users request Movies and TV Shows (_whether it being the entire series, an entire season, or even single episodes._)
 * Easily manage your requests
@@ -17,7 +17,7 @@ Automatically updates the status of requests when they are available on Plex/Emb
 
 ## Inclusion into AutoPirate
 
-To include Ombi in your [AutoPirate](/recipies/autopirate/start/) stack, include the following in your autopirate.yml stack definition file:
+To include Ombi in your [AutoPirate](/recipies/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
 ````
 ombi:

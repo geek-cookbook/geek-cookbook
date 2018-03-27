@@ -1,17 +1,17 @@
 !!! warning
-    This is not a complete recipe - it's a component of the [AutoPirate](/recipies/autopirate/start/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [AutoPirate](/recipies/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # SABnzbd
 
 ## Introduction
 
-SABnzbd is the workhorse of the stack. It takes .nzb files as input (_manually or from other [autopirate](/recipies/autopirate/start/) stack tools_), then connects to your chosen Usenet provider, downloads all the individual binaries referenced by the .nzb, and then tests/repairs/combines/uncompresses them all into the final result - media files.
+SABnzbd is the workhorse of the stack. It takes .nzb files as input (_manually or from other [autopirate](/recipies/autopirate/) stack tools_), then connects to your chosen Usenet provider, downloads all the individual binaries referenced by the .nzb, and then tests/repairs/combines/uncompresses them all into the final result - media files.
 
 ![SABNZBD Screenshot](../../images/sabnzbd.png)
 
 ## Inclusion into AutoPirate
 
-To include SABnzbd in your [AutoPirate](/recipies/autopirate/start/) stack
+To include SABnzbd in your [AutoPirate](/recipies/autopirate/) stack
 (_The only reason you **wouldn't** use SABnzbd, would be if you were using [NZBGet](/recipies/autopirate/nzbget.md) instead_), include the following in your autopirate.yml stack definition file:
 
 ````
