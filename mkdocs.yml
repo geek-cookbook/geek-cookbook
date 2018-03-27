@@ -41,7 +41,20 @@ pages:
       - Kanboard: recipies/kanboard.md
       - Miniflux: recipies/miniflux.md
       - Gollum: recipies/gollum.md
-      - AutoPirate: recipies/autopirate.md
+      - Auto Pirate:
+        - Start: recipies/autopirate.md
+        - SABnzbd: recipies/autopirate/sabnzbd.md
+        - NZBGet: recipies/autopirate/nzbget.md
+        - Rtorrent: recipies/autopirate/rtorrent.md
+        - Sonarr: recipies/autopirate/sonarr.md
+        - Radarr: recipies/autopirate/radarr.md
+        - Mylar: recipies/autopirate/mylar.md
+        - Lazy Librarian: recipies/autopirate/lazylibrarian.md
+        - Headphones: recipies/autopirate/headphones.md
+        - NZBHydra: recipies/autopirate/nzbhydra.md
+        - Ombi: recipies/autopirate/ombi.md
+        - Jackett: recipies/autopirate/jackett.md
+        - End: recipies/autopirate/end.md
       - NextCloud: recipies/nextcloud.md
       - Plex: recipies/plex.md
       - Emby: recipies/emby.md
