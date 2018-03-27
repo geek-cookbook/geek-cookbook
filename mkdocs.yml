@@ -53,7 +53,6 @@ pages:
         - NZBHydra: recipies/autopirate/nzbhydra.md
         - Ombi: recipies/autopirate/ombi.md
         - Jackett: recipies/autopirate/jackett.md
-        - Muximux: recipies/autopirate/muximux.md
         - End: recipies/autopirate/end.md
       - NextCloud: recipies/nextcloud.md
       - Plex: recipies/plex.md

@@ -44,7 +44,7 @@ version: "3.0"
 
 services:
   emby:
-    image: linuxserver/emby
+    image: emby/embyserver
     env_file: /var/data/config/emby/emby.env
     volumes:
       - /var/data/emby/emby:/config
