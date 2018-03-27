@@ -2,7 +2,7 @@ hero: Manage your ebook collection. Like a BOSS.
 
 # Calibre-Web
 
-The [AutopPirate](/recipies/autopirate/) recipe includes [Lazy Librarian](https://github.com/itsmegb/LazyLibrarian), a tool for tracking, finding, and downloading eBooks. However, after the eBooks are downloaded, Lazy Librarian is not much use for organising, tracking, and actually **reading** them.
+The [AutoPirate](/recipies/autopirate/) recipe includes [Lazy Librarian](https://github.com/itsmegb/LazyLibrarian), a tool for tracking, finding, and downloading eBooks. However, after the eBooks are downloaded, Lazy Librarian is not much use for organising, tracking, and actually **reading** them.
 
 [Calibre-Web](https://github.com/janeczku/calibre-web) could be described as "_[Plex](/recipies/plex/) (or [Emby](/recipies/emby/)) for eBooks_" - it's a web-based interface to manage your eBook library, screenshot below:
 
