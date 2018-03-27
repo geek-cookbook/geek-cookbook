@@ -1,67 +1,72 @@
-hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and organising your media 📺 🎥 🎵 📖
-
 !!! warning
-    This is not a complete recipe - it's a component of the [autopirate](/recipies/autopirate/start/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [AutoPirate](/recipies/autopirate/start/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
-# Headphones
+# NZBGet
 
-[Headphones](https://github.com/rembo10/headphones) is an automated music downloader for NZB and Torrent, written in Python. It supports SABnzbd, NZBget, Transmission, µTorrent, Deluge and Blackhole.
+## Introduction
 
-![Headphones Screenshot](../../images/headphones.png)
+NZBGet performs the same function as [SABnzbd](/recipies/autopirate/sabnzbd.md) (_downloading content from Usenet servers_), but it's lightweight and fast(er), written in C++ (_as opposed to Python_).
+
+![NZBGet Screenshot](../../images/nzbget.jpg)
 
 ## Inclusion into AutoPirate
 
-To include Headphones in your [AutoPirate](/recipies/autopirate/start/) stack, include the following in your autopirate.yml stack definition file:
+To include NZBGet in your [AutoPirate](/recipies/autopirate/start/) stack
+(_The only reason you **wouldn't** use NZBGet, would be if you were using [SABnzbd](/recipies/autopirate/sabnzbd/) instead_), include the following in your autopirate.yml stack definition file:
+
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
 
 ````
-headphones:
-  image: linuxserver/headphones:latest
-  env_file : /var/data/config/autopirate/headphones.env
+nzbget:
+  image: linuxserver/nzbget
+  env_file : /var/data/config/autopirate/nzbget.env  
   volumes:
-   - /var/data/autopirate/headphones:/config
-   - /var/data/media:/media
+   - /var/data/autopirate/nzbget:/config
+   - /var/data/media:/data
   networks:
   - internal
 
-headphones_proxy:
+nzbget_proxy:
   image: zappi/oauth2_proxy
-  env_file : /var/data/config/autopirate/headphones.env
-  dns_search: myswarm.example.com  
+  env_file : /var/data/config/autopirate/nzbget.env
+  dns_search: myswarm.example.com
   networks:
     - internal
     - traefik_public
   deploy:
     labels:
-      - traefik.frontend.rule=Host:headphones.example.com
+      - traefik.frontend.rule=Host:nzbget.example.com
       - traefik.docker.network=traefik_public
       - traefik.port=4180
   volumes:
     - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
   command: |
     -cookie-secure=false
-    -upstream=http://headphones:8181
-    -redirect-url=https://headphones.example.com
+    -upstream=http://nzbget:6789
+    -redirect-url=https://nzbget.example.com
     -http-address=http://0.0.0.0:4180
     -email-domain=example.com
     -provider=github
     -authenticated-emails-file=/authenticated-emails.txt
 ````
 
-!!! tip
-    I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+!!! note
+    NZBGet uses a 401 header to prompt for authentication. When you use OAuth2_proxy, this seems to break. Since we trust OAuth to authenticate us, we can just disable NZGet's own authentication, by changing ControlPassword to null in nzbget.conf (i.e. ```ControlPassword=```)
+
 
 ## Assemble more tools..
 
 Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipies/autopirate/end/)** section:
 
 * [SABnzbd](/recipies/autopirate/sabnzbd.md)
-* [NZBGet](/recipies/autopirate/nzbget.md)
+* NZBGet (this page)
 * [RTorrent](/recipies/autopirate/rtorrent/)
 * [Sonarr](/recipies/autopirate/sonarr/)
 * [Radarr](/recipies/autopirate/radarr/)
-* [Mylar](https://github.com/evilhero/mylar)
+* [Mylar](/recipies/autopirate/mylar/)
 * [Lazy Librarian](/recipies/autopirate/lazylibrarian/)
-* Headphones (this page)
+* [Headphones](/recipies/autopirate/headphones/)
 * [NZBHydra](/recipies/autopirate/nzbhydra/)
 * [Ombi](/recipies/autopirate/ombi/)
 * [Jackett](/recipies/autopirate/jackett/)

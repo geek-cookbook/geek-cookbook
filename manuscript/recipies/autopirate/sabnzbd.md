@@ -1,46 +1,47 @@
-hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and organising your media 📺 🎥 🎵 📖
-
 !!! warning
-    This is not a complete recipe - it's a component of the [autopirate](/recipies/autopirate/start/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [AutoPirate](/recipies/autopirate/start/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
-# Headphones
+# SABnzbd
 
-[Headphones](https://github.com/rembo10/headphones) is an automated music downloader for NZB and Torrent, written in Python. It supports SABnzbd, NZBget, Transmission, µTorrent, Deluge and Blackhole.
+## Introduction
 
-![Headphones Screenshot](../../images/headphones.png)
+SABnzbd is the workhorse of the stack. It takes .nzb files as input (_manually or from other [autopirate](/recipies/autopirate/start/) stack tools_), then connects to your chosen Usenet provider, downloads all the individual binaries referenced by the .nzb, and then tests/repairs/combines/uncompresses them all into the final result - media files.
+
+![SABNZBD Screenshot](../../images/sabnzbd.png)
 
 ## Inclusion into AutoPirate
 
-To include Headphones in your [AutoPirate](/recipies/autopirate/start/) stack, include the following in your autopirate.yml stack definition file:
+To include SABnzbd in your [AutoPirate](/recipies/autopirate/start/) stack
+(_The only reason you **wouldn't** use SABnzbd, would be if you were using [NZBGet](/recipies/autopirate/nzbget.md) instead_), include the following in your autopirate.yml stack definition file:
 
 ````
-headphones:
-  image: linuxserver/headphones:latest
-  env_file : /var/data/config/autopirate/headphones.env
+sabnzbd:
+  image: linuxserver/sabnzbd:latest
+  env_file : /var/data/config/autopirate/sabnzbd.env  
   volumes:
-   - /var/data/autopirate/headphones:/config
+   - /var/data/autopirate/sabnzbd:/config
    - /var/data/media:/media
   networks:
   - internal
 
-headphones_proxy:
+sabnzbd_proxy:
   image: zappi/oauth2_proxy
-  env_file : /var/data/config/autopirate/headphones.env
-  dns_search: myswarm.example.com  
+  env_file : /var/data/config/autopirate/sabnzbd.env
+  dns_search: myswarm.example.com
   networks:
     - internal
     - traefik_public
   deploy:
     labels:
-      - traefik.frontend.rule=Host:headphones.example.com
+      - traefik.frontend.rule=Host:sabnzbd.example.com
       - traefik.docker.network=traefik_public
       - traefik.port=4180
   volumes:
     - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
   command: |
     -cookie-secure=false
-    -upstream=http://headphones:8181
-    -redirect-url=https://headphones.example.com
+    -upstream=http://sabnzbd:8080
+    -redirect-url=https://sabnzbd.example.com
     -http-address=http://0.0.0.0:4180
     -email-domain=example.com
     -provider=github
@@ -48,20 +49,21 @@ headphones_proxy:
 ````
 
 !!! tip
-    I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+
 
 ## Assemble more tools..
 
 Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipies/autopirate/end/)** section:
 
-* [SABnzbd](/recipies/autopirate/sabnzbd.md)
+* SABnzbd (this page)
 * [NZBGet](/recipies/autopirate/nzbget.md)
 * [RTorrent](/recipies/autopirate/rtorrent/)
 * [Sonarr](/recipies/autopirate/sonarr/)
 * [Radarr](/recipies/autopirate/radarr/)
-* [Mylar](https://github.com/evilhero/mylar)
+* [Mylar](/recipies/autopirate/mylar/)
 * [Lazy Librarian](/recipies/autopirate/lazylibrarian/)
-* Headphones (this page)
+* [Headphones](/recipies/autopirate/headphones/)
 * [NZBHydra](/recipies/autopirate/nzbhydra/)
 * [Ombi](/recipies/autopirate/ombi/)
 * [Jackett](/recipies/autopirate/jackett/)
