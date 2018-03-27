@@ -49,7 +49,6 @@ I also gratefully accept donations of most fine socialist/anarchist/hobbyist cry
 | Bitcoin      | 1GBJfmqARmL66gQzUy9HtNWdmAEv74nfXj
 | Ethereum     | 0x19e60ec49e1f053cfdfc193560ecfb3caed928f1
 | Litecoin     | LYLEF7xTpeVbjjoZD3jGLVgvKSKTYDKbK8
-| Ripple       | rEb8TK3gBgk5auZkwc6sHnwrGVJH8DuaLh (deposit tag 104584441)
 
 
 
