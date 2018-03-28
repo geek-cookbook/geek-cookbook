@@ -28,7 +28,7 @@ I chose the "[Atomic](https://www.projectatomic.io/)" CentOS/Fedora image for th
 2. The default username on CentOS atomic is "centos", and you'll have needed to supply your SSH key during the build process.
 
 !!! tip
-    If you're not using a platform with cloud-init support (i.e., you're building a VM manually, not provisioning it through a cloud provider), you'll need to refer to [trick #1][atomic-trick1] and [#2][atomic-trick2] for a means to override the automated setup, apply a manual password to the CentOS account, and enable SSH password logins.
+    If you're not using a platform with cloud-init support (i.e., you're building a VM manually, not provisioning it through a cloud provider), you'll need to refer to [trick #1](https://spinningmatt.wordpress.com/2014/01/08/a-recipe-for-starting-cloud-images-with-virt-install/) and [trick #2](http://blog.oddbit.com/2015/03/10/booting-cloud-images-with-libvirt/) for a means to override the automated setup, apply a manual password to the CentOS account, and enable SSH password logins.
 
 
 ### Prefer docker-latest
