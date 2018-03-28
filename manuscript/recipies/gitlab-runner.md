@@ -2,7 +2,7 @@
 
 Some features of GitLab require a "[runner](https://docs.gitlab.com/runner/)" (_in the sense of a "gopher" or a "minion"_). A runner "registers" itself with a GitLab instance, and is given tasks to run. Tasks include running Continuous Integration (CI) builds, and building container images.
 
-While a runner isn't strictly required to use GitLab, if you want to do CI, you'll need at least one. There are many was to deploy a runner - this recipe focuses on the docker container model.
+While a runner isn't strictly required to use GitLab, if you want to do CI, you'll need at least one. There are many ways to deploy a runner - this recipe focuses on the docker container model.
 
 ## Ingredients
 
