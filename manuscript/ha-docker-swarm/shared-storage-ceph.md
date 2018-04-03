@@ -162,7 +162,7 @@ ceph-authtool /etc/ceph/keyring.dockerswarm -p -n client.dockerswarm
 
 ### Mount MDS volume
 
-On each noie, create a mountpoint for the data, by running ```mkdir /var/data```, add an entry to fstab to ensure the volume is auto-mounted on boot, and ensure the volume is actually _mounted_ if there's a network / boot delay getting access to the gluster volume:
+On each node, create a mountpoint for the data, by running ```mkdir /var/data```, add an entry to fstab to ensure the volume is auto-mounted on boot, and ensure the volume is actually _mounted_ if there's a network / boot delay getting access to the gluster volume:
 
 ```
 mkdir /var/data
