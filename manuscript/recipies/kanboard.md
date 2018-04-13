@@ -72,7 +72,7 @@ services:
     entrypoint: |
       bash -c 'bash -s <<EOF
         trap "break;exit" SIGHUP SIGINT SIGTERM
-        while [ ! -f /var/www/html/config/config.php ]; do
+        while [ ! -f /var/www/app/config.php ]; do
           sleep 1
         done
         while true; do

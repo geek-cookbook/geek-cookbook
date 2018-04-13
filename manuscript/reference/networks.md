@@ -24,7 +24,7 @@ Network  | Range
 [Plex](https://geek-cookbook.funkypenguin.co.nz/recipies/plex/)  |  172.16.16.0/24
 [Emby](https://geek-cookbook.funkypenguin.co.nz/recipies/emby/)  |  172.16.17.0/24
 [Calibre-Web](https://geek-cookbook.funkypenguin.co.nz/recipies/calibre-web/)  |  172.16.18.0/24
-
+[Wallabag](https://geek-cookbook.funkypenguin.co.nz/recipies/wallabag/)  |  172.16.19.0/24
 
 ## Chef's Notes
 
