@@ -6,8 +6,9 @@ Sign up [here](http://eepurl.com/dfx95n) (double-opt-in) to receive email update
 
 ## Recently added recipes
 
+* [InstaPy](/recipies/instapy/) - Automate your Instagrammage (_17 Apr 2018_)
 * [CryptoMiner](/recipies/cryto-miner/start/) - Become a cryptocurrency miner, put your GPU to work!
-* [Calibre-Web](/recipies/calibre-web/) - Plex for EBooks (_8 Jan 2017_)
+* [Calibre-Web](/recipies/calibre-web/) - Plex for EBooks (_8 Jan 2018_)
 * [Emby](/recipies/emby/) - Geekier alternative to Plex, with improved parental controls (_28 Dec 2017_)
 * [Home Assistant](/recipies/homeassistant/) - Home automation platform with support for a [bazillion](https://home-assistant.io/components/) components (_24 Dec 2017_)
 
