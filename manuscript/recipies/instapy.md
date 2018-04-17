@@ -1,4 +1,4 @@
-hero: Automate your social life, What could go wrong?
+hero: Automate your social life! (what could go wrong?)
 
 # InstaPy
 
