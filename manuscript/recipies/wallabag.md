@@ -22,7 +22,7 @@ There are plugins for [Chrome](https://chrome.google.com/webstore/detail/wallaba
 
 ### Setup data locations
 
-We need a filesystem location to store images that Wallabag downloads from the original sources, to re-display when you read your articles, as well as nightly database dumps (_which you should **[backup](/recipies/duplicity/)**_), so create something like this:
+We need a filesystem location to store images that Wallabag downloads from the original sources, to re-display when you read your articles, as well as nightly database dumps (_which you **should [backup](/recipies/duplicity/)**_), so create something like this:
 
 ```
 mkdir -p /var/data/wallabag
@@ -60,7 +60,7 @@ OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=
 ```
 
-Now create wallabag-backup.env in the same folder, with the following contents. (This is necessary to prevent environment variables required for backup from breaking the DB container)
+Now create wallabag-backup.env in the same folder, with the following contents. (_This is necessary to prevent environment variables required for backup from breaking the DB container_)
 
 ```
 # For database backups

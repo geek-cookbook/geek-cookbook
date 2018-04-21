@@ -40,7 +40,6 @@ pages:
       - Huginn: recipies/huginn.md
       - Kanboard: recipies/kanboard.md
       - Miniflux: recipies/miniflux.md
-      - Gollum: recipies/gollum.md
       - Auto Pirate:
         - Start: recipies/autopirate.md
         - SABnzbd: recipies/autopirate/sabnzbd.md
@@ -59,7 +58,6 @@ pages:
       - Plex: recipies/plex.md
       - Emby: recipies/emby.md
       - Home Assistant: recipies/homeassistant.md
-      - Calibre-Web: recipies/calibre-web.md
       - CryptoMiner:
         - Start: recipies/cryptominer.md
         - Mining Rig: recipies/cryptominer/mining-rig.md
@@ -71,16 +69,18 @@ pages:
         - Minerhotel: recipies/cryptominer/minerhotel.md
         - Monitoring: recipies/cryptominer/monitor.md
         - Profit!: recipies/cryptominer/profit.md
-      - Wallabag: recipies/wallabag.md        
     - Menu:
       - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md
       - GitLab Runner: recipies/gitlab-runner.md
+      - Gollum: recipies/gollum.md      
       - Piwik: recipies/piwik.md
       - Wekan: recipies/wekan.md
       - Tiny Tiny RSS: recipies/tiny-tiny-rss.md
       - Portainer: recipies/portainer.md
       - InstaPy: recipies/instapy.md
+      - Calibre-Web: recipies/calibre-web.md
+      - Wallabag: recipies/wallabag.md
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
       - Data Layout: reference/data_layout.md
