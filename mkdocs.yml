@@ -71,6 +71,7 @@ pages:
         - Minerhotel: recipies/cryptominer/minerhotel.md
         - Monitoring: recipies/cryptominer/monitor.md
         - Profit!: recipies/cryptominer/profit.md
+      - Wallabag: recipies/wallabag.md        
     - Menu:
       - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md

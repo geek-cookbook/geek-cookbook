@@ -6,6 +6,7 @@ Sign up [here](http://eepurl.com/dfx95n) (double-opt-in) to receive email update
 
 ## Recently added recipes
 
+* [Wallabag](/recipies/wallabag/) - Self-hosted Read-it-Later / Annotation app (_21 Apr 2018_)
 * [InstaPy](/recipies/instapy/) - Automate your Instagrammage (_17 Apr 2018_)
 * [CryptoMiner](/recipies/cryto-miner/start/) - Become a cryptocurrency miner, put your GPU to work!
 * [Calibre-Web](/recipies/calibre-web/) - Plex for EBooks (_8 Jan 2018_)
