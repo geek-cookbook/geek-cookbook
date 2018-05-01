@@ -73,7 +73,7 @@ pages:
       - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md
       - GitLab Runner: recipies/gitlab-runner.md
-      - Gollum: recipies/gollum.md      
+      - Gollum: recipies/gollum.md
       - Piwik: recipies/piwik.md
       - Wekan: recipies/wekan.md
       - Tiny Tiny RSS: recipies/tiny-tiny-rss.md
