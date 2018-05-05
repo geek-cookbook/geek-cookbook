@@ -6,13 +6,13 @@ hero: How to setup a TurtleCoin Mining Pool
 
 ![Turtle Pool Screenshot](../images/turtle-pool.png)
 
-This recipe illustrates how to build a mining pool for [TurtleCoin](https://turtlecoin.lol), one of many [CryptoNote](https://cryptonote.org/) [currencies](https://cryptonote.org/coins) (_which include [Monero](https://www.coingecko.com/en/coins/monero)_), but the principles can be applied to most minable coins.
+This recipe illustrates how to build a mining pool for [TurtleCoin](https://turtlecoin.lol), one of many [CryptoNote](https://cryptonote.org/) [currencies](https://cryptonote.org/coins) (_which include [Monero](https://www.coingecko.com/en/coins/monero)_), but the principles can be applied to most mineable coins.
 
 The end result is a mining pool which looks like this: https://trtl.heigh-ho.funkypenguin.co.nz/
 
 !!! question "WTF is a TurtleCoin and why do I want it?""
 
-    In my opinion - because it's a fun project with a [silly origin story](https://turtlecoin.lol/#story) a [friendly, welcoming community](http://chat.turtlecoin.lol/), and you'll learn more about cryptocurrency/blockchain than you expect.
+    In my opinion - because it's a fun, no-BS project with a [silly origin story](https://turtlecoin.lol/#story), a [friendly, welcoming community](http://chat.turtlecoin.lol/), and you'll learn more about cryptocurrency/blockchain than you expect.
 
 ## Ingredients
 
@@ -27,7 +27,7 @@ The end result is a mining pool which looks like this: https://trtl.heigh-ho.fun
 
 The TurtleCoin pool elements won't (_and shouldn't_) run as root, but they'll need access to write data to some parts of the filesystem (_like logs, etc_).
 
-To managage access control, we'll want to create a local user on **each docker node** with the same UID.
+To manage access control, we'll want to create a local user on **each docker node** with the same UID.
 
 ```
 useradd -u 3506 turtle-pool
