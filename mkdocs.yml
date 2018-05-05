@@ -69,6 +69,8 @@ pages:
         - Minerhotel: recipies/cryptominer/minerhotel.md
         - Monitoring: recipies/cryptominer/monitor.md
         - Profit!: recipies/cryptominer/profit.md
+      - Wallabag: recipies/wallabag.md
+      - Turtle Pool: recipies/turtle-pool.md
     - Menu:
       - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md
