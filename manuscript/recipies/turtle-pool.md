@@ -255,25 +255,34 @@ version: '3'
 
 services:
   daemon:
-    image: trtl/daemon
-    user: "3506"
+    image: funkypenguin/turtlecoind
     volumes:
-      - /var/data/turtle-pool/daemon:/daemon
+      - /var/data/runtime/turtle-pool/daemon/{{.Task.Slot}}:/var/lib/turtlecoind/
       - /etc/localtime:/etc/localtime:ro
     networks:
-      - traefik_public
       - internal
+      - traefik_public
+    ports:
+      - 11897:11897
     deploy:
+      replicas: 2
       labels:
         - traefik.frontend.rule=Host:explorer.trtl.heigh-ho.funkypenguin.co.nz
         - traefik.docker.network=traefik_public
-        - traefik.port=1118
+        - traefik.port=11898
+
+  daemon-failsafe:
+    image: funkypenguin/turtlecoind
+    volumes:
+      - /var/data/runtime/turtle-pool/daemon/failsafe:/var/lib/turtlecoind/
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - internal
     entrypoint: |
-      TurtleCoind --rpc-bind-ip=0.0.0.0 --enable_blockexplorer enable-cors=*
+      TurtleCoind --seed-node daemon --no-console --load-checkpoints /tmp/checkpoints/checkpoints.csv && sleep 1h
 
   pool-pool:
     image: funkypenguin/turtle-pool
-    user: "3506"
     volumes:
       - /var/data/turtle-pool/pool/config:/config:ro
       - /var/data/turtle-pool/pool/logs:/logs
@@ -289,14 +298,13 @@ services:
 
   pool-api:
     image: funkypenguin/turtle-pool
-    user: "3506"
     volumes:
       - /var/data/turtle-pool/pool/config:/config:ro
       - /var/data/turtle-pool/pool/logs:/logs
       - /etc/localtime:/etc/localtime:ro
     networks:
-      - traefik_public
       - internal
+      - traefik_public
     deploy:
       labels:
         - traefik.frontend.rule=Host:api.trtl.heigh-ho.funkypenguin.co.nz
@@ -307,7 +315,6 @@ services:
 
   pool-unlocker:
     image: funkypenguin/turtle-pool
-    user: "3506"
     volumes:
       - /var/data/turtle-pool/pool/config:/config:ro
       - /var/data/turtle-pool/pool/logs:/logs
@@ -319,7 +326,6 @@ services:
 
   pool-payments:
     image: funkypenguin/turtle-pool
-    user: "3506"
     volumes:
       - /var/data/turtle-pool/pool/config:/config:ro
       - /var/data/turtle-pool/pool/logs:/logs
@@ -331,7 +337,6 @@ services:
 
   pool-charts:
     image: funkypenguin/turtle-pool
-    user: turtle-pool
     volumes:
       - /var/data/turtle-pool/pool/config:/config:ro
       - /var/data/turtle-pool/pool/logs:/logs
@@ -342,8 +347,7 @@ services:
       node init.js -module=chartsDataCollector -config=/config/config.json
 
   wallet:
-    image: trtl/daemon
-    user: "3506"
+    image: funkypenguin/turtlecoind
     volumes:
       - /var/data/turtle-pool/wallet/config:/config:ro
       - /var/data/turtle-pool/wallet/container:/container
@@ -372,8 +376,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
     image: nginx
     networks:
-      - traefik_public
       - internal
+      - traefik_public
     deploy:
       labels:
         - traefik.frontend.rule=Host:trtl.heigh-ho.funkypenguin.co.nz
@@ -421,6 +425,8 @@ Jump into the [TurtleCoin Discord server](http://chat.turtlecoin.lol/) to ask qu
 Two possible solutions to this are (1) disable banning, or (2) update the pool banning code to ban based on a combination of IP address and miner wallet address. I'll be working on a change to implement #2 if this becomes a concern.
 
 2. The traefik labels in the docker-compose are to permit automatic LetsEncrypt SSL-protected proxying of your pool UI and API addresses.
+
+3. After a [power fault in my datacenter caused daemon DB corruption](https://www.reddit.com/r/TRTL/comments/8jftzt/funky_penguin_nz_mining_pool_down_with_daemon/), I added a second daemon, running in parallel to the first. The failsafe daemon runs once an hour, syncs with the running daemons, and shuts down again, providing a safely halted version of the daemon DB for recovery.
 
 ### Tip your waiter (donate) 👏
 
