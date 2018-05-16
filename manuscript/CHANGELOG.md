@@ -16,6 +16,7 @@ Sign up [here](http://eepurl.com/dfx95n) (double-opt-in) to receive email update
 
 ## Recent improvements
 
+* [Turtle Pool](/recipies/turtle-pool/) updated for redundant daemons plus a failsafe (_16 May 2018_)
 * "Disengaged" [AutoPirate](/recipies/autopirate/) uber-recipe into individual sub-recipies per-page, easing navigation and support / comment flow
 * Switched [Emby](/recipies/emby/) to official docker container (more up-to-date) (_27 Mar 2018_)
 * [Docker Swarm Mode](/ha-docker-swarm/docker-swarm-mode/#setup-automatic-updates) setup updated for automatic container updates (Shepherd)
