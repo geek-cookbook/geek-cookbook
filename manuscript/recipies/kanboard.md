@@ -55,11 +55,11 @@ services:
      - /var/data/kanboard/data:/var/www/app/data
      - /var/data/kanboard/plugins:/var/www/app/plugins
     networks:
-    - traefik
+    - traefik_public
     deploy:
       labels:
         - traefik.frontend.rule=Host:kanboard.example.com
-        - traefik.docker.network=traefik
+        - traefik.docker.network=traefik_public
         - traefik.port=80
 
   cron:
@@ -83,7 +83,7 @@ services:
       EOF'
 
 networks:
-  traefik:
+  traefik_public:
     external: true
   internal:
     driver: overlay
