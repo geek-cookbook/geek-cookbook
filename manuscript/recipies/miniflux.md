@@ -2,7 +2,7 @@ hero: Miniflux - A recipe for a lightweight minimalist RSS reader
 
 # Miniflux
 
-Miniflux is a lightweight RSS reader, developed by [Frédéric Guillot](https://github.com/fguillot). (Who also happens to be the developer of the favorite Open Source Kanban app, [Kanboard](https://kanboard.net/))
+Miniflux is a lightweight RSS reader, developed by [Frédéric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of the favorite Open Source Kanban app, [Kanboard](/recipies/kanboard/)_)
 
 I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/review/miniflux-lightweight-self-hosted-rss-reader/), but features (among many) that I appreciate:
 
@@ -11,11 +11,14 @@ I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/rev
 * Feeds can be configured to download a "full" version of the content (_rather than an excerpt_)
 * Use the Bookmarklet to subscribe to a website directly from any browsers
 
+!!! abstract "2.0+ is a bit different"
+    [Some things changed](https://docs.miniflux.net/en/latest/migration.html) when Miniflux 2.0 was released. For one thing, the only supported database is now postgresql (_no more SQLite_). External themes are gone, as is PHP (_in favor of golang_). It's been a controversial change, but I'm keen on minimal and single-purpose, so I'm still very happy with the direction of development. The developer has laid out his [opinions](https://docs.miniflux.net/en/latest/opinionated.html) re the decisions he's made in the course of development.
 
 ## Ingredients
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
 2. [Traefik](/ha-docker-swarm/traefik) configured per design
+3. DNS entry pointing your Miniflux url (i.e. _miniflux.example.com_) to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -24,9 +27,35 @@ I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/rev
 Create the location for the bind-mount of the application data, so that it's persistent:
 
 ```
-mkdir -p /var/data/miniflux
+mkdir -p /var/data/miniflux/database-dump
+mkdir -p /var/data/runtime/miniflux/database
+
 ```
 
+### Setup environment
+
+Create ```/var/data/config/miniflux/miniflux.env``` something like this:
+
+```
+DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
+POSTGRES_USER=miniflux
+POSTGRES_PASSWORD=secret
+
+# This is necessary for the miniflux to update the db schema, even on an empty DB
+RUN_MIGRATIONS=1
+
+# Uncomment this on first run, else leave it commented out after adding your own user account
+CREATE_ADMIN=1
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=test1234
+
+# For backups
+PGUSER=miniflux
+PGPASSWORD=secret
+PGHOST=db
+```
+
+The entire application is configured using environment variables, including the initial username. Once you've successfully deployed once, comment out ```CREATE_ADMIN``` and the two successive lines.
 
 ### Setup Docker Swarm
 
@@ -40,21 +69,55 @@ version: '3'
 
 services:
   miniflux:
-    image: saghul/miniflux
+    image: miniflux/miniflux:2.0.7
+    env_file: /var/data/config/miniflux/miniflux.env
     volumes:
      - /etc/localtime:/etc/localtime:ro
-     - /var/data/miniflux/:/config/
     networks:
-    - traefik
+    - internal
+    - traefik_public
     deploy:
       labels:
         - traefik.frontend.rule=Host:miniflux.example.com
-        - traefik.docker.network=traefik
-        - traefik.port=80
+        - traefik.port=8080
+        - traefik.docker.network=traefik_public
+
+  db:
+    env_file: /var/data/config/miniflux/miniflux.env
+    image: postgres:10.1
+    volumes:
+      - /var/data/runtime/miniflux/database:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - internal
+
+  db-backup:
+    image: postgres:10.1
+    env_file: /var/data/config/miniflux/miniflux.env
+    volumes:
+      - /var/data/miniflux/database-dump:/dump
+      - /etc/localtime:/etc/localtime:ro
+    entrypoint: |
+      bash -c 'bash -s <<EOF
+      trap "break;exit" SIGHUP SIGINT SIGTERM
+      sleep 2m
+      while /bin/true; do
+        pg_dump -Fc > /dump/dump_\`date +%d-%m-%Y"_"%H_%M_%S\`.psql
+        (ls -t /dump/dump*.psql|head -n $$BACKUP_NUM_KEEP;ls /dump/dump*.psql)|sort|uniq -u|xargs rm -- {}
+        sleep $$BACKUP_FREQUENCY
+      done
+      EOF'
+    networks:
+    - internal
 
 networks:
-  traefik:
+  traefik_public:
     external: true
+  internal:
+    driver: overlay
+    ipam:
+      config:
+        - subnet: 172.16.22.0/24
 ```
 
 
@@ -64,12 +127,11 @@ networks:
 
 Launch the Miniflux stack by running ```docker stack deploy miniflux -c <path -to-docker-compose.yml>```
 
-Log into your new instance at https://**YOUR-FQDN**. Default credentials are admin/admin, after which you can change (under 'profile') and add more users.
+Log into your new instance at https://**YOUR-FQDN**, using the credentials you setup in the environment flie. After this, change your user/password as you see fit, and comment out the ```CREATE_ADMIN``` line in the env file (_if you don't, then an **additional** admin will be created the next time you deploy_)
 
 ## Chef's Notes
 
-1. I chose [saghul/miniflux](https://hub.docker.com/r/saghul/miniflux/)'s over the "official" [miniflux/miniflux](https://hub.docker.com/r/miniflux/miniflux/) image, because currently the official image doesn't log to stdout (which you want, for docker logging commands), and because I have an expectation that nginx is more lightweight (faster) than apache.
-2. Find the bookmarklet under the "about" page. I know, it took me ages too.
+1. Find the bookmarklet under the **Settings -> Integration** page.
 
 ### Tip your waiter (donate) 👏
 
