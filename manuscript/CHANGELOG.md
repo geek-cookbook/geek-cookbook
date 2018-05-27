@@ -16,6 +16,7 @@ Sign up [here](http://eepurl.com/dfx95n) (double-opt-in) to receive email update
 
 ## Recent improvements
 
+* [Lazy Librarian](/recipies/autopirate/lazylibrarian/) component of [autopirate](/recipies/autopirate/start/) recipe updated to include calibre-server, so that downloaded ebooks can be automatically added to a calibre library, to then be independently managed using [Calibre-Web](/recipies/calibre-web/) (_27 May 2018_)
 * [Miniflux](/recipies/miniflux/) updated to version 2.0, including PostgreSQL database and nightly DB dumps (_24 May 2018_)
 * [Turtle Pool](/recipies/turtle-pool/) updated for redundant daemons plus a failsafe (_16 May 2018_)
 * "Disengaged" [AutoPirate](/recipies/autopirate/) uber-recipe into individual sub-recipies per-page, easing navigation and support / comment flow
