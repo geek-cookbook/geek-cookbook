@@ -60,6 +60,8 @@ TWITTER_OAUTH_SECRET=
 # For postgres/postgres
 POSTGRES_USER=huginn
 POSTGRES_PASSWORD=<database password>
+BACKUP_NUM_KEEP=7
+BACKUP_FREQUENCY=1d
 ```
 
 ### Setup Docker Swarm
