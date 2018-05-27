@@ -4,6 +4,9 @@ hero: Miniflux - A recipe for a lightweight minimalist RSS reader
 
 Miniflux is a lightweight RSS reader, developed by [Frédéric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of the favorite Open Source Kanban app, [Kanboard](/recipies/kanboard/)_)
 
+![Miniflux Screenshot](../../images/miniflux.png)
+
+
 I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/review/miniflux-lightweight-self-hosted-rss-reader/), but features (among many) that I appreciate:
 
 * Compatible with the Fever API, read your feeds through existing mobile and desktop clients (_This is the killer feature for me. I hardly ever read RSS on my desktop, I typically read on my iPhone or iPad, using [Fiery Feeds](http://cocoacake.net/apps/fiery/) or my new squeeze, [Unread](https://www.goldenhillsoftware.com/unread/)_)
@@ -53,6 +56,8 @@ ADMIN_PASSWORD=test1234
 PGUSER=miniflux
 PGPASSWORD=secret
 PGHOST=db
+BACKUP_NUM_KEEP=7
+BACKUP_FREQUENCY=1d
 ```
 
 The entire application is configured using environment variables, including the initial username. Once you've successfully deployed once, comment out ```CREATE_ADMIN``` and the two successive lines.
