@@ -1,7 +1,9 @@
 lang: python
-#before_install:
-#  - sudo apt-get install pandoc
-#  - gem install asciidoctor
+# blocklist
+branches:
+  except:
+  - leanpub-preview
+  - leanpub-publish
 script:
   - scripts/markdown-to-markua.sh
 after_success:
