@@ -1,0 +1,10 @@
+lang: python
+#before_install:
+#  - sudo apt-get install pandoc
+#  - gem install asciidoctor
+script:
+  - scripts/markdown-to-markua.sh
+after_success:
+  - scripts/push-markua-to-branch.sh
+env:
+  secure: "X0ruiXtzArHPaOAd5cQS0axHGwMM5HwqSHASr/KnzV1yZUPzJIrzJQYSCJmFPzk6zuboA2Tsa96zu+DftgA9N9WgzTYmjp8M10y9vcK4cpkfi5frs7GVorVLPQ5kcWwYPf/j+YzpP5OwrRSxDDG853GJ4OhoALcjmmBJk8NwIKZOkA6x2RvvcDRx6dc216QdhmouD5Hz0tImkE2rYdQNm44IN7OF6wekbEhOzN2Chz6yGit3duRvxBrNOPqmGqkFwtg0sxyQO0iBa4qvg88qrKQOIHwUG5y4rp8QcdqfRMv/lSNGEg1Mh7iDUHbZpvcAoXREXp9FMEY/SJ1uYkcEMn+GvLDQ/BOFwKjC/duWM3oMPgzjqI+gwpIdlTZt5+Qu9v4Z6+XJ5P+JIWZYtzudDVuOzVMSIzwk9y2a/ufYXGQdvGktf6H51WCcA8CO2muxLtDwDtV1okAVm+HXkgQ/pcwjqqq3n3RojN6Xxm+TJggn3HgU21qug/K1lukycwCjQbI8s0ey3soT1+oPc8Fl95n35eXTUY3DOd0u14e0Y3XKIbG9Rvyp9U8gJC2Ij6+EXSdHlFhvr5tJJLNwXkXjV3yMnLgtlSnuGBGHUpv0+XZuSsGqOropl/KDUurb2TGkIH7PjpBpFm6PhSbLViGXrupuxTvKLdsXBXospzODuEQ="
