@@ -74,7 +74,7 @@ We'll run a simple Nginx container to serve the static front-end of the web UI.
 The simplest way to get the frontend is just to clone the upstream turtle-pool repo, and mount the "/website" subdirectory into Nginx.
 
 ```
-git clone https://github.com/turtlecoin/turtle-pool.git nginx/
+git clone https://github.com/turtlecoin/turtle-pool.git /var/data/turtle-pool/nginx/
 ```
 
 Edit **/var/data/turtle-pool/nginx/website/config.js**, and change at least the following:
@@ -88,16 +88,25 @@ var poolHost = "<SET TO THE PUBLIC DNS NAME FOR YOUR POOL SERVER";
 
 The first thing we'll need to participate in the great and powerful TurtleCoin network is a **node**. The node is responsible for communicating with the rest of the nodes in the blockchain, allowing our miners to receive new blocks to try to find.
 
-We could simply allow your daemon to sync up with other nodes and download the entire blockchain, but it's **much** faster to download an almost-up-to-date copy of the blockchain and "[bootstrap](https://github.com/turtlecoin/turtlecoin/wiki/Bootstrapping-the-Blockchain)" your daemon. This means it'll only need to catch up on the most recent changes.
+As of June 2018, the TurtleCoin daemon is not what you'd call "**stable**". Certain known circumstances (_like unusual blocks_) can cause the daemon to crash, and **permanently corrupt** its stored blockchain data. When (_not if_) this happens, the only solution is to delete all the stored blockchain data, and allow the daemon to resync (_from checkpoints and then from other nodes_). This resyncing process takes time, during which your miners can't mine. To partially mitigate this risk, we run 2 **extra** copies of the daemon, which we'll then start/stop at alternate intervals, so that in the event of a corruption of the daemon's data, we have hopefully-safe recent copies of the blockchain, allowing us to recover and restore quickly.
 
-Make a directory per your filestructure standard, for the daemon to store the blockchain. The wget command chain simply downloads the zipped copy of the blockchain (1.8GB), uncompresses it (8GB), puts it where the daemon expects to find it, and deletes the unnecessary original zipfile.
+Create directories to hold the blockchain data for all 3 daemons:
 
 ```
-mkdir -p /var/data/turtle-pool/daemon/.TurtleCoin
-wget -O /tmp/z.$$ https://f000.backblazeb2.com/file/turtle-blockchain/latest.zip &&
-   unzip -d /var/data/turtle-pool/daemon/.TurtleCoin /tmp/z.$$ &&
-   rm /tmp/z.$$
-chown -R turtle-pool /var/data/turtle-pool/daemon/.TurtleCoin
+mkdir -p /var/data/runtime/turtle-pool/daemon/1
+mkdir -p /var/data/runtime/turtle-pool/daemon/failsafe1
+mkdir -p /var/data/runtime/turtle-pool/daemon/failsafe2
+```
+
+Create cron entries (in /etc/cron.d/turtle-pool-failsafe) to start/stop the failsafe daemons:
+
+```
+# Each TurtleCoin failsafe daemon gets to run ~50% of every hour, but they're never running at the same time
+# (to prevent a doomsday block from killing them both)
+0 * * * *       root    docker service scale turtle-pool_daemon-failsafe1=0
+1 * * * *       root    docker service scale turtle-pool_daemon-failsafe2=1
+30 * * * *      root    docker service scale turtle-pool_daemon-failsafe2=0
+31 * * * *      root    docker service scale turtle-pool_daemon-failsafe1=1
 ```
 
 ### Setup TurtleCoin wallet
@@ -124,8 +133,8 @@ After having entered your password (you can confirm by running ```env | grep PAS
 
 ```
 docker run \
- -v /var/data/turtle-pool/wallet/container:/container
- --rm -ti --entrypoint /usr/local/bin/walletd trtl/daemon \
+ -v /var/data/turtle-pool/wallet/container:/container \
+ --rm -ti --entrypoint /usr/local/bin/walletd funkypenguin/turtlecoind \
  --container-file /container/wallet.container \
  --container-password $PASS \
  --generate-container
@@ -149,7 +158,7 @@ You'll get a lot of output. The following are relevant lines from a successful r
 2018-May-01 11:14:59.962862 INFO    Stopped
 ```
 
-Take careful note of your wallet password, private view key, and wallet address (which starts with TRTL)
+Take careful note of your wallet password, public view key, and wallet address (which starts with TRTL)
 
 Create **/var/data/turtle-pool/wallet/config/wallet.conf**, containing the following:
 
@@ -257,29 +266,33 @@ services:
   daemon:
     image: funkypenguin/turtlecoind
     volumes:
-      - /var/data/runtime/turtle-pool/daemon/{{.Task.Slot}}:/var/lib/turtlecoind/
+      - /var/data/runtime/turtle-pool/daemon/1:/var/lib/turtlecoind/
       - /etc/localtime:/etc/localtime:ro
     networks:
       - internal
       - traefik_public
     ports:
       - 11897:11897
-    deploy:
-      replicas: 2
       labels:
         - traefik.frontend.rule=Host:explorer.trtl.heigh-ho.funkypenguin.co.nz
         - traefik.docker.network=traefik_public
         - traefik.port=11898
 
-  daemon-failsafe:
+  daemon-failsafe1:
     image: funkypenguin/turtlecoind
     volumes:
-      - /var/data/runtime/turtle-pool/daemon/failsafe:/var/lib/turtlecoind/
+      - /var/data/runtime/turtle-pool/daemon/failsafe1:/var/lib/turtlecoind/
       - /etc/localtime:/etc/localtime:ro
     networks:
       - internal
-    entrypoint: |
-      TurtleCoind --seed-node daemon --no-console --load-checkpoints /tmp/checkpoints/checkpoints.csv && sleep 1h
+
+  daemon-failsafe2:
+    image: funkypenguin/turtlecoind
+    volumes:
+      - /var/data/runtime/turtle-pool/daemon/failsafe2:/var/lib/turtlecoind/
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - internal
 
   pool-pool:
     image: funkypenguin/turtle-pool
