@@ -22,6 +22,39 @@ cd gitlab
 mkdir -p {runners/1,runners/2}
 ```
 
+### Setup Docker Swarm
+
+Create a docker swarm config file in docker-compose syntax (v3), something like this:
+
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+
+```
+version: '3'
+
+services:
+  1:
+    image: gitlab/gitlab-runner
+    volumes:
+    - /var/data/gitlab-runner/1:/var/data/gitlab/runners/1
+    networks:
+    - internal
+
+  2:
+    image: gitlab/gitlab-runner
+    volumes:
+    - /var/data/gitlab-runner/:/var/data/gitlab/runners/2
+    networks:
+    - internal
+
+networks:
+  internal:
+    driver: overlay
+    ipam:
+      config:
+        - subnet: 172.16.23.0/24
+```
+
 
 ### Configure runners
 

@@ -28,6 +28,7 @@ Network  | Range
 [InstaPy](https://geek-cookbook.funkypenguin.co.nz/recipies/instapy/)  |  172.16.20.0/24
 [Turtle Pool](https://geek-cookbook.funkypenguin.co.nz/recipies/turtle-pool/)  |  172.16.21.0/24
 [MiniFlux](https://geek-cookbook.funkypenguin.co.nz/recipies/miniflux/)  |  172.16.22.0/24
+[Gitlab Runner](https://geek-cookbook.funkypenguin.co.nz/recipies/gitlab-runner/)  |  172.16.23.0/24
 
 ## Chef's Notes
 
