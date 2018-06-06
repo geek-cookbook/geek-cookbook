@@ -13,9 +13,10 @@ commit_website_files() {
 
 upload_files() {
   #git remote add origin-leanpub-preview https://${LEANPUB-PREVIEW-TOKEN}@github.com/funkypenguin/geek-cookbook.git > /dev/null 2>&1
-  git remote add origin https://${TOKEN}@github.com/funkypenguin/geek-cookbook.git
+  git remote add origin-leanpub-preview https://${TOKEN}@github.com/funkypenguin/geek-cookbook.git
+  git pull origin-leanpub-preview leanpub-preview
   #git push --quiet --set-upstream origin-leanpub-preview leanpub-preview 
-  git push --quiet --set-upstream origin leanpub-preview 
+  git push --quiet --set-upstream origin-leanpub-preview leanpub-preview 
 }
 
 setup_git
