@@ -162,8 +162,8 @@ Now, continue to the next stage of your grand mining adventure:
 
 1. My two RX580 cards (_bought alongside each other_) perform slightly differently. GPU0 works with a 2050Mhz memory clock, but GPU1 only works at 2000Mhz. Anything over 2000Mhz causes system instability. YMMV.
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 

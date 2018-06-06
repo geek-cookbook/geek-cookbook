@@ -55,7 +55,7 @@ mount -a && mount
 Atomic doesn't include the Gluster server components.  This means we'll have to run glusterd from within a container, with privileged access to the host. Although convoluted, I've come to prefer this design since it once again makes the OS "disposable", moving all the config into containers and code.
 
 Run the following on each host:
-````
+```
 docker run \
    -h glusterfs-server \
    -v /etc/glusterfs:/etc/glusterfs:z \
@@ -67,7 +67,7 @@ docker run \
    --restart=always \
    --name="glusterfs-server" \
    gluster/gluster-centos
-````
+```
 ### Create trusted pool
 
 On a single node (doesn't matter which), run ```docker exec -it glusterfs-server bash``` to launch a shell inside the container.
@@ -163,8 +163,8 @@ Future enhancements to this recipe include:
 1. Migration of shared storage from GlusterFS to Ceph ()[#2](https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook/issues/2))
 2. Correct the fact that volumes don't automount on boot ([#3](https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook/issues/3))
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 

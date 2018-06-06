@@ -53,13 +53,13 @@ MYSQL_PASSWORD=set to something secure>
 
 Now create a **separate** nextcloud-db-backup.env file, to capture the environment variables necessary to perform the backup. (_If the same variables are shared with the mariadb container, they [cause issues](https://discourse.geek-kitchen.funkypenguin.co.nz/t/nextcloud-funky-penguins-geek-cookbook/254/3?u=funkypenguin) with database access_)
 
-````
+```
 # For database backup (keep 7 days daily backups)
 MYSQL_PWD=<set to something secure, same as MYSQL_ROOT_PASSWORD above>
 MYSQL_USER=root
 BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
-````
+```
 
 ### Setup Docker Swarm
 
@@ -190,8 +190,8 @@ Then navigate to https://<your FQDN>/index.php/settings/admin/additional, scroll
 
 1. Since many of my other recipies use PostgreSQL, I'd have preferred to use Postgres over MariaDB, but MariaDB seems to be the [preferred database type](https://github.com/nextcloud/server/issues/5912).
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 

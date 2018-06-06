@@ -152,8 +152,8 @@ Additional features I'd like to see in this recipe are:
 2. Traefik webUI is available via HTTPS, protected with oauth_proxy
 3. Pending a feature in docker-swarm to avoid NAT on routing-mesh-delivered traffic, update the design
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 
