@@ -84,15 +84,15 @@ Create at least /var/data/autopirate/authenticated-emails.txt, containing at lea
 
 **Start** with a swarm config file in docker-compose syntax, like this:
 
-````
+```
 version: '3'
 
 services:
-````
+```
 
 And **end** with a stanza like this:
 
-````
+```
 networks:
   traefik_public:
     external: true
@@ -101,7 +101,7 @@ networks:
     ipam:
       config:
         - subnet: 172.16.11.0/24
-````
+```
 
 !!! note
     Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.

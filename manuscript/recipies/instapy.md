@@ -71,10 +71,10 @@ services:
 Create a variation of https://github.com/timgrossmann/InstaPy/blob/master/docker_quickstart.py at /var/data/instapy/instapy.py (the file we bind-mounted in the swarm config above)
 
 Change at least the following:
-````
+```
 insta_username = ''
 insta_password = ''
-````
+```
 
 Here's an example of my config, set to like a single penguin-pic per run:
 

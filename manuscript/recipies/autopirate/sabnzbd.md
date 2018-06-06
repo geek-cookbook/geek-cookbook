@@ -14,7 +14,7 @@ SABnzbd is the workhorse of the stack. It takes .nzb files as input (_manually o
 To include SABnzbd in your [AutoPirate](/recipies/autopirate/) stack
 (_The only reason you **wouldn't** use SABnzbd, would be if you were using [NZBGet](/recipies/autopirate/nzbget.md) instead_), include the following in your autopirate.yml stack definition file:
 
-````
+```
 sabnzbd:
   image: linuxserver/sabnzbd:latest
   env_file : /var/data/config/autopirate/sabnzbd.env  
@@ -46,7 +46,7 @@ sabnzbd_proxy:
     -email-domain=example.com
     -provider=github
     -authenticated-emails-file=/authenticated-emails.txt
-````
+```
 
 !!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍

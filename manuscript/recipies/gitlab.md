@@ -54,7 +54,7 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 !!! tip
     I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
 
-````
+```
 version: '3'
 
 services:
@@ -107,7 +107,7 @@ networks:
     ipam:
       config:
         - subnet: 172.16.2.0/24
-````
+```
 
 !!! note
     Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.

@@ -55,7 +55,7 @@ mount -a && mount
 Atomic doesn't include the Gluster server components.  This means we'll have to run glusterd from within a container, with privileged access to the host. Although convoluted, I've come to prefer this design since it once again makes the OS "disposable", moving all the config into containers and code.
 
 Run the following on each host:
-````
+```
 docker run \
    -h glusterfs-server \
    -v /etc/glusterfs:/etc/glusterfs:z \
@@ -67,7 +67,7 @@ docker run \
    --restart=always \
    --name="glusterfs-server" \
    gluster/gluster-centos
-````
+```
 ### Create trusted pool
 
 On a single node (doesn't matter which), run ```docker exec -it glusterfs-server bash``` to launch a shell inside the container.

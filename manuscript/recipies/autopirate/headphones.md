@@ -13,7 +13,7 @@ hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and
 
 To include Headphones in your [AutoPirate](/recipies/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
-````
+```
 headphones:
   image: linuxserver/headphones:latest
   env_file : /var/data/config/autopirate/headphones.env
@@ -45,7 +45,7 @@ headphones_proxy:
     -email-domain=example.com
     -provider=github
     -authenticated-emails-file=/authenticated-emails.txt
-````
+```
 
 !!! tip
     I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍

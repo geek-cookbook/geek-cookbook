@@ -17,7 +17,7 @@ To include NZBGet in your [AutoPirate](/recipies/autopirate/) stack
 !!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
 
-````
+```
 nzbget:
   image: linuxserver/nzbget
   env_file : /var/data/config/autopirate/nzbget.env  
@@ -49,7 +49,7 @@ nzbget_proxy:
     -email-domain=example.com
     -provider=github
     -authenticated-emails-file=/authenticated-emails.txt
-````
+```
 
 !!! note
     NZBGet uses a 401 header to prompt for authentication. When you use OAuth2_proxy, this seems to break. Since we trust OAuth to authenticate us, we can just disable NZGet's own authentication, by changing ControlPassword to null in nzbget.conf (i.e. ```ControlPassword=```)

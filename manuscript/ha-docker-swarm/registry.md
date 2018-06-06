@@ -103,9 +103,9 @@ To:
 ```
 
 Then restart docker by running:
-````
+```
 systemctl restart docker-latest
-````
+```
 
 !!! tip ""
     Note the extra comma required after "false" above
