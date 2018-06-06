@@ -7,6 +7,7 @@ setup_git() {
 
 commit_website_files() {
   git checkout -b leanpub-preview
+  git pull
   git add manuscript 
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
 }
