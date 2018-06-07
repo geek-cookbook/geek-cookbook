@@ -36,7 +36,7 @@ Now, continue to the next stage of your grand mining adventure:
 4. Setup your miners with [Miner Hotel](/recipies/cryptominer/minerhotel/) 🏨
 5. Send your coins to [exchanges](/recipies/cryptominer/exchange/) or [wallets](/recipies/cryptominer/wallet/) 💹
 6. [Monitor](/recipies/cryptominer/monitor/) your empire :heartbeat:
-7. [Profit](/recipies/cryptominer/profit/)! 💰
+7. [Profit](/recipies/cryptominer/profit/)! 
 
 
 
@@ -48,8 +48,8 @@ Yes. It's the ultimate _#firstworldproblem_, but if you have a means to remotely
 
 (_I hooked up a remote-controlled outlet to my rig, so that I can power-cycle it without having to crawl under the desk!_)
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 
