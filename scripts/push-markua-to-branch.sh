@@ -19,6 +19,13 @@ upload_files() {
   git push --quiet --set-upstream origin-leanpub-preview leanpub-preview 
 }
 
+# Not needed at this stage, since github integration still works. It's noted as being deprecated however,
+# so might need this in future
+#trigger_preview() {
+#  curl -d "api_key=${LEANPUB-API-KEY}" https://leanpub.com/geek-cookbook/preview.json
+#}
+
 setup_git
 commit_website_files
 upload_files
+#trigger_preview
