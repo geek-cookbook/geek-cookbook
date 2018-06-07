@@ -91,6 +91,7 @@ pages:
       - OpenVPN : reference/openvpn.md
       - Troubleshooting: reference/troubleshooting.md
     - Support: support.md
+    - Sponsored Projects: sponsored-projects.md    
 
 theme:
   name: 'material'
