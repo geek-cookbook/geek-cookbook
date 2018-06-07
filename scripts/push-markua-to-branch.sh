@@ -19,6 +19,11 @@ upload_files() {
   git push --quiet --set-upstream origin-leanpub-preview leanpub-preview 
 }
 
+trigger_preview() {
+  curl -d "api_key=${LEANPUB-API-KEY}" https://leanpub.com/geek-cookbook/preview.json
+}
+
 setup_git
 commit_website_files
 upload_files
+trigger_preview

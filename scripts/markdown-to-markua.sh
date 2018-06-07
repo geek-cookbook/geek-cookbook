@@ -6,5 +6,11 @@ find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/\`\`\`\`/\`\`\
 # Markua doesn't like emojis, so remove them:
 find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/👏//g"
 find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/💬//g"
+find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/👍//g"
+find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/💰//g"
+find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🍷//g"
+find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🏢//g"
+find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/❤️//g"
+find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/:turtle://g"
 
 # Do nothing, yet. This is where the sed magic will go
