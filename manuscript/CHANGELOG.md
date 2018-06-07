@@ -6,6 +6,7 @@ Sign up [here](http://eepurl.com/dfx95n) (double-opt-in) to receive email update
 
 ## Recently added recipes
 
+* Added a list of [sponsored projects](sponsored-projects/) which I regularly donate to, to keep the geeky ingredients fresh! (_8 Jun 2018_)
 * [Turtle Pool](/recipies/turtle-pool/) - A mining pool for the fun, friendly, no-BS, still-in-its-infancy cryptocurrency, "[TurtleCoin](http://turtlecoin.lol)" (_7 May 2018_)
 * [Wallabag](/recipies/wallabag/) - Self-hosted Read-it-Later / Annotation app (_21 Apr 2018_)
 * [InstaPy](/recipies/instapy/) - Automate your Instagrammage (_17 Apr 2018_)
