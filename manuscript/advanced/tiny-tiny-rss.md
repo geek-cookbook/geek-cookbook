@@ -31,7 +31,7 @@ I setup a directory for the ttrss data, at /data/ttrss.
 
 I created docker-compose.yml, as follows:
 
-````
+```
 rproxy:
   image: nginx:1.13-alpine
   ports:
@@ -78,9 +78,9 @@ gmailsmtp:
     - user=davidy@funkypenguin.co.nz
     - pass=eqknehqflfbufzbh
     - DOMAIN_NAME=gmailsmtp.funkypenguin.co.nz
-````
+```
 
-Run ````docker-compose up```` in the same directory, and watch the output. PostgreSQL container will create the "ttrss" database, and ttrss will start using it.
+Run ```docker-compose up``` in the same directory, and watch the output. PostgreSQL container will create the "ttrss" database, and ttrss will start using it.
 
 
 # Login to UI
@@ -91,23 +91,23 @@ Log into https://\<your VIRTUALHOST\>. Default user is "admin" and password is "
 
 One of the native plugins enables the detection of "similar" articles. This requires the pg_trgm extension enabled in your database.
 
-From the working directory, use ````docker exec```` to get a shell within your postgres container, and run "postgres" as the postgres user:
-````
+From the working directory, use ```docker exec``` to get a shell within your postgres container, and run "postgres" as the postgres user:
+```
 [root@kvm nginx]# docker exec -it ttrss_postgres_1 /bin/sh
 # su - postgres
 No directory, logging in with HOME=/
 $ psql
 psql (9.6.3)
 Type "help" for help.
-````
+```
 
 Add the trgm extension to your ttrss database:
-````
+```
 postgres=# \c ttrss
 You are now connected to database "ttrss" as user "postgres".
 ttrss=# CREATE EXTENSION pg_trgm;
 CREATE EXTENSION
 ttrss=# \q
-````
+```
 
 [ttrss]:https://tt-rss.org/
