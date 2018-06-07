@@ -65,6 +65,13 @@ appendonly yes
 appendfilename "appendonly.aof"
 loglevel notice
 logfile "/logs/redis.log"
+protected-mode no
+```
+
+I also had to **disable** the following line, by commenting it out (_thus ensuring Redis container will respond to the other containers_):
+
+```
+bind 127.0.0.1
 ```
 
 ### Setup Nginx
