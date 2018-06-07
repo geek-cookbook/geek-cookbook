@@ -27,6 +27,8 @@ recipies/piwik.md
 recipies/autopirate.md
 recipies/nextcloud.md
 recipies/portainer.md
+recipies/turtle-pool.md
+recipies/tiny-tiny-rss.md
 
 sections/reference.md
 reference/oauth_proxy.md
@@ -34,3 +36,4 @@ reference/data_layout.md
 reference/networks.md
 reference/git-docker.md
 reference/openvpn.md
+reference/troubleshooting.md
