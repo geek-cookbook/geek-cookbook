@@ -77,7 +77,7 @@ BACKUP_FREQUENCY=1d
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
 ```
@@ -201,8 +201,8 @@ Even with all these elements in place, you still need to enable Redis under Inte
 1. If you wanted to expose the Wallabag UI directly (_required for the iOS/Android apps_), you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the wallabag container. You'd also need to add the traefik_public network to the wallabag container. I found the iOS app to be unreliable and clunky, so elected to leave my oauth_proxy enabled, and to simply use the webUI on my mobile devices instead. YMMMV.
 2. I've not tested the email integration, but you'd need an SMTP server listening on port 25 (_since we can't change the port_) to use it
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 

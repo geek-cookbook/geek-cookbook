@@ -58,7 +58,7 @@ S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
 ```
@@ -135,8 +135,8 @@ There are several TTRSS containers available on docker hub, none of them "offici
 
 2. The upstream git URL [changed recently](https://discourse.tt-rss.org/t/gitlab-is-overbloated-shit-garbage/325/6), but my experience of the new repository is that it's **SO** slow, that the initial "git clone" on setup of the container times out. To work around this, I created [my own repo](https://github.com/funkypenguin/tt-rss.git), cloned upstream, pushed it into my repo, and pointed the container at my own repo with TTRSS_REPO. I don't get the _latest_ code changes, but at least the app container starts up. When upstream git is performing properly, I'll remove TTRSS_REPO to revert back to the "rolling release".
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 

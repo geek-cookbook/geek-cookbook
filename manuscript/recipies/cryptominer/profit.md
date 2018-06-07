@@ -1,4 +1,4 @@
-# Profit! 💰
+# Profit! 
 
 Well, that's it really. You're a cryptominer. Welcome to the party.
 
@@ -12,7 +12,7 @@ To recap, you did all this:
 4. Setup your miners with [Miner Hotel](/recipies/cryptominer/minerhotel/) 🏨
 5. Send your coins to [exchanges](/recipies/cryptominer/exchange/)  or [wallets](/recipies/cryptominer/wallet/) 💹
 6. [Monitor](/recipies/cryptominer/monitor/) your empire :heartbeat:
-7. Profit! (_This page_) 💰
+7. Profit! (_This page_) 
 
 
 ## What next?
@@ -21,8 +21,8 @@ Get in touch and share your experience - there's a special [discord](https://dis
 
 ## Chef's Notes
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 
