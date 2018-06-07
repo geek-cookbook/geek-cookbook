@@ -11,11 +11,19 @@ find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/💰//g"
 find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🍷//g"
 find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🏢//g"
 find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/❤️//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/:turtle://g"
+find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🐢//g"
 find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/👋//g"
 find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🐦//g"
 find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/📖//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🐦//g"
+find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/✉️//g"
+find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/📺//g"
+find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🎥//g"
+find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🎵//g"
+find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/😁//g"
+
+
+
+
 
 
 
