@@ -263,7 +263,7 @@ That's it! The above config files mean each element of the pool will be able to 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
 ```
@@ -448,10 +448,10 @@ Two possible solutions to this are (1) disable banning, or (2) update the pool b
 
 3. After a [power fault in my datacenter caused daemon DB corruption](https://www.reddit.com/r/TRTL/comments/8jftzt/funky_penguin_nz_mining_pool_down_with_daemon/), I added a second daemon, running in parallel to the first. The failsafe daemon runs once an hour, syncs with the running daemons, and shuts down again, providing a safely halted version of the daemon DB for recovery.
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-Also, you could send me some :turtle: ❤️ to _TRTLv2qCKYChMbU5sNkc85hzq2VcGpQidaowbnV2N6LAYrFNebMLepKKPrdif75x5hAizwfc1pX4gi5VsR9WQbjQgYcJm21zec4_
+Also, you could send me some   to _TRTLv2qCKYChMbU5sNkc85hzq2VcGpQidaowbnV2N6LAYrFNebMLepKKPrdif75x5hAizwfc1pX4gi5VsR9WQbjQgYcJm21zec4_
 
-### Your comments? 💬
+### Your comments? 

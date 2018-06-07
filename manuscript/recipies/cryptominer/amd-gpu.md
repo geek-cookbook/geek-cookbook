@@ -108,7 +108,7 @@ Example below:
 Now find an appropriate ROM to flash onto the card, and run ```atiflash -p <adatper number> <rom filename>
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes a range of RX580-compatible ROMs, some of which I've tweaked for my own GPUs. 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes a range of RX580-compatible ROMs, some of which I've tweaked for my own GPUs. 
 
 
 Example below:
@@ -155,15 +155,15 @@ Now, continue to the next stage of your grand mining adventure:
 3. Setup your miners with [Miner Hotel](/recipies/cryptominer/minerhotel/) 🏨
 4. Send your coins to [exchanges](/recipies/cryptominer/exchange/) or [wallets](/recipies/cryptominer/wallet/) 💹
 5. [Monitor](/recipies/cryptominer/monitor/) your empire :heartbeat:
-6. [Profit](/recipies/cryptominer/profit/)! 💰
+6. [Profit](/recipies/cryptominer/profit/)! 
 
 
 ## Chef's Notes
 
 1. My two RX580 cards (_bought alongside each other_) perform slightly differently. GPU0 works with a 2050Mhz memory clock, but GPU1 only works at 2000Mhz. Anything over 2000Mhz causes system instability. YMMV.
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 

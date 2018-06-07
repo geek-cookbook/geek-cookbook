@@ -25,11 +25,11 @@ Found a bug in your soup? Tell the chef by either:
 
 ## Tip the chef
 
-### Buy my book 📖
+### Buy my book 
 
 I'm also writing the Geek Cookbook as a formal eBook, on Leanpub (https://leanpub.com/geeks-cookbook). Buy it for $0.99 (_which is really just a token gesture of support_) - you can get it for free (_in PDF, mobi, or epub format_), or pay me what you think it's worth!
 
-### Donate / [Support me 💰](https://www.patreon.com/funkypenguin)
+### Donate / [Support me ](https://www.patreon.com/funkypenguin)
 
 The best way to support this work is to become a [Patreon patron](https://www.patreon.com/bePatron?u=6982506) (_for as little as $1/month!_) - You get :
 
@@ -38,7 +38,7 @@ The best way to support this work is to become a [Patreon patron](https://www.pa
 * an anonymous plug you can pull at any time,
 * and a bunch more loot based on tier
 
-.. and I get some pocket money every month to buy wine, cheese, and cryptocurrency! 🍷 💰
+.. and I get some pocket money every month to buy wine, cheese, and cryptocurrency!  
 
 Impulsively **[click here (NOW quick do it!)](https://www.patreon.com/bePatron?u=6982506)** to patronize me, or instead thoughtfully and analytically review my Patreon page / history **[here](https://www.patreon.com/funkypenguin)** and make up your own mind.
 
@@ -49,10 +49,10 @@ I also gratefully accept donations of most fine socialist/anarchist/hobbyist cry
 | Bitcoin      | 1GBJfmqARmL66gQzUy9HtNWdmAEv74nfXj
 | Ethereum     | 0x19e60ec49e1f053cfdfc193560ecfb3caed928f1
 | Litecoin     | LYLEF7xTpeVbjjoZD3jGLVgvKSKTYDKbK8
-| :turtle: TurtleCoin | TRTLv2qCKYChMbU5sNkc85hzq2VcGpQidaowbnV2N6LAYrFNebMLepKKPrdif75x5hAizwfc1pX4gi5VsR9WQbjQgYcJm21zec4
+|  TurtleCoin | TRTLv2qCKYChMbU5sNkc85hzq2VcGpQidaowbnV2N6LAYrFNebMLepKKPrdif75x5hAizwfc1pX4gi5VsR9WQbjQgYcJm21zec4
 
 
 
-### Hire me 🏢
+### Hire me 
 
 Need some system design work done? I do freelance consulting - [contact](https://www.funkypenguin.co.nz/contact/) me for details.

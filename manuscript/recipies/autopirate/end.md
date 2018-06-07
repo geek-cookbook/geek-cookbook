@@ -13,8 +13,8 @@ Log into each of your new tools at its respective HTTPS URL. You'll be prompted 
 
 1. This is a complex stack. Sing out in the comments if you found a flaw or need a hand :)
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 
