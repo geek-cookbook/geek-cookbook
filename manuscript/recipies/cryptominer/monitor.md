@@ -27,7 +27,7 @@ Here's an early version of the script (_it's since been updated for clockspeed a
 <script src="https://gist.github.com/funkypenguin/5ec0581389be20ea6512e4c2bafb2a89.js"></script>
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes up-to-date versions of the InfluxDB /Grafana script mentioned above, as well as pre-setup Grafana graphs, so that patrons can simply "_git pull_" and start monitoring 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes up-to-date versions of the InfluxDB /Grafana script mentioned above, as well as pre-setup Grafana graphs, so that patrons can simply "_git pull_" and start monitoring 
 
 
 ### Alarming on failure
@@ -41,7 +41,7 @@ The script tests the output of the currently active miner, and ensures the GPUs 
 
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes up-to-date versions of the Icinga scripts mentioned above, so that patrons can simply "_git pull_" and start monitoring 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes up-to-date versions of the Icinga scripts mentioned above, so that patrons can simply "_git pull_" and start monitoring 
 
 ### Monitoring pool/miner status
 
@@ -80,14 +80,14 @@ Now, continue to the next stage of your grand mining adventure:
 4. Setup your miners with [Miner Hotel](/recipies/cryptominer/minerhotel/) 🏨
 5. Send your coins to [exchanges](/recipies/cryptominer/exchange/) or [wallets](/recipies/cryptominer/wallet/) 💹
 6. Monitor your empire :heartbeat: (_this page_)
-7. [Profit](/recipies/cryptominer/profit/)! 💰
+7. [Profit](/recipies/cryptominer/profit/)! 
 
 ## Chef's Notes
 
 1. Ultimately I hope to move all the configuration / mining executables into docker containers, but for now, they're running on a CentOS7 host for direct access to GPUs. (_Apparently it **may** be possible to pass-thru the GPUs to docker containers, but I wanted stability first, before abstracting my hardware away from my miners_)
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 

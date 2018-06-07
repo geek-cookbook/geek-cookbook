@@ -29,7 +29,7 @@ mkdir -p /var/data/instapy/logs
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
 ```
@@ -71,10 +71,10 @@ services:
 Create a variation of https://github.com/timgrossmann/InstaPy/blob/master/docker_quickstart.py at /var/data/instapy/instapy.py (the file we bind-mounted in the swarm config above)
 
 Change at least the following:
-````
+```
 insta_username = ''
 insta_password = ''
-````
+```
 
 Here's an example of my config, set to like a single penguin-pic per run:
 
@@ -129,8 +129,8 @@ You can **also** watch the bot at work by VNCing to your docker swarm, password 
 
 1. Amazingly, my bot has ended up tagging more _non-penguins_ than actual penguins. I don't understand how Instagrammers come up with their hashtags!
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 

@@ -95,7 +95,7 @@ Create the necessary DNS TXT entries for your domain(s). Note that although open
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 ```
 version: '3'
@@ -171,8 +171,8 @@ Launch the mail server stack by running ```docker stack deploy docker-mailserver
 
 2. If you're using sieve with Rainloop, take note of the [workaround](https://discourse.geek-kitchen.funkypenguin.co.nz/t/mail-server-funky-penguins-geek-cookbook/70/15) identified by [ggilley](https://discourse.geek-kitchen.funkypenguin.co.nz/u/ggilley)
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 

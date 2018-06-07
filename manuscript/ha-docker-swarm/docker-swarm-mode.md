@@ -62,13 +62,13 @@ To add a manager to this swarm, run the following command:
 Run the command provided on your second node to join it to the swarm as a manager. After adding the second node, the output of ```docker node ls``` (on either host) should reflect two nodes:
 
 
-````
+```
 [root@ds2 davidy]# docker node ls
 ID                           HOSTNAME                STATUS  AVAILABILITY  MANAGER STATUS
 b54vls3wf8xztwfz79nlkivt8    ds1.funkypenguin.co.nz  Ready   Active        Leader
 xmw49jt5a1j87a6ihul76gbgy *  ds2.funkypenguin.co.nz  Ready   Active        Reachable
 [root@ds2 davidy]#
-````
+```
 
 Repeat the process to add your third node.
 
@@ -178,8 +178,8 @@ echo 'source ~/gcb-aliases.sh' >> ~/.bash_profile
 
 ## Chef's Notes
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 

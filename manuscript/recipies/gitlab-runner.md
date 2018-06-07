@@ -27,7 +27,7 @@ mkdir -p {runners/1,runners/2}
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 ```
 version: '3'
@@ -95,8 +95,8 @@ Log into your new instance at https://**YOUR-FQDN**, with user "root" and the pa
 2. Originally I deployed runners in the same stack as GitLab, but I found that they would frequently fail to start properly when I launched the stack. I think that this was because the runners started so quickly (and GitLab starts so slowly!), that they always started up reporting that the GitLab instance was invalid or unavailable. I had issues with CI builds stuck permanently in a "pending" state, which were only resolved by restarting the runner. Having the runners deployed in a separate stack to GitLab avoids this problem.
 
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 

@@ -69,8 +69,8 @@ That's it. Each node will talk to the other via unicast (no need to un-firewall 
 1. Some hosting platforms (OpenStack, for one) won't allow you to simply "claim" a virtual IP. Each node is only able to receive traffic targetted to its unique IP. In this case, keepalived is not the right solution, and a platform-specific load-balancing solution should be used. In OpenStack, this is Neutron's "Load Balancer As A Service" (LBAAS) component. AWS and Azure would likely include similar protections.
 2. More than 2 nodes can participate in keepalived. Simply ensure that each node has the appropriate priority set, and the node with the highest priority will become the master.
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (donate) 
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
-### Your comments? 💬
+### Your comments? 
