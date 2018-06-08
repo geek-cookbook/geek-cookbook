@@ -27,7 +27,6 @@ sabnzbd:
 sabnzbd_proxy:
   image: zappi/oauth2_proxy
   env_file : /var/data/config/autopirate/sabnzbd.env
-  dns_search: myswarm.example.com
   networks:
     - internal
     - traefik_public
@@ -65,6 +64,7 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [Lazy Librarian](/recipies/autopirate/lazylibrarian/)
 * [Headphones](/recipies/autopirate/headphones/)
 * [NZBHydra](/recipies/autopirate/nzbhydra/)
+* [NZBHydra2](/recipies/autopirate/nzbhydra2/)
 * [Ombi](/recipies/autopirate/ombi/)
 * [Jackett](/recipies/autopirate/jackett/)
 * [End](/recipies/autopirate/end/) (launch the stack)
