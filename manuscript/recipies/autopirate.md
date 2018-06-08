@@ -18,6 +18,7 @@ Tools included in the AutoPirate stack are:
 * **[NZBGet](https://nzbget.net/)** : downloads data from usenet servers based on .nzb definitions, but written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources (_this is a popular alternative to SABnzbd_)
 * **[RTorrent](https://github.com/rakshasa/rtorrent/wiki)** is a CLI-based torrent client, which when combined with **[ruTorrent](https://github.com/Novik/ruTorrent)** becomes a powerful and fully browser-managed torrent client. (_Yes, it's not Usenet, but Sonarr/Radarr will let fulfill your watchlist using either Usenet **or** torrents, so it's worth including_)
 * **[NZBHydra](https://github.com/theotherp/nzbhydra)** : acts as a "meta-indexer", so that your downloading tools (_radarr, sonarr, etc_) only need to be setup for a single indexes. Also produces interesting stats on indexers, which helps when evaluating which indexers are performing well.
+* **[NZBHydra2](https://github.com/theotherp/nzbhydra2)** : is a high-performance rewrite of the original NZBHydra, with extra features. While still in beta, this NZBHydra2 will eventually supercede NZBHydra
 * **[Sonarr](https://sonarr.tv)** : finds, downloads and manages TV shows
 * **[Radarr](https://radarr.video)** : finds, downloads and manages movies
 * **[Mylar](https://github.com/evilhero/mylar)** : finds, downloads and manages comic books
@@ -119,6 +120,7 @@ Now work your way through the list of tools below, adding whichever tools your w
 * [Lazy Librarian](/recipies/autopirate/lazylibrarian/)
 * [Headphones](/recipies/autopirate/headphones/)
 * [NZBHydra](/recipies/autopirate/nzbhydra/)
+* [NZBHydra2](/recipies/autopirate/nzbhydra2/)
 * [Ombi](/recipies/autopirate/ombi/)
 * [Jackett](/recipies/autopirate/jackett/)
 * [End](/recipies/autopirate/end/) (launch the stack)
