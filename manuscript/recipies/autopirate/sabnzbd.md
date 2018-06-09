@@ -14,6 +14,9 @@ SABnzbd is the workhorse of the stack. It takes .nzb files as input (_manually o
 To include SABnzbd in your [AutoPirate](/recipies/autopirate/) stack
 (_The only reason you **wouldn't** use SABnzbd, would be if you were using [NZBGet](/recipies/autopirate/nzbget.md) instead_), include the following in your autopirate.yml stack definition file:
 
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+
 ````
 sabnzbd:
   image: linuxserver/sabnzbd:latest
@@ -47,9 +50,13 @@ sabnzbd_proxy:
     -authenticated-emails-file=/authenticated-emails.txt
 ````
 
-!!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+!!! warning "Important Note re hostname validation"
 
+    (**Updated 10 June 2018**) : In SABnzbd [2.3.3](https://sabnzbd.org/wiki/extra/hostname-check.html), hostname verification was added as a mandatory check. SABnzbd will refuse inbound connections which weren't addressed to its own (_initially, autodetected_) hostname. This presents a problem within Docker Swarm, where container hostnames are random and disposable.
+
+    You'll need to edit sabnzbd.ini (_only created after your first launch_), and **replace** the value in ```host_whitelist``` configuration (_it's comma-separated_) with the name of your service within the swarm definition, as well as your FQDN as accessed via traefik.
+
+    For example, mine simply reads ```host_whitelist = sabnzbd.funkypenguin.co.nz, sabnzbd```
 
 ## Assemble more tools..
 
