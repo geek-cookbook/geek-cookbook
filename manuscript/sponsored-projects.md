@@ -13,3 +13,4 @@ I regularly donate to / sponsor the following projects. **Join me** in supportin
 | [Sonarr](/recipies/autopirate/sonarr/) | [BitCoin/CC](https://sonarr.tv/donate)
 | [NZBHydra](/recipies/autopirate/nzbhydra/) | [Cryptocurrency](https://github.com/theotherp/nzbhydra2)
 | [Calibre](https://calibre-ebook.com/) | [Credit Card](https://calibre-ebook.com/donate) / [Patreon](https://www.patreon.com/kovidgoyal) / [LibrePay](https://liberapay.com/kovidgoyal/donate)
+| [LinuxServer.io](https://www.linuxserver.io) | [PayPal](https://www.linuxserver.io/donate)
