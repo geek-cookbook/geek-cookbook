@@ -6,6 +6,8 @@ Miniflux is a lightweight RSS reader, developed by [Frédéric Guillot](https://
 
 ![Miniflux Screenshot](../../images/miniflux.png)
 
+!!! tip "Sponsored Project"
+    Miniflux is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. Although I get to process my RSS feeds less frequently than I'd like to!
 
 I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/review/miniflux-lightweight-self-hosted-rss-reader/), but features (among many) that I appreciate:
 
