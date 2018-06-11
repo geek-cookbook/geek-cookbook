@@ -2,7 +2,10 @@ hero: Kanboard - A recipe to get your personal kanban on
 
 # Kanboard
 
-Kanboard is a Kanban tool, developed by [Frédéric Guillot](https://github.com/fguillot). (Who also happens to be the developer of my favorite RSS reader, [Miniflux](/recipies/miniflux/))
+Kanboard is a Kanban tool, developed by [Frédéric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux](/recipies/miniflux/)_)
+
+!!! tip "Sponsored Project"
+    Kanboard is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 😓
 
 Features include:
 
@@ -36,6 +39,16 @@ Create the location for the bind-mount of the application data, so that it's per
 mkdir -p /var/data/kanboard
 ```
 
+### Setup Environment
+
+If you intend to use an [OAuth proxy](/reference/oauth_proxy/) to further secure public access to your instance, create a ```kanboard.env``` file to hold your environment variables, and populate with your OAuth provider's details (_the cookie secret you can just make up_):
+
+```
+# If you decide to protect kanboard with an oauth_proxy, complete these
+OAUTH2_PROXY_CLIENT_ID=
+OAUTH2_PROXY_CLIENT_SECRET=
+OAUTH2_PROXY_COOKIE_SECRET=
+```
 
 ### Setup Docker Swarm
 
@@ -55,32 +68,34 @@ services:
      - /var/data/kanboard/data:/var/www/app/data
      - /var/data/kanboard/plugins:/var/www/app/plugins
     networks:
-    - traefik_public
+    - internal
     deploy:
       labels:
         - traefik.frontend.rule=Host:kanboard.example.com
         - traefik.docker.network=traefik_public
         - traefik.port=80
 
-  cron:
-    image: kanboard/kanboard
-    volumes:
-     - /var/data/kanboard/data:/var/www/app/data
-    user: nginx
-    networks:
-      - internal
-    entrypoint: |
-      bash -c 'bash -s <<EOF
-        trap "break;exit" SIGHUP SIGINT SIGTERM
-        while [ ! -f /var/www/app/config.php ]; do
-          sleep 1
-        done
-        while true; do
-          cd /var/www/app
-          ./cli cron
-          sleep 8h
-        done
-      EOF'
+    proxy:
+      image: zappi/oauth2_proxy
+      env_file : /var/data/config/kanboard/kanboard.env
+      networks:
+        - internal
+        - traefik_public
+      deploy:
+        labels:
+          - traefik.frontend.rule=Host:kanboard.example.com
+          - traefik.docker.network=traefik_public
+          - traefik.port=4180
+      volumes:
+        - /var/data/config/kanboard/authenticated-emails.txt:/authenticated-emails.txt
+      command: |
+        -cookie-secure=false
+        -upstream=http://app
+        -redirect-url=https://kanboard.example.com
+        -http-address=http://0.0.0.0:4180
+        -email-domain=example.com
+        -provider=github
+        -authenticated-emails-file=/authenticated-emails.txt
 
 networks:
   traefik_public:
@@ -99,7 +114,7 @@ networks:
 
 Launch the Kanboard stack by running ```docker stack deploy kanboard -c <path -to-docker-compose.yml>```
 
-Log into your new instance at https://**YOUR-FQDN**. Default credentials are admin/admin, after which you can change (under 'profile') and add more users.
+Log into your new instance at https://**YOUR-FQDN**. Default credentials are admin/admin, after which you can change (_under 'profile'_) and add more users.
 
 ## Chef's Notes
 
