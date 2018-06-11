@@ -452,6 +452,6 @@ Two possible solutions to this are (1) disable banning, or (2) update the pool b
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
 
-Also, you could send me some :turtle: ❤️ to _TRTLv2qCKYChMbU5sNkc85hzq2VcGpQidaowbnV2N6LAYrFNebMLepKKPrdif75x5hAizwfc1pX4gi5VsR9WQbjQgYcJm21zec4_
+Also, you could send me some crypto to https://geek-cookbook.funkypenguin.co.nz/support/
 
 ### Your comments? 💬
