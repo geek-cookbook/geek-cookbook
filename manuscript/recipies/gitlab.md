@@ -33,18 +33,24 @@ You'll need to know the following:
 2. Create gitlab.env, and populate with **at least** the following variables (the full set is available at https://github.com/sameersbn/docker-gitlab#available-configuration-parameters):
 ```
 DB_USER=gitlab
-DB_PASS=<as determined above>
+DB_PASS=gitlabdbpass
+DB_NAME=gitlabhq_production
+DB_EXTENSION=pg_trgm
+DB_ADAPTER=postgresql
+DB_HOST=postgresql
 TZ=Pacific/Auckland
+REDIS_HOST=redis
+REDIS_PORT=6379
 GITLAB_TIMEZONE=Auckland
 GITLAB_HTTPS=true
 SSL_SELF_SIGNED=false
-GITLAB_HOST
-GITLAB_PORT
-GITLAB_SSH_PORT
-GITLAB_SECRETS_DB_KEY_BASE
-GITLAB_SECRETS_SECRET_KEY_BASE
-GITLAB_SECRETS_OTP_KEY_BASE
-GITLAB_ROOT_PASSWORD
+GITLAB_HOST=gitlab.example.com
+GITLAB_PORT=443
+GITLAB_SSH_PORT=2222
+GITLAB_SECRETS_DB_KEY_BASE=CFf7sS3kV2nGXBtMHDsTcjkRX8PWLlKTPJMc3lRc6GCzJDdVljZ85NkkzJ8mZbM5
+GITLAB_SECRETS_SECRET_KEY_BASE=h2LBVffktDgb6BxM3B97mDSjhnSNwLc5VL2Hqzq9cdrvBtVw48WSp5wKj5HZrJM5
+GITLAB_SECRETS_OTP_KEY_BASE=t9LPjnLzbkJ7Nt6LZJj6hptdpgG58MPJPwnMMMDdx27KSwLWHDrz9bMWXQMjq5mp
+GITLAB_ROOT_PASSWORD=changeme
 ```
 
 ### Setup Docker Swarm
@@ -69,21 +75,18 @@ services:
 
   postgresql:
     image: sameersbn/postgresql:9.6-2
+    env_file: /var/data/config/gitlab/gitlab.env
     volumes:
     - /var/data/gitlab/postgresql:/var/lib/postgresql:Z
     networks:
     - internal
-    environment:
-    - DB_USER=gitlab
-    - DB_PASS=<your db password>
-    - DB_NAME=gitlabhq_production
-    - DB_EXTENSION=pg_trgm
 
   gitlab:
     image: sameersbn/gitlab:latest
+    env_file: /var/data/config/gitlab/gitlab.env
     networks:
     - internal
-    - traefik
+    - traefik_public
     deploy:
       labels:
         - traefik.frontend.rule=Host:gitlab.example.com
@@ -94,13 +97,12 @@ services:
         max_attempts: 10
         window: 60s
     ports:
-    - "10022:22"
+    - "2222:22"
     volumes:
     - /var/data/gitlab/gitlab:/home/git/data:Z
-    env_file: gitlab.env
 
 networks:
-  traefik:
+  traefik_public:
     external: true
   internal:
     driver: overlay
