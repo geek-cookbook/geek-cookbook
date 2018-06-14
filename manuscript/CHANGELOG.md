@@ -18,6 +18,7 @@ Sign up [here](http://eepurl.com/dfx95n) (double-opt-in) to receive email update
 
 ## Recent improvements
 
+* [GitLab](/recipies/gitlab/) recipe updated with missing env variables, brought up to scratch with more recent design conventions (_14 Jun 2018_)
 * [SABnzbd](/recipies/autopirate/sabnzbd/) component of [autopirate](/recipies/autopirate/start/) recipe updated for new hostname validation check in recent version (_10 Jun 2018_)
 * [Lazy Librarian](/recipies/autopirate/lazylibrarian/) component of [autopirate](/recipies/autopirate/start/) recipe updated to include calibre-server, so that downloaded ebooks can be automatically added to a calibre library, to then be independently managed using [Calibre-Web](/recipies/calibre-web/) (_27 May 2018_)
 * [Miniflux](/recipies/miniflux/) updated to version 2.0, including PostgreSQL database and nightly DB dumps (_24 May 2018_)
