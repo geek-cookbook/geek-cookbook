@@ -51,7 +51,7 @@ pages:
         - Lazy Librarian: recipies/autopirate/lazylibrarian.md
         - Headphones: recipies/autopirate/headphones.md
         - NZBHydra: recipies/autopirate/nzbhydra.md
-        - NZBHydra 2: recipies/autopirate/nzbhydra2.md        
+        - NZBHydra 2: recipies/autopirate/nzbhydra2.md
         - Ombi: recipies/autopirate/ombi.md
         - Jackett: recipies/autopirate/jackett.md
         - End: recipies/autopirate/end.md
@@ -59,6 +59,7 @@ pages:
       - Plex: recipies/plex.md
       - Emby: recipies/emby.md
       - Home Assistant: recipies/homeassistant.md
+      - OwnTracks: recipies/owntracks.md
       - CryptoMiner:
         - Start: recipies/cryptominer.md
         - Mining Rig: recipies/cryptominer/mining-rig.md
@@ -92,7 +93,7 @@ pages:
       - OpenVPN : reference/openvpn.md
       - Troubleshooting: reference/troubleshooting.md
     - Support: support.md
-    - Sponsored Projects: sponsored-projects.md    
+    - Sponsored Projects: sponsored-projects.md
 
 theme:
   name: 'material'
