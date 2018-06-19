@@ -76,7 +76,7 @@ services:
         - traefik.port=80
 
     proxy:
-      image: zappi/oauth2_proxy
+      image: a5huynh/oauth2_proxy
       env_file : /var/data/config/kanboard/kanboard.env
       networks:
         - internal

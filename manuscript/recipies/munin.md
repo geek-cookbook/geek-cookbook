@@ -74,7 +74,7 @@ services:
       - /var/data/munin/cache:/var/cache/munin  
 
   proxy:
-    image: zappi/oauth2_proxy
+    image: a5huynh/oauth2_proxy
     env_file: /var/data/config/munin/munin.env
     networks:
       - traefik

@@ -51,7 +51,7 @@ You'll need to define a service for the oauth_proxy in every stack which you wan
 
 ```
 proxy:
-  image: zappi/oauth2_proxy
+  image: a5huynh/oauth2_proxy
   env_file : /var/data/wekan/wekan.env
   networks:
     - traefik

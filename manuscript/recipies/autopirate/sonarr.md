@@ -26,7 +26,7 @@ sonarr:
   - internal
 
 sonarr_proxy:
-  image: zappi/oauth2_proxy
+  image: a5huynh/oauth2_proxy
   env_file : /var/data/config/autopirate/sonarr.env
   networks:
     - internal
