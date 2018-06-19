@@ -43,7 +43,7 @@ nzbhydra2:
   - internal
 
 nzbhydra2_proxy:
-  image: zappi/oauth2_proxy
+  image: a5huynh/oauth2_proxy
   env_file : /var/data/config/autopirate/nzbhydra2.env
   networks:
     - internal

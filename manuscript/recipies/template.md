@@ -62,7 +62,7 @@ services:
       - /var/data/wekan/wekan-db-dump:/dump
 
   proxy:
-    image: zappi/oauth2_proxy
+    image: a5huynh/oauth2_proxy
     env_file: /var/data/wekan/wekan.env
     networks:
       - traefik

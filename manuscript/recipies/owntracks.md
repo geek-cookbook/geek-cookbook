@@ -65,7 +65,7 @@ services:
         - 8083:8083
 
     owntracks-proxy:
-      image: zappi/oauth2_proxy
+      image: a5huynh/oauth2_proxy
       env_file : /var/data/config/owntracks/owntracks.env
       networks:
         - internal

@@ -31,7 +31,7 @@ sabnzbd:
   - internal
 
 sabnzbd_proxy:
-  image: zappi/oauth2_proxy
+  image: a5huynh/oauth2_proxy
   env_file : /var/data/config/autopirate/sabnzbd.env
   networks:
     - internal
