@@ -1,12 +1,12 @@
-hero: Heroic Hero
-
 # Munin
 
-Intro
+Munin is a networked resource monitoring tool that can help analyze resource trends and "what just happened to kill our performance?" problems. It is designed to be very plug and play. A default installation provides a lot of graphs with almost no work.
 
-![NAME Screenshot](../images/name.jpg)
+![Munin Screenshot](../images/munin.png)
 
-Details
+Using Munin you can easily monitor the performance of your computers, networks, SANs, applications, weather measurements and whatever comes to mind. It makes it easy to determine "what's different today" when a performance problem crops up. It makes it easy to see how you're doing capacity-wise on any resources.
+
+Munin uses the excellent ​RRDTool (written by Tobi Oetiker) and the framework is written in Perl, while plugins may be written in any language. Munin has a master/node architecture in which the master connects to all the nodes at regular intervals and asks them for data. It then stores the data in RRD files, and (if needed) updates the graphs. One of the main goals has been ease of creating new plugins (graphs).
 
 ## Ingredients
 
@@ -15,6 +15,24 @@ Details
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
+
+### Prepare target nodes
+
+Depending on what you want to monitor, you'll want to install munin-node. On Ubuntu/Debian, you'll use ```apt-get install munin-node```, and on RHEL/CentOS, run ```yum install munin-node```. Remember to edit ```/etc/munin/munin-node.conf```, and set your node to allow the server to poll it, by adding ```cidr_allow x.x.x.x/x```.
+
+On CentOS Atomic, of course, you can't install munin-node directly, but you can run it as a containerized instance. In this case, you can't use swarm since you need the container running in privileged mode, so launch a munin-node container on each atomic host using:
+
+```
+docker run -d --name munin-node --restart=always \
+  --privileged --net=host \
+  -v /:/rootfs:ro \
+  -v /sys:/sys:ro \
+  -e ALLOW="cidr_allow 0.0.0.0/0" \
+  -p 4949:4949 \
+  --restart=always \
+  funkypenguin/munin-node
+```
+
 
 ### Setup data locations
 
@@ -28,8 +46,10 @@ mkdir -p {log,lib,run,cache}
 
 ### Prepare environment
 
-Create /var/data/config/munin/munin.env, and populate with the following variables
+Create /var/data/config/munin/munin.env, and populate with the following variables. Use the OAUTH2 variables if you plan to use an [oauth2_proxy](/reference/oauth_proxy/) to protect munin, and set at a **minimum** the ```MUNIN_USER```, ```MUNIN_PASSWORD```, and ```NODES``` values:
+
 ```
+# Use these if you plan to protect the webUI with an oauth_proxy
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=
@@ -45,7 +65,7 @@ SMTP_ALWAYS_SEND=false
 SMTP_MESSAGE='[${var:group};${var:host}] -> ${var:graph_title} -> warnings: ${loop<,>:wfields  ${var:label}=${var:value}} / criticals: ${loop<,>:cfields  ${var:label}=${var:value}}'
 ALERT_RECIPIENT=monitoring@example.com
 ALERT_SENDER=alerts@example.com
-NODES="node1:10.20.30.1 node2:10.20.30.22 node3:10.20.30.23"
+NODES="node1:192.168.1.1 node2:192.168.1.2 node3:192.168.1.3"
 SNMP_NODES="router1:10.0.0.254:9999"
 ```
 
@@ -77,7 +97,7 @@ services:
     image: a5huynh/oauth2_proxy
     env_file: /var/data/config/munin/munin.env
     networks:
-      - traefik
+      - traefik_public
       - internal
     deploy:
       labels:
@@ -93,47 +113,30 @@ services:
       -provider=github
 
 networks:
-  traefik:
+  traefik_public:
     external: true
   internal:
     driver: overlay
     ipam:
       config:
-        - subnet: 172.16.20.0/24
+        - subnet: 172.16.24.0/24
 ```
 
 !!! note
     Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
 
-## Node
-
-```
-docker stop munin-node
-docker rm munin-node
-docker run -d --name munin-node --restart=always \
-  --privileged --net=host \
-  -v /:/rootfs:ro \
-  -v /sys:/sys:ro \
-  -e ALLOW="cidr_allow 0.0.0.0/0" \
-  -p 4949:4949 \
-  --restart=always \
-  funkypenguin/munin-node
-```
-
-
-
 
 ## Serving
 
-### Launch Wekan stack
+### Launch Munin stack
 
-Launch the Wekan stack by running ```docker stack deploy wekan -c <path -to-docker-compose.yml>```
+Launch the Munin stack by running ```docker stack deploy munin -c <path -to-docker-compose.yml>```
 
-Log into your new instance at https://**YOUR-FQDN**, with user "root" and the password you specified in gitlab.env.
+Log into your new instance at https://**YOUR-FQDN**, with user and password password you specified in munin.env above.
 
 ## Chef's Notes
 
-1. If you wanted to expose the Wekan UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the wekan container. You'd also need to add the traefik network to the wekan container.
+1. If you wanted to expose the Munin UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the munin container. You'd also need to add the traefik_public network to the munin container.
 
 ### Tip your waiter (donate) 👏
 

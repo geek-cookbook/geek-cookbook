@@ -58,6 +58,7 @@ pages:
       - NextCloud: recipies/nextcloud.md
       - Plex: recipies/plex.md
       - Emby: recipies/emby.md
+      - Munin: recipies/munin.md
       - Home Assistant: recipies/homeassistant.md
       - OwnTracks: recipies/owntracks.md
       - CryptoMiner:
