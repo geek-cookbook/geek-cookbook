@@ -127,6 +127,7 @@ Docker won't start an image with a bind-mount to a non-existent file, so prepare
 
 ```
 touch /var/data/traefik/acme.json
+
 chmod 600 /var/data/traefik/acme.json
 ```.
 
