@@ -26,7 +26,7 @@ Due to my contributions to [phpList](http://www.phplist.com), I was approached i
 
 Contact me by:
 
-* Jumping into our[Discord server](http://chat.funkypenguin.co.nz)
+* Jumping into our [Discord server](http://chat.funkypenguin.co.nz)
 * Email ([davidy@funkypenguin.co.nz](mailto:davidy@funkypenguin.co.nz))
 * Twitter ([@funkypenguin](https://twitter.com/funkypenguin))
 
