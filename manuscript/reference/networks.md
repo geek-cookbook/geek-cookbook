@@ -30,6 +30,8 @@ Network  | Range
 [MiniFlux](https://geek-cookbook.funkypenguin.co.nz/recipies/miniflux/)  |  172.16.22.0/24
 [Gitlab Runner](https://geek-cookbook.funkypenguin.co.nz/recipies/gitlab-runner/)  |  172.16.23.0/24
 [Munin](https://geek-cookbook.funkypenguin.co.nz/recipies/munin/)  |  172.16.24.0/24
+[Masari Mining Pool](https://geek-cookbook.funkypenguin.co.nz/recipies/cryptonote-mining-pool/masari/)  |  172.16.25.0/24
+[Athena Mining Pool](https://geek-cookbook.funkypenguin.co.nz/recipies/cryptonote-mining-pool/athena/)  |  172.16.26.0/24
 
 ## Chef's Notes
 

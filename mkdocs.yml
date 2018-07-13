@@ -86,6 +86,10 @@ pages:
       - InstaPy: recipies/instapy.md
       - Calibre-Web: recipies/calibre-web.md
       - Wallabag: recipies/wallabag.md
+      - CryptoNote Mining Pool:
+        - Start: recipies/cryptonote-mining-pool.md
+#        - Masari: recipies/cryptonote-mining-pool/masari.md
+        - Athena: recipies/cryptonote-mining-pool/athena.md
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
       - Data Layout: reference/data_layout.md
