@@ -9,6 +9,7 @@
 
 ## Recently added recipes
 
+* Added [Athena Pool](/recipies/cryptonote-mining-pool/athena/), a mining pool for [TurtleCoin](http://turtlecoin.lol)'s newborn baby sister
 * Added [Munin](/recipies/munin/), gatherer of highly details performance stats (_21 Jun 2018_)
 * Added [OwnTracks](/recipies/owntracks/), personal mobile location platform (_17 Jun 2018_)
 * Added [NZBHydra2](/recipies/autopirate/nzbhydra2/) to [autopirate](/recipies/autopirate/start/) stack (_9 Jun 2018_)
