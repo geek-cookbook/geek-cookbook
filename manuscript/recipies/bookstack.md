@@ -77,7 +77,7 @@ services:
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:bookstack.funkypenguin.co.nz
+        - traefik.frontend.rule=Host:bookstack.example.com
         - traefik.docker.network=traefik_public
         - traefik.port=4180
     volumes:
@@ -85,9 +85,9 @@ services:
     command: |
       -cookie-secure=false
       -upstream=http://app
-      -redirect-url=https://bookstack.funkypenguin.co.nz
+      -redirect-url=https://bookstack.example.com
       -http-address=http://0.0.0.0:4180
-      -email-domain=funkypenguin.co.nz
+      -email-domain=example.com
       -provider=github
       -authenticated-emails-file=/authenticated-emails.txt
 
