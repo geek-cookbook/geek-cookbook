@@ -75,6 +75,7 @@ pages:
       - Wallabag: recipies/wallabag.md
       - Turtle Pool: recipies/turtle-pool.md
     - Menu:
+      - Bookstack: recipies/bookstack.md
       - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md
       - GitLab Runner: recipies/gitlab-runner.md

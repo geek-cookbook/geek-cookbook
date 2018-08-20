@@ -11,7 +11,7 @@ Details
 ## Ingredients
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
+2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
@@ -65,13 +65,13 @@ services:
     image: a5huynh/oauth2_proxy
     env_file: /var/data/wekan/wekan.env
     networks:
-      - traefik
+      - traefik_public
       - internal
     deploy:
       labels:
-        - traefik.frontend.rule=Host:wekan.example.com
-        - traefik.docker.network=traefik
-        - traefik.port=4180
+        - traefik_public.frontend.rule=Host:wekan.example.com
+        - traefik_public.docker.network=traefik_public
+        - traefik_public.port=4180
     command: |
       -cookie-secure=false
       -upstream=http://wekan:80
@@ -87,7 +87,7 @@ services:
     env_file: /var/data/wekan/wekan.env
 
 networks:
-  traefik:
+  traefik_public:
     external: true
   internal:
     driver: overlay
@@ -111,7 +111,7 @@ Log into your new instance at https://**YOUR-FQDN**, with user "root" and the pa
 
 ## Chef's Notes
 
-1. If you wanted to expose the Wekan UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the wekan container. You'd also need to add the traefik network to the wekan container.
+1. If you wanted to expose the Wekan UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the wekan container. You'd also need to add the traefik_public network to the wekan container.
 
 ### Tip your waiter (donate) 👏
 
