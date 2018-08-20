@@ -29,8 +29,10 @@ mkdir -p /var/data/runtime/bookstack/db
 
 ### Prepare environment
 
-Create bookstack.env, and populate with the following variables
+Create bookstack.env, and populate with the following variables. Set the [oauth_proxy](/reference/oauth_proxy) variables provided by your OAuth provider (if applicable.)
+
 ```
+# For oauth-proxy (optional)
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=
