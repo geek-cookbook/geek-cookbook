@@ -21,6 +21,9 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 
 The traefik container is aware of the __other__ docker containers in the swarm, because it has access to the docker socket at **/var/run/docker.sock**. This allows traefik to dynamically configure itself based on the labels found on containers in the swarm, which is hugely useful. To make this functionality work on our SELinux-enabled Atomic hosts, we need to add custom SELinux policy.
 
+!!! tip
+    The following is only necessary if you're using SELinux!
+
 Run the following to build and activate policy to permit containers to access docker.sock:
 
 ```
@@ -37,7 +40,7 @@ make && semodule -i dockersock.pp
 
 While it's possible to configure traefik via docker command arguments, I prefer to create a config file (traefik.toml). This allows me to change traefik's behaviour by simply changing the file, and keeps my docker config simple.
 
-Create /var/data/traefik/traefik.toml as follows:
+Create ```/var/data/traefik/```, and then create ```traefik.toml``` inside it as follows:
 
 ```
 checkNewVersion = true
@@ -76,9 +79,14 @@ watch = true
 swarmmode = true
 ```
 
+
 ### Prepare the docker service config
 
-Create /var/data/traefik/docker-compose.yml as follows:
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+
+
+Create /var/data/config/traefik/docker-compose.yml as follows:
 
 ```
 version: "3"
@@ -123,13 +131,14 @@ networks:
       - subnet: 10.1.0.0/24
 ```
 
-Docker won't start an image with a bind-mount to a non-existent file, so prepare acme.json (_with the appropriate permissions_) by running:
+Docker won't start an image with a bind-mount to a non-existent file, so prepare an empty acme.json (_with the appropriate permissions_) by running:
 
 ```
 touch /var/data/traefik/acme.json
-
 chmod 600 /var/data/traefik/acme.json
-```.
+```
+
+Traefik will populate acme.json itself when it runs, but it needs to exist before the container will start (_Chicken, meet egg._)
 
 ### Launch
 
