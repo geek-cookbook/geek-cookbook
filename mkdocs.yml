@@ -73,6 +73,7 @@ pages:
         - Monitoring: recipies/cryptominer/monitor.md
         - Profit!: recipies/cryptominer/profit.md
       - Wallabag: recipies/wallabag.md
+      - Swarmprom: recipies/swarmprom.md
       - Turtle Pool: recipies/turtle-pool.md
     - Menu:
       - Bookstack: recipies/bookstack.md
@@ -147,6 +148,7 @@ markdown_extensions:
   - pymdownx.betterem(smart_enable=all)
   - pymdownx.caret
   - pymdownx.critic
+  - pymdownx.details  
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite

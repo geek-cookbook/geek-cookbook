@@ -33,6 +33,7 @@ Network  | Range
 [Masari Mining Pool](https://geek-cookbook.funkypenguin.co.nz/recipies/cryptonote-mining-pool/masari/)  |  172.16.25.0/24
 [Athena Mining Pool](https://geek-cookbook.funkypenguin.co.nz/recipies/cryptonote-mining-pool/athena/)  |  172.16.26.0/24
 [Bookstack](https://geek-cookbook.funkypenguin.co.nz/recipies/bookstack/)  |  172.16.33.0/24
+[Swarmprom](https://geek-cookbook.funkypenguin.co.nz/recipies/swarmprom/)  |  172.16.34.0/24
 
 ## Chef's Notes
 
