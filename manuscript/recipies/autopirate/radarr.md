@@ -24,7 +24,7 @@
 
 !!! tip "Sponsored Project"
     Sonarr is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I forget it's there until I (reliably) receive an email with new and exciting updates 😁
-    
+
 ## Inclusion into AutoPirate
 
 To include Radarr in your [AutoPirate](/recipies/autopirate/) stack, include the following in your autopirate.yml stack definition file:
@@ -77,6 +77,7 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [Mylar](/recipies/autopirate/mylar/)
 * [Lazy Librarian](/recipies/autopirate/lazylibrarian/)
 * [Headphones](/recipies/autopirate/headphones/)
+* [Lidarr](/recipies/autopirate/lidarr/) 
 * [NZBHydra](/recipies/autopirate/nzbhydra/)
 * [NZBHydra2](/recipies/autopirate/nzbhydra2/)
 * [Ombi](/recipies/autopirate/ombi/)

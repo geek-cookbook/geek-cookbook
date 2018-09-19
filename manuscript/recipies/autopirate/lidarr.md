@@ -3,43 +3,43 @@ hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and
 !!! warning
     This is not a complete recipe - it's a component of the [autopirate](/recipies/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
-# Headphones
+# Lidarr
 
-[Headphones](https://github.com/rembo10/headphones) is an automated music downloader for NZB and Torrent, written in Python. It supports SABnzbd, NZBget, Transmission, µTorrent, Deluge and Blackhole.
+[Lidarr](https://lidarr.audio/) is an automated music downloader for NZB and Torrent. It performs the same function as [Headphones](/recipies/autopirate/headphones), but is written using the same(ish) codebase as [Radarr](/recipies/autopirate/radarr/) and [Sonarr](/recipies/autopirate/sonarr). It's blazingly fast, and includes beautiful album/artist art. Lidarr supports [SABnzbd](/recipies/autopirate/sabnzbd/), [NZBGet](/recipies/autopirate/nzbget/), Transmission, µTorrent, Deluge and Blackhole (_just like Sonarr / Radarr_)
 
-![Headphones Screenshot](../../images/headphones.png)
+![Lidarr Screenshot](../../images/lidarr.png)
 
 ## Inclusion into AutoPirate
 
-To include Headphones in your [AutoPirate](/recipies/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include Lidarr in your [AutoPirate](/recipies/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
 ````
-headphones:
-  image: linuxserver/headphones:latest
-  env_file : /var/data/config/autopirate/headphones.env
+lidarr:
+  image: linuxserver/lidarr:latest
+  env_file : /var/data/config/autopirate/lidarr.env
   volumes:
-   - /var/data/autopirate/headphones:/config
+   - /var/data/autopirate/lidarr:/config
    - /var/data/media:/media
   networks:
   - internal
 
-headphones_proxy:
+lidarr_proxy:
   image: a5huynh/oauth2_proxy
-  env_file : /var/data/config/autopirate/headphones.env
+  env_file : /var/data/config/autopirate/lidarr.env
   networks:
     - internal
     - traefik_public
   deploy:
     labels:
-      - traefik.frontend.rule=Host:headphones.example.com
+      - traefik.frontend.rule=Host:lidarr.example.com
       - traefik.docker.network=traefik_public
       - traefik.port=4180
   volumes:
     - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
   command: |
     -cookie-secure=false
-    -upstream=http://headphones:8181
-    -redirect-url=https://headphones.example.com
+    -upstream=http://lidarr:8181
+    -redirect-url=https://lidarr.example.com
     -http-address=http://0.0.0.0:4180
     -email-domain=example.com
     -provider=github
@@ -60,8 +60,9 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [Radarr](/recipies/autopirate/radarr/)
 * [Mylar](https://github.com/evilhero/mylar)
 * [Lazy Librarian](/recipies/autopirate/lazylibrarian/)
-* Headphones (this page)
-* [Lidarr](/recipies/autopirate/lidarr/)
+* [Headphones](/recipies/autopirate/headphones/)
+* Lidarr (this page)
+* [NZBHydra](/recipies/autopirate/nzbhydra/)
 * [NZBHydra](/recipies/autopirate/nzbhydra/)
 * [NZBHydra2](/recipies/autopirate/nzbhydra2/)
 * [Ombi](/recipies/autopirate/ombi/)
@@ -72,6 +73,7 @@ Continue through the list of tools below, adding whichever tools your want to us
 ## Chef's Notes 📓
 
 1. In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
+2. The addition of the Lidarr recipe was contributed by our very own @gpulido in Discord (http://chat.funkypenguin.co.nz) - Thanks Gabriel!
 
 ### Tip your waiter (donate) 👏
 

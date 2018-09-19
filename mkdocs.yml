@@ -50,6 +50,7 @@ pages:
         - Mylar: recipies/autopirate/mylar.md
         - Lazy Librarian: recipies/autopirate/lazylibrarian.md
         - Headphones: recipies/autopirate/headphones.md
+        - Lidarr: recipies/autopirate/lidarr.md        
         - NZBHydra: recipies/autopirate/nzbhydra.md
         - NZBHydra 2: recipies/autopirate/nzbhydra2.md
         - Ombi: recipies/autopirate/ombi.md
@@ -148,7 +149,7 @@ markdown_extensions:
   - pymdownx.betterem(smart_enable=all)
   - pymdownx.caret
   - pymdownx.critic
-  - pymdownx.details  
+  - pymdownx.details
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite

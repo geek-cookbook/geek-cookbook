@@ -63,6 +63,7 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [Mylar](/recipies/autopirate/mylar/)
 * [Lazy Librarian](/recipies/autopirate/lazylibrarian/)
 * [Headphones](/recipies/autopirate/headphones/)
+* [Lidarr](/recipies/autopirate/lidarr/) 
 * [NZBHydra](/recipies/autopirate/nzbhydra/)
 * [NZBHydra2](/recipies/autopirate/nzbhydra2/)
 * [Ombi](/recipies/autopirate/ombi/)
