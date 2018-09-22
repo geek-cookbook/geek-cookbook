@@ -50,7 +50,7 @@ pages:
         - Mylar: recipies/autopirate/mylar.md
         - Lazy Librarian: recipies/autopirate/lazylibrarian.md
         - Headphones: recipies/autopirate/headphones.md
-        - Lidarr: recipies/autopirate/lidarr.md        
+        - Lidarr: recipies/autopirate/lidarr.md
         - NZBHydra: recipies/autopirate/nzbhydra.md
         - NZBHydra 2: recipies/autopirate/nzbhydra2.md
         - Ombi: recipies/autopirate/ombi.md
@@ -97,6 +97,7 @@ pages:
       - OAuth Proxy: reference/oauth_proxy.md
       - Data Layout: reference/data_layout.md
       - Networks: reference/networks.md
+      - Containers: reference/containers.md      
       - git-docker : reference/git-docker.md
       - OpenVPN : reference/openvpn.md
       - Troubleshooting: reference/troubleshooting.md
