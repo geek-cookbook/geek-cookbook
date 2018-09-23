@@ -5,9 +5,148 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 [hub-oauth2_proxy]:
 [github-oauth2_proxy]: https://github.com/funkypenguin/oauth2_proxy
 
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/athena](https://hub.docker.com/r/funkypenguin/athena/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/athena.svg)](https://hub.docker.com/r/funkypenguin/athena/)| Athena |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/athena.svg)](https://hub.docker.com/r/funkypenguin/athena/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/athena.svg)](https://hub.docker.com/r/funkypenguin/athena/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/alertmanager-discord](https://hub.docker.com/r/funkypenguin/alertmanager-discord/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/alertmanager-discord.svg)](https://hub.docker.com/r/funkypenguin/alertmanager-discord/)| alertmanager-discord |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/alertmanager-discord.svg)](https://hub.docker.com/r/funkypenguin/alertmanager-discord/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/alertmanager-discord.svg)](https://hub.docker.com/r/funkypenguin/alertmanager-discord/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/aeon](https://hub.docker.com/r/funkypenguin/aeon/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/aeon.svg)](https://hub.docker.com/r/funkypenguin/aeon/)| aeon |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/aeon.svg)](https://hub.docker.com/r/funkypenguin/aeon/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/aeon.svg)](https://hub.docker.com/r/funkypenguin/aeon/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/bittube](https://hub.docker.com/r/funkypenguin/bittube/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/bittube.svg)](https://hub.docker.com/r/funkypenguin/bittube/)| bittube |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/bittube.svg)](https://hub.docker.com/r/funkypenguin/bittube/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/bittube.svg)](https://hub.docker.com/r/funkypenguin/bittube/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/cryptonote-nodejs-pool](https://hub.docker.com/r/funkypenguin/cryptonote-nodejs-pool/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/cryptonote-nodejs-pool.svg)](https://hub.docker.com/r/funkypenguin/cryptonote-nodejs-pool/)| Cryptonote |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/cryptonote-nodejs-pool.svg)](https://hub.docker.com/r/funkypenguin/cryptonote-nodejs-pool/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/cryptonote-nodejs-pool.svg)](https://hub.docker.com/r/funkypenguin/cryptonote-nodejs-pool/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/conceal-core](https://hub.docker.com/r/funkypenguin/conceald/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/conceald.svg)](https://hub.docker.com/r/funkypenguin/conceald//)| conceald |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/conceald.svg)](https://hub.docker.com/r/funkypenguin/conceald/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/conceald.svg)](https://hub.docker.com/r/funkypenguin/conceald/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/git-docker](https://hub.docker.com/r/funkypenguin/git-docker/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/git-docker.svg)](https://hub.docker.com/r/funkypenguin/git-docker/)| git-docker|[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/git-docker.svg)](https://hub.docker.com/r/funkypenguin/git-docker/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/git-docker.svg)](https://hub.docker.com/r/funkypenguin/git-docker/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/home-assistant](https://hub.docker.com/r/funkypenguin/home-assistant/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/home-assistant.svg)](https://hub.docker.com/r/funkypenguin/home-assistant//)| home-assistant |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/home-assistant.svg)](https://hub.docker.com/r/funkypenguin/home-assistant/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/home-assistant.svg)](https://hub.docker.com/r/funkypenguin/home-assistant/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/htpc-cron](https://hub.docker.com/r/funkypenguin/htpc-cron/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/htpc-cron.svg)](https://hub.docker.com/r/funkypenguin/htpc-cron/)| htpc-cron |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/htpc-cron.svg)](https://hub.docker.com/r/funkypenguin/htpc-cron/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/htpc-cron.svg)](https://hub.docker.com/r/funkypenguin/htpc-cron/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/kepl](https://hub.docker.com/r/funkypenguin/kepl/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/kepl.svg)](https://hub.docker.com/r/funkypenguin/kepl/)| KEPL |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/kepl.svg)](https://hub.docker.com/r/funkypenguin/kepl/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/kepl.svg)](https://hub.docker.com/r/funkypenguin/kepl/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/koson](https://hub.docker.com/r/funkypenguin/koson/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/koson.svg)](https://hub.docker.com/r/funkypenguin/koson/)| koson |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/koson.svg)](https://hub.docker.com/r/funkypenguin/koson/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/koson.svg)](https://hub.docker.com/r/funkypenguin/koson/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/loki](https://hub.docker.com/r/funkypenguin/loki/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/loki.svg)](https://hub.docker.com/r/funkypenguin/loki/)| loki |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/loki.svg)](https://hub.docker.com/r/funkypenguin/loki/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/loki.svg)](https://hub.docker.com/r/funkypenguin/loki/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/masari](https://hub.docker.com/r/funkypenguin/masari/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/masari.svg)](https://hub.docker.com/r/funkypenguin/masari//)| masari |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/masari.svg)](https://hub.docker.com/r/funkypenguin/masari/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/masari.svg)](https://hub.docker.com/r/funkypenguin/masari/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/monero](https://hub.docker.com/r/funkypenguin/monero/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/monero.svg)](https://hub.docker.com/r/funkypenguin/monero/)| monero |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/monero.svg)](https://hub.docker.com/r/funkypenguin/monero/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/monero.svg)](https://hub.docker.com/r/funkypenguin/monero/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/monkeytips](https://hub.docker.com/r/funkypenguin/monkeytips/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/monkeytips.svg)](https://hub.docker.com/r/funkypenguin/monkeytips//)| monkeytips |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/monkeytips.svg)](https://hub.docker.com/r/funkypenguin/monkeytips/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/monkeytips.svg)](https://hub.docker.com/r/funkypenguin/monkeytips/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/minio](https://hub.docker.com/r/funkypenguin/minio/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/minio.svg)](https://hub.docker.com/r/funkypenguin/minio/)| minio |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/minio.svg)](https://hub.docker.com/r/funkypenguin/minio/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/minio.svg)](https://hub.docker.com/r/funkypenguin/minio/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/munin-server](https://hub.docker.com/r/funkypenguin/munin-server/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/munin-server.svg)](https://hub.docker.com/r/funkypenguin/munin-server/)| munin-server |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/munin-server.svg)](https://hub.docker.com/r/funkypenguin/munin-server/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/munin-server.svg)](https://hub.docker.com/r/funkypenguin/munin-server/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/munin-node](https://hub.docker.com/r/funkypenguin/munin-node/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/munin-node.svg)](https://hub.docker.com/r/funkypenguin/munin-node/)| munin-node |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/munin-node.svg)](https://hub.docker.com/r/funkypenguin/munin-node/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/munin-node.svg)](https://hub.docker.com/r/funkypenguin/munin-node/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/mwlib](https://hub.docker.com/r/funkypenguin/mwlib/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/mwlib.svg)](https://hub.docker.com/r/funkypenguin/mwlib/)| mwlib |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/mwlib.svg)](https://hub.docker.com/r/funkypenguin/mwlib/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/mwlib.svg)](https://hub.docker.com/r/funkypenguin/mwlib/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/mqttwarn](https://hub.docker.com/r/funkypenguin/mqttwarn/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/mqttwarn.svg)](https://hub.docker.com/r/funkypenguin/mqttwarn/)| mqttwarn |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/mqttwarn.svg)](https://hub.docker.com/r/funkypenguin/mqttwarn/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/mqttwarn.svg)](https://hub.docker.com/r/funkypenguin/mqttwarn/)
+
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/nginx-proxy-letsencrypt](https://hub.docker.com/r/funkypenguin/nginx-proxy-letsencrypt/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/nginx-proxy-letsencrypt.svg)](https://hub.docker.com/r/funkypenguin/nginx-proxy-letsencrypt/)| nginx-proxy-letsencrypt |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/nginx-proxy-letsencrypt.svg)](https://hub.docker.com/r/funkypenguin/nginx-proxy-letsencrypt/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/nginx-proxy-letsencrypt.svg)](https://hub.docker.com/r/funkypenguin/nginx-proxy-letsencrypt/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/nzbdrone](https://hub.docker.com/r/funkypenguin/nzbdrone/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/nzbdrone.svg)](https://hub.docker.com/r/funkypenguin/nzbdrone/)| nzbdrone |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/nzbdrone.svg)](https://hub.docker.com/r/funkypenguin/nzbdrone/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/nzbdrone.svg)](https://hub.docker.com/r/funkypenguin/nzbdrone/)
+
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/owntracks](https://hub.docker.com/r/funkypenguin/owntracks/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/owntracks.svg)](https://hub.docker.com/r/funkypenguin/owntracks//)| Owntracks |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/owntracks.svg)](https://hub.docker.com/r/funkypenguin/owntracks/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/owntracks.svg)](https://hub.docker.com/r/funkypenguin/owntracks/)
+
+
 Name | Description | Badges
 --|--|--
 [funkypenguin/oauth2_proxy](https://hub.docker.com/r/funkypenguin/oauth2_proxy/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/oauth2_proxy.svg)](https://hub.docker.com/r/funkypenguin/oauth2_proxy/)| OAuth2 proxy supporting self-signed upstream certs |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/oauth2_proxy.svg)](https://hub.docker.com/r/funkypenguin/oauth2_proxy/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/oauth2_proxy.svg)](https://hub.docker.com/r/funkypenguin/oauth2_proxy/)
+
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/plex](https://hub.docker.com/r/funkypenguin/plex/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/plex.svg)](https://hub.docker.com/r/funkypenguin/plex/)| plex |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/plex.svg)](https://hub.docker.com/r/funkypenguin/plex/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/plex.svg)](https://hub.docker.com/r/funkypenguin/plex/)
+
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/ryo-currency](https://hub.docker.com/r/funkypenguin/ryo-currency/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/ryo-currency.svg)](https://hub.docker.com/r/funkypenguin/ryo-currency/)| ryo-currency |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/ryo-currency.svg)](https://hub.docker.com/r/funkypenguin/ryo-currency/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/ryo-currency.svg)](https://hub.docker.com/r/funkypenguin/ryo-currency/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/rtorrent](https://hub.docker.com/r/funkypenguin/rtorrent/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/rtorrent.svg)](https://hub.docker.com/r/funkypenguin/rtorrent/)| rtorrent |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/rtorrent.svg)](https://hub.docker.com/r/funkypenguin/rtorrent/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/rtorrent.svg)](https://hub.docker.com/r/funkypenguin/rtorrent/)
+
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/sabnzbd](https://hub.docker.com/r/funkypenguin/sabnzbd/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/sabnzbd.svg)](https://hub.docker.com/r/funkypenguin/oauth2_proxy/)| sabnzbd |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/sabnzbd.svg)](https://hub.docker.com/r/funkypenguin/sabnzbd/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/sabnzbd.svg)](https://hub.docker.com/r/funkypenguin/sabnzbd/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/turtlecoind](https://hub.docker.com/r/funkypenguin/turtlecoind/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/turtlecoind.svg)](https://hub.docker.com/r/funkypenguin/turtlecoind/)| turtlecoin |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/turtlecoind.svg)](https://hub.docker.com/r/funkypenguin/turtlecoind/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/turtlecoind.svg)](https://hub.docker.com/r/funkypenguin/turtlecoind/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/temasek](https://hub.docker.com/r/funkypenguin/temasek/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/temasek.svg)](https://hub.docker.com/r/funkypenguin/temasek/)| temasek |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/temasek.svg)](https://hub.docker.com/r/funkypenguin/temasek/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/temasek.svg)](https://hub.docker.com/r/funkypenguin/temasek/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/turtle-pool](https://hub.docker.com/r/funkypenguin/turtle-pool/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/turtle-pool.svg)](https://hub.docker.com/r/funkypenguin/turtle-pool//)| turtle-pool |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/turtle-pool.svg)](https://hub.docker.com/r/funkypenguin/turtle-pool/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/turtle-pool.svg)](https://hub.docker.com/r/funkypenguin/turtle-pool/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/turtlecoin](https://hub.docker.com/r/funkypenguin/turtlecoin/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/turtlecoin.svg)](https://hub.docker.com/r/funkypenguin/turtlecoin/)| turtlecoin |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/turtlecoin.svg)](https://hub.docker.com/r/funkypenguin/turtlecoin/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/turtlecoin.svg)](https://hub.docker.com/r/funkypenguin/turtlecoin/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/x-cash](https://hub.docker.com/r/funkypenguin/x-cash/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/x-cash.svg)](https://hub.docker.com/r/funkypenguin/x-cash/)| x-cash |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/x-cash.svg)](https://hub.docker.com/r/funkypenguin/x-cash/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/x-cash.svg)](https://hub.docker.com/r/funkypenguin/x-cash/)
+
+Name | Description | Badges
+--|--|--
+[funkypenguin/xmrig-cpu](https://hub.docker.com/r/funkypenguin/xmrig-cpu/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/xmrig-cpu.svg)](https://hub.docker.com/r/funkypenguin/xmrig-cpu/)| xmrig-cpu |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/xmrig-cpu.svg)](https://hub.docker.com/r/funkypenguin/xmrig-cpu/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/xmrig-cpu.svg)](https://hub.docker.com/r/funkypenguin/xmrig-cpu/)
 
 
 ## Chef's Notes
