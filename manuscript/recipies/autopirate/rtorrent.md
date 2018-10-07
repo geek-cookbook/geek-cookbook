@@ -66,11 +66,12 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [Mylar](/recipies/autopirate/mylar/)
 * [Lazy Librarian](/recipies/autopirate/lazylibrarian/)
 * [Headphones](/recipies/autopirate/headphones/)
-* [Lidarr](/recipies/autopirate/lidarr/) 
+* [Lidarr](/recipies/autopirate/lidarr/)
 * [NZBHydra](/recipies/autopirate/nzbhydra/)
 * [NZBHydra2](/recipies/autopirate/nzbhydra2/)
 * [Ombi](/recipies/autopirate/ombi/)
 * [Jackett](/recipies/autopirate/jackett/)
+* [Heimdall](/recipies/autopirate/heimdall/)
 * [End](/recipies/autopirate/end/) (launch the stack)
 
 
