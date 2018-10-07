@@ -55,6 +55,7 @@ pages:
         - NZBHydra 2: recipies/autopirate/nzbhydra2.md
         - Ombi: recipies/autopirate/ombi.md
         - Jackett: recipies/autopirate/jackett.md
+        - Heimdall: recipies/autopirate/heimdall.md        
         - End: recipies/autopirate/end.md
       - NextCloud: recipies/nextcloud.md
       - Plex: recipies/plex.md
@@ -97,7 +98,7 @@ pages:
       - OAuth Proxy: reference/oauth_proxy.md
       - Data Layout: reference/data_layout.md
       - Networks: reference/networks.md
-      - Containers: reference/containers.md      
+      - Containers: reference/containers.md
       - git-docker : reference/git-docker.md
       - OpenVPN : reference/openvpn.md
       - Troubleshooting: reference/troubleshooting.md
