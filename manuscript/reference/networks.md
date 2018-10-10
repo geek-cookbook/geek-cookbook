@@ -34,7 +34,9 @@ Network  | Range
 [Athena Mining Pool](https://geek-cookbook.funkypenguin.co.nz/recipies/cryptonote-mining-pool/athena/)  |  172.16.26.0/24
 [Bookstack](https://geek-cookbook.funkypenguin.co.nz/recipies/bookstack/)  |  172.16.33.0/24
 [Swarmprom](https://geek-cookbook.funkypenguin.co.nz/recipies/swarmprom/)  |  172.16.34.0/24
-[Realsms](https://geek-cookbook.funkypenguin.co.nz/recipies/realms/)  |  172.16.35.0/24
+[Realms](https://geek-cookbook.funkypenguin.co.nz/recipies/realms/)  |  172.16.35.0/24
+[ElkarBackup](https://geek-cookbook.funkypenguin.co.nz/recipies/elkarbackp/)  |  172.16.36.0/24
+[Mayan EDMS](https://geek-cookbook.funkypenguin.co.nz/recipies/realms/)  |  172.16.37.0/24
 
 ## Chef's Notes
 
