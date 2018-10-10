@@ -55,7 +55,7 @@ pages:
         - NZBHydra 2: recipies/autopirate/nzbhydra2.md
         - Ombi: recipies/autopirate/ombi.md
         - Jackett: recipies/autopirate/jackett.md
-        - Heimdall: recipies/autopirate/heimdall.md        
+        - Heimdall: recipies/autopirate/heimdall.md
         - End: recipies/autopirate/end.md
       - NextCloud: recipies/nextcloud.md
       - Plex: recipies/plex.md
@@ -63,18 +63,6 @@ pages:
       - Munin: recipies/munin.md
       - Home Assistant: recipies/homeassistant.md
       - OwnTracks: recipies/owntracks.md
-      - CryptoMiner:
-        - Start: recipies/cryptominer.md
-        - Mining Rig: recipies/cryptominer/mining-rig.md
-        - AMD GPU: recipies/cryptominer/amd-gpu.md
-        - NVidia GPU: recipies/cryptominer/nvidia-gpu.md
-        - Mining Pools : recipies/cryptominer/mining-pool.md
-        - Wallets : recipies/cryptominer/wallet.md
-        - Exchanges: recipies/cryptominer/exchange.md
-        - Minerhotel: recipies/cryptominer/minerhotel.md
-        - Monitoring: recipies/cryptominer/monitor.md
-        - Profit!: recipies/cryptominer/profit.md
-      - Wallabag: recipies/wallabag.md
       - Swarmprom: recipies/swarmprom.md
       - Turtle Pool: recipies/turtle-pool.md
     - Menu:
@@ -83,6 +71,7 @@ pages:
       - GitLab: recipies/gitlab.md
       - GitLab Runner: recipies/gitlab-runner.md
       - Gollum: recipies/gollum.md
+      - Realms: recipies/realms.md      
       - Piwik: recipies/piwik.md
       - Wekan: recipies/wekan.md
       - Tiny Tiny RSS: recipies/tiny-tiny-rss.md
@@ -94,6 +83,17 @@ pages:
         - Start: recipies/cryptonote-mining-pool.md
 #        - Masari: recipies/cryptonote-mining-pool/masari.md
         - Athena: recipies/cryptonote-mining-pool/athena.md
+      - CryptoMiner:
+        - Start: recipies/cryptominer.md
+        - Mining Rig: recipies/cryptominer/mining-rig.md
+        - AMD GPU: recipies/cryptominer/amd-gpu.md
+        - NVidia GPU: recipies/cryptominer/nvidia-gpu.md
+        - Mining Pools : recipies/cryptominer/mining-pool.md
+        - Wallets : recipies/cryptominer/wallet.md
+        - Exchanges: recipies/cryptominer/exchange.md
+        - Minerhotel: recipies/cryptominer/minerhotel.md
+        - Monitoring: recipies/cryptominer/monitor.md
+        - Profit!: recipies/cryptominer/profit.md
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
       - Data Layout: reference/data_layout.md

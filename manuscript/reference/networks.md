@@ -37,6 +37,7 @@ Network  | Range
 [Realms](https://geek-cookbook.funkypenguin.co.nz/recipies/realms/)  |  172.16.35.0/24
 [ElkarBackup](https://geek-cookbook.funkypenguin.co.nz/recipies/elkarbackp/)  |  172.16.36.0/24
 [Mayan EDMS](https://geek-cookbook.funkypenguin.co.nz/recipies/realms/)  |  172.16.37.0/24
+[Shaarli](https://geek-cookbook.funkypenguin.co.nz/recipies/shaarli/)  |  172.16.38.0/24
 
 ## Chef's Notes
 
