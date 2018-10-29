@@ -24,8 +24,8 @@ No, seriously (_but yes, I do want your money - see below_), If the above applie
 
 ### Get in touch 👋
 
+* Come and say hi to me and the friendly geeks in the [Discord](http://chat.funkypenguin.co.nz) chat or the [Discourse](https://discourse.geek-kitchen.funkypenguin.co.nz/) forums - say hi, ask a question, or suggest a new recipe!
 * Tweet me up, I'm [@funkypenguin](https://twitter.com/funkypenguin)! 🐦
-* or better yet, come into the  [kitchen](https://discourse.geek-kitchen.funkypenguin.co.nz/) (discussion forums) to say hi, ask a question, or suggest a new recipe!
 
 ### Buy my book 📖
 
