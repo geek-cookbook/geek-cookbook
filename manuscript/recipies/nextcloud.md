@@ -24,7 +24,7 @@ We'll need several directories for [static data](/reference/data_layout/#static-
 ```
 mkdir /var/data/nextcloud
 cd /var/data/nextcloud
-mkdir -p {apps,config,data,database-dump}
+mkdir -p {html,apps,config,data,database-dump}
 ```
 
 Now make **more** directories for [runtime data](/reference/data_layout/#runtime-data) (_so that they can be **not** backed-up_):
@@ -32,7 +32,7 @@ Now make **more** directories for [runtime data](/reference/data_layout/#runtime
 ```
 mkdir /var/data/runtime/nextcloud
 cd /var/data/runtime/nextcloud
-mkdir -p {db,solr,redis}
+mkdir -p {db,redis}
 ```
 
 
@@ -85,10 +85,10 @@ services:
         - traefik.docker.network=traefik_public
         - traefik.port=80
     volumes:
-      - /var/data/nextcloud/:/var/www/html
-      - /var/data/nextcloud/apps:/var/www/html/custom_apps
-      - /var/data/nextcloud/config:/var/www/html/config
-      - /var/data/nextcloud/data:/var/www/html/data
+    - /var/data/nextcloud/html:/var/www/html
+    - /var/data/nextcloud/apps:/var/www/html/custom_apps
+    - /var/data/nextcloud/config:/var/www/html/config
+    - /var/data/nextcloud/data:/var/www/html/data
 
   db:
     image: mariadb:10
@@ -123,17 +123,6 @@ services:
       - internal
     volumes:
       - /var/data/runtime/nextcloud/redis:/data
-
-  solr:
-    image: solr:6-alpine
-    networks:
-      - internal
-    volumes:
-    - /var/data/runtime/nextcloud/solr:/opt/solr/server/solr/mycores
-    entrypoint:
-      - docker-entrypoint.sh
-      - solr-precreate
-      - nextant
 
   cron:
     image: nextcloud
