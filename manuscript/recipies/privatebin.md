@@ -41,7 +41,7 @@ services:
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:privatebin.funkypenguin.co.nz
+        - traefik.frontend.rule=Host:privatebin.example.com
         - traefik.docker.network=traefik_public
         - traefik.port=4180
 
