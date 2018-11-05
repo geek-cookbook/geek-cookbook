@@ -65,7 +65,7 @@ pages:
       - OwnTracks: recipies/owntracks.md
       - Swarmprom: recipies/swarmprom.md
       - Turtle Pool: recipies/turtle-pool.md
-      - PriåteBin: recipies/privatebin.md
+      - PrivateBin: recipies/privatebin.md
     - Menu:
       - Bookstack: recipies/bookstack.md
       - Ghost: recipies/ghost.md
