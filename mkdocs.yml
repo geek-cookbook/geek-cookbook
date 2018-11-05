@@ -65,7 +65,7 @@ pages:
       - OwnTracks: recipies/owntracks.md
       - Swarmprom: recipies/swarmprom.md
       - Turtle Pool: recipies/turtle-pool.md
-      - PriåteBin: recipies/privatebin.md      
+      - PriåteBin: recipies/privatebin.md
     - Menu:
       - Bookstack: recipies/bookstack.md
       - Ghost: recipies/ghost.md
@@ -95,10 +95,10 @@ pages:
         - Minerhotel: recipies/cryptominer/minerhotel.md
         - Monitoring: recipies/cryptominer/monitor.md
         - Profit!: recipies/cryptominer/profit.md
-      - SSO Stack:
-        - Start: recipies/sso-stack.md
-        - OpenLDAP: recipies/sso-stack/openldap.md
-        - KeyCloak: recipies/sso-stack/keycloak.md
+#      - SSO Stack:
+#        - Start: recipies/sso-stack.md
+#        - OpenLDAP: recipies/sso-stack/openldap.md
+#        - KeyCloak: recipies/sso-stack/keycloak.md
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
       - Data Layout: reference/data_layout.md
