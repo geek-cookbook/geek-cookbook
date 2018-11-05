@@ -65,13 +65,14 @@ pages:
       - OwnTracks: recipies/owntracks.md
       - Swarmprom: recipies/swarmprom.md
       - Turtle Pool: recipies/turtle-pool.md
+      - PriåteBin: recipies/privatebin.md      
     - Menu:
       - Bookstack: recipies/bookstack.md
       - Ghost: recipies/ghost.md
       - GitLab: recipies/gitlab.md
       - GitLab Runner: recipies/gitlab-runner.md
       - Gollum: recipies/gollum.md
-      - Realms: recipies/realms.md      
+      - Realms: recipies/realms.md
       - Piwik: recipies/piwik.md
       - Wekan: recipies/wekan.md
       - Tiny Tiny RSS: recipies/tiny-tiny-rss.md
@@ -94,6 +95,10 @@ pages:
         - Minerhotel: recipies/cryptominer/minerhotel.md
         - Monitoring: recipies/cryptominer/monitor.md
         - Profit!: recipies/cryptominer/profit.md
+      - SSO Stack:
+        - Start: recipies/sso-stack.md
+        - OpenLDAP: recipies/sso-stack/openldap.md
+        - KeyCloak: recipies/sso-stack/keycloak.md
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
       - Data Layout: reference/data_layout.md
