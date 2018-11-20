@@ -92,21 +92,34 @@ Create the necessary DNS TXT entries for your domain(s). Note that although open
 
 ### Setup Docker Swarm
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (_v3.2 - because we need to expose mail ports in "host mode"_), something like this:
 
 !!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
 
 ```
-version: '3'
+version: '3.2'
 
 services:
   mail:
     image: tvial/docker-mailserver:latest
     ports:
-      - "25:25"
-      - "587:587"
-      - "993:993"
+      - target: 25
+        published: 25
+        protocol: tcp
+        mode: host
+      - target: 587
+        published: 587
+        protocol: tcp
+        mode: host
+      - target: 993
+        published: 993
+        protocol: tcp
+        mode: host
+      - target: 995
+        published: 995
+        protocol: tcp
+        mode: host
     volumes:
       - /var/data/docker-mailserver/maildata:/var/mail
       - /var/data/docker-mailserver/mailstate:/var/mail-state
