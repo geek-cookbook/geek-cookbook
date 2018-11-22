@@ -34,72 +34,72 @@ pages:
       - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
       - Traefik: ha-docker-swarm/traefik.md
       - Registry: ha-docker-swarm/registry.md
-      - Mail Server: recipies/mail.md
-      - Duplicity: recipies/duplicity.md
+      - Mail Server: recipes/mail.md
+      - Duplicity: recipes/duplicity.md
     - Chef's Favorites:
-      - Huginn: recipies/huginn.md
-      - Kanboard: recipies/kanboard.md
-      - Miniflux: recipies/miniflux.md
+      - Huginn: recipes/huginn.md
+      - Kanboard: recipes/kanboard.md
+      - Miniflux: recipes/miniflux.md
       - Auto Pirate:
-        - Start: recipies/autopirate.md
-        - SABnzbd: recipies/autopirate/sabnzbd.md
-        - NZBGet: recipies/autopirate/nzbget.md
-        - Rtorrent: recipies/autopirate/rtorrent.md
-        - Sonarr: recipies/autopirate/sonarr.md
-        - Radarr: recipies/autopirate/radarr.md
-        - Mylar: recipies/autopirate/mylar.md
-        - Lazy Librarian: recipies/autopirate/lazylibrarian.md
-        - Headphones: recipies/autopirate/headphones.md
-        - Lidarr: recipies/autopirate/lidarr.md
-        - NZBHydra: recipies/autopirate/nzbhydra.md
-        - NZBHydra 2: recipies/autopirate/nzbhydra2.md
-        - Ombi: recipies/autopirate/ombi.md
-        - Jackett: recipies/autopirate/jackett.md
-        - Heimdall: recipies/autopirate/heimdall.md
-        - End: recipies/autopirate/end.md
-      - NextCloud: recipies/nextcloud.md
-      - Plex: recipies/plex.md
-      - Emby: recipies/emby.md
-      - Munin: recipies/munin.md
-      - Home Assistant: recipies/homeassistant.md
-      - OwnTracks: recipies/owntracks.md
-      - PrivateBin: recipies/privatebin.md
-      - Swarmprom: recipies/swarmprom.md
-      - Turtle Pool: recipies/turtle-pool.md
+        - Start: recipes/autopirate.md
+        - SABnzbd: recipes/autopirate/sabnzbd.md
+        - NZBGet: recipes/autopirate/nzbget.md
+        - Rtorrent: recipes/autopirate/rtorrent.md
+        - Sonarr: recipes/autopirate/sonarr.md
+        - Radarr: recipes/autopirate/radarr.md
+        - Mylar: recipes/autopirate/mylar.md
+        - Lazy Librarian: recipes/autopirate/lazylibrarian.md
+        - Headphones: recipes/autopirate/headphones.md
+        - Lidarr: recipes/autopirate/lidarr.md
+        - NZBHydra: recipes/autopirate/nzbhydra.md
+        - NZBHydra 2: recipes/autopirate/nzbhydra2.md
+        - Ombi: recipes/autopirate/ombi.md
+        - Jackett: recipes/autopirate/jackett.md
+        - Heimdall: recipes/autopirate/heimdall.md
+        - End: recipes/autopirate/end.md
+      - NextCloud: recipes/nextcloud.md
+      - Plex: recipes/plex.md
+      - Emby: recipes/emby.md
+      - Munin: recipes/munin.md
+      - Home Assistant: recipes/homeassistant.md
+      - OwnTracks: recipes/owntracks.md
+      - PrivateBin: recipes/privatebin.md
+      - Swarmprom: recipes/swarmprom.md
+      - Turtle Pool: recipes/turtle-pool.md
     - Menu:
-      - Bookstack: recipies/bookstack.md
+      - Bookstack: recipes/bookstack.md
       - CryptoMiner:
-        - Start: recipies/cryptominer.md
-        - Mining Rig: recipies/cryptominer/mining-rig.md
-        - AMD GPU: recipies/cryptominer/amd-gpu.md
-        - NVidia GPU: recipies/cryptominer/nvidia-gpu.md
-        - Mining Pools : recipies/cryptominer/mining-pool.md
-        - Wallets : recipies/cryptominer/wallet.md
-        - Exchanges: recipies/cryptominer/exchange.md
-        - Minerhotel: recipies/cryptominer/minerhotel.md
-        - Monitoring: recipies/cryptominer/monitor.md
-        - Profit!: recipies/cryptominer/profit.md
-      - Calibre-Web: recipies/calibre-web.md
-      - Ghost: recipies/ghost.md
-      - GitLab: recipies/gitlab.md
-      - GitLab Runner: recipies/gitlab-runner.md
-      - Gollum: recipies/gollum.md
-      - InstaPy: recipies/instapy.md
-      - Piwik: recipies/piwik.md
-      - Portainer: recipies/portainer.md
-      - Realms: recipies/realms.md
-      - Tiny Tiny RSS: recipies/tiny-tiny-rss.md
-      - Wallabag: recipies/wallabag.md
-      - Wekan: recipies/wekan.md
-      - Wetty: recipies/wetty.md
+        - Start: recipes/cryptominer.md
+        - Mining Rig: recipes/cryptominer/mining-rig.md
+        - AMD GPU: recipes/cryptominer/amd-gpu.md
+        - NVidia GPU: recipes/cryptominer/nvidia-gpu.md
+        - Mining Pools : recipes/cryptominer/mining-pool.md
+        - Wallets : recipes/cryptominer/wallet.md
+        - Exchanges: recipes/cryptominer/exchange.md
+        - Minerhotel: recipes/cryptominer/minerhotel.md
+        - Monitoring: recipes/cryptominer/monitor.md
+        - Profit!: recipes/cryptominer/profit.md
+      - Calibre-Web: recipes/calibre-web.md
+      - Ghost: recipes/ghost.md
+      - GitLab: recipes/gitlab.md
+      - GitLab Runner: recipes/gitlab-runner.md
+      - Gollum: recipes/gollum.md
+      - InstaPy: recipes/instapy.md
+      - Piwik: recipes/piwik.md
+      - Portainer: recipes/portainer.md
+      - Realms: recipes/realms.md
+      - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
+      - Wallabag: recipes/wallabag.md
+      - Wekan: recipes/wekan.md
+      - Wetty: recipes/wetty.md
 #      - CryptoNote Mining Pool:
-#        - Start: recipies/cryptonote-mining-pool.md
-#        - Masari: recipies/cryptonote-mining-pool/masari.md
-#        - Athena: recipies/cryptonote-mining-pool/athena.md
+#        - Start: recipes/cryptonote-mining-pool.md
+#        - Masari: recipes/cryptonote-mining-pool/masari.md
+#        - Athena: recipes/cryptonote-mining-pool/athena.md
 #      - SSO Stack:
-#        - Start: recipies/sso-stack.md
-#        - OpenLDAP: recipies/sso-stack/openldap.md
-#        - KeyCloak: recipies/sso-stack/keycloak.md
+#        - Start: recipes/sso-stack.md
+#        - OpenLDAP: recipes/sso-stack/openldap.md
+#        - KeyCloak: recipes/sso-stack/keycloak.md
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
       - Data Layout: reference/data_layout.md

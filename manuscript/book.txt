@@ -14,19 +14,19 @@ ha-docker-swarm/traefik.md
 ha-docker-swarm/docker-swarm-mode.md
 ha-docker-swarm/duplicity.md
 
-sections/recipies.md
-recipies/mail.md
-recipies/gitlab.md
-recipies/gitlab-runner.md
-recipies/wekan.md
-recipies/huginn.md
-recipies/kanboard.md
-recipies/miniflux.md
-recipies/ghost.md
-recipies/piwik.md
-recipies/autopirate.md
-recipies/nextcloud.md
-recipies/portainer.md
+sections/recipes.md
+recipes/mail.md
+recipes/gitlab.md
+recipes/gitlab-runner.md
+recipes/wekan.md
+recipes/huginn.md
+recipes/kanboard.md
+recipes/miniflux.md
+recipes/ghost.md
+recipes/piwik.md
+recipes/autopirate.md
+recipes/nextcloud.md
+recipes/portainer.md
 
 sections/reference.md
 reference/oauth_proxy.md

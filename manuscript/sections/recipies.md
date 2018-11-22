@@ -1,3 +1,3 @@
 # Recipies #
 
-Now follows individual recipies.
+Now follows individual recipes.
