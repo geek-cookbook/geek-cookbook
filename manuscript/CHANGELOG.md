@@ -9,11 +9,12 @@
 
 ## Recently added recipes
 
+* Added [Wetty](/recipies/wetty/), a remote terminal client in your web browser (_22 Nov 2018_)
 * Added [PrivateBin](/recipies/privatebin/), a self-hosted pastebin alternative (_5 Nov 2018_)
 * Added [Realms](/recipies/realms/), another git-based wiki, like [Gollum](/recipies/gollum/), but including basic user auth and registration
 * Added a list of useful funkypenguin Docker [containers](/reference/containers/) (_7 Oct 2018_)
 * Added [Swarmprom](/recipies/swarmprom/), the sexiest way visualise detailed performance metrics from your swarm (_17 Sep 2018_)
-* Added [BookStack](/recipies/bookstack/), lightweight personal documentation platform (_20 Aug 2018_)
+
 ## Recent improvements
 
 * [Autopirate](/recipies/autopirate/start/) uber-recipe updated for [Heimdall](/recipies/autopirate/heimdall/) (_an application-launching dashboard with support for inline stats from supported applications_) (_7 Oct 2018_)

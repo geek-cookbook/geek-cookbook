@@ -38,6 +38,14 @@ Network  | Range
 [ElkarBackup](https://geek-cookbook.funkypenguin.co.nz/recipies/elkarbackp/)  |  172.16.36.0/24
 [Mayan EDMS](https://geek-cookbook.funkypenguin.co.nz/recipies/realms/)  |  172.16.37.0/24
 [Shaarli](https://geek-cookbook.funkypenguin.co.nz/recipies/shaarli/)  |  172.16.38.0/24
+[KeyCloud](https://geek-cookbook.funkypenguin.co.nz/recipies/keycloak/)  |  172.16.39.0/24
+[MatterMost](https://geek-cookbook.funkypenguin.co.nz/recipies/mattermost/)  |  172.16.40.0/24
+[PrivateBin](https://geek-cookbook.funkypenguin.co.nz/recipies/privatebin/)  |  172.16.41.0/24
+[Mayan EDMS](https://geek-cookbook.funkypenguin.co.nz/recipies/mayan-edms/)  |  172.16.42.0/24
+[Hack MD](https://geek-cookbook.funkypenguin.co.nz/recipies/hackmd/)  |  172.16.43.0/24
+[FlightAirMap](https://geek-cookbook.funkypenguin.co.nz/recipies/flightairmap/)  |  172.16.44.0/24
+[Wetty](https://geek-cookbook.funkypenguin.co.nz/recipies/wetty/)  |  172.16.45.0/24
+
 
 ## Chef's Notes
 
