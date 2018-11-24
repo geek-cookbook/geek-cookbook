@@ -16,6 +16,10 @@ So if you're familiar enough with the tools, and you've done self-hosting before
 2. You want to play. You want a safe sandbox to test new tools, keeping the ones you want and tossing the ones you don't.
 3. You want reliability. Once you go from __playing__ with a tool to actually __using__ it, you want it to be available when you need it. Having to "_quickly ssh into the host and restart the webserver_" doesn't cut it when your wife wants to know why her phone won't sync!
 
+## What have you done for me lately? (CHANGELOG)
+
+Check out recent change at [CHANGELOG](/CHANGELOG/)
+
 ## What do you want from me?
 
 I want your money.
@@ -26,6 +30,7 @@ No, seriously (_but yes, I do want your money - see below_), If the above applie
 
 * Come and say hi to me and the friendly geeks in the [Discord](http://chat.funkypenguin.co.nz) chat or the [Discourse](https://discourse.geek-kitchen.funkypenguin.co.nz/) forums - say hi, ask a question, or suggest a new recipe!
 * Tweet me up, I'm [@funkypenguin](https://twitter.com/funkypenguin)! 🐦
+* [Contact me](https://www.funkypenguin.co.nz/contact/) by a variety of channels
 
 ### Buy my book 📖
 

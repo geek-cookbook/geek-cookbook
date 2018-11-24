@@ -7,6 +7,11 @@
 * RSS: https://mastodon.social/@geekcookbook_changes.atom
 * The #changelog channel in our [Discord server](http://chat.funkypenguin.co.nz)
 
+## Recent additions to work-in-progress
+
+* [ElkarBackup](/recipes/elkarbackup/), a beautiful GUI-based backup solution built on rsync/rsnapshot (_24 Nov 2018_)
+
+
 ## Recently added recipes
 
 * Added [Wetty](/recipes/wetty/), a remote terminal client in your web browser (_22 Nov 2018_)
