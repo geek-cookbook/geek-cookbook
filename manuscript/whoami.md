@@ -28,9 +28,8 @@ Contact me by:
 
 * Jumping into our [Discord server](http://chat.funkypenguin.co.nz)
 * Email ([davidy@funkypenguin.co.nz](mailto:davidy@funkypenguin.co.nz))
+* Private, encrypted email with ProtonMail ([funkypenguin@pm.me](mailto:funkypenguin@pm.me))
 * Twitter ([@funkypenguin](https://twitter.com/funkypenguin))
-
-
 
 Or by using the form below:
 
