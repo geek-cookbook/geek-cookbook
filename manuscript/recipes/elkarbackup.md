@@ -14,17 +14,11 @@ ElkarBackup is a free open-source backup solution based on RSync/RSnapshot
 
 ## Why is this a WIP?
 
-!!! warning "Concerns re ongoing development"
-
-    I have some concerns about the ongoing support of the project. The repo for the website was last committed **2 years ago**, and I've submitted a [PR](https://github.com/elkarbackup/elkarbackup.github.io/pull/2) for a blatant typo on the front page, which also shows up in the first google search result for "elkar backup".
-
-    However, the code itself seems to be [updated frequently,](https://github.com/elkarbackup/elkarbackup/commits/master) the last update being 19 days ago.
-
 What's missing from the recipe currently is:
 
 1. An explanation for the environment variables, plus details re how to use scripts to send data offsite, like Duplicity does.
 2. Details about ElkarBackup
-3. A mysql container to backup the elkar database
+3. A mysql container to backup the elkar database (_unnecessary since Elkarbackup includes scripts to back itself up)_
 
 
 ## Details
