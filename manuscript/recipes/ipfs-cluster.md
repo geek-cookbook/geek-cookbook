@@ -2,6 +2,9 @@
     This recipe is **incomplete**, and remains a work in progress.
     So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 😁
 
+!!! important
+    Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/)
+    
 # IPFS
 
 The intention of this recipe is to provide a local IPFS cluster for the purpose of providing persistent storage for the various components of the recipes
