@@ -45,6 +45,7 @@ Network  | Range
 [Hack MD](https://geek-cookbook.funkypenguin.co.nz/recipes/hackmd/)  |  172.16.43.0/24
 [FlightAirMap](https://geek-cookbook.funkypenguin.co.nz/recipes/flightairmap/)  |  172.16.44.0/24
 [Wetty](https://geek-cookbook.funkypenguin.co.nz/recipes/wetty/)  |  172.16.45.0/24
+[FileBrowser](https://geek-cookbook.funkypenguin.co.nz/recipes/filebrowser/)  |  172.16.46.0/24
 
 
 ## Chef's Notes

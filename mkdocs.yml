@@ -103,6 +103,7 @@ pages:
     - Work-in-Progress:
 #       - MatterMost: recipes/mattermost.md
        - ElkarBackup: recipes/elkarbackup.md
+       - IPFS Cluster: recipes/ipfs-cluster.md
 #       - HackMD: recipes/hackmd.md
 #       - Mastodon: recipes/mastodon.md
 #       - Mayan EDMS: recipes/mayan-edms.md

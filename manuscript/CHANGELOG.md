@@ -9,6 +9,7 @@
 
 ## Recent additions to work-in-progress
 
+* [IPFS Cluster](/recipes/ipfs-cluster/), providing inter-planetary docker swarm shared storage with the inter-planetary filesystem (_29 Nov 2018_)
 * [ElkarBackup](/recipes/elkarbackup/), a beautiful GUI-based backup solution built on rsync/rsnapshot (_24 Nov 2018_)
 
 
