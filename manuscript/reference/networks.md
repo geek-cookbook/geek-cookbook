@@ -43,9 +43,10 @@ Network  | Range
 [PrivateBin](https://geek-cookbook.funkypenguin.co.nz/recipes/privatebin/)  |  172.16.41.0/24
 [Mayan EDMS](https://geek-cookbook.funkypenguin.co.nz/recipes/mayan-edms/)  |  172.16.42.0/24
 [Hack MD](https://geek-cookbook.funkypenguin.co.nz/recipes/hackmd/)  |  172.16.43.0/24
-[FlightAirMap](https://geek-cookbook.funkypenguin.co.nz/recipes/flightairmap/)  |  172.16.44.0/24
+[FlightAirMap](https://geek-cookbook.funkypenguin.co.nz/recipes/flightairmap/)  |172.16.44.0/24
 [Wetty](https://geek-cookbook.funkypenguin.co.nz/recipes/wetty/)  |  172.16.45.0/24
 [FileBrowser](https://geek-cookbook.funkypenguin.co.nz/recipes/filebrowser/)  |  172.16.46.0/24
+[OpenLDAP](https://geek-cookbook.funkypenguin.co.nz/recipes/openldap/)  |  172.16.47.0/24
 
 
 ## Chef's Notes

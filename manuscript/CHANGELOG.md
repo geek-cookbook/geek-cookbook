@@ -15,6 +15,7 @@
 
 ## Recently added recipes
 
+* Added [OpenLDAP](/recipes/openldap/), a 20-year old project which [refuses to die](https://www.youtube.com/watch?v=cnQEo4bazIo), underpinning many of today's authentication platforms, and providing a single authentication backend for multiple recipes (_9 Dec 2018_)
 * Added [Wetty](/recipes/wetty/), a remote terminal client in your web browser (_22 Nov 2018_)
 * Added [PrivateBin](/recipes/privatebin/), a self-hosted pastebin alternative (_5 Nov 2018_)
 * Added [Realms](/recipes/realms/), another git-based wiki, like [Gollum](/recipes/gollum/), but including basic user auth and registration
