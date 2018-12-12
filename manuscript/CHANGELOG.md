@@ -24,6 +24,7 @@
 
 ## Recent improvements
 
+* [NextCloud](/recipes/nextcloud/) updated to fix CalDAV/CardDAV service discovery behind Traefik reverse proxy (_12 Dec 2018_)
 * [Autopirate](/recipes/autopirate/start/) uber-recipe updated for [Heimdall](/recipes/autopirate/heimdall/) (_an application-launching dashboard with support for inline stats from supported applications_) (_7 Oct 2018_)
 * [Autopirate](/recipes/autopirate/start/) uber-recipe updated for [Lidarr](/recipes/autopirate/lidarr/) (_like Sonarr/Radarr for music, an alternative to Headphones_) (_19 Sep 2018_)
 * [GitLab](/recipes/gitlab/) recipe updated with missing env variables, brought up to scratch with more recent design conventions (_14 Jun 2018_)
