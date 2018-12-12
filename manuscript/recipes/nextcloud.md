@@ -2,6 +2,11 @@ hero: Backup all your stuff. Share it. Privately.
 
 # NextCloud
 
+!!! important
+    Ongoing development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
+
+    [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
+
 [NextCloud](https://www.nextcloud.org/) (_a [fork of OwnCloud](https://owncloud.org/blog/owncloud-statement-concerning-the-formation-of-nextcloud-by-frank-karlitschek/), led by original developer Frank Karlitschek_) is a suite of client-server software for creating and using file hosting services. It is functionally similar to Dropbox, although Nextcloud is free and open-source, allowing anyone to install and operate it on a private server.
  - https://en.wikipedia.org/wiki/Nextcloud
 
@@ -166,18 +171,68 @@ Launch the NextCloud stack by running ```docker stack deploy nextcloud -c <path 
 
 Log into your new instance at https://**YOUR-FQDN**, with user "admin" and the password you specified in nextcloud.env.
 
-### Adding full-text search support (optional)
+### Enable redis
 
-Once logged in as an admin user, navigate to https://<your FQDN>/index.php/settings/apps, and install the "**nextant**" app for full-text search
+To make NextCloud [a little snappier](https://docs.nextcloud.com/server/13/admin_manual/configuration_server/caching_configuration.html), edit ```/var/data/nextcloud/config/config.php``` (_now that it's been created on the first container launch_), and add the following:
 
-Then navigate to https://<your FQDN>/index.php/settings/admin/additional, scroll down to **Nextant (Full Text Search)**, and enter the following:
+```
+  'redis' => array(
+     'host' => 'redis',
+     'port' => 6379,
+      ),
+```
 
-* Address of your solr servlet : **http://solr:8983/solr/**
-* Core: **nextant**
+### Use service discovery
+
+Want to use Calendar/Contacts on your iOS device? Want to avoid dictating long, rambling URL strings to your users, like ```https://nextcloud.batcave.com/remote.php/dav/principals/users/USERNAME/``` ?
+
+Huzzah! NextCloud supports [service discovery for CalDAV/CardDAV](https://tools.ietf.org/html/rfc6764), allowing you to simply tell your device the primary URL of your server (_**nextcloud.batcave.org**, for example_), and have the device figure out the correct WebDAV path to use.
+
+We (_and anyone else using the [NextCloud Docker image](https://hub.docker.com/_/nextcloud/)_) are using an SSL-terminating reverse proxy ([Traefik](/ha-docker-swarm/traefik/)) in front of our NextCloud container. In fact, it's not **possible** to setup SSL **within** the NextCloud container.
+
+When using a reverse proxy, your device requests a URL from your proxy (https://nextcloud.batcave.com/.well-known/caldav), and the reverse proxy then passes that request **unencrypted** to the internal URL of the NextCloud instance (i.e., http://172.16.12.123/.well-known/caldav)
+
+The Apache webserver on the NextCloud container (_knowing it was spoken to via HTTP_), responds with a 301 redirect to http://nextcloud.batcave.com/remote.php/dav/. See the problem? You requested an **HTTPS** (_encrypted_) url, and in return, you received a redirect to an **HTTP** (_unencrypted_) URL. Any sensible client (_iOS included_) will refuse such schenanigans.
+
+To correct this, we need to tell NextCloud to always redirect the .well-known URLs to an HTTPS location. This can only be done **after** deploying NextCloud, since it's only on first launch of the container that the .htaccess file is created in the first place.
+
+To make NextCloud service discovery work with Traefik reverse proxy, edit ```/var/data/nextcloud/html/.htaccess```, and change this:
+
+```
+RewriteRule ^\.well-known/carddav /remote.php/dav/ [R=301,L]
+RewriteRule ^\.well-known/caldav /remote.php/dav/ [R=301,L]
+```
+
+To this:
+
+```
+RewriteRule ^\.well-known/carddav https://%{SERVER_NAME}/remote.php/dav/ [R=301,L]
+RewriteRule ^\.well-known/caldav https://%{SERVER_NAME}/remote.php/dav/ [R=301,L]
+```
+
+Then restart your container with ```docker service update nextcloud_nextcloud --force``` to restart apache.
+
+Your can test for success by running ```curl -i https://nextcloud.batcave.org/.well-known/carddav```. You should get a 301 redirect to your equivalent of https://nextcloud.batcave.org/remote.php/dav/, as below:
+
+```
+[davidy:~] % curl -i https://nextcloud.batcave.org/.well-known/carddav
+HTTP/2 301
+content-type: text/html; charset=iso-8859-1
+date: Wed, 12 Dec 2018 08:30:11 GMT
+location: https://nextcloud.batcave.org/remote.php/dav/
+```
+
+Note that this .htaccess can be overwritten by NextCloud, and you may have to reapply the change in future. I've created an [issue requesting a permanent fix](https://github.com/nextcloud/docker/issues/577).
+
+!!! important
+    Ongoing development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
+
+    [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
 
 ## Chef's Notes
 
 1. Since many of my other recipes use PostgreSQL, I'd have preferred to use Postgres over MariaDB, but MariaDB seems to be the [preferred database type](https://github.com/nextcloud/server/issues/5912).
+2. I'm [not the first user](https://github.com/nextcloud/docker/issues/528) to stumble across the service discovery bug with reverse proxies.
 
 ### Tip your waiter (donate) 👏
 
