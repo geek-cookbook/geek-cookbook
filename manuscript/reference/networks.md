@@ -38,7 +38,7 @@ Network  | Range
 [ElkarBackup](https://geek-cookbook.funkypenguin.co.nz/recipes/elkarbackp/)  |  172.16.36.0/24
 [Mayan EDMS](https://geek-cookbook.funkypenguin.co.nz/recipes/realms/)  |  172.16.37.0/24
 [Shaarli](https://geek-cookbook.funkypenguin.co.nz/recipes/shaarli/)  |  172.16.38.0/24
-[KeyCloud](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/)  |  172.16.39.0/24
+[OpenLDAP](https://geek-cookbook.funkypenguin.co.nz/recipes/openldap/)  |  172.16.39.0/24
 [MatterMost](https://geek-cookbook.funkypenguin.co.nz/recipes/mattermost/)  |  172.16.40.0/24
 [PrivateBin](https://geek-cookbook.funkypenguin.co.nz/recipes/privatebin/)  |  172.16.41.0/24
 [Mayan EDMS](https://geek-cookbook.funkypenguin.co.nz/recipes/mayan-edms/)  |  172.16.42.0/24
@@ -46,7 +46,6 @@ Network  | Range
 [FlightAirMap](https://geek-cookbook.funkypenguin.co.nz/recipes/flightairmap/)  |172.16.44.0/24
 [Wetty](https://geek-cookbook.funkypenguin.co.nz/recipes/wetty/)  |  172.16.45.0/24
 [FileBrowser](https://geek-cookbook.funkypenguin.co.nz/recipes/filebrowser/)  |  172.16.46.0/24
-[OpenLDAP](https://geek-cookbook.funkypenguin.co.nz/recipes/openldap/)  |  172.16.47.0/24
 
 
 ## Chef's Notes

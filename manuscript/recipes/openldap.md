@@ -45,7 +45,7 @@ mkdir /var/data/runtime/openldap/
 
 ### Prepare environment
 
-Create /var/data/openldap/openldap.env, and populate with the following variables, customized for your own domain structure. Take care with LDAP_DOMAIN, this is core to your directory strucutre, and can't easily be changed later.
+Create /var/data/openldap/openldap.env, and populate with the following variables, customized for your own domain structure. Take care with LDAP_DOMAIN, this is core to your directory structure, and can't easily be changed later.
 
 ```
 LDAP_DOMAIN=batcave.gotham
@@ -53,11 +53,14 @@ LDAP_ORGANISATION=BatCave Inc
 LDAP_ADMIN_PASSWORD=supermansucks
 LDAP_TLS=false
 
-# For the oauth2_proxy elements used to protect LAM
+# Use these if you plan to protect the LDAP Account Manager webUI with an oauth_proxy
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=
 ```
+
+!!! note
+    I use an [OAuth proxy](/reference/oauth_proxy/) to protect access to the web UI, when the sensitivity of the protected data (i.e. my authentication store) warrants it, or if I don't necessarily trust the security of the webUI.
 
 Create ```authenticated-emails.txt```, and populate with the email addresses (_matched to GitHub user accounts, in my case_) to which you want grant access, using OAuth2.
 
@@ -329,7 +332,7 @@ Create yours profile (_you chose a default profile in config.cfg above, remember
 
 ### Setup Docker Swarm
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like this, at  (```/var/data/config/openldap/openldap.yml```)
 
 !!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
@@ -341,7 +344,8 @@ services:
     image: osixia/openldap
     env_file: /var/data/config/openldap/openldap.env
     networks:
-    - internal
+    - traefik_public
+    - auth_internal
     volumes:
     - /var/data/runtime/openldap/:/var/lib/ldap
     - /var/data/openldap/openldap/:/etc/ldap/slapd.d
@@ -349,46 +353,75 @@ services:
   lam:
     image: jacksgt/ldap-account-manager
     networks:
-    - internal
+    - auth_internal
     volumes:
     - /var/data/openldap/lam/config/config.cfg:/var/www/html/config/config.cfg
     - /var/data/openldap/lam/config/batcave.conf:/var/www/html/config/batcave.conf
 
-  proxy:
+  lam-proxy:
     image: funkypenguin/oauth2_proxy
     env_file: /var/data/config/openldap/openldap.env
     networks:
       - traefik_public
-      - internal
+      - auth_internal
     deploy:
       labels:
-        - traefik.frontend.rule=Host:lam.batcave.gotham
+        - traefik.frontend.rule=Host:lam.batcave.com
+        - traefik.docker.network=traefik_public
         - traefik.port=4180
-    volumes:
-      - /var/data/config/openldap/authenticated-emails.txt:/authenticated-emails.txt
     command: |
       -cookie-secure=false
-      -upstream=http://lam:8080
-      -redirect-url=https://lam.batcave.gotham
+      -upstream=http://lam:80
+      -redirect-url=https://lam.batcave.com
       -http-address=http://0.0.0.0:4180
-      -email-domain=example.com
+      -email-domain=batcave.com
       -provider=github
-      -authenticated-emails-file=/authenticated-emails.txt
 
 
 networks:
+  # Used to expose lam-proxy to external access, and openldap to keycloak
   traefik_public:
     external: true
+
+  # Used to expose openldap to other apps which want to talk to LDAP, including LAM
+  auth_internal:
+    external: true    
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+!!! warning
+    **Normally**, we set unique static subnets for every stack you deploy, and put the non-public facing components (like databases) in an dedicated <stack\>_internal network. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+
+    However, you're likely to want to use OpenLdap with KeyCloak, whose JBOSS startup script assumes a single interface, and will crash in a ball of 🔥 if you try to assign multiple interfaces to the container.
+
+    Since we're going to want KeyCloak to be able to talk to OpenLDAP, we have no choice but to leave the OpenLDAP container on the "traefik_public" network. We can, however, create **another** overlay network (_auth_internal, see below_), add it to the openldap container, and use it to provide OpenLDAP access to our other stacks.
+
+Create **another** stack config file (```/var/data/config/openldap/auth.yml```) containing just the auth_internal network, and a dummy container:
+
+```
+version: '3'
+
+services:
+  helloworld:
+    image: hello-world
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: overlay
+    ipam:
+      config:
+        - subnet: 172.16.39.0/24
+```
+
+
+
 
 ## Serving
 
 ### Launch OpenLDAP stack
 
-Launch the OpenLDAP stack by running ```docker stack deploy openldap -c <path -to-docker-compose.yml>```
+Create the auth_internal overlay network, by running ```docker stack deploy auth -c /var/data/config/openldap/auth.yml`, then launch the OpenLDAP stack by running ```docker stack deploy openldap -c /var/data/config/openldap/openldap.yml```
 
 Log into your new LAM instance at https://**YOUR-FQDN**.
 
@@ -406,7 +439,7 @@ Create your users using the "**New User**" button.
 
 ## Chef's Notes
 
-1. An upcoming recipe for [KeyCloak](https://www.keycloak.org/) will illustrate how to integrate KeyCloak with your LDAP directory.
+1. The KeyCloak](/recipes/keycloak/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.
 
 ### Tip your waiter (donate) 👏
 

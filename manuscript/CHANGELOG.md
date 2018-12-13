@@ -15,6 +15,7 @@
 
 ## Recently added recipes
 
+* Added [KeyCloak](/recipes/keycloak), an open source identity and access management solution which backends neatly into [OpenLDAP](/recipes/openldap/) (among other providers), providing true SSO (_13 Dec 2018_)
 * Added [OpenLDAP](/recipes/openldap/), a 20-year old project which [refuses to die](https://www.youtube.com/watch?v=cnQEo4bazIo), underpinning many of today's authentication platforms, and providing a single authentication backend for multiple recipes (_9 Dec 2018_)
 * Added [Wetty](/recipes/wetty/), a remote terminal client in your web browser (_22 Nov 2018_)
 * Added [PrivateBin](/recipes/privatebin/), a self-hosted pastebin alternative (_5 Nov 2018_)
