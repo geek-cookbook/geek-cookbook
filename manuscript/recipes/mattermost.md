@@ -2,7 +2,7 @@
 
 Intro
 
-![NAME Screenshot](../images/mattermost.jpg)
+![MatterMost Screenshot](../images/mattermost.jpg)
 
 Details
 
@@ -16,7 +16,7 @@ Details
 
 ### Setup data locations
 
-We'll need several directories to bind-mount into our container, so create them in /var/data/wekan:
+We'll need several directories to bind-mount into our container, so create them in /var/data/mattermost:
 
 ```
 mkdir -p /var/data/mattermost/{cert,config,data,logs,plugins,database-dump}
@@ -110,9 +110,9 @@ networks:
 
 ## Serving
 
-### Launch Wekan stack
+### Launch MatterMost stack
 
-Launch the Wekan stack by running ```docker stack deploy wekan -c <path -to-docker-compose.yml>```
+Launch the MatterMost stack by running ```docker stack deploy mattermost -c <path -to-docker-compose.yml>```
 
 Log into your new instance at https://**YOUR-FQDN**, with user "root" and the password you specified in gitlab.env.
 

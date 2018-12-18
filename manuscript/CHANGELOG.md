@@ -15,13 +15,12 @@
 
 ## Recently added recipes
 
-* Added [KeyCloak](/recipes/keycloak), an open source identity and access management solution which backends neatly into [OpenLDAP](/recipes/openldap/) (among other providers), providing true SSO (_13 Dec 2018_)
+* Added [phpIPAM])(/reipes/phpipam), an IP address managament tool (_18 Dec 2018_)
+* Added [KeyCloak](/recipes/keycloak), an open source identity and access management solution which backends neatly into [OpenLDAP](/recipes/openldap/) (_among other providers_), providing true SSO (_13 Dec 2018_)
 * Added [OpenLDAP](/recipes/openldap/), a 20-year old project which [refuses to die](https://www.youtube.com/watch?v=cnQEo4bazIo), underpinning many of today's authentication platforms, and providing a single authentication backend for multiple recipes (_9 Dec 2018_)
 * Added [Wetty](/recipes/wetty/), a remote terminal client in your web browser (_22 Nov 2018_)
 * Added [PrivateBin](/recipes/privatebin/), a self-hosted pastebin alternative (_5 Nov 2018_)
-* Added [Realms](/recipes/realms/), another git-based wiki, like [Gollum](/recipes/gollum/), but including basic user auth and registration
-* Added a list of useful funkypenguin Docker [containers](/reference/containers/) (_7 Oct 2018_)
-* Added [Swarmprom](/recipes/swarmprom/), the sexiest way visualise detailed performance metrics from your swarm (_17 Sep 2018_)
+
 
 ## Recent improvements
 

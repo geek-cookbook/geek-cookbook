@@ -55,13 +55,16 @@ pages:
         - Heimdall: recipes/autopirate/heimdall.md
         - End: recipes/autopirate/end.md
       - Emby: recipes/emby.md
-      - Home Assistant: recipes/homeassistant.md
+      - Home Assistant:
+        - Start: recipes/homeassistant.md
+        - iBeacon: recipes/homeassistant/ibeacon.md
       - Huginn: recipes/huginn.md
       - Kanboard: recipes/kanboard.md
       - Miniflux: recipes/miniflux.md
       - Munin: recipes/munin.md
       - NextCloud: recipes/nextcloud.md
       - OwnTracks: recipes/owntracks.md
+      - phpIPAM: recipes/phpipam.md
       - Plex: recipes/plex.md
       - PrivateBin: recipes/privatebin.md
       - Swarmprom: recipes/swarmprom.md
@@ -80,12 +83,13 @@ pages:
         - Monitoring: recipes/cryptominer/monitor.md
         - Profit!: recipes/cryptominer/profit.md
       - Calibre-Web: recipes/calibre-web.md
+#      - Collabora Online: recipes/collabora-online.md
       - Ghost: recipes/ghost.md
       - GitLab: recipes/gitlab.md
       - GitLab Runner: recipes/gitlab-runner.md
       - Gollum: recipes/gollum.md
       - InstaPy: recipes/instapy.md
-      - KeyCloak: recipes/keycloak.md      
+      - KeyCloak: recipes/keycloak.md
       - OpenLDAP: recipes/openldap.md
       - Piwik: recipes/piwik.md
       - Portainer: recipes/portainer.md

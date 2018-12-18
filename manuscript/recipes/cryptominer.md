@@ -8,7 +8,7 @@ I honestly didn't expect to enjoy the mining process as much as I did. Part of t
 
 Since a [mining rig](/recipes/cryptominer/mining-rig/) relies on hardware, we can't really use a docker swarm for this one!
 
-![NAME Screenshot](../images/cryptominer.png)
+![CryptoMiner Screenshot](../images/cryptominer.png)
 
 This recipe isn't for everyone - if you just want to make some money from cryptocurrency, then you're better off learning to [invest](https://www.reddit.com/r/CryptoCurrency/) or [trade](https://www.reddit.com/r/CryptoMarkets/). However, if you want to (_ideally_) make money **and** you like tinkering, playing with hardware, optimising and monitoring, read on!
 
