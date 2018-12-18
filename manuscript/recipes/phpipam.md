@@ -1,16 +1,16 @@
 # phpIPAM
 
-phpipam is an open-source web IP address management application (IPAM). Its goal is to provide light, modern and useful IP address management. It is php-based application with MySQL database backend, using jQuery libraries, ajax and HTML5/CSS3 features.
+phpIPAM is an open-source web IP address management application (_IPAM_). Its goal is to provide light, modern and useful IP address management. It is php-based application with MySQL database backend, using jQuery libraries, ajax and HTML5/CSS3 features.
 
 ![phpIPAM Screenshot](../images/phpipam.png)
 
-phpIPAM fulfils a non-sexy, but important role. It helps you manage your IP address allocation.
+phpIPAM fulfils a non-sexy, but important role - It helps you manage your IP address allocation.
 
 ## Why should you care about this?
 
-You probably have a home network, with 20-30 IP addresses, for your family devices, your IOT devices, your smart TV, etc. If you want to (a) monitor them, and (b) audit who does what, you care about what IPs they're assigned by your DHCP server.
+You probably have a home network, with 20-30 IP addresses, for your family devices, your ![IoT devices](/recipe/home-assistant), your smart TV, etc. If you want to (a) monitor them, and (b) audit who does what, you care about what IPs they're assigned by your DHCP server.
 
-You could simple keep track of all devices with leases in your DHCP server, but what happens if your (_hypothetical_) Ubiquity Edge Router X crashes and burns due to lack of disk space, and you loose track of all your leases? Well, you have to start from scratch, is what!
+You could simple keep track of all devices with leases in your DHCP server, but what happens if your (_hypothetical?_) Ubiquity Edge Router X crashes and burns due to lack of disk space, and you loose track of all your leases? Well, you have to start from scratch, is what!
 
 And that [HomeAssistant](/recipes/homeassistant/) config, which you so carefully compiled, refers to each device by IP/DNS name, so you'd better make sure you recreate it consistently!
 
