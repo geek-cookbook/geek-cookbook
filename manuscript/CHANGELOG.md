@@ -15,7 +15,7 @@
 
 ## Recently added recipes
 
-* Added [Collabora Online](/recipes/collabora-online), an rich document editor within NextCloud (_think "headless LibreOffice"_)
+* Added [Collabora Online](/recipes/collabora-online), an rich document editor within [NextCloud](/recipes/nextcloud/) (_think "headless LibreOffice"_)
 * Added [phpIPAM](/recipes/phpipam), an IP address management tool (_18 Dec 2018_)
 * Added [KeyCloak](/recipes/keycloak), an open source identity and access management solution which backends neatly into [OpenLDAP](/recipes/openldap/) (_among other providers_), providing true SSO (_13 Dec 2018_)
 * Added [OpenLDAP](/recipes/openldap/), a 20-year old project which [refuses to die](https://www.youtube.com/watch?v=cnQEo4bazIo), underpinning many of today's authentication platforms, and providing a single authentication backend for multiple recipes (_9 Dec 2018_)
