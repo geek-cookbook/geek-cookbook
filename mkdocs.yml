@@ -83,7 +83,7 @@ pages:
         - Monitoring: recipes/cryptominer/monitor.md
         - Profit!: recipes/cryptominer/profit.md
       - Calibre-Web: recipes/calibre-web.md
-#      - Collabora Online: recipes/collabora-online.md
+      - Collabora Online: recipes/collabora-online.md
       - Ghost: recipes/ghost.md
       - GitLab: recipes/gitlab.md
       - GitLab Runner: recipes/gitlab-runner.md

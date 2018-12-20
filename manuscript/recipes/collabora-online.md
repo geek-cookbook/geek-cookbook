@@ -9,7 +9,7 @@ Collabora Online Development Edition (or "[CODE](https://www.collaboraoffice.com
 
 It's basically the [LibreOffice](https://www.libreoffice.org/) interface in a web-browser. CODE is not a standalone app, it's a backend intended to be accessed via "WOPI" from an existing interface (_in our case, [NextCloud](/recipes/nextcloud/)_)
 
-![CODE Screenshot](../images/collabora-online-development-environment.png)
+![CODE Screenshot](../images/collabora-online.png)
 
 ## Ingredients
 
@@ -29,13 +29,13 @@ So we have to run Collabora itself in the next best thing to Docker swarm - a do
 
 This presents another problem though - Docker Swarm with Traefik is superb at making all our stacks "just work" with ingress routing and LetsEncyrpt certificates. We don't want to have to do this manually (_like a cave-man_), so we engage in some trickery to allow us to still use our swarmed Traefik to terminate SSL.
 
-We run a single swarmed Nginx instance, which forwards all requests to an upstream, with the target IP of the docker0 interface, on port 9980 (the port exposed by the CODE container_)
+We run a single swarmed Nginx instance, which forwards all requests to an upstream, with the target IP of the docker0 interface, on port 9980 (_the port exposed by the CODE container_)
 
-We attach the necessary labels to the Nginx container to instruct Trafeik to setup a front/backend for collabora.<ourdomain\>. Now incoming requests to https://collabora.<ourdomain\> will hit Traefik, be forwarded to nginx (wherever in the swarm it's running), and then to port 9980 on the same node that nginx is running on.
+We attach the necessary labels to the Nginx container to instruct Trafeik to setup a front/backend for collabora.<ourdomain\>. Now incoming requests to **https://collabora.<ourdomain\>** will hit Traefik, be forwarded to nginx (_wherever in the swarm it's running_), and then to port 9980 on the same node that nginx is running on.
 
-What if we're running multiple nodes in our swarm, and nginx ends up on a different node to the one running Collabora via docker-compose? Well, either constrain nginx to the same node as Collabora, or just launch an instance of Collabora on _every_ node then. It's just a rendering / GUI engine after all, it doesn't hold any persistent data.
+What if we're running multiple nodes in our swarm, and nginx ends up on a different node to the one running Collabora via docker-compose? Well, either constrain nginx to the same node as Collabora (_example below_), or just launch an instance of Collabora on _every_ node then. It's just a rendering / GUI engine after all, it doesn't hold any persistent data.
 
-Here's a diagram to illustrate:
+Here's a (_highly technical_) diagram to illustrate:
 
 ![CODE traffic flow](../images/collabora-traffic-flow.png)
 
@@ -83,7 +83,7 @@ services:
     #image: collabora/code
     env_file: /var/data/config/collabora/collabora.env
     volumes:
-      - /var/data/collabora/loolwsd.xml:/etc/loolwsd/loolwsd.xml
+      - /var/data/collabora/loolwsd.xml:/etc/loolwsd/loolwsd.xml-new
     cap_add:
       - MKNOD
     ports:
@@ -143,15 +143,14 @@ server {
     }
 }
 ```
+### Create loolwsd.xml
 
-# FIXME
+[Until we understand](https://github.com/CollaboraOnline/Docker-CODE/pull/50) how to [pass trusted network parameters to the entrypoint script using environment variables](https://github.com/CollaboraOnline/Docker-CODE/issues/49), we have to maintain a manually edited version of ```loolwsd.xml```, and bind-mount it into our collabora container.
 
-```
-wsd-00030-00031 2018-12-15 07:52:49.973053 [ prisoner_poll ] INF  Have 1 spare child after adding [36].| wsd/LOOLWSD.cpp:431
-wsd-00030-00030 2018-12-15 07:52:49.978874 [ loolwsd ] TRC  Have 1 new children.| wsd/LOOLWSD.cpp:2987
-wsd-00030-00030 2018-12-15 07:52:49.978940 [ loolwsd ] INF  WSD initialization complete: setting log-level to [warning] as configured.| wsd/LOOLWSD.cpp:2994
-wsd-00030-00051 2018-12-15 07:55:06.385786 [ websrv_poll ] ERR  Requesting address is denied: ::ffff:172.20.0.1| wsd/LOOLWSD.cpp:1851
-```
+The way we do this is we mount
+```/var/data/collabora/loolwsd.xml``` as ```/etc/loolwsd/loolwsd.xml-new```, then allow the container to create its default ```/etc/loolwsd/loolwsd.xml```, copy this default **over** our ```/var/data/collabora/loolwsd.xml``` as ```/etc/loolwsd/loolwsd.xml-new```, and then update the container to use **our** ```/var/data/collabora/loolwsd.xml``` as ```/etc/loolwsd/loolwsd.xml``` instead (_confused yet?_)
+
+Create an empty ```/var/data/collabora/loolwsd.xml``` by running ```touch /var/data/collabora/loolwsd.xml```. We'll populate this in the next section...
 
 ### Setup Docker Swarm
 
@@ -171,7 +170,7 @@ services:
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:collabora.observe.global
+        - traefik.frontend.rule=Host:collabora.batcave.com
         - traefik.docker.network=traefik_public
         - traefik.port=80
         - traefik.frontend.passHostHeader=true
@@ -187,15 +186,13 @@ networks:
     external: true
 ```
 
-### Obtain loolwsd.xml
-
-Where do we find this? Do we still need it given we patched it?
-
 ## Serving
 
-### Launch Collabora
+### Generate loolwsd.xml
 
-Launching Collabora is a 2-step process. First we launch collabora itself, by running:
+Well. This is awkward. There's no documented way to make Collabora work with Docker Swarm, so we're doing a bit of a hack here, until I understand [how to pass these arguments](https://github.com/CollaboraOnline/Docker-CODE/issues/49) via environment variables.
+
+Launching Collabora is (_for now_) a 2-step process. First.. we launch collabora itself, by running:
 
 ```
 cd /var/data/config/collabora/
@@ -228,18 +225,87 @@ Creating collabora_local-collabora_1 ... done
 root@ds1:/var/data/config/collabora#
 ```
 
+Now exec into the container (_from another shell session_), by running ```exec <container name> -it /bin/bash```. Make a copy of /etc/loolwsd/loolwsd, by running ```cp /etc/loolwsd/loolwsd.xml /etc/loolwsd/loolwsd.xml-new```, and then exit the container with ```exit```.
+
+Delete the collabora container by hitting CTRL-C in the docker-compose shell, running ```docker-compose rm```, and then altering this line in docker-compose.yml:
+
+```
+      - /var/data/collabora/loolwsd.xml:/etc/loolwsd/loolwsd.xml-new
+```
+
+To this:
+
+```
+      - /var/data/collabora/loolwsd.xml:/etc/loolwsd/loolwsd.xml
+```
+
+Edit /var/data/collabora/loolwsd.xml, find the **storage.filesystem.wopi** section, and add lines like this to the existing allow rules (_to allow IPv6-enabled hosts to still connect with their IPv4 addreses_):
+
+```
+<host desc="Regex pattern of hostname to allow or deny." allow="true">::ffff:10\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</host>
+<host desc="Regex pattern of hostname to allow or deny." allow="true">::ffff:172\.1[6789]\.[0-9]{1,3}\.[0-9]{1,3}</host>
+<host desc="Regex pattern of hostname to allow or deny." allow="true">::ffff:172\.2[0-9]\.[0-9]{1,3}\.[0-9]{1,3}</host>
+<host desc="Regex pattern of hostname to allow or deny." allow="true">::ffff:172\.3[01]\.[0-9]{1,3}\.[0-9]{1,3}</host>
+<host desc="Regex pattern of hostname to allow or deny." allow="true">::ffff:192\.168\.[0-9]{1,3}\.[0-9]{1,3}</host>
+```
+
+Find the **net.post_allow** section, and add a line like this:
+
+```
+<host desc="RFC1918 private addressing in inet6 format">::ffff:10\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</host>
+<host desc="RFC1918 private addressing in inet6 format">::ffff:172\.1[6789]\.[0-9]{1,3}\.[0-9]{1,3}</host>
+<host desc="RFC1918 private addressing in inet6 format">::ffff:172\.2[0-9]\.[0-9]{1,3}\.[0-9]{1,3}</host>
+<host desc="RFC1918 private addressing in inet6 format">::ffff:172\.3[01]\.[0-9]{1,3}\.[0-9]{1,3}</host>
+<host desc="RFC1918 private addressing in inet6 format">::ffff:192\.168\.[0-9]{1,3}\.[0-9]{1,3}</host>            
+```
+
+Find these 2 lines:
+
+```
+<ssl desc="SSL settings">
+    <enable type="bool" default="true">true</enable>
+```
+
+And change to:
+
+```
+<ssl desc="SSL settings">
+    <enable type="bool" default="true">false</enable>
+```
+
+Now re-launch collabora (_with the correct with loolwsd.xml_) under docker-compose, by running:
+
+```
+docker-compose -d up
+```
+
 Once collabora is up, we launch the swarm stack, by running:
 
 ```
 docker stack deploy collabora -c /var/data/config/collabora/collabora.yml
 ```
 
-Visit https://collabora.<yourdomain\> and confirm you can login with the user/password you specified in collabora.env
+Visit **https://collabora.<yourdomain\>/l/loleaflet/dist/admin/admin.html** and confirm you can login with the user/password you specified in collabora.env
 
 ### Integrate into NextCloud
 
-Create the auth_internal overlay network, by running ```docker stack deploy auth -c /var/data/config/openldap/auth.yml`, then launch the OpenLDAP stack by running ```docker stack deploy openldap -c /var/data/config/openldap/openldap.yml```
+In NextCloud, Install the **Collabora Online** app (https://apps.nextcloud.com/apps/richdocuments), and then under **Settings -> Collabora Online**, set your Collabora Online Server to ```https://collabora.<your domain\>```
 
+![CODE Screenshot](../images/collabora-online-in-nextcloud.png)
 
+Now browse your NextCloud files. Click the plus (+) sign to create a new document, and create either a new document, spreadsheet, or presentation. Name your document and then click on it. If Collabora is setup correctly, you'll shortly enter into the rich editing interface provided by Collabora :)
 
-PR is https://github.com/CollaboraOnline/Docker-CODE/pull/50
+!!! important
+    Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
+
+    [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
+
+## Chef's Notes
+
+1. Yes, this recipe is complicated. And you probably only care if you feel strongly about using Open Source rich document editing in the browser, vs using something like Google Docs. It works impressively well however, once it works. I hope to make this recipe simpler once the CODE developers have documented how to pass optional parameters as environment variables.
+
+### Tip your waiter (donate) 👏
+
+Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
+
+### Your comments? 💬
