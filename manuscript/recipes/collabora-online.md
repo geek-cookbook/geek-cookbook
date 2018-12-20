@@ -289,7 +289,7 @@ Visit **https://collabora.<yourdomain\>/l/loleaflet/dist/admin/admin.html** and 
 
 ### Integrate into NextCloud
 
-In NextCloud, Install the **Collabora Online** app (https://apps.nextcloud.com/apps/richdocuments), and then under **Settings -> Collabora Online**, set your Collabora Online Server to ```https://collabora.<your domain\>```
+In NextCloud, Install the **Collabora Online** app (https://apps.nextcloud.com/apps/richdocuments), and then under **Settings -> Collabora Online**, set your Collabora Online Server to ```https://collabora.<your domain>```
 
 ![CODE Screenshot](../images/collabora-online-in-nextcloud.png)
 
