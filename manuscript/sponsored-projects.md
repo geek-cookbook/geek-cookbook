@@ -14,4 +14,5 @@ I regularly donate to / sponsor the following projects. **Join me** in supportin
 | [NZBHydra](/recipes/autopirate/nzbhydra/) | [Cryptocurrency](https://github.com/theotherp/nzbhydra2)
 | [Calibre](https://calibre-ebook.com/) | [Credit Card](https://calibre-ebook.com/donate) / [Patreon](https://www.patreon.com/kovidgoyal) / [LibrePay](https://liberapay.com/kovidgoyal/donate)
 | [LinuxServer.io](https://www.linuxserver.io) | [PayPal](https://www.linuxserver.io/donate)
-| [John Van Sickle's FFmpeg static builds](https://www.johnvansickle.com/ffmpeg/) | [Patreon](https://www.patreon.com/johnvansickle)
+| [Pi-hole](https://pi-hole.net/) | [Patreon](https://www.patreon.com/pihole/posts)
+| [Franck Nijhof's Hassio Addons](https://www.frenck.nl/about/franck-nijhof/) | [Patreon](https://www.patreon.com/frenck/overview)
