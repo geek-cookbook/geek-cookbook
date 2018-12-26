@@ -51,11 +51,12 @@ Impulsively **[click here (NOW quick do it!)](https://www.patreon.com/bePatron?u
 
 I also gratefully accept donations of most fine socialist/anarchist/hobbyist cryptocurrencies, including the list below (_let me know if I've left out the coin-of-the-week, and I'll happily add it_):
 
-| ist-currency | Address      
+| -ist-currency | Address      
 | ------------- |-------------|
 | Bitcoin      | 1GBJfmqARmL66gQzUy9HtNWdmAEv74nfXj
 | Ethereum     | 0x19e60ec49e1f053cfdfc193560ecfb3caed928f1
 | Litecoin     | LYLEF7xTpeVbjjoZD3jGLVgvKSKTYDKbK8
+| :turtle: TurtleCoin | TRTLv2qCKYChMbU5sNkc85hzq2VcGpQidaowbnV2N6LAYrFNebMLepKKPrdif75x5hAizwfc1pX4gi5VsR9WQbjQgYcJm21zec4
 
 
 
