@@ -10,11 +10,10 @@
 ## Recent additions to work-in-progress
 
 * [IPFS Cluster](/recipes/ipfs-cluster/), providing inter-planetary docker swarm shared storage with the inter-planetary filesystem (_29 Nov 2018_)
-* [ElkarBackup](/recipes/elkarbackup/), a beautiful GUI-based backup solution built on rsync/rsnapshot (_24 Nov 2018_)
-
 
 ## Recently added recipes
 
+* [ElkarBackup](/recipes/elkarbackup/), a beautiful GUI-based backup solution built on rsync/rsnapshot (_1 Jan 2019_)
 * Added [Collabora Online](/recipes/collabora-online), an rich document editor within [NextCloud](/recipes/nextcloud/) (_think "headless LibreOffice"_)
 * Added [phpIPAM](/recipes/phpipam), an IP address management tool (_18 Dec 2018_)
 * Added [KeyCloak](/recipes/keycloak), an open source identity and access management solution which backends neatly into [OpenLDAP](/recipes/openldap/) (_among other providers_), providing true SSO (_13 Dec 2018_)

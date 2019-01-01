@@ -54,6 +54,7 @@ pages:
         - Jackett: recipes/autopirate/jackett.md
         - Heimdall: recipes/autopirate/heimdall.md
         - End: recipes/autopirate/end.md
+      - ElkarBackup: recipes/elkarbackup.md        
       - Emby: recipes/emby.md
       - Home Assistant:
         - Start: recipes/homeassistant.md
@@ -108,7 +109,6 @@ pages:
 #        - KeyCloak: recipes/sso-stack/keycloak.md
     - Work-in-Progress:
 #       - MatterMost: recipes/mattermost.md
-       - ElkarBackup: recipes/elkarbackup.md
        - IPFS Cluster: recipes/ipfs-cluster.md
 #       - HackMD: recipes/hackmd.md
 #       - Mastodon: recipes/mastodon.md
