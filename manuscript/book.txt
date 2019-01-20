@@ -15,18 +15,29 @@ ha-docker-swarm/docker-swarm-mode.md
 ha-docker-swarm/duplicity.md
 
 sections/recipes.md
-recipes/mail.md
+recipes/autopirate.md
+recipes/elkarbackup.md
+recipes/emby.md
+recipes/ghost.md
 recipes/gitlab.md
 recipes/gitlab-runner.md
-recipes/wekan.md
+recipes/homeassistant.md
+recipes/homeassistant/ibeacon.md
 recipes/huginn.md
 recipes/kanboard.md
+recipes/mail.md
 recipes/miniflux.md
-recipes/ghost.md
-recipes/piwik.md
-recipes/autopirate.md
+recipes/munin.md
 recipes/nextcloud.md
+recipes/owntracks.md
+recipes/phpipam.md
+recipes/piwik.md
+recipes/plex.md
 recipes/portainer.md
+recipes/privatebin.md
+recipes/swarmprom.md
+recipes/wekan.md
+
 
 sections/reference.md
 reference/oauth_proxy.md

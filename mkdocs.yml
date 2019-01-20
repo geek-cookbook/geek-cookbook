@@ -25,7 +25,7 @@ pages:
       - README: README.md
       - CHANGELOG: CHANGELOG.md
       - whoami: whoami.md
-    - Essential:
+    - Docker Swarm:
       - Design: ha-docker-swarm/design.md
       - VMs: ha-docker-swarm/vms.md
       - Shared Storage (Ceph): ha-docker-swarm/shared-storage-ceph.md
@@ -36,6 +36,8 @@ pages:
       - Registry: ha-docker-swarm/registry.md
       - Mail Server: recipes/mail.md
       - Duplicity: recipes/duplicity.md
+    - Kubernetes Cluster:
+      - Digital Ocean: kubernetes/digitalocean.md
     - Chef's Favorites:
       - Auto Pirate:
         - Start: recipes/autopirate.md
@@ -54,7 +56,7 @@ pages:
         - Jackett: recipes/autopirate/jackett.md
         - Heimdall: recipes/autopirate/heimdall.md
         - End: recipes/autopirate/end.md
-      - ElkarBackup: recipes/elkarbackup.md        
+      - ElkarBackup: recipes/elkarbackup.md
       - Emby: recipes/emby.md
       - Home Assistant:
         - Start: recipes/homeassistant.md
