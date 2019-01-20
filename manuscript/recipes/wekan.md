@@ -34,6 +34,7 @@ You'll need to know the following:
 
 1. Choose an oauth provider, and obtain a client ID and secret
 2. Create wekan.env, and populate with the following variables
+
 ```
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=

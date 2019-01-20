@@ -21,7 +21,8 @@ find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🎥//g"
 find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🎵//g"
 find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/😁//g"
 
-
+# Can't use relative paths in a book, so make all paths static
+find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/(\//(https:\/\/geek-cookbook.funkypenguin.co.nz\/)/g"
 
 
 
