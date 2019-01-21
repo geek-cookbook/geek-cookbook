@@ -66,7 +66,11 @@ festive-merkle-8n9e   Ready     <none>    58s       v1.13.1
 [davidy:~/Downloads] %
 ```
 
+That's it. You have a beautiful new kubernetes cluster ready for some action!
+
 ## Chef's Notes
+
+1. Ok, yes, there's not much you can do with your cluster _yet_. But stay tuned, more Kubernetes fun to come!
 
 ### Tip your waiter (donate) 👏
 
