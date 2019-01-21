@@ -13,13 +13,14 @@
 
 ## Recently added recipes
 
+* Added the beginning of the **Kubernetes** design, including a getting started on using [Digital Ocean,](/kubernetes/digitalocean/) and a WIP recipe for an [MQTT](/recipes/mqtt/) broker (_21 Jan 2019_)
 * [ElkarBackup](/recipes/elkarbackup/), a beautiful GUI-based backup solution built on rsync/rsnapshot (_1 Jan 2019_)
 * Added [Collabora Online](/recipes/collabora-online), an rich document editor within [NextCloud](/recipes/nextcloud/) (_think "headless LibreOffice"_)
 * Added [phpIPAM](/recipes/phpipam), an IP address management tool (_18 Dec 2018_)
 * Added [KeyCloak](/recipes/keycloak), an open source identity and access management solution which backends neatly into [OpenLDAP](/recipes/openldap/) (_among other providers_), providing true SSO (_13 Dec 2018_)
 * Added [OpenLDAP](/recipes/openldap/), a 20-year old project which [refuses to die](https://www.youtube.com/watch?v=cnQEo4bazIo), underpinning many of today's authentication platforms, and providing a single authentication backend for multiple recipes (_9 Dec 2018_)
 * Added [Wetty](/recipes/wetty/), a remote terminal client in your web browser (_22 Nov 2018_)
-* Added [PrivateBin](/recipes/privatebin/), a self-hosted pastebin alternative (_5 Nov 2018_)
+
 
 
 ## Recent improvements
