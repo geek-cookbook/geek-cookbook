@@ -14,7 +14,6 @@ ha-docker-swarm/traefik.md
 ha-docker-swarm/docker-swarm-mode.md
 ha-docker-swarm/duplicity.md
 
-<<<<<<< HEAD
 sections/recipes.md
 recipes/autopirate.md
 recipes/elkarbackup.md
@@ -28,6 +27,7 @@ recipes/huginn.md
 recipes/kanboard.md
 recipes/mail.md
 recipes/miniflux.md
+recipes/minio.md
 recipes/munin.md
 recipes/nextcloud.md
 recipes/owntracks.md
@@ -39,23 +39,6 @@ recipes/privatebin.md
 recipes/swarmprom.md
 recipes/wekan.md
 
-=======
-sections/recipies.md
-recipies/mail.md
-recipies/gitlab.md
-recipies/gitlab-runner.md
-recipies/wekan.md
-recipies/huginn.md
-recipies/kanboard.md
-recipies/miniflux.md
-recipies/ghost.md
-recipies/piwik.md
-recipies/autopirate.md
-recipies/nextcloud.md
-recipies/portainer.md
-recipies/turtle-pool.md
-recipies/tiny-tiny-rss.md
->>>>>>> markdown-to-markua
 
 sections/reference.md
 reference/oauth_proxy.md

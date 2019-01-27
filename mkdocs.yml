@@ -93,6 +93,7 @@ pages:
       - Gollum: recipes/gollum.md
       - InstaPy: recipes/instapy.md
       - KeyCloak: recipes/keycloak.md
+      - Minio: recipes/minio.md
       - OpenLDAP: recipes/openldap.md
       - Piwik: recipes/piwik.md
       - Portainer: recipes/portainer.md
@@ -112,7 +113,7 @@ pages:
     - Work-in-Progress:
 #       - MatterMost: recipes/mattermost.md
        - IPFS Cluster: recipes/ipfs-cluster.md
-       - MQTT: recipes/mqtt.md       
+       - MQTT: recipes/mqtt.md
 #       - HackMD: recipes/hackmd.md
 #       - Mastodon: recipes/mastodon.md
 #       - Mayan EDMS: recipes/mayan-edms.md
