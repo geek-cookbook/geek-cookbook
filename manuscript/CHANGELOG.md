@@ -9,6 +9,7 @@
 
 ## Recent additions to work-in-progress
 
+* Added an [introductory/explanatory page, including a children's story, on Kubernetes](/kubernetes/start/) (_29 Jan 2019_)
 * [IPFS Cluster](/recipes/ipfs-cluster/), providing inter-planetary docker swarm shared storage with the inter-planetary filesystem (_29 Nov 2018_)
 
 ## Recently added recipes
