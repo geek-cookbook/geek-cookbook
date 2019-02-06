@@ -52,7 +52,19 @@ If you're the learn-by-watching type, just search for "Kubernetes introduction v
 
 As of Jan 2019, our first (_and only!_) Kubernetes recipe is a WIP for the Mosquitto [MQTT](/recipes/mqtt/) broker. It's a good, simple starter if you're into home automation (_shoutout to [Home Assistant](/recipes/homeassistant/)!_), since it only requires a single container, and a simple NodePort service.
 
-I'd love for your [feedback](/support/) on the Kubernetes recipes, as well as suggestions for what to add next. The current plan is to replicate the Chef's Favorites recipes (_see the left-hand panel_) into Kubernetes first.
+I'd love for your [feedback](/support/) on the Kubernetes recipes, as well as suggestions for what to add next. The current rough plan is to replicate the Chef's Favorites recipes (_see the left-hand panel_) into Kubernetes first.
+
+## Move on..
+
+Still with me? Good. Move on to reviewing the design elements
+
+* Start (this page) - Why Kubernetes?
+* [Design](/kubernetes/design/) - How does it fit together?
+* [Cluster](/kubernetes/cluster/) - Setup a basic cluster
+* [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access
+* [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
+* [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
+
 
 ## Chef's Notes
 
