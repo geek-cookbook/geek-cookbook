@@ -39,7 +39,7 @@ pages:
     - Kubernetes Cluster:
       - Start: kubernetes/start.md
       - Design: kubernetes/design.md
-      - Digital Ocean: kubernetes/cluster.md
+      - Cluster: kubernetes/cluster.md
       - Load Balancer: kubernetes/loadbalancer.md
     - Chef's Favorites:
       - Auto Pirate:
