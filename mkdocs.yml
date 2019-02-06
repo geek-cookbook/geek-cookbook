@@ -38,7 +38,9 @@ pages:
       - Duplicity: recipes/duplicity.md
     - Kubernetes Cluster:
       - Start: kubernetes/start.md
-      - Digital Ocean: kubernetes/digitalocean.md
+      - Design: kubernetes/design.md
+      - Digital Ocean: kubernetes/cluster.md
+      - Load Balancer: kubernetes/loadbalancer.md
     - Chef's Favorites:
       - Auto Pirate:
         - Start: recipes/autopirate.md

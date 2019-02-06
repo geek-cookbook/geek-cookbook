@@ -4,10 +4,10 @@ IMO, the easiest Kubernetes cloud provider to experiment with is [DigitalOcean](
 
 ![Kubernetes on Digital Ocean](/images/kubernetes-on-digitalocean.jpg)
 
-
 ## Ingredients
 
-1. [DigitalOcean](https://m.do.co/c/e33b78ad621b) (_yes, this is a referral link, making me some 💰_) account, either linked to a credit card or (_my preference for a trial_) topped up with $5 credit from PayPal.
+1. [DigitalOcean](https://www.digitalocean.com/?refcode=e33b78ad621b) account, either linked to a credit card or (_my preference for a trial_) topped up with $5 credit from PayPal. (_yes, this is a referral link, making me some 💰 to buy 🍷_)
+2. Geek-Fu required : 🐱 (easy - even has screenshots!)
 
 ## Preparation
 
