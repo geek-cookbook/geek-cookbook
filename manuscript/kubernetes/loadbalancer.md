@@ -191,8 +191,20 @@ then
 	echo "HAProxy validation failed, not continuing"
 	exit 2
 else
+  # Remember what the original file looked like
+  m1=$(md5sum "/etc/haproxy/haproxy.cfg")
+
+  # Overwrite the original file
   cp /etc/webhook/haproxy/pre_validate.cfg /etc/haproxy/haproxy.cfg
-  systemctl restart haproxy
+
+  # Get MD5 of new file
+  m2=$(md5sum "/etc/haproxy/haproxy.cfg")
+
+  # Only if file has changed, then we need to reload haproxy
+  if [ "$m1" != "$m2" ] ; then
+    echo "HAProxy config has changed, reloading"
+    systemctl reload haproxy
+  fi
 fi
 ```
 
