@@ -191,7 +191,8 @@ then
 	echo "HAProxy validation failed, not continuing"
 	exit 2
 else
-	systemctl restart haproxy
+  cp /etc/webhook/haproxy/pre_validate.cfg /etc/haproxy/haproxy.cfg
+  systemctl restart haproxy
 fi
 ```
 
