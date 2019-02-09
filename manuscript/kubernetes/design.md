@@ -124,8 +124,9 @@ Still with me? Good. Move on to creating your cluster!
 * Design (this page) - How does it fit together?
 * [Cluster](/kubernetes/cluster/) - Setup a basic cluster
 * [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access
-* [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
 * [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
+* [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
+* [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
 
 
 ## Chef's Notes

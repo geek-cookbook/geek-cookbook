@@ -41,6 +41,9 @@ pages:
       - Design: kubernetes/design.md
       - Cluster: kubernetes/cluster.md
       - Load Balancer: kubernetes/loadbalancer.md
+      - Snapshots: kubernetes/snapshots.md
+      - Traefik: kubernetes/traefik.md
+      - Helm: kubernetes/helm.md      
     - Chef's Favorites:
       - Auto Pirate:
         - Start: recipes/autopirate.md
