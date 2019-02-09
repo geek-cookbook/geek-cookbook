@@ -9,6 +9,7 @@
 
 ## Recent additions to work-in-progress
 
+* Added recipe for [automated snapshots of Kubernetes Persistent Volumes](/kubernetes/snapshots/) (_9 Feb 2019_)
 * Added detailed description (and diagram) of our [Kubernetes design](/kubernetes/design/), plus a [simple load-balancer design](kubernetes/loadbalancer/) to avoid the complexities/costs of permitting ingress access to a cluster (_7 Feb 2019_)
 * Added an [introductory/explanatory page, including a children's story, on Kubernetes](/kubernetes/start/) (_29 Jan 2019_)
 
