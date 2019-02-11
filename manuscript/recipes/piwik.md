@@ -1,8 +1,8 @@
-# Piwik
+# Matomo
 
-[Piwik](http://www.piwik.org) is a rich open-source web analytics platform, which can be coupled with commercial plugins for additional features. It's most simply described as "_self-hosted Google Analytics_".
+[Matomo](http://www.matomo.org) (Formally known as piwik) is a rich open-source web analytics platform, which can be coupled with commercial plugins for additional features. It's most simply described as "_self-hosted Google Analytics_".
 
-![Piwik Screenshot](../images/piwik.png)
+![Matomo Screenshot](../images/piwik.png)
 
 ## Ingredients
 
@@ -14,16 +14,16 @@
 
 ### Limitation of docker-swarm
 
-The docker-swarm load-balancer is a problem for deploying piwik, since it rewrites the source address of every incoming packet to whichever docker node received the packet into the swarm. Which is a PITA for analytics, since the original source IP of the request is obscured.
+The docker-swarm load-balancer is a problem for deploying Matomo, since it rewrites the source address of every incoming packet to whichever docker node received the packet into the swarm. Which is a PITA for analytics, since the original source IP of the request is obscured.
 
-The issue is tracked at #[25526](https://github.com/moby/moby/issues/25526), and there is a workaround, but it requires running the piwik "app" container on **every** swarm node...
+The issue is tracked at #[25526](https://github.com/moby/moby/issues/25526), and there is a workaround, but it requires running the Matomo "app" container on **every** swarm node...
 
 ### Prepare environment
 
-Create piwik.env, and populate with the following variables
+Create Matomo.env, and populate with the following variables
 
 ```
-MYSQL_ROOT_PASSWORD=set-me-and-use-me-when-setting-up-piwik
+MYSQL_ROOT_PASSWORD=set-me-and-use-me-when-setting-up-Matomo
 ```
 
 ### Setup docker swarm
@@ -41,24 +41,24 @@ services:
     image: mysql
     volumes:
       - /var/data/piwik/mysql/runtime:/var/lib/mysql
-    env_file: /var/data/piwik/piwik.env
+    env_file: /var/data/Matomo/Matomo.env
     networks:
     - internal
   app:
-    image: piwik:apache
+    image: Matomo:apache
     volumes:
-      - /var/data/piwik/config:/var/www/html/config
+      - /var/data/Matomo/config:/var/www/html/config
     networks:
     - internal
     - traefik
     deploy:
       mode: global
       labels:
-        - traefik.frontend.rule=Host:piwik.example.com
+        - traefik.frontend.rule=Host:Matomo.example.com
         - traefik.docker.network=traefik
         - traefik.port=80
   cron:
-    image: piwik:apache
+    image: Matomo:apache
     volumes:
       - /var/data/piwik/config:/var/www/html/config
     entrypoint: |
