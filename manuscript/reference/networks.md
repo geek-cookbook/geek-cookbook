@@ -47,6 +47,7 @@ Network  | Range
 [Wetty](https://geek-cookbook.funkypenguin.co.nz/recipes/wetty/)  |  172.16.45.0/24
 [FileBrowser](https://geek-cookbook.funkypenguin.co.nz/recipes/filebrowser/)  |  172.16.46.0/24
 [phpIPAM](https://geek-cookbook.funkypenguin.co.nz/recipes/phpipam/)  |  172.16.47.0/24
+[Dozzle](https://geek-cookbook.funkypenguin.co.nz/recipes/dozzle/)  |  172.16.48.0/24
 
 
 ## Chef's Notes
