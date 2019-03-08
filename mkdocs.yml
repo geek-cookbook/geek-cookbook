@@ -19,10 +19,10 @@ copyright: 'Copyright &copy; 2016 - 2019 David Young'
 
 
 #theme_dir: mkdocs-material
-pages:
-    - Home : index.md
+nav:
+    - Home: index.md
     - Introduction:
-      - README: README.md
+      - README: README-UI.md
       - CHANGELOG: CHANGELOG.md
       - whoami: whoami.md
     - Docker Swarm:
@@ -171,16 +171,19 @@ google_analytics:
   - 'auto'
 
 extra_javascript:
-  - 'extras/javascript/piwik.js'
+#  - 'extras/javascript/piwik.js'
 
 # Extensions
 markdown_extensions:
   - admonition
-  - codehilite(linenums=true)
-  - toc(permalink=true)
+  - codehilite:
+      linenums: true
+  - toc:
+      permalink: true
   - footnotes
   - pymdownx.arithmatex
-  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.betterem:
+      smart_enable: all
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
@@ -191,6 +194,7 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.tilde
   - meta

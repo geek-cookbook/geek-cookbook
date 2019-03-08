@@ -2,7 +2,7 @@
 
 Intro
 
-![MatterMost Screenshot](../images/mattermost.jpg)
+![MatterMost Screenshot](../images/mattermost.png)
 
 Details
 
