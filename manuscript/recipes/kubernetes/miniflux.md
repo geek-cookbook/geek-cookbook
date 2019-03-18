@@ -9,7 +9,7 @@ hero: Not all heroes wear capes
 
 Intro
 
-![NAME Screenshot](../images/name.jpg)
+![NAME Screenshot](../../images/name.jpg)
 
 Details
 
