@@ -13,6 +13,7 @@
 
 ## Recently added recipes
 
+* Added Kubernetes version of [Miniflux](/recipes/kubernetes/miniflux/) recipe, a minimalistic RSS reader supporting the Fever API (_26 Mar 2019_)
 * Added Kubernetes version of [Kanboard](/recipes/kubernetes/kanboard/) recipe, a lightweight, well-supported Kanban tool for visualizing your work (_19 Mar 2019_)
 * Added [Minio](/recipes/minio/), a high performance distributed object storage server, designed for large-scale private cloud infrastructure, but perfect for simple use cases where emulating AWS S3 is useful. (_27 Jan 2019_)
 * Added the beginning of the **Kubernetes** design, including a getting started on using [Digital Ocean,](/kubernetes/digitalocean/) and a WIP recipe for an [MQTT](/recipes/mqtt/) broker (_21 Jan 2019_)

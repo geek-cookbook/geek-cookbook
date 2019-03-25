@@ -80,7 +80,7 @@ nav:
       - Turtle Pool: recipes/turtle-pool.md
     - Chef's Favorites (Kubernetes):
       - Kanboard: recipes/kubernetes/kanboard.md
-#      - Miniflux: recipes/kubernetes/miniflux.md
+      - Miniflux: recipes/kubernetes/miniflux.md
 #      - NextCloud: recipes/kubernetes/nextcloud.md
 #      - phpIPAM: recipes/kubernetes/phpipam.md
 #      - PrivateBin: recipes/kubernetes/privatebin.md
