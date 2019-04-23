@@ -122,6 +122,7 @@ services:
       - internal
     volumes:
        - /etc/localtime:/etc/localtime:ro
+       - /var/data/:/var/data
        - /var/data/elkarbackup/backups:/app/backups
        - /var/data/elkarbackup/uploads:/app/uploads
        - /var/data/elkarbackup/sshkeys:/app/.ssh
