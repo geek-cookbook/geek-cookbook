@@ -15,17 +15,17 @@ repo_url: 'https://github.com/funkypenguin/geek-cookbook'
 docs_dir: 'manuscript'
 
 # Copyright
-copyright: 'Copyright &copy; 2016 - 2017 David Young'
+copyright: 'Copyright &copy; 2016 - 2019 David Young'
 
 
 #theme_dir: mkdocs-material
-pages:
-    - Home : index.md
+nav:
+    - Home: index.md
     - Introduction:
-      - README: README.md
+      - README: README-UI.md
       - CHANGELOG: CHANGELOG.md
       - whoami: whoami.md
-    - Essential:
+    - Docker Swarm:
       - Design: ha-docker-swarm/design.md
       - VMs: ha-docker-swarm/vms.md
       - Shared Storage (Ceph): ha-docker-swarm/shared-storage-ceph.md
@@ -34,64 +34,114 @@ pages:
       - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
       - Traefik: ha-docker-swarm/traefik.md
       - Registry: ha-docker-swarm/registry.md
-      - Mail Server: recipies/mail.md
-      - Duplicity: recipies/duplicity.md
-    - Chef's Favorites:
-      - Huginn: recipies/huginn.md
-      - Kanboard: recipies/kanboard.md
-      - Miniflux: recipies/miniflux.md
+      - Mail Server: recipes/mail.md
+      - Duplicity: recipes/duplicity.md
+    - Kubernetes Cluster:
+      - Start: kubernetes/start.md
+      - Design: kubernetes/design.md
+      - Cluster: kubernetes/cluster.md
+      - Load Balancer: kubernetes/loadbalancer.md
+      - Snapshots: kubernetes/snapshots.md
+      - Helm: kubernetes/helm.md
+      - Traefik: kubernetes/traefik.md      
+    - Chef's Favorites (Docker):
       - Auto Pirate:
-        - Start: recipies/autopirate.md
-        - SABnzbd: recipies/autopirate/sabnzbd.md
-        - NZBGet: recipies/autopirate/nzbget.md
-        - Rtorrent: recipies/autopirate/rtorrent.md
-        - Sonarr: recipies/autopirate/sonarr.md
-        - Radarr: recipies/autopirate/radarr.md
-        - Mylar: recipies/autopirate/mylar.md
-        - Lazy Librarian: recipies/autopirate/lazylibrarian.md
-        - Headphones: recipies/autopirate/headphones.md
-        - NZBHydra: recipies/autopirate/nzbhydra.md
-        - Ombi: recipies/autopirate/ombi.md
-        - Jackett: recipies/autopirate/jackett.md
-        - End: recipies/autopirate/end.md
-      - NextCloud: recipies/nextcloud.md
-      - Plex: recipies/plex.md
-      - Emby: recipies/emby.md
-      - Home Assistant: recipies/homeassistant.md
-      - CryptoMiner:
-        - Start: recipies/cryptominer.md
-        - Mining Rig: recipies/cryptominer/mining-rig.md
-        - AMD GPU: recipies/cryptominer/amd-gpu.md
-        - NVidia GPU: recipies/cryptominer/nvidia-gpu.md
-        - Mining Pools : recipies/cryptominer/mining-pool.md
-        - Wallets : recipies/cryptominer/wallet.md
-        - Exchanges: recipies/cryptominer/exchange.md
-        - Minerhotel: recipies/cryptominer/minerhotel.md
-        - Monitoring: recipies/cryptominer/monitor.md
-        - Profit!: recipies/cryptominer/profit.md
-      - Wallabag: recipies/wallabag.md
-      - Turtle Pool: recipies/turtle-pool.md
+        - Start: recipes/autopirate.md
+        - SABnzbd: recipes/autopirate/sabnzbd.md
+        - NZBGet: recipes/autopirate/nzbget.md
+        - Rtorrent: recipes/autopirate/rtorrent.md
+        - Sonarr: recipes/autopirate/sonarr.md
+        - Radarr: recipes/autopirate/radarr.md
+        - Mylar: recipes/autopirate/mylar.md
+        - Lazy Librarian: recipes/autopirate/lazylibrarian.md
+        - Headphones: recipes/autopirate/headphones.md
+        - Lidarr: recipes/autopirate/lidarr.md
+        - NZBHydra: recipes/autopirate/nzbhydra.md
+        - NZBHydra 2: recipes/autopirate/nzbhydra2.md
+        - Ombi: recipes/autopirate/ombi.md
+        - Jackett: recipes/autopirate/jackett.md
+        - Heimdall: recipes/autopirate/heimdall.md
+        - End: recipes/autopirate/end.md
+      - ElkarBackup: recipes/elkarbackup.md
+      - Emby: recipes/emby.md
+      - Home Assistant:
+        - Start: recipes/homeassistant.md
+        - iBeacon: recipes/homeassistant/ibeacon.md
+      - Huginn: recipes/huginn.md
+      - Kanboard: recipes/kanboard.md
+      - Miniflux: recipes/miniflux.md
+      - Munin: recipes/munin.md
+      - NextCloud: recipes/nextcloud.md
+      - OwnTracks: recipes/owntracks.md
+      - phpIPAM: recipes/phpipam.md
+      - Plex: recipes/plex.md
+      - PrivateBin: recipes/privatebin.md
+      - Swarmprom: recipes/swarmprom.md
+      - Turtle Pool: recipes/turtle-pool.md
+    - Chef's Favorites (Kubernetes):
+      - Kanboard: recipes/kubernetes/kanboard.md
+      - Miniflux: recipes/kubernetes/miniflux.md
+#      - NextCloud: recipes/kubernetes/nextcloud.md
+#      - phpIPAM: recipes/kubernetes/phpipam.md
+#      - PrivateBin: recipes/kubernetes/privatebin.md
     - Menu:
-      - Ghost: recipies/ghost.md
-      - GitLab: recipies/gitlab.md
-      - GitLab Runner: recipies/gitlab-runner.md
-      - Gollum: recipies/gollum.md
-      - Piwik: recipies/piwik.md
-      - Wekan: recipies/wekan.md
-      - Tiny Tiny RSS: recipies/tiny-tiny-rss.md
-      - Portainer: recipies/portainer.md
-      - InstaPy: recipies/instapy.md
-      - Calibre-Web: recipies/calibre-web.md
-      - Wallabag: recipies/wallabag.md
+      - Bookstack: recipes/bookstack.md
+      - CryptoMiner:
+        - Start: recipes/cryptominer.md
+        - Mining Rig: recipes/cryptominer/mining-rig.md
+        - AMD GPU: recipes/cryptominer/amd-gpu.md
+        - NVidia GPU: recipes/cryptominer/nvidia-gpu.md
+        - Mining Pools : recipes/cryptominer/mining-pool.md
+        - Wallets : recipes/cryptominer/wallet.md
+        - Exchanges: recipes/cryptominer/exchange.md
+        - Minerhotel: recipes/cryptominer/minerhotel.md
+        - Monitoring: recipes/cryptominer/monitor.md
+        - Profit!: recipes/cryptominer/profit.md
+      - Calibre-Web: recipes/calibre-web.md
+      - Collabora Online: recipes/collabora-online.md
+      - Ghost: recipes/ghost.md
+      - GitLab: recipes/gitlab.md
+      - GitLab Runner: recipes/gitlab-runner.md
+      - Gollum: recipes/gollum.md
+      - InstaPy: recipes/instapy.md
+      - KeyCloak: recipes/keycloak.md
+      - Minio: recipes/minio.md
+      - OpenLDAP: recipes/openldap.md
+      - Piwik: recipes/piwik.md
+      - Portainer: recipes/portainer.md
+      - Realms: recipes/realms.md
+      - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
+      - Wallabag: recipes/wallabag.md
+      - Wekan: recipes/wekan.md
+      - Wetty: recipes/wetty.md
+#      - CryptoNote Mining Pool:
+#        - Start: recipes/cryptonote-mining-pool.md
+#        - Masari: recipes/cryptonote-mining-pool/masari.md
+#        - Athena: recipes/cryptonote-mining-pool/athena.md
+#      - SSO Stack:
+#        - Start: recipes/sso-stack.md
+#        - OpenLDAP: recipes/sso-stack/openldap.md
+#        - KeyCloak: recipes/sso-stack/keycloak.md
+    - Work-in-Progress:
+#       - MatterMost: recipes/mattermost.md
+       - IPFS Cluster: recipes/ipfs-cluster.md
+       - MQTT: recipes/mqtt.md
+#       - HackMD: recipes/hackmd.md
+#       - Mastodon: recipes/mastodon.md
+#       - Mayan EDMS: recipes/mayan-edms.md
+#       - Shaarli: recipes/shaarli.md
+#       - UniFi Controller: recipes/unifi-controller.md
+#       - CyberChef : recipes/cyberchef.md
     - Reference:
       - OAuth Proxy: reference/oauth_proxy.md
       - Data Layout: reference/data_layout.md
       - Networks: reference/networks.md
+      - Containers: reference/containers.md
       - git-docker : reference/git-docker.md
       - OpenVPN : reference/openvpn.md
       - Troubleshooting: reference/troubleshooting.md
     - Support: support.md
-    - Sponsored Projects: sponsored-projects.md    
+    - Sponsored Projects: sponsored-projects.md
 
 theme:
   name: 'material'
@@ -127,18 +177,22 @@ google_analytics:
   - 'auto'
 
 extra_javascript:
-  - 'extras/javascript/piwik.js'
+#  - 'extras/javascript/piwik.js'
 
 # Extensions
 markdown_extensions:
   - admonition
-  - codehilite(linenums=true)
-  - toc(permalink=true)
+  - codehilite:
+      linenums: true
+  - toc:
+      permalink: true
   - footnotes
   - pymdownx.arithmatex
-  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.betterem:
+      smart_enable: all
   - pymdownx.caret
   - pymdownx.critic
+  - pymdownx.details
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite
@@ -146,6 +200,7 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.tilde
   - meta

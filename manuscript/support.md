@@ -2,9 +2,22 @@ hero: "Excuse me... waiter, there's a bug in this recipe!"
 
 # Support
 
-## Welcome to the kitchen
+## Discord: Where the cool kids are
 
-For community support and engagement, I've setup a [Discourse forum](https://discourse.geek-kitchen.funkypenguin.co.nz/). Using this as the primary means of discussions makes it easy to share recipes / experiences with future geeks.
+All the cool kids are hanging out in the [Discord server](http://chat.funkypenguin.co.nz).
+
+> "Eh? What's Discord? Get off my lawn, young whippersnappers!!"
+
+Yeah, I know. I also thought Discord was just for the gamer kids, but it turns out it's great for a geeky community. Why? [Let me elucidate ya.](https://www.youtube.com/watch?v=1qHoSWxVqtE)..
+
+1. Native markdown for code blocks
+2. Drag-drop screenshots
+3. Costs nothing, no ads
+4. Mobile notifications are reliable, individual channels mutable, etc
+
+## Forums: Party like it's 1999
+
+For community support and engagement, I've setup a [Discourse forum](https://discourse.geek-kitchen.funkypenguin.co.nz/). Using this as the primary means of topical discussions makes it easy to share recipes / experiences with future geeks.
 
 ## Discuss a recipe
 
@@ -44,7 +57,7 @@ Impulsively **[click here (NOW quick do it!)](https://www.patreon.com/bePatron?u
 
 I also gratefully accept donations of most fine socialist/anarchist/hobbyist cryptocurrencies, including the list below (_let me know if I've left out the coin-of-the-week, and I'll happily add it_):
 
-| ist-currency | Address      
+| -ist-currency | Address      
 | ------------- |-------------|
 | Bitcoin      | 1GBJfmqARmL66gQzUy9HtNWdmAEv74nfXj
 | Ethereum     | 0x19e60ec49e1f053cfdfc193560ecfb3caed928f1

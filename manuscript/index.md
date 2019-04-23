@@ -1,6 +1,6 @@
 # What is this?
 
-The "**[Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of guides for establishing your own highly-available docker container cluster (swarm). This swarm enables you to run self-hosted services such as [GitLab](/recipies/gitlab/), [Plex](/recipies/plex/), [NextCloud](/recipies/nextcloud/), etc. Recent updates and additions are posted on the [CHANGELOG](/CHANGELOG/).
+The "**[Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of guides for establishing your own highly-available docker container cluster (swarm). This swarm enables you to run self-hosted services such as [GitLab](/recipes/gitlab/), [Plex](/recipes/plex/), [NextCloud](/recipes/nextcloud/), etc. Recent updates and additions are posted on the [CHANGELOG](/CHANGELOG/).
 
 ## Who is this for?
 
@@ -16,6 +16,10 @@ So if you're familiar enough with the tools, and you've done self-hosting before
 2. You want to play. You want a safe sandbox to test new tools, keeping the ones you want and tossing the ones you don't.
 3. You want reliability. Once you go from __playing__ with a tool to actually __using__ it, you want it to be available when you need it. Having to "_quickly ssh into the host and restart the webserver_" doesn't cut it when your wife wants to know why her phone won't sync!
 
+## What have you done for me lately? (CHANGELOG)
+
+Check out recent change at [CHANGELOG](/CHANGELOG/)
+
 ## What do you want from me?
 
 I want your money.
@@ -24,8 +28,14 @@ No, seriously (_but yes, I do want your money - see below_), If the above applie
 
 ### Get in touch 
 
+<<<<<<< HEAD
 * Tweet me up, I'm [@funkypenguin](https://twitter.com/funkypenguin)! 
 * or better yet, come into the  [kitchen](https://discourse.geek-kitchen.funkypenguin.co.nz/) (discussion forums) to say hi, ask a question, or suggest a new recipe!
+=======
+* Come and say hi to me and the friendly geeks in the [Discord](http://chat.funkypenguin.co.nz) chat or the [Discourse](https://discourse.geek-kitchen.funkypenguin.co.nz/) forums - say hi, ask a question, or suggest a new recipe!
+* Tweet me up, I'm [@funkypenguin](https://twitter.com/funkypenguin)! 🐦
+* [Contact me](https://www.funkypenguin.co.nz/contact/) by a variety of channels
+>>>>>>> master
 
 ### Buy my book 
 
@@ -46,11 +56,12 @@ Impulsively **[click here (NOW quick do it!)](https://www.patreon.com/bePatron?u
 
 I also gratefully accept donations of most fine socialist/anarchist/hobbyist cryptocurrencies, including the list below (_let me know if I've left out the coin-of-the-week, and I'll happily add it_):
 
-| ist-currency | Address      
+| -ist-currency | Address      
 | ------------- |-------------|
 | Bitcoin      | 1GBJfmqARmL66gQzUy9HtNWdmAEv74nfXj
 | Ethereum     | 0x19e60ec49e1f053cfdfc193560ecfb3caed928f1
 | Litecoin     | LYLEF7xTpeVbjjoZD3jGLVgvKSKTYDKbK8
+| :turtle: TurtleCoin | TRTLv2qCKYChMbU5sNkc85hzq2VcGpQidaowbnV2N6LAYrFNebMLepKKPrdif75x5hAizwfc1pX4gi5VsR9WQbjQgYcJm21zec4
 
 
 

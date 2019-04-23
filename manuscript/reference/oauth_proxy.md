@@ -47,11 +47,11 @@ I created **/var/data/oauth_proxy/authenticated-emails.txt**, and add my own ema
 
 ### Configure stack
 
-You'll need to define a service for the oauth_proxy in every stack which you want to protect. Here's an example from the [Wekan](/recipies/wekan/) recipe:
+You'll need to define a service for the oauth_proxy in every stack which you want to protect. Here's an example from the [Wekan](/recipes/wekan/) recipe:
 
 ```
 proxy:
-  image: zappi/oauth2_proxy
+  image: a5huynh/oauth2_proxy
   env_file : /var/data/wekan/wekan.env
   networks:
     - traefik

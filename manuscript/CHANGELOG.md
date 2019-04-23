@@ -2,25 +2,27 @@
 
 ## Subscribe to updates
 
-Sign up [here](http://eepurl.com/dfx95n) (double-opt-in) to receive email updates on new and improve recipes!
+* Email : Sign up [here](http://eepurl.com/dfx95n) (double-opt-in) to receive email updates on new and improve recipes!
+* Mastodon: https://mastodon.social/@geekcookbook_changes
+* RSS: https://mastodon.social/@geekcookbook_changes.atom
+* The #changelog channel in our [Discord server](http://chat.funkypenguin.co.nz)
+
+## Recent additions to work-in-progress
+
+* Kubernetes recipes for UniFi controller, Miniflux, Kanboard and PrivateBin coming in March! (_19 Mar 2019_)
 
 ## Recently added recipes
 
-* Added a list of [sponsored projects](sponsored-projects/) which I regularly donate to, to keep the geeky ingredients fresh! (_8 Jun 2018_)
-* [Turtle Pool](/recipies/turtle-pool/) - A mining pool for the fun, friendly, no-BS, still-in-its-infancy cryptocurrency, "[TurtleCoin](http://turtlecoin.lol)" (_7 May 2018_)
-* [Wallabag](/recipies/wallabag/) - Self-hosted Read-it-Later / Annotation app (_21 Apr 2018_)
-* [InstaPy](/recipies/instapy/) - Automate your Instagrammage (_17 Apr 2018_)
-* [CryptoMiner](/recipies/cryto-miner/start/) - Become a cryptocurrency miner, put your GPU to work!
-* [Calibre-Web](/recipies/calibre-web/) - Plex for EBooks (_8 Jan 2018_)
-* [Emby](/recipies/emby/) - Geekier alternative to Plex, with improved parental controls (_28 Dec 2017_)
+* Added Kubernetes version of [Miniflux](/recipes/kubernetes/miniflux/) recipe, a minimalistic RSS reader supporting the Fever API (_26 Mar 2019_)
+* Added Kubernetes version of [Kanboard](/recipes/kubernetes/kanboard/) recipe, a lightweight, well-supported Kanban tool for visualizing your work (_19 Mar 2019_)
+* Added [Minio](/recipes/minio/), a high performance distributed object storage server, designed for large-scale private cloud infrastructure, but perfect for simple use cases where emulating AWS S3 is useful. (_27 Jan 2019_)
+* Added the beginning of the **Kubernetes** design, including a getting started on using [Digital Ocean,](/kubernetes/digitalocean/) and a WIP recipe for an [MQTT](/recipes/mqtt/) broker (_21 Jan 2019_)
+* [ElkarBackup](/recipes/elkarbackup/), a beautiful GUI-based backup solution built on rsync/rsnapshot (_1 Jan 2019_)
 
 
 ## Recent improvements
 
-* [Lazy Librarian](/recipies/autopirate/lazylibrarian/) component of [autopirate](/recipies/autopirate/start/) recipe updated to include calibre-server, so that downloaded ebooks can be automatically added to a calibre library, to then be independently managed using [Calibre-Web](/recipies/calibre-web/) (_27 May 2018_)
-* [Miniflux](/recipies/miniflux/) updated to version 2.0, including PostgreSQL database and nightly DB dumps (_24 May 2018_)
-* [Turtle Pool](/recipies/turtle-pool/) updated for redundant daemons plus a failsafe (_16 May 2018_)
-* "Disengaged" [AutoPirate](/recipies/autopirate/) uber-recipe into individual sub-recipies per-page, easing navigation and support / comment flow
-* Switched [Emby](/recipies/emby/) to official docker container (more up-to-date) (_27 Mar 2018_)
-* [Docker Swarm Mode](/ha-docker-swarm/docker-swarm-mode/#setup-automatic-updates) setup updated for automatic container updates (Shepherd)
-* [Kanboard](/recipies/kanboard/) recipe [improved](https://github.com/funkypenguin/geek-cookbook/commit/8597bcc6319b571c8138cd1b615e8c512e5f5bd5) with the inclusion of a cron container to run automated daily jobs (_22 Dec 2017_)
+* Added recipe for [automated snapshots of Kubernetes Persistent Volumes](/kubernetes/snapshots/), instructions for using [Helm](/kubernetes/helm/), and recipe for deploying [Traefik](/kubernetes/traefik/), which completes the Kubernetes cluster design! (_9 Feb 2019_)
+* Added detailed description (_and diagram_) of our [Kubernetes design](/kubernetes/design/), plus a [simple load-balancer design](kubernetes/loadbalancer/) to avoid the complexities/costs of permitting ingress access to a cluster (_7 Feb 2019_)
+* Added an [introductory/explanatory page, including a children's story, on Kubernetes](/kubernetes/start/) (_29 Jan 2019_)
+* [NextCloud](/recipes/nextcloud/) updated to fix CalDAV/CardDAV service discovery behind Traefik reverse proxy (_12 Dec 2018_)

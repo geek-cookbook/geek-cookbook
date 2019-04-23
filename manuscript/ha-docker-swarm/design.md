@@ -51,7 +51,7 @@ Assuming 3 nodes, under normal circumstances the following is illustrated:
 * The **traefik** service (in swarm mode) receives incoming requests (on http and https), and forwards them to individual containers. Traefik knows the containers names because it's able to access the docker socket.
 * All 3 nodes run keepalived, at different priorities. Since traefik is running as a swarm service and listening on TCP 80/443, requests made to the keepalived VIP and arriving at **any** of the swarm nodes will be forwarded to the traefik container (no matter which node it's on), and then onto the target backend.
 
-![HA function](images/docker-swarm-ha-function.png)
+![HA function](../images/docker-swarm-ha-function.png)
 
 ### Node failure
 
@@ -63,7 +63,7 @@ In the case of a failure (or scheduled maintenance) of one of the nodes, the fol
 * The **traefik** service is either restarted or unaffected, and as the backend containers stop/start and change IP, traefik is aware and updates accordingly.
 * The keepalived VIP continues to function on the remaining nodes, and docker swarm continues to forward any traffic received on TCP 80/443 to the appropriate node.
 
-![HA function](images/docker-swarm-node-failure.png)
+![HA function](../images/docker-swarm-node-failure.png)
 
 ### Node restore
 
@@ -75,7 +75,7 @@ When the failed (or upgraded) host is restored to service, the following is illu
 * Keepalived VIP regains full redundancy
 
 
-![HA function](images/docker-swarm-node-restore.png)
+![HA function](../images/docker-swarm-node-restore.png)
 
 ### Total cluster failure
 
