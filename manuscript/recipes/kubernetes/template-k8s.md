@@ -1,130 +1,268 @@
-hero: Not all heroes wear capes
+#Kanboard
 
-!!! danger "This recipe is a work in progress"
-    This recipe is **incomplete**, and is featured to align the [patrons](https://www.patreon.com/funkypenguin)'s "premix" repository with the cookbook.  "_premix_" is a private git repository available to [all Patreon patrons](https://www.patreon.com/funkypenguin), which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+Kanboard is a Kanban tool, developed by [Frédéric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux](/recipes/miniflux/)_)
 
-    So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 😁
+![Kanboard Screenshot](/images/kanboard.png)
 
-# NAME
+!!! tip "Sponsored Project"
+    Kanboard is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 😓
 
-Intro
+Features include:
 
-![NAME Screenshot](../../images/name.jpg)
-
-Details
+* Visualize your work
+* Limit your work in progress to be more efficient
+* Customize your boards according to your business activities
+* Multiple projects with the ability to drag and drop tasks
+* Reports and analytics
+* Fast and simple to use
+* Access from anywhere with a modern browser
+* Plugins and integrations with external services
+* Free, open source and self-hosted
+* Super simple installation
 
 ## Ingredients
 
-1. [Kubernetes cluster](/kubernetes/digital-ocean/)
+1. A [Kubernetes Cluster](/kubernetes/design/) including [Traefik Ingress](/kubernetes/traefik/)
+2. A DNS name for your kanboard instance (*kanboard.example.com*, below) pointing to your [load balancer](/kubernetes/loadbalancer/), fronting your Traefik ingress
 
 ## Preparation
 
-### Create data locations
+### Prepare traefik for namespace
+
+When you deployed [Traefik via the helm chart](/kubernetes/traefik/), you would have customized ```values.yml``` for your deployment. In ```values.yml``` is a list of namespaces which Traefik is permitted to access. Update ```values.yml``` to include the *kanboard* namespace, as illustrated below:
 
 ```
-mkdir /var/data/config/mqtt
+<snip>
+kubernetes:
+  namespaces:
+    - kube-system
+    - nextcloud
+    - kanboard
+    - miniflux
+<snip>
+```
+
+If you've updated ```values.yml```, upgrade your traefik deployment via helm, by running ```helm upgrade --values values.yml traefik stable/traefik --recreate-pods```
+
+### Create data locations
+
+Although we could simply bind-mount local volumes to a local Kubuernetes cluster, since we're targetting a cloud-based Kubernetes deployment, we only need a local path to store the YAML files which define the various aspects of our Kubernetes deployment.
+
+```
+mkdir /var/data/config/kanboard
 ```
 
 ### Create namespace
 
-We use Kubernetes namespaces for service discovery and isolation between our stacks, so create a namespace for the mqtt stack by creating the following .yaml:
+We use Kubernetes namespaces for service discovery and isolation between our stacks, so create a namespace for the kanboard stack with the following .yml:
 
 ```
-cat <<EOF > /var/data/mqtt/namespace.yaml
+cat <<EOF > /var/data/config/kanboard/namespace.yml
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: mqtt
+  name: kanboard
 EOF
-kubectl create -f /var/data/mqtt/namespace.yaml
+kubectl create -f /var/data/config/kanboard/namespace.yaml
 ```
 
-### Prepare environment
+### Create persistent volume claim
 
-Create wekan.env, and populate with the following variables
-```
-OAUTH2_PROXY_CLIENT_ID=
-OAUTH2_PROXY_CLIENT_SECRET=
-OAUTH2_PROXY_COOKIE_SECRET=
-MONGO_URL=mongodb://wekandb:27017/wekan
-ROOT_URL=https://wekan.example.com
-MAIL_URL=smtp://wekan@wekan.example.com:password@mail.example.com:587/
-MAIL_FROM="Wekan <wekan@wekan.example.com>"
-```
-
-### Setup Docker Swarm
-
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
-
-!!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+Persistent volume claims are a streamlined way to create a persistent volume and assign it to a container in a pod. Create a claim for the kanboard app and plugin data:
 
 ```
-version: '3'
-
-services:
-
-  wekandb:
-    image: mongo:3.2.15
-    command: mongod --smallfiles --oplogSize 128
-    networks:
-      - internal
-    volumes:
-      - /var/data/wekan/wekan-db:/data/db
-      - /var/data/wekan/wekan-db-dump:/dump
-
-  proxy:
-    image: a5huynh/oauth2_proxy
-    env_file: /var/data/wekan/wekan.env
-    networks:
-      - traefik_public
-      - internal
-    deploy:
-      labels:
-        - traefik_public.frontend.rule=Host:wekan.example.com
-        - traefik_public.docker.network=traefik_public
-        - traefik_public.port=4180
-    command: |
-      -cookie-secure=false
-      -upstream=http://wekan:80
-      -redirect-url=https://wekan.example.com
-      -http-address=http://0.0.0.0:4180
-      -email-domain=example.com
-      -provider=github
-
-  wekan:
-    image: wekanteam/wekan:latest
-    networks:
-      - internal
-    env_file: /var/data/wekan/wekan.env
-
-networks:
-  traefik_public:
-    external: true
-  internal:
-    driver: overlay
-    ipam:
-      config:
-        - subnet: 172.16.3.0/24
+cat <<EOF > /var/data/config/kanboard/persistent-volumeclaim.yml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: kanboard-volumeclaim
+  namespace: kanboard
+  annotations:
+    backup.kubernetes.io/deltas: P1D P7D  
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+EOF
+kubectl create -f /var/data/config/kanboard/kanboard-volumeclaim.yaml
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+!!! question "What's that annotation about?"
+    The annotation is used by [k8s-snapshots](/kubernetes/snapshots/) to create daily incremental snapshots of your persistent volumes. In this case, our volume is snapshotted daily, and copies kept for 7 days.
 
+### Create ConfigMap
 
+Kanboard's configuration is all contained within ```config.php```, which needs to be presented to the container. We _could_ maintain ```config.php``` in the persistent volume we created above, but this would require manually accessing the pod every time we wanted to make a change. 
+
+Instead, we'll create ```config.php``` as a [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/), meaning it "lives" within the Kuberetes cluster and can be **presented** to our pod. When we want to make changes, we simply update the ConfigMap (*delete and recreate, to be accurate*), and relaunch the pod.
+
+Grab a copy of [config.default.php](https://github.com/kanboard/kanboard/blob/master/config.default.php), save it to ```/var/data/config/kanboard/config.php```, and customize it per [the guide](https://docs.kanboard.org/en/latest/admin_guide/config_file.html).
+
+At the very least, I'd suggest making the following changes:
+```
+define('PLUGIN_INSTALLER', true);    // Yes, I want to install plugins using the UI
+define('ENABLE_URL_REWRITE', false); // Yes, I want pretty URLs
+```
+
+Now create the configmap from config.php, by running ```kubectl create configmap -n kanboard kanboard-config --from-file=config.php```
 
 ## Serving
 
-### Launch Wekan stack
+Now that we have a [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/), a [persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/), and a [configmap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/), we can create a [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [service](https://kubernetes.io/docs/concepts/services-networking/service/), and [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) for the kanboard [pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/). 
 
-Launch the Wekan stack by running ```docker stack deploy wekan -c <path -to-docker-compose.yml>```
+### Create deployment
 
-Log into your new instance at https://**YOUR-FQDN**, with user "root" and the password you specified in gitlab.env.
+Create a deployment to tell Kubernetes about the desired state of the pod (*which it will then attempt to maintain*). Note below that we mount the persistent volume **twice**, to both ```/var/www/app/data``` and ```/var/www/app/plugins```, using the subPath value to differentiate them. This trick avoids us having to provision **two** persistent volumes just for data mounted in 2 separate locations.
+
+!!! tip
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 👍
+
+```
+cat <<EOF > /var/data/kanboard/deployment.yml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: kanboard
+  name: app
+  labels:
+    app: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - image: kanboard/kanboard
+          name: app
+          volumeMounts:
+            - name: kanboard-config
+              mountPath: /var/www/app/config.php
+              subPath: config.php
+            - name: kanboard-app
+              mountPath: /var/www/app/data
+              subPath: data
+            - name: kanboard-app
+              mountPath: /var/www/app/plugins
+              subPath: plugins
+      volumes:
+        - name: kanboard-app
+          persistentVolumeClaim:
+            claimName: kanboard-app
+        - name: kanboard-config
+          configMap:
+            name: kanboard-config
+EOF
+kubectl create -f /var/data/kanboard/deployment.yml
+```
+
+Check that your deployment is running, with ```kubectl get pods -n kanboard```. After a minute or so, you should see a "Running" pod, as illustrated below:
+
+```
+[funkypenguin:~] % kubectl get pods -n kanboard
+NAME                   READY     STATUS    RESTARTS   AGE
+app-79f97f7db6-hsmfg   1/1       Running   0          11d
+[funkypenguin:~] %
+```
+
+### Create service
+
+The service resource "advertises" the availability of TCP port 80 in your pod, to the rest of the cluster (*constrained within your namespace*). It seems a little like overkill coming from the Docker Swarm's automated "service discovery" model, but the Kubernetes design allows for load balancing, rolling upgrades, and health checks of individual pods, without impacting the rest of the cluster elements.
+
+```
+cat <<EOF > /var/data/kanboard/service.yml
+kind: Service
+apiVersion: v1
+metadata:
+  name: app
+  namespace: kanboard
+spec:
+  selector:
+    app: app
+  ports:
+  - protocol: TCP
+    port: 80
+  clusterIP: None
+EOF
+kubectl create -f /var/data/kanboard/service.yml
+```
+
+Check that your service is deployed, with ```kubectl get services -n kanboard```. You should see something like this:
+
+```
+[funkypenguin:~] % kubectl get service -n kanboard
+NAME      TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+app       ClusterIP   None         <none>        80/TCP    38d
+[funkypenguin:~] %
+```
+
+### Create ingress
+
+The ingress resource tells Traefik what to forward inbound requests for *kanboard.example.com* to your service (defined above), which in turn passes the request to the "app" pod. Adjust the config below for your domain.
+
+```
+cat <<EOF > /var/data/kanboard/ingress.yml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: app
+  namespace: kanboard
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: kanboard.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: app
+          servicePort: 80
+EOF
+kubectl create -f /var/data/kanboard/ingress.yml
+```
+
+Check that your service is deployed, with ```kubectl get ingress -n kanboard```. You should see something like this:
+
+```
+[funkypenguin:~] % kubectl get ingress -n kanboard
+NAME      HOSTS                         ADDRESS   PORTS     AGE
+app       kanboard.funkypenguin.co.nz             80        38d
+[funkypenguin:~] %
+```
+
+### Access Kanboard
+
+At this point, you should be able to access your instance on your chosen DNS name (*i.e. https://kanboard.example.com*)
+
+
+### Updating config.php
+
+Since ```config.php``` is a ConfigMap now, to update it, make your local changes, and then delete and recreate the ConfigMap, by running:
+
+```
+kubectl delete configmap -n kanboard kanboard-config
+kubectl create configmap -n kanboard kanboard-config --from-file=config.php
+```
+
+Then, in the absense of any other changes to the deployement definition, force the pod to restart by issuing a "null patch", as follows:
+
+```
+kubectl patch -n kanboard deployment app -p "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
+```
+
+### Troubleshooting
+
+To look at the Kanboard pod's logs, run ```kubectl logs -n kanboard <name of pod per above> -f```. For further troubleshooting hints, see [Troubleshooting](/reference/kubernetes/troubleshooting/).
 
 ## Chef's Notes
 
-1. If you wanted to expose the Wekan UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the wekan container. You'd also need to add the traefik_public network to the wekan container.
+1. The simplest deployment of Kanboard uses the default SQLite database backend, stored on the persistent volume. You can convert this to a "real" database running MySQL or PostgreSQL, and running an an additional database pod and service. Contact me if you'd like further details ;)
 
 ### Tip your waiter (donate) 👏
 
