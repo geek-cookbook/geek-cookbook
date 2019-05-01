@@ -33,17 +33,17 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 version: '3'
 
 services:
-  1:
+  thing1:
     image: gitlab/gitlab-runner
     volumes:
-    - /var/data/gitlab-runner/1:/var/data/gitlab/runners/1
+    - /var/data/gitlab/runners/1:/etc/gitlab-runner
     networks:
     - internal
 
-  2:
+  thing2:
     image: gitlab/gitlab-runner
     volumes:
-    - /var/data/gitlab-runner/:/var/data/gitlab/runners/2
+    - /var/data/gitlab/runners/2:/etc/gitlab-runner
     networks:
     - internal
 
@@ -58,7 +58,7 @@ networks:
 
 ### Configure runners
 
-From your GitLab UI, you can retrieve a "token" necessary to register a new runner. To register the runner, you can either create config.toml in each runner's bind-mounted folder (example below), or just "docker exec" into each runner container and execute ```gitlab-container register``` to interactively generate config.toml.
+From your GitLab UI, you can retrieve a "token" necessary to register a new runner. To register the runner, you can either create config.toml in each runner's bind-mounted folder (example below), or just "docker exec" into each runner container and execute ```gitlab-runner register``` to interactively generate config.toml.
 
 Sample runner config.toml:
 
