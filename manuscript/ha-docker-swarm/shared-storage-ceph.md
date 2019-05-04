@@ -91,7 +91,7 @@ docker run -d --net=host \
 -v /etc/ceph:/etc/ceph \
 -v /var/lib/ceph/:/var/lib/ceph/ \
 -v /dev/:/dev/ \
--e OSD_FORCE_ZAP=1
+-e OSD_FORCE_ZAP=1 \
 -e OSD_DEVICE=/dev/vdd \
 -e OSD_TYPE=disk \
 --name="ceph-osd" \
