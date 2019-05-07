@@ -160,7 +160,7 @@ Create a docker swarm config file in docker-compose syntax (v3), based on the or
                 memory: 64M
 
         grafana:
-          image: stefanprodan/swarmprom-grafana:5.0.1
+          image: stefanprodan/swarmprom-grafana:5.3.4
           networks:
             - internal
           env_file: /var/data/config/swarmprom/grafana.env
@@ -289,7 +289,7 @@ Create a docker swarm config file in docker-compose syntax (v3), based on the or
 
 
         node-exporter:
-          image: stefanprodan/swarmprom-node-exporter:v0.15.2
+          image: stefanprodan/swarmprom-node-exporter:v0.16.0
           networks:
             - internal
           environment:
@@ -317,7 +317,7 @@ Create a docker swarm config file in docker-compose syntax (v3), based on the or
                 memory: 64M
 
         prometheus:
-          image: stefanprodan/swarmprom-prometheus:v2.2.0-rc.0
+          image: stefanprodan/swarmprom-prometheus:v2.5.0
           networks:
             - internal
           command:
