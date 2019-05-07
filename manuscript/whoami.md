@@ -4,9 +4,7 @@
 
 I'm [David](https://www.funkypenguin.co.nz/contact/).
 
-I've spent 20+ years working with technology. My current role is **Senior Infrastructure Architect** at [Prophecy Networks Ltd](http://www.prophecy.net.nz) in New Zealand, with a specific interest in networking, systems, open-source, and business management.
-
-I've had a [book published](https://www.funkypenguin.co.nz/book/phplist-2-email-campaign-manager/), and I [blog](https://www.funkypenguin.co.nz/blog/) on topics that interest me.
+I'm a contracting IT consultant, with a broad range of experience and skills. I'm an [AWS Certified Solution Architect (Professional)](https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-02-22&ci=AWS00794574), a remote worker, I've had a [book published](https://www.funkypenguin.co.nz/book/phplist-2-email-campaign-manager/), and I [blog](https://www.funkypenguin.co.nz/blog/) on topics that interest me.
 
 ## Why Funky Penguin?
 
