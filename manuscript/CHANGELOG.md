@@ -13,6 +13,7 @@
 
 ## Recently added recipes
 
+* Added [Traefik Forward Auth](/recipes/traefik-forward-auth/), replacing function of multiple [oauth_proxies](/reference/oauth_proxy/) with a single, 7MB Go application, which can authenticate against Google, [KeyCloak](/recipes/keycloak/), and other OIDC providers (_10 May 2019_)
 * Added Kubernetes version of [Miniflux](/recipes/kubernetes/miniflux/) recipe, a minimalistic RSS reader supporting the Fever API (_26 Mar 2019_)
 * Added Kubernetes version of [Kanboard](/recipes/kubernetes/kanboard/) recipe, a lightweight, well-supported Kanban tool for visualizing your work (_19 Mar 2019_)
 * Added [Minio](/recipes/minio/), a high performance distributed object storage server, designed for large-scale private cloud infrastructure, but perfect for simple use cases where emulating AWS S3 is useful. (_27 Jan 2019_)
