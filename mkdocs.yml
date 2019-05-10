@@ -114,14 +114,6 @@ nav:
       - Wallabag: recipes/wallabag.md
       - Wekan: recipes/wekan.md
       - Wetty: recipes/wetty.md
-#      - CryptoNote Mining Pool:
-#        - Start: recipes/cryptonote-mining-pool.md
-#        - Masari: recipes/cryptonote-mining-pool/masari.md
-#        - Athena: recipes/cryptonote-mining-pool/athena.md
-#      - SSO Stack:
-#        - Start: recipes/sso-stack.md
-#        - OpenLDAP: recipes/sso-stack/openldap.md
-#        - KeyCloak: recipes/sso-stack/keycloak.md
     - Work-in-Progress:
 #       - MatterMost: recipes/mattermost.md
        - IPFS Cluster: recipes/ipfs-cluster.md

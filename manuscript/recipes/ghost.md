@@ -39,7 +39,7 @@ services:
      - /etc/localtime:/etc/localtime:ro
      - /var/data/ghost/:/var/lib/ghost/content
     networks:
-    - traefik
+    - traefik_public
     deploy:
       labels:
         - traefik.frontend.rule=Host:ghost.example.com
@@ -47,7 +47,7 @@ services:
         - traefik.port=2368
 
 networks:
-  traefik:
+  traefik_public:
     external: true
 ```
 

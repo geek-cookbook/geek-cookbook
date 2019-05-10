@@ -1,7 +1,5 @@
-# This file determines what documents are loaded into the book, and in what sequence.
-
 index.md
-README.md
+README-UI.md
 CHANGELOG.md
 whoami.md
 
@@ -14,7 +12,6 @@ ha-docker-swarm/keepalived.md
 ha-docker-swarm/docker-swarm-mode.md
 ha-docker-swarm/traefik.md
 ha-docker-swarm/registry.md
-ha-docker-swarm/duplicity.md
 
 sections/chefs-favorites-docker.md
 recipes/autopirate.md
@@ -34,6 +31,7 @@ recipes/autopirate/jackett.md
 recipes/autopirate/heimdall.md
 recipes/autopirate/end.md
 
+recipes/duplicity.md
 recipes/elkarbackup.md
 recipes/emby.md
 recipes/homeassistant.md

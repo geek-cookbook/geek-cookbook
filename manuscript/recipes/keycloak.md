@@ -22,8 +22,8 @@
 We'll need several directories to bind-mount into our container for both runtime and backup data, so create them as follows
 
 ```
-mkdir /var/data/runtime/keycloak/database
-mkdir /var/data/keycloak/database-dump
+mkdir -p /var/data/runtime/keycloak/database
+mkdir -p /var/data/keycloak/database-dump
 ```
 
 ### Prepare environment
@@ -77,7 +77,8 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro    
     networks:
-    - traefik_public
+      - traefik_public
+      - internal
     deploy:
       labels:
         - traefik.frontend.rule=Host:keycloak.batcave.com
@@ -91,7 +92,7 @@ services:
       - /var/data/runtime/keycloak/database:/var/lib/postgresql/data
       - /etc/localtime:/etc/localtime:ro    
     networks:
-    - traefik_public
+      - internal
 
   keycloak-db-backup:
     image: postgres:10.1
@@ -110,24 +111,27 @@ services:
       done
       EOF'
     networks:
-    - traefik_public
+      - internal
 
 networks:
   traefik_public:
     external: true
+  internal:
+    driver: overlay
+    ipam:
+      config:
+        - subnet: 172.16.49.0/24    
 ```
 
-!!! warning
-    **Normally**, we set unique static subnets for every stack you deploy, and put the non-public facing components (like databases) in an dedicated <stack\>_internal network. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
-    However, KeyCloak's JBOSS startup script assumes a single interface, and will crash in a ball of 🔥 if you try to assign multiple interfaces to the container. This means that we can't use a "keycloak_internal" network for our supporting containers. This is why unlike our other recipes, all the supporting services are prefixed with "keycloak-".
+!!! note
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
 
 
 ## Serving
 
 ### Launch KeyCloak stack
 
-Launch the OpenLDAP stack by running ```docker stack deploy keycloak -c <path -to-docker-compose.yml>```
+Launch the KeyCloak stack by running ```docker stack deploy keycloak -c <path -to-docker-compose.yml>```
 
 Log into your new instance at https://**YOUR-FQDN**, and login with the user/password you defined in keycloak.env.
 
