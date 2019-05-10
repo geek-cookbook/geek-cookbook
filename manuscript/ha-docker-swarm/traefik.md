@@ -55,8 +55,10 @@ acmeLogging = true
 onDemand = true
 OnHostRule = true
 
+# Request wildcard certificates per https://docs.traefik.io/configuration/acme/#wildcard-domains
 [[acme.domains]]
-  main = "<your primary domain>"
+  main = "*.example.com"
+  sans = ["example.com"]
 
 # Redirect all HTTP to HTTPS (why wouldn't you?)
 [entryPoints]
@@ -74,7 +76,7 @@ watch = true
 
 [docker]
 endpoint = "tcp://127.0.0.1:2375"
-domain = "<your primary domain>"
+domain = "example.com"
 watch = true
 swarmmode = true
 ```
@@ -94,7 +96,7 @@ version: "3"
 services:
   traefik:
     image: traefik
-    command: --web --docker --docker.swarmmode --docker.watch --docker.domain=funkypenguin.co.nz --logLevel=DEBUG
+    command: --web --docker --docker.swarmmode --docker.watch --docker.domain=example.com --logLevel=DEBUG
     ports:
       - target: 80
         published: 80

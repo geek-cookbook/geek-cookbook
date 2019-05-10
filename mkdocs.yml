@@ -33,6 +33,7 @@ nav:
       - Keepalived: ha-docker-swarm/keepalived.md
       - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
       - Traefik: ha-docker-swarm/traefik.md
+      - Traefik Forward Auth: ha-docker-swarm/traefik-forward-auth.md
       - Registry: ha-docker-swarm/registry.md
       - Mail Server: recipes/mail.md
       - Duplicity: recipes/duplicity.md
@@ -69,6 +70,7 @@ nav:
         - iBeacon: recipes/homeassistant/ibeacon.md
       - Huginn: recipes/huginn.md
       - Kanboard: recipes/kanboard.md
+      - KeyCloak: recipes/keycloak.md      
       - Miniflux: recipes/miniflux.md
       - Munin: recipes/munin.md
       - NextCloud: recipes/nextcloud.md
@@ -104,7 +106,6 @@ nav:
       - GitLab Runner: recipes/gitlab-runner.md
       - Gollum: recipes/gollum.md
       - InstaPy: recipes/instapy.md
-      - KeyCloak: recipes/keycloak.md
       - Minio: recipes/minio.md
       - OpenLDAP: recipes/openldap.md
       - Piwik: recipes/piwik.md
