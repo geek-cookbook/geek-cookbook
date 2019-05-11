@@ -1,6 +1,15 @@
 # What is this?
 
-The "**[Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of guides for establishing your own highly-available docker container cluster (swarm). This swarm enables you to run self-hosted services such as [GitLab](/recipes/gitlab/), [Plex](/recipes/plex/), [NextCloud](/recipes/nextcloud/), etc. Recent updates and additions are posted on the [CHANGELOG](/CHANGELOG/).
+Funky Penguin's "**[Geek Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](/ha-docker-swarm/design/) or [Kubernetes](/kubernetes/start/). 
+
+Running such a platform enables you to run self-hosted tools such as [AutoPirate](/recipes/autopirate/) (*Radarr, Sonarr, NZBGet and friends*), [Plex](/recipes/plex/), [NextCloud](/recipes/nextcloud/), and includes elements such as:
+
+* [Automatic SSL-secured access](/ha-docker-swarm/traefik/) to all services (*with LetsEncrypt*)
+* [SSO / authentication layer](/ha-docker-swarm/traefik-forward-auth/) to protect unsecured / vulnerable services
+* [Automated backup](/recipes/elkarbackup/) of configuration and data
+* [Monitoring and metrics](/recipes/swarmprom/) collection, graphing and alerting
+
+Recent updates and additions are posted on the [CHANGELOG](/CHANGELOG/), and there's a friendly community of like-minded geeks in the [Discord server](http://chat.funkypenguin.co.nz).
 
 ## Who is this for?
 
@@ -10,11 +19,11 @@ You've probably played with self-hosting some mainstream apps yourself, like [Pl
 
 ## Why should I read this?
 
-So if you're familiar enough with the tools, and you've done self-hosting before, why would you read this book?
+So if you're familiar enough with the concepts above, and you've done self-hosting before, why would you read any further?
 
-1. You want to upskill. You want to do container orchestration, LetsEncrypt certificates, git collaboration.
+1. You want to upskill. You want to work with container orchestration, Prometheus and Grafana, Kubernetes
 2. You want to play. You want a safe sandbox to test new tools, keeping the ones you want and tossing the ones you don't.
-3. You want reliability. Once you go from __playing__ with a tool to actually __using__ it, you want it to be available when you need it. Having to "_quickly ssh into the host and restart the webserver_" doesn't cut it when your wife wants to know why her phone won't sync!
+3. You want reliability. Once you go from __playing__ with a tool to actually __using__ it, you want it to be available when you need it. Having to "*quickly ssh into the basement server and restart plex*" doesn't cut it when you finally convince your wife to sit down with you to watch sci-fi.
 
 ## What have you done for me lately? (CHANGELOG)
 
@@ -22,9 +31,7 @@ Check out recent change at [CHANGELOG](/CHANGELOG/)
 
 ## What do you want from me?
 
-I want your money.
-
-No, seriously (_but yes, I do want your money - see below_), If the above applies to you, then you're like me. I want everything I wrote above, so I ended up learning all this as I went along. I enjoy it, and I'm good at it. So I created this website, partly to make sure I documented my own setup properly.
+I want your [patronage](https://www.patreon.com/bePatron?u=6982506), either in the financial sense, or as a member of our [friendly geek community](http://chat.funkypenguin.co.nz) (*or both!*)
 
 ### Get in touch 👋
 
@@ -34,7 +41,7 @@ No, seriously (_but yes, I do want your money - see below_), If the above applie
 
 ### Buy my book 📖
 
-I'm also writing the Geek Cookbook as a formal eBook, on Leanpub (https://leanpub.com/geeks-cookbook). Buy it for $0.99 (_which is really just a token gesture of support_) - you can get it for free (_in PDF, mobi, or epub format_), or pay me what you think it's worth!
+I'm also publishing the Geek Cookbook as a formal eBook (*PDF, mobi, epub*), on Leanpub (https://leanpub.com/geek-cookbook). Buy it for as little as $5 (_which is really just a token gesture of support, since all the content is available online anyway!_) or pay what you think it's worth!
 
 ### Donate / [Support me 💰](https://www.patreon.com/funkypenguin)
 
@@ -49,17 +56,7 @@ The best way to support this work is to become a [Patreon patron](https://www.pa
 
 Impulsively **[click here (NOW quick do it!)](https://www.patreon.com/bePatron?u=6982506)** to patronize me, or instead thoughtfully and analytically review my Patreon page / history **[here](https://www.patreon.com/funkypenguin)** and make up your own mind.
 
-I also gratefully accept donations of most fine socialist/anarchist/hobbyist cryptocurrencies, including the list below (_let me know if I've left out the coin-of-the-week, and I'll happily add it_):
-
-| -ist-currency | Address      
-| ------------- |-------------|
-| Bitcoin      | 1GBJfmqARmL66gQzUy9HtNWdmAEv74nfXj
-| Ethereum     | 0x19e60ec49e1f053cfdfc193560ecfb3caed928f1
-| Litecoin     | LYLEF7xTpeVbjjoZD3jGLVgvKSKTYDKbK8
-| :turtle: TurtleCoin | TRTLv2qCKYChMbU5sNkc85hzq2VcGpQidaowbnV2N6LAYrFNebMLepKKPrdif75x5hAizwfc1pX4gi5VsR9WQbjQgYcJm21zec4
-
-
 
 ### Hire me 🏢
 
-Need some system design work done? I do freelance consulting - [contact](https://www.funkypenguin.co.nz/contact/) me for details.
+Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified](https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-02-22&ci=AWS00794574) consultant, this stuff is my bread and butter! :bread: :fork_and_knife: [Contact](https://www.funkypenguin.co.nz/contact/) me and let's talk!
