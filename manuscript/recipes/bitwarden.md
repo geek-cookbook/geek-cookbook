@@ -1,10 +1,10 @@
 # Bitwarden
 
-Heard about the [latest passsword breach](https://www.databreaches.net) (since lunch)? [HaveYouBeenPowned](http://haveibeenpwned.com) lately? [Passwords are broken](https://www.theguardian.com/technology/2008/nov/13/internet-passwords), and as the amount of sites for which you need to store credentials grows exponetially, so does the risk of using a common password.
+Heard about the [latest password breach](https://www.databreaches.net) (*since lunch*)? [HaveYouBeenPowned](http://haveibeenpwned.com) yet (*today*)? [Passwords are broken](https://www.theguardian.com/technology/2008/nov/13/internet-passwords), and as the amount of sites for which you need to store credentials grows exponetially, so does the risk of using a common password.
 
 "*Duh, use a password manager*", you say. Sure, but be aware that [even password managers have security flaws](https://www.securityevaluators.com/casestudies/password-manager-hacking/).
 
-**OK, look** - no software is perfect, and there will always be a risk of your credentials being exposed in ways you didn't intend. You can at least **minimize** the impact of such exposure by using a password manager to store unique credentials per-site. While [1Password](http://1password.com) is king of the commercial password manager, [BitWarden](https://bitwarden.com) is king of the open-source, self-hosted password manager.
+**OK, look smartass..** no software is perfect, and there will always be a risk of your credentials being exposed in ways you didn't intend. You can at least **minimize** the impact of such exposure by using a password manager to store unique credentials per-site. While [1Password](http://1password.com) is king of the commercial password manager, [BitWarden](https://bitwarden.com) is king of the open-source, self-hosted password manager.
 
 Enter Bitwarden..
 
