@@ -49,6 +49,7 @@ recipes/swarmprom.md
 recipes/turtle-pool.md
 
 sections/menu-docker.md
+recipes/bitwarden.md
 recipes/bookstack.md
 recipes/cryptominer.md
 recipes/cryptominer/mining-rig.md

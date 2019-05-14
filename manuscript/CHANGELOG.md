@@ -13,13 +13,10 @@
 
 ## Recently added recipes
 
+* Added [Bitwarden](/recipes/bitwarden/), an **awesome** open-source password manager, with great mobile sync support (_14 May 2019_)
 * Added [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/), replacing function of multiple [oauth_proxies](/reference/oauth_proxy/) with a single, 7MB Go application, which can authenticate against Google, [KeyCloak](/recipes/keycloak/), and other OIDC providers (_10 May 2019_)
 * Added Kubernetes version of [Miniflux](/recipes/kubernetes/miniflux/) recipe, a minimalistic RSS reader supporting the Fever API (_26 Mar 2019_)
 * Added Kubernetes version of [Kanboard](/recipes/kubernetes/kanboard/) recipe, a lightweight, well-supported Kanban tool for visualizing your work (_19 Mar 2019_)
-* Added [Minio](/recipes/minio/), a high performance distributed object storage server, designed for large-scale private cloud infrastructure, but perfect for simple use cases where emulating AWS S3 is useful. (_27 Jan 2019_)
-* Added the beginning of the **Kubernetes** design, including a getting started on using [Digital Ocean,](/kubernetes/digitalocean/) and a WIP recipe for an [MQTT](/recipes/mqtt/) broker (_21 Jan 2019_)
-* [ElkarBackup](/recipes/elkarbackup/), a beautiful GUI-based backup solution built on rsync/rsnapshot (_1 Jan 2019_)
-
 
 ## Recent improvements
 

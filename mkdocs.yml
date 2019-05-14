@@ -87,6 +87,7 @@ nav:
 #      - phpIPAM: recipes/kubernetes/phpipam.md
 #      - PrivateBin: recipes/kubernetes/privatebin.md
     - Menu:
+      - Bitwarden: recipes/bitwarden.md
       - Bookstack: recipes/bookstack.md
       - CryptoMiner:
         - Start: recipes/cryptominer.md
@@ -169,8 +170,8 @@ google_analytics:
   - 'UA-139253-18'
   - 'auto'
 
-extra_javascript:
-#  - 'extras/javascript/piwik.js'
+#extra_javascript:
+# - 'extras/javascript/discord.js'
 
 # Extensions
 markdown_extensions:

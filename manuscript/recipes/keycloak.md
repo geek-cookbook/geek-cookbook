@@ -173,14 +173,12 @@ For each of the following mappers, click the name, and set the "_Read Only_" fla
 ![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-4.png)
 
 !!! important
-    Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
+    Development of the original KeyCloak recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
 
 
 ## Chef's Notes
-
-1. I wanted to be able to add multiple networks to KeyCloak (_i.e., a dedicated overlay network for LDAP authentication_), but the entrypoint used by the container produces an error when more than one network is configured. This could theoretically be corrected in future, with a PR, but the [GitHub repo](https://github.com/jboss-dockerfiles/keycloak) has no issues enabled, so I wasn't sure where to start.
 
 ### Tip your waiter (donate) 👏
 
