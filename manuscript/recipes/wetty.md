@@ -103,7 +103,7 @@ Browse to your new browser-cli-terminal at https://**YOUR-FQDN**. Authenticate w
 1. You could set SSHHOST to the IP of the "docker0" interface on your host, which is normally 172.17.0.1. (_Or run ```/sbin/ip route|awk '/default/ { print $3 }'``` in the container_) This would then provide you the ability to remote-manage your swarm with only web access to Wetty.
 2. The inclusion of Wetty was due to the efforts of @gpulido in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Gabriel!
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
 

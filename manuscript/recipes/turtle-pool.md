@@ -448,7 +448,7 @@ Two possible solutions to this are (1) disable banning, or (2) update the pool b
 
 3. After a [power fault in my datacenter caused daemon DB corruption](https://www.reddit.com/r/TRTL/comments/8jftzt/funky_penguin_nz_mining_pool_down_with_daemon/), I added a second daemon, running in parallel to the first. The failsafe daemon runs once an hour, syncs with the running daemons, and shuts down again, providing a safely halted version of the daemon DB for recovery.
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
 

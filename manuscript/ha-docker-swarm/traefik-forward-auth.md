@@ -103,7 +103,7 @@ What have we achieved? By adding an additional three simple labels to any servic
 3. I reviewed several implementations of forward authenticators for Traefik, but found most to be rather heavy-handed, or specific to a single auth provider. @thomaseddon's go-based docker image is 7MB in size, and with the generic OIDC patch (above), it can be extended to work with any OIDC provider.
 4. No, not github natively, but you can ferderate GitHub into KeyCloak, and then use KeyCloak as the OIDC provider.
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
 

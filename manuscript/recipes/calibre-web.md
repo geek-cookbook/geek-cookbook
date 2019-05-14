@@ -127,7 +127,7 @@ Log into your new instance at https://**YOUR-FQDN**. You'll be directed to the i
 1. Yes, Calibre does provide a server component. But it's not as fully-featured as Calibre-Web (_i.e., you can't use it to send ebooks directly to your Kindle_)
 2. A future enhancement might be integrating this recipe with the filestore for [NextCloud](/recipes/nextcloud/), so that the desktop database (Calibre) can be kept synced with Calibre-Web.
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
 

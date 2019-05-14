@@ -184,7 +184,7 @@ Launch the mail server stack by running ```docker stack deploy docker-mailserver
 
 2. If you're using sieve with Rainloop, take note of the [workaround](https://discourse.geek-kitchen.funkypenguin.co.nz/t/mail-server-funky-penguins-geek-cookbook/70/15) identified by [ggilley](https://discourse.geek-kitchen.funkypenguin.co.nz/u/ggilley)
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
 

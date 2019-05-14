@@ -184,7 +184,7 @@ QmbqPBLJNXWpbXEX6bVhYLo2ruEBE7mh1tfT9s6VXUzYYx | 28c13ec68f33 | Sees 2 other pee
 
 1. I'm still trying to work out how to _mount_ the ipfs data in my filesystem in a usable way. Which is why this is still a WIP :)
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
 

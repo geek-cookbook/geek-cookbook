@@ -395,7 +395,7 @@ Log into your new grafana instance, check out your beautiful graphs. Move onto d
 
 1. Pay close attention to the ```grafana.env``` config. If you encounter errors about ```basic auth failed```, or failed CSS, it's likely due to misconfiguration of one of the grafana environment variables.
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
 

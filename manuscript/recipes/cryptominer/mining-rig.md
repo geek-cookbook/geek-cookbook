@@ -48,7 +48,7 @@ Yes. It's the ultimate _#firstworldproblem_, but if you have a means to remotely
 
 (_I hooked up a remote-controlled outlet to my rig, so that I can power-cycle it without having to crawl under the desk!_)
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
 
