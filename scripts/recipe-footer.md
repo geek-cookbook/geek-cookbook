@@ -2,7 +2,7 @@
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
 
-### Flirt with your waiter (subscribe to updates) :kissing_heart::love_letter:
+### Flirt with waiter (subscribe) 💌
 
 Want to know now when this recipe gets updated, or when future recipes are added? Subscribe to the [RSS feed](https://mastodon.social/@geekcookbook_changes.atom), or leave your email address below, and we'll keep you updated. (*double-opt-in, no monkey business, no spam either - check the [archive](https://us16.campaign-archive.com/home/?u=a1d9cee4402be76497a2baf49&id=10e284530a) for proof!*)
 

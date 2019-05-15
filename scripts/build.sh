@@ -7,8 +7,8 @@ mkdir -p publish/overrides
 cp -r manuscript publish/ 
 cp mkdocs.yml publish/
 
-# Append a common footer to all recipes
-for i in `find publish/manuscript -name "*.md"`
+# Append a common footer to all recipes/swarm docs
+for i in `find publish/manuscript/ -name "*.md" | grep -v index.md`
 do
 	# Does this recipe already have a "tip your waiter" section?
 	grep -q "Tip your waiter" $i 
