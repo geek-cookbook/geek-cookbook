@@ -5,13 +5,33 @@ For truly highly-available services with Docker containers, we need an orchestra
 ## Ingredients
 
 !!! summary
-    * [X] 3 x modern linux hosts (*bare-metal or VMs*). A reasonable minimum would be:
-        * 2 x vCPU
-        * 2GB RAM
-        * 20GB HDD
-    * [X] Hosts must be within the same subnet, and connected on a low-latency link (*i.e., no WAN links*)
+    Existing
+    
+    * [X] 3 x nodes (*bare-metal or VMs*), each with:
+          * A mainstream Linux OS (*tested on either [CentOS](https://www.centos.org) 7+ or [Ubuntu](http://releases.ubuntu.com) 16.04+*)
+          * At least 2GB RAM
+          * At least 20GB disk space (_but it'll be tight_)
+    * [X] Connectivity to each other within the same subnet, and on a low-latency link (_i.e., no WAN links_)
 
 ## Preparation
+
+### Bash auto-completion
+
+Add some handy bash auto-completion for docker. Without this, you'll get annoyed that you can't autocomplete ```docker stack deploy <blah> -c <blah.yml>``` commands.
+
+```
+cd /etc/bash_completion.d/
+curl -O https://raw.githubusercontent.com/docker/cli/b75596e1e4d5295ac69b9934d1bd8aff691a0de8/contrib/completion/bash/docker
+```
+
+Install some useful bash aliases on each host
+```
+cd ~
+curl -O https://raw.githubusercontent.com/funkypenguin/geek-cookbook/master/examples/scripts/gcb-aliases.sh
+echo 'source ~/gcb-aliases.sh' >> ~/.bash_profile
+```
+
+## Serving 
 
 ### Release the swarm!
 
@@ -145,22 +165,13 @@ services:
 
 Launch shepherd by running ```docker stack deploy shepherd -c /var/data/config/shepherd/shepherd.yml```, and then just forget about it, comfortable in the knowledge that every day, Shepherd will check that your images are the latest available, and if not, will destroy and recreate the container on the latest available image.
 
+### Summary 
 
-### Tweaks
+!!! summary
+    Created
+    
+    * [X] [Docker swarm cluster](/ha-docker-swarm/design/)
 
-Add some handy bash auto-completion for docker. Without this, you'll get annoyed that you can't autocomplete ```docker stack deploy <blah> -c <blah.yml>``` commands.
-
-```
-cd /etc/bash_completion.d/
-curl -O https://raw.githubusercontent.com/docker/cli/b75596e1e4d5295ac69b9934d1bd8aff691a0de8/contrib/completion/bash/docker
-```
-
-Install some useful bash aliases on each host
-```
-cd ~
-curl -O https://raw.githubusercontent.com/funkypenguin/geek-cookbook/master/examples/scripts/gcb-aliases.sh
-echo 'source ~/gcb-aliases.sh' >> ~/.bash_profile
-```
 
 ## Chef's Notes
 

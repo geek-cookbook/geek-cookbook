@@ -1,6 +1,6 @@
-# Virtual Machines
+# Nodes
 
-Let's start building our cluster. You can use either bare-metal machines or virtual machines - the configuration would be the same. Given that most readers (myself included) will be using virtual infrastructure, from now on I'll be referring strictly to VMs.
+Let's start building our cluster. You can use either bare-metal machines or virtual machines - the configuration would be the same. To avoid confusion, I'll be referring to these as "nodes" from now on.
 
 !!! note
     In 2017, I **initially** chose the "[Atomic](https://www.projectatomic.io/)" CentOS/Fedora image for the swarm hosts, but later found its outdated version of Docker to be problematic with advanced features like GPU transcoding (in [Plex](/recipes/plex/)), [Swarmprom](/recipes/swarmprom/), etc. In the end, I went mainstream and simply preferred a modern Ubuntu installation.
@@ -8,25 +8,18 @@ Let's start building our cluster. You can use either bare-metal machines or virt
 ## Ingredients
 
 !!! summary "Ingredients"
-    3 x Virtual Machines, each with:
+    New in this recipe:
 
-    * [ ] A mainstream Linux OS (*tested on either [CentOS](https://www.centos.org) 7+ or [Ubuntu](http://releases.ubuntu.com) 16.04+*)
-    * [ ] At least 2GB RAM
-    * [ ] At least 20GB disk space (_but it'll be tight_)
+    * [ ] 3 x nodes (*bare-metal or VMs*), each with:
+          * A mainstream Linux OS (*tested on either [CentOS](https://www.centos.org) 7+ or [Ubuntu](http://releases.ubuntu.com) 16.04+*)
+          * At least 2GB RAM
+          * At least 20GB disk space (_but it'll be tight_)
     * [ ] Connectivity to each other within the same subnet, and on a low-latency link (_i.e., no WAN links_)
 
 
 ## Preparation
 
-### Install Virtual machines
-
-1. Install / launch virtual machines.
-2. The default username on CentOS atomic is "centos", and you'll have needed to supply your SSH key during the build process.
-
-!!! tip
-    If you're not using a platform with cloud-init support (i.e., you're building a VM manually, not provisioning it through a cloud provider), you'll need to refer to [trick #1](https://spinningmatt.wordpress.com/2014/01/08/a-recipe-for-starting-cloud-images-with-virt-install/) and [trick #2](http://blog.oddbit.com/2015/03/10/booting-cloud-images-with-libvirt/) for a means to override the automated setup, apply a manual password to the CentOS account, and enable SSH password logins.
-
-### Permit connectivity between hosts
+### Permit connectivity
 
 Most modern Linux distributions include firewall rules which only only permit minimal required incoming connections (like SSH). We'll want to allow all traffic between our nodes. The steps to achieve this in CentOS/Ubuntu are a little different...
 
@@ -52,7 +45,7 @@ Install the (*non-default*) persistent iptables tools, by running `apt-get insta
 
 And refresh your running iptables rules with `iptables-restore < /etc/iptables/rules.v4`
 
-### Enable host resolution
+### Enable hostname resolution
 
 Depending on your hosting environment, you may have DNS automatically setup for your VMs. If not, it's useful to set up static entries in /etc/hosts for the nodes. For example, I setup the following:
 
@@ -74,9 +67,14 @@ ln -sf /usr/share/zoneinfo/<your timezone> /etc/localtime
 
 After completing the above, you should have:
 
-```
-[X] 3 x fresh linux instances, ready to become swarm nodes
-```
+!!! summary "Summary"
+    Deployed in this recipe:
+    
+    * [X] 3 x nodes (*bare-metal or VMs*), each with:
+          * A mainstream Linux OS (*tested on either [CentOS](https://www.centos.org) 7+ or [Ubuntu](http://releases.ubuntu.com) 16.04+*)
+          * At least 2GB RAM
+          * At least 20GB disk space (_but it'll be tight_)
+    * [X] Connectivity to each other within the same subnet, and on a low-latency link (_i.e., no WAN links_)
 
 ## Chef's Notes
 

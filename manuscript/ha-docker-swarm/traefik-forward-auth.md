@@ -42,14 +42,14 @@ COOKIE_DOMAINS=example.com
 
 ### Prepare the docker service config
 
-This is a small container, you can simply add the following content to the existing `traefik.yml` deployed in the previous [Traefik](/recipes/traefik/) recipe:
+This is a small container, you can simply add the following content to the existing `traefik-app.yml` deployed in the previous [Traefik](/recipes/traefik/) recipe:
 
 ```
   traefik-forward-auth:
     image: thomseddon/traefik-forward-auth
     env_file: /var/data/config/keycloak/traefik-forward-auth.env
     networks:
-      - public
+      - traefik_public
     # Uncomment these lines if you're using auth host mode
     #deploy:
     #  labels:
@@ -66,7 +66,7 @@ If you're not confident that forward authentication is working, add a simple "wh
   whoami:
     image: containous/whoami
     networks:
-      - public
+      - traefik_public
     deploy:
       labels:
         - traefik.frontend.rule=Host:whoami.example.com
@@ -85,7 +85,7 @@ If you're not confident that forward authentication is working, add a simple "wh
 
 ### Launch
 
-Redeploy traefik with ```docker stack deploy traefik -c /var/data/traefik/docker-compose.yml```, to launch the traefik-forward-auth container. 
+Redeploy traefik with ```docker stack deploy traefik-app -c /var/data/traefik/traeifk-app.yml```, to launch the traefik-forward-auth container. 
 
 ### Test
 

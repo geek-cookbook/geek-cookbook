@@ -22,9 +22,12 @@ Bitwarden is a free and open source password management solution for individuals
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+!!! summary "Ingredients"
+    Existing:
+
+    1. [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+    2. [X] [Traefik](/ha-docker-swarm/traefik_public) configured per design
+    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -35,6 +38,12 @@ We'll need to create a directory to bind-mount into our container, so create `/v
 ```
 mkdir /var/data/bitwarden
 ```
+### Setup environment
+
+Create `/var/data/config/bitwarden/bitwarden.env`, and **leave it empty for now**.
+
+!!! question
+    What, why an empty env file? Well, the container supports lots of customizations via environment variables, for things like toggling self-registration, 2FA, etc. These are too complex to go into for this recipe, but readers are recommended to review the [dani-garcia/bitwarden_rs wiki](https://github.com/dani-garcia/bitwarden_rs), and customize their installation to suite.
 
 ### Setup Docker Swarm
 
@@ -88,10 +97,7 @@ Once you've created your account, jump over to https://bitwarden.com/#download a
 ## Chef's Notes
 
 1. You'll notice we're not using the *official* container images (*[all 6 of them required](https://help.bitwarden.com/article/install-on-premise/#install-bitwarden)!)*, but rather a [more lightweight version ideal for self-hosting](https://hub.docker.com/r/mprasil/bitwarden). All of the elements are contained within a single container, and SQLite is used for the database backend.
-2. The inclusion of Bitwarden was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz)- Thanks Gerry!
+2. As mentioned above, readers should refer to the [dani-garcia/bitwarden_rs wiki](https://github.com/dani-garcia/bitwarden_rs) for details on customizing the behaviour of Bitwarden.
+3. The inclusion of Bitwarden was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz)- Thanks Gerry!
 
-### Tip your waiter (support me) 👏
 
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

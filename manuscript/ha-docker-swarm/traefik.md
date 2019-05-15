@@ -16,11 +16,11 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 ## Ingredients
 
 !!! summary "You'll need"
-    Already deployed:
+    Existing
 
     * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph)
 
-    New to this recipe:
+    New
 
     * [ ] Access to update your DNS records for manual/automated [LetsEncrypt](https://letsencrypt.org/docs/challenge-types/) DNS-01 validation, or ingress HTTP/HTTPS for HTTP-01 validation
   
