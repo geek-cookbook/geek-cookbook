@@ -136,12 +136,6 @@ Launch the Miniflux stack by running ```docker stack deploy miniflux -c <path -t
 
 Log into your new instance at https://**YOUR-FQDN**, using the credentials you setup in the environment flie. After this, change your user/password as you see fit, and comment out the ```CREATE_ADMIN``` line in the env file (_if you don't, then an **additional** admin will be created the next time you deploy_)
 
-## Chef's Notes
+## Chef's Notes 📓
 
 1. Find the bookmarklet under the **Settings -> Integration** page.
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

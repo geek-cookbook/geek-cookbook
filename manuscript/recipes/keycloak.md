@@ -1,9 +1,9 @@
 # KeyCloak
 
-[KeyCloak](https://www.keycloak.org/) is "an open source identity and access management solution." Using a local database, or a variety of backends (_think [OpenLDAP](/recipes/openldap/)_), you can provide Single Sign-On (SSO) using OpenID, OAuth 2.0, and SAML.
+[KeyCloak](https://www.keycloak.org/) is "*an open source identity and access management solution*". Using a local database, or a variety of backends (_think [OpenLDAP](/recipes/openldap/)_), you can provide Single Sign-On (SSO) using OpenID, OAuth 2.0, and SAML. KeyCloak's OpenID provider can be used in combination with [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/), to protect [vulnerable services](/recipe/nzbget/) with an extra layer of authentication.
 
 !!! important
-    Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
+    Initial development of this recipe was sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
 
@@ -139,7 +139,7 @@ Launch the KeyCloak stack by running ```docker stack deploy keycloak -c <path -t
 Log into your new instance at https://**YOUR-FQDN**, and login with the user/password you defined in `keycloak.env`.
 
 !!! important
-    Development of the original KeyCloak recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
+    Initial development of this recipe was sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
 

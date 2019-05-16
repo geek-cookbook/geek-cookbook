@@ -437,12 +437,6 @@ Create your users using the "**New User**" button.
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
 
-## Chef's Notes
+## Chef's Notes 📓
 
-1. The KeyCloak](/recipes/keycloak/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬
+1. The KeyCloak](/recipes/keycloak/authenticate-against-openldap/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.

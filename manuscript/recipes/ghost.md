@@ -60,7 +60,7 @@ Launch the Ghost stack by running ```docker stack deploy ghost -c <path -to-dock
 
 Create your first administrative account at https://**YOUR-FQDN**/admin/
 
-## Chef's Notes
+## Chef's Notes 📓
 
 1. If I wasn't committed to a [static-site-generated blog](https://www.funkypenguin.co.nz/blog/), Ghost is the platform I'd use for my blog.
 2. A default using the SQlite database takes 548k of space:
@@ -69,9 +69,3 @@ Create your first administrative account at https://**YOUR-FQDN**/admin/
 548K	/var/data/ghost/
 [root@ds1 ghost]#
 ```
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

@@ -12,6 +12,7 @@ Unless you plan to authenticate against an outside provider (*[OpenLDAP](/recipe
 
     * [X] [KeyCloak](/recipes/keycloak/) recipe deployed successfully
   
+### Create User
 
 Within the "Master" realm (*no need for more realms yet*), navigate to **Manage** -> **Users**, and then click **Add User** at the top right:
 
@@ -20,6 +21,8 @@ Within the "Master" realm (*no need for more realms yet*), navigate to **Manage*
 Populate your new user's username (it's the only mandatory field)
 
 ![Populating a username in the add user interface in Keycloak](/images/keycloak-add-user-2.png)
+
+### Set User Credentials
 
 Once your user is created, to set their password, click on the "**Credentials**" tab, and procede to reset it. Set the password to non-temporary, unless you like extra work!
 

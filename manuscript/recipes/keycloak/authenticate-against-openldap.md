@@ -64,3 +64,5 @@ We've setup a new realm in KeyCloak, and configured read-write federation to an 
     Created:
 
     * [X] KeyCloak realm in read-write federation with [OpenLDAP](/recipes/openldap/) directory
+
+## Chef's Notes 📓

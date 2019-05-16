@@ -128,12 +128,6 @@ Launch the Home Assistant stack by running ```docker stack deploy homeassistant 
 
 Log into your new instance at https://**YOUR-FQDN**, the password you created in configuration.yml as "frontend - api_key". Then setup a bunch of sensors, and log into https://grafana.**YOUR FQDN** and create some beautiful graphs :)
 
-## Chef's Notes
+## Chef's Notes 📓
 
 1. I **tried** to protect Home Assistant using [oauth2_proxy](/reference/oauth_proxy), but HA is incompatible with the websockets implementation used by Home Assistant. Until this can be fixed, I suggest that geeks set frontend: api_key to a long and complex string, and rely on this to prevent malevolent internet miscreants from turning their lights on at 2am!
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

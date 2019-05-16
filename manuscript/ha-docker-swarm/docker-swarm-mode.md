@@ -173,10 +173,4 @@ Launch shepherd by running ```docker stack deploy shepherd -c /var/data/config/s
     * [X] [Docker swarm cluster](/ha-docker-swarm/design/)
 
 
-## Chef's Notes
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬
+## Chef's Notes 📓

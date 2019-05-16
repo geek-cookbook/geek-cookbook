@@ -11,6 +11,8 @@ ha-docker-swarm/shared-storage-gluster.md
 ha-docker-swarm/keepalived.md
 ha-docker-swarm/docker-swarm-mode.md
 ha-docker-swarm/traefik.md
+ha-docker-swarm/traefik-forward-auth.md
+ha-docker-swarm/traefik-forward-auth/keycloak.md
 ha-docker-swarm/registry.md
 
 sections/chefs-favorites-docker.md

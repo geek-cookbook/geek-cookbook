@@ -160,13 +160,7 @@ Launch Duplicity stack by running ```docker stack deploy duplicity -c <path -to-
 
 Nothing will happen. Very boring. But when the cron script fires (daily), duplicity will do its thing, and backup everything in /var/data to your cloud destination.
 
-## Chef's Notes
+## Chef's Notes 📓
 
 1. Automatic backup can still fail if nobody checks that it's running successfully. I'll be working on an upcoming recipe to monitor the elements of the stack, including the success/failure of duplicity jobs.
 2. The container provides the facility to specify an SMTP host and port, but not credentials, which makes it close to useless. As a result, I've left SMTP out of this recipe. To enable email notifications (if your SMTP server doesn't require auth), add ```SMTP_HOST```, ```SMTP_PORT```, ```EMAIL_FROM``` and ```EMAIL_TO``` variables to duplicity.env
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

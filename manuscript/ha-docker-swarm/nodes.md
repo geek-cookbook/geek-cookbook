@@ -76,10 +76,4 @@ After completing the above, you should have:
           * At least 20GB disk space (_but it'll be tight_)
     * [X] Connectivity to each other within the same subnet, and on a low-latency link (_i.e., no WAN links_)
 
-## Chef's Notes
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬
+## Chef's Notes 📓

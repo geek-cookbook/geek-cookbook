@@ -170,14 +170,9 @@ To permanently mount an S3 bucket using goofys, I'd add something like this to /
 goofys#bucket   /mnt/mountpoint        fuse     _netdev,allow_other,--file-mode=0666    0       0
 ```
 
-## Chef's Notes
+## Chef's Notes 📓
 
 1. There are many S3-filesystem-mounting tools available, I just picked Goofys because it's simple. Google is your friend :)
 2. Some applications (_like [NextCloud](/recipes/nextcloud/)_) can natively mount S3 buckets
 3. Some backup tools (_like [Duplicity](/recipes/duplicity/)_) can backup directly to S3 buckets
 
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

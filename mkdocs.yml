@@ -33,7 +33,9 @@ nav:
       - Keepalived: ha-docker-swarm/keepalived.md
       - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
       - Traefik: ha-docker-swarm/traefik.md
-      - Traefik Forward Auth: ha-docker-swarm/traefik-forward-auth.md
+      - Traefik Forward Auth: 
+          - Start: ha-docker-swarm/traefik-forward-auth.md      
+          - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
       - Registry: ha-docker-swarm/registry.md
       - Mail Server: recipes/mail.md
       - Duplicity: recipes/duplicity.md
@@ -111,12 +113,21 @@ nav:
       - GitLab Runner: recipes/gitlab-runner.md
       - Gollum: recipes/gollum.md
       - InstaPy: recipes/instapy.md
+      - KeyCloak: 
+        - Start: recipes/keycloak.md      
+        - Users: recipes/keycloak/create-user.md
+        - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
+        - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md      
       - Minio: recipes/minio.md
       - OpenLDAP: recipes/openldap.md
       - Piwik: recipes/piwik.md
       - Portainer: recipes/portainer.md
       - Realms: recipes/realms.md
       - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
+      - Traefik: ha-docker-swarm/traefik.md
+      - Traefik Forward Auth: 
+          - Start: ha-docker-swarm/traefik-forward-auth.md      
+          - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
       - Wallabag: recipes/wallabag.md
       - Wekan: recipes/wekan.md
       - Wetty: recipes/wetty.md

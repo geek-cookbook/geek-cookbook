@@ -51,3 +51,5 @@ We've setup an OIDC client in KeyCloak, which we can now use to protect vulnerab
     Created:
 
     * [X] Client ID and Client Secret used to authenticate against KeyCloak with OpenID Connect
+
+## Chef's Notes 📓
