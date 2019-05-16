@@ -28,7 +28,7 @@ Store your client ID and secret safely - you'll need them for the next step.
 
 ### Prepare environment
 
-Create `traefik-forward-auth.env` as follows:
+Create `/var/data/config/traefik/traefik-forward-auth.env` as follows:
 
 ```
 CLIENT_ID=<your client id>
@@ -47,7 +47,7 @@ This is a small container, you can simply add the following content to the exist
 ```
   traefik-forward-auth:
     image: thomseddon/traefik-forward-auth
-    env_file: /var/data/config/keycloak/traefik-forward-auth.env
+    env_file: /var/data/config/traefik/traefik-forward-auth.env
     networks:
       - traefik_public
     # Uncomment these lines if you're using auth host mode
@@ -102,9 +102,3 @@ What have we achieved? By adding an additional three simple labels to any servic
 2. [@thomaseddon's original version](https://github.com/thomseddon/traefik-forward-auth) of traefik-forward-auth only works with Google currently, but I've created a [fork](https://www.github.com/funkypenguin/traefik-forward-auth) of a [fork](https://github.com/noelcatt/traefik-forward-auth), which implements generic OIDC providers.
 3. I reviewed several implementations of forward authenticators for Traefik, but found most to be rather heavy-handed, or specific to a single auth provider. @thomaseddon's go-based docker image is 7MB in size, and with the generic OIDC patch (above), it can be extended to work with any OIDC provider.
 4. No, not github natively, but you can ferderate GitHub into KeyCloak, and then use KeyCloak as the OIDC provider.
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

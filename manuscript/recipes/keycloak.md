@@ -11,9 +11,12 @@
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
-3. DNS entry for the hostname (_i.e. "keycloak.your-domain.com"_) you intend to use for LDAP Account Manager, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+!!! Summary
+    Existing:
+
+    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+    * [X] [Traefik](/ha-docker-swarm/traefik_public) configured per design
+    * [X] DNS entry for the hostname (_i.e. "keycloak.your-domain.com"_) you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -28,7 +31,7 @@ mkdir -p /var/data/keycloak/database-dump
 
 ### Prepare environment
 
-Create ```/var/data/keycloak/keycloak.env```, and populate with the following variables, customized for your own domain structure.
+Create `/var/data/keycloak/keycloak.env`, and populate with the following variables, customized for your own domain structure.
 
 ```
 # Technically, this could be auto-detected, but we prefer to be prescriptive
@@ -51,7 +54,7 @@ POSTGRES_USER=keycloak
 POSTGRES_PASSWORD=myuberpassword
 ```
 
-Create /var/data/keycloak/keycloak-backup.env, and populate with the following, so that your database can be backed up to the filesystem, daily:
+Create `/var/data/keycloak/keycloak-backup.env`, and populate with the following, so that your database can be backed up to the filesystem, daily:
 
 ```
 PGHOST=keycloak-db
@@ -133,44 +136,7 @@ networks:
 
 Launch the KeyCloak stack by running ```docker stack deploy keycloak -c <path -to-docker-compose.yml>```
 
-Log into your new instance at https://**YOUR-FQDN**, and login with the user/password you defined in keycloak.env.
-
-### Integrating into OpenLDAP
-
-KeyCloak gets really sexy when you integrate it into your [OpenLDAP](/recipes/openldap/) stack (_also, it's great not to have to play with ugly LDAP tree UIs_).
-
-You'll need to have completed the [OpenLDAP](/recipes/openldap/) recipe
-
-You start in the "Master" realm - but mouseover the realm name, to a dropdown box allowing you add an new realm:
-
-![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-1.png)
-
-Enter a name for your new realm, and click "_Create_":
-
-![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-2.png)
-
-Once in the desired realm, click on **User Federation**, and click **Add Provider**. On the next page ("_Required Settings_"), set the following:
-
-* **Edit Mode** : Writeable
-* **Vendor** : Other
-* **Connection URL** : ldap://openldap
-* **Users DN** : ou=People,<your base DN\>
-* **Authentication Type** : simple
-* **Bind DN** : cn=admin,<your base DN\>
-* **Bind Credential** : <your chosen admin password\>
-
-Save your changes, and then navigate back to "User Federation" > Your LDAP name > Mappers:
-
-![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-3.png)
-
-For each of the following mappers, click the name, and set the "_Read Only_" flag to "_Off_" (_this enables 2-way sync between KeyCloak and OpenLDAP_)
-
-* last name
-* username
-* email
-* first name
-
-![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-4.png)
+Log into your new instance at https://**YOUR-FQDN**, and login with the user/password you defined in `keycloak.env`.
 
 !!! important
     Development of the original KeyCloak recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
@@ -179,9 +145,3 @@ For each of the following mappers, click the name, and set the "_Read Only_" fla
 
 
 ## Chef's Notes
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

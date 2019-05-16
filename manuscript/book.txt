@@ -69,6 +69,9 @@ recipes/gitlab-runner.md
 recipes/gollum.md
 recipes/instapy.md
 recipes/keycloak.md
+recipes/keycloak/create-user.md
+recipes/keycloak/authenticate-against-openldap.md
+recipes/keycloak/setup-oidc-provider.md
 recipes/openldap.md
 recipes/mail.md
 recipes/minio.md

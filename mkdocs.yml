@@ -70,7 +70,11 @@ nav:
         - iBeacon: recipes/homeassistant/ibeacon.md
       - Huginn: recipes/huginn.md
       - Kanboard: recipes/kanboard.md
-      - KeyCloak: recipes/keycloak.md      
+      - KeyCloak: 
+        - Start: recipes/keycloak.md      
+        - Users: recipes/keycloak/create-user.md
+        - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
+        - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md
       - Miniflux: recipes/miniflux.md
       - Munin: recipes/munin.md
       - NextCloud: recipes/nextcloud.md

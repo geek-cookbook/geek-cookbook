@@ -22,6 +22,6 @@
     font-size: .8rem;
     transition: background-color .25s cubic-bezier(.1,.7,.1,1),color .25s cubic-bezier(.1,.7,.1,1);
 }
-#mailchimp input[type="seeubmit"]:hover { 
+#mailchimp input[type="submit"]:hover { 
     color: #F2C94C;
 }
