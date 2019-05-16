@@ -4,7 +4,7 @@
 # Copy the contents of "manuscript" to a new "publish" folder
 mkdir -p publish
 mkdir -p publish/overrides
-cp -r manuscript publish/ 
+cp -r {manuscript,overrides} publish/ 
 cp mkdocs.yml publish/
 
 # Append a common footer to all recipes/swarm docs
