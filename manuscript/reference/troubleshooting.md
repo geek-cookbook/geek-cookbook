@@ -20,7 +20,7 @@ Need to see what a particular container is doing? Run ```docker service logs -f 
 
 For a visual "top-like" display of your container's activity (_as well as a [detailed per-container view](https://github.com/bcicen/ctop/blob/master/_docs/single.md)_), try using [ctop](https://github.com/bcicen/ctop).
 
-To execute, simply run ```docker run --rm -ti --name ctop -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest```
+To execute, simply run `docker run --rm -ti --name ctop -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest`
 
 Example:
 ![](https://github.com/bcicen/ctop/raw/master/_docs/img/grid.gif)
