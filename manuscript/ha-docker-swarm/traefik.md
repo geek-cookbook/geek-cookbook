@@ -157,7 +157,7 @@ services:
       - /var/data/traefik/traefik.log:/traefik.log
       - /var/data/traefik/acme.json:/acme.json
     networks:
-      - public
+      - traefik_public
     # Global mode makes an instance of traefik listen on _every_ node, so that regardless of which
     # node the request arrives on, it'll be forwarded to the correct backend service.
     deploy:
