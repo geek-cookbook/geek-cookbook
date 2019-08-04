@@ -9,7 +9,7 @@ Network  | Range
 [Mail Server](https://geek-cookbook.funkypenguin.co.nz/recipes/mail/)  | 172.16.1.0/24
 [Gitlab](https://geek-cookbook.funkypenguin.co.nz/recipes/gitlab/) | 172.16.2.0/24
 [Wekan](https://geek-cookbook.funkypenguin.co.nz/recipes/wekan/)  |  172.16.3.0/24
-[Piwik](https://geek-cookbook.funkypenguin.co.nz/recipes/piwki/)  |  172.16.4.0/24
+[Piwik](https://geek-cookbook.funkypenguin.co.nz/recipes/piwik/)  |  172.16.4.0/24
 [Tiny Tiny RSS](https://geek-cookbook.funkypenguin.co.nz/recipes/tiny-tiny-rss/)  |  172.16.5.0/24
 [Huginn](https://geek-cookbook.funkypenguin.co.nz/recipes/huginn/)  |  172.16.6.0/24
 [Unifi](https://geek-cookbook.funkypenguin.co.nz/recipes/unifi/)  |  172.16.7.0/24
