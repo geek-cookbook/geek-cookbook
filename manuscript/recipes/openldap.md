@@ -398,17 +398,25 @@ networks:
 Create **another** stack config file (```/var/data/config/openldap/auth.yml```) containing just the auth_internal network, and a dummy container:
 
 ```
-version: '3'
+version: "3.2"
+
+# What is this?
+#
+# This stack exists solely to deploy the auth_internal overlay network, so that
+# other stacks (including keycloak and openldap) can attach to it
 
 services:
-  helloworld:
-    image: hello-world
+  scratch:
+    image: scratch
+    deploy:
+      replicas: 0
     networks:
       - internal
 
 networks:
   internal:
     driver: overlay
+    attachable: true
     ipam:
       config:
         - subnet: 172.16.39.0/24
