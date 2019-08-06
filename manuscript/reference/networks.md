@@ -49,6 +49,9 @@ Network  | Range
 [phpIPAM](https://geek-cookbook.funkypenguin.co.nz/recipes/phpipam/)  |  172.16.47.0/24
 [Dozzle](https://geek-cookbook.funkypenguin.co.nz/recipes/dozzle/)  |  172.16.48.0/24
 [KeyCloak](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/)  |  172.16.49.0/24
+[Sensu](https://geek-cookbook.funkypenguin.co.nz/recipes/sensu/)  |  172.16.50.0/24
+[Magento](https://geek-cookbook.funkypenguin.co.nz/recipes/magento/)  |  172.16.51.0/24
+[Graylog](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)  |  172.16.52.0/24
 
 
 ## Chef's Notes

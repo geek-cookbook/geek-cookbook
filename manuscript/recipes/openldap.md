@@ -371,7 +371,7 @@ services:
         - traefik.port=4180
     command: |
       -cookie-secure=false
-      -upstream=http://lam:80
+      -upstream=http://lam:8080
       -redirect-url=https://lam.batcave.com
       -http-address=http://0.0.0.0:4180
       -email-domain=batcave.com
