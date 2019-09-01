@@ -57,7 +57,7 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 version: "3"
 services:
   bitwarden:
-    image: mprasil/bitwarden
+    image: bitwardenrs/server
     env_file: /var/data/config/bitwarden/bitwarden.env
     volumes:
       - /etc/localtime:/etc/localtime:ro
