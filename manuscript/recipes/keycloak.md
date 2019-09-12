@@ -14,9 +14,9 @@
 !!! Summary
     Existing:
 
-    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph/)
     * [X] [Traefik](/ha-docker-swarm/traefik_public) configured per design
-    * [X] DNS entry for the hostname (_i.e. "keycloak.your-domain.com"_) you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+    * [X] DNS entry for the hostname (_i.e. "keycloak.your-domain.com"_) you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
