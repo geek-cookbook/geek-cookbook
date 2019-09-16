@@ -35,9 +35,8 @@ OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=
 
 OTR_USER=recorder
-OTR_PASSWD=yourpassword
-MQTTHOSTNAME=owntracks.example.com
-HOSTLIST=owntracks.example.com
+OTR_PASS=yourpassword
+OTR_HOST=owntracks.example.com
 ```
 
 ### Setup Docker Swarm
