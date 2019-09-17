@@ -7,7 +7,7 @@
 
 Heimdall is an elegant solution to organise all your web applications. It’s dedicated to this purpose so you won’t lose your links in a sea of bookmarks.
 
-Heimdall provides a single URL to manage access to all of your autopirate tools, and includes "enhanced" (_i.e., display stats within Heimdall without launching the app_) access to [NZBGet](/recipes/autopirate/nzbget.md), [SABnzbd](/recipes/autopirate/sabnzbd/), and friends.
+Heimdall provides a single URL to manage access to all of your autopirate tools, and includes "enhanced" (_i.e., display stats within Heimdall without launching the app_) access to [NZBGet](/recipes/autopirate/nzbget/), [SABnzbd](/recipes/autopirate/sabnzbd/), and friends.
 
 ![Heimdall Screenshot](../../images/heimdall.jpg)
 
@@ -59,8 +59,8 @@ To include Heimdall in your [AutoPirate](/recipes/autopirate/) stack, include th
 
 Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipes/autopirate/end/)** section:
 
-* [SABnzbd](/recipes/autopirate/sabnzbd.md)
-* [NZBGet](/recipes/autopirate/nzbget.md)
+* [SABnzbd](/recipes/autopirate/sabnzbd/)
+* [NZBGet](/recipes/autopirate/nzbget/)
 * [RTorrent](/recipes/autopirate/rtorrent/)
 * [Sonarr](/recipes/autopirate/sonarr/)
 * [Radarr](/recipes/autopirate/radarr/)
