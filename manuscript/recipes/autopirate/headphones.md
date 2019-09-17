@@ -53,8 +53,8 @@ headphones_proxy:
 
 Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipes/autopirate/end/)** section:
 
-* [SABnzbd](/recipes/autopirate/sabnzbd.md)
-* [NZBGet](/recipes/autopirate/nzbget.md)
+* [SABnzbd](/recipes/autopirate/sabnzbd/)
+* [NZBGet](/recipes/autopirate/nzbget/)
 * [RTorrent](/recipes/autopirate/rtorrent/)
 * [Sonarr](/recipes/autopirate/sonarr/)
 * [Radarr](/recipes/autopirate/radarr/)
