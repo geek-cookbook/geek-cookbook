@@ -68,4 +68,4 @@ I also gratefully accept donations of most fine socialist/anarchist/hobbyist cry
 
 ### Hire me 🏢
 
-Need some system design work done? I do freelance consulting - [contact](https://www.funkypenguin.co.nz/contact/) me for details.
+Need some system design work done? I do freelance consulting - [contact](mailto:davidy@funkypenguin.co.nz) me for details.
