@@ -421,7 +421,7 @@ networks:
 
 ### Launch OpenLDAP stack
 
-Create the auth_internal overlay network, by running ```docker stack deploy auth -c /var/data/config/openldap/auth.yml`, then launch the OpenLDAP stack by running ```docker stack deploy openldap -c /var/data/config/openldap/openldap.yml```
+Create the auth_internal overlay network, by running ```docker stack deploy auth -c /var/data/config/openldap/auth.yml```, then launch the OpenLDAP stack by running ```docker stack deploy openldap -c /var/data/config/openldap/openldap.yml```
 
 Log into your new LAM instance at https://**YOUR-FQDN**.
 
