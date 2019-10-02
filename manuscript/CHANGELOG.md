@@ -4,7 +4,7 @@
 
 * Email : Sign up [here](http://eepurl.com/dfx95n) (double-opt-in) to receive email updates on new and improve recipes!
 * Mastodon: https://mastodon.social/@geekcookbook_changes
-* RSS: https://mastodon.social/@geekcookbook_changes.atom
+* RSS: https://mastodon.social/@geekcookbook_changes.rss
 * The #changelog channel in our [Discord server](http://chat.funkypenguin.co.nz)
 
 ## Recent additions to work-in-progress
