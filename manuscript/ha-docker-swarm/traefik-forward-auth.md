@@ -52,7 +52,7 @@ This is a small container, you can simply add the following content to the exist
 
 ```
   traefik-forward-auth:
-    image: thomseddon/traefik-forward-auth
+    image: funkypenguin/traefik-forward-auth
     env_file: /var/data/config/traefik/traefik-forward-auth.env
     networks:
       - traefik_public
