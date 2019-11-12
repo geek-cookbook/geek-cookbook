@@ -193,8 +193,8 @@ google_analytics:
 extra_css:
   - 'stylesheets/mailchimp.css'
 
-#extra_javascript:
-# - 'extras/javascript/discord.js'
+extra_javascript:
+  - 'extras/javascript/discord.js'  
 
 # Extensions
 markdown_extensions:
