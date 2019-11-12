@@ -74,7 +74,7 @@ Create ```/var/data/openldap/lam/config/config.cfg``` as follows:
 
     ```
     # password to add/delete/rename configuration profiles (default: lam)
-    password: {SSHA}54haBZN/kfgNVJ+W3YJrI2dCic4= iCXkNA==
+    password: {SSHA}D6AaX93kPmck9wAxNlq3GF93S7A= R7gkjQ==
 
     # default profile, without ".conf"
     default: batcave

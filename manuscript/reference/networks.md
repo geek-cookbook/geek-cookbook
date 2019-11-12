@@ -52,6 +52,9 @@ Network  | Range
 [Sensu](https://geek-cookbook.funkypenguin.co.nz/recipes/sensu/)  |  172.16.50.0/24
 [Magento](https://geek-cookbook.funkypenguin.co.nz/recipes/magento/)  |  172.16.51.0/24
 [Graylog](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)  |  172.16.52.0/24
+[Harbor](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)  |  172.16.53.0/24
+[Harbor-Clair](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)  |  172.16.54.0/24
+
 
 
 ## Chef's Notes
