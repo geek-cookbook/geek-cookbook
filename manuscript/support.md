@@ -69,3 +69,7 @@ I also gratefully accept donations of most fine socialist/anarchist/hobbyist cry
 ### Hire me 🏢
 
 Need some system design work done? I do freelance consulting - [contact](https://www.funkypenguin.co.nz/contact/) me for details.
+
+### Discord
+
+<iframe src="https://discordapp.com/widget?id=396055506072109067&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
