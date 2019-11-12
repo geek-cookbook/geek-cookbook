@@ -161,9 +161,8 @@ theme:
   name: 'material'
   custom_dir: 'overrides'
   disqus: 'geeks-cookbook'
-  logo:
-    icon: 'images/site-logo.png'
-  favicon: 'images/favicon.png'
+  logo: 'images/site-logo.png'
+  favicon: 'images/favicon.ico'
   feature:
     tabs: false
   palette:
