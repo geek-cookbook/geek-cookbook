@@ -429,7 +429,7 @@ networks:
 
 ### Launch OpenLDAP stack
 
-Create the auth_internal overlay network, by running ```docker stack deploy auth -c /var/data/config/openldap/auth.yml`, then launch the OpenLDAP stack by running ```docker stack deploy openldap -c /var/data/config/openldap/openldap.yml```
+Create the auth_internal overlay network, by running ```docker stack deploy auth -c /var/data/config/openldap/auth.yml```, then launch the OpenLDAP stack by running ```docker stack deploy openldap -c /var/data/config/openldap/openldap.yml```
 
 Log into your new LAM instance at https://**YOUR-FQDN**.
 
@@ -447,4 +447,4 @@ Create your users using the "**New User**" button.
 
 ## Chef's Notes 📓
 
-1. The KeyCloak](/recipes/keycloak/authenticate-against-openldap/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.
+1. [The KeyCloak](/recipes/keycloak/authenticate-against-openldap/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.
