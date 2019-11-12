@@ -214,7 +214,7 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite
-  - pymdownx.magiclink
+  - pymdownx.magiclink:
       repo_url_shorthand: true
       user: funkypenguin
       repo: geek-cookbook  
