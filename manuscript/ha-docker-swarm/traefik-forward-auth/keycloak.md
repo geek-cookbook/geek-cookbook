@@ -43,7 +43,7 @@ CLIENT_SECRET=<your keycloak client secret>
 OIDC_ISSUER=https://<your keycloak URL>/auth/realms/master
 SECRET=<a random string to secure your cookie>
 AUTH_HOST=<the FQDN to use for your auth host>
-COOKIE_DOMAINS=<the root FQDN of your domain>
+COOKIE_DOMAIN=<the root FQDN of your domain>
 ```
 
 ### Prepare the docker service config

@@ -17,6 +17,11 @@ docs_dir: 'manuscript'
 # Copyright
 copyright: 'Copyright &copy; 2016 - 2019 David Young, Funky Penguin Limited'
 
+# Plugins
+plugins:
+  - search
+  - minify:
+      minify_html: true
 
 #theme_dir: mkdocs-material
 nav:
@@ -208,7 +213,10 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite
-  - pymdownx.magiclink
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: funkypenguin
+      repo: geek-cookbook  
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
