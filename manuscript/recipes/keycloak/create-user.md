@@ -30,7 +30,7 @@ Once your user is created, to set their password, click on the "**Credentials**"
 
 ## Summary
 
-We've setup users in KeyCloak, which we can now use to authenticate to KeyCloak, when it's used as an [OIDC Provider](/recipes/keycloak/oidc-provider/), potentially to secure vulnerable services using [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/).
+We've setup users in KeyCloak, which we can now use to authenticate to KeyCloak, when it's used as an [OIDC Provider](/recipes/keycloak/setup-oidc-provider/), potentially to secure vulnerable services using [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/).
 
 !!! Summary
     Created:
