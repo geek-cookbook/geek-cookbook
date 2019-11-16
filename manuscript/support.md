@@ -42,9 +42,9 @@ Found a bug in your soup? Tell the chef by either:
 
 I'm also writing the Geek Cookbook as a formal eBook, on Leanpub (https://leanpub.com/geeks-cookbook). Buy it for $0.99 (_which is really just a token gesture of support_) - you can get it for free (_in PDF, mobi, or epub format_), or pay me what you think it's worth!
 
-### Donate / [Support me 💰](https://www.patreon.com/funkypenguin)
+### Donate / [Patrotize](https://www.patreon.com/funkypenguin) / [Sponsor](https://github.com/sponsors/funkypenguin) me 💰
 
-The best way to support this work is to become a [Patreon patron](https://www.patreon.com/bePatron?u=6982506) (_for as little as $1/month!_) - You get :
+The best way to support this work is to become a [patron](https://www.patreon.com/bePatron?u=6982506) (Patreon) or a [Sponsor](https://github.com/sponsors/funkypenguin) (github) (_for as little as $1/month!_) - You get :
 
 * warm fuzzies,
 * access to the pre-mix repo,
@@ -54,17 +54,6 @@ The best way to support this work is to become a [Patreon patron](https://www.pa
 .. and I get some pocket money every month to buy wine, cheese, and cryptocurrency! 🍷 💰
 
 Impulsively **[click here (NOW quick do it!)](https://www.patreon.com/bePatron?u=6982506)** to patronize me, or instead thoughtfully and analytically review my Patreon page / history **[here](https://www.patreon.com/funkypenguin)** and make up your own mind.
-
-I also gratefully accept donations of most fine socialist/anarchist/hobbyist cryptocurrencies, including the list below (_let me know if I've left out the coin-of-the-week, and I'll happily add it_):
-
-| -ist-currency | Address      
-| ------------- |-------------|
-| Bitcoin      | 1GBJfmqARmL66gQzUy9HtNWdmAEv74nfXj
-| Ethereum     | 0x19e60ec49e1f053cfdfc193560ecfb3caed928f1
-| Litecoin     | LYLEF7xTpeVbjjoZD3jGLVgvKSKTYDKbK8
-| :turtle: TurtleCoin | TRTLv2qCKYChMbU5sNkc85hzq2VcGpQidaowbnV2N6LAYrFNebMLepKKPrdif75x5hAizwfc1pX4gi5VsR9WQbjQgYcJm21zec4
-
-
 
 ### Hire me 🏢
 
