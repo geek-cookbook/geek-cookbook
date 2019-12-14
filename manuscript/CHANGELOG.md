@@ -12,7 +12,7 @@
 * Kubernetes recipes for UniFi controller, Miniflux, Kanboard and PrivateBin coming in March! (_19 Mar 2019_)
 
 ## Recently added recipes
-
+* Added recipe for making your own [DIY Kubernetes Cluster](/kubernetes/diycluster/) (_14 December 2019_)
 * Added recipe for [authenticating Traefik Forward Auth against KeyCloak](/ha-docker-swarm/traefik-forward-auth/keycloak/) (_16 May 2019_)
 * Added [Bitwarden](/recipes/bitwarden/), an **awesome** open-source password manager, with great mobile sync support (_14 May 2019_)
 * Added [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/), replacing function of multiple [oauth_proxies](/reference/oauth_proxy/) with a single, 7MB Go application, which can authenticate against Google, [KeyCloak](/recipes/keycloak/), and other OIDC providers (_10 May 2019_)
