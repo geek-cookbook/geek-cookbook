@@ -48,6 +48,7 @@ nav:
       - Start: kubernetes/start.md
       - Design: kubernetes/design.md
       - Cluster: kubernetes/cluster.md
+      - DIY Cluster: kubernetes/diycluster.md
       - Load Balancer: kubernetes/loadbalancer.md
       - Snapshots: kubernetes/snapshots.md
       - Helm: kubernetes/helm.md
