@@ -5,3 +5,4 @@ Markdown>=3.0.1
 mkdocs-minify-plugin>=0.2
 mkdocs-autolinks-plugin>=0.2.0
 mkdocs-htmlproofer-plugin>=0.0.3
+mkdocs-git-revision-date-localized-plugin>=0.4.8
