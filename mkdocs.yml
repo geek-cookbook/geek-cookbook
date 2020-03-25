@@ -22,6 +22,8 @@ plugins:
   - search
   - minify:
       minify_html: true
+  - git-revision-date-localized:
+      type: date
 
 #theme_dir: mkdocs-material
 nav:
