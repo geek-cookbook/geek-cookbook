@@ -22,8 +22,9 @@ plugins:
   - search
   - minify:
       minify_html: true
-  - git-revision-date-localized:
-      type: date
+  # this doesn't work with the current netlify build process, which modifies .md files in the "publish" subfolder before building
+  # - git-revision-date-localized:
+  #     type: date
   - autolinks
   - htmlproofer
 
