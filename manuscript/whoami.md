@@ -2,9 +2,9 @@
 
 ## Hello world,
 
-I'm [David](https://www.funkypenguin.co.nz/contact/).
+I'm [David](https://www.funkypenguin.co.nz/).
 
-I'm a contracting IT consultant, with a broad range of experience and skills. I'm an [AWS Certified Solution Architect (Professional)](https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-02-22&ci=AWS00794574), a remote worker, I've had a [book published](https://www.funkypenguin.co.nz/book/phplist-2-email-campaign-manager/), and I [blog](https://www.funkypenguin.co.nz/blog/) on topics that interest me.
+I'm a contracting IT consultant, with a broad range of experience and skills. I'm an [AWS Certified Solution Architect (Professional)](https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-02-22&ci=AWS00794574), a remote worker, I've had a [book published](https://www.funkypenguin.co.nz/book/phplist-2-email-campaign-manager/), and I [blog](https://www.funkypenguin.co.nz/) on topics that interest me.
 
 ## Why Funky Penguin?
 
