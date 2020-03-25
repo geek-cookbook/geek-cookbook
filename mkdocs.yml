@@ -15,7 +15,7 @@ repo_url: 'https://github.com/funkypenguin/geek-cookbook'
 docs_dir: 'manuscript'
 
 # Copyright
-copyright: 'Copyright &copy; 2016 - 2019 David Young, Funky Penguin Limited'
+copyright: 'Copyright &copy; 2016 - 2020 David Young, Funky Penguin Limited'
 
 # Plugins
 plugins:
@@ -24,6 +24,8 @@ plugins:
       minify_html: true
   - git-revision-date-localized:
       type: date
+  - autolinks
+  - htmlproofer
 
 #theme_dir: mkdocs-material
 nav:
