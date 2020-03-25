@@ -111,8 +111,8 @@ networks:
 
 Now work your way through the list of tools below, adding whichever tools your want to use, and finishing with the **end** section:
 
-* [SABnzbd](/recipes/autopirate/sabnzbd.md)
-* [NZBGet](/recipes/autopirate/nzbget.md)
+* [SABnzbd](/recipes/autopirate/sabnzbd/)
+* [NZBGet](/recipes/autopirate/nzbget/)
 * [RTorrent](/recipes/autopirate/rtorrent/)
 * [Sonarr](/recipes/autopirate/sonarr/)
 * [Radarr](/recipes/autopirate/radarr/)
@@ -125,7 +125,7 @@ Now work your way through the list of tools below, adding whichever tools your w
 * [Jackett](/recipes/autopirate/jackett/)
 * [End](/recipes/autopirate/end/) (launch the stack)
 
-### Tip your waiter (donate) 
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 

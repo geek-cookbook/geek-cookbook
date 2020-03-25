@@ -64,12 +64,6 @@ Launch the Portainer stack by running ```docker stack deploy portainer -c <path 
 
 Log into your new instance at https://**YOUR-FQDN**. You'll be prompted to set your admin user/password.
 
-## Chef's Notes
+## Chef's Notes 📓
 
 1. I wanted to use oauth2_proxy to provide an additional layer of security for Portainer, but the proxy seems to break the authentication mechanism, effectively making the stack **so** secure, that it can't be logged into!
-
-### Tip your waiter (donate) 
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
-
-### Your comments? 

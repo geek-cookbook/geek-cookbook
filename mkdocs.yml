@@ -15,8 +15,13 @@ repo_url: 'https://github.com/funkypenguin/geek-cookbook'
 docs_dir: 'manuscript'
 
 # Copyright
-copyright: 'Copyright &copy; 2016 - 2019 David Young'
+copyright: 'Copyright &copy; 2016 - 2019 David Young, Funky Penguin Limited'
 
+# Plugins
+plugins:
+  - search
+  - minify:
+      minify_html: true
 
 #theme_dir: mkdocs-material
 nav:
@@ -27,12 +32,15 @@ nav:
       - whoami: whoami.md
     - Docker Swarm:
       - Design: ha-docker-swarm/design.md
-      - VMs: ha-docker-swarm/vms.md
+      - Nodes: ha-docker-swarm/nodes.md
       - Shared Storage (Ceph): ha-docker-swarm/shared-storage-ceph.md
       - Shared Storage (GlusterFS): ha-docker-swarm/shared-storage-gluster.md
       - Keepalived: ha-docker-swarm/keepalived.md
       - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
       - Traefik: ha-docker-swarm/traefik.md
+      - Traefik Forward Auth: 
+          - Start: ha-docker-swarm/traefik-forward-auth.md      
+          - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
       - Registry: ha-docker-swarm/registry.md
       - Mail Server: recipes/mail.md
       - Duplicity: recipes/duplicity.md
@@ -40,6 +48,7 @@ nav:
       - Start: kubernetes/start.md
       - Design: kubernetes/design.md
       - Cluster: kubernetes/cluster.md
+      - DIY Cluster: kubernetes/diycluster.md
       - Load Balancer: kubernetes/loadbalancer.md
       - Snapshots: kubernetes/snapshots.md
       - Helm: kubernetes/helm.md
@@ -69,6 +78,11 @@ nav:
         - iBeacon: recipes/homeassistant/ibeacon.md
       - Huginn: recipes/huginn.md
       - Kanboard: recipes/kanboard.md
+      - KeyCloak: 
+        - Start: recipes/keycloak.md      
+        - Users: recipes/keycloak/create-user.md
+        - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
+        - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md
       - Miniflux: recipes/miniflux.md
       - Munin: recipes/munin.md
       - NextCloud: recipes/nextcloud.md
@@ -85,6 +99,7 @@ nav:
 #      - phpIPAM: recipes/kubernetes/phpipam.md
 #      - PrivateBin: recipes/kubernetes/privatebin.md
     - Menu:
+      - Bitwarden: recipes/bitwarden.md
       - Bookstack: recipes/bookstack.md
       - CryptoMiner:
         - Start: recipes/cryptominer.md
@@ -104,24 +119,24 @@ nav:
       - GitLab Runner: recipes/gitlab-runner.md
       - Gollum: recipes/gollum.md
       - InstaPy: recipes/instapy.md
-      - KeyCloak: recipes/keycloak.md
+      - KeyCloak: 
+        - Start: recipes/keycloak.md      
+        - Users: recipes/keycloak/create-user.md
+        - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
+        - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md      
       - Minio: recipes/minio.md
       - OpenLDAP: recipes/openldap.md
       - Piwik: recipes/piwik.md
       - Portainer: recipes/portainer.md
       - Realms: recipes/realms.md
       - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
+      - Traefik: ha-docker-swarm/traefik.md
+      - Traefik Forward Auth: 
+          - Start: ha-docker-swarm/traefik-forward-auth.md      
+          - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
       - Wallabag: recipes/wallabag.md
       - Wekan: recipes/wekan.md
       - Wetty: recipes/wetty.md
-#      - CryptoNote Mining Pool:
-#        - Start: recipes/cryptonote-mining-pool.md
-#        - Masari: recipes/cryptonote-mining-pool/masari.md
-#        - Athena: recipes/cryptonote-mining-pool/athena.md
-#      - SSO Stack:
-#        - Start: recipes/sso-stack.md
-#        - OpenLDAP: recipes/sso-stack/openldap.md
-#        - KeyCloak: recipes/sso-stack/keycloak.md
     - Work-in-Progress:
 #       - MatterMost: recipes/mattermost.md
        - IPFS Cluster: recipes/ipfs-cluster.md
@@ -176,8 +191,11 @@ google_analytics:
   - 'UA-139253-18'
   - 'auto'
 
+extra_css:
+  - 'stylesheets/mailchimp.css'
+
 extra_javascript:
-#  - 'extras/javascript/piwik.js'
+  - 'extras/javascript/discord.js'  
 
 # Extensions
 markdown_extensions:
@@ -193,10 +211,12 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.emoji
   - pymdownx.inlinehilite
-  - pymdownx.magiclink
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: funkypenguin
+      repo: geek-cookbook  
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences

@@ -6,15 +6,6 @@ Well, that's it really. You're a cryptominer. Welcome to the party.
 
 To recap, you did all this:
 
-<<<<<<< HEAD:manuscript/recipies/cryptominer/profit.md
-1. Build your [mining rig](/recipies/cryptominer/mining-rig/) 💻
-2. Setup your [AMD](/recipies/cryptominer/amd-gpu/) or [Nvidia](/recipies/cryptominer/nvidia-gpu/) GPUs 🎨
-3. Sign up for [mining pools](/recipies/cryptominer/mining-pool/) :swimmer:
-4. Setup your miners with [Miner Hotel](/recipies/cryptominer/minerhotel/) 🏨
-5. Send your coins to [exchanges](/recipies/cryptominer/exchange/)  or [wallets](/recipies/cryptominer/wallet/) 💹
-6. [Monitor](/recipies/cryptominer/monitor/) your empire :heartbeat:
-7. Profit! (_This page_) 
-=======
 1. Build your [mining rig](/recipes/cryptominer/mining-rig/) 💻
 2. Setup your [AMD](/recipes/cryptominer/amd-gpu/) or [Nvidia](/recipes/cryptominer/nvidia-gpu/) GPUs 🎨
 3. Sign up for [mining pools](/recipes/cryptominer/mining-pool/) :swimmer:
@@ -22,7 +13,6 @@ To recap, you did all this:
 5. Send your coins to [exchanges](/recipes/cryptominer/exchange/)  or [wallets](/recipes/cryptominer/wallet/) 💹
 6. [Monitor](/recipes/cryptominer/monitor/) your empire :heartbeat:
 7. Profit! (_This page_) 💰
->>>>>>> master:manuscript/recipes/cryptominer/profit.md
 
 
 ## What next?
@@ -31,7 +21,7 @@ Get in touch and share your experience - there's a special [discord](https://dis
 
 ## Chef's Notes
 
-### Tip your waiter (donate) 
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 

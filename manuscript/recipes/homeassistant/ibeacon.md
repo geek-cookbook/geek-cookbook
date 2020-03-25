@@ -22,3 +22,5 @@ Generate your own UUID, or get a random one at https://www.uuidgenerator.net/
 Plug in your iBeacon, launch LightBlue Explorer, and find your iBeacon. The first time you attempt to interrogate it, you'll be prompted to pair. Although it's not recorded anywhere in the documentation (_grr!_), the pairing code is **123456**
 
 Having paired, you'll be able to see the vital statistics of your iBeacon.
+
+## Chef's Notes 📓

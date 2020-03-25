@@ -1,20 +1,19 @@
-# This file determines what documents are loaded into the book, and in what sequence.
-
 index.md
-README.md
+README-UI.md
 CHANGELOG.md
 whoami.md
 
 sections/ha-docker-swarm.md
 ha-docker-swarm/design.md
-ha-docker-swarm/vms.md
+ha-docker-swarm/nodes.md
 ha-docker-swarm/shared-storage-ceph.md
 ha-docker-swarm/shared-storage-gluster.md
 ha-docker-swarm/keepalived.md
 ha-docker-swarm/docker-swarm-mode.md
 ha-docker-swarm/traefik.md
+ha-docker-swarm/traefik-forward-auth.md
+ha-docker-swarm/traefik-forward-auth/keycloak.md
 ha-docker-swarm/registry.md
-ha-docker-swarm/duplicity.md
 
 sections/chefs-favorites-docker.md
 recipes/autopirate.md
@@ -34,6 +33,7 @@ recipes/autopirate/jackett.md
 recipes/autopirate/heimdall.md
 recipes/autopirate/end.md
 
+recipes/duplicity.md
 recipes/elkarbackup.md
 recipes/emby.md
 recipes/homeassistant.md
@@ -51,6 +51,7 @@ recipes/swarmprom.md
 recipes/turtle-pool.md
 
 sections/menu-docker.md
+recipes/bitwarden.md
 recipes/bookstack.md
 recipes/cryptominer.md
 recipes/cryptominer/mining-rig.md
@@ -70,6 +71,9 @@ recipes/gitlab-runner.md
 recipes/gollum.md
 recipes/instapy.md
 recipes/keycloak.md
+recipes/keycloak/create-user.md
+recipes/keycloak/authenticate-against-openldap.md
+recipes/keycloak/setup-oidc-provider.md
 recipes/openldap.md
 recipes/mail.md
 recipes/minio.md

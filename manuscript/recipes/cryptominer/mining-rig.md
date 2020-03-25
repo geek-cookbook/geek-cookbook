@@ -31,21 +31,12 @@ I recommend this design (_with the board with little holes in it_) - it takes up
 Now, continue to the next stage of your grand mining adventure:
 
 1. Build your mining rig 💻 (This page)
-<<<<<<< HEAD:manuscript/recipies/cryptominer/mining-rig.md
-2. Setup your [AMD](/recipies/cryptominer/amd-gpu/) or [Nvidia](/recipies/cryptominer/nvidia-gpu/) GPUs 🎨
-3. Sign up for [mining pools](/recipies/cryptominer/mining-pool/) :swimmer:
-4. Setup your miners with [Miner Hotel](/recipies/cryptominer/minerhotel/) 🏨
-5. Send your coins to [exchanges](/recipies/cryptominer/exchange/) or [wallets](/recipies/cryptominer/wallet/) 💹
-6. [Monitor](/recipies/cryptominer/monitor/) your empire :heartbeat:
-7. [Profit](/recipies/cryptominer/profit/)! 
-=======
 2. Setup your [AMD](/recipes/cryptominer/amd-gpu/) or [Nvidia](/recipes/cryptominer/nvidia-gpu/) GPUs 🎨
 3. Sign up for [mining pools](/recipes/cryptominer/mining-pool/) :swimmer:
 4. Setup your miners with [Miner Hotel](/recipes/cryptominer/minerhotel/) 🏨
 5. Send your coins to [exchanges](/recipes/cryptominer/exchange/) or [wallets](/recipes/cryptominer/wallet/) 💹
 6. [Monitor](/recipes/cryptominer/monitor/) your empire :heartbeat:
 7. [Profit](/recipes/cryptominer/profit/)! 💰
->>>>>>> master:manuscript/recipes/cryptominer/mining-rig.md
 
 
 
@@ -57,7 +48,7 @@ Yes. It's the ultimate _#firstworldproblem_, but if you have a means to remotely
 
 (_I hooked up a remote-controlled outlet to my rig, so that I can power-cycle it without having to crawl under the desk!_)
 
-### Tip your waiter (donate) 
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 

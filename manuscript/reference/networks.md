@@ -9,7 +9,7 @@ Network  | Range
 [Mail Server](https://geek-cookbook.funkypenguin.co.nz/recipes/mail/)  | 172.16.1.0/24
 [Gitlab](https://geek-cookbook.funkypenguin.co.nz/recipes/gitlab/) | 172.16.2.0/24
 [Wekan](https://geek-cookbook.funkypenguin.co.nz/recipes/wekan/)  |  172.16.3.0/24
-[Piwik](https://geek-cookbook.funkypenguin.co.nz/recipes/piwki/)  |  172.16.4.0/24
+[Piwik](https://geek-cookbook.funkypenguin.co.nz/recipes/piwik/)  |  172.16.4.0/24
 [Tiny Tiny RSS](https://geek-cookbook.funkypenguin.co.nz/recipes/tiny-tiny-rss/)  |  172.16.5.0/24
 [Huginn](https://geek-cookbook.funkypenguin.co.nz/recipes/huginn/)  |  172.16.6.0/24
 [Unifi](https://geek-cookbook.funkypenguin.co.nz/recipes/unifi/)  |  172.16.7.0/24
@@ -48,11 +48,18 @@ Network  | Range
 [FileBrowser](https://geek-cookbook.funkypenguin.co.nz/recipes/filebrowser/)  |  172.16.46.0/24
 [phpIPAM](https://geek-cookbook.funkypenguin.co.nz/recipes/phpipam/)  |  172.16.47.0/24
 [Dozzle](https://geek-cookbook.funkypenguin.co.nz/recipes/dozzle/)  |  172.16.48.0/24
+[KeyCloak](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/)  |  172.16.49.0/24
+[Sensu](https://geek-cookbook.funkypenguin.co.nz/recipes/sensu/)  |  172.16.50.0/24
+[Magento](https://geek-cookbook.funkypenguin.co.nz/recipes/magento/)  |  172.16.51.0/24
+[Graylog](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)  |  172.16.52.0/24
+[Harbor](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)  |  172.16.53.0/24
+[Harbor-Clair](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)  |  172.16.54.0/24
+
 
 
 ## Chef's Notes
 
-### Tip your waiter (donate) 
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 

@@ -149,15 +149,6 @@ If you want to tweak the BIOS yourself, download the [Polaris bios editor](https
 
 Now, continue to the next stage of your grand mining adventure:
 
-<<<<<<< HEAD:manuscript/recipies/cryptominer/amd-gpu.md
-1. Build your [mining rig](/recipies/cryptominer/mining-rig/) 💻
-2. Setup your AMD (_this page_) or [Nvidia](/recipies/cryptominer/nvidia-gpu/) GPUs 🎨
-3. Sign up for [mining pools](/recipies/cryptominer/mining-pool/) :swimmer:
-3. Setup your miners with [Miner Hotel](/recipies/cryptominer/minerhotel/) 🏨
-4. Send your coins to [exchanges](/recipies/cryptominer/exchange/) or [wallets](/recipies/cryptominer/wallet/) 💹
-5. [Monitor](/recipies/cryptominer/monitor/) your empire :heartbeat:
-6. [Profit](/recipies/cryptominer/profit/)! 
-=======
 1. Build your [mining rig](/recipes/cryptominer/mining-rig/) 💻
 2. Setup your AMD (_this page_) or [Nvidia](/recipes/cryptominer/nvidia-gpu/) GPUs 🎨
 3. Sign up for [mining pools](/recipes/cryptominer/mining-pool/) :swimmer:
@@ -165,14 +156,13 @@ Now, continue to the next stage of your grand mining adventure:
 4. Send your coins to [exchanges](/recipes/cryptominer/exchange/) or [wallets](/recipes/cryptominer/wallet/) 💹
 5. [Monitor](/recipes/cryptominer/monitor/) your empire :heartbeat:
 6. [Profit](/recipes/cryptominer/profit/)! 💰
->>>>>>> master:manuscript/recipes/cryptominer/amd-gpu.md
 
 
 ## Chef's Notes
 
 1. My two RX580 cards (_bought alongside each other_) perform slightly differently. GPU0 works with a 2050Mhz memory clock, but GPU1 only works at 2000Mhz. Anything over 2000Mhz causes system instability. YMMV.
 
-### Tip your waiter (donate) 
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 

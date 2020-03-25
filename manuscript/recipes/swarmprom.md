@@ -160,7 +160,7 @@ Create a docker swarm config file in docker-compose syntax (v3), based on the or
                 memory: 64M
 
         grafana:
-          image: stefanprodan/swarmprom-grafana:5.0.1
+          image: stefanprodan/swarmprom-grafana:5.3.4
           networks:
             - internal
           env_file: /var/data/config/swarmprom/grafana.env
@@ -289,7 +289,7 @@ Create a docker swarm config file in docker-compose syntax (v3), based on the or
 
 
         node-exporter:
-          image: stefanprodan/swarmprom-node-exporter:v0.15.2
+          image: stefanprodan/swarmprom-node-exporter:v0.16.0
           networks:
             - internal
           environment:
@@ -317,7 +317,7 @@ Create a docker swarm config file in docker-compose syntax (v3), based on the or
                 memory: 64M
 
         prometheus:
-          image: stefanprodan/swarmprom-prometheus:v2.2.0-rc.0
+          image: stefanprodan/swarmprom-prometheus:v2.5.0
           networks:
             - internal
           command:
@@ -391,12 +391,6 @@ Launch the Swarm stack by running ```docker stack deploy swarmprom -c <path -to-
 
 Log into your new grafana instance, check out your beautiful graphs. Move onto drooling over Prometheus, AlertManager, and Unsee.
 
-## Chef's Notes
+## Chef's Notes 📓
 
 1. Pay close attention to the ```grafana.env``` config. If you encounter errors about ```basic auth failed```, or failed CSS, it's likely due to misconfiguration of one of the grafana environment variables.
-
-### Tip your waiter (donate) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

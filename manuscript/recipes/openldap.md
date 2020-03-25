@@ -74,7 +74,7 @@ Create ```/var/data/openldap/lam/config/config.cfg``` as follows:
 
     ```
     # password to add/delete/rename configuration profiles (default: lam)
-    password: {SSHA}54haBZN/kfgNVJ+W3YJrI2dCic4= iCXkNA==
+    password: {SSHA}D6AaX93kPmck9wAxNlq3GF93S7A= R7gkjQ==
 
     # default profile, without ".conf"
     default: batcave
@@ -371,7 +371,7 @@ services:
         - traefik.port=4180
     command: |
       -cookie-secure=false
-      -upstream=http://lam:80
+      -upstream=http://lam:8080
       -redirect-url=https://lam.batcave.com
       -http-address=http://0.0.0.0:4180
       -email-domain=batcave.com
@@ -398,17 +398,25 @@ networks:
 Create **another** stack config file (```/var/data/config/openldap/auth.yml```) containing just the auth_internal network, and a dummy container:
 
 ```
-version: '3'
+version: "3.2"
+
+# What is this?
+#
+# This stack exists solely to deploy the auth_internal overlay network, so that
+# other stacks (including keycloak and openldap) can attach to it
 
 services:
-  helloworld:
-    image: hello-world
+  scratch:
+    image: scratch
+    deploy:
+      replicas: 0
     networks:
       - internal
 
 networks:
   internal:
     driver: overlay
+    attachable: true
     ipam:
       config:
         - subnet: 172.16.39.0/24
@@ -421,7 +429,7 @@ networks:
 
 ### Launch OpenLDAP stack
 
-Create the auth_internal overlay network, by running ```docker stack deploy auth -c /var/data/config/openldap/auth.yml`, then launch the OpenLDAP stack by running ```docker stack deploy openldap -c /var/data/config/openldap/openldap.yml```
+Create the auth_internal overlay network, by running ```docker stack deploy auth -c /var/data/config/openldap/auth.yml```, then launch the OpenLDAP stack by running ```docker stack deploy openldap -c /var/data/config/openldap/openldap.yml```
 
 Log into your new LAM instance at https://**YOUR-FQDN**.
 
@@ -437,12 +445,6 @@ Create your users using the "**New User**" button.
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
 
-## Chef's Notes
+## Chef's Notes 📓
 
-1. The KeyCloak](/recipes/keycloak/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.
-
-### Tip your waiter (donate) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬
+1. [The KeyCloak](/recipes/keycloak/authenticate-against-openldap/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.

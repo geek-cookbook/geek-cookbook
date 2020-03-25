@@ -33,17 +33,17 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 version: '3'
 
 services:
-  1:
+  thing1:
     image: gitlab/gitlab-runner
     volumes:
-    - /var/data/gitlab-runner/1:/var/data/gitlab/runners/1
+    - /var/data/gitlab/runners/1:/etc/gitlab-runner
     networks:
     - internal
 
-  2:
+  thing2:
     image: gitlab/gitlab-runner
     volumes:
-    - /var/data/gitlab-runner/:/var/data/gitlab/runners/2
+    - /var/data/gitlab/runners/2:/etc/gitlab-runner
     networks:
     - internal
 
@@ -58,7 +58,7 @@ networks:
 
 ### Configure runners
 
-From your GitLab UI, you can retrieve a "token" necessary to register a new runner. To register the runner, you can either create config.toml in each runner's bind-mounted folder (example below), or just "docker exec" into each runner container and execute ```gitlab-container register``` to interactively generate config.toml.
+From your GitLab UI, you can retrieve a "token" necessary to register a new runner. To register the runner, you can either create config.toml in each runner's bind-mounted folder (example below), or just "docker exec" into each runner container and execute ```gitlab-runner register``` to interactively generate config.toml.
 
 Sample runner config.toml:
 
@@ -89,14 +89,7 @@ Launch the mail server stack by running ```docker stack deploy gitlab-runner -c 
 
 Log into your new instance at https://**YOUR-FQDN**, with user "root" and the password you specified in gitlab.env.
 
-## Chef's Notes
+## Chef's Notes 📓
 
 1. You'll note that I setup 2 runners. One is locked to a single project (this cookbook build), and the other is a shared runner. I wanted to ensure that one runner was always available to run CI for this project, even if I'd tied up another runner on something heavy-duty, like a container build. Customize this to your use case.
 2. Originally I deployed runners in the same stack as GitLab, but I found that they would frequently fail to start properly when I launched the stack. I think that this was because the runners started so quickly (and GitLab starts so slowly!), that they always started up reporting that the GitLab instance was invalid or unavailable. I had issues with CI builds stuck permanently in a "pending" state, which were only resolved by restarting the runner. Having the runners deployed in a separate stack to GitLab avoids this problem.
-
-
-### Tip your waiter (donate) 
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
-
-### Your comments? 

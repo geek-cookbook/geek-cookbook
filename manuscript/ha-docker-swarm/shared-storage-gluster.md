@@ -2,6 +2,9 @@
 
 While Docker Swarm is great for keeping containers running (_and restarting those that fail_), it does nothing for persistent storage. This means if you actually want your containers to keep any data persistent across restarts (_hint: you do!_), you need to provide shared storage to every docker node.
 
+!!! warning
+    This recipe is deprecated. It didn't work well in 2017, and it's not likely to work any better now. It remains here as a reference. I now recommend the use of [Ceph for shared storage](/ha-docker-swarm/shared-storage-ceph/) instead. - 2019 Chef
+
 ## Design
 
 ### Why GlusterFS?
@@ -156,15 +159,9 @@ After completing the above, you should have:
 [X] Resiliency in the event of the failure of a single (gluster) node
 ```
 
-## Chef's Notes
+## Chef's Notes 📓
 
 Future enhancements to this recipe include:
 
 1. Migration of shared storage from GlusterFS to Ceph ()[#2](https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook/issues/2))
 2. Correct the fact that volumes don't automount on boot ([#3](https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook/issues/3))
-
-### Tip your waiter (donate) 
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
-
-### Your comments? 

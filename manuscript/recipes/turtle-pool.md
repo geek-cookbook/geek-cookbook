@@ -438,7 +438,7 @@ TurtleCoin is a baby cryptocurrency. There are scaling issues to solve, and larg
 
 Jump into the [TurtleCoin Discord server](http://chat.turtlecoin.lol/) to ask questions, contribute, and send/receive some TRTL tips!
 
-## Chef's Notes
+## Chef's Notes 📓
 
 1. Because Docker Swarm performs ingress NAT for its load-balanced "routing mesh", the source address of inbound miner traffic is rewritten to a (_common_) docker node IP address. This means it's [not possible to determine the actual source IP address](https://github.com/moby/moby/issues/25526) of a miner. Which, in turn, means that any **one** misconfigured miner could trigger an IP ban, and lock out all other miners for 5 minutes at a time.
 
@@ -447,11 +447,3 @@ Two possible solutions to this are (1) disable banning, or (2) update the pool b
 2. The traefik labels in the docker-compose are to permit automatic LetsEncrypt SSL-protected proxying of your pool UI and API addresses.
 
 3. After a [power fault in my datacenter caused daemon DB corruption](https://www.reddit.com/r/TRTL/comments/8jftzt/funky_penguin_nz_mining_pool_down_with_daemon/), I added a second daemon, running in parallel to the first. The failsafe daemon runs once an hour, syncs with the running daemons, and shuts down again, providing a safely halted version of the daemon DB for recovery.
-
-### Tip your waiter (donate) 
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
-
-Also, you could send me some   to _TRTLv2qCKYChMbU5sNkc85hzq2VcGpQidaowbnV2N6LAYrFNebMLepKKPrdif75x5hAizwfc1pX4gi5VsR9WQbjQgYcJm21zec4_
-
-### Your comments? 

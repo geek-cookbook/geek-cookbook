@@ -129,15 +129,8 @@ Launch the mail server stack by running ```docker stack deploy gitlab -c <path -
 Log into your new instance at https://[your FQDN], with user "root" and the password you specified in gitlab.env.
 
 
-## Chef's Notes
+## Chef's Notes 📓
 
 A few comments on decisions taken in this design:
 
 1. I use the **sameersbn/gitlab:latest** image, rather than a specific version. This lets me execute updates simply by redeploying the stack (and why **wouldn't** I want the latest version?)
-
-
-### Tip your waiter (donate) 
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
-
-### Your comments? 

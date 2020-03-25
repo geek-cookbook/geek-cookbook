@@ -178,14 +178,8 @@ SSL_TYPE=letsencrypt
 
 Launch the mail server stack by running ```docker stack deploy docker-mailserver -c <path-to-docker-mailserver.yml>```
 
-## Chef's Notes
+## Chef's Notes 📓
 
 1. One of the elements of this design which I didn't appreciate at first is that since the config is entirely file-based, **setup.sh** can be run on any container host, provided it has the shared data mounted. This means that even though docker-mailserver was not designed with docker swarm in mind, it works perfectl with swarm. I.e., from any node, regardless of where the container is actually running, you're able to add/delete email addresses, view logs, etc.
 
 2. If you're using sieve with Rainloop, take note of the [workaround](https://discourse.geek-kitchen.funkypenguin.co.nz/t/mail-server-funky-penguins-geek-cookbook/70/15) identified by [ggilley](https://discourse.geek-kitchen.funkypenguin.co.nz/u/ggilley)
-
-### Tip your waiter (donate) 
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
-
-### Your comments? 

@@ -83,14 +83,8 @@ Launch the stack by running ```docker stack deploy emby -c <path -to-docker-comp
 
 Log into your new instance at https://**YOUR-FQDN**, and complete the wizard-based setup to complete deploying your Emby.
 
-## Chef's Notes
+## Chef's Notes 📓
 
 1. I didn't use an [oauth2_proxy](/reference/oauth_proxy/) for this stack, because it would interfere with mobile client support.
 2. Got an NVIDIA GPU? See [this blog post](https://www.funkypenguin.co.nz/note/gpu-transcoding-with-emby-plex-using-docker-nvidia/) re how to use your GPU to transcode your media!
 3. We don't bother exposing the HTTPS port for Emby, since [Traefik](/ha-docker-swarm/traefik/) is doing the SSL termination for us already.
-
-### Tip your waiter (donate) 
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
-
-### Your comments? 

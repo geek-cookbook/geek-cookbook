@@ -1,9 +1,9 @@
 # KeyCloak
 
-[KeyCloak](https://www.keycloak.org/) is "an open source identity and access management solution." Using a local database, or a variety of backends (_think [OpenLDAP](/recipes/openldap/)_), you can provide Single Sign-On (SSO) using OpenID, OAuth 2.0, and SAML.
+[KeyCloak](https://www.keycloak.org/) is "*an open source identity and access management solution*". Using a local database, or a variety of backends (_think [OpenLDAP](/recipes/openldap/)_), you can provide Single Sign-On (SSO) using OpenID, OAuth 2.0, and SAML. KeyCloak's OpenID provider can be used in combination with [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/), to protect [vulnerable services](/recipe/nzbget/) with an extra layer of authentication.
 
 !!! important
-    Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
+    Initial development of this recipe was sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
 
@@ -11,9 +11,12 @@
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
-3. DNS entry for the hostname (_i.e. "keycloak.your-domain.com"_) you intend to use for LDAP Account Manager, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+!!! Summary
+    Existing:
+
+    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph/)
+    * [X] [Traefik](/ha-docker-swarm/traefik_public) configured per design
+    * [X] DNS entry for the hostname (_i.e. "keycloak.your-domain.com"_) you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -22,13 +25,13 @@
 We'll need several directories to bind-mount into our container for both runtime and backup data, so create them as follows
 
 ```
-mkdir /var/data/runtime/keycloak/database
-mkdir /var/data/keycloak/database-dump
+mkdir -p /var/data/runtime/keycloak/database
+mkdir -p /var/data/keycloak/database-dump
 ```
 
 ### Prepare environment
 
-Create ```/var/data/keycloak/keycloak.env```, and populate with the following variables, customized for your own domain structure.
+Create `/var/data/keycloak/keycloak.env`, and populate with the following variables, customized for your own domain structure.
 
 ```
 # Technically, this could be auto-detected, but we prefer to be prescriptive
@@ -51,7 +54,7 @@ POSTGRES_USER=keycloak
 POSTGRES_PASSWORD=myuberpassword
 ```
 
-Create /var/data/keycloak/keycloak-backup.env, and populate with the following, so that your database can be backed up to the filesystem, daily:
+Create `/var/data/keycloak/keycloak-backup.env`, and populate with the following, so that your database can be backed up to the filesystem, daily:
 
 ```
 PGHOST=keycloak-db
@@ -77,7 +80,8 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro    
     networks:
-    - traefik_public
+      - traefik_public
+      - internal
     deploy:
       labels:
         - traefik.frontend.rule=Host:keycloak.batcave.com
@@ -91,7 +95,7 @@ services:
       - /var/data/runtime/keycloak/database:/var/lib/postgresql/data
       - /etc/localtime:/etc/localtime:ro    
     networks:
-    - traefik_public
+      - internal
 
   keycloak-db-backup:
     image: postgres:10.1
@@ -110,76 +114,34 @@ services:
       done
       EOF'
     networks:
-    - traefik_public
+      - internal
 
 networks:
   traefik_public:
     external: true
+  internal:
+    driver: overlay
+    ipam:
+      config:
+        - subnet: 172.16.49.0/24    
 ```
 
-!!! warning
-    **Normally**, we set unique static subnets for every stack you deploy, and put the non-public facing components (like databases) in an dedicated <stack\>_internal network. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
-    However, KeyCloak's JBOSS startup script assumes a single interface, and will crash in a ball of 🔥 if you try to assign multiple interfaces to the container. This means that we can't use a "keycloak_internal" network for our supporting containers. This is why unlike our other recipes, all the supporting services are prefixed with "keycloak-".
+!!! note
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
 
 
 ## Serving
 
 ### Launch KeyCloak stack
 
-Launch the OpenLDAP stack by running ```docker stack deploy keycloak -c <path -to-docker-compose.yml>```
+Launch the KeyCloak stack by running ```docker stack deploy keycloak -c <path -to-docker-compose.yml>```
 
-Log into your new instance at https://**YOUR-FQDN**, and login with the user/password you defined in keycloak.env.
-
-### Integrating into OpenLDAP
-
-KeyCloak gets really sexy when you integrate it into your [OpenLDAP](/recipes/openldap/) stack (_also, it's great not to have to play with ugly LDAP tree UIs_).
-
-You'll need to have completed the [OpenLDAP](/recipes/openldap/) recipe
-
-You start in the "Master" realm - but mouseover the realm name, to a dropdown box allowing you add an new realm:
-
-![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-1.png)
-
-Enter a name for your new realm, and click "_Create_":
-
-![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-2.png)
-
-Once in the desired realm, click on **User Federation**, and click **Add Provider**. On the next page ("_Required Settings_"), set the following:
-
-* **Edit Mode** : Writeable
-* **Vendor** : Other
-* **Connection URL** : ldap://openldap
-* **Users DN** : ou=People,<your base DN\>
-* **Authentication Type** : simple
-* **Bind DN** : cn=admin,<your base DN\>
-* **Bind Credential** : <your chosen admin password\>
-
-Save your changes, and then navigate back to "User Federation" > Your LDAP name > Mappers:
-
-![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-3.png)
-
-For each of the following mappers, click the name, and set the "_Read Only_" flag to "_Off_" (_this enables 2-way sync between KeyCloak and OpenLDAP_)
-
-* last name
-* username
-* email
-* first name
-
-![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-4.png)
+Log into your new instance at https://**YOUR-FQDN**, and login with the user/password you defined in `keycloak.env`.
 
 !!! important
-    Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
+    Initial development of this recipe was sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
 
 
 ## Chef's Notes
-
-1. I wanted to be able to add multiple networks to KeyCloak (_i.e., a dedicated overlay network for LDAP authentication_), but the entrypoint used by the container produces an error when more than one network is configured. This could theoretically be corrected in future, with a PR, but the [GitHub repo](https://github.com/jboss-dockerfiles/keycloak) has no issues enabled, so I wasn't sure where to start.
-
-### Tip your waiter (donate) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

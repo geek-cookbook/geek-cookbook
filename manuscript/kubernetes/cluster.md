@@ -85,7 +85,7 @@ Still with me? Good. Move on to creating your own external load balancer..
 
 1. Ok, yes, there's not much you can do with your cluster _yet_. But stay tuned, more Kubernetes fun to come!
 
-### Tip your waiter (donate) 👏
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
 

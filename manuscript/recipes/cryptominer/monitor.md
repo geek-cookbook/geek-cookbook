@@ -80,17 +80,13 @@ Now, continue to the next stage of your grand mining adventure:
 4. Setup your miners with [Miner Hotel](/recipes/cryptominer/minerhotel/) 🏨
 5. Send your coins to [exchanges](/recipes/cryptominer/exchange/) or [wallets](/recipes/cryptominer/wallet/) 💹
 6. Monitor your empire :heartbeat: (_this page_)
-<<<<<<< HEAD:manuscript/recipies/cryptominer/monitor.md
-7. [Profit](/recipies/cryptominer/profit/)! 
-=======
 7. [Profit](/recipes/cryptominer/profit/)! 💰
->>>>>>> master:manuscript/recipes/cryptominer/monitor.md
 
 ## Chef's Notes
 
 1. Ultimately I hope to move all the configuration / mining executables into docker containers, but for now, they're running on a CentOS7 host for direct access to GPUs. (_Apparently it **may** be possible to pass-thru the GPUs to docker containers, but I wanted stability first, before abstracting my hardware away from my miners_)
 
-### Tip your waiter (donate) 
+### Tip your waiter (support me) 👏
 
 Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
 
