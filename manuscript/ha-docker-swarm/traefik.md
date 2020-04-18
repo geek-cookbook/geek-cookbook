@@ -52,42 +52,38 @@ While it's possible to configure traefik via docker command arguments, I prefer 
 Create `/var/data/traefik/traefik.toml` as follows:
 
 ```
-checkNewVersion = true
-defaultEntryPoints = ["http", "https"]
+[global]
+  checkNewVersion = true
 
-# This section enable LetsEncrypt automatic certificate generation / renewal
-[acme]
-email = "<your LetsEncrypt email address>"
-storage = "acme.json" # or "traefik/acme/account" if using KV store
-entryPoint = "https"
-acmeLogging = true
-onDemand = true
-OnHostRule = true
+# Enable the Dashboard
+[api]
 
-# Request wildcard certificates per https://docs.traefik.io/configuration/acme/#wildcard-domains
-[[acme.domains]]
-  main = "*.example.com"
-  sans = ["example.com"]
+# Write out Traefik logs
+[log]
+  level = "DEBUG"
+  filePath = "/traefik.log"
 
-# Redirect all HTTP to HTTPS (why wouldn't you?)
-[entryPoints]
-  [entryPoints.http]
+[entryPoints.http]
   address = ":80"
-    [entryPoints.http.redirect]
-      entryPoint = "https"
-  [entryPoints.https]
+  # Redirect to HTTPS (why wouldn't you?)
+  [entryPoints.http.http.redirections.entryPoint]
+    to = "https"
+    scheme = "https"
+
+[entryPoints.https]
   address = ":443"
-    [entryPoints.https.tls]
 
-[web]
-address = ":8080"
-watch = true
+# Let's Encrypt
+[certificatesResolvers.main.acme]
+  email = "you@example.com"
+  storage = "acme.json"
+  [certificatesResolvers.main.acme.tlsChallenge]
 
-[docker]
-endpoint = "tcp://127.0.0.1:2375"
-domain = "example.com"
-watch = true
-swarmmode = true
+# Docker Traefik provider
+[providers.docker]
+  endpoint = "unix:///var/run/docker.sock"
+  swarmMode = true
+  watch = true
 ```
 
 ### Prepare the docker service config
@@ -133,8 +129,7 @@ version: "3"
 
 services:
   traefik:
-    image: traefik
-    command: --web --docker --docker.swarmmode --docker.watch --docker.domain=example.com --logLevel=DEBUG
+    image: traefik:v2.2
     # Note below that we use host mode to avoid source nat being applied to our ingress HTTP/HTTPS sessions
     # Without host mode, all inbound sessions would have the source IP of the swarm nodes, rather than the
     # original source IP, which would impact logging. If you don't care about this, you can expose ports the
@@ -162,7 +157,12 @@ services:
     # node the request arrives on, it'll be forwarded to the correct backend service.
     deploy:
       labels:
-        - "traefik.enable=false"
+        - 'traefik.http.routers.api.rule=Host(`traefik.example.com`)'
+        - 'traefik.http.routers.api.service=api@internal'
+        - 'traefik.http.routers.api.entrypoints=https'
+        - 'traefik.http.routers.api.tls=true'
+        - 'traefik.http.routers.api.tls.certresolver=main'
+        - 'traefik.http.services.dummy-svc.loadbalancer.server.port=9999'
       mode: global
       placement:
         constraints: [node.role == manager]
