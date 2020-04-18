@@ -59,10 +59,12 @@ This is a small container, you can simply add the following content to the exist
     # Uncomment these lines if you're using auth host mode
     #deploy:
     #  labels:
-    #    - traefik.port=4181
-    #    - traefik.frontend.rule=Host:auth.example.com
-    #    - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
-    #    - traefik.frontend.auth.forward.trustForwardHeader=true
+    #    - 'traefik.http.routers.auth.entrypoints=https'
+    #    - 'traefik.http.routers.auth.rule=Host(`auth.example.com`)'
+    #    - 'traefik.http.routers.auth.middlewares=fa-auth'
+    #    - 'traefik.http.services.auth.loadbalancer.server.port=4181'
+    #    - 'traefik.http.middlewares.fa-auth.forwardauth.address=http://traefik-forward-auth:4181'
+    #    - 'traefik.http.middlewares.fa-auth.forwardauth.trustForwardHeader=true'
 ```
 
 If you're not confident that forward authentication is working, add a simple "whoami" test container, to help debug traefik forward auth, before attempting to add it to a more complex container.
@@ -75,11 +77,14 @@ If you're not confident that forward authentication is working, add a simple "wh
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:whoami.example.com
-        - traefik.port=80
-        - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
-        - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
-        - traefik.frontend.auth.forward.trustForwardHeader=true
+        - traefik.http.routers.whoami.rule=Host(`whoami.example.com`)
+        - traefik.http.routers.whoami.entrypoints=https
+        - traefik.http.routers.whoami.middlewares=auth
+        - traefik.http.routers.whoami.tls=true
+        - traefik.http.services.whoami.loadbalancer.server.port=80
+        - traefik.http.middlewares.auth.forwardauth.address=http://traefik-forward-auth:4181
+        - traefik.http.middlewares.auth.forwardauth.authresponseheaders=X-Forwarded-User
+        - traefik.http.middlewares.auth.forwardauth.trustforwardheader=true
 ```
 
 !!! tip
