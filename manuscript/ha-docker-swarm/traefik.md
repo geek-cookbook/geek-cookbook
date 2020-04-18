@@ -72,6 +72,8 @@ Create `/var/data/traefik/traefik.toml` as follows:
 
 [entryPoints.https]
   address = ":443"
+  [entryPoints.https.http.tls]
+    certResolver = "main"
 
 # Let's Encrypt
 [certificatesResolvers.main.acme]
@@ -161,7 +163,6 @@ services:
         - 'traefik.http.routers.api.service=api@internal'
         - 'traefik.http.routers.api.entrypoints=https'
         - 'traefik.http.routers.api.tls=true'
-        - 'traefik.http.routers.api.tls.certresolver=main'
         - 'traefik.http.services.dummy-svc.loadbalancer.server.port=9999'
       mode: global
       placement:
