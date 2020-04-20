@@ -24,7 +24,7 @@ This recipe details a simple design to permit the exposure of as many ports as y
 ### Create LetsEncrypt certificate
 
 !!! warning
-    Safety first, folks. You wouldn't run a webhook exposed to the big bad ol' internte without first securing it with a valid SSL certificate? Of course not, I didn't think so!
+    Safety first, folks. You wouldn't run a webhook exposed to the big bad ol' internet without first securing it with a valid SSL certificate? Of course not, I didn't think so!
 
 Use whatever method you prefer to generate (and later, renew) your LetsEncrypt cert. The example below uses the CertBot docker image for CloudFlare DNS validation, since that's what I've used elsewhere.
 
