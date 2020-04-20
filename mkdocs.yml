@@ -19,6 +19,7 @@ copyright: 'Copyright &copy; 2016 - 2020 David Young, Funky Penguin Limited'
 
 # Plugins
 plugins:
+  - blog
   - search
   - minify:
       minify_html: true
@@ -26,16 +27,23 @@ plugins:
   # - git-revision-date-localized:
   #     type: date
   - autolinks
-  - htmlproofer
+  # - htmlproofer
 
 #theme_dir: mkdocs-material
 nav:
     - Home: 
       - What is this: index.md
       - About: whoami.md
-      - Sponsored Projects: sponsored-projects.md
-    - Support: 
-      - Support: support.md
+      - Sponsored Projects: sponsored-projects.md 
+    # - 'Join Us! 🤝':
+    #   - Hello: recipes/general/start.md
+    #   - iPad Pro Geeking: recipes/general/ipad-pro-geeking.md
+    #   - Kid-safe WiFi: recipes/general/kid-safe-wifi.md      
+    # Upcoming section
+    # - '#geeklife':
+    #   - Hello: recipes/general/start.md
+    #   - iPad Pro Geeking: recipes/general/ipad-pro-geeking.md
+    #   - Kid-safe WiFi: recipes/general/kid-safe-wifi.md              
     - Docker Swarm: 
       - Preparation:
         - Design: ha-docker-swarm/design.md
@@ -166,36 +174,42 @@ nav:
   #      - PrivateBin: recipes/kubernetes/privatebin.md
     - CHANGELOG: 
       - CHANGELOG: CHANGELOG.md
+    - Support: 
+      - Support: support.md      
 
 theme:
   name: 'material'
   custom_dir: 'overrides'
   disqus: 'geeks-cookbook'
-  logo: 'images/site-logo.png'
-  favicon: 'images/favicon.ico'
-  feature:
-    tabs: true
+  logo: 'images/site-logo.svg'
+  favicon: 'images/site-logo.svg'
+  features:
+      - tabs
+      - instant 
+  icon:
+    repo: 'fontawesome/brands/github'
   palette:
     primary: 'black'
     accent: 'indigo'
   font:
     text: 'Ubuntu'
     code: 'Ubuntu Mono'
+
+extra:
   social:
-    - type: 'github'
+    - icon: 'fontawesome/brands/github'
       link: 'https://github.com/funkypenguin'
-    - type: 'twitter'
+    - icon: 'fontawesome/brands/twitter'
       link: 'https://twitter.com/funkypenguin'
-    - type: 'stack-overflow'
+    - icon: 'fontawesome/brands/stack-overflow'
       link: 'https://stackoverflow.com/cv/funkypenguin'
-    - type: 'rss'
+    - icon: 'material/rss'
       link: 'https://www.funkypenguin.co.nz/'
-    - type: 'linkedin'
+    - icon: 'fontawesome/brands/linkedin'
       link: 'https://www.linkedin.com/in/funkypenguin'
-    - type: 'envelope'
-      link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'
-    - type: 'book'
-      link: 'https://leanpub.com/geeks-cookbook'
+    - icon: 'material/library'
+      link: 'https://leanpub.com/geeks-cookbook'    
+  
 
 # Google Analytics
 google_analytics:
@@ -222,7 +236,9 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
-  - pymdownx.emoji
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg    
   - pymdownx.inlinehilite
   - pymdownx.magiclink:
       repo_url_shorthand: true
@@ -234,4 +250,5 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - pymdownx.tabbed  
   - meta

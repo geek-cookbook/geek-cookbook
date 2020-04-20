@@ -1,6 +1,8 @@
-hero: "Excuse me... waiter, there's a bug in this recipe!"
-
 # Support
+
+> "Excuse me... waiter, there's a bug in this recipe!"
+
+How do you get support for these receipes? There are several options...
 
 ## Discord: Where the cool kids are
 
