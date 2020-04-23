@@ -131,7 +131,7 @@ version: "3"
 
 services:
   traefik:
-    image: traefik:v2.2
+    image: traefik:v2
     # Note below that we use host mode to avoid source nat being applied to our ingress HTTP/HTTPS sessions
     # Without host mode, all inbound sessions would have the source IP of the swarm nodes, rather than the
     # original source IP, which would impact logging. If you don't care about this, you can expose ports the
