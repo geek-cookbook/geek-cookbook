@@ -130,6 +130,8 @@ services:
       - internal
     deploy:
       replicas: 1
+      labels:
+        - traefik.enable=false
 
 	rainloop:
     image: hardware/rainloop
@@ -138,9 +140,10 @@ services:
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:rainloop.example.com
-        - traefik.docker.network=traefik_public
-        - traefik.port=8888
+        - traefik.http.routers.rainloop.rule=Host(`rainloop.example.com`)
+        - traefik.http.routers.rainloop.entrypoints=https
+        - traefik.http.routers.rainloop.tls=true
+        - traefik.http.services.rainloop.loadbalancer.server.port=8888
     volumes:
       - /var/data/mailserver/rainloop:/rainloop/data
 
