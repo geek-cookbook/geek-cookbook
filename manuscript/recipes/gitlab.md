@@ -89,9 +89,10 @@ services:
     - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:gitlab.example.com
-        - traefik.docker.network=traefik
-        - traefik.port=80
+        - traefik.http.routers.gitlab.rule=Host(`gitlab.example.com`)
+        - traefik.http.routers.gitlab.entrypoints=https
+        - traefik.http.routers.gitlab.tls=true
+        - traefik.http.services.gitlab.loadbalancer.server.port=80
       restart_policy:
         delay: 10s
         max_attempts: 10
