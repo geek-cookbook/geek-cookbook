@@ -58,10 +58,14 @@ This is a small container, you can simply add the following content to the exist
       - traefik_public
     deploy:
       labels:
-        - traefik.port=4181
-        - traefik.frontend.rule=Host:auth.example.com
-        - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
-        - traefik.frontend.auth.forward.trustForwardHeader=true
+        - traefik.http.services.whoami.loadbalancer.server.port=4181
+        - traefik.http.routers.whoami.rule=Host(`auth.example.com`)
+        - traefik.http.routers.whoami.entrypoints=https
+        - traefik.http.routers.whoami.middlewares=auth
+        - traefik.http.routers.whoami.tls=true
+        - traefik.http.middlewares.auth.forwardauth.address=http://traefik-forward-auth:4181
+        - traefik.http.middlewares.auth.forwardauth.authresponseheaders=X-Forwarded-User
+        - traefik.http.middlewares.auth.forwardauth.trustforwardheader=true
 ```
 
 If you're not confident that forward authentication is working, add a simple "whoami" test container, to help debug traefik forward auth, before attempting to add it to a more complex container.
