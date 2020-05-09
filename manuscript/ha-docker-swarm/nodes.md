@@ -65,7 +65,7 @@ ln -sf /usr/share/zoneinfo/<your timezone> /etc/localtime
 
 ### Install Docker
 
-A fresh installation of Ubuntu does not include Docker, so you wil need to install it manually. Run the following command **on each node**
+A fresh installation of Ubuntu does not include Docker, so you will need to install it manually. Run the following command **on each node**
 
 ```
 apt install docker.io -y
