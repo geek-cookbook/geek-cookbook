@@ -70,11 +70,11 @@ A fresh installation of Ubuntu does not include Docker, so you will need to inst
 ```
 apt install docker.io -y
 ```
+
 !!! tip
     In order not to have to type `sudo` in front of every Docker command in this guide, you can add your user to the `docker` group by executing the following command **on each node**:
     ```sudo usermod -aG docker ${USER}```
     Once you do that, you'll need to log out and back in again for the new group permissions to become active.
-
 
 ## Serving
 
