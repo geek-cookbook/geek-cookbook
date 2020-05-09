@@ -51,7 +51,7 @@ docker run -d --net=host \
 -e MON_IP=192.168.31.11 \
 -e CEPH_PUBLIC_NETWORK=192.168.31.0/24 \
 --name="ceph-mon" \
-ceph/daemon mon
+ceph/daemon:latest-mimic mon
 ```
 
 Now **copy** the contents of /etc/ceph on this first node to the remaining nodes, and **then** run the docker command above (_customizing MON_IP as you go_) on each remaining node. You'll end up with a cluster with 3 monitors (odd number is required for quorum, same as Docker Swarm), and no OSDs (yet)
@@ -155,6 +155,10 @@ Grab the secret associated with the new user (you'll need this for the /etc/fsta
 ceph-authtool /etc/ceph/keyring.dockerswarm -p -n client.dockerswarm
 ```
 
+!!! note
+    These commands need to be executed from within the running `ceph-mon` container. To do this, we will use the `docker exec` command to open a shell *inside* the running container in order to run the commands above:
+    ```docker exec -it ceph-mon /bin/sh``` 
+
 ### Mount MDS volume
 
 On each node, create a mountpoint for the data, by running ```mkdir /var/data```, add an entry to fstab to ensure the volume is auto-mounted on boot, and ensure the volume is actually _mounted_ if there's a network / boot delay getting access to the gluster volume:
@@ -162,14 +166,13 @@ On each node, create a mountpoint for the data, by running ```mkdir /var/data```
 ```
 mkdir /var/data
 
-MYHOST=`hostname -s`
-echo -e "
+echo " \
 # Mount cephfs volume \n
-$MYHOST:6789:/      /var/data/      ceph      \
+<node_IP>:6789:/      /var/data/      ceph      \
 name=dockerswarm\
 ,secret=<YOUR SECRET HERE>\
 ,noatime,_netdev,context=system_u:object_r:svirt_sandbox_file_t:s0 \
-0 2" >> /etc/fstab
+0 2" | sudo tee -a /etc/fstab
 mount -a
 ```
 ### Install docker-volume plugin
