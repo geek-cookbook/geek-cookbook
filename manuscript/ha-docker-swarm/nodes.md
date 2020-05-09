@@ -63,6 +63,19 @@ Set your local timezone, by running:
 ln -sf /usr/share/zoneinfo/<your timezone> /etc/localtime
 ```
 
+### Install Docker
+
+A fresh installation of Ubuntu does not include Docker, so you wil need to install it manually. Run the following command **on each node**
+
+```
+apt install docker.io -y
+```
+!!! tip
+    In order not to have to type `sudo` in front of every Docker command in this guide, you can add your user to the `docker` group by executing the following command **on each node**:
+    ```sudo usermod -aG docker ${USER}```
+    Once you do that, you'll need to log out and back in again for the new group permissions to become active.
+
+
 ## Serving
 
 After completing the above, you should have:
@@ -74,6 +87,7 @@ After completing the above, you should have:
           * A mainstream Linux OS (*tested on either [CentOS](https://www.centos.org) 7+ or [Ubuntu](http://releases.ubuntu.com) 16.04+*)
           * At least 2GB RAM
           * At least 20GB disk space (_but it'll be tight_)
+          * Docker installed and ready for configuration
     * [X] Connectivity to each other within the same subnet, and on a low-latency link (_i.e., no WAN links_)
 
 ## Chef's Notes 📓
