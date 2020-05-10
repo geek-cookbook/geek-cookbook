@@ -172,7 +172,7 @@ echo " \
 name=dockerswarm\
 ,secret=<YOUR SECRET HERE>\
 ,noatime,_netdev,context=system_u:object_r:svirt_sandbox_file_t:s0 \
-0 2" | sudo tee -a /etc/fstab
+0 2" >> /etc/fstab
 mount -a
 ```
 ### Install docker-volume plugin
