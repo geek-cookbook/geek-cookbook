@@ -157,7 +157,7 @@ ceph-authtool /etc/ceph/keyring.dockerswarm -p -n client.dockerswarm
 
 !!! note
     These commands need to be executed from within the running `ceph-mon` container. To do this, we will use the `docker exec` command to open a shell *inside* the running container in order to run the commands above:
-    ```docker exec -it ceph-mon /bin/sh``` 
+    ```docker exec -it ceph-mon /bin/bash```
 
 ### Mount MDS volume
 
