@@ -54,13 +54,3 @@ Network  | Range
 [Graylog](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)  |  172.16.52.0/24
 [Harbor](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)  |  172.16.53.0/24
 [Harbor-Clair](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)  |  172.16.54.0/24
-
-
-
-## Chef's Notes
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

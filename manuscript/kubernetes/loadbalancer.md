@@ -332,9 +332,3 @@ Still with me? Good. Move on to setting up an ingress SSL terminating proxy with
 ## Chef's Notes
 
 1. This is MVP of the load balancer solution. Any suggestions for improvements are welcome 😉
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

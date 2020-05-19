@@ -24,11 +24,3 @@ To execute, simply run `docker run --rm -ti --name ctop -v /var/run/docker.sock:
 
 Example:
 ![](https://github.com/bcicen/ctop/raw/master/_docs/img/grid.gif)
-
-## Chef's Notes
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

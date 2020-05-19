@@ -127,12 +127,3 @@ Still with me? Good. Move on to creating your cluster!
 * [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
 * [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
 * [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
-
-
-## Chef's Notes
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬
