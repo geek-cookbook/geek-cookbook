@@ -8,7 +8,7 @@ What's an Instagram bot? Basically, you feed the bot your Instagram user/passwor
 
 ![InstaPy Screenshot](../images/instapy.png)
 
-Great power, right? A client (_yes, you can [hire](https://www.funkypenguin.co.nz/contact/) me!_) asked me to integrate InstaPy into their swarm, and this recipe is the result.
+Great power, right? A client (_yes, you can [hire](https://www.funkypenguin.co.nz/) me!_) asked me to integrate InstaPy into their swarm, and this recipe is the result.
 
 ## Ingredients
 

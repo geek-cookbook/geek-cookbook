@@ -208,6 +208,8 @@ extra:
       link: 'https://www.linkedin.com/in/funkypenguin'
     - icon: 'material/library'
       link: 'https://leanpub.com/geeks-cookbook'    
+    - icon: 'material/mailbox'
+      link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'             
   
 
 # Google Analytics

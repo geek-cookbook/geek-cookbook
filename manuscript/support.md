@@ -79,4 +79,4 @@ Come and hang out in Discord..
 [11]:	https://github.com/sponsors/funkypenguin
 [12]:	https://github.com/funkypenguin
 [13]:	https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-02-22&ci=AWS00794574
-[14]:	https://www.funkypenguin.co.nz/contact/
+[14]:	https://www.funkypenguin.co.nz
