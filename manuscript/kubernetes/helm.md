@@ -60,9 +60,3 @@ Still with me? Good. Move on to understanding Helm charts...
 ## Chef's Notes
 
 1. Of course, you can have lots of fun deploying all sorts of things via Helm. Check out https://github.com/helm/charts for some examples.
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

@@ -40,12 +40,3 @@ Name | Description | Badges
 [funkypenguin/turtlecoin](https://hub.docker.com/r/funkypenguin/turtlecoin/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/turtlecoin.svg)](https://hub.docker.com/r/funkypenguin/turtlecoin/)| turtlecoin |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/turtlecoin.svg)](https://hub.docker.com/r/funkypenguin/turtlecoin/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/turtlecoin.svg)](https://hub.docker.com/r/funkypenguin/turtlecoin/)
 [funkypenguin/x-cash](https://hub.docker.com/r/funkypenguin/x-cash/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/x-cash.svg)](https://hub.docker.com/r/funkypenguin/x-cash/)| X-CASH cryptocurrency daemon/services |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/x-cash.svg)](https://hub.docker.com/r/funkypenguin/x-cash/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/x-cash.svg)](https://hub.docker.com/r/funkypenguin/x-cash/)
 [funkypenguin/xmrig-cpu](https://hub.docker.com/r/funkypenguin/xmrig-cpu/)<br/>[![Size](https://images.microbadger.com/badges/image/funkypenguin/xmrig-cpu.svg)](https://hub.docker.com/r/funkypenguin/xmrig-cpu/)| xmrig-cpu |[![Docker Pulls](https://img.shields.io/docker/pulls/funkypenguin/xmrig-cpu.svg)](https://hub.docker.com/r/funkypenguin/xmrig-cpu/)<br/>[![Docker Stars](https://img.shields.io/docker/stars/funkypenguin/xmrig-cpu.svg)](https://hub.docker.com/r/funkypenguin/xmrig-cpu/)|
-
-
-## Chef's Notes
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

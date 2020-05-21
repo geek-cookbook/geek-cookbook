@@ -212,9 +212,3 @@ I'll be adding more Kubernetes versions of existing recipes soon. Check out the 
 ## Chef's Notes
 
 1. It's kinda lame to be able to bring up Traefik but not to use it. I'll be adding the oauth_proxy element shortly, which will make this last step a little more conclusive and exciting!
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬
