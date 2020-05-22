@@ -1,4 +1,6 @@
-A Beginners Guide to Discord
+**A Beginners Guide to Discord**
+
+
 
 
 **What is Discord?**
