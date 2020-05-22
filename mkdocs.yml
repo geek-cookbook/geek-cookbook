@@ -5,7 +5,7 @@ site_url: 'https://geek-cookbook.funkypenguin.co.nz'
 edit_uri: 'edit/master/manuscript/'
 
 # Fail to build if we have broken links
-strict: true
+# strict: true
 
 # Repository
 repo_name: 'geek-cookbook/yes-this-is-it'
@@ -209,8 +209,7 @@ extra_css:
   - 'stylesheets/mailchimp.css'
 
 extra_javascript:
-  - 'extras/javascript/discord.js'
-  - 'extras/javascript/rightmessage.js'  
+  - 'extras/javascript/discord.js' 
 
 # Extensions
 markdown_extensions:
