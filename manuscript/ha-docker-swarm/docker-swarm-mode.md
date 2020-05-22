@@ -167,10 +167,9 @@ Launch shepherd by running ```docker stack deploy shepherd -c /var/data/config/s
 
 ### Summary 
 
-!!! summary
-    Created
+After completing the above, you should have:
     
-    * [X] [Docker swarm cluster](/ha-docker-swarm/design/)
+* [X] [Docker swarm cluster](/ha-docker-swarm/design/)
 
 
 ## Chef's Notes 📓

@@ -154,10 +154,8 @@ For non-gluster nodes, you'll need to replace $MYHOST above with the name of one
 
 After completing the above, you should have:
 
-```
-[X] Persistent storage available to every node
-[X] Resiliency in the event of the failure of a single (gluster) node
-```
+* [X] Persistent storage available to every node
+* [X] Resiliency in the event of the failure of a single (gluster) node
 
 ## Chef's Notes 📓
 

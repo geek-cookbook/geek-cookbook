@@ -5,7 +5,7 @@ site_url: 'https://geek-cookbook.funkypenguin.co.nz'
 edit_uri: 'edit/master/manuscript/'
 
 # Fail to build if we have broken links
-strict: true
+# strict: true
 
 # Repository
 repo_name: 'funkypenguin/geek-cookbook'
@@ -23,8 +23,8 @@ plugins:
   - minify:
       minify_html: true
   # this doesn't work with the current netlify build process, which modifies .md files in the "publish" subfolder before building
-  # - git-revision-date-localized:
-  #     type: date
+  - git-revision-date-localized:
+      type: date
   - autolinks
   # - htmlproofer
 

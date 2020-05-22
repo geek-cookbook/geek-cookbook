@@ -1,5 +1,3 @@
-hero: Automate your social life! (what could go wrong?)
-
 # InstaPy
 
 [InstaPy](https://github.com/timgrossmann/InstaPy) is an Instagram bot, developed by [Tim Grossman](https://github.com/timgrossmann). Tim describes his motivation and experiences developing the bot [here](https://medium.freecodecamp.org/my-open-source-instagram-bot-got-me-2-500-real-followers-for-5-in-server-costs-e40491358340).
@@ -12,7 +10,13 @@ Great power, right? A client (_yes, you can [hire](https://www.funkypenguin.co.n
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+!!! summary "Ingredients"
+    Existing:
+
+    1. [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+    2. [X] [Traefik](/ha-docker-swarm/traefik_public) configured per design
+    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+
 
 ## Preparation
 
