@@ -33,8 +33,12 @@ Gollum meets all these requirements, and as an added bonus, is extremely fast an
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
+!!! summary "Ingredients"
+    Existing:
+
+    1. [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+    2. [X] [Traefik](/ha-docker-swarm/traefik_public) configured per design
+    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 

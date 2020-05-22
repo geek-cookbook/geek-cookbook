@@ -1,0 +1,31 @@
+name: Notify Discord to cookbook update 
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'manuscript/*.md'
+      - 'manuscript/**/*.md'
+
+jobs:
+  notify-discord:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Discord notification
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      uses: Ilshidur/action-discord@master
+      with:
+        args: |
+          Greetings, geeks!  🤓
+
+        The [Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz] has been updated!
+
+          Here's what's changed:
+          > ${{github.event.commits[].message}}
+
+          Get more details at:
+          {{ EVENT_PAYLOAD.compare }}

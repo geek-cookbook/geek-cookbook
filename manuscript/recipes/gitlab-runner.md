@@ -6,14 +6,19 @@ While a runner isn't strictly required to use GitLab, if you want to do CI, you'
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [GitLab](/ha-docker-swarm/gitlab) installation (see previous recipe)
+!!! summary "Ingredients"
+    Existing:
+
+    1. [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+    2. [X] [Traefik](/ha-docker-swarm/traefik_public) configured per design
+    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+    4. [X] [GitLab](/ha-docker-swarm/gitlab) installation (see previous recipe)
 
 ## Preparation
 
 ### Setup data locations
 
-We'll need several directories to bind-mount into our runner containers, so create them in /var/data/gitlab:
+We'll need several directories to bind-mount into our runner containers, so create them in `/var/data/gitlab`:
 
 ```
 cd /var/data
@@ -58,7 +63,7 @@ networks:
 
 ### Configure runners
 
-From your GitLab UI, you can retrieve a "token" necessary to register a new runner. To register the runner, you can either create config.toml in each runner's bind-mounted folder (example below), or just "docker exec" into each runner container and execute ```gitlab-runner register``` to interactively generate config.toml.
+From your GitLab UI, you can retrieve a "token" necessary to register a new runner. To register the runner, you can either create config.toml in each runner's bind-mounted folder (example below), or just `docker exec` into each runner container and execute ```gitlab-runner register``` to interactively generate config.toml.
 
 Sample runner config.toml:
 
@@ -91,5 +96,5 @@ Log into your new instance at https://**YOUR-FQDN**, with user "root" and the pa
 
 ## Chef's Notes 📓
 
-1. You'll note that I setup 2 runners. One is locked to a single project (this cookbook build), and the other is a shared runner. I wanted to ensure that one runner was always available to run CI for this project, even if I'd tied up another runner on something heavy-duty, like a container build. Customize this to your use case.
-2. Originally I deployed runners in the same stack as GitLab, but I found that they would frequently fail to start properly when I launched the stack. I think that this was because the runners started so quickly (and GitLab starts so slowly!), that they always started up reporting that the GitLab instance was invalid or unavailable. I had issues with CI builds stuck permanently in a "pending" state, which were only resolved by restarting the runner. Having the runners deployed in a separate stack to GitLab avoids this problem.
+1. You'll note that I setup 2 runners. One is locked to a single project (*this cookbook build*), and the other is a shared runner. I wanted to ensure that one runner was always available to run CI for this project, even if I'd tied up another runner on something heavy-duty, like a container build. Customize this to your use case.
+2. Originally I deployed runners in the same stack as GitLab, but I found that they would frequently fail to start properly when I launched the stack. I think that this was because the runners started so quickly (*and GitLab starts **sooo** slowly!*), that they always started up reporting that the GitLab instance was invalid or unavailable. I had issues with CI builds stuck permanently in a "pending" state, which were only resolved by restarting the runner. Having the runners deployed in a separate stack to GitLab avoids this problem.

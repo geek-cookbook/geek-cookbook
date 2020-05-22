@@ -26,7 +26,7 @@ I originally provided shared storage to my nodes using GlusterFS (see the next r
     * [X] At least 1GB RAM
     * [X] At least 20GB disk space (_but it'll be tight_)
     * [X] Connectivity to each other within the same subnet, and on a low-latency link (_i.e., no WAN links_)
-    * [ ] A second disk dedicated to the Ceph OSD
+    * [X] A second disk dedicated to the Ceph OSD
 
 ## Preparation
 
@@ -184,10 +184,8 @@ https://github.com/gliderlabs/docker-alpine/issues/317
 
 After completing the above, you should have:
 
-```
-[X] Persistent storage available to every node
-[X] Resiliency in the event of the failure of a single node
-```
+* [X] Persistent storage available to every node
+* [X] Resiliency in the event of the failure of a single node
 
 ## Chef's Notes 📓
 
