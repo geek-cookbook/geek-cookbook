@@ -209,7 +209,8 @@ extra_css:
   - 'stylesheets/mailchimp.css'
 
 extra_javascript:
-  - 'extras/javascript/discord.js'  
+  - 'extras/javascript/discord.js'
+  - 'extras/javascript/rightmessage.js'  
 
 # Extensions
 markdown_extensions:
