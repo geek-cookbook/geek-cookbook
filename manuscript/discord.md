@@ -11,7 +11,7 @@ Discord is a free VoIP (Voice Over IP) application which is designed for creatin
 **How do I use discord?**
 
 When you log into discord for the first time you will be presented with this screen
-![Image of Discord](../images/discord.png)
+![Image of Discord](./images/discord.PNG)
 
 
 In order to start using discord you will need to join your first server, You can join a server by clicking on the green + and clicking join a server, From there it will ask for the servers invite code, The invite code for Funky Penguins discord is [Here](https://discord.gg/R2NH7kZ). Once you join the server you will be presented with rooms called “Channels” When you click on a channel you will be able to start talking in that channel and everyone in the server will be able to talk to you. If you want to get the attention of a specific user you are able to poke (Formally known as a “mention”) By initially typing @ and then the username of the user so for example if you want to poke funky penguin you will type @funkypenguin Hello. When you start typing the username you will see names appearing above the text box, If you see the user you can click on the name and it will automatically type their name
