@@ -8,8 +8,8 @@ edit_uri: 'edit/master/manuscript/'
 # strict: true
 
 # Repository
-repo_name: 'funkypenguin/geek-cookbook'
-repo_url: 'https://github.com/funkypenguin/geek-cookbook'
+repo_name: 'geek-cookbook/yes-this-is-it'
+repo_url: 'https://github.com/geek-cookbook/yes-this-is-it'
 
 # Set this to "manuscript" so that we can produce leanpub content
 docs_dir: 'manuscript'
@@ -209,7 +209,7 @@ extra_css:
   - 'stylesheets/mailchimp.css'
 
 extra_javascript:
-  - 'extras/javascript/discord.js'  
+  - 'extras/javascript/discord.js' 
 
 # Extensions
 markdown_extensions:

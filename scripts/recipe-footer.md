@@ -6,6 +6,8 @@ Did you receive excellent service? Want to make your waiter happy? (_..and suppo
 
 Want to know now when this recipe gets updated, or when future recipes are added? Subscribe to the [RSS feed](https://mastodon.social/@geekcookbook_changes.atom), or leave your email address below, and we'll keep you updated. (*double-opt-in, no monkey business, no spam either - check the [archive](https://us16.campaign-archive.com/home/?u=a1d9cee4402be76497a2baf49&id=10e284530a) for proof!*)
 
+<div class="rm-area-after-recipe"></div>
+
 <!-- Begin Mailchimp Signup Form -->
 <div id="mailchimp">
 <form action="https://funkypenguin.us16.list-manage.com/subscribe/post?u=a1d9cee4402be76497a2baf49&amp;id=10e284530a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
