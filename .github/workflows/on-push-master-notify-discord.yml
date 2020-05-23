@@ -25,7 +25,7 @@ jobs:
         The [Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz] has been updated!
 
           Here's what's changed:
-          > ${{github.event.commits[].message}}
+          > ${{github.event.commits[0].message}}
 
           Get more details at:
           {{ EVENT_PAYLOAD.compare }}
