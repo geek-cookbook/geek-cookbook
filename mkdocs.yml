@@ -9,7 +9,7 @@ edit_uri: 'edit/master/manuscript/'
 
 # Repository
 repo_name: 'geek-cookbook/yes-this-is-it'
-repo_url: 'https://github.com/geek-cookbook/yes-this-is-it'
+repo_url: 'https://github.com/funkypenguin/geek-cookbook'
 
 # Set this to "manuscript" so that we can produce leanpub content
 docs_dir: 'manuscript'
