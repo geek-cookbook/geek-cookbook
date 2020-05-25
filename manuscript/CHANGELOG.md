@@ -12,7 +12,7 @@
 * Kubernetes recipes for UniFi controller, Miniflux, Kanboard and PrivateBin coming in March! (_19 Mar 2019_)
 
 ## Recently added recipes
-* Overhauled [Ceph (Shared Storage)](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph/) recipe (_25 May 2020_) for Ceph Octopus (v15)
+* Overhauled [Ceph (Shared Storage)](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph/) recipe for Ceph Octopus (v15) (_25 May 2020_) 
 * Added recipe for making your own [DIY Kubernetes Cluster](/kubernetes/diycluster/) (_14 December 2019_)
 * Added recipe for [authenticating Traefik Forward Auth against KeyCloak](/ha-docker-swarm/traefik-forward-auth/keycloak/) (_16 May 2019_)
 * Added [Bitwarden](/recipes/bitwarden/), an **awesome** open-source password manager, with great mobile sync support (_14 May 2019_)
