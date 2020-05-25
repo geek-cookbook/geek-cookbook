@@ -22,7 +22,7 @@ jobs:
         args: |
           Greetings, geeks!  🤓
 
-        The [Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz] has been updated!
+          The [Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz] has been updated!
 
           Here's what's changed:
           > ${{github.event.commits[0].message}}
