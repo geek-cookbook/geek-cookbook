@@ -31,7 +31,7 @@ Check out recent change at [CHANGELOG](/CHANGELOG/)
 
 ## What do you want from me?
 
-I want your [patronage][patreon], either in the financial sense, or as a member of our [friendly geek community][discord] (*or both!*)
+I want your [support][github_sponsor], either in the [financial][github_sponsor] sense, or as a member of our [friendly geek community][discord] (*or both!*)
 
 ### Get in touch 👋
 
@@ -43,7 +43,7 @@ I want your [patronage][patreon], either in the financial sense, or as a member 
 
 I'm also publishing the Geek Cookbook as a formal eBook (*PDF, mobi, epub*), on Leanpub (https://leanpub.com/geek-cookbook). Buy it for as little as $5 (_which is really just a token gesture of support, since all the content is available online anyway!_) or pay what you think it's worth!
 
-### [Patronize][patreon] / [Sponsor][github_sponsor]  me ❤️
+### [Sponsor][github_sponsor] / [Patronize][patreon] me ❤️
 
 The best way to support this work is to become a [GitHub Sponsor](https://github.com/sponsors/funkypenguin) / [Patreon patron][patreon] (_for as little as $1/month!_) - You get :
 
@@ -54,7 +54,7 @@ The best way to support this work is to become a [GitHub Sponsor](https://github
 
 .. and I get some pocket money every month to buy wine, cheese, and cryptocurrency! 🍷 💰
 
-Impulsively **[click here (NOW quick do it!)][patreon]** to patronize me, or instead thoughtfully and analytically review my GitHub page **[here][github_sponsor]** and make up your own mind.
+Impulsively **[click here (NOW quick do it!)][github_sponsor]** to [sponsor me][github_sponsor] via GitHub, or [patronize me via Patreon][patreon]!
 
 
 ### Work with me 🤝
@@ -62,12 +62,13 @@ Impulsively **[click here (NOW quick do it!)][patreon]** to patronize me, or ins
 Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified][aws_cert] consultant, this stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch][contact], and let's talk business!
 
 [plex]:	            https://www.plex.tv/
-[owncloud]:	        https://owncloud.org/
+[nextcloud]:        https://nextcloud.com/
 [wordpress]:	    https://wordpress.org/
 [ghost]:	        https://ghost.io/
 [discord]:          http://chat.funkypenguin.co.nz
 [patreon]:	        https://www.patreon.com/bePatron?u=6982506
 [github_sponsor]:   https://github.com/sponsors/funkypenguin
+[github]:           https://github.com/sponsors/funkypenguin
 [discourse]:	    https://discourse.geek-kitchen.funkypenguin.co.nz/
 [twitter]:	        https://twitter.com/funkypenguin
 [contact]:	        https://www.funkypenguin.co.nz
