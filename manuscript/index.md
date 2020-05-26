@@ -62,7 +62,7 @@ Impulsively **[click here (NOW quick do it!)][github_sponsor]** to [sponsor me][
 Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified][aws_cert] consultant, this stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch][contact], and let's talk business!
 
 [plex]:	            https://www.plex.tv/
-[owncloud]:	        https://owncloud.org/
+[nextcloud]:        https://nextcloud.com/
 [wordpress]:	    https://wordpress.org/
 [ghost]:	        https://ghost.io/
 [discord]:          http://chat.funkypenguin.co.nz
