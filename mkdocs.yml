@@ -34,6 +34,8 @@ nav:
       - What is this: index.md
       - About: whoami.md
       - Sponsored Projects: sponsored-projects.md 
+      - Discord: discord.md
+
     # - 'Join Us! 🤝':
     #   - Hello: recipes/general/start.md
     #   - iPad Pro Geeking: recipes/general/ipad-pro-geeking.md
