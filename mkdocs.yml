@@ -34,6 +34,7 @@ nav:
       - What is this: index.md
       - About: whoami.md
       - Sponsored Projects: sponsored-projects.md 
+      # Discord Guide
       - Discord: discord.md
 
     # - 'Join Us! 🤝':
