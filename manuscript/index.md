@@ -73,3 +73,15 @@ Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm 
 [twitter]:	        https://twitter.com/funkypenguin
 [contact]:	        https://www.funkypenguin.co.nz
 [aws_cert]:	        https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-02-22&ci=AWS00794574
+
+!!! quote "He unblocked me on all the technical hurdles to launching my SaaS in GKE!"
+
+    By the time I had enlisted Funky Penguin's help, I'd architected myself into a bit of a nightmare with Kubernetes. I knew what I wanted to achieve, but I'd made a mess of it. Funky Penguin (David) was able to jump right in and offer a vital second-think on everything I'd done, pointing out where things could be simplified and streamlined, and better alternatives. 
+
+    He unblocked me on all the technical hurdles to launching my SaaS in GKE! 
+
+    With him delivering the container/Kubernetes architecture and helm CI/CD workflow, I was freed up to focus on coding and design, which fast-tracked me to launching on time. And now I have a simple deployment process that is easy for me to execute and maintain as a solo founder. 
+
+    I have no hesitation in recommending him for your project, and I'll certainly be calling on him again in the future.
+
+    - John McDowall, Founder, [kiso.io](https://kiso.io) 
