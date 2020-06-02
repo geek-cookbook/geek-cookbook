@@ -47,7 +47,7 @@ I want your [support][github_sponsor], either in the [financial][github_sponsor]
 
 ### [Sponsor][github_sponsor] / [Patronize][patreon] me ❤️
 
-The best way to support this work is to become a [GitHub Sponsor](https://github.com/sponsors/funkypenguin) / [Patreon patron][patreon] (_for as little as $1/month!_) - You get :
+The best way to support this work is to become a [GitHub Sponsor](https://github.com/sponsors/funkypenguin) / [Patreon patron][patreon]. You get:
 
 * warm fuzzies,
 * access to the pre-mix repo,
