@@ -39,9 +39,6 @@ I want your [support][github_sponsor], either in the [financial][github_sponsor]
 * Tweet me up, I'm [@funkypenguin][twitter]! 🐦
 * [Contact me][contact] by a variety of channels
 
-### Buy my book 📖
-
-I'm also publishing the Geek Cookbook as a formal eBook (*PDF, mobi, epub*), on Leanpub (https://leanpub.com/geek-cookbook). Buy it for as little as $5 (_which is really just a token gesture of support, since all the content is available online anyway!_) or pay what you think it's worth!
 
 ### [Sponsor][github_sponsor] / [Patronize][patreon] me ❤️
 
@@ -85,3 +82,7 @@ Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm 
     I have no hesitation in recommending him for your project, and I'll certainly be calling on him again in the future.
 
     - John McDowall, Founder, [kiso.io](https://kiso.io) 
+
+### Buy my book 📖
+
+I'm publishing the Geek Cookbook as a formal eBook (*PDF, mobi, epub*), on Leanpub (https://leanpub.com/geek-cookbook). Check it out!
