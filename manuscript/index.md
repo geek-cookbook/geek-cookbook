@@ -25,6 +25,11 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 2. You want to play. You want a safe sandbox to test new tools, keeping the ones you want and tossing the ones you don't.
 3. You want reliability. Once you go from __playing__ with a tool to actually __using__ it, you want it to be available when you need it. Having to "*quickly ssh into the basement server and restart plex*" doesn't cut it when you finally convince your wife to sit down with you to watch sci-fi.
 
+!!! quote "...how useful the recipes are for people just getting started with containers..."
+
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">.<a href="https://twitter.com/funkypenguin?ref_src=twsrc%5Etfw">@funkypenguin</a> One of the surprising realizations from following Funky Penguins cookbooks <a href="https://t.co/XvZ2qLJa5N">https://t.co/XvZ2qLJa5N</a> for so long is how useful the recipes are for people just getting started with containers and how it gives them real, interesting usecases to attach to their learning</p>&mdash; DevOps Daniel (@DanielSHouston) <a href="https://twitter.com/DanielSHouston/status/1213419203379773442?ref_src=twsrc%5Etfw">January 4, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
 ## What have you done for me lately? (CHANGELOG)
 
 Check out recent change at [CHANGELOG](/CHANGELOG/)
@@ -81,7 +86,7 @@ Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm 
 
     I have no hesitation in recommending him for your project, and I'll certainly be calling on him again in the future.
 
-    - John McDowall, Founder, [kiso.io](https://kiso.io) 
+    -- John McDowall, Founder, [kiso.io](https://kiso.io) 
 
 ### Buy my book 📖
 
