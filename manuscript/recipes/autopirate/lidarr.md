@@ -1,17 +1,17 @@
 hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and organising your media    
 
 !!! warning
-    This is not a complete recipe - it's a component of the [autopirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [autopirate]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # Lidarr
 
-[Lidarr](https://lidarr.audio/) is an automated music downloader for NZB and Torrent. It performs the same function as [Headphones](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/headphones), but is written using the same(ish) codebase as [Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/) and [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr). It's blazingly fast, and includes beautiful album/artist art. Lidarr supports [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sabnzbd/), [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget/), Transmission, Torrent, Deluge and Blackhole (_just like Sonarr / Radarr_)
+[Lidarr](https://lidarr.audio/) is an automated music downloader for NZB and Torrent. It performs the same function as [Headphones]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/headphones), but is written using the same(ish) codebase as [Radarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/radarr/) and [Sonarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sonarr). It's blazingly fast, and includes beautiful album/artist art. Lidarr supports [SABnzbd]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sabnzbd/), [NZBGet]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbget/), Transmission, Torrent, Deluge and Blackhole (_just like Sonarr / Radarr_)
 
 ![Lidarr Screenshot](../../images/lidarr.png)
 
 ## Inclusion into AutoPirate
 
-To include Lidarr in your [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include Lidarr in your [AutoPirate]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
 ```
 lidarr:
@@ -51,24 +51,24 @@ lidarr_proxy:
 
 ## Assemble more tools..
 
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/)** section:
+Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/end/)** section:
 
-* [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sabnzbd.md)
-* [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget.md)
-* [RTorrent](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/rtorrent/)
-* [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr/)
-* [Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/)
+* [SABnzbd]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sabnzbd.md)
+* [NZBGet]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbget.md)
+* [RTorrent]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/rtorrent/)
+* [Sonarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sonarr/)
+* [Radarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/radarr/)
 * [Mylar](https://github.com/evilhero/mylar)
-* [Lazy Librarian](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lazylibrarian/)
-* [Headphones](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/headphones/)
+* [Lazy Librarian]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/lazylibrarian/)
+* [Headphones]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/headphones/)
 * Lidarr (this page)
-* [NZBHydra](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra/)
-* [NZBHydra](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra/)
-* [NZBHydra2](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra2/)
-* [Ombi](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/ombi/)
-* [Jackett](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/jackett/)
-* [Heimdall](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/heimdall/)
-* [End](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/) (launch the stack)
+* [NZBHydra]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra/)
+* [NZBHydra]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra/)
+* [NZBHydra2]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra2/)
+* [Ombi]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/ombi/)
+* [Jackett]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/jackett/)
+* [Heimdall]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/heimdall/)
+* [End]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/end/) (launch the stack)
 
 
 ## Chef's Notes 

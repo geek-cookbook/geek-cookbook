@@ -42,7 +42,7 @@ Under this design, the only inbound connections we're permitting to our Kubernet
 ### Network Flows
 
 * HTTPS (TCP 443) : Serves individual docker containers via SSL-encrypted reverse proxy (_Traefik_)
-* Individual additional ports we choose to expose for specific recipes (_i.e., port 8443 for [MQTT](https://geek-cookbook.funkypenguin.co.nz/)recipes/mqtt/)_)
+* Individual additional ports we choose to expose for specific recipes (_i.e., port 8443 for [MQTT]https://geek-cookbook.funkypenguin.co.nz/recipes/mqtt/)_)
 
 ### Authentication
 
@@ -68,7 +68,7 @@ We use a phone-home container, which calls a simple webhook on our haproxy VM, a
 
 Here's a high-level diagram:
 
-![Kubernetes Design](https://geek-cookbook.funkypenguin.co.nz/)images/kubernetes-cluster-design.png)
+![Kubernetes Design]https://geek-cookbook.funkypenguin.co.nz/images/kubernetes-cluster-design.png)
 
 ## Overview
 
@@ -80,7 +80,7 @@ In the diagram, we have a Kubernetes cluster comprised of 3 nodes. You'll notice
 
 Our nodes are partitioned into several namespaces, which logically separate our individual recipes. (_I.e., allowing both a "gitlab" and a "nextcloud" namespace to include a service named "db", which would be challenging without namespaces_)
 
-Outside of our cluster (_could be anywhere on the internet_) is a single VM servicing as a load-balancer, running HAProxy and a webhook service. This load-balancer is described in detail, [in its own section](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/loadbalancer/), but what's important up-front is that this VM is the **only element of the design for which we need to provide a fixed IP address**.
+Outside of our cluster (_could be anywhere on the internet_) is a single VM servicing as a load-balancer, running HAProxy and a webhook service. This load-balancer is described in detail, [in its own section]https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/), but what's important up-front is that this VM is the **only element of the design for which we need to provide a fixed IP address**.
 
 ### 1 : The mosquitto pod
 
@@ -92,7 +92,7 @@ The phone-home container calls the webhook, and tells HAProxy to listen on port 
 
 ### 2 : The Traefik Ingress
 
-In the "default" namespace, we have a Traefik "Ingress Controller". An Ingress controller is a way to use a single port (_say, 443_) plus some intelligence (_say, a defined mapping of URLs to services_) to route incoming requests to the appropriate containers (_via services_). Basically, the Trafeik ingress does what [Traefik does for us under Docker Swarm](https://geek-cookbook.funkypenguin.co.nz/)docker-ha-swarm/traefik/).
+In the "default" namespace, we have a Traefik "Ingress Controller". An Ingress controller is a way to use a single port (_say, 443_) plus some intelligence (_say, a defined mapping of URLs to services_) to route incoming requests to the appropriate containers (_via services_). Basically, the Trafeik ingress does what [Traefik does for us under Docker Swarm]https://geek-cookbook.funkypenguin.co.nz/docker-ha-swarm/traefik/).
 
 What's happening in the diagram is that a phone-home pod is tied to the traefik pod using affinity, so that both containers will be executed on the same host. Again, the phone-home container calls a webhook on the HAProxy VM, auto-configuring HAproxy to send any HTTPs traffic to its calling address and customer NodePort port number.
 
@@ -120,10 +120,10 @@ Finally, the DNS for all externally-accessible services is pointed to the IP of 
 
 Still with me? Good. Move on to creating your cluster!
 
-* [Start](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/start/) - Why Kubernetes?
+* [Start]https://geek-cookbook.funkypenguin.co.nz/kubernetes/start/) - Why Kubernetes?
 * Design (this page) - How does it fit together?
-* [Cluster](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/cluster/) - Setup a basic cluster
-* [Load Balancer](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/loadbalancer/) - Setup inbound access
-* [Snapshots](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/snapshots/) - Automatically backup your persistent data
-* [Helm](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/helm/) - Uber-recipes from fellow geeks
-* [Traefik](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/traefik/) - Traefik Ingress via Helm
+* [Cluster]https://geek-cookbook.funkypenguin.co.nz/kubernetes/cluster/) - Setup a basic cluster
+* [Load Balancer]https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/) - Setup inbound access
+* [Snapshots]https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/) - Automatically backup your persistent data
+* [Helm]https://geek-cookbook.funkypenguin.co.nz/kubernetes/helm/) - Uber-recipes from fellow geeks
+* [Traefik]https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/) - Traefik Ingress via Helm

@@ -1,5 +1,5 @@
 !!! warning
-    This is not a complete recipe - it's a component of the [autopirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [autopirate]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # LazyLibrarian
 
@@ -15,7 +15,7 @@
 
 ## Inclusion into AutoPirate
 
-To include LazyLibrarian in your [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include LazyLibrarian in your [AutoPirate]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
 ```
 lazylibrarian:
@@ -63,26 +63,26 @@ calibre-server:
 
 ## Assemble more tools..
 
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/)** section:
+Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/end/)** section:
 
-* [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sabnzbd.md)
-* [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget.md)
-* [RTorrent](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/rtorrent/)
-* [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr/)
-* [Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/)
+* [SABnzbd]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sabnzbd.md)
+* [NZBGet]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbget.md)
+* [RTorrent]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/rtorrent/)
+* [Sonarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sonarr/)
+* [Radarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/radarr/)
 * [Mylar](https://github.com/evilhero/mylar)
 * Lazy Librarian (this page)
-* [Headphones](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/headphones)
-* [Lidarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lidarr/)
-* [NZBHydra](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra/)
-* [NZBHydra2](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra2/)
-* [Ombi](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/ombi/)
-* [Jackett](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/jackett/)
-* [Heimdall](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/heimdall/)
-* [End](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/) (launch the stack)
+* [Headphones]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/headphones)
+* [Lidarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/lidarr/)
+* [NZBHydra]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra/)
+* [NZBHydra2]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra2/)
+* [Ombi]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/ombi/)
+* [Jackett]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/jackett/)
+* [Heimdall]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/heimdall/)
+* [End]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/end/) (launch the stack)
 
 
 ## Chef's Notes 
 
-1. The calibre-server container co-exists within the Lazy Librarian (LL) containers so that LL can automatically add a book to Calibre using the calibre-server interface. The calibre library can then be properly viewed using the [calibre-web](https://geek-cookbook.funkypenguin.co.nz/)recipes/calibre-web) recipe.
+1. The calibre-server container co-exists within the Lazy Librarian (LL) containers so that LL can automatically add a book to Calibre using the calibre-server interface. The calibre library can then be properly viewed using the [calibre-web]https://geek-cookbook.funkypenguin.co.nz/recipes/calibre-web) recipe.
 2. In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.

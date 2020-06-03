@@ -21,8 +21,8 @@ I'd encourage you to spend some time reading https://github.com/stefanprodan/swa
 
 ## Ingredients
 
-1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) on **17.09.0 or newer** (_doesn't work with CentOS Atomic, unfortunately_) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik_public) configured per design
+1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) on **17.09.0 or newer** (_doesn't work with CentOS Atomic, unfortunately_) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik_public) configured per design
 3. DNS entry for the hostnames you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
@@ -31,7 +31,7 @@ This is basically a rehash of stefanprodan's [instructions](https://github.com/s
 
 ### Setup oauth provider
 
-Grafana includes decent login protections, but from what I can see, Prometheus, AlertManager, and Unsee do no authentication. In order to expose these publicly for your own consumption (my assumption for the rest of this recipe), you'll want to prepare to run [oauth_proxy](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy/) containers in front of each of the 4 web UIs in this recipe.
+Grafana includes decent login protections, but from what I can see, Prometheus, AlertManager, and Unsee do no authentication. In order to expose these publicly for your own consumption (my assumption for the rest of this recipe), you'll want to prepare to run [oauth_proxy]https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/) containers in front of each of the 4 web UIs in this recipe.
 
 ### Setup metrics
 
@@ -379,7 +379,7 @@ Create a docker swarm config file in docker-compose syntax (v3), based on the or
       ```
 
     !!! note
-        Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
+        Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list]https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 
 

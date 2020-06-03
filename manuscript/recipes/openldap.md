@@ -5,7 +5,7 @@
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
 
-LDAP is probably the most ubiquitous authentication backend, before the current era of "[stupid social sign-ons](https://www.usatoday.com/story/tech/columnist/2018/10/23/how-separate-your-social-networks-your-regular-sites/1687763002/)". Many of the recipes featured in the cookbook (_[NextCloud](https://geek-cookbook.funkypenguin.co.nz/)recipe/nextcloud/), [Kanboard](https://geek-cookbook.funkypenguin.co.nz/)recipe/kanboard/), [Gitlab](https://geek-cookbook.funkypenguin.co.nz/)recipe/gitlab/), etc_) offer LDAP integration.
+LDAP is probably the most ubiquitous authentication backend, before the current era of "[stupid social sign-ons](https://www.usatoday.com/story/tech/columnist/2018/10/23/how-separate-your-social-networks-your-regular-sites/1687763002/)". Many of the recipes featured in the cookbook (_[NextCloud]https://geek-cookbook.funkypenguin.co.nz/recipe/nextcloud/), [Kanboard]https://geek-cookbook.funkypenguin.co.nz/recipe/kanboard/), [Gitlab]https://geek-cookbook.funkypenguin.co.nz/recipe/gitlab/), etc_) offer LDAP integration.
 
 ## Big deal, who cares?
 
@@ -21,12 +21,12 @@ This recipe combines the raw power of OpenLDAP with the flexibility and features
 
 ## What's the takeaway?
 
-What you'll end up with is a directory structure which will allow integration with popular tools (_[NextCloud](https://geek-cookbook.funkypenguin.co.nz/)recipe/nextcloud/), [Kanboard](https://geek-cookbook.funkypenguin.co.nz/)recipe/kanboard/), [Gitlab](https://geek-cookbook.funkypenguin.co.nz/)recipe/gitlab/), etc_), as well as with KeyCloak (_an upcoming recipe_), for **true** SSO.
+What you'll end up with is a directory structure which will allow integration with popular tools (_[NextCloud]https://geek-cookbook.funkypenguin.co.nz/recipe/nextcloud/), [Kanboard]https://geek-cookbook.funkypenguin.co.nz/recipe/kanboard/), [Gitlab]https://geek-cookbook.funkypenguin.co.nz/recipe/gitlab/), etc_), as well as with KeyCloak (_an upcoming recipe_), for **true** SSO.
 
 ## Ingredients
 
-1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik_public) configured per design
+1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik_public) configured per design
 3. DNS entry for the hostname (_i.e. "lam.your-domain.com"_) you intend to use for LDAP Account Manager, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
@@ -41,7 +41,7 @@ mkdir /var/data/runtime/openldap/
 ```
 
 !!! note "Why 2 directories?"
-    For rationale, see my [data layout explanation](https://geek-cookbook.funkypenguin.co.nz/)reference/data_layout/)
+    For rationale, see my [data layout explanation]https://geek-cookbook.funkypenguin.co.nz/reference/data_layout/)
 
 ### Prepare environment
 
@@ -60,7 +60,7 @@ OAUTH2_PROXY_COOKIE_SECRET=
 ```
 
 !!! note
-    I use an [OAuth proxy](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy/) to protect access to the web UI, when the sensitivity of the protected data (i.e. my authentication store) warrants it, or if I don't necessarily trust the security of the webUI.
+    I use an [OAuth proxy]https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/) to protect access to the web UI, when the sensitivity of the protected data (i.e. my authentication store) warrants it, or if I don't necessarily trust the security of the webUI.
 
 Create ```authenticated-emails.txt```, and populate with the email addresses (_matched to GitHub user accounts, in my case_) to which you want grant access, using OAuth2.
 
@@ -389,7 +389,7 @@ networks:
 ```
 
 !!! warning
-    **Normally**, we set unique static subnets for every stack you deploy, and put the non-public facing components (like databases) in an dedicated <stack\>_internal network. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
+    **Normally**, we set unique static subnets for every stack you deploy, and put the non-public facing components (like databases) in an dedicated <stack\>_internal network. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list]https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
     However, you're likely to want to use OpenLdap with KeyCloak, whose JBOSS startup script assumes a single interface, and will crash in a ball of  if you try to assign multiple interfaces to the container.
 
@@ -447,4 +447,4 @@ Create your users using the "**New User**" button.
 
 ## Chef's Notes 
 
-1. [The KeyCloak](https://geek-cookbook.funkypenguin.co.nz/)recipes/keycloak/authenticate-against-openldap/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.
+1. [The KeyCloak]https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/authenticate-against-openldap/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.

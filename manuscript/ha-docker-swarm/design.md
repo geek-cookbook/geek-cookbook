@@ -5,7 +5,7 @@ In the design described below, our "private cloud" platform is:
 * **Highly-available** (_can tolerate the failure of a single component_)
 * **Scalable** (_can add resource or capacity as required_)
 * **Portable** (_run it on your garage server today, run it in AWS tomorrow_)
-* **Secure** (_access protected with [LetsEncrypt certificates](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik/) and optional [OIDC with 2FA](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik-forward-auth/)_)
+* **Secure** (_access protected with [LetsEncrypt certificates]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik/) and optional [OIDC with 2FA]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik-forward-auth/)_)
 * **Automated** (_requires minimal care and feeding_)
 
 ## Design Decisions
@@ -15,7 +15,7 @@ In the design described below, our "private cloud" platform is:
 This means that:
 
 * At least 3 docker swarm manager nodes are required, to provide fault-tolerance of a single failure.
-* [Ceph](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph/) is employed for share storage, because it too can be made tolerant of a single failure.
+* [Ceph]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph/) is employed for share storage, because it too can be made tolerant of a single failure.
 
 !!! note
     An exception to the 3-nodes decision is running a single-node configuration. If you only **have** one node, then obviously your swarm is only as resilient as that node. It's still a perfectly valid swarm configuration, ideal for starting your self-hosting journey. In fact, under the single-node configuration, you don't need ceph either, and you can simply use the local volume on your host for storage. You'll be able to migrate to ceph/more nodes if/when you expand.
@@ -38,8 +38,8 @@ Under this design, the only inbound connections we're permitting to our docker s
 
 ### Authentication
 
-* Where the hosted application provides a trusted level of authentication (*i.e., [NextCloud](https://geek-cookbook.funkypenguin.co.nz/)recipes/nextcloud/)*), or where the application requires public exposure (*i.e. [Privatebin](https://geek-cookbook.funkypenguin.co.nz/)recipes/privatebin/)*), no additional layer of authentication will be required.
-* Where the hosted application provides inadequate (*i.e. [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget/)*) or no authentication (*i.e. [Gollum](https://geek-cookbook.funkypenguin.co.nz/)recipes/gollum/)*), a further authentication against an OAuth provider will be required. 
+* Where the hosted application provides a trusted level of authentication (*i.e., [NextCloud]https://geek-cookbook.funkypenguin.co.nz/recipes/nextcloud/)*), or where the application requires public exposure (*i.e. [Privatebin]https://geek-cookbook.funkypenguin.co.nz/recipes/privatebin/)*), no additional layer of authentication will be required.
+* Where the hosted application provides inadequate (*i.e. [NZBGet]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbget/)*) or no authentication (*i.e. [Gollum]https://geek-cookbook.funkypenguin.co.nz/recipes/gollum/)*), a further authentication against an OAuth provider will be required. 
 
 
 ## High availability

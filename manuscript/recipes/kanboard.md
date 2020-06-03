@@ -2,10 +2,10 @@ hero: Kanboard - A recipe to get your personal kanban on
 
 # Kanboard
 
-Kanboard is a Kanban tool, developed by [Frdric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux](https://geek-cookbook.funkypenguin.co.nz/)recipes/miniflux/)_)
+Kanboard is a Kanban tool, developed by [Frdric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux]https://geek-cookbook.funkypenguin.co.nz/recipes/miniflux/)_)
 
 !!! tip "Sponsored Project"
-    Kanboard is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/)sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 
+    Kanboard is one of my [sponsored projects]https://geek-cookbook.funkypenguin.co.nz/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 
 
 Features include:
 
@@ -20,12 +20,12 @@ Features include:
 * Free, open source and self-hosted
 * Super simple installation
 
-![](https://geek-cookbook.funkypenguin.co.nz/)images/kanboard.png)
+![]https://geek-cookbook.funkypenguin.co.nz/images/kanboard.png)
 
 ## Ingredients
 
-1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik) configured per design
+1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik) configured per design
 3. DNS entry pointing your NextCloud url (_kanboard.example.com_) to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 
@@ -41,7 +41,7 @@ mkdir -p /var/data/kanboard
 
 ### Setup Environment
 
-If you intend to use an [OAuth proxy](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy/) to further secure public access to your instance, create a ```kanboard.env``` file to hold your environment variables, and populate with your OAuth provider's details (_the cookie secret you can just make up_):
+If you intend to use an [OAuth proxy]https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/) to further secure public access to your instance, create a ```kanboard.env``` file to hold your environment variables, and populate with your OAuth provider's details (_the cookie secret you can just make up_):
 
 ```
 # If you decide to protect kanboard with an oauth_proxy, complete these

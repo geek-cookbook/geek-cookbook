@@ -1,21 +1,21 @@
 !!! warning
-    This is not a complete recipe - it's a component of the [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [AutoPirate]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # SABnzbd
 
 ## Introduction
 
-SABnzbd is the workhorse of the stack. It takes .nzb files as input (_manually or from other [autopirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) stack tools_), then connects to your chosen Usenet provider, downloads all the individual binaries referenced by the .nzb, and then tests/repairs/combines/uncompresses them all into the final result - media files.
+SABnzbd is the workhorse of the stack. It takes .nzb files as input (_manually or from other [autopirate]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) stack tools_), then connects to your chosen Usenet provider, downloads all the individual binaries referenced by the .nzb, and then tests/repairs/combines/uncompresses them all into the final result - media files.
 
 ![SABNZBD Screenshot](../../images/sabnzbd.png)
 
 !!! tip "Sponsored Project"
-    SABnzbd is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/)sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. It's not sexy, but it's consistent and reliable, and I enjoy the fruits of its labor near-daily.
+    SABnzbd is one of my [sponsored projects]https://geek-cookbook.funkypenguin.co.nz/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. It's not sexy, but it's consistent and reliable, and I enjoy the fruits of its labor near-daily.
 
 ## Inclusion into AutoPirate
 
-To include SABnzbd in your [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) stack
-(_The only reason you **wouldn't** use SABnzbd, would be if you were using [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget.md) instead_), include the following in your autopirate.yml stack definition file:
+To include SABnzbd in your [AutoPirate]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) stack
+(_The only reason you **wouldn't** use SABnzbd, would be if you were using [NZBGet]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbget.md) instead_), include the following in your autopirate.yml stack definition file:
 
 !!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
@@ -63,23 +63,23 @@ sabnzbd_proxy:
 
 ## Assemble more tools..
 
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/)** section:
+Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/end/)** section:
 
 * SABnzbd (this page)
-* [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget.md)
-* [RTorrent](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/rtorrent/)
-* [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr/)
-* [Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/)
-* [Mylar](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/mylar/)
-* [Lazy Librarian](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lazylibrarian/)
-* [Headphones](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/headphones/)
-* [Lidarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lidarr/)
-* [NZBHydra](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra/)
-* [NZBHydra2](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra2/)
-* [Ombi](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/ombi/)
-* [Jackett](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/jackett/)
-* [Heimdall](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/heimdall/)
-* [End](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/) (launch the stack)
+* [NZBGet]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbget.md)
+* [RTorrent]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/rtorrent/)
+* [Sonarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sonarr/)
+* [Radarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/radarr/)
+* [Mylar]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/mylar/)
+* [Lazy Librarian]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/lazylibrarian/)
+* [Headphones]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/headphones/)
+* [Lidarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/lidarr/)
+* [NZBHydra]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra/)
+* [NZBHydra2]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra2/)
+* [Ombi]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/ombi/)
+* [Jackett]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/jackett/)
+* [Heimdall]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/heimdall/)
+* [End]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/end/) (launch the stack)
 
 
 ## Chef's Notes 

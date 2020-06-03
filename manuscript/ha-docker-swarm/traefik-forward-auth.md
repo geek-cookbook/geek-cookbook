@@ -2,28 +2,28 @@
 
 Now that we have Traefik deployed, automatically exposing SSL access to our Docker Swarm services using LetsEncrypt wildcard certificates, let's pause to consider that we may not _want_ some services exposed directly to the internet...
 
-..Wait, why not? Well, Traefik doesn't provide any form of authentication, it simply secures the **transmission** of the service between Docker Swarm and the end user. If you were to deploy a service with no native security (*[Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/) or [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr/) come to mind*), then anybody would be able to use it! Even services which _may_ have a layer of authentication **might** not be safe to expose publically - often open source projects may be maintained by enthusiasts who happily add extra features, but just pay lip service to security, on the basis that "*it's the user's problem to secure it in their own network*".
+..Wait, why not? Well, Traefik doesn't provide any form of authentication, it simply secures the **transmission** of the service between Docker Swarm and the end user. If you were to deploy a service with no native security (*[Radarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/radarr/) or [Sonarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sonarr/) come to mind*), then anybody would be able to use it! Even services which _may_ have a layer of authentication **might** not be safe to expose publically - often open source projects may be maintained by enthusiasts who happily add extra features, but just pay lip service to security, on the basis that "*it's the user's problem to secure it in their own network*".
 
-To give us confidence that **we** can access our services, but BadGuys(tm) cannot, we'll deploy a layer of authentication **in front** of Traefik, using [Forward Authentication](https://docs.traefik.io/configuration/entrypoints/#forward-authentication). You can use your own  [KeyCloak](https://geek-cookbook.funkypenguin.co.nz/)recipes/keycloak/) instance for authentication, but to lower the barrier to entry, this recipe will assume you're authenticating against your own Google account.
+To give us confidence that **we** can access our services, but BadGuys(tm) cannot, we'll deploy a layer of authentication **in front** of Traefik, using [Forward Authentication](https://docs.traefik.io/configuration/entrypoints/#forward-authentication). You can use your own  [KeyCloak]https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/) instance for authentication, but to lower the barrier to entry, this recipe will assume you're authenticating against your own Google account.
 
 ## Ingredients
 
 !!! summary "Ingredients"
     Existing:
 
-    * [X] [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph)
-    * [X] [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik/) configured per design
+    * [X] [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph)
+    * [X] [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik/) configured per design
 
     New:
 
-    * [ ] Client ID and secret from an OpenID-Connect provider (Google, [KeyCloak](https://geek-cookbook.funkypenguin.co.nz/)recipes/keycloak/), Microsoft, etc..)
+    * [ ] Client ID and secret from an OpenID-Connect provider (Google, [KeyCloak]https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/), Microsoft, etc..)
 
 ## Preparation
 
 ### Obtain OAuth credentials
 
 !!! note
-    This recipe will demonstrate using Google OAuth for traefik forward authentication, but it's also possible to use a self-hosted KeyCloak instance - see the [KeyCloak OIDC Provider](https://geek-cookbook.funkypenguin.co.nz/)recipes/keycloak/setup-oidc-provider/) recipe for more details!
+    This recipe will demonstrate using Google OAuth for traefik forward authentication, but it's also possible to use a self-hosted KeyCloak instance - see the [KeyCloak OIDC Provider]https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/setup-oidc-provider/) recipe for more details!
 
 Log into https://console.developers.google.com/, create a new project then search for and select "Credentials" in the search bar. 
 
@@ -48,7 +48,7 @@ COOKIE_DOMAINS=example.com
 
 ### Prepare the docker service config
 
-This is a small container, you can simply add the following content to the existing `traefik-app.yml` deployed in the previous [Traefik](https://geek-cookbook.funkypenguin.co.nz/)recipes/traefik/) recipe:
+This is a small container, you can simply add the following content to the existing `traefik-app.yml` deployed in the previous [Traefik]https://geek-cookbook.funkypenguin.co.nz/recipes/traefik/) recipe:
 
 ```
   traefik-forward-auth:
@@ -110,7 +110,7 @@ What have we achieved? By adding an additional three simple labels to any servic
 
 ## Chef's Notes 
 
-1. Traefik forward auth replaces the use of [oauth_proxy containers](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy/) found in some of the existing recipes
+1. Traefik forward auth replaces the use of [oauth_proxy containers]https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/) found in some of the existing recipes
 2. [@thomaseddon's original version](https://github.com/thomseddon/traefik-forward-auth) of traefik-forward-auth only works with Google currently, but I've created a [fork](https://www.github.com/funkypenguin/traefik-forward-auth) of a [fork](https://github.com/noelcatt/traefik-forward-auth), which implements generic OIDC providers.
 3. I reviewed several implementations of forward authenticators for Traefik, but found most to be rather heavy-handed, or specific to a single auth provider. @thomaseddon's go-based docker image is 7MB in size, and with the generic OIDC patch (above), it can be extended to work with any OIDC provider.
 4. No, not github natively, but you can ferderate GitHub into KeyCloak, and then use KeyCloak as the OIDC provider.

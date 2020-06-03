@@ -15,7 +15,7 @@ Description. IPFS is a peer-to-peer distributed file system that seeks to connec
 
 ## Ingredients
 
-1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/)
+1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/)
 
 ## Preparation
 

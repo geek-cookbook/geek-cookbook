@@ -1,15 +1,15 @@
 # What is this?
 
-Funky Penguin's "**[Geek Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) or [Kubernetes](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/start/). 
+Funky Penguin's "**[Geek Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) or [Kubernetes]https://geek-cookbook.funkypenguin.co.nz/kubernetes/start/). 
 
-Running such a platform enables you to run self-hosted tools such as [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) (*Radarr, Sonarr, NZBGet and friends*), [Plex][plex], [NextCloud][nextcloud], and includes elements such as:
+Running such a platform enables you to run self-hosted tools such as [AutoPirate]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) (*Radarr, Sonarr, NZBGet and friends*), [Plex][plex], [NextCloud][nextcloud], and includes elements such as:
 
-* [Automatic SSL-secured access](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik/) to all services (*with LetsEncrypt*)
-* [SSO / authentication layer](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik-forward-auth/) to protect unsecured / vulnerable services
-* [Automated backup](https://geek-cookbook.funkypenguin.co.nz/)recipes/elkarbackup/) of configuration and data
-* [Monitoring and metrics](https://geek-cookbook.funkypenguin.co.nz/)recipes/swarmprom/) collection, graphing and alerting
+* [Automatic SSL-secured access]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik/) to all services (*with LetsEncrypt*)
+* [SSO / authentication layer]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik-forward-auth/) to protect unsecured / vulnerable services
+* [Automated backup]https://geek-cookbook.funkypenguin.co.nz/recipes/elkarbackup/) of configuration and data
+* [Monitoring and metrics]https://geek-cookbook.funkypenguin.co.nz/recipes/swarmprom/) collection, graphing and alerting
 
-Recent updates and additions are posted on the [CHANGELOG](https://geek-cookbook.funkypenguin.co.nz/)CHANGELOG/), and there's a friendly community of like-minded geeks in the [Discord server](http://chat.funkypenguin.co.nz).
+Recent updates and additions are posted on the [CHANGELOG]https://geek-cookbook.funkypenguin.co.nz/CHANGELOG/), and there's a friendly community of like-minded geeks in the [Discord server](http://chat.funkypenguin.co.nz).
 
 ## Who is this for?
 
@@ -32,7 +32,7 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
 ## What have you done for me lately? (CHANGELOG)
 
-Check out recent change at [CHANGELOG](https://geek-cookbook.funkypenguin.co.nz/)CHANGELOG/)
+Check out recent change at [CHANGELOG]https://geek-cookbook.funkypenguin.co.nz/CHANGELOG/)
 
 ## What do you want from me?
 

@@ -1,5 +1,5 @@
 !!! warning
-    This is not a complete recipe - it's a component of the [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [AutoPirate]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # RTorrent / ruTorrent
 
@@ -13,7 +13,7 @@ When using a torrent client from behind NAT (_which swarm, by nature, is_), you 
 
 ## Inclusion into AutoPirate
 
-To include ruTorrent in your [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include ruTorrent in your [AutoPirate]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
 ```
 rtorrent:
@@ -56,23 +56,23 @@ rtorrent_proxy:
 
 ## Assemble more tools..
 
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/)** section:
+Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/end/)** section:
 
-* [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sabnzbd.md)
-* [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget.md)
+* [SABnzbd]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sabnzbd.md)
+* [NZBGet]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbget.md)
 * RTorrent (this page)
-* [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr/)
-* [Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/)
-* [Mylar](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/mylar/)
-* [Lazy Librarian](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lazylibrarian/)
-* [Headphones](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/headphones/)
-* [Lidarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lidarr/)
-* [NZBHydra](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra/)
-* [NZBHydra2](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra2/)
-* [Ombi](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/ombi/)
-* [Jackett](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/jackett/)
-* [Heimdall](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/heimdall/)
-* [End](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/) (launch the stack)
+* [Sonarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sonarr/)
+* [Radarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/radarr/)
+* [Mylar]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/mylar/)
+* [Lazy Librarian]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/lazylibrarian/)
+* [Headphones]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/headphones/)
+* [Lidarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/lidarr/)
+* [NZBHydra]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra/)
+* [NZBHydra2]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra2/)
+* [Ombi]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/ombi/)
+* [Jackett]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/jackett/)
+* [Heimdall]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/heimdall/)
+* [End]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/end/) (launch the stack)
 
 
 ## Chef's Notes 

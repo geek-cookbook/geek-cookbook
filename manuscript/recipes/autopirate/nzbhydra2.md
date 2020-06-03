@@ -1,5 +1,5 @@
 !!! warning
-    This is not a complete recipe - it's a component of the [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [AutoPirate]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 
 # NZBHydra 2
@@ -7,22 +7,22 @@
 [NZBHydra 2](https://github.com/theotherp/nzbhydra2) is a meta search for NZB indexers. It provides easy access to a number of raw and newznab based indexers. You can search all your indexers from one place and use it as an indexer source for tools like Sonarr, Radarr or CouchPotato.
 
 !!! note
-    NZBHydra 2 is a complete rewrite of [NZBHydra (1)](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhybra/). It's currently in Beta. It works mostly fine but some functions might not be completely done and incompatibilities with some tools might still exist. You might want to run both in parallel for migration / testing purposes, but ultimately you'll probably want to switch over to NZBHydra 2 exclusively.
+    NZBHydra 2 is a complete rewrite of [NZBHydra (1)]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhybra/). It's currently in Beta. It works mostly fine but some functions might not be completely done and incompatibilities with some tools might still exist. You might want to run both in parallel for migration / testing purposes, but ultimately you'll probably want to switch over to NZBHydra 2 exclusively.
 
 ![NZBHydra Screenshot](../../images/nzbhydra2.png)
 
 Features include:
 
 * Searches Anizb, BinSearch, NZBIndex and any newznab compatible indexers. Merges all results, filters them by a number of configurable restrictions, recognizes duplicates and returns them all in one place
-* Add results to [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget/) or [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sabnzbd/)
+* Add results to [NZBGet]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbget/) or [SABnzbd]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sabnzbd/)
 * Support for all relevant media IDs (IMDB, TMDB, TVDB, TVRage, TVMaze) and conversion between them
 * Query generation, meaning a query will be generated if only a media ID is provided in the search and the indexer doesn't support the ID or if no results were found
-* Compatible with [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr/), [Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/), [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget.md), [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sabnzbd/), nzb360, CouchPotato, [Mylar](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/mylar/), [Lazy Librarian](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lazylibrarian/), Sick Beard, [Jackett/Cardigann](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/jackett/), Watcher, etc.
+* Compatible with [Sonarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sonarr/), [Radarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/radarr/), [NZBGet]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbget.md), [SABnzbd]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sabnzbd/), nzb360, CouchPotato, [Mylar]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/mylar/), [Lazy Librarian]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/lazylibrarian/), Sick Beard, [Jackett/Cardigann]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/jackett/), Watcher, etc.
 * Search and download history and extensive stats. E.g. indexer response times, download shares, NZB age, etc.
 * Authentication and multi-user support
 * Automatic update of NZB download status by querying configured downloaders
 * RSS support with configurable cache times
-* Torrent support (_Although I prefer [Jackett](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/jackett/) for this_):
+* Torrent support (_Although I prefer [Jackett]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/jackett/) for this_):
     * For GUI searches, allowing you to download torrents to a blackhole folder
     * A separate Torznab compatible endpoint for API requests, allowing you to merge multiple trackers
 * Extensive configurability
@@ -31,7 +31,7 @@ Features include:
 
 ## Inclusion into AutoPirate
 
-To include NZBHydra2 in your [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include NZBHydra2 in your [AutoPirate]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
 ```
 nzbhydra2:
@@ -70,23 +70,23 @@ nzbhydra2_proxy:
 
 ## Assemble more tools..
 
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/)** section:
+Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/end/)** section:
 
-* [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sabnzbd.md)
-* [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget.md)
-* [RTorrent](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/rtorrent/)
-* [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr/)
-* [Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/)
-* [Mylar](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/mylar/)
-* [Lazy Librarian](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lazylibrarian/)
-* [Headphones](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/headphones/)
-* [Lidarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lidarr/)
-* [NZBHydra](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra/)
+* [SABnzbd]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sabnzbd.md)
+* [NZBGet]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbget.md)
+* [RTorrent]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/rtorrent/)
+* [Sonarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sonarr/)
+* [Radarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/radarr/)
+* [Mylar]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/mylar/)
+* [Lazy Librarian]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/lazylibrarian/)
+* [Headphones]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/headphones/)
+* [Lidarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/lidarr/)
+* [NZBHydra]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra/)
 * NZBHydra2 (this page)
-* [Ombi](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/ombi/)
-* [Jackett](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/jackett/)
-* [Heimdall](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/heimdall/)
-* [End](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/) (launch the stack)
+* [Ombi]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/ombi/)
+* [Jackett]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/jackett/)
+* [Heimdall]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/heimdall/)
+* [End]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/end/) (launch the stack)
 
 
 ## Chef's Notes 

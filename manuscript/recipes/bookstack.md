@@ -2,16 +2,16 @@
 
 BookStack is a simple, self-hosted, easy-to-use platform for organising and storing information.
 
-A friendly middle ground between heavyweights like MediaWiki or Confluence and [Gollum](https://geek-cookbook.funkypenguin.co.nz/)recipes/gollum/), BookStack relies on a database backend (so searching and versioning is easy), but limits itself to a pre-defined, 3-tier structure (book, chapter, page). The result is a lightweight, approachable personal documentation stack, which includes search and Markdown editing.
+A friendly middle ground between heavyweights like MediaWiki or Confluence and [Gollum]https://geek-cookbook.funkypenguin.co.nz/recipes/gollum/), BookStack relies on a database backend (so searching and versioning is easy), but limits itself to a pre-defined, 3-tier structure (book, chapter, page). The result is a lightweight, approachable personal documentation stack, which includes search and Markdown editing.
 
 ![BookStack Screenshot](../images/bookstack.png)
 
-I like to protect my public-facing web UIs with an [oauth_proxy](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy), ensuring that if an application bug (or a user misconfiguration) exposes the app to unplanned public scrutiny, I have a second layer of defense.
+I like to protect my public-facing web UIs with an [oauth_proxy]https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy), ensuring that if an application bug (or a user misconfiguration) exposes the app to unplanned public scrutiny, I have a second layer of defense.
 
 ## Ingredients
 
-1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik/) configured per design
+1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik/) configured per design
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
@@ -27,7 +27,7 @@ mkdir -p /var/data/runtime/bookstack/db
 
 ### Prepare environment
 
-Create bookstack.env, and populate with the following variables. Set the [oauth_proxy](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy) variables provided by your OAuth provider (if applicable.)
+Create bookstack.env, and populate with the following variables. Set the [oauth_proxy]https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy) variables provided by your OAuth provider (if applicable.)
 
 ```
 # For oauth-proxy (optional)
@@ -127,7 +127,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list]https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 
 

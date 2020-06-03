@@ -4,7 +4,7 @@ Yes, Kubernetes is complicated. There are lots of moving parts, and debugging _w
 
 Fortunately, to assist in day-to-day operation of our cluster, and in the occasional "how-did-that-ever-work" troubleshooting, we have available to us, the mighty **[Kubernetes Dashboard](https://github.com/kubernetes/dashboard)**:
 
-![Kubernetes Dashboard Screenshot](https://geek-cookbook.funkypenguin.co.nz/)images/kubernetes-dashboard.png)
+![Kubernetes Dashboard Screenshot]https://geek-cookbook.funkypenguin.co.nz/images/kubernetes-dashboard.png)
 
 Using the dashboard, you can:
 
@@ -16,11 +16,11 @@ Using the dashboard, you can:
 
 ## Ingredients
 
-1. A [Kubernetes Cluster](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/design/), with
+1. A [Kubernetes Cluster]https://geek-cookbook.funkypenguin.co.nz/kubernetes/design/), with
 2. OIDC-enabled authentication
-3. An Ingress Controller ([Traefik Ingress](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/traefik/) or [NGinx Ingress](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/nginx-ingress/)) 
-4. A DNS name for your dashboard instance (*dashboard.example.com*, below) pointing to your [load balancer](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/loadbalancer/), fronting your ingress controller
-5. A [KeyCloak](https://geek-cookbook.funkypenguin.co.nz/)recipes/keycloak/) instance for authentication
+3. An Ingress Controller ([Traefik Ingress]https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/) or [NGinx Ingress]https://geek-cookbook.funkypenguin.co.nz/kubernetes/nginx-ingress/)) 
+4. A DNS name for your dashboard instance (*dashboard.example.com*, below) pointing to your [load balancer]https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/), fronting your ingress controller
+5. A [KeyCloak]https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/) instance for authentication
 
 ## Preparation
 

@@ -17,8 +17,8 @@ Possible use-cases:
 
 ## Ingredients
 
-1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik_public) configured per design
+1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik_public) configured per design
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
@@ -173,6 +173,6 @@ goofys#bucket   /mnt/mountpoint        fuse     _netdev,allow_other,--file-mode=
 ## Chef's Notes 
 
 1. There are many S3-filesystem-mounting tools available, I just picked Goofys because it's simple. Google is your friend :)
-2. Some applications (_like [NextCloud](https://geek-cookbook.funkypenguin.co.nz/)recipes/nextcloud/)_) can natively mount S3 buckets
-3. Some backup tools (_like [Duplicity](https://geek-cookbook.funkypenguin.co.nz/)recipes/duplicity/)_) can backup directly to S3 buckets
+2. Some applications (_like [NextCloud]https://geek-cookbook.funkypenguin.co.nz/recipes/nextcloud/)_) can natively mount S3 buckets
+3. Some backup tools (_like [Duplicity]https://geek-cookbook.funkypenguin.co.nz/recipes/duplicity/)_) can backup directly to S3 buckets
 

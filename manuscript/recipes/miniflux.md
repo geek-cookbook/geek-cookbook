@@ -2,12 +2,12 @@ hero: Miniflux - A recipe for a lightweight minimalist RSS reader
 
 # Miniflux
 
-Miniflux is a lightweight RSS reader, developed by [Frdric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of the favorite Open Source Kanban app, [Kanboard](https://geek-cookbook.funkypenguin.co.nz/)recipes/kanboard/)_)
+Miniflux is a lightweight RSS reader, developed by [Frdric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of the favorite Open Source Kanban app, [Kanboard]https://geek-cookbook.funkypenguin.co.nz/recipes/kanboard/)_)
 
 ![Miniflux Screenshot](../images/miniflux.png)
 
 !!! tip "Sponsored Project"
-    Miniflux is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/)sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. Although I get to process my RSS feeds less frequently than I'd like to!
+    Miniflux is one of my [sponsored projects]https://geek-cookbook.funkypenguin.co.nz/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. Although I get to process my RSS feeds less frequently than I'd like to!
 
 I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/review/miniflux-lightweight-self-hosted-rss-reader/), but features (among many) that I appreciate:
 
@@ -21,8 +21,8 @@ I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/rev
 
 ## Ingredients
 
-1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik) configured per design
+1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik) configured per design
 3. DNS entry pointing your Miniflux url (i.e. _miniflux.example.com_) to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation

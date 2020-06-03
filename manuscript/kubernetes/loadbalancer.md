@@ -8,11 +8,11 @@ See further examination of the problem and possible solutions in the [Kubernetes
 
 This recipe details a simple design to permit the exposure of as many ports as you like, on a single public IP, to a cluster of Kubernetes nodes running as many pods/containers as you need, with services exposed via NodePort.
 
-![Kubernetes Design](https://geek-cookbook.funkypenguin.co.nz/)images/kubernetes-cluster-design.png)
+![Kubernetes Design]https://geek-cookbook.funkypenguin.co.nz/images/kubernetes-cluster-design.png)
 
 ## Ingredients
 
-1. [Kubernetes cluster](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/cluster/)
+1. [Kubernetes cluster]https://geek-cookbook.funkypenguin.co.nz/kubernetes/cluster/)
 2. VM _outside_ of Kubernetes cluster, with a fixed IP address. Perhaps, on a [$5/month Digital Ocean Droplet](https://www.digitalocean.com/?refcode=e33b78ad621b).. (_yes, another referral link. Mooar  for me!_)
 3. Geek-Fu required :  (_complex - inline adjustments required_)
 
@@ -310,7 +310,7 @@ Feb 06 23:04:28 haproxy2 webhook[1433]: [webhook] 2019/02/06 23:04:28 Started PO
 Feb 06 23:04:28 haproxy2 webhook[1433]: [webhook] 2019/02/06 23:04:28 update-haproxy got matched
 Feb 06 23:04:28 haproxy2 webhook[1433]: [webhook] 2019/02/06 23:04:28 update-haproxy hook triggered successfully
 Feb 06 23:04:28 haproxy2 webhook[1433]: [webhook] 2019/02/06 23:04:28 Completed 200 OK in 2.123921ms
-Feb 06 23:04:28 haproxy2 webhook[1433]: [webhook] 2019/02/06 23:04:28 executing /etc/webhook/update-haproxy.sh (https://geek-cookbook.funkypenguin.co.nz/)etc/webhook/update-haproxy.sh) with arguments ["/etc/webhook/update-haproxy.sh" "unifi-adoption" "8080" "30808" "35.244.91.178" "add"] and environment [] using /etc/webhook as cwd
+Feb 06 23:04:28 haproxy2 webhook[1433]: [webhook] 2019/02/06 23:04:28 executing /etc/webhook/update-haproxy.sh https://geek-cookbook.funkypenguin.co.nz/etc/webhook/update-haproxy.sh) with arguments ["/etc/webhook/update-haproxy.sh" "unifi-adoption" "8080" "30808" "35.244.91.178" "add"] and environment [] using /etc/webhook as cwd
 Feb 06 23:04:28 haproxy2 webhook[1433]: [webhook] 2019/02/06 23:04:28 command output: Configuration file is valid
 <HAProxy restarts>
 ```
@@ -320,13 +320,13 @@ Feb 06 23:04:28 haproxy2 webhook[1433]: [webhook] 2019/02/06 23:04:28 command ou
 
 Still with me? Good. Move on to setting up an ingress SSL terminating proxy with Traefik..
 
-* [Start](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/start/) - Why Kubernetes?
-* [Design](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/design/) - How does it fit together?
-* [Cluster](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/cluster/) - Setup a basic cluster
+* [Start]https://geek-cookbook.funkypenguin.co.nz/kubernetes/start/) - Why Kubernetes?
+* [Design]https://geek-cookbook.funkypenguin.co.nz/kubernetes/design/) - How does it fit together?
+* [Cluster]https://geek-cookbook.funkypenguin.co.nz/kubernetes/cluster/) - Setup a basic cluster
 * Load Balancer (this page) - Setup inbound access
-* [Snapshots](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/snapshots/) - Automatically backup your persistent data
-* [Helm](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/helm/) - Uber-recipes from fellow geeks
-* [Traefik](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/traefik/) - Traefik Ingress via Helm
+* [Snapshots]https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/) - Automatically backup your persistent data
+* [Helm]https://geek-cookbook.funkypenguin.co.nz/kubernetes/helm/) - Uber-recipes from fellow geeks
+* [Traefik]https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/) - Traefik Ingress via Helm
 
 
 ## Chef's Notes

@@ -15,7 +15,7 @@ Details
 
 ## Ingredients
 
-1. [Kubernetes cluster](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/digital-ocean/)
+1. [Kubernetes cluster]https://geek-cookbook.funkypenguin.co.nz/kubernetes/digital-ocean/)
 
 ## Preparation
 
@@ -110,7 +110,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list]https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 
 

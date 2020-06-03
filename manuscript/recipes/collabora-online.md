@@ -7,16 +7,16 @@
 
 Collabora Online Development Edition (or "[CODE](https://www.collaboraoffice.com/code/#what_is_code)"), is the lightweight, or "home" edition of the commercially-supported [Collabora Online](https://www.collaboraoffice.com/collabora-online/) platform. It
 
-It's basically the [LibreOffice](https://www.libreoffice.org/) interface in a web-browser. CODE is not a standalone app, it's a backend intended to be accessed via "WOPI" from an existing interface (_in our case, [NextCloud](https://geek-cookbook.funkypenguin.co.nz/)recipes/nextcloud/)_)
+It's basically the [LibreOffice](https://www.libreoffice.org/) interface in a web-browser. CODE is not a standalone app, it's a backend intended to be accessed via "WOPI" from an existing interface (_in our case, [NextCloud]https://geek-cookbook.funkypenguin.co.nz/recipes/nextcloud/)_)
 
 ![CODE Screenshot](../images/collabora-online.png)
 
 ## Ingredients
 
-1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik_public) configured per design
+1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik_public) configured per design
 3. DNS entry for the hostname (_i.e. "collabora.your-domain.com"_) you intend to use for LDAP Account Manager, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
-4. [NextCloud](https://geek-cookbook.funkypenguin.co.nz/)recipes/nextcloud/) installed and operational
+4. [NextCloud]https://geek-cookbook.funkypenguin.co.nz/recipes/nextcloud/) installed and operational
 5. [Docker-compose](https://docs.docker.com/compose/install/) installed on your node(s) - this is a special case which needs to run outside of Docker Swarm
 
 ## Preparation
@@ -56,7 +56,7 @@ Create /var/data/config/collabora/collabora.env, and populate with the following
     Note the following:
 
     1. Variables are in lower-case, unlike our standard convention. This is to align with the CODE container
-    2. Set domain to your [NextCloud](https://geek-cookbook.funkypenguin.co.nz/)recipes/nextcloud/) domain, and escape all the periods as per the example
+    2. Set domain to your [NextCloud]https://geek-cookbook.funkypenguin.co.nz/recipes/nextcloud/) domain, and escape all the periods as per the example
     3. Set your server_name to collabora.<yourdomain\>. Escaping periods is unnecessary
     4. Your password cannot include triangular brackets - the entrypoint script will insert this password into an XML document, and triangular brackets will make bad(tm) things happen 
 

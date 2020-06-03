@@ -3,7 +3,7 @@
 While Docker Swarm is great for keeping containers running (_and restarting those that fail_), it does nothing for persistent storage. This means if you actually want your containers to keep any data persistent across restarts (_hint: you do!_), you need to provide shared storage to every docker node.
 
 !!! warning
-    This recipe is deprecated. It didn't work well in 2017, and it's not likely to work any better now. It remains here as a reference. I now recommend the use of [Ceph for shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph/) instead. - 2019 Chef
+    This recipe is deprecated. It didn't work well in 2017, and it's not likely to work any better now. It remains here as a reference. I now recommend the use of [Ceph for shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph/) instead. - 2019 Chef
 
 ## Design
 
