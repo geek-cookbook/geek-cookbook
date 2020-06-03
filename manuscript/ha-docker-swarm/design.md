@@ -17,7 +17,6 @@ This means that:
 * At least 3 docker swarm manager nodes are required, to provide fault-tolerance of a single failure.
 * [Ceph](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph/) is employed for share storage, because it too can be made tolerant of a single failure.
 
-!!! note
     An exception to the 3-nodes decision is running a single-node configuration. If you only **have** one node, then obviously your swarm is only as resilient as that node. It's still a perfectly valid swarm configuration, ideal for starting your self-hosting journey. In fact, under the single-node configuration, you don't need ceph either, and you can simply use the local volume on your host for storage. You'll be able to migrate to ceph/more nodes if/when you expand.
 
 **Where multiple solutions to a requirement exist, preference will be given to the most portable solution.**

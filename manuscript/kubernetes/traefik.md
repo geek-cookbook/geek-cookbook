@@ -90,7 +90,6 @@ metrics:
     enabled: true
 ```
 
-!!! note
     The helm chart doesn't enable the Traefik dashboard by default. I intend to add an oauth_proxy pod to secure this, in a future recipe update.
 
 ### Prepare phone-home pod
@@ -146,7 +145,6 @@ echo -n "imtoosecretformyshorts" > webhook_token.secret
 kubectl create secret generic traefik-credentials --from-file=webhook_token.secret
 ```
 
-!!! warning
     Yes, the "-n" in the echo statement is needed. [Read here for why](https://www.funkypenguin.co.nz/beware-the-hidden-newlines-in-kubernetes-secrets/).
 
 ## Serving

@@ -23,7 +23,6 @@ This recipe details a simple design to permit the exposure of as many ports as y
 
 ### Create LetsEncrypt certificate
 
-!!! warning
     Safety first, folks. You wouldn't run a webhook exposed to the big bad ol' internet without first securing it with a valid SSL certificate? Of course not, I didn't think so!
 
 Use whatever method you prefer to generate (and later, renew) your LetsEncrypt cert. The example below uses the CertBot docker image for CloudFlare DNS validation, since that's what I've used elsewhere.
@@ -43,7 +42,6 @@ cd /etc/webhook/
 docker run -ti --rm -v "$(pwd)"/letsencrypt:/etc/letsencrypt certbot/dns-cloudflare --preferred-challenges dns certonly --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini -d ''*.funkypenguin.co.nz'
 ```
 
-!!! question
     Why use a wildcard cert? So my enemies can't examine my certs to enumerate my various services and discover my weaknesses, of course!
 
 I add the following as a cron command to renew my certs every day:
@@ -112,12 +110,10 @@ echo << EOF > /etc/webhook/hooks.json
 EOF
 ```
 
-!!! note
     Note that to avoid any bozo from calling our we're matching on a token header in the request called ```X-Funkypenguin-Token```. Webhook will **ignore** any request which doesn't include a matching token in the request header.
 
 ### Update systemd for webhook
 
-!!! note
     This section is particular to Debian Stretch and its webhook package. If you're using another OS for your VM, just ensure that you can start webhook with a config similar to the one illustrated below.
 
 Since we want to force webhook to run in secure mode (_no point having a token if it can be extracted from a simple packet capture!_) I ran ```systemctl edit webhook```, and pasted in the following:

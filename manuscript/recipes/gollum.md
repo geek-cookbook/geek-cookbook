@@ -27,13 +27,11 @@ As you'll note in the (_real world_) screenshot above, my requirements for a per
 
 Gollum meets all these requirements, and as an added bonus, is extremely fast and lightweight.
 
-!!! note
     Since Gollum itself offers no user authentication, this design secures gollum behind an [oauth2 proxy](https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/), so that in order to gain access to the Gollum UI at all, oauth2 authentication (_to GitHub, GitLab, Google, etc_) must have already occurred.
 
 
 ## Ingredients
 
-!!! summary "Ingredients"
     Existing:
 
     1. [X] [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
@@ -67,7 +65,6 @@ OAUTH2_PROXY_COOKIE_SECRET=
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 ```
 version: '3'
@@ -116,7 +113,6 @@ networks:
         - subnet: 172.16.9.0/24
 ```
 
-!!! note
     Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 

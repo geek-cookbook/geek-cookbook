@@ -23,7 +23,6 @@ If you want to use minikube, there is a guide below but again, I recommend using
 1. A Fresh Linux Machine
 2. Some basic Linux knowledge (or can just copy-paste)
 
-!!! note
     Make sure you are running a SystemD based distro like Ubuntu.  
     Although minikube will run on macOS and Windows,
     they add in additional complexities to the installation as they
@@ -56,7 +55,6 @@ sudo minikube config set vm-driver none #Set our default vm driver to none
 
 You are now set up with minikube!
 
-!!! warning
     MiniKube is not a production-grade method of deploying Kubernetes
 
 ## K3S
@@ -80,7 +78,6 @@ Ubuntu ticks all the boxes for k3s to run on and allows you to follow lots of ot
 Firstly, download yourself a version of Ubuntu Server from [here](https://ubuntu.com/download/server) (Whatever is latest)
 Then spin yourself up as many systems as you need with the following guide
 
-!!! note
     I am running a 3 node cluster, with nodes running on Ubuntu 19.04, all virtualized with VMWare ESXi  
     Your setup doesn't need to be as complex as mine, you can use 3 old Dell OptiPlex if you really want 
 
@@ -146,14 +143,12 @@ Number of key(s) added: 1
 
 You will want to do this once for every machine, replacing the hostname with the other next nodes hostname each time.
 
-!!! note
     If your hostnames aren't resolving correct, try adding them to your `/etc/hosts` file
 
 ### Installation
 
 If you have access to the premix repository, you can download the ansible-playbook and follow the steps contained in there, if not sit back and prepare to do it manually.
 
-!!! tip
     Becoming a patron will allow you to get the ansible-playbook to setup k3s on your own hosts. For as little as 5$/m you can get access to the ansible playbooks for this recipe, and more!  
     See [funkypenguin's Patreon](https://www.patreon.com/funkypenguin) for more!
     <!---
@@ -260,7 +255,6 @@ users:
 
 Make sure to change `clusters.cluster.server` to have the master node's name instead of `127.0.0.1`, in my case making it `https://thomas-k3s-node1:6443`
 
-!!! warning
     This kubeconfig file can grant full access to your Kubernetes installation, I recommend you protect this file just as well as you protect your passwords
 
 You will probably want to save this kubeconfig file into a file on your local machine, say `my-k3s-cluster.yml` or `where-8-hours-of-my-life-went.yml`.  

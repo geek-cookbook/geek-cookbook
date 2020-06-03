@@ -2,7 +2,6 @@ hero: Backup all your stuff. Share it. Privately.
 
 # NextCloud
 
-!!! important
     Ongoing development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
@@ -70,7 +69,6 @@ BACKUP_FREQUENCY=1d
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
@@ -158,7 +156,6 @@ networks:
         - subnet: 172.16.12.0/24
 ```
 
-!!! note
     Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 
@@ -224,7 +221,6 @@ location: https://nextcloud.batcave.org/remote.php/dav/
 
 Note that this .htaccess can be overwritten by NextCloud, and you may have to reapply the change in future. I've created an [issue requesting a permanent fix](https://github.com/nextcloud/docker/issues/577).
 
-!!! important
     Ongoing development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)

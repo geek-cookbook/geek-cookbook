@@ -4,7 +4,6 @@ For truly highly-available services with Docker containers, we need an orchestra
 
 ## Ingredients
 
-!!! summary
     Existing
     
     * [X] 3 x nodes (*bare-metal or VMs*), each with:
@@ -127,7 +126,6 @@ networks:
         - subnet: 172.16.0.0/24
 ```
 
-!!! note
     Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 Launch the cleanup stack by running ```docker stack deploy docker-cleanup -c <path-to-docker-compose.yml>```

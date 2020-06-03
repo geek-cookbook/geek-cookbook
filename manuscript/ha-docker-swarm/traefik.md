@@ -15,7 +15,6 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 
 ## Ingredients
 
-!!! summary "You'll need"
     Existing
 
     * [X] [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph)
@@ -30,7 +29,6 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 
 The traefik container is aware of the __other__ docker containers in the swarm, because it has access to the docker socket at **/var/run/docker.sock**. This allows traefik to dynamically configure itself based on the labels found on containers in the swarm, which is hugely useful. To make this functionality work on a SELinux-enabled CentOS7 host, we need to add custom SELinux policy.
 
-!!! tip
     The following is only necessary if you're using SELinux!
 
 Run the following to build and activate policy to permit containers to access docker.sock:
@@ -92,7 +90,6 @@ swarmmode = true
 
 ### Prepare the docker service config
 
-!!! tip
     "We'll want an overlay network, independent of our traefik stack, so that we can attach/detach all our other stacks (including traefik) to the overlay network. This way, we can undeploy/redepoly the traefik stack without having to bring every other stack first!" - voice of experience
 
 Create `/var/data/config/traefik/traefik.yml` as follows:
@@ -122,7 +119,6 @@ networks:
         - subnet: 172.16.200.0/24
 ```
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
@@ -181,7 +177,6 @@ touch /var/data/traefik/acme.json
 chmod 600 /var/data/traefik/acme.json
 ```
 
-!!! warning
     Pay attention above. You **must** set `acme.json`'s permissions to owner-readable-only, else the container will fail to start with an [ID-10T](https://en.wikipedia.org/wiki/User_error#ID-10-T_error) error!
 
 Traefik will populate acme.json itself when it runs, but it needs to exist before the container will start (_Chicken, meet egg._)
@@ -226,7 +221,6 @@ You should now be able to access your traefik instance on http://<node IP\>:8080
 
 ### Summary 
 
-!!! summary
     We've achieved:
 
     * [X] An overlay network to permit traefik to access all future stacks we deploy

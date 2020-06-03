@@ -1,4 +1,3 @@
-!!! warning
     This is not a complete recipe - it's the conclusion to the [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 ### Launch Autopirate stack

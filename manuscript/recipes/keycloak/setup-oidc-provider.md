@@ -1,13 +1,11 @@
 # Add OIDC Provider to KeyCloak
 
-!!! warning
     This is not a complete recipe - it's an optional component of the [Keycloak recipe](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/), but has been split into its own page to reduce complexity.
 
 Having an authentication provider is not much use until you start authenticating things against it! In order to authenticate against KeyCloak using OpenID Connect (OIDC), which is required for [Traefik Forward Auth](https://geek-cookbook.funkypenguin.co.nz/recipe/traefik-forward-auth/), we'll setup a client in KeyCloak...
 
 ## Ingredients
 
-!!! Summary
     Existing:
 
     * [X] [KeyCloak](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/) recipe deployed successfully
@@ -47,7 +45,6 @@ Now that you've changed the access type, and clicked **Save**, an additional **C
 
 We've setup an OIDC client in KeyCloak, which we can now use to protect vulnerable services using [Traefik Forward Auth](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik-forward-auth/). The OIDC URL provided by KeyCloak in the master realm, is *https://<your-keycloak-url\>/realms/master/.well-known/openid-configuration*
 
-!!! Summary
     Created:
 
     * [X] Client ID and Client Secret used to authenticate against KeyCloak with OpenID Connect

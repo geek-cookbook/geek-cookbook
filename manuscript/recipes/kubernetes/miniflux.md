@@ -4,7 +4,6 @@ Miniflux is a lightweight RSS reader, developed by [Frdric Guillot](https://gith
 
 ![Miniflux Screenshot](https://geek-cookbook.funkypenguin.co.nz/images/miniflux.png)
 
-!!! tip "Sponsored Project"
     Miniflux is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. Although I get to process my RSS feeds less frequently than I'd like to!
 
 I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/review/miniflux-lightweight-self-hosted-rss-reader/), but features (among many) that I appreciate:
@@ -14,7 +13,6 @@ I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/rev
 * Feeds can be configured to download a "full" version of the content (_rather than an excerpt_)
 * Use the Bookmarklet to subscribe to a website directly from any browsers
 
-!!! abstract "2.0+ is a bit different"
     [Some things changed](https://docs.miniflux.net/en/latest/migration.html) when Miniflux 2.0 was released. For one thing, the only supported database is now postgresql (_no more SQLite_). External themes are gone, as is PHP (_in favor of golang_). It's been a controversial change, but I'm keen on minimal and single-purpose, so I'm still very happy with the direction of development. The developer has laid out his [opinions](https://docs.miniflux.net/en/latest/opinionated.html) re the decisions he's made in the course of development.
 
 
@@ -87,7 +85,6 @@ EOF
 kubectl create -f /var/data/config/miniflux/db-persistent-volumeclaim.yaml
 ```
 
-!!! question "What's that annotation about?"
     The annotation is used by [k8s-snapshots](https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/) to create daily incremental snapshots of your persistent volumes. In this case, our volume is snapshotted daily, and copies kept for 7 days.
 
 ### Create secrets
@@ -105,7 +102,6 @@ kubectl create secret -n mqtt generic miniflux-credentials \
    --from-file=database-url.secret
 ```
 
-!!! tip "Why use ```echo -n```?"
     Because. See [my blog post here](https://www.funkypenguin.co.nz/beware-the-hidden-newlines-in-kubernetes-secrets/) for the pain of hunting invisible newlines, that's why!
 
 
@@ -117,7 +113,6 @@ Now that we have a [namespace](https://kubernetes.io/docs/concepts/overview/work
 
 Deployments tell Kubernetes about the desired state of the pod (*which it will then attempt to maintain*). Create the db deployment by excecuting the following. Note that the deployment refers to the secrets created above.
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 
 
 ```

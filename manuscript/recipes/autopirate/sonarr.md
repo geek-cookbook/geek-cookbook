@@ -1,4 +1,3 @@
-!!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 
@@ -8,7 +7,6 @@
 
 ![Sonarr Screenshot](../../images/sonarr.png)
 
-!!! tip "Sponsored Project"
     Sonarr is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I forget it's there until I (reliably) receive an email with new and exciting updates 
 
 ## Inclusion into AutoPirate
@@ -48,7 +46,6 @@ sonarr_proxy:
     -authenticated-emails-file=/authenticated-emails.txt
 ```
 
-!!! tip
     I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 ## Assemble more tools..

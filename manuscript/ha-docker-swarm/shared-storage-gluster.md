@@ -2,7 +2,6 @@
 
 While Docker Swarm is great for keeping containers running (_and restarting those that fail_), it does nothing for persistent storage. This means if you actually want your containers to keep any data persistent across restarts (_hint: you do!_), you need to provide shared storage to every docker node.
 
-!!! warning
     This recipe is deprecated. It didn't work well in 2017, and it's not likely to work any better now. It remains here as a reference. I now recommend the use of [Ceph for shared storage](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph/) instead. - 2019 Chef
 
 ## Design
@@ -13,7 +12,6 @@ This GlusterFS recipe was my original design for shared storage, but I [found it
 
 ## Ingredients
 
-!!! summary "Ingredients"
     3 x Virtual Machines (configured earlier), each with:
 
     * [X] CentOS/Fedora Atomic
@@ -30,7 +28,7 @@ To build our Gluster volume, we need 2 out of the 3 VMs to provide one "brick". 
 
 On each host, run a variation following to create your bricks, adjusted for the path to your disk.
 
-!!! note "The example below assumes /dev/vdb is dedicated to the gluster volume"
+
 ```
 (
 echo o # Create a new empty DOS partition table
@@ -50,7 +48,6 @@ echo '/dev/vdb1 /var/no-direct-write-here/brick1 xfs defaults 1 2' >> /etc/fstab
 mount -a && mount
 ```
 
-!!! warning "Don't provision all your LVM space"
     Atomic uses LVM to store docker data, and **automatically grows** Docker's volumes as requried. If you commit all your free LVM space to your brick, you'll quickly find (as I did) that docker will start to fail with error messages about insufficient space. If you're going to slice off a portion of your LVM space in /dev/atomicos, make sure you leave enough space for Docker storage, where "enough" depends on how much you plan to pull images, make volumes, etc. I ate through 20GB very quickly doing development, so I ended up provisioning 50GB for atomic alone, with a separate volume for the brick.
 
 ### Create glusterfs container
@@ -58,6 +55,7 @@ mount -a && mount
 Atomic doesn't include the Gluster server components.  This means we'll have to run glusterd from within a container, with privileged access to the host. Although convoluted, I've come to prefer this design since it once again makes the OS "disposable", moving all the config into containers and code.
 
 Run the following on each host:
+
 ```
 docker run \
    -h glusterfs-server \
@@ -71,6 +69,7 @@ docker run \
    --name="glusterfs-server" \
    gluster/gluster-centos
 ```
+
 ### Create trusted pool
 
 On a single node (doesn't matter which), run ```docker exec -it glusterfs-server bash``` to launch a shell inside the container.

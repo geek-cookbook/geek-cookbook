@@ -1,6 +1,5 @@
 hero: Kubernetes. The hero we deserve.
 
-!!! danger "This recipe is a work in progress"
     This recipe is **incomplete**, and is featured to align the [patrons](https://www.patreon.com/funkypenguin)'s "premix" repository with the cookbook.  "_premix_" is a private git repository available to [all Patreon patrons](https://www.patreon.com/funkypenguin), which includes all the necessary .yml files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 
 
     So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 
@@ -104,7 +103,6 @@ kubectl create secret -n mqtt generic mqtt-credentials \
    --from-file=letsencrypt-email.secret
 ```
 
-!!! tip "Why use ```echo -n```?"
     Because. See [my blog post here](https://www.funkypenguin.co.nz/beware-the-hidden-newlines-in-kubernetes-secrets/) for the pain of hunting invisible newlines, that's why!
 
 ## Serving
@@ -113,7 +111,6 @@ kubectl create secret -n mqtt generic mqtt-credentials \
 
 Now that we have a volume, a service, and a namespace, we can create a deployment for the mqtt pod. Note below the use of volume mounts, environment variables, as well as the secrets.
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 
 
 ```

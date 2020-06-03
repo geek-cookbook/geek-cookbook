@@ -1,6 +1,5 @@
 # OpenLDAP
 
-!!! important
     Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
@@ -40,7 +39,6 @@ mkdir /var/data/openldap/openldap
 mkdir /var/data/runtime/openldap/
 ```
 
-!!! note "Why 2 directories?"
     For rationale, see my [data layout explanation](https://geek-cookbook.funkypenguin.co.nz/reference/data_layout/)
 
 ### Prepare environment
@@ -59,7 +57,6 @@ OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=
 ```
 
-!!! note
     I use an [OAuth proxy](https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/) to protect access to the web UI, when the sensitivity of the protected data (i.e. my authentication store) warrants it, or if I don't necessarily trust the security of the webUI.
 
 Create ```authenticated-emails.txt```, and populate with the email addresses (_matched to GitHub user accounts, in my case_) to which you want grant access, using OAuth2.
@@ -334,7 +331,6 @@ Create yours profile (_you chose a default profile in config.cfg above, remember
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this, at  (```/var/data/config/openldap/openldap.yml```)
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 ```
 version: '3'
@@ -388,7 +384,6 @@ networks:
     external: true    
 ```
 
-!!! warning
     **Normally**, we set unique static subnets for every stack you deploy, and put the non-public facing components (like databases) in an dedicated <stack\>_internal network. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
     However, you're likely to want to use OpenLdap with KeyCloak, whose JBOSS startup script assumes a single interface, and will crash in a ball of  if you try to assign multiple interfaces to the container.
@@ -440,7 +435,6 @@ You've now setup your OpenLDAP directory structure, and your administration inte
 Create your users using the "**New User**" button.
 
 
-!!! important
     Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)

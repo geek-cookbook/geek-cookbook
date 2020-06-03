@@ -22,7 +22,6 @@ Bitwarden is a free and open source password management solution for individuals
 
 ## Ingredients
 
-!!! summary "Ingredients"
     Existing:
 
     1. [X] [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
@@ -42,14 +41,12 @@ mkdir /var/data/bitwarden
 
 Create `/var/data/config/bitwarden/bitwarden.env`, and **leave it empty for now**.
 
-!!! question
     What, why an empty env file? Well, the container supports lots of customizations via environment variables, for things like toggling self-registration, 2FA, etc. These are too complex to go into for this recipe, but readers are recommended to review the [dani-garcia/bitwarden_rs wiki](https://github.com/dani-garcia/bitwarden_rs), and customize their installation to suite.
 
 ### Setup Docker Swarm
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
@@ -78,7 +75,6 @@ networks:
     external: true
 ```
 
-!!! note
     Note the clever use of two Traefik frontends to expose the notifications hub on port 3012. Thanks @gkoerk!
 
 

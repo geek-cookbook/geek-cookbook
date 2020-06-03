@@ -44,7 +44,6 @@ networks:
     external: true
 ```
 
-!!! note "Unencrypted registry"
     We create this registry without consideration for SSL, which will fail if we attempt to use the registry directly. However, we're going to use the HTTPS-proxied version via Traefik, leveraging Traefik to manage the LetsEncrypt certificates required.
 
 
@@ -107,7 +106,6 @@ Then restart docker by running:
 systemctl restart docker-latest
 ```
 
-!!! tip ""
     Note the extra comma required after "false" above
 
 ## Chef's notes 

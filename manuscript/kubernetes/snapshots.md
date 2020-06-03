@@ -26,7 +26,6 @@ If you're running GKE, run the following to create a RoleBinding, allowing your 
 ```kubectl create clusterrolebinding your-user-cluster-admin-binding \
  --clusterrole=cluster-admin --user=<your user@yourdomain>```
 
-!!! question
     Why do we have to do this? Check [this blog post](https://www.funkypenguin.co.nz/workaround-blocked-attempt-to-grant-extra-privileges-on-gke/) for details
 
 ### Apply RBAC
@@ -158,7 +157,6 @@ spec:
 EOF
 ```
 
-!!! note
     Example syntaxes for the SnapshotRule for different providers can be found at https://github.com/miracle2k/k8s-snapshots/tree/master/examples
 
 ## Move on..

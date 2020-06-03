@@ -4,7 +4,6 @@ Kanboard is a Kanban tool, developed by [Frdric Guillot](https://github.com/fgui
 
 ![Kanboard Screenshot](https://geek-cookbook.funkypenguin.co.nz/images/kanboard.png)
 
-!!! tip "Sponsored Project"
     Kanboard is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 
 
 Features include:
@@ -89,7 +88,6 @@ EOF
 kubectl create -f /var/data/config/kanboard/kanboard-volumeclaim.yaml
 ```
 
-!!! question "What's that annotation about?"
     The annotation is used by [k8s-snapshots](https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/) to create daily incremental snapshots of your persistent volumes. In this case, our volume is snapshotted daily, and copies kept for 7 days.
 
 ### Create ConfigMap
@@ -116,7 +114,6 @@ Now that we have a [namespace](https://kubernetes.io/docs/concepts/overview/work
 
 Create a deployment to tell Kubernetes about the desired state of the pod (*which it will then attempt to maintain*). Note below that we mount the persistent volume **twice**, to both ```/var/www/app/data``` and ```/var/www/app/plugins```, using the subPath value to differentiate them. This trick avoids us having to provision **two** persistent volumes just for data mounted in 2 separate locations.
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 
 
 ```

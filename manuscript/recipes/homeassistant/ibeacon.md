@@ -1,6 +1,5 @@
 # iBeacons with Home assistant
 
-!!! warning
     This is not a complete recipe - it's an optional additional of the [HomeAssistant](https://geek-cookbook.funkypenguin.co.nz/recipes/homeassistant/) "recipe", since it only applies to a subset of users
 
 One of the most useful features of Home Assistant is location awareness. I don't care if someone opens my office door when I'm home, but you bet I care about (_and want to be notified_) it if I'm away!

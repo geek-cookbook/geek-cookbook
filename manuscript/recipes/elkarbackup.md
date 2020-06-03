@@ -6,7 +6,6 @@ Don't be like [Cameron](http://haltandcatchfire.wikia.com/wiki/Cameron_Howe). Ba
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1UtFeMoqVHQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-!!! important
     Ongoing development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
@@ -60,7 +59,6 @@ OAUTH2_PROXY_COOKIE_SECRET=
 
 Create ```/var/data/config/elkarbackup/elkarbackup-db-backup.env```, and populate with the following, to setup the nightly database dump.
 
-!!! note
     Running a daily database dump might be considered overkill, since ElkarBackup can be configured to backup its own database. However, making my own backup keeps the operation of this stack consistent with **other** stacks which employ MariaDB.
 
     Also, did you ever hear about the guy who said "_I wish I had fewer backups"?
@@ -79,7 +77,6 @@ BACKUP_FREQUENCY=1d
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
@@ -158,7 +155,6 @@ networks:
         - subnet: 172.16.36.0/24
 ```
 
-!!! note
     Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 
@@ -222,14 +218,12 @@ echo "Available disk space: $AVAILABLE"
 echo ""
 ```
 
-!!! note
     You'll note that I don't use the script to create a mysql dump (_since Elkar is running within a container anyway_), rather I just rely on the database dump which is made nightly into ```/var/data/elkarbackup/database-dump/```
 
 ### Restoring data
 
 Repeat after me : "**It's not a backup unless you've tested a restore**"
 
-!!! note
     I had some difficulty making restoring work well in the webUI. My attempts to "Restore to client" failed with an SSH error about "localhost" not found. I **was** able to download the backup from my web browser, so I considered it a successful restore, since I can retrieve the backed-up data either from the webUI or from the filesystem directly.
 
 To restore files form a job, click on the "Restore" button in the WebUI, while on the **Jobs** tab:
@@ -238,7 +232,6 @@ To restore files form a job, click on the "Restore" button in the WebUI, while o
 
 This takes you to a list of backup names and file paths. You can choose to download the entire contents of the backup from your browser as a .tar.gz, or to restore the backup to the client. If you click on the **name** of the backup, you can also drill down into the file structure, choosing to restore a single file or directory.
 
-!!! important
     Ongoing development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)

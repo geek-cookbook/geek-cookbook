@@ -6,7 +6,6 @@ While Docker Swarm is great for keeping containers running (_and restarting thos
 
 ## Ingredients
 
-!!! summary "Ingredients"
     3 x Virtual Machines (configured earlier), each with:
 
     * [X] Support for "modern" versions of Python and LVM
@@ -18,7 +17,6 @@ While Docker Swarm is great for keeping containers running (_and restarting thos
 
 ## Preparation
 
-!!! tip "No more [foolish games](https://www.youtube.com/watch?v=UNoouLa7uxA)"
     Earlier iterations of this recipe (*based on [Ceph Jewel](https://docs.ceph.com/docs/master/releases/jewel/)*) required significant manual effort to install Ceph in a Docker environment. In the 2+ years since Jewel was released, significant improvements have been made to the ceph "deploy-in-docker" process, including the [introduction of the cephadm tool](https://ceph.io/ceph-management/introducing-cephadm/). Cephadm is the tool which now does all the heavy lifting, below, for the current version of ceph, codenamed "[Octopus](https://www.youtube.com/watch?v=Gi58pN8W3hY)".
 
 ### Pick a master node
@@ -133,16 +131,15 @@ The process takes about 30 seconds, after which, you'll have a MVC (*Minimum Via
 
 It's now necessary to tranfer the following files to your ==other== nodes, so that cephadm can add them to your cluster, and so that they'll be able to mount the cephfs when we're done:
 
-Path on master           | Path on non-master
---------------- | -----
-`/etc/ceph/ceph.conf` | `/etc/ceph/ceph.conf`
-`/etc/ceph/ceph.client.admin.keyring` | `/etc/ceph/ceph.client.admin.keyring`
-`/etc/ceph/ceph.pub`   | `/root/.ssh/authorized_keys` (append to anything existing)
+| Path on master                        | Path on non-master                                         |
+|---------------------------------------|------------------------------------------------------------|
+| `/etc/ceph/ceph.conf`                 | `/etc/ceph/ceph.conf`                                      |
+| `/etc/ceph/ceph.client.admin.keyring` | `/etc/ceph/ceph.client.admin.keyring`                      |
+| `/etc/ceph/ceph.pub`                  | `/root/.ssh/authorized_keys` (append to anything existing) |
 
 
 Back on the ==master== node, run `ceph orch host add <node-name>` once for each other node you want to join to the cluster. You can validate the results by running `ceph orch host ls`
 
-!!! question "Should we be concerned about giving cephadm using root access over SSH?"
     Not really. Docker is inherently insecure at the host-level anyway (*think what would happen if you launched a global-mode stack with a malicious container image which mounted `/root/.ssh`*), so worrying about cephadm seems a little barn-door-after-horses-bolted. If you take host-level security seriously, consider switching to [Kubernetes](https://geek-cookbook.funkypenguin.co.nz/kubernetes/start/) :) 
 
 ### Add OSDs
@@ -196,7 +193,6 @@ root@raphael:~#
 
 What have we achieved?
 
-!!! summary "Summary"
     Created:
 
     * [X] Persistent storage available to every node

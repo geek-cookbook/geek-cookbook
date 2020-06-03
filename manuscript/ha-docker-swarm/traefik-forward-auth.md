@@ -8,7 +8,6 @@ To give us confidence that **we** can access our services, but BadGuys(tm) canno
 
 ## Ingredients
 
-!!! summary "Ingredients"
     Existing:
 
     * [X] [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph)
@@ -22,7 +21,6 @@ To give us confidence that **we** can access our services, but BadGuys(tm) canno
 
 ### Obtain OAuth credentials
 
-!!! note
     This recipe will demonstrate using Google OAuth for traefik forward authentication, but it's also possible to use a self-hosted KeyCloak instance - see the [KeyCloak OIDC Provider](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/setup-oidc-provider/) recipe for more details!
 
 Log into https://console.developers.google.com/, create a new project then search for and select "Credentials" in the search bar. 
@@ -82,7 +80,6 @@ If you're not confident that forward authentication is working, add a simple "wh
         - traefik.frontend.auth.forward.trustForwardHeader=true
 ```
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
@@ -101,7 +98,6 @@ Browse to https://whoami.example.com (*obviously, customized for your domain and
 
 What have we achieved? By adding an additional three simple labels to any service, we can secure any service behind our choice of OAuth provider, with minimal processing / handling overhead.
 
-!!! summary "Summary"
     Created:
 
     * [X] Traefik-forward-auth configured to authenticate against an OIDC provider

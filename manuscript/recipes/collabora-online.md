@@ -1,6 +1,5 @@
 # Collabora Online
 
-!!! important
     Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
@@ -52,7 +51,6 @@ mkdir /var/data/config/collabora/
 
 Create /var/data/config/collabora/collabora.env, and populate with the following variables, customized for your installation.
 
-!!! warning
     Note the following:
 
     1. Variables are in lower-case, unlike our standard convention. This is to align with the CODE container
@@ -156,7 +154,6 @@ Create an empty ```/var/data/collabora/loolwsd.xml``` by running ```touch /var/d
 
 Create ```/var/data/config/collabora/collabora.yml``` as follows, changing the traefik frontend_rule as necessary:
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 ```
@@ -295,7 +292,6 @@ In NextCloud, Install the **Collabora Online** app (https://apps.nextcloud.com/a
 
 Now browse your NextCloud files. Click the plus (+) sign to create a new document, and create either a new document, spreadsheet, or presentation. Name your document and then click on it. If Collabora is setup correctly, you'll shortly enter into the rich editing interface provided by Collabora :)
 
-!!! important
     Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)

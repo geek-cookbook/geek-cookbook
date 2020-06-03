@@ -1,8 +1,6 @@
-!!! danger "This recipe is a work in progress"
     This recipe is **incomplete**, and remains a work in progress.
     So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 
 
-!!! important
     Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/)
     
 # IPFS
@@ -134,7 +132,6 @@ You'll see output like this:
 10:55:26.625  INFO    cluster: ** IPFS Cluster is READY ** cluster.go:418
 ```
 
-!!! note
     You can ignore the warnings about port 5001 refused - this is because we weren't running the ipfs daemon while bootstrapping the cluster. Its harmless.
 
 I haven't worked out why yet, but running the bootstrap in docker-run format reset the permissions on /var/ipfs/cluster/, so look at /var/ipfs/daemon, and make the permissions of /var/ipfs/cluster the same.

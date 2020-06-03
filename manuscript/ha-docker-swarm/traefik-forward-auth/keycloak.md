@@ -4,7 +4,6 @@ While the [Traefik Forward Auth](https://geek-cookbook.funkypenguin.co.nz/ha-doc
 
 ## Ingredients
 
-!!! Summary
     Existing:
 
     * [X] [KeyCloak](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/) recipe deployed successfully, with a [local user](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/create-user/) and an [OIDC client](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/setup-oidc-provider/)
@@ -81,7 +80,6 @@ If you're not confident that forward authentication is working, add a simple "wh
         - traefik.frontend.auth.forward.trustForwardHeader=true
 ```
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 ## Serving
@@ -110,7 +108,6 @@ And re-deploy your services :)
 
 What have we achieved? By adding an additional three simple labels to any service, we can secure any service behind our KeyCloak OIDC provider, with minimal processing / handling overhead.
 
-!!! summary "Summary"
     Created:
 
     * [X] Traefik-forward-auth configured to authenticate against KeyCloak

@@ -1,13 +1,11 @@
 # Authenticate KeyCloak against OpenLDAP
 
-!!! warning
     This is not a complete recipe - it's an **optional** component of the [Keycloak recipe](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/), but has been split into its own page to reduce complexity.
 
 KeyCloak gets really sexy when you integrate it into your [OpenLDAP](https://geek-cookbook.funkypenguin.co.nz/recipes/openldap/) stack (_also, it's great not to have to play with ugly LDAP tree UIs_). Note that OpenLDAP integration is **not necessary** if you want to use KeyCloak with [Traefik Forward Auth](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik-forward-auth/) - all you need for that is [local users](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/create-user/), and an [OIDC client](http://localhost:8000/recipes/keycloak/setup-oidc-provider/).
 
 ## Ingredients
 
-!!! Summary
     Existing:
 
     * [X] [KeyCloak](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/) recipe deployed successfully
@@ -60,7 +58,6 @@ For each of the following mappers, click the name, and set the "_Read Only_" fla
 
 We've setup a new realm in KeyCloak, and configured read-write federation to an [OpenLDAP](https://geek-cookbook.funkypenguin.co.nz/recipes/openldap/) backend. We can now manage our LDAP users using either KeyCloak or LDAP directly, and we can protect vulnerable services using [Traefik Forward Auth](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik-forward-auth/).
 
-!!! Summary
     Created:
 
     * [X] KeyCloak realm in read-write federation with [OpenLDAP](https://geek-cookbook.funkypenguin.co.nz/recipes/openldap/) directory

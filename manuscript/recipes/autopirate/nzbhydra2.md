@@ -1,4 +1,3 @@
-!!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 
@@ -6,7 +5,6 @@
 
 [NZBHydra 2](https://github.com/theotherp/nzbhydra2) is a meta search for NZB indexers. It provides easy access to a number of raw and newznab based indexers. You can search all your indexers from one place and use it as an indexer source for tools like Sonarr, Radarr or CouchPotato.
 
-!!! note
     NZBHydra 2 is a complete rewrite of [NZBHydra (1)](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhybra/). It's currently in Beta. It works mostly fine but some functions might not be completely done and incompatibilities with some tools might still exist. You might want to run both in parallel for migration / testing purposes, but ultimately you'll probably want to switch over to NZBHydra 2 exclusively.
 
 ![NZBHydra Screenshot](../../images/nzbhydra2.png)
@@ -65,7 +63,6 @@ nzbhydra2_proxy:
     -authenticated-emails-file=/authenticated-emails.txt
 ```
 
-!!! tip
     I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 ## Assemble more tools..

@@ -10,7 +10,6 @@ This is accomplished with the use of keepalived on at least two nodes.
 
 ## Ingredients
 
-!!! summary "Ingredients"
     Already deployed:
 
     * [X] At least 2 x swarm nodes

@@ -1,4 +1,3 @@
-!!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # NZBGet
@@ -14,7 +13,6 @@ NZBGet performs the same function as [SABnzbd](https://geek-cookbook.funkypengui
 To include NZBGet in your [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) stack
 (_The only reason you **wouldn't** use NZBGet, would be if you were using [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sabnzbd/) instead_), include the following in your autopirate.yml stack definition file:
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 ```
@@ -50,7 +48,6 @@ nzbget_proxy:
     -authenticated-emails-file=/authenticated-emails.txt
 ```
 
-!!! note
     NZBGet uses a 401 header to prompt for authentication. When you use OAuth2_proxy, this seems to break. Since we trust OAuth to authenticate us, we can just disable NZGet's own authentication, by changing ControlPassword to null in nzbget.conf (i.e. ```ControlPassword=```)
 
 

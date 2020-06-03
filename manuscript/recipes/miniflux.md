@@ -6,7 +6,6 @@ Miniflux is a lightweight RSS reader, developed by [Frdric Guillot](https://gith
 
 ![Miniflux Screenshot](../images/miniflux.png)
 
-!!! tip "Sponsored Project"
     Miniflux is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. Although I get to process my RSS feeds less frequently than I'd like to!
 
 I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/review/miniflux-lightweight-self-hosted-rss-reader/), but features (among many) that I appreciate:
@@ -16,7 +15,6 @@ I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/rev
 * Feeds can be configured to download a "full" version of the content (_rather than an excerpt_)
 * Use the Bookmarklet to subscribe to a website directly from any browsers
 
-!!! abstract "2.0+ is a bit different"
     [Some things changed](https://docs.miniflux.net/en/latest/migration.html) when Miniflux 2.0 was released. For one thing, the only supported database is now postgresql (_no more SQLite_). External themes are gone, as is PHP (_in favor of golang_). It's been a controversial change, but I'm keen on minimal and single-purpose, so I'm still very happy with the direction of development. The developer has laid out his [opinions](https://docs.miniflux.net/en/latest/opinionated.html) re the decisions he's made in the course of development.
 
 ## Ingredients
@@ -68,7 +66,6 @@ The entire application is configured using environment variables, including the 
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
         I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 ```

@@ -1,4 +1,3 @@
-!!! warning
     This is not a complete recipe - it's a component of the [autopirate](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # LazyLibrarian
@@ -58,7 +57,6 @@ calibre-server:
 
 ```
 
-!!! tip
     I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 ## Assemble more tools..

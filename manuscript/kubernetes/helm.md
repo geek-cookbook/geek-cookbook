@@ -4,7 +4,6 @@
 
 ![Kubernetes Snapshots](https://geek-cookbook.funkypenguin.co.nz/images/kubernetes-helm.png)
 
-!!! note
     Given enough interest, I may provide a helm-compatible version of the pre-mix repository for [supporters](https://geek-cookbook.funkypenguin.co.nz/support/). [Hit me up](https://geek-cookbook.funkypenguin.co.nz/whoami/#contact-me) if you're interested!
 
 ## Ingredients

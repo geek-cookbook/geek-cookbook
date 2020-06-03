@@ -8,7 +8,6 @@ Wekan allows to create Boards, on which Cards can be moved around between a numb
 
 There's a [video](https://www.youtube.com/watch?v=N3iMLwCNOro) of the developer showing off the app, as well as a f[unctional demo](https://wekan.indie.host/b/t2YaGmyXgNkppcFBq/wekan-fork-roadmap).
 
-!!! note
     For added privacy, this design secures wekan behind an [oauth2 proxy](https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/), so that in order to gain access to the wekan UI at all, oauth2 authentication (_to GitHub, GitLab, Google, etc_) must have already occurred.
 
 ## Ingredients
@@ -53,7 +52,6 @@ BACKUP_FREQUENCY=1d
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
     I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 ```
@@ -127,7 +125,6 @@ networks:
         - subnet: 172.16.3.0/24
 ```
 
-!!! note
     Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 
