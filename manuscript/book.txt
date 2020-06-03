@@ -1,1 +1,4 @@
 index.md
+README-UI.md
+CHANGELOG.md
+whoami.md
