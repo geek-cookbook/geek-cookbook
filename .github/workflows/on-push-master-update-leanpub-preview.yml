@@ -1,4 +1,4 @@
-name: Notify Discord to cookbook update 
+name: Update leanpub branches
 
 on:
   push:
@@ -9,6 +9,7 @@ on:
       - 'manuscript/**/*.md'
 
 jobs:
+  update-leanpub:
     - name: Checkout charts repo
       uses: actions/checkout@v2
 
