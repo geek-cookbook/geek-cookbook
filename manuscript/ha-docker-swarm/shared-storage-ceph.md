@@ -209,7 +209,6 @@ I share (_with [sponsors][github_sponsor] and [patrons][patreon]_) a private "_p
 
 Here's a screencast of the playbook in action. I sped up the boring parts, it actually takes ==5 min== (*you can tell by the timestamps on the prompt*):
 
-![Screencast of ceph install via ansible](https://static.funkypenguin.co.nz/ceph_install_via_ansible_playbook.gif)
 [patreon]:	        https://www.patreon.com/bePatron?u=6982506
 [github_sponsor]:   https://github.com/sponsors/funkypenguin
 
