@@ -8,6 +8,7 @@ on:
       - 'manuscript/*.md'
       - 'manuscript/**/*.md'
       - '.github/workflows/*'
+      - 'scripts/*'
 
 
 jobs:
