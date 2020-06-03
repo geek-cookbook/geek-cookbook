@@ -1,0 +1,22 @@
+name: Notify Discord to cookbook update 
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - 'manuscript/*.md'
+      - 'manuscript/**/*.md'
+
+jobs:
+    - name: Checkout charts repo
+      uses: actions/checkout@v2
+
+    - name: Merge to leanpub-preview branch
+      uses: devmasx/merge-branch@v1.1.0
+      with:
+        type: now
+        target_branch: 'leanpub-preview'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
