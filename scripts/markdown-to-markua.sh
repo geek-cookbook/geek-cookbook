@@ -17,7 +17,9 @@ do
     sed -i '/.gif/d' $file    
 
     # Strip out mkdocs admonitions
-    sed -i '/\!\!\!/d' $file        
+    sed -i '/!!!/d' $file        
+
+    
 
     # strip emojis
     tr -cd '\11\12\15\40-\176' < $file > $file-clean
