@@ -9,6 +9,7 @@ on:
       - 'manuscript/**/*.md'
       - '.github/workflows/*'
 
+
 jobs:
   update-leanpub:
     name: update-leanpub
