@@ -61,7 +61,7 @@ Impulsively **[click here (NOW quick do it!)](https://github.com/sponsors/funkyp
 
 ### Work with me 
 
-Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified](https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-02-22&ci=AWS00794574) consultant, this stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch](https://www.funkypenguin.co.nz/contact/), and let's talk business!
+Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified](https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-02-22&ci=AWS00794574) consultant, this stuff is my bread and butter! :breadfork_and_knife: [Get in touch](https://www.funkypenguin.co.nz/contact/), and let's talk business!
 
 
 !!! quote "He unblocked me on all the technical hurdles to launching my SaaS in GKE!"

@@ -62,7 +62,7 @@ storage:
   delete:
     enabled: true
 http:
-  addr: :5000
+  addr5000
   headers:
     X-Content-Type-Options: [nosniff]
 health:

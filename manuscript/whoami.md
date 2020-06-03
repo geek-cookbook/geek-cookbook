@@ -22,7 +22,7 @@ Due to my contributions to [phpList](http://www.phplist.com), I was approached i
 
 ## Work with me 
 
-Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified][aws_cert] consultant, this stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch][contact], and let's talk business!
+Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified][aws_cert] consultant, this stuff is my bread and butter! :breadfork_and_knife: [Get in touch][contact], and let's talk business!
 
 [plex]:	            https://www.plex.tv/
 [nextcloud]:        https://nextcloud.com/

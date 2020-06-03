@@ -59,7 +59,7 @@ Impulsively **[click here (NOW quick do it!)][11]** to sponsor me, or instead th
 
 ### Engage me 
 
-Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified][13] consultant, this stuff is my bread and butter! :bread: :fork\_and\_knife: [Contact][14] me and let's talk!
+Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified][13] consultant, this stuff is my bread and butter! :breadfork\_and\_knife: [Contact][14] me and let's talk!
 
 ### Discord
 
