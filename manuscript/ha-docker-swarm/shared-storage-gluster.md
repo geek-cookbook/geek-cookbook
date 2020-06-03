@@ -78,6 +78,7 @@ From the node, run
 ```gluster peer probe <other host>```
 
 Example output:
+
 ```
 [root@glusterfs-server /]# gluster peer probe ds1
 peer probe: success.
@@ -87,6 +88,7 @@ peer probe: success.
 Run ```gluster peer status``` on both nodes to confirm that they're properly connected to each other:
 
 Example output:
+
 ```
 [root@glusterfs-server /]# gluster peer status
 Number of Peers: 1
@@ -101,7 +103,8 @@ State: Peer in Cluster (Connected)
 
 Now we create a *replicated volume* out of our individual "bricks".
 
-Create the gluster volume by running
+Create the gluster volume by running:
+
 ```
 gluster volume create gv0 replica 2 \
  server1:/var/no-direct-write-here/brick1 \
@@ -109,6 +112,7 @@ gluster volume create gv0 replica 2 \
 ```
 
 Example output:
+
 ```
 [root@glusterfs-server /]# gluster volume create gv0 replica 2 ds1:/var/no-direct-write-here/brick1/gv0  ds3:/var/no-direct-write-here/brick1/gv0
 volume create: gv0: success: please start the volume to access data
@@ -130,7 +134,6 @@ From one other host, run ```docker exec -it glusterfs-server bash``` to shell in
 ### Mount gluster volume
 
 On the host (i.e., outside of the container - type ```exit``` if you're still shelled in), create a mountpoint for the data, by running ```mkdir /var/data```, add an entry to fstab to ensure the volume is auto-mounted on boot, and ensure the volume is actually _mounted_ if there's a network / boot delay getting access to the gluster volume:
-
 ```
 mkdir /var/data
 MYHOST=`hostname -s`
@@ -140,7 +143,8 @@ echo "$MYHOST:/gv0                /var/data      glusterfs       defaults,_netde
 mount -a
 ```
 
-For some reason, my nodes won't auto-mount this volume on boot. I even tried the trickery below, but they stubbornly refuse to automount.
+For some reason, my nodes won't auto-mount this volume on boot. I even tried the trickery below, but they stubbornly refuse to automount:
+
 ```
 echo -e "\n\n# Give GlusterFS 10s to start before \
 mounting\nsleep 10s && mount -a" >> /etc/rc.local
