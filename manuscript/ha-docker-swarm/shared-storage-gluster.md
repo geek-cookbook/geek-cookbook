@@ -74,8 +74,7 @@ docker run \
 
 On a single node (doesn't matter which), run ```docker exec -it glusterfs-server bash``` to launch a shell inside the container.
 
-From the node, run
-```gluster peer probe <other host>```
+From the node, run `gluster peer probe <other host>`.
 
 Example output:
 
@@ -134,6 +133,7 @@ From one other host, run ```docker exec -it glusterfs-server bash``` to shell in
 ### Mount gluster volume
 
 On the host (i.e., outside of the container - type ```exit``` if you're still shelled in), create a mountpoint for the data, by running ```mkdir /var/data```, add an entry to fstab to ensure the volume is auto-mounted on boot, and ensure the volume is actually _mounted_ if there's a network / boot delay getting access to the gluster volume:
+
 ```
 mkdir /var/data
 MYHOST=`hostname -s`
