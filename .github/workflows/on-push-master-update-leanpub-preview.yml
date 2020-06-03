@@ -11,6 +11,8 @@ on:
 
 jobs:
   update-leanpub:
+    name: update-leanpub
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout charts repo
       uses: actions/checkout@v2
