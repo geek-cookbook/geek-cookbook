@@ -7,4 +7,3 @@ sections/ha-docker-swarm.md
 ha-docker-swarm/design.md
 ha-docker-swarm/nodes.md
 ha-docker-swarm/shared-storage-ceph.md
-ha-docker-swarm/shared-storage-gluster.md
