@@ -26,8 +26,8 @@ jobs:
 
     - name: Replace contents of leanpub-preview branch
       run: |
-        rm -rf leanpub-preview/*
-        cp -rf * leanpub-preview/
+        rm -rf leanpub-preview/manuscript
+        cp -rf manuscript leanpub-preview/
         cd leanpub-preview
         ./scripts/markdown-to-markua.sh
 
