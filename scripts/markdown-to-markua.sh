@@ -8,7 +8,7 @@ do
     sed -i "s/\`\`\`\`/\`\`\`/g" $file
 
     # Can't use relative paths in a book, so make all paths static
-    sed -i 's/(\//(https:\/\/geek-cookbook.funkypenguin.co.nz\/)/g' $file
+    sed -i 's/(\//https:\/\/geek-cookbook.funkypenguin.co.nz\//g' $file
 
     # strip emojis
     tr -cd '\11\12\15\40-\176' < $file > $file-clean
