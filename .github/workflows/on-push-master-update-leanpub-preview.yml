@@ -31,6 +31,16 @@ jobs:
         cd leanpub-preview
         ./scripts/markdown-to-markua.sh
 
+    # For reason for this, see https://github.com/ad-m/github-push-action/issues/52
+    - name: Remove troublesome extra header from actions/checkout results
+      run: |
+        cd to_publish
+        git config --local --unset-all "http.https://github.com/.extraheader"
+        git config --global user.email "autopenguin@funkypenguin.co.nz"
+        git config --global user.name "AutoPenguin"        
+        git add .
+        git commit -m 'Update for leanpub preview'
+
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
