@@ -31,6 +31,7 @@ To build our Gluster volume, we need 2 out of the 3 VMs to provide one "brick". 
 On each host, run a variation following to create your bricks, adjusted for the path to your disk.
 
 !!! note "The example below assumes /dev/vdb is dedicated to the gluster volume"
+
 ```
 (
 echo o # Create a new empty DOS partition table
@@ -58,6 +59,7 @@ mount -a && mount
 Atomic doesn't include the Gluster server components.  This means we'll have to run glusterd from within a container, with privileged access to the host. Although convoluted, I've come to prefer this design since it once again makes the OS "disposable", moving all the config into containers and code.
 
 Run the following on each host:
+
 ````
 docker run \
    -h glusterfs-server \
@@ -71,6 +73,7 @@ docker run \
    --name="glusterfs-server" \
    gluster/gluster-centos
 ````
+
 ### Create trusted pool
 
 On a single node (doesn't matter which), run ```docker exec -it glusterfs-server bash``` to launch a shell inside the container.

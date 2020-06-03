@@ -133,11 +133,11 @@ The process takes about 30 seconds, after which, you'll have a MVC (*Minimum Via
 
 It's now necessary to tranfer the following files to your ==other== nodes, so that cephadm can add them to your cluster, and so that they'll be able to mount the cephfs when we're done:
 
-Path on master           | Path on non-master
---------------- | -----
-`/etc/ceph/ceph.conf` | `/etc/ceph/ceph.conf`
-`/etc/ceph/ceph.client.admin.keyring` | `/etc/ceph/ceph.client.admin.keyring`
-`/etc/ceph/ceph.pub`   | `/root/.ssh/authorized_keys` (append to anything existing)
+| Path on master                        | Path on non-master                                         |
+|---------------------------------------|------------------------------------------------------------|
+| `/etc/ceph/ceph.conf`                 | `/etc/ceph/ceph.conf`                                      |
+| `/etc/ceph/ceph.client.admin.keyring` | `/etc/ceph/ceph.client.admin.keyring`                      |
+| `/etc/ceph/ceph.pub`                  | `/root/.ssh/authorized_keys` (append to anything existing) |
 
 
 Back on the ==master== node, run `ceph orch host add <node-name>` once for each other node you want to join to the cluster. You can validate the results by running `ceph orch host ls`
