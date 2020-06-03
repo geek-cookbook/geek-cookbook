@@ -19,7 +19,8 @@ do
     # Strip out mkdocs admonitions
     sed -i '/!!!/d' $file        
 
-    
+    # Change highlights to bold underlines
+    sed -iE 's/==(.*)==/___\1___/' $file
 
     # strip emojis
     tr -cd '\11\12\15\40-\176' < $file > $file-clean
