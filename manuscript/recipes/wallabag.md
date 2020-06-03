@@ -8,21 +8,21 @@ All saved data (_pages, annotations, images, tags, etc_) are stored on your own 
 
 ![Wallabag Screenshot](../images/wallabag.png)
 
-There are plugins for [Chrome](https://chrome.google.com/webstore/detail/wallabagger/gbmgphmejlcoihgedabhgjdkcahacjlj) and [Firefox](https://addons.mozilla.org/firefox/addon/wallabagger/), as well as apps for [iOS](https://appsto.re/fr/YeqYfb.i), [Android](https://play.google.com/store/apps/details?id=fr.gaulupeau.apps.InThePoche), etc. Wallabag will also integrate nicely with my favorite RSS reader,  [Miniflux](https://miniflux.net/) (_for which there is an [existing recipe]https://geek-cookbook.funkypenguin.co.nz/recipes/miniflux)_).
+There are plugins for [Chrome](https://chrome.google.com/webstore/detail/wallabagger/gbmgphmejlcoihgedabhgjdkcahacjlj) and [Firefox](https://addons.mozilla.org/firefox/addon/wallabagger/), as well as apps for [iOS](https://appsto.re/fr/YeqYfb.i), [Android](https://play.google.com/store/apps/details?id=fr.gaulupeau.apps.InThePoche), etc. Wallabag will also integrate nicely with my favorite RSS reader,  [Miniflux](https://miniflux.net/) (_for which there is an [existing recipe](https://geek-cookbook.funkypenguin.co.nz/recipes/miniflux)_).
 
 [Here's a video](https://player.vimeo.com/video/167435064) which shows off the UI a bit more.
 
 ## Ingredients
 
-1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik) configured per design
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
 ### Setup data locations
 
-We need a filesystem location to store images that Wallabag downloads from the original sources, to re-display when you read your articles, as well as nightly database dumps (_which you **should [backup]https://geek-cookbook.funkypenguin.co.nz/recipes/duplicity/)**_), so create something like this:
+We need a filesystem location to store images that Wallabag downloads from the original sources, to re-display when you read your articles, as well as nightly database dumps (_which you **should [backup](https://geek-cookbook.funkypenguin.co.nz/recipes/duplicity/)**_), so create something like this:
 
 ```
 mkdir -p /var/data/wallabag
@@ -175,7 +175,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list]https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 
 

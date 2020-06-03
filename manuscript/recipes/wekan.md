@@ -9,12 +9,12 @@ Wekan allows to create Boards, on which Cards can be moved around between a numb
 There's a [video](https://www.youtube.com/watch?v=N3iMLwCNOro) of the developer showing off the app, as well as a f[unctional demo](https://wekan.indie.host/b/t2YaGmyXgNkppcFBq/wekan-fork-roadmap).
 
 !!! note
-    For added privacy, this design secures wekan behind an [oauth2 proxy]https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/), so that in order to gain access to the wekan UI at all, oauth2 authentication (_to GitHub, GitLab, Google, etc_) must have already occurred.
+    For added privacy, this design secures wekan behind an [oauth2 proxy](https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/), so that in order to gain access to the wekan UI at all, oauth2 authentication (_to GitHub, GitLab, Google, etc_) must have already occurred.
 
 ## Ingredients
 
-1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik) configured per design
 
 ## Preparation
 
@@ -128,7 +128,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list]https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 
 

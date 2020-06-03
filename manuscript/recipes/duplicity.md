@@ -28,7 +28,7 @@ So what does this mean for our stack? It means we can leverage Duplicity to back
 
 ## Ingredients
 
-1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
 2. Credentials for one of the Duplicity's supported upload destinations
 
 ## Preparation
@@ -68,7 +68,7 @@ PASSPHRASE=<YOUR CHOSEN PASSPHRASE>
 ```
 
 !!! note
-    See the [data layout reference]https://geek-cookbook.funkypenguin.co.nz/reference/data_layout/) for an explanation of the included/excluded paths above.
+    See the [data layout reference](https://geek-cookbook.funkypenguin.co.nz/reference/data_layout/) for an explanation of the included/excluded paths above.
 
 ### Run a test backup
 
@@ -90,7 +90,7 @@ Repeat after me: "If you don't verify your backup, **it's not a backup**".
 !!! warning
     Depending on what tier of storage you chose from your provider (_i.e., Google Coldline, or Amazon S3_), you may be charged for downloading data.
 
-Run a variation of the following to confirm a file you expect to be backed up, **is** backed up. (_I used traefik.yml from the [traefik recipie]https://geek-cookbook.funkypenguin.co.nz/recipie/traefik/), since this is likely to exist for every reader_).
+Run a variation of the following to confirm a file you expect to be backed up, **is** backed up. (_I used traefik.yml from the [traefik recipie](https://geek-cookbook.funkypenguin.co.nz/recipie/traefik/), since this is likely to exist for every reader_).
 
 ```
 docker run --env-file duplicity.env -it --rm \
@@ -148,7 +148,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list]https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 
 

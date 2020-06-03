@@ -24,7 +24,7 @@ Tools included in the AutoPirate stack are:
 * **[Mylar](https://github.com/evilhero/mylar)** : finds, downloads and manages comic books
 * **[Headphones](https://github.com/rembo10/headphones)** : finds, downloads and manages music
 * **[Lazy Librarian](https://github.com/itsmegb/LazyLibrarian)** : finds, downloads and manages ebooks
-* **[Ombi](https://github.com/tidusjar/Ombi)** : provides an interface to request additions to a [Plex]https://geek-cookbook.funkypenguin.co.nz/recipes/plex/)/[Emby]https://geek-cookbook.funkypenguin.co.nz/recipes/emby/) library using the above tools
+* **[Ombi](https://github.com/tidusjar/Ombi)** : provides an interface to request additions to a [Plex](https://geek-cookbook.funkypenguin.co.nz/recipes/plex/)/[Emby](https://geek-cookbook.funkypenguin.co.nz/recipes/emby/) library using the above tools
 * **[Jackett](https://github.com/Jackett/Jackett)** : Provides an local, caching, API-based interface to torrent trackers, simplifying the way your tools search for torrents.
 
 Since this recipe is so long, and so many of the tools are optional to the final result (_i.e., if you're not interested in comics, you won't want Mylar_), I've described each individual tool on its own sub-recipe page (_below_), even though most of them are deployed very similarly.
@@ -32,8 +32,8 @@ Since this recipe is so long, and so many of the tools are optional to the final
 
 ## Ingredients
 
-1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik) configured per design
 3. Access to NZB indexers and Usenet servers
 4. DNS entries configured for each of the NZB tools in this recipe that you want to use
 
@@ -59,7 +59,7 @@ Create a user to "own" the above directories, and note the uid and gid of the cr
 
 ### Secure public access
 
-What you'll quickly notice about this recipe is that __every__ web interface is protected by an [OAuth proxy]https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/).
+What you'll quickly notice about this recipe is that __every__ web interface is protected by an [OAuth proxy](https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/).
 
 Why? Because these tools are developed by a handful of volunteer developers who are focused on adding features, not necessarily implementing robust security. Most users wouldn't expose these tools directly to the internet, so the tools have rudimentary (if any) access control.
 
@@ -105,22 +105,22 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list]https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 #### Assemble the tools..
 
 Now work your way through the list of tools below, adding whichever tools your want to use, and finishing with the **end** section:
 
-* [SABnzbd]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sabnzbd/)
-* [NZBGet]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbget/)
-* [RTorrent]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/rtorrent/)
-* [Sonarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sonarr/)
-* [Radarr]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/radarr/)
-* [Mylar]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/mylar/)
-* [Lazy Librarian]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/lazylibrarian/)
-* [Headphones]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/headphones/)
-* [NZBHydra]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra/)
-* [NZBHydra2]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra2/)
-* [Ombi]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/ombi/)
-* [Jackett]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/jackett/)
-* [End]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/end/) (launch the stack)
+* [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sabnzbd/)
+* [NZBGet](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbget/)
+* [RTorrent](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/rtorrent/)
+* [Sonarr](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sonarr/)
+* [Radarr](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/radarr/)
+* [Mylar](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/mylar/)
+* [Lazy Librarian](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/lazylibrarian/)
+* [Headphones](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/headphones/)
+* [NZBHydra](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra/)
+* [NZBHydra2](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/nzbhydra2/)
+* [Ombi](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/ombi/)
+* [Jackett](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/jackett/)
+* [End](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/end/) (launch the stack)

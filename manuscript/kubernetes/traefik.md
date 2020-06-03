@@ -4,8 +4,8 @@ This recipe utilises the [traefik helm chart](https://github.com/helm/charts/tre
 
 ## Ingredients
 
-1. [Kubernetes cluster]https://geek-cookbook.funkypenguin.co.nz/kubernetes/cluster/)
-2. [Helm]https://geek-cookbook.funkypenguin.co.nz/kubernetes/helm/) installed and initialised in your cluster
+1. [Kubernetes cluster](https://geek-cookbook.funkypenguin.co.nz/kubernetes/cluster/)
+2. [Helm](https://geek-cookbook.funkypenguin.co.nz/kubernetes/helm/) installed and initialised in your cluster
 
 ## Preparation
 
@@ -95,7 +95,7 @@ metrics:
 
 ### Prepare phone-home pod
 
-[Remember]https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/) how our load balancer design ties a phone-home container to another container using a pod, so that the phone-home container can tell our external load balancer (_using a webhook_) where to send our traffic?
+[Remember](https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/) how our load balancer design ties a phone-home container to another container using a pod, so that the phone-home container can tell our external load balancer (_using a webhook_) where to send our traffic?
 
 Since we deployed Traefik using helm, we need to take a slightly different approach, so we'll create a pod with an affinity which ensures it runs on the same host which runs the Traefik container (_more precisely, containers with the label app=traefik_).
 
@@ -161,7 +161,7 @@ You can confirm this by running ```kubectl get pods```, and even watch the traef
 
 ### Deploy the phone-home pod
 
-We still can't access traefik yet, since it's listening on port 30443 on node it happens to be running on. We'll launch our phone-home pod, to tell our [load balancer]https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/) where to send incoming traffic on port 443.
+We still can't access traefik yet, since it's listening on port 30443 on node it happens to be running on. We'll launch our phone-home pod, to tell our [load balancer](https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/) where to send incoming traffic on port 443.
 
 Optionally, on your loadbalancer VM, run ```journalctl -u webhook -f``` to watch for the container calling the webhook.
 
@@ -191,22 +191,22 @@ helm upgrade --values values.yml traefik stable/traefik --recreate-pods
 We're doneburgers!  We now have all the pieces to safely deploy recipes into our Kubernetes cluster, knowing:
 
 1. Our HTTPS traffic will be secured with LetsEncrypt (thanks Traefik!)
-2. Our non-HTTPS ports (like UniFi adoption) will be load-balanced using an free-to-scale [external load balancer]https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/)
-3. Our persistent data will be [automatically backed up]https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/)
+2. Our non-HTTPS ports (like UniFi adoption) will be load-balanced using an free-to-scale [external load balancer](https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/)
+3. Our persistent data will be [automatically backed up](https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/)
 
 Here's a recap:
 
-* [Start]https://geek-cookbook.funkypenguin.co.nz/kubernetes/start/) - Why Kubernetes?
-* [Design]https://geek-cookbook.funkypenguin.co.nz/kubernetes/design/) - How does it fit together?
-* [Cluster]https://geek-cookbook.funkypenguin.co.nz/kubernetes/cluster/) - Setup a basic cluster
-* [Load Balancer]https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/) Setup inbound access
-* [Snapshots]https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/) - Automatically backup your persistent data
-* [Helm]https://geek-cookbook.funkypenguin.co.nz/kubernetes/helm/) - Uber-recipes from fellow geeks
+* [Start](https://geek-cookbook.funkypenguin.co.nz/kubernetes/start/) - Why Kubernetes?
+* [Design](https://geek-cookbook.funkypenguin.co.nz/kubernetes/design/) - How does it fit together?
+* [Cluster](https://geek-cookbook.funkypenguin.co.nz/kubernetes/cluster/) - Setup a basic cluster
+* [Load Balancer](https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/) Setup inbound access
+* [Snapshots](https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/) - Automatically backup your persistent data
+* [Helm](https://geek-cookbook.funkypenguin.co.nz/kubernetes/helm/) - Uber-recipes from fellow geeks
 * Traefik (this page) - Traefik Ingress via Helm
 
 ## Where to next?
 
-I'll be adding more Kubernetes versions of existing recipes soon. Check out the [MQTT]https://geek-cookbook.funkypenguin.co.nz/recipes/mqtt/) recipe for a start!
+I'll be adding more Kubernetes versions of existing recipes soon. Check out the [MQTT](https://geek-cookbook.funkypenguin.co.nz/recipes/mqtt/) recipe for a start!
 
 
 ## Chef's Notes

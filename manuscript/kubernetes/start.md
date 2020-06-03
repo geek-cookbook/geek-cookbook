@@ -44,24 +44,24 @@ Let's talk some definitions. Kubernetes.io provides a [glossary](https://kuberne
 
 ## Mm.. maaaaybe, how do I start?
 
-If you're like me, and you learn by doing, either play with the examples at https://labs.play-with-k8s.com/, or jump right in by setting up a Google Cloud trial (_you get $300 credit for 12 months_), or a small cluster on [Digital Ocean]https://geek-cookbook.funkypenguin.co.nz/kubernetes/digitalocean/).
+If you're like me, and you learn by doing, either play with the examples at https://labs.play-with-k8s.com/, or jump right in by setting up a Google Cloud trial (_you get $300 credit for 12 months_), or a small cluster on [Digital Ocean](https://geek-cookbook.funkypenguin.co.nz/kubernetes/digitalocean/).
 
 If you're the learn-by-watching type, just search for "Kubernetes introduction video". There's a **lot** of great content available.
 
 ## I'm ready, gimme some recipes!
 
-As of Jan 2019, our first (_and only!_) Kubernetes recipe is a WIP for the Mosquitto [MQTT]https://geek-cookbook.funkypenguin.co.nz/recipes/mqtt/) broker. It's a good, simple starter if you're into home automation (_shoutout to [Home Assistant]https://geek-cookbook.funkypenguin.co.nz/recipes/homeassistant/)!_), since it only requires a single container, and a simple NodePort service.
+As of Jan 2019, our first (_and only!_) Kubernetes recipe is a WIP for the Mosquitto [MQTT](https://geek-cookbook.funkypenguin.co.nz/recipes/mqtt/) broker. It's a good, simple starter if you're into home automation (_shoutout to [Home Assistant](https://geek-cookbook.funkypenguin.co.nz/recipes/homeassistant/)!_), since it only requires a single container, and a simple NodePort service.
 
-I'd love for your [feedback]https://geek-cookbook.funkypenguin.co.nz/support/) on the Kubernetes recipes, as well as suggestions for what to add next. The current rough plan is to replicate the Chef's Favorites recipes (_see the left-hand panel_) into Kubernetes first.
+I'd love for your [feedback](https://geek-cookbook.funkypenguin.co.nz/support/) on the Kubernetes recipes, as well as suggestions for what to add next. The current rough plan is to replicate the Chef's Favorites recipes (_see the left-hand panel_) into Kubernetes first.
 
 ## Move on..
 
 Still with me? Good. Move on to reviewing the design elements
 
 * Start (this page) - Why Kubernetes?
-* [Design]https://geek-cookbook.funkypenguin.co.nz/kubernetes/design/) - How does it fit together?
-* [Cluster]https://geek-cookbook.funkypenguin.co.nz/kubernetes/cluster/) - Setup a basic cluster
-* [Load Balancer]https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/) - Setup inbound access
-* [Snapshots]https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/) - Automatically backup your persistent data
-* [Helm]https://geek-cookbook.funkypenguin.co.nz/kubernetes/helm/) - Uber-recipes from fellow geeks
-* [Traefik]https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/) - Traefik Ingress via Helm
+* [Design](https://geek-cookbook.funkypenguin.co.nz/kubernetes/design/) - How does it fit together?
+* [Cluster](https://geek-cookbook.funkypenguin.co.nz/kubernetes/cluster/) - Setup a basic cluster
+* [Load Balancer](https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/) - Setup inbound access
+* [Snapshots](https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/) - Automatically backup your persistent data
+* [Helm](https://geek-cookbook.funkypenguin.co.nz/kubernetes/helm/) - Uber-recipes from fellow geeks
+* [Traefik](https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/) - Traefik Ingress via Helm

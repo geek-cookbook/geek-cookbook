@@ -1,6 +1,6 @@
 # Emby
 
-[Emby](https://emby.media/) (_think "M.B." or "Media Browser"_) is best described as "_like [Plex]https://geek-cookbook.funkypenguin.co.nz/recipes/plex/) but different_"  - It's a bit geekier and less polished than Plex, but it allows for more flexibility and customization.
+[Emby](https://emby.media/) (_think "M.B." or "Media Browser"_) is best described as "_like [Plex](https://geek-cookbook.funkypenguin.co.nz/recipes/plex/) but different_"  - It's a bit geekier and less polished than Plex, but it allows for more flexibility and customization.
 
 ![Emby Screenshot](../images/emby.png)
 
@@ -8,8 +8,8 @@ I've started experimenting with Emby as an alternative to Plex, because of the a
 
 ## Ingredients
 
-1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik) configured per design
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
@@ -71,7 +71,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list]https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 
 
@@ -85,6 +85,6 @@ Log into your new instance at https://**YOUR-FQDN**, and complete the wizard-bas
 
 ## Chef's Notes 
 
-1. I didn't use an [oauth2_proxy]https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/) for this stack, because it would interfere with mobile client support.
+1. I didn't use an [oauth2_proxy](https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/) for this stack, because it would interfere with mobile client support.
 2. Got an NVIDIA GPU? See [this blog post](https://www.funkypenguin.co.nz/note/gpu-transcoding-with-emby-plex-using-docker-nvidia/) re how to use your GPU to transcode your media!
-3. We don't bother exposing the HTTPS port for Emby, since [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik/) is doing the SSL termination for us already.
+3. We don't bother exposing the HTTPS port for Emby, since [Traefik](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik/) is doing the SSL termination for us already.

@@ -7,7 +7,7 @@ hero: Kubernetes. The hero we deserve.
 
 # MQTT broker
 
-I use Elias Kotlyar's [excellent custom firmware](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks) for Xiaomi DaFang/XiaoFang cameras, enabling RTSP, MQTT, motion tracking, and other features, integrating directly with [Home Assistant]https://geek-cookbook.funkypenguin.co.nz/recipes/homeassistant/).
+I use Elias Kotlyar's [excellent custom firmware](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks) for Xiaomi DaFang/XiaoFang cameras, enabling RTSP, MQTT, motion tracking, and other features, integrating directly with [Home Assistant](https://geek-cookbook.funkypenguin.co.nz/recipes/homeassistant/).
 
 There's currently a [mysterious bug](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks/issues/638) though, which prevents TCP communication between Home Assistant and the camera, when MQTT services are enabled on the camera and the mqtt broker runs on the same Raspberry Pi as Home Assistant, using [Hass.io](https://www.home-assistant.io/hassio/).
 
@@ -19,7 +19,7 @@ A workaround to this bug is to run an MQTT broker **external** to the raspberry 
 
 ## Ingredients
 
-1. A [Kubernetes cluster]https://geek-cookbook.funkypenguin.co.nz/kubernetes/digital-ocean/)
+1. A [Kubernetes cluster](https://geek-cookbook.funkypenguin.co.nz/kubernetes/digital-ocean/)
 
 ## Preparation
 

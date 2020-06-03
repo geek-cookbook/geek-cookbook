@@ -1,11 +1,11 @@
 #Kanboard
 
-Kanboard is a Kanban tool, developed by [Frdric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux]https://geek-cookbook.funkypenguin.co.nz/recipes/miniflux/)_)
+Kanboard is a Kanban tool, developed by [Frdric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux](https://geek-cookbook.funkypenguin.co.nz/recipes/miniflux/)_)
 
-![Kanboard Screenshot]https://geek-cookbook.funkypenguin.co.nz/images/kanboard.png)
+![Kanboard Screenshot](https://geek-cookbook.funkypenguin.co.nz/images/kanboard.png)
 
 !!! tip "Sponsored Project"
-    Kanboard is one of my [sponsored projects]https://geek-cookbook.funkypenguin.co.nz/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 
+    Kanboard is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 
 
 Features include:
 
@@ -22,14 +22,14 @@ Features include:
 
 ## Ingredients
 
-1. A [Kubernetes Cluster]https://geek-cookbook.funkypenguin.co.nz/kubernetes/design/) including [Traefik Ingress]https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/)
-2. A DNS name for your kanboard instance (*kanboard.example.com*, below) pointing to your [load balancer]https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/), fronting your Traefik ingress
+1. A [Kubernetes Cluster](https://geek-cookbook.funkypenguin.co.nz/kubernetes/design/) including [Traefik Ingress](https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/)
+2. A DNS name for your kanboard instance (*kanboard.example.com*, below) pointing to your [load balancer](https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/), fronting your Traefik ingress
 
 ## Preparation
 
 ### Prepare traefik for namespace
 
-When you deployed [Traefik via the helm chart]https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/), you would have customized ```values.yml``` for your deployment. In ```values.yml``` is a list of namespaces which Traefik is permitted to access. Update ```values.yml``` to include the *kanboard* namespace, as illustrated below:
+When you deployed [Traefik via the helm chart](https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/), you would have customized ```values.yml``` for your deployment. In ```values.yml``` is a list of namespaces which Traefik is permitted to access. Update ```values.yml``` to include the *kanboard* namespace, as illustrated below:
 
 ```
 <snip>
@@ -90,7 +90,7 @@ kubectl create -f /var/data/config/kanboard/kanboard-volumeclaim.yaml
 ```
 
 !!! question "What's that annotation about?"
-    The annotation is used by [k8s-snapshots]https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/) to create daily incremental snapshots of your persistent volumes. In this case, our volume is snapshotted daily, and copies kept for 7 days.
+    The annotation is used by [k8s-snapshots](https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/) to create daily incremental snapshots of your persistent volumes. In this case, our volume is snapshotted daily, and copies kept for 7 days.
 
 ### Create ConfigMap
 
@@ -258,7 +258,7 @@ kubectl patch -n kanboard deployment app -p "{\"spec\":{\"template\":{\"metadata
 
 ### Troubleshooting
 
-To look at the Kanboard pod's logs, run ```kubectl logs -n kanboard <name of pod per above> -f```. For further troubleshooting hints, see [Troubleshooting]https://geek-cookbook.funkypenguin.co.nz/reference/kubernetes/troubleshooting/).
+To look at the Kanboard pod's logs, run ```kubectl logs -n kanboard <name of pod per above> -f```. For further troubleshooting hints, see [Troubleshooting](https://geek-cookbook.funkypenguin.co.nz/reference/kubernetes/troubleshooting/).
 
 ## Chef's Notes
 

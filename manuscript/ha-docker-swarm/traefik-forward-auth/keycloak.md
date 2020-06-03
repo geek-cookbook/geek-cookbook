@@ -1,13 +1,13 @@
 # Using Traefik Forward Auth with KeyCloak
 
-While the [Traefik Forward Auth]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik-forward-auth/) recipe demonstrated a quick way to protect a set of explicitly-specified URLs using OIDC credentials from a Google account, this recipe will illustrate how to use your own KeyCloak instance to secure **any** URLs within your DNS domain.
+While the [Traefik Forward Auth](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik-forward-auth/) recipe demonstrated a quick way to protect a set of explicitly-specified URLs using OIDC credentials from a Google account, this recipe will illustrate how to use your own KeyCloak instance to secure **any** URLs within your DNS domain.
 
 ## Ingredients
 
 !!! Summary
     Existing:
 
-    * [X] [KeyCloak]https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/) recipe deployed successfully, with a [local user]https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/create-user/) and an [OIDC client]https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/setup-oidc-provider/)
+    * [X] [KeyCloak](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/) recipe deployed successfully, with a [local user](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/create-user/) and an [OIDC client](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/setup-oidc-provider/)
     
     New:
 
@@ -48,7 +48,7 @@ COOKIE_DOMAIN=<the root FQDN of your domain>
 
 ### Prepare the docker service config
 
-This is a small container, you can simply add the following content to the existing `traefik-app.yml` deployed in the previous [Traefik]https://geek-cookbook.funkypenguin.co.nz/recipes/traefik/) recipe:
+This is a small container, you can simply add the following content to the existing `traefik-app.yml` deployed in the previous [Traefik](https://geek-cookbook.funkypenguin.co.nz/recipes/traefik/) recipe:
 
 ```
   traefik-forward-auth:

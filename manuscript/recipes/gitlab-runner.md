@@ -9,10 +9,10 @@ While a runner isn't strictly required to use GitLab, if you want to do CI, you'
 !!! summary "Ingredients"
     Existing:
 
-    1. [X] [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
-    2. [X] [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik_public) configured per design
+    1. [X] [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+    2. [X] [Traefik](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik_public) configured per design
     3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
-    4. [X] [GitLab]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/gitlab) installation (see previous recipe)
+    4. [X] [GitLab](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/gitlab) installation (see previous recipe)
 
 ## Preparation
 

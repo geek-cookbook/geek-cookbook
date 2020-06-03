@@ -3,7 +3,7 @@
 Let's start building our cluster. You can use either bare-metal machines or virtual machines - the configuration would be the same. To avoid confusion, I'll be referring to these as "nodes" from now on.
 
 !!! note
-    In 2017, I **initially** chose the "[Atomic](https://www.projectatomic.io/)" CentOS/Fedora image for the swarm hosts, but later found its outdated version of Docker to be problematic with advanced features like GPU transcoding (in [Plex]https://geek-cookbook.funkypenguin.co.nz/recipes/plex/)), [Swarmprom]https://geek-cookbook.funkypenguin.co.nz/recipes/swarmprom/), etc. In the end, I went mainstream and simply preferred a modern Ubuntu installation.
+    In 2017, I **initially** chose the "[Atomic](https://www.projectatomic.io/)" CentOS/Fedora image for the swarm hosts, but later found its outdated version of Docker to be problematic with advanced features like GPU transcoding (in [Plex](https://geek-cookbook.funkypenguin.co.nz/recipes/plex/)), [Swarmprom](https://geek-cookbook.funkypenguin.co.nz/recipes/swarmprom/), etc. In the end, I went mainstream and simply preferred a modern Ubuntu installation.
 
 ## Ingredients
 

@@ -10,8 +10,8 @@ Munin uses the excellent RRDTool (written by Tobi Oetiker) and the framework is 
 
 ## Ingredients
 
-1. [Docker swarm cluster]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik) configured per design
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
@@ -46,7 +46,7 @@ mkdir -p {log,lib,run,cache}
 
 ### Prepare environment
 
-Create /var/data/config/munin/munin.env, and populate with the following variables. Use the OAUTH2 variables if you plan to use an [oauth2_proxy]https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/) to protect munin, and set at a **minimum** the ```MUNIN_USER```, ```MUNIN_PASSWORD```, and ```NODES``` values:
+Create /var/data/config/munin/munin.env, and populate with the following variables. Use the OAUTH2 variables if you plan to use an [oauth2_proxy](https://geek-cookbook.funkypenguin.co.nz/reference/oauth_proxy/) to protect munin, and set at a **minimum** the ```MUNIN_USER```, ```MUNIN_PASSWORD```, and ```NODES``` values:
 
 ```
 # Use these if you plan to protect the webUI with an oauth_proxy
@@ -123,7 +123,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list]https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/reference/networks/) here.
 
 
 ## Serving

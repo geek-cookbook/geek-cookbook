@@ -1,21 +1,21 @@
 # What is this?
 
-Funky Penguin's "**[Geek Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) or [Kubernetes]https://geek-cookbook.funkypenguin.co.nz/kubernetes/start/). 
+Funky Penguin's "**[Geek Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/) or [Kubernetes](https://geek-cookbook.funkypenguin.co.nz/kubernetes/start/). 
 
-Running such a platform enables you to run self-hosted tools such as [AutoPirate]https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) (*Radarr, Sonarr, NZBGet and friends*), [Plex][plex], [NextCloud][nextcloud], and includes elements such as:
+Running such a platform enables you to run self-hosted tools such as [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/) (*Radarr, Sonarr, NZBGet and friends*), [Plex](https://www.plex.tv/), [NextCloud](https://nextcloud.com/), and includes elements such as:
 
-* [Automatic SSL-secured access]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik/) to all services (*with LetsEncrypt*)
-* [SSO / authentication layer]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik-forward-auth/) to protect unsecured / vulnerable services
-* [Automated backup]https://geek-cookbook.funkypenguin.co.nz/recipes/elkarbackup/) of configuration and data
-* [Monitoring and metrics]https://geek-cookbook.funkypenguin.co.nz/recipes/swarmprom/) collection, graphing and alerting
+* [Automatic SSL-secured access](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik/) to all services (*with LetsEncrypt*)
+* [SSO / authentication layer](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik-forward-auth/) to protect unsecured / vulnerable services
+* [Automated backup](https://geek-cookbook.funkypenguin.co.nz/recipes/elkarbackup/) of configuration and data
+* [Monitoring and metrics](https://geek-cookbook.funkypenguin.co.nz/recipes/swarmprom/) collection, graphing and alerting
 
-Recent updates and additions are posted on the [CHANGELOG]https://geek-cookbook.funkypenguin.co.nz/CHANGELOG/), and there's a friendly community of like-minded geeks in the [Discord server](http://chat.funkypenguin.co.nz).
+Recent updates and additions are posted on the [CHANGELOG](https://geek-cookbook.funkypenguin.co.nz/CHANGELOG/), and there's a friendly community of like-minded geeks in the [Discord server](http://chat.funkypenguin.co.nz).
 
 ## Who is this for?
 
 You already have a familiarity with concepts such as virtual machines, [Docker](https://www.docker.com/) containers, [LetsEncrypt SSL certificates](https://letsencrypt.org/), databases, and command-line interfaces.
 
-You've probably played with self-hosting some mainstream apps yourself, like [Plex][plex], [NextCloud][nextcloud], [Wordpress][wordpress] or [Ghost][ghost].
+You've probably played with self-hosting some mainstream apps yourself, like [Plex](https://www.plex.tv/), [NextCloud](https://nextcloud.com/), [Wordpress](https://wordpress.org/) or [Ghost](https://ghost.io/).
 
 ## Why should I read this?
 
@@ -32,22 +32,22 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
 ## What have you done for me lately? (CHANGELOG)
 
-Check out recent change at [CHANGELOG]https://geek-cookbook.funkypenguin.co.nz/CHANGELOG/)
+Check out recent change at [CHANGELOG](https://geek-cookbook.funkypenguin.co.nz/CHANGELOG/)
 
 ## What do you want from me?
 
-I want your [support][github_sponsor], either in the [financial][github_sponsor] sense, or as a member of our [friendly geek community][discord] (*or both!*)
+I want your [support](https://github.com/sponsors/funkypenguin), either in the [financial](https://github.com/sponsors/funkypenguin) sense, or as a member of our [friendly geek community](http://chat.funkypenguin.co.nz) (*or both!*)
 
 ### Get in touch 
 
-* Come and say hi to me and the friendly geeks in the [Discord][discord] chat or the [Discourse][discourse] forums - say hi, ask a question, or suggest a new recipe!
-* Tweet me up, I'm [@funkypenguin][twitter]! 
-* [Contact me][contact] by a variety of channels
+* Come and say hi to me and the friendly geeks in the [Discord](http://chat.funkypenguin.co.nz) chat or the [Discourse](https://discourse.geek-kitchen.funkypenguin.co.nz/) forums - say hi, ask a question, or suggest a new recipe!
+* Tweet me up, I'm [@funkypenguin](https://twitter.com/funkypenguin)! 
+* [Contact me](https://www.funkypenguin.co.nz/contact/) by a variety of channels
 
 
-### [Sponsor][github_sponsor] / [Patronize][patreon] me 
+### [Sponsor](https://github.com/sponsors/funkypenguin) / [Patronize](https://www.patreon.com/bePatron?u=6982506) me 
 
-The best way to support this work is to become a [GitHub Sponsor](https://github.com/sponsors/funkypenguin) / [Patreon patron][patreon]. You get:
+The best way to support this work is to become a [GitHub Sponsor](https://github.com/sponsors/funkypenguin) / [Patreon patron](https://www.patreon.com/bePatron?u=6982506). You get:
 
 * warm fuzzies,
 * access to the pre-mix repo,
@@ -56,25 +56,13 @@ The best way to support this work is to become a [GitHub Sponsor](https://github
 
 .. and I get some pocket money every month to buy wine, cheese, and cryptocurrency!  
 
-Impulsively **[click here (NOW quick do it!)][github_sponsor]** to [sponsor me][github_sponsor] via GitHub, or [patronize me via Patreon][patreon]!
+Impulsively **[click here (NOW quick do it!)](https://github.com/sponsors/funkypenguin)** to [sponsor me](https://github.com/sponsors/funkypenguin) via GitHub, or [patronize me via Patreon](https://www.patreon.com/bePatron?u=6982506)!
 
 
 ### Work with me 
 
-Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified][aws_cert] consultant, this stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch][contact], and let's talk business!
+Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified](https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-02-22&ci=AWS00794574) consultant, this stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch](https://www.funkypenguin.co.nz/contact/), and let's talk business!
 
-[plex]:	            https://www.plex.tv/
-[nextcloud]:        https://nextcloud.com/
-[wordpress]:	    https://wordpress.org/
-[ghost]:	        https://ghost.io/
-[discord]:          http://chat.funkypenguin.co.nz
-[patreon]:	        https://www.patreon.com/bePatron?u=6982506
-[github_sponsor]:   https://github.com/sponsors/funkypenguin
-[github]:           https://github.com/sponsors/funkypenguin
-[discourse]:	    https://discourse.geek-kitchen.funkypenguin.co.nz/
-[twitter]:	        https://twitter.com/funkypenguin
-[contact]:	        https://www.funkypenguin.co.nz
-[aws_cert]:	        https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-02-22&ci=AWS00794574
 
 !!! quote "He unblocked me on all the technical hurdles to launching my SaaS in GKE!"
 

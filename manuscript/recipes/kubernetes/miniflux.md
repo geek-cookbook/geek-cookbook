@@ -1,11 +1,11 @@
 #Miniflux
 
-Miniflux is a lightweight RSS reader, developed by [Frdric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of the favorite Open Source Kanban app, [Kanboard]https://geek-cookbook.funkypenguin.co.nz/recipes/kanboard/)_)
+Miniflux is a lightweight RSS reader, developed by [Frdric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of the favorite Open Source Kanban app, [Kanboard](https://geek-cookbook.funkypenguin.co.nz/recipes/kanboard/)_)
 
-![Miniflux Screenshot]https://geek-cookbook.funkypenguin.co.nz/images/miniflux.png)
+![Miniflux Screenshot](https://geek-cookbook.funkypenguin.co.nz/images/miniflux.png)
 
 !!! tip "Sponsored Project"
-    Miniflux is one of my [sponsored projects]https://geek-cookbook.funkypenguin.co.nz/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. Although I get to process my RSS feeds less frequently than I'd like to!
+    Miniflux is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. Although I get to process my RSS feeds less frequently than I'd like to!
 
 I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/review/miniflux-lightweight-self-hosted-rss-reader/), but features (among many) that I appreciate:
 
@@ -20,14 +20,14 @@ I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/rev
 
 ## Ingredients
 
-1. A [Kubernetes Cluster]https://geek-cookbook.funkypenguin.co.nz/kubernetes/design/) including [Traefik Ingress]https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/)
-2. A DNS name for your miniflux instance (*miniflux.example.com*, below) pointing to your [load balancer]https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/), fronting your Traefik ingress
+1. A [Kubernetes Cluster](https://geek-cookbook.funkypenguin.co.nz/kubernetes/design/) including [Traefik Ingress](https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/)
+2. A DNS name for your miniflux instance (*miniflux.example.com*, below) pointing to your [load balancer](https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/), fronting your Traefik ingress
 
 ## Preparation
 
 ### Prepare traefik for namespace
 
-When you deployed [Traefik via the helm chart]https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/), you would have customized ```values.yml``` for your deployment. In ```values.yml``` is a list of namespaces which Traefik is permitted to access. Update ```values.yml``` to include the *miniflux* namespace, as illustrated below:
+When you deployed [Traefik via the helm chart](https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/), you would have customized ```values.yml``` for your deployment. In ```values.yml``` is a list of namespaces which Traefik is permitted to access. Update ```values.yml``` to include the *miniflux* namespace, as illustrated below:
 
 ```
 <snip>
@@ -88,7 +88,7 @@ kubectl create -f /var/data/config/miniflux/db-persistent-volumeclaim.yaml
 ```
 
 !!! question "What's that annotation about?"
-    The annotation is used by [k8s-snapshots]https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/) to create daily incremental snapshots of your persistent volumes. In this case, our volume is snapshotted daily, and copies kept for 7 days.
+    The annotation is used by [k8s-snapshots](https://geek-cookbook.funkypenguin.co.nz/kubernetes/snapshots/) to create daily incremental snapshots of your persistent volumes. In this case, our volume is snapshotted daily, and copies kept for 7 days.
 
 ### Create secrets
 
@@ -317,4 +317,4 @@ At this point, you should be able to access your instance on your chosen DNS nam
 
 ### Troubleshooting
 
-To look at the Miniflux pod's logs, run ```kubectl logs -n miniflux <name of pod per above> -f```. For further troubleshooting hints, see [Troubleshooting]https://geek-cookbook.funkypenguin.co.nz/reference/kubernetes/troubleshooting/).
+To look at the Miniflux pod's logs, run ```kubectl logs -n miniflux <name of pod per above> -f```. For further troubleshooting hints, see [Troubleshooting](https://geek-cookbook.funkypenguin.co.nz/reference/kubernetes/troubleshooting/).

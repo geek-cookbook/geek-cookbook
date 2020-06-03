@@ -2,7 +2,7 @@
 
 Before we get carried away creating pods, services, deployments etc, let's spare a thought for _security_... (_DevSecPenguinOps, here we come!_). In the context of this recipe, security refers to safe-guarding your data from accidental loss, as well as malicious impact.
 
-Under [Docker Swarm]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/), we used [shared storage]https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph/) with [Duplicity]https://geek-cookbook.funkypenguin.co.nz/recipes/duplicity/) (or [ElkarBackup](recipes/elkarbackup/)) to automate backups of our persistent data.
+Under [Docker Swarm](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design/), we used [shared storage](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph/) with [Duplicity](https://geek-cookbook.funkypenguin.co.nz/recipes/duplicity/) (or [ElkarBackup](recipes/elkarbackup/)) to automate backups of our persistent data.
 
 Now that we're playing in the deep end with Kubernetes, we'll need a Cloud-native backup solution...
 
@@ -14,7 +14,7 @@ This recipe employs a clever tool ([miracle2k/k8s-snapshots](https://github.com/
 
 ## Ingredients
 
-1. [Kubernetes cluster]https://geek-cookbook.funkypenguin.co.nz/kubernetes/cluster/) with either AWS or GKE (currently, but apparently other providers are [easy to implement](https://github.com/miracle2k/k8s-snapshots/blob/master/k8s_snapshots/backends/abstract.py))
+1. [Kubernetes cluster](https://geek-cookbook.funkypenguin.co.nz/kubernetes/cluster/) with either AWS or GKE (currently, but apparently other providers are [easy to implement](https://github.com/miracle2k/k8s-snapshots/blob/master/k8s_snapshots/backends/abstract.py))
 2. Geek-Fu required :  (_medium - minor adjustments may be required_)
 
 ## Preparation
@@ -114,7 +114,7 @@ spec:
 
 And here's what my snapshot list looks like after a few days:
 
-![Kubernetes Snapshots]https://geek-cookbook.funkypenguin.co.nz/images/kubernetes-snapshots.png)
+![Kubernetes Snapshots](https://geek-cookbook.funkypenguin.co.nz/images/kubernetes-snapshots.png)
 
 ### Snapshot a non-Kubernetes volume (optional)
 
@@ -165,13 +165,13 @@ EOF
 
 Still with me? Good. Move on to understanding Helm charts...
 
-* [Start]https://geek-cookbook.funkypenguin.co.nz/kubernetes/start/) - Why Kubernetes?
-* [Design]https://geek-cookbook.funkypenguin.co.nz/kubernetes/design/) - How does it fit together?
-* [Cluster]https://geek-cookbook.funkypenguin.co.nz/kubernetes/cluster/) - Setup a basic cluster
-* [Load Balancer]https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/) Setup inbound access
+* [Start](https://geek-cookbook.funkypenguin.co.nz/kubernetes/start/) - Why Kubernetes?
+* [Design](https://geek-cookbook.funkypenguin.co.nz/kubernetes/design/) - How does it fit together?
+* [Cluster](https://geek-cookbook.funkypenguin.co.nz/kubernetes/cluster/) - Setup a basic cluster
+* [Load Balancer](https://geek-cookbook.funkypenguin.co.nz/kubernetes/loadbalancer/) Setup inbound access
 * Snapshots (this page) - Automatically backup your persistent data
-* [Helm]https://geek-cookbook.funkypenguin.co.nz/kubernetes/helm/) - Uber-recipes from fellow geeks
-* [Traefik]https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/) - Traefik Ingress via Helm
+* [Helm](https://geek-cookbook.funkypenguin.co.nz/kubernetes/helm/) - Uber-recipes from fellow geeks
+* [Traefik](https://geek-cookbook.funkypenguin.co.nz/kubernetes/traefik/) - Traefik Ingress via Helm
 
 
 
