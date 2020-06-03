@@ -13,14 +13,18 @@ Once you have [Created An Account](https://discordapp.com) You can join the Funk
 Below is what we appreciate of users when they are on the server
 
 Keep spam to a minimum
+
 Being respectful to all users
+
 Only advertising in the correct channels eg #advertisements or #jobs if its about a job position
 
 
 ### How to get help.
 
 If you need assistance at any time there are a few commands that you can run in order to get help.
+
 `!help` Shows help content.
+
 `!faq` Shows frequently asked questions.
 
 
