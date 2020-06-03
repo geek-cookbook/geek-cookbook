@@ -25,6 +25,11 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 2. You want to play. You want a safe sandbox to test new tools, keeping the ones you want and tossing the ones you don't.
 3. You want reliability. Once you go from __playing__ with a tool to actually __using__ it, you want it to be available when you need it. Having to "*quickly ssh into the basement server and restart plex*" doesn't cut it when you finally convince your wife to sit down with you to watch sci-fi.
 
+!!! quote "...how useful the recipes are for people just getting started with containers..."
+
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">.<a href="https://twitter.com/funkypenguin?ref_src=twsrc%5Etfw">@funkypenguin</a> One of the surprising realizations from following Funky Penguins cookbooks <a href="https://t.co/XvZ2qLJa5N">https://t.co/XvZ2qLJa5N</a> for so long is how useful the recipes are for people just getting started with containers and how it gives them real, interesting usecases to attach to their learning</p>&mdash; DevOps Daniel (@DanielSHouston) <a href="https://twitter.com/DanielSHouston/status/1213419203379773442?ref_src=twsrc%5Etfw">January 4, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
 ## What have you done for me lately? (CHANGELOG)
 
 Check out recent change at [CHANGELOG](/CHANGELOG/)
@@ -39,13 +44,10 @@ I want your [support][github_sponsor], either in the [financial][github_sponsor]
 * Tweet me up, I'm [@funkypenguin][twitter]! 🐦
 * [Contact me][contact] by a variety of channels
 
-### Buy my book 📖
-
-I'm also publishing the Geek Cookbook as a formal eBook (*PDF, mobi, epub*), on Leanpub (https://leanpub.com/geek-cookbook). Buy it for as little as $5 (_which is really just a token gesture of support, since all the content is available online anyway!_) or pay what you think it's worth!
 
 ### [Sponsor][github_sponsor] / [Patronize][patreon] me ❤️
 
-The best way to support this work is to become a [GitHub Sponsor](https://github.com/sponsors/funkypenguin) / [Patreon patron][patreon] (_for as little as $1/month!_) - You get :
+The best way to support this work is to become a [GitHub Sponsor](https://github.com/sponsors/funkypenguin) / [Patreon patron][patreon]. You get:
 
 * warm fuzzies,
 * access to the pre-mix repo,
@@ -73,3 +75,19 @@ Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm 
 [twitter]:	        https://twitter.com/funkypenguin
 [contact]:	        https://www.funkypenguin.co.nz
 [aws_cert]:	        https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-02-22&ci=AWS00794574
+
+!!! quote "He unblocked me on all the technical hurdles to launching my SaaS in GKE!"
+
+    By the time I had enlisted Funky Penguin's help, I'd architected myself into a bit of a nightmare with Kubernetes. I knew what I wanted to achieve, but I'd made a mess of it. Funky Penguin (David) was able to jump right in and offer a vital second-think on everything I'd done, pointing out where things could be simplified and streamlined, and better alternatives. 
+
+    He unblocked me on all the technical hurdles to launching my SaaS in GKE! 
+
+    With him delivering the container/Kubernetes architecture and helm CI/CD workflow, I was freed up to focus on coding and design, which fast-tracked me to launching on time. And now I have a simple deployment process that is easy for me to execute and maintain as a solo founder. 
+
+    I have no hesitation in recommending him for your project, and I'll certainly be calling on him again in the future.
+
+    -- John McDowall, Founder, [kiso.io](https://kiso.io) 
+
+### Buy my book 📖
+
+I'm publishing the Geek Cookbook as a formal eBook (*PDF, mobi, epub*), on Leanpub (https://leanpub.com/geek-cookbook). Check it out!
