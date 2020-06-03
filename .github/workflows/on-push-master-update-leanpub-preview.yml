@@ -17,11 +17,23 @@ jobs:
     - name: Checkout charts repo
       uses: actions/checkout@v2
 
-    - name: Merge to leanpub-preview branch
-      uses: devmasx/merge-branch@v1.1.0
+    - name: Checkout latest leanpub-preview branch
+      uses: actions/checkout@v2
+      with:    
+        repository: ${{ env.GITHUB_PAGES_REPO }}
+        ref: leanpub-preview  
+        path: leanpub-preview
+
+    - name: Replace contents of leanpub-preview branch
+      run: |
+        rm -rf leanpub-preview/*
+        cp -rf * leanpub-preview/
+        cd leanpub-preview
+        ./scripts/markdown-to-markua.sh
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
-        type: now
-        target_branch: 'leanpub-preview'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        directory: leanpub-preview
+        branch: leanpub-preview
