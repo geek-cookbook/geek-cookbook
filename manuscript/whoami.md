@@ -20,7 +20,7 @@ To get management approval to deploy, I wrote a logger (with web UI) for jabber 
 
 Due to my contributions to [phpList](http://www.phplist.com), I was approached in 2011 by [Packt Publishing](http://www.packtpub.com), to [write a book](https://www.funkypenguin.co.nz/book/phplist-2-email-campaign-manager) about using PHPList.
 
-## Work with me 🤝
+## Work with me 
 
 Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified][aws_cert] consultant, this stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch][contact], and let's talk business!
 

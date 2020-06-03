@@ -58,7 +58,7 @@ Create /var/data/config/collabora/collabora.env, and populate with the following
     1. Variables are in lower-case, unlike our standard convention. This is to align with the CODE container
     2. Set domain to your [NextCloud](https://geek-cookbook.funkypenguin.co.nz/)recipes/nextcloud/) domain, and escape all the periods as per the example
     3. Set your server_name to collabora.<yourdomain\>. Escaping periods is unnecessary
-    4. Your password cannot include triangular brackets - the entrypoint script will insert this password into an XML document, and triangular brackets will make bad(tm) things happen 🔥
+    4. Your password cannot include triangular brackets - the entrypoint script will insert this password into an XML document, and triangular brackets will make bad(tm) things happen 
 
 ```
 username=admin
@@ -300,7 +300,7 @@ Now browse your NextCloud files. Click the plus (+) sign to create a new documen
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. Yes, this recipe is complicated. And you probably only care if you feel strongly about using Open Source rich document editing in the browser, vs using something like Google Docs. It works impressively well however, once it works. I hope to make this recipe simpler once the CODE developers have documented how to pass optional parameters as environment variables.
 

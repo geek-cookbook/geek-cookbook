@@ -127,7 +127,7 @@ Launch the TTRSS stack by running ```docker stack deploy ttrss -c <path -to-dock
 Log into your new instance at https://**YOUR-FQDN** - the first user you create will be an administrative user.
 
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 There are several TTRSS containers available on docker hub, none of them "official". I chose [x86dev's container](https://github.com/x86dev/docker-ttrss) for its features - such as my favorite skins and plugins, and the daily automatic updates from the "rolling release" master. Some of the features of the container I use are due to a [PR](https://github.com/x86dev/docker-ttrss/pull/12) I submitted:
 

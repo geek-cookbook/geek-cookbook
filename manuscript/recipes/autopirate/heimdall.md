@@ -5,7 +5,7 @@
 
 [Heimdall Application Dashboard](https://heimdall.site/) is a dashboard for all your web applications. It doesn't need to be limited to applications though, you can add links to anything you like.
 
-Heimdall is an elegant solution to organise all your web applications. It’s dedicated to this purpose so you won’t lose your links in a sea of bookmarks.
+Heimdall is an elegant solution to organise all your web applications. Its dedicated to this purpose so you wont lose your links in a sea of bookmarks.
 
 Heimdall provides a single URL to manage access to all of your autopirate tools, and includes "enhanced" (_i.e., display stats within Heimdall without launching the app_) access to [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget.md), [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sabnzbd/), and friends.
 
@@ -76,7 +76,7 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [End](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/) (launch the stack)
 
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
 2. The inclusion of Heimdall was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz). Thanks gkoerk!

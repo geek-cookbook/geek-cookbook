@@ -81,7 +81,7 @@ Log into your new instance at https://**YOUR-FQDN**, with the access key and sec
 
 If you created ```/var/data/minio```, you'll see nothing. If you referenced existing data, you should see all subdirectories in your existing folder represented as buckets.
 
-If all you need is single-user access to your data, you're done! 🎉
+If all you need is single-user access to your data, you're done! 
 
 If, however, you want to expose data to multiple users, at different privilege levels, you'll need the minio client to create some users and (_potentially_) policies...
 
@@ -170,7 +170,7 @@ To permanently mount an S3 bucket using goofys, I'd add something like this to /
 goofys#bucket   /mnt/mountpoint        fuse     _netdev,allow_other,--file-mode=0666    0       0
 ```
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. There are many S3-filesystem-mounting tools available, I just picked Goofys because it's simple. Google is your friend :)
 2. Some applications (_like [NextCloud](https://geek-cookbook.funkypenguin.co.nz/)recipes/nextcloud/)_) can natively mount S3 buckets

@@ -14,7 +14,7 @@ This recipe details a simple design to permit the exposure of as many ports as y
 
 1. [Kubernetes cluster](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/cluster/)
 2. VM _outside_ of Kubernetes cluster, with a fixed IP address. Perhaps, on a [$5/month Digital Ocean Droplet](https://www.digitalocean.com/?refcode=e33b78ad621b).. (_yes, another referral link. Mooar  for me!_)
-3. Geek-Fu required : 🐧🐧🐧 (_complex - inline adjustments required_)
+3. Geek-Fu required :  (_complex - inline adjustments required_)
 
 
 ## Preparation
@@ -331,4 +331,4 @@ Still with me? Good. Move on to setting up an ingress SSL terminating proxy with
 
 ## Chef's Notes
 
-1. This is MVP of the load balancer solution. Any suggestions for improvements are welcome 😉
+1. This is MVP of the load balancer solution. Any suggestions for improvements are welcome 

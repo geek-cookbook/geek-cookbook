@@ -59,7 +59,7 @@ The best way to support this work is to become a [GitHub Sponsor](https://github
 Impulsively **[click here (NOW quick do it!)][github_sponsor]** to [sponsor me][github_sponsor] via GitHub, or [patronize me via Patreon][patreon]!
 
 
-### Work with me 🤝
+### Work with me 
 
 Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified][aws_cert] consultant, this stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch][contact], and let's talk business!
 

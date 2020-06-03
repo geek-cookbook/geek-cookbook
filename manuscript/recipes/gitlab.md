@@ -133,7 +133,7 @@ Launch the mail server stack by running ```docker stack deploy gitlab -c <path -
 Log into your new instance at https://[your FQDN], with user "root" and the password you specified in gitlab.env.
 
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 A few comments on decisions taken in this design:
 

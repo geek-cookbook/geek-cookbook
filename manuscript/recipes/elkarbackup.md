@@ -1,4 +1,4 @@
-hero: Real heroes backup their 💾
+hero: Real heroes backup their 
 
 # Elkar Backup
 
@@ -243,7 +243,7 @@ This takes you to a list of backup names and file paths. You can choose to downl
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. If you wanted to expose the ElkarBackup UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the app service. You'd also need to add the traefik_public network to the app service.
 2. The original inclusion of ElkarBackup was due to the efforts of @gpulido in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Gabriel!

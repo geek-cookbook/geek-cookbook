@@ -172,4 +172,4 @@ After completing the above, you should have:
 * [X] [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/)
 
 
-## Chef's Notes 📓
+## Chef's Notes 

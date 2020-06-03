@@ -21,7 +21,7 @@ Description. IPFS is a peer-to-peer distributed file system that seeks to connec
 
 ### Setup data locations (per-node)
 
-Since IPFS may _replace_ ceph or glusterfs as a shared-storage provider for the swarm, we can't use sharded storage to store its persistent data. (🐔, meet :egg:)
+Since IPFS may _replace_ ceph or glusterfs as a shared-storage provider for the swarm, we can't use sharded storage to store its persistent data. (, meet :egg:)
 
 On _each_ node, therefore run the following, to create the persistent data storage for ipfs and ipfs-cluster:
 
@@ -180,6 +180,6 @@ QmbqPBLJNXWpbXEX6bVhYLo2ruEBE7mh1tfT9s6VXUzYYx | 28c13ec68f33 | Sees 2 other pee
 ```
 
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. I'm still trying to work out how to _mount_ the ipfs data in my filesystem in a usable way. Which is why this is still a WIP :)

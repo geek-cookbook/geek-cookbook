@@ -213,6 +213,6 @@ Here's a screencast of the playbook in action. I sped up the boring parts, it ac
 [patreon]:	        https://www.patreon.com/bePatron?u=6982506
 [github_sponsor]:   https://github.com/sponsors/funkypenguin
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 [^1]: Minimum Viable Cluster acronym copyright, trademark, and whatever else, to Funky Penguin for 1,000,000 years.

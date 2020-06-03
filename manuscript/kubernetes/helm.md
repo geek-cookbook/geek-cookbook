@@ -10,7 +10,7 @@
 ## Ingredients
 
 1. [Kubernetes cluster](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/cluster/)
-2. Geek-Fu required : 🐤 (_easy - copy and paste_)
+2. Geek-Fu required :  (_easy - copy and paste_)
 
 ## Preparation
 

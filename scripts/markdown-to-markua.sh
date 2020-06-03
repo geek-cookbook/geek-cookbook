@@ -1,31 +1,16 @@
 #!/bin/bash
 
-# Markua doesn't know what to do with 4 backticks (````), so convert to 3:
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/\`\`\`\`/\`\`\`/g"
+for file in `find manuscript -type f -name "*.md"`
+do
+    echo "Processing $file..."
 
-# Markua doesn't like emojis, so remove them:
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/👏//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/💬//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/👍//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/💰//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🍷//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🏢//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/❤️//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🐢//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/👋//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🐦//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/📖//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/✉️//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/📺//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🎥//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/🎵//g"
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/😁//g"
+    # Markua doesn't know what to do with 4 backticks (````), so convert to 3:
+    sed -ie "s/\`\`\`\`/\`\`\`/g" $file
 
-# Can't use relative paths in a book, so make all paths static
-find manuscript -type f -name "*.md" -print0 | xargs -0 sed -i "s/(\//(https:\/\/geek-cookbook.funkypenguin.co.nz\/)/g"
+    # Can't use relative paths in a book, so make all paths static
+    sed -ie 's/(\//(https:\/\/geek-cookbook.funkypenguin.co.nz\/)/g' $file
 
-
-
-
-
-# Do nothing, yet. This is where the sed magic will go
+    # strip emojis
+    tr -cd '\11\12\15\40-\176' < $file > $file-clean
+    mv $file-clean $file
+done

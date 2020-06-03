@@ -15,7 +15,7 @@ This recipe employs a clever tool ([miracle2k/k8s-snapshots](https://github.com/
 ## Ingredients
 
 1. [Kubernetes cluster](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/cluster/) with either AWS or GKE (currently, but apparently other providers are [easy to implement](https://github.com/miracle2k/k8s-snapshots/blob/master/k8s_snapshots/backends/abstract.py))
-2. Geek-Fu required : 🐒🐒 (_medium - minor adjustments may be required_)
+2. Geek-Fu required :  (_medium - minor adjustments may be required_)
 
 ## Preparation
 

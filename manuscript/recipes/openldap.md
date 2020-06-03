@@ -391,7 +391,7 @@ networks:
 !!! warning
     **Normally**, we set unique static subnets for every stack you deploy, and put the non-public facing components (like databases) in an dedicated <stack\>_internal network. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
 
-    However, you're likely to want to use OpenLdap with KeyCloak, whose JBOSS startup script assumes a single interface, and will crash in a ball of 🔥 if you try to assign multiple interfaces to the container.
+    However, you're likely to want to use OpenLdap with KeyCloak, whose JBOSS startup script assumes a single interface, and will crash in a ball of  if you try to assign multiple interfaces to the container.
 
     Since we're going to want KeyCloak to be able to talk to OpenLDAP, we have no choice but to leave the OpenLDAP container on the "traefik_public" network. We can, however, create **another** overlay network (_auth_internal, see below_), add it to the openldap container, and use it to provide OpenLDAP access to our other stacks.
 
@@ -445,6 +445,6 @@ Create your users using the "**New User**" button.
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. [The KeyCloak](https://geek-cookbook.funkypenguin.co.nz/)recipes/keycloak/authenticate-against-openldap/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.

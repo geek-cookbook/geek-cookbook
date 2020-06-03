@@ -5,7 +5,7 @@ hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and
 
 # Headphones
 
-[Headphones](https://github.com/rembo10/headphones) is an automated music downloader for NZB and Torrent, written in Python. It supports SABnzbd, NZBget, Transmission, µTorrent, Deluge and Blackhole.
+[Headphones](https://github.com/rembo10/headphones) is an automated music downloader for NZB and Torrent, written in Python. It supports SABnzbd, NZBget, Transmission, Torrent, Deluge and Blackhole.
 
 ![Headphones Screenshot](../../images/headphones.png)
 
@@ -70,6 +70,6 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [End](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/) (launch the stack)
 
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.

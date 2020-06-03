@@ -115,8 +115,8 @@ I had to add compute admin, service admin, and kubernetes engine admin to my org
 
 gsutil mb -p ${TF_ADMIN} gs://${TF_ADMIN}
 Creating gs://funkypenguin-terraform-admin/...
-[davidy:~/Documents … remix/kubernetes/terraform] master(+1/-0)* ±
-[davidy:~/Documents … remix/kubernetes/terraform] master(+1/-0)* ± cat > backend.tf <<EOF
+[davidy:~/Documents  remix/kubernetes/terraform] master(+1/-0)* 
+[davidy:~/Documents  remix/kubernetes/terraform] master(+1/-0)*  cat > backend.tf <<EOF
 heredoc> terraform {
 heredoc>  backend "gcs" {
 heredoc>    bucket  = "${TF_ADMIN}"
@@ -125,9 +125,9 @@ heredoc>    project = "${TF_ADMIN}"
 heredoc>  }
 heredoc> }
 heredoc> EOF
-[davidy:~/Documents … remix/kubernetes/terraform] master(+1/-0)* ± gsutil versioning set on gs://${TF_ADMIN}
+[davidy:~/Documents  remix/kubernetes/terraform] master(+1/-0)*  gsutil versioning set on gs://${TF_ADMIN}
 Enabling versioning for gs://funkypenguin-terraform-admin/...
-[davidy:~/Documents … remix/kubernetes/terraform] master(+1/-0)* ± export GOOGLE_APPLICATION_CREDENTIALS=${TF_CREDS}
+[davidy:~/Documents  remix/kubernetes/terraform] master(+1/-0)*  export GOOGLE_APPLICATION_CREDENTIALS=${TF_CREDS}
 export GOOGLE_PROJECT=${TF_ADMIN}
 
 

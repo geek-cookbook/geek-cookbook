@@ -157,7 +157,7 @@ After completing the above, you should have:
 * [X] Persistent storage available to every node
 * [X] Resiliency in the event of the failure of a single (gluster) node
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 Future enhancements to this recipe include:
 

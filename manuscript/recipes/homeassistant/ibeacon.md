@@ -23,4 +23,4 @@ Plug in your iBeacon, launch LightBlue Explorer, and find your iBeacon. The firs
 
 Having paired, you'll be able to see the vital statistics of your iBeacon.
 
-## Chef's Notes 📓
+## Chef's Notes 

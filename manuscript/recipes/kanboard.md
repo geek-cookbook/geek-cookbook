@@ -2,10 +2,10 @@ hero: Kanboard - A recipe to get your personal kanban on
 
 # Kanboard
 
-Kanboard is a Kanban tool, developed by [Frédéric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux](https://geek-cookbook.funkypenguin.co.nz/)recipes/miniflux/)_)
+Kanboard is a Kanban tool, developed by [Frdric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux](https://geek-cookbook.funkypenguin.co.nz/)recipes/miniflux/)_)
 
 !!! tip "Sponsored Project"
-    Kanboard is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/)sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 😓
+    Kanboard is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/)sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 
 
 Features include:
 
@@ -116,7 +116,7 @@ Launch the Kanboard stack by running ```docker stack deploy kanboard -c <path -t
 
 Log into your new instance at https://**YOUR-FQDN**. Default credentials are admin/admin, after which you can change (_under 'profile'_) and add more users.
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. The default theme can be significantly improved by applying the [ThemePlus](https://github.com/phsteffen/kanboard-themeplus) plugin.
 2. Kanboard becomes more useful when you integrate in/outbound email with [MailGun](https://github.com/kanboard/plugin-mailgun), [SendGrid](https://github.com/kanboard/plugin-sendgrid), or [Postmark](https://github.com/kanboard/plugin-postmark).

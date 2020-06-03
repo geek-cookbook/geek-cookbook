@@ -15,7 +15,7 @@ A workaround to this bug is to run an MQTT broker **external** to the raspberry 
 
 ![MQTT Screenshot](../images/mqtt.png)
 
-[MQTT](https://mqtt.org/faq) stands for MQ Telemetry Transport. It is a publish/subscribe, extremely simple and lightweight messaging protocol, designed for constrained devices and low-bandwidth, high-latency or unreliable networks. The design principles are to minimise network bandwidth and device resource requirements whilst also attempting to ensure reliability and some degree of assurance of delivery. These principles also turn out to make the protocol ideal of the emerging “machine-to-machine” (M2M) or “Internet of Things” world of connected devices, and for mobile applications where bandwidth and battery power are at a premium.
+[MQTT](https://mqtt.org/faq) stands for MQ Telemetry Transport. It is a publish/subscribe, extremely simple and lightweight messaging protocol, designed for constrained devices and low-bandwidth, high-latency or unreliable networks. The design principles are to minimise network bandwidth and device resource requirements whilst also attempting to ensure reliability and some degree of assurance of delivery. These principles also turn out to make the protocol ideal of the emerging machine-to-machine (M2M) or Internet of Things world of connected devices, and for mobile applications where bandwidth and battery power are at a premium.
 
 ## Ingredients
 
@@ -204,4 +204,4 @@ mqtt-65f4d96945-bjj44         1/1       Running   0          5m
 
 To actually **use** your new MQTT broker, you'll need to connect to any one of your nodes (```kubectl get nodes -o wide```) on port 30883 (_the nodeport service we created earlier_). More info on that, and a loadbalancer design, to follow shortly :)
 
-## Chef's Notes 📓
+## Chef's Notes 

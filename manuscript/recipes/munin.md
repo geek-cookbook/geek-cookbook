@@ -6,7 +6,7 @@ Munin is a networked resource monitoring tool that can help analyze resource tre
 
 Using Munin you can easily monitor the performance of your computers, networks, SANs, applications, weather measurements and whatever comes to mind. It makes it easy to determine "what's different today" when a performance problem crops up. It makes it easy to see how you're doing capacity-wise on any resources.
 
-Munin uses the excellent ​RRDTool (written by Tobi Oetiker) and the framework is written in Perl, while plugins may be written in any language. Munin has a master/node architecture in which the master connects to all the nodes at regular intervals and asks them for data. It then stores the data in RRD files, and (if needed) updates the graphs. One of the main goals has been ease of creating new plugins (graphs).
+Munin uses the excellent RRDTool (written by Tobi Oetiker) and the framework is written in Perl, while plugins may be written in any language. Munin has a master/node architecture in which the master connects to all the nodes at regular intervals and asks them for data. It then stores the data in RRD files, and (if needed) updates the graphs. One of the main goals has been ease of creating new plugins (graphs).
 
 ## Ingredients
 
@@ -134,6 +134,6 @@ Launch the Munin stack by running ```docker stack deploy munin -c <path -to-dock
 
 Log into your new instance at https://**YOUR-FQDN**, with user and password password you specified in munin.env above.
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. If you wanted to expose the Munin UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the munin container. You'd also need to add the traefik_public network to the munin container.

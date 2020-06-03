@@ -139,6 +139,6 @@ Launch the BookStack stack by running ```docker stack deploy bookstack -c <path 
 
 Log into your new instance at https://**YOUR-FQDN**, authenticate with oauth_proxy, and then login with username 'admin@admin.com' and password 'password'.
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. If you wanted to expose the BookStack UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the bookstack container. You'd also need to add the traefik_public network to the bookstack container.

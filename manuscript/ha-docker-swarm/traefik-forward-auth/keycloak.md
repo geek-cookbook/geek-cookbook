@@ -117,6 +117,6 @@ What have we achieved? By adding an additional three simple labels to any servic
 
 
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. KeyCloak is very powerful. You can add 2FA and all other clever things outside of the scope of this simple recipe ;)

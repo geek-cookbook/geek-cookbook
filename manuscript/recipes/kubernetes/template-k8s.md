@@ -1,11 +1,11 @@
 #Kanboard
 
-Kanboard is a Kanban tool, developed by [Frédéric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux](https://geek-cookbook.funkypenguin.co.nz/)recipes/miniflux/)_)
+Kanboard is a Kanban tool, developed by [Frdric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux](https://geek-cookbook.funkypenguin.co.nz/)recipes/miniflux/)_)
 
 ![Kanboard Screenshot](https://geek-cookbook.funkypenguin.co.nz/)images/kanboard.png)
 
 !!! tip "Sponsored Project"
-    Kanboard is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/)sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 😓
+    Kanboard is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/)sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 
 
 Features include:
 

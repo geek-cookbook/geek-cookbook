@@ -29,7 +29,7 @@ If you want to use minikube, there is a guide below but again, I recommend using
     they add in additional complexities to the installation as they
     require running a Linux based image running in a VM,
     that although minikube will manage, adds to the complexities. And
-    even then, who uses Windows or macOS in production anyways? 🙂  
+    even then, who uses Windows or macOS in production anyways?   
     If you are serious about running on windows/macOS,
     check the official MiniKube guides
     [here](https://minikube.sigs.k8s.io/docs/start/)
@@ -82,7 +82,7 @@ Then spin yourself up as many systems as you need with the following guide
 
 !!! note
     I am running a 3 node cluster, with nodes running on Ubuntu 19.04, all virtualized with VMWare ESXi  
-    Your setup doesn't need to be as complex as mine, you can use 3 old Dell OptiPlex if you really want 🙂
+    Your setup doesn't need to be as complex as mine, you can use 3 old Dell OptiPlex if you really want 
 
 1. Insert your installation medium into the machine, and boot it.
 2. Select your language
@@ -183,7 +183,7 @@ thomas-k3s-node1$ curl -sfL https://get.k3s.io | sh -
 [INFO]  env: Creating environment file /etc/systemd/system/k3s.service.env
 [INFO]  systemd: Creating service file /etc/systemd/system/k3s.service
 [INFO]  systemd: Enabling k3s unit
-Created symlink /etc/systemd/system/multi-user.target.wants/k3s.service → /etc/systemd/system/k3s.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/k3s.service  /etc/systemd/system/k3s.service.
 [INFO]  systemd: Starting k3s
 ```
 
@@ -284,7 +284,7 @@ That is all! You have yourself a Kubernetes cluster for you and your dog to enjo
 
 DRP or Digital Rebar Provisioning Tool is a tool designed to automatically setup your cluster, installing an operating system for you, and doing all the configuration like we did in the k3s setup.
 
-This section is WIP, instead, try using the K3S guide above 🙂
+This section is WIP, instead, try using the K3S guide above 
 
 ## Where from now
 
@@ -304,7 +304,7 @@ This article, believe it or not, was not diced up by your regular chef (funkypen
 Instead, today's article was diced up by HexF, a fellow kiwi (hence a lot of kiwi references) who enjoys his sysadmin time.
 Feel free to talk to today's chef in the discord, or see one of his many other links that you can follow below
 
-[Twitter](https://hexf.me/api/social/twitter/geekcookbook) • [Website](https://hexf.me/api/social/website/geekcookbook) • [Github](https://hexf.me/api/social/github/geekcookbook)
+[Twitter](https://hexf.me/api/social/twitter/geekcookbook)  [Website](https://hexf.me/api/social/website/geekcookbook)  [Github](https://hexf.me/api/social/github/geekcookbook)
 
 <!--
 The links above are just redirect links incase anything ever changes, and it has analytics too

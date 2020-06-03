@@ -92,4 +92,4 @@ In summary, although I suffered an **unplanned power outage to all of my infrast
 [^1]: Since there's no impact to availability, I can fix (or just reinstall) the failed node whenever convenient.
 
 
-## Chef's Notes 📓
+## Chef's Notes 

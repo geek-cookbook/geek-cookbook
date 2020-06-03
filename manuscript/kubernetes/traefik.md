@@ -188,7 +188,7 @@ helm upgrade --values values.yml traefik stable/traefik --recreate-pods
 
 ## Review
 
-We're doneburgers! 🍔 We now have all the pieces to safely deploy recipes into our Kubernetes cluster, knowing:
+We're doneburgers!  We now have all the pieces to safely deploy recipes into our Kubernetes cluster, knowing:
 
 1. Our HTTPS traffic will be secured with LetsEncrypt (thanks Traefik!)
 2. Our non-HTTPS ports (like UniFi adoption) will be load-balanced using an free-to-scale [external load balancer](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/loadbalancer/)

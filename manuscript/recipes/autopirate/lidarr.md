@@ -5,7 +5,7 @@ hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and
 
 # Lidarr
 
-[Lidarr](https://lidarr.audio/) is an automated music downloader for NZB and Torrent. It performs the same function as [Headphones](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/headphones), but is written using the same(ish) codebase as [Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/) and [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr). It's blazingly fast, and includes beautiful album/artist art. Lidarr supports [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sabnzbd/), [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget/), Transmission, µTorrent, Deluge and Blackhole (_just like Sonarr / Radarr_)
+[Lidarr](https://lidarr.audio/) is an automated music downloader for NZB and Torrent. It performs the same function as [Headphones](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/headphones), but is written using the same(ish) codebase as [Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/) and [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr). It's blazingly fast, and includes beautiful album/artist art. Lidarr supports [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sabnzbd/), [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget/), Transmission, Torrent, Deluge and Blackhole (_just like Sonarr / Radarr_)
 
 ![Lidarr Screenshot](../../images/lidarr.png)
 
@@ -71,7 +71,7 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [End](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/) (launch the stack)
 
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
 2. The addition of the Lidarr recipe was contributed by our very own @gpulido in Discord (http://chat.funkypenguin.co.nz) - Thanks Gabriel!

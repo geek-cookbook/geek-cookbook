@@ -108,7 +108,7 @@ What have we achieved? By adding an additional three simple labels to any servic
 
 
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. Traefik forward auth replaces the use of [oauth_proxy containers](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy/) found in some of the existing recipes
 2. [@thomaseddon's original version](https://github.com/thomseddon/traefik-forward-auth) of traefik-forward-auth only works with Google currently, but I've created a [fork](https://www.github.com/funkypenguin/traefik-forward-auth) of a [fork](https://github.com/noelcatt/traefik-forward-auth), which implements generic OIDC providers.

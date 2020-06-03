@@ -234,6 +234,6 @@ You should now be able to access your traefik instance on http://<node IP\>:8080
     * [X] Automatic SSL support for all proxied resources
 
 
-## Chef's Notes  📓
+## Chef's Notes  
 
 1. Did you notice how no authentication was required to view the Traefik dashboard? Eek! We'll tackle that in the next section, regarding [Traefik Forward Authentication](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik-forward-auth/)!

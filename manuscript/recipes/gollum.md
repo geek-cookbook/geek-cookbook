@@ -129,6 +129,6 @@ Launch the Gollum stack by running ```docker stack deploy gollum -c <path-to-doc
 
 Authenticate against your OAuth provider, and then start editing your wiki!
 
-## Chef's Notes 📓
+## Chef's Notes 
 
 1. In the current implementation, Gollum is a "single user" tool only. The contents of the wiki are saved as markdown files under /var/data/gollum, and all the git commits are currently "Anonymous"

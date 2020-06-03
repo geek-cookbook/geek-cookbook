@@ -1,6 +1,6 @@
 #Miniflux
 
-Miniflux is a lightweight RSS reader, developed by [Frédéric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of the favorite Open Source Kanban app, [Kanboard](https://geek-cookbook.funkypenguin.co.nz/)recipes/kanboard/)_)
+Miniflux is a lightweight RSS reader, developed by [Frdric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of the favorite Open Source Kanban app, [Kanboard](https://geek-cookbook.funkypenguin.co.nz/)recipes/kanboard/)_)
 
 ![Miniflux Screenshot](https://geek-cookbook.funkypenguin.co.nz/)images/miniflux.png)
 
