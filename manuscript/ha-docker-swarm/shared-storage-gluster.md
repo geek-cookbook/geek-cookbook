@@ -31,6 +31,7 @@ To build our Gluster volume, we need 2 out of the 3 VMs to provide one "brick". 
 On each host, run a variation following to create your bricks, adjusted for the path to your disk.
 
 !!! note "The example below assumes /dev/vdb is dedicated to the gluster volume"
+
 ```
 (
 echo o # Create a new empty DOS partition table
@@ -58,6 +59,7 @@ mount -a && mount
 Atomic doesn't include the Gluster server components.  This means we'll have to run glusterd from within a container, with privileged access to the host. Although convoluted, I've come to prefer this design since it once again makes the OS "disposable", moving all the config into containers and code.
 
 Run the following on each host:
+
 ````
 docker run \
    -h glusterfs-server \
@@ -71,14 +73,15 @@ docker run \
    --name="glusterfs-server" \
    gluster/gluster-centos
 ````
+
 ### Create trusted pool
 
 On a single node (doesn't matter which), run ```docker exec -it glusterfs-server bash``` to launch a shell inside the container.
 
-From the node, run
-```gluster peer probe <other host>```
+From the node, run `gluster peer probe <other host>`.
 
 Example output:
+
 ```
 [root@glusterfs-server /]# gluster peer probe ds1
 peer probe: success.
@@ -88,6 +91,7 @@ peer probe: success.
 Run ```gluster peer status``` on both nodes to confirm that they're properly connected to each other:
 
 Example output:
+
 ```
 [root@glusterfs-server /]# gluster peer status
 Number of Peers: 1
@@ -102,7 +106,8 @@ State: Peer in Cluster (Connected)
 
 Now we create a *replicated volume* out of our individual "bricks".
 
-Create the gluster volume by running
+Create the gluster volume by running:
+
 ```
 gluster volume create gv0 replica 2 \
  server1:/var/no-direct-write-here/brick1 \
@@ -110,6 +115,7 @@ gluster volume create gv0 replica 2 \
 ```
 
 Example output:
+
 ```
 [root@glusterfs-server /]# gluster volume create gv0 replica 2 ds1:/var/no-direct-write-here/brick1/gv0  ds3:/var/no-direct-write-here/brick1/gv0
 volume create: gv0: success: please start the volume to access data
@@ -141,7 +147,8 @@ echo "$MYHOST:/gv0                /var/data      glusterfs       defaults,_netde
 mount -a
 ```
 
-For some reason, my nodes won't auto-mount this volume on boot. I even tried the trickery below, but they stubbornly refuse to automount.
+For some reason, my nodes won't auto-mount this volume on boot. I even tried the trickery below, but they stubbornly refuse to automount:
+
 ```
 echo -e "\n\n# Give GlusterFS 10s to start before \
 mounting\nsleep 10s && mount -a" >> /etc/rc.local

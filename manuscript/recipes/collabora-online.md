@@ -92,7 +92,8 @@ services:
 
 ### Create nginx.conf
 
-Create ```/var/data/config/collabora/nginx.conf``` as follows, changing the ```server_name``` value to match the environment variable you established above.
+Create ```/var/data/config/collabora/nginx.conf``` as follows, changing the ```server_name``` value to match the environment variable you established above:
+
 
 ```
 upstream collabora-upstream {
@@ -142,22 +143,24 @@ server {
         proxy_set_header Host $http_host;
     }
 }
+
 ```
+
 ### Create loolwsd.xml
 
 [Until we understand](https://github.com/CollaboraOnline/Docker-CODE/pull/50) how to [pass trusted network parameters to the entrypoint script using environment variables](https://github.com/CollaboraOnline/Docker-CODE/issues/49), we have to maintain a manually edited version of ```loolwsd.xml```, and bind-mount it into our collabora container.
 
 The way we do this is we mount
-```/var/data/collabora/loolwsd.xml``` as ```/etc/loolwsd/loolwsd.xml-new```, then allow the container to create its default ```/etc/loolwsd/loolwsd.xml```, copy this default **over** our ```/var/data/collabora/loolwsd.xml``` as ```/etc/loolwsd/loolwsd.xml-new```, and then update the container to use **our** ```/var/data/collabora/loolwsd.xml``` as ```/etc/loolwsd/loolwsd.xml``` instead (_confused yet?_)
+`/var/data/collabora/loolwsd.xml` as `/etc/loolwsd/loolwsd.xml-new`, then allow the container to create its default `/etc/loolwsd/loolwsd.xml`, copy this default **over** our `/var/data/collabora/loolwsd.xml` as `/etc/loolwsd/loolwsd.xml-new`, and then update the container to use **our** `/var/data/collabora/loolwsd.xml` as `/etc/loolwsd/loolwsd.xml` instead (_confused yet?_)
 
-Create an empty ```/var/data/collabora/loolwsd.xml``` by running ```touch /var/data/collabora/loolwsd.xml```. We'll populate this in the next section...
+Create an empty `/var/data/collabora/loolwsd.xml` by running `touch /var/data/collabora/loolwsd.xml`. We'll populate this in the next section...
 
 ### Setup Docker Swarm
 
-Create ```/var/data/config/collabora/collabora.yml``` as follows, changing the traefik frontend_rule as necessary:
+Create `/var/data/config/collabora/collabora.yml` as follows, changing the traefik frontend_rule as necessary:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a `git pull` and a `docker stack deploy` 👍
 
 ```
 version: "3.0"
