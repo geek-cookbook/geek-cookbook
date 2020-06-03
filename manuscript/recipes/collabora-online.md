@@ -90,7 +90,8 @@ services:
 
 ### Create nginx.conf
 
-Create ```/var/data/config/collabora/nginx.conf``` as follows, changing the ```server_name``` value to match the environment variable you established above.
+Create ```/var/data/config/collabora/nginx.conf``` as follows, changing the ```server_name``` value to match the environment variable you established above:
+
 
 ```
 upstream collabora-upstream {
@@ -140,6 +141,7 @@ server {
         proxy_set_header Host $http_host;
     }
 }
+
 ```
 
 ### Create loolwsd.xml
