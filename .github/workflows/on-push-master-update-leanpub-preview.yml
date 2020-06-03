@@ -27,7 +27,9 @@ jobs:
     - name: Replace contents of leanpub-preview branch
       run: |
         rm -rf leanpub-preview/manuscript
+        rm -rf leanpub-preview/scripts
         cp -rf manuscript leanpub-preview/
+        cp -rf scripts leanpub-preview/
         cd leanpub-preview
         ./scripts/markdown-to-markua.sh
         git config --local --unset-all "http.https://github.com/.extraheader"
