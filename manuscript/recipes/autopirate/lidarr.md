@@ -1,19 +1,19 @@
-hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and organising your media 📺 🎥 🎵 📖
+hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and organising your media    
 
 !!! warning
-    This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [autopirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # Lidarr
 
-[Lidarr](https://lidarr.audio/) is an automated music downloader for NZB and Torrent. It performs the same function as [Headphones](/recipes/autopirate/headphones), but is written using the same(ish) codebase as [Radarr](/recipes/autopirate/radarr/) and [Sonarr](/recipes/autopirate/sonarr). It's blazingly fast, and includes beautiful album/artist art. Lidarr supports [SABnzbd](/recipes/autopirate/sabnzbd/), [NZBGet](/recipes/autopirate/nzbget/), Transmission, µTorrent, Deluge and Blackhole (_just like Sonarr / Radarr_)
+[Lidarr](https://lidarr.audio/) is an automated music downloader for NZB and Torrent. It performs the same function as [Headphones](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/headphones), but is written using the same(ish) codebase as [Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/) and [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr). It's blazingly fast, and includes beautiful album/artist art. Lidarr supports [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sabnzbd/), [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget/), Transmission, µTorrent, Deluge and Blackhole (_just like Sonarr / Radarr_)
 
 ![Lidarr Screenshot](../../images/lidarr.png)
 
 ## Inclusion into AutoPirate
 
-To include Lidarr in your [AutoPirate](/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include Lidarr in your [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
-````
+```
 lidarr:
   image: linuxserver/lidarr:latest
   env_file : /var/data/config/autopirate/lidarr.env
@@ -44,40 +44,34 @@ lidarr_proxy:
     -email-domain=example.com
     -provider=github
     -authenticated-emails-file=/authenticated-emails.txt
-````
+```
 
 !!! tip
-    I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+    I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 ## Assemble more tools..
 
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipes/autopirate/end/)** section:
+Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/)** section:
 
-* [SABnzbd](/recipes/autopirate/sabnzbd.md)
-* [NZBGet](/recipes/autopirate/nzbget.md)
-* [RTorrent](/recipes/autopirate/rtorrent/)
-* [Sonarr](/recipes/autopirate/sonarr/)
-* [Radarr](/recipes/autopirate/radarr/)
+* [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sabnzbd.md)
+* [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget.md)
+* [RTorrent](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/rtorrent/)
+* [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr/)
+* [Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/)
 * [Mylar](https://github.com/evilhero/mylar)
-* [Lazy Librarian](/recipes/autopirate/lazylibrarian/)
-* [Headphones](/recipes/autopirate/headphones/)
+* [Lazy Librarian](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lazylibrarian/)
+* [Headphones](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/headphones/)
 * Lidarr (this page)
-* [NZBHydra](/recipes/autopirate/nzbhydra/)
-* [NZBHydra](/recipes/autopirate/nzbhydra/)
-* [NZBHydra2](/recipes/autopirate/nzbhydra2/)
-* [Ombi](/recipes/autopirate/ombi/)
-* [Jackett](/recipes/autopirate/jackett/)
-* [Heimdall](/recipes/autopirate/heimdall/)
-* [End](/recipes/autopirate/end/) (launch the stack)
+* [NZBHydra](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra/)
+* [NZBHydra](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra/)
+* [NZBHydra2](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra2/)
+* [Ombi](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/ombi/)
+* [Jackett](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/jackett/)
+* [Heimdall](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/heimdall/)
+* [End](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/) (launch the stack)
 
 
 ## Chef's Notes 📓
 
 1. In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
 2. The addition of the Lidarr recipe was contributed by our very own @gpulido in Discord (http://chat.funkypenguin.co.nz) - Thanks Gabriel!
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

@@ -7,12 +7,12 @@
 Using a smartphone app, OwnTracks allows you to collect and analyse your own location data **without** sharing this data with a cloud provider (_i.e. Apple, Google_). Potential use cases are:
 
 * Sharing family locations without relying on Apple Find-My-friends
-* Performing automated actions in [HomeAssistant](/recipes/homeassistant/) when you arrive/leave home
+* Performing automated actions in [HomeAssistant](https://geek-cookbook.funkypenguin.co.nz/)recipes/homeassistant/) when you arrive/leave home
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik) configured per design
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
@@ -44,7 +44,7 @@ OTR_HOST=owntracks.example.com
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
 ```
@@ -96,7 +96,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
 
 
 

@@ -17,8 +17,8 @@ Possible use-cases:
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik_public) configured per design
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
@@ -46,7 +46,7 @@ MINIO_SECRET_KEY=<another random, complex string>
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
 ```
@@ -173,6 +173,6 @@ goofys#bucket   /mnt/mountpoint        fuse     _netdev,allow_other,--file-mode=
 ## Chef's Notes 📓
 
 1. There are many S3-filesystem-mounting tools available, I just picked Goofys because it's simple. Google is your friend :)
-2. Some applications (_like [NextCloud](/recipes/nextcloud/)_) can natively mount S3 buckets
-3. Some backup tools (_like [Duplicity](/recipes/duplicity/)_) can backup directly to S3 buckets
+2. Some applications (_like [NextCloud](https://geek-cookbook.funkypenguin.co.nz/)recipes/nextcloud/)_) can natively mount S3 buckets
+3. Some backup tools (_like [Duplicity](https://geek-cookbook.funkypenguin.co.nz/)recipes/duplicity/)_) can backup directly to S3 buckets
 

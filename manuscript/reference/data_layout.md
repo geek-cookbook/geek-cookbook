@@ -1,6 +1,6 @@
 # Data layout
 
-The applications deployed in the stack utilize a combination of data-at-rest (_static config, files, etc_) and runtime data (_live database files_). The realtime data can't be [backed up](/recipes/duplicity) with a simple copy-paste, so where we employ databases, we also include containers to perform a regular export of database data to a filesystem location.
+The applications deployed in the stack utilize a combination of data-at-rest (_static config, files, etc_) and runtime data (_live database files_). The realtime data can't be [backed up](https://geek-cookbook.funkypenguin.co.nz/)recipes/duplicity) with a simple copy-paste, so where we employ databases, we also include containers to perform a regular export of database data to a filesystem location.
 
 So that we can confidently backup all our data, I've setup a data layout as follows:
 
@@ -15,12 +15,3 @@ Realtime data (typically database files or files-in-use) are stored in /var/data
 ## Static data
 
 Static data goes into /var/data/[recipe name], and includes anything that can be safely backed up while a container is running. This includes database exports of the runtime data above.
-
-
-## Chef's Notes
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
-
-### Your comments? 

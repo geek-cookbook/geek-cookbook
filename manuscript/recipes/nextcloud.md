@@ -16,15 +16,15 @@ This recipe is based on the official NextCloud docker image, but includes seprat
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik) configured per design
 3. DNS entry pointing your NextCloud url (_nextcloud.example.com_) to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
 ### Setup data locations
 
-We'll need several directories for [static data](/reference/data_layout/#static-data) to bind-mount into our container, so create them in /var/data/nextcloud (_so that they can be [backed up](/recipes/duplicity/)_)
+We'll need several directories for [static data](https://geek-cookbook.funkypenguin.co.nz/)reference/data_layout/#static-data) to bind-mount into our container, so create them in /var/data/nextcloud (_so that they can be [backed up](https://geek-cookbook.funkypenguin.co.nz/)recipes/duplicity/)_)
 
 ```
 mkdir /var/data/nextcloud
@@ -32,7 +32,7 @@ cd /var/data/nextcloud
 mkdir -p {html,apps,config,data,database-dump}
 ```
 
-Now make **more** directories for [runtime data](/reference/data_layout/#runtime-data) (_so that they can be **not** backed-up_):
+Now make **more** directories for [runtime data](https://geek-cookbook.funkypenguin.co.nz/)reference/data_layout/#runtime-data) (_so that they can be **not** backed-up_):
 
 ```
 mkdir /var/data/runtime/nextcloud
@@ -159,7 +159,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
 
 
 
@@ -188,7 +188,7 @@ Want to use Calendar/Contacts on your iOS device? Want to avoid dictating long, 
 
 Huzzah! NextCloud supports [service discovery for CalDAV/CardDAV](https://tools.ietf.org/html/rfc6764), allowing you to simply tell your device the primary URL of your server (_**nextcloud.batcave.org**, for example_), and have the device figure out the correct WebDAV path to use.
 
-We (_and anyone else using the [NextCloud Docker image](https://hub.docker.com/_/nextcloud/)_) are using an SSL-terminating reverse proxy ([Traefik](/ha-docker-swarm/traefik/)) in front of our NextCloud container. In fact, it's not **possible** to setup SSL **within** the NextCloud container.
+We (_and anyone else using the [NextCloud Docker image](https://hub.docker.com/_/nextcloud/)_) are using an SSL-terminating reverse proxy ([Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik/)) in front of our NextCloud container. In fact, it's not **possible** to setup SSL **within** the NextCloud container.
 
 When using a reverse proxy, your device requests a URL from your proxy (https://nextcloud.batcave.com/.well-known/caldav), and the reverse proxy then passes that request **unencrypted** to the internal URL of the NextCloud instance (i.e., http://172.16.12.123/.well-known/caldav)
 

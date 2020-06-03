@@ -2,9 +2,9 @@ hero: Manage your ebook collection. Like a BOSS.
 
 # Calibre-Web
 
-The [AutoPirate](/recipes/autopirate/) recipe includes [Lazy Librarian](https://github.com/itsmegb/LazyLibrarian), a tool for tracking, finding, and downloading eBooks. However, after the eBooks are downloaded, Lazy Librarian is not much use for organising, tracking, and actually **reading** them.
+The [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) recipe includes [Lazy Librarian](https://github.com/itsmegb/LazyLibrarian), a tool for tracking, finding, and downloading eBooks. However, after the eBooks are downloaded, Lazy Librarian is not much use for organising, tracking, and actually **reading** them.
 
-[Calibre-Web](https://github.com/janeczku/calibre-web) could be described as "_[Plex](/recipes/plex/) (or [Emby](/recipes/emby/)) for eBooks_" - it's a web-based interface to manage your eBook library, screenshot below:
+[Calibre-Web](https://github.com/janeczku/calibre-web) could be described as "_[Plex](https://geek-cookbook.funkypenguin.co.nz/)recipes/plex/) (or [Emby](https://geek-cookbook.funkypenguin.co.nz/)recipes/emby/)) for eBooks_" - it's a web-based interface to manage your eBook library, screenshot below:
 
 ![Calibre-Web Screenshot](../images/calibre-web.png)
 
@@ -23,8 +23,8 @@ Support for editing eBook metadata and deleting eBooks from Calibre library
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik) configured per design
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
@@ -42,7 +42,7 @@ Ensure that your Calibre library is accessible to the swarm (_i.e., exists on sh
 
 ### Prepare environment
 
-We'll use an [oauth-proxy](/reference/oauth_proxy/) to protect the UI from public access, so create calibre-web.env, and populate with the following variables:
+We'll use an [oauth-proxy](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy/) to protect the UI from public access, so create calibre-web.env, and populate with the following variables:
 
 ```
 OAUTH2_PROXY_CLIENT_ID=
@@ -110,7 +110,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
 
 
 
@@ -125,4 +125,4 @@ Log into your new instance at https://**YOUR-FQDN**. You'll be directed to the i
 ## Chef's Notes 📓
 
 1. Yes, Calibre does provide a server component. But it's not as fully-featured as Calibre-Web (_i.e., you can't use it to send ebooks directly to your Kindle_)
-2. A future enhancement might be integrating this recipe with the filestore for [NextCloud](/recipes/nextcloud/), so that the desktop database (Calibre) can be kept synced with Calibre-Web.
+2. A future enhancement might be integrating this recipe with the filestore for [NextCloud](https://geek-cookbook.funkypenguin.co.nz/)recipes/nextcloud/), so that the desktop database (Calibre) can be kept synced with Calibre-Web.

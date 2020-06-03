@@ -48,21 +48,10 @@ recipes/phpipam.md
 recipes/plex.md
 recipes/privatebin.md
 recipes/swarmprom.md
-recipes/turtle-pool.md
 
 sections/menu-docker.md
 recipes/bitwarden.md
 recipes/bookstack.md
-recipes/cryptominer.md
-recipes/cryptominer/mining-rig.md
-recipes/cryptominer/amd-gpu.md
-recipes/cryptominer/nvidia-gpu.md
-recipes/cryptominer/mining-pool.md
-recipes/cryptominer/wallet.md
-recipes/cryptominer/exchange.md
-recipes/cryptominer/minerhotel.md
-recipes/cryptominer/monitor.md
-recipes/cryptominer/profit.md
 recipes/calibre-web.md
 recipes/collabora-online.md
 recipes/ghost.md

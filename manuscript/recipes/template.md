@@ -1,9 +1,9 @@
 hero: Not all heroes wear capes
 
 !!! danger "This recipe is a work in progress"
-    This recipe is **incomplete**, and is featured to align the [patrons](https://www.patreon.com/funkypenguin)'s "premix" repository with the cookbook.  "_premix_" is a private git repository available to [all Patreon patrons](https://www.patreon.com/funkypenguin), which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+    This recipe is **incomplete**, and is featured to align the [patrons](https://www.patreon.com/funkypenguin)'s "premix" repository with the cookbook.  "_premix_" is a private git repository available to [all Patreon patrons](https://www.patreon.com/funkypenguin), which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
-    So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 😁
+    So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 
 
 # NAME
 
@@ -15,8 +15,8 @@ Details
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik_public) configured per design
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
@@ -102,7 +102,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
 
 
 

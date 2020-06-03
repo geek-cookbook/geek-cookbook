@@ -1,11 +1,11 @@
 #Kanboard
 
-Kanboard is a Kanban tool, developed by [Frédéric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux](/recipes/miniflux/)_)
+Kanboard is a Kanban tool, developed by [Frédéric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux](https://geek-cookbook.funkypenguin.co.nz/)recipes/miniflux/)_)
 
-![Kanboard Screenshot](/images/kanboard.png)
+![Kanboard Screenshot](https://geek-cookbook.funkypenguin.co.nz/)images/kanboard.png)
 
 !!! tip "Sponsored Project"
-    Kanboard is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 😓
+    Kanboard is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/)sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 😓
 
 Features include:
 
@@ -22,14 +22,14 @@ Features include:
 
 ## Ingredients
 
-1. A [Kubernetes Cluster](/kubernetes/design/) including [Traefik Ingress](/kubernetes/traefik/)
-2. A DNS name for your kanboard instance (*kanboard.example.com*, below) pointing to your [load balancer](/kubernetes/loadbalancer/), fronting your Traefik ingress
+1. A [Kubernetes Cluster](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/design/) including [Traefik Ingress](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/traefik/)
+2. A DNS name for your kanboard instance (*kanboard.example.com*, below) pointing to your [load balancer](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/loadbalancer/), fronting your Traefik ingress
 
 ## Preparation
 
 ### Prepare traefik for namespace
 
-When you deployed [Traefik via the helm chart](/kubernetes/traefik/), you would have customized ```values.yml``` for your deployment. In ```values.yml``` is a list of namespaces which Traefik is permitted to access. Update ```values.yml``` to include the *kanboard* namespace, as illustrated below:
+When you deployed [Traefik via the helm chart](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/traefik/), you would have customized ```values.yml``` for your deployment. In ```values.yml``` is a list of namespaces which Traefik is permitted to access. Update ```values.yml``` to include the *kanboard* namespace, as illustrated below:
 
 ```
 <snip>
@@ -90,7 +90,7 @@ kubectl create -f /var/data/config/kanboard/kanboard-volumeclaim.yaml
 ```
 
 !!! question "What's that annotation about?"
-    The annotation is used by [k8s-snapshots](/kubernetes/snapshots/) to create daily incremental snapshots of your persistent volumes. In this case, our volume is snapshotted daily, and copies kept for 7 days.
+    The annotation is used by [k8s-snapshots](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/snapshots/) to create daily incremental snapshots of your persistent volumes. In this case, our volume is snapshotted daily, and copies kept for 7 days.
 
 ### Create ConfigMap
 
@@ -117,7 +117,7 @@ Now that we have a [namespace](https://kubernetes.io/docs/concepts/overview/work
 Create a deployment to tell Kubernetes about the desired state of the pod (*which it will then attempt to maintain*). Note below that we mount the persistent volume **twice**, to both ```/var/www/app/data``` and ```/var/www/app/plugins```, using the subPath value to differentiate them. This trick avoids us having to provision **two** persistent volumes just for data mounted in 2 separate locations.
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 
 
 ```
 cat <<EOF > /var/data/kanboard/deployment.yml
@@ -258,14 +258,8 @@ kubectl patch -n kanboard deployment app -p "{\"spec\":{\"template\":{\"metadata
 
 ### Troubleshooting
 
-To look at the Kanboard pod's logs, run ```kubectl logs -n kanboard <name of pod per above> -f```. For further troubleshooting hints, see [Troubleshooting](/reference/kubernetes/troubleshooting/).
+To look at the Kanboard pod's logs, run ```kubectl logs -n kanboard <name of pod per above> -f```. For further troubleshooting hints, see [Troubleshooting](https://geek-cookbook.funkypenguin.co.nz/)reference/kubernetes/troubleshooting/).
 
 ## Chef's Notes
 
 1. The simplest deployment of Kanboard uses the default SQLite database backend, stored on the persistent volume. You can convert this to a "real" database running MySQL or PostgreSQL, and running an an additional database pod and service. Contact me if you'd like further details ;)
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

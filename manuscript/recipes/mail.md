@@ -1,4 +1,4 @@
-hero: Docker-mailserver - A recipe for a self-contained mailserver and friends ✉️
+hero: Docker-mailserver - A recipe for a self-contained mailserver and friends 
 
 # Mail Server
 
@@ -14,8 +14,8 @@ docker-mailserver doesn't include a webmail client, and one is not strictly need
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik) configured per design
 3. LetsEncrypt authorized email address for domain
 4. Access to manage DNS records for domains
 

@@ -1,5 +1,5 @@
 !!! warning
-    This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [autopirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # Mylar
 
@@ -9,7 +9,7 @@
 
 ## Inclusion into AutoPirate
 
-To include Mylar in your [AutoPirate](/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include Mylar in your [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
 ```
 mylar:
@@ -49,23 +49,23 @@ mylar_proxy:
 
 ## Assemble more tools..
 
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipes/autopirate/end/)** section:
+Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/)** section:
 
-* [SABnzbd](/recipes/autopirate/sabnzbd.md)
-* [NZBGet](/recipes/autopirate/nzbget.md)
-* [RTorrent](/recipes/autopirate/rtorrent/)
-* [Sonarr](/recipes/autopirate/sonarr/)
-* [Radarr](/recipes/autopirate/radarr/)
+* [SABnzbd](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sabnzbd.md)
+* [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget.md)
+* [RTorrent](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/rtorrent/)
+* [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr/)
+* [Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/)
 * Mylar (this page)
-* [Lazy Librarian](/recipes/autopirate/lazylibrarian/)
-* [Headphones](/recipes/autopirate/headphones)
-* [Lidarr](/recipes/autopirate/lidarr/)
-* [NZBHydra](/recipes/autopirate/nzbhydra/)
-* [NZBHydra2](/recipes/autopirate/nzbhydra2/)
-* [Ombi](/recipes/autopirate/ombi/)
-* [Jackett](/recipes/autopirate/jackett/)
-* [Heimdall](/recipes/autopirate/heimdall/)
-* [End](/recipes/autopirate/end/) (launch the stack)
+* [Lazy Librarian](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lazylibrarian/)
+* [Headphones](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/headphones)
+* [Lidarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lidarr/)
+* [NZBHydra](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra/)
+* [NZBHydra2](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra2/)
+* [Ombi](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/ombi/)
+* [Jackett](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/jackett/)
+* [Heimdall](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/heimdall/)
+* [End](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/) (launch the stack)
 
 
 ## Chef's Notes 📓
@@ -75,9 +75,3 @@ Continue through the list of tools below, adding whichever tools your want to us
 2. If you intend to configure Mylar to perform its own NZB searches and push the hits to a downloader such as SABnzbd, then in addition to configuring the connection to SAB with host, port and api key, you will need to set the parameter `host_return` parameter to the fully qualified Mylar address (e.g. `http://mylar:8090`).
 
     This will provide the link to the downloader necessary to initiate the download.  This parameter is not presented in the user interface so the config file (`$MYLAR_HOME/config.ini`) will need to be manually updated.  The parameter can be found under the [Interface] section of the file. ([Details](https://github.com/evilhero/mylar/issues/2242))
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
-
-### Your comments? 

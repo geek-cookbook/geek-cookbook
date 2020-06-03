@@ -2,14 +2,14 @@
 
 [Helm](https://github.com/helm/helm) is a tool for managing Kubernetes "charts" (_think of it as an uber-polished collection of recipes_). Using one simple command, and by tweaking one simple config file (values.yaml), you can launch a complex stack. There are many publicly available helm charts for popular packages like [elasticsearch](https://github.com/helm/charts/tree/master/stable/elasticsearch), [ghost](https://github.com/helm/charts/tree/master/stable/ghost), [grafana](https://github.com/helm/charts/tree/master/stable/grafana), [mediawiki](https://github.com/helm/charts/tree/master/stable/mediawiki), etc.
 
-![Kubernetes Snapshots](/images/kubernetes-helm.png)
+![Kubernetes Snapshots](https://geek-cookbook.funkypenguin.co.nz/)images/kubernetes-helm.png)
 
 !!! note
-    Given enough interest, I may provide a helm-compatible version of the pre-mix repository for [supporters](/support/). [Hit me up](/whoami/#contact-me) if you're interested!
+    Given enough interest, I may provide a helm-compatible version of the pre-mix repository for [supporters](https://geek-cookbook.funkypenguin.co.nz/)support/). [Hit me up](https://geek-cookbook.funkypenguin.co.nz/)whoami/#contact-me) if you're interested!
 
 ## Ingredients
 
-1. [Kubernetes cluster](/kubernetes/cluster/)
+1. [Kubernetes cluster](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/cluster/)
 2. Geek-Fu required : 🐤 (_easy - copy and paste_)
 
 ## Preparation
@@ -41,28 +41,22 @@ including installing pre-releases.
 
 After installing Helm, initialise it by running ```helm init```. This will install "tiller" pod into your cluster, which works with the locally installed helm binaries to launch/update/delete Kubernetes elements based on helm charts.
 
-That's it - not very exciting I know, but we'll need helm for the next and final step in building our Kubernetes cluster - deploying the [Traefik ingress controller (via helm)](/kubernetes/traefik/)!
+That's it - not very exciting I know, but we'll need helm for the next and final step in building our Kubernetes cluster - deploying the [Traefik ingress controller (via helm)](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/traefik/)!
 
 ## Move on..
 
 Still with me? Good. Move on to understanding Helm charts...
 
-* [Start](/kubernetes/start/) - Why Kubernetes?
-* [Design](/kubernetes/design/) - How does it fit together?
-* [Cluster](/kubernetes/cluster/) - Setup a basic cluster
-* [Load Balancer](/kubernetes/loadbalancer/) Setup inbound access
-* [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
+* [Start](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/start/) - Why Kubernetes?
+* [Design](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/design/) - How does it fit together?
+* [Cluster](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/cluster/) - Setup a basic cluster
+* [Load Balancer](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/loadbalancer/) Setup inbound access
+* [Snapshots](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/snapshots/) - Automatically backup your persistent data
 * Helm (this page) - Uber-recipes from fellow geeks
-* [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
+* [Traefik](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/traefik/) - Traefik Ingress via Helm
 
 
 
 ## Chef's Notes
 
 1. Of course, you can have lots of fun deploying all sorts of things via Helm. Check out https://github.com/helm/charts for some examples.
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

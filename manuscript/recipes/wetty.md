@@ -8,7 +8,7 @@ hero: Terminal in a browser, baby! 💻
 
 ## Why would you need SSH in a browser window?
 
-Need shell access to a node with no external access? Deploy Wetty behind an [oauth_proxy](/reference/oauth_proxy/) with a SSL-terminating reverse proxy ([traefik](/ha-docker-swarm/traefik/)), and suddenly you have the means to SSH to your private host from any web browser (_protected by your [oauth_proxy](/reference/oauth_proxy/) of course, and your OAuth provider's 2FA_)
+Need shell access to a node with no external access? Deploy Wetty behind an [oauth_proxy](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy/) with a SSL-terminating reverse proxy ([traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik/)), and suddenly you have the means to SSH to your private host from any web browser (_protected by your [oauth_proxy](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy/) of course, and your OAuth provider's 2FA_)
 
 Here are some other possible use cases:
 
@@ -18,15 +18,15 @@ Here are some other possible use cases:
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik_public) configured per design
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
 ### Prepare environment
 
-Create wetty.env, and populate with the following variables per the [oauth_proxy](/reference/oauth_proxy/) instructions:
+Create wetty.env, and populate with the following variables per the [oauth_proxy](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy/) instructions:
 ```
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
@@ -42,7 +42,7 @@ SSHUSER=batman
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
 ```
@@ -86,7 +86,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
 
 
 

@@ -1,13 +1,13 @@
 # Using Traefik Forward Auth with KeyCloak
 
-While the [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) recipe demonstrated a quick way to protect a set of explicitly-specified URLs using OIDC credentials from a Google account, this recipe will illustrate how to use your own KeyCloak instance to secure **any** URLs within your DNS domain.
+While the [Traefik Forward Auth](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik-forward-auth/) recipe demonstrated a quick way to protect a set of explicitly-specified URLs using OIDC credentials from a Google account, this recipe will illustrate how to use your own KeyCloak instance to secure **any** URLs within your DNS domain.
 
 ## Ingredients
 
 !!! Summary
     Existing:
 
-    * [X] [KeyCloak](/recipes/keycloak/) recipe deployed successfully, with a [local user](/recipes/keycloak/create-user/) and an [OIDC client](/recipes/keycloak/setup-oidc-provider/)
+    * [X] [KeyCloak](https://geek-cookbook.funkypenguin.co.nz/)recipes/keycloak/) recipe deployed successfully, with a [local user](https://geek-cookbook.funkypenguin.co.nz/)recipes/keycloak/create-user/) and an [OIDC client](https://geek-cookbook.funkypenguin.co.nz/)recipes/keycloak/setup-oidc-provider/)
     
     New:
 
@@ -48,7 +48,7 @@ COOKIE_DOMAIN=<the root FQDN of your domain>
 
 ### Prepare the docker service config
 
-This is a small container, you can simply add the following content to the existing `traefik-app.yml` deployed in the previous [Traefik](/recipes/traefik/) recipe:
+This is a small container, you can simply add the following content to the existing `traefik-app.yml` deployed in the previous [Traefik](https://geek-cookbook.funkypenguin.co.nz/)recipes/traefik/) recipe:
 
 ```
   traefik-forward-auth:
@@ -82,7 +82,7 @@ If you're not confident that forward authentication is working, add a simple "wh
 ```
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 ## Serving
 

@@ -28,13 +28,17 @@ As you'll note in the (_real world_) screenshot above, my requirements for a per
 Gollum meets all these requirements, and as an added bonus, is extremely fast and lightweight.
 
 !!! note
-    Since Gollum itself offers no user authentication, this design secures gollum behind an [oauth2 proxy](/reference/oauth_proxy/), so that in order to gain access to the Gollum UI at all, oauth2 authentication (_to GitHub, GitLab, Google, etc_) must have already occurred.
+    Since Gollum itself offers no user authentication, this design secures gollum behind an [oauth2 proxy](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy/), so that in order to gain access to the Gollum UI at all, oauth2 authentication (_to GitHub, GitLab, Google, etc_) must have already occurred.
 
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
+!!! summary "Ingredients"
+    Existing:
+
+    1. [X] [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
+    2. [X] [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik_public) configured per design
+    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -113,7 +117,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
 
 
 

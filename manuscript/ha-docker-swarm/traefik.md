@@ -18,7 +18,7 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 !!! summary "You'll need"
     Existing
 
-    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph)
+    * [X] [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph)
 
     New
 
@@ -123,7 +123,7 @@ networks:
 ```
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
 Create `/var/data/config/traefik/traefik-app.yml` as follows:
@@ -222,7 +222,7 @@ ID                  NAME                                        IMAGE           
 
 You should now be able to access your traefik instance on http://<node IP\>:8080 - It'll look a little lonely currently (*below*), but we'll populate it as we add recipes :)
 
-![Screenshot of Traefik, post-launch](/images/traefik-post-launch.png)
+![Screenshot of Traefik, post-launch](https://geek-cookbook.funkypenguin.co.nz/)images/traefik-post-launch.png)
 
 ### Summary 
 
@@ -236,4 +236,4 @@ You should now be able to access your traefik instance on http://<node IP\>:8080
 
 ## Chef's Notes  📓
 
-1. Did you notice how no authentication was required to view the Traefik dashboard? Eek! We'll tackle that in the next section, regarding [Traefik Forward Authentication](/ha-docker-swarm/traefik-forward-auth/)!
+1. Did you notice how no authentication was required to view the Traefik dashboard? Eek! We'll tackle that in the next section, regarding [Traefik Forward Authentication](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik-forward-auth/)!

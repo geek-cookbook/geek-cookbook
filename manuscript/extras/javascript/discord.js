@@ -2,7 +2,7 @@
   const button = new Crate({
     server: '396055506072109067',
     channel: '456689991326760973',
-    shard: 'https://disweb.deploys.io',
+    shard: 'https://e.widgetbot.io',
     color: '#795548',
     indicator: false,
     notifications: true

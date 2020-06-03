@@ -1,6 +1,6 @@
 !!! danger "This recipe is a work in progress"
     This recipe is **incomplete**, and remains a work in progress.
-    So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 😁
+    So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 
 
 !!! important
     Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/)
@@ -15,7 +15,7 @@ Description. IPFS is a peer-to-peer distributed file system that seeks to connec
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/)
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/)
 
 ## Preparation
 

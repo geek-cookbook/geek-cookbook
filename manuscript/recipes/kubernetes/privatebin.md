@@ -1,9 +1,9 @@
 hero: Not all heroes wear capes
 
 !!! danger "This recipe is a work in progress"
-    This recipe is **incomplete**, and is featured to align the [patrons](https://www.patreon.com/funkypenguin)'s "premix" repository with the cookbook.  "_premix_" is a private git repository available to [all Patreon patrons](https://www.patreon.com/funkypenguin), which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+    This recipe is **incomplete**, and is featured to align the [patrons](https://www.patreon.com/funkypenguin)'s "premix" repository with the cookbook.  "_premix_" is a private git repository available to [all Patreon patrons](https://www.patreon.com/funkypenguin), which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
-    So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 😁
+    So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 
 
 # NAME
 
@@ -15,7 +15,7 @@ Details
 
 ## Ingredients
 
-1. [Kubernetes cluster](/kubernetes/digital-ocean/)
+1. [Kubernetes cluster](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/digital-ocean/)
 
 ## Preparation
 
@@ -57,7 +57,7 @@ MAIL_FROM="Wekan <wekan@wekan.example.com>"
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
 ```
@@ -110,7 +110,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
 
 
 
@@ -125,9 +125,3 @@ Log into your new instance at https://**YOUR-FQDN**, with user "root" and the pa
 ## Chef's Notes
 
 1. If you wanted to expose the Wekan UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the wekan container. You'd also need to add the traefik_public network to the wekan container.
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

@@ -15,7 +15,7 @@ This is the role of the OAuth proxy.
 When employing the **OAuth proxy** , the proxy sits in the middle of this transaction - traefik sends the web client to the OAuth proxy, the proxy authenticates the user against a 3rd-party source (_GitHub, Google, etc_), and then passes authenticated requests on to the web app in the container.
 
 Illustrated below:
-![OAuth proxy](/images/oauth_proxy.png)
+![OAuth proxy](https://geek-cookbook.funkypenguin.co.nz/)images/oauth_proxy.png)
 
 The advantage under this design is additional security. If I'm deploying a web app which I expect only myself to require access to, I'll put the oauth_proxy in front of it. The overhead is negligible, and the additional layer of security is well-worth it.
 
@@ -47,7 +47,7 @@ I created **/var/data/oauth_proxy/authenticated-emails.txt**, and add my own ema
 
 ### Configure stack
 
-You'll need to define a service for the oauth_proxy in every stack which you want to protect. Here's an example from the [Wekan](/recipes/wekan/) recipe:
+You'll need to define a service for the oauth_proxy in every stack which you want to protect. Here's an example from the [Wekan](https://geek-cookbook.funkypenguin.co.nz/)recipes/wekan/) recipe:
 
 ```
 proxy:
@@ -77,12 +77,3 @@ Note above how:
 * Labels are required to tell Traefik to forward the traffic to the proxy, rather than the backend container running the app
 * An environment file is defined, but..
 * The redirect URL must still be passed to the oauth_proxy in the command argument
-
-
-## Chef's Notes
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 
-
-### Your comments? 

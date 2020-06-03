@@ -4,12 +4,16 @@ hero: Ghost - A recipe for beautiful online publication.
 
 [Ghost](https://ghost.org) is "a fully open source, hackable platform for building and running a modern online publication."
 
-![](/images/ghost.png)
+![](https://geek-cookbook.funkypenguin.co.nz/)images/ghost.png)
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
+!!! summary "Ingredients"
+    Existing:
+
+    1. [X] [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
+    2. [X] [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik_public) configured per design
+    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 

@@ -1,13 +1,13 @@
 hero: Kubernetes. The hero we deserve.
 
 !!! danger "This recipe is a work in progress"
-    This recipe is **incomplete**, and is featured to align the [patrons](https://www.patreon.com/funkypenguin)'s "premix" repository with the cookbook.  "_premix_" is a private git repository available to [all Patreon patrons](https://www.patreon.com/funkypenguin), which includes all the necessary .yml files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 👍
+    This recipe is **incomplete**, and is featured to align the [patrons](https://www.patreon.com/funkypenguin)'s "premix" repository with the cookbook.  "_premix_" is a private git repository available to [all Patreon patrons](https://www.patreon.com/funkypenguin), which includes all the necessary .yml files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 
 
-    So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 😁
+    So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 
 
 # MQTT broker
 
-I use Elias Kotlyar's [excellent custom firmware](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks) for Xiaomi DaFang/XiaoFang cameras, enabling RTSP, MQTT, motion tracking, and other features, integrating directly with [Home Assistant](/recipes/homeassistant/).
+I use Elias Kotlyar's [excellent custom firmware](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks) for Xiaomi DaFang/XiaoFang cameras, enabling RTSP, MQTT, motion tracking, and other features, integrating directly with [Home Assistant](https://geek-cookbook.funkypenguin.co.nz/)recipes/homeassistant/).
 
 There's currently a [mysterious bug](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks/issues/638) though, which prevents TCP communication between Home Assistant and the camera, when MQTT services are enabled on the camera and the mqtt broker runs on the same Raspberry Pi as Home Assistant, using [Hass.io](https://www.home-assistant.io/hassio/).
 
@@ -19,7 +19,7 @@ A workaround to this bug is to run an MQTT broker **external** to the raspberry 
 
 ## Ingredients
 
-1. A [Kubernetes cluster](/kubernetes/digital-ocean/)
+1. A [Kubernetes cluster](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/digital-ocean/)
 
 ## Preparation
 
@@ -114,7 +114,7 @@ kubectl create secret -n mqtt generic mqtt-credentials \
 Now that we have a volume, a service, and a namespace, we can create a deployment for the mqtt pod. Note below the use of volume mounts, environment variables, as well as the secrets.
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 
 
 ```
 cat <<EOF > /var/data/mqtt/mqtt.yml

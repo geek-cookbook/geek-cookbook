@@ -8,18 +8,18 @@ phpIPAM fulfils a non-sexy, but important role - It helps you manage your IP add
 
 ## Why should you care about this?
 
-You probably have a home network, with 20-30 IP addresses, for your family devices, your ![IoT devices](/recipe/home-assistant), your smart TV, etc. If you want to (a) monitor them, and (b) audit who does what, you care about what IPs they're assigned by your DHCP server.
+You probably have a home network, with 20-30 IP addresses, for your family devices, your ![IoT devices](https://geek-cookbook.funkypenguin.co.nz/)recipe/home-assistant), your smart TV, etc. If you want to (a) monitor them, and (b) audit who does what, you care about what IPs they're assigned by your DHCP server.
 
 You could simple keep track of all devices with leases in your DHCP server, but what happens if your (_hypothetical?_) Ubiquity Edge Router X crashes and burns due to lack of disk space, and you loose track of all your leases? Well, you have to start from scratch, is what!
 
-And that [HomeAssistant](/recipes/homeassistant/) config, which you so carefully compiled, refers to each device by IP/DNS name, so you'd better make sure you recreate it consistently!
+And that [HomeAssistant](https://geek-cookbook.funkypenguin.co.nz/)recipes/homeassistant/) config, which you so carefully compiled, refers to each device by IP/DNS name, so you'd better make sure you recreate it consistently!
 
 Enter phpIPAM. A tool designed to help home keeps as well as large organisations keep track of their IP (_and VLAN, VRF, and AS number_) allocations.
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik_public) configured per design
 3. DNS entry for the hostname (_i.e. "phpipam.your-domain.com"_) you intend to use for phpIPAM, pointed to your [keepalived](ha-docker-swarm/keepalived/) IPIP
 
 ## Preparation
@@ -75,7 +75,7 @@ BACKUP_FREQUENCY=1d
 
 ### Create nginx.conf
 
-I usually protect my stacks using an [oauth proxy](/reference/oauth_proxy/) container in front of the app. This protects me from either accidentally exposing a platform to the world, or having a insecure platform accessed and abused.
+I usually protect my stacks using an [oauth proxy](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy/) container in front of the app. This protects me from either accidentally exposing a platform to the world, or having a insecure platform accessed and abused.
 
 In the case of phpIPAM, the oauth_proxy creates an additional complexity, since it passes the "Authorization" HTTP header to the phpIPAM container. phpIPAH then examines the header, determines that the provided username (_my email address associated with my oauth provider_) doesn't match a local user account, and denies me access without the opportunity to retry.
 
@@ -108,7 +108,7 @@ server {
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
 ```
@@ -193,7 +193,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
 
 
 

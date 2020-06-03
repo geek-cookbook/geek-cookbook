@@ -6,7 +6,7 @@ After all, DIY its in our DNA.
 
 ## Ingredients
 
-1. Basic knowledge of Kubernetes terms (Will come in handy) [Start](/kubernetes/start)
+1. Basic knowledge of Kubernetes terms (Will come in handy) [Start](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/start)
 2. Some Linux machines (Depends on what recipe you follow)
 
 ## Minikube
@@ -118,7 +118,7 @@ From your PC,run `ssh-keygen` to generate a public and private key pair
 ```sh
 $ ssh-keygen
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/thomas/.ssh/id_rsa): [enter]
+Enter file in which to save the key (https://geek-cookbook.funkypenguin.co.nz/)home/thomas/.ssh/id_rsa): [enter]
 Enter passphrase (empty for no passphrase): [password]
 Enter same passphrase again: [password]
 Your identification has been saved in /home/thomas/.ssh/id_rsa.
@@ -275,7 +275,7 @@ thomas-k3s-node3    Ready    <none>   487m    v1.16.3-k3s.2
 ```
 
 <!--
-    To the reader concerned about my health, no I did not actually spend 8 hours writing this guide, Instead I spent most of it helping you guys on the discord (👍) and other stuff
+    To the reader concerned about my health, no I did not actually spend 8 hours writing this guide, Instead I spent most of it helping you guys on the discord () and other stuff
 -->
 
 That is all! You have yourself a Kubernetes cluster for you and your dog to enjoy.
@@ -290,13 +290,13 @@ This section is WIP, instead, try using the K3S guide above 🙂
 
 Now that you have wasted half a lifetime on installing your very own cluster, you can install more to it. Like a load balancer!
 
-* [Start](/kubernetes/start/) - Why Kubernetes?
-* [Design](/kubernetes/design/) - How does it fit together?
+* [Start](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/start/) - Why Kubernetes?
+* [Design](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/design/) - How does it fit together?
 * Cluster (this page) - Setup a basic cluster
-* [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access
-* [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
-* [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
-* [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
+* [Load Balancer](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/loadbalancer/) - Setup inbound access
+* [Snapshots](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/snapshots/) - Automatically backup your persistent data
+* [Helm](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/helm/) - Uber-recipes from fellow geeks
+* [Traefik](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/traefik/) - Traefik Ingress via Helm
 
 ## About your Chef
 

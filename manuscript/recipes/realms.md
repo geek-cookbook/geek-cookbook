@@ -1,6 +1,6 @@
 # Realms
 
-Realms is a git-based wiki (_like [Gollum](/recipes/gollum/), but with basic authentication and registration_)
+Realms is a git-based wiki (_like [Gollum](https://geek-cookbook.funkypenguin.co.nz/)recipes/gollum/), but with basic authentication and registration_)
 
 ![Realms Screenshot](../images/realms.png)
 
@@ -16,14 +16,14 @@ Features include:
 
 !!! warning "Project likely abandoned"
 
-    In my limited trial, Realms seems _less_ useful than [Gollum](/recipes/gollum/) for my particular use-case (_i.e., you're limited to markdown syntax only_), but other users may enjoy the basic user authentication and registration features, which Gollum lacks.
+    In my limited trial, Realms seems _less_ useful than [Gollum](https://geek-cookbook.funkypenguin.co.nz/)recipes/gollum/) for my particular use-case (_i.e., you're limited to markdown syntax only_), but other users may enjoy the basic user authentication and registration features, which Gollum lacks.
 
     Also of note is that the docker image is 1.17GB in size, and the handful of commits to the [source GitHub repo](https://github.com/scragg0x/realms-wiki/commits/master)  in the past year has listed TravisCI build failures. This has many of the hallmarks of an abandoned project, to my mind.
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
+1. [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
+2. [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik_public) configured per design
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
 
 ## Preparation
@@ -36,7 +36,7 @@ Since we'll start with a basic Realms install, let's just create a single direct
 mkdir /var/data/realms/
 ```
 
-Create realms.env, and populate with the following variables (_if you intend to use an [oauth_proxy](/reference/oauth_proxy) to double-secure your installation, which I recommend_)
+Create realms.env, and populate with the following variables (_if you intend to use an [oauth_proxy](https://geek-cookbook.funkypenguin.co.nz/)reference/oauth_proxy) to double-secure your installation, which I recommend_)
 ```
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
@@ -48,7 +48,7 @@ OAUTH2_PROXY_COOKIE_SECRET=
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
 
 ```
@@ -96,7 +96,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
 
 
 

@@ -2,11 +2,11 @@
 
 IMO, the easiest Kubernetes cloud provider to experiment with is [DigitalOcean](https://m.do.co/c/e33b78ad621b) (_this is a referral link_). I've included instructions below to start a basic cluster.
 
-![Kubernetes on Digital Ocean](/images/kubernetes-on-digitalocean.jpg)
+![Kubernetes on Digital Ocean](https://geek-cookbook.funkypenguin.co.nz/)images/kubernetes-on-digitalocean.jpg)
 
 ## Ingredients
 
-1. [DigitalOcean](https://www.digitalocean.com/?refcode=e33b78ad621b) account, either linked to a credit card or (_my preference for a trial_) topped up with $5 credit from PayPal. (_yes, this is a referral link, making me some 💰 to buy 🍷_)
+1. [DigitalOcean](https://www.digitalocean.com/?refcode=e33b78ad621b) account, either linked to a credit card or (_my preference for a trial_) topped up with $5 credit from PayPal. (_yes, this is a referral link, making me some  to buy _)
 2. Geek-Fu required : 🐱 (easy - even has screenshots!)
 
 ## Preparation
@@ -15,27 +15,27 @@ IMO, the easiest Kubernetes cloud provider to experiment with is [DigitalOcean](
 
 Create a project, and then from your project page, click **Manage** -> **Kubernetes (LTD)** in the left-hand panel:
 
-![Kubernetes on Digital Ocean Screenshot #1](/images/kubernetes-on-digitalocean-screenshot-1.png)
+![Kubernetes on Digital Ocean Screenshot #1](https://geek-cookbook.funkypenguin.co.nz/)images/kubernetes-on-digitalocean-screenshot-1.png)
 
 Until DigitalOcean considers their Kubernetes offering to be "production ready", you'll need the additional step of clicking on **Enable Limited Access**:
 
-![Kubernetes on Digital Ocean Screenshot #2](/images/kubernetes-on-digitalocean-screenshot-2.png)
+![Kubernetes on Digital Ocean Screenshot #2](https://geek-cookbook.funkypenguin.co.nz/)images/kubernetes-on-digitalocean-screenshot-2.png)
 
 The _Enable Limited Access_ button changes to read _Create a Kubernetes Cluster_ . Cleeeek it:
 
-![Kubernetes on Digital Ocean Screenshot #3](/images/kubernetes-on-digitalocean-screenshot-3.png)
+![Kubernetes on Digital Ocean Screenshot #3](https://geek-cookbook.funkypenguin.co.nz/)images/kubernetes-on-digitalocean-screenshot-3.png)
 
 When prompted, choose some defaults for your first node pool (_your pool of "compute" resources for your cluster_), and give it a name. In more complex deployments, you can use this concept of "node pools" to run certain applications (_like an inconsequential nightly batch job_) on a particular class of compute instance (_such as cheap, preemptible instances_)
 
-![Kubernetes on Digital Ocean Screenshot #4](/images/kubernetes-on-digitalocean-screenshot-4.png)
+![Kubernetes on Digital Ocean Screenshot #4](https://geek-cookbook.funkypenguin.co.nz/)images/kubernetes-on-digitalocean-screenshot-4.png)
 
-That's it! Have a sip of your 🍷, a bite of your :cheese:, and wait for your cluster to build. While you wait, follow the instructions to setup kubectl (if you don't already have it)
+That's it! Have a sip of your , a bite of your :cheese:, and wait for your cluster to build. While you wait, follow the instructions to setup kubectl (if you don't already have it)
 
-![Kubernetes on Digital Ocean Screenshot #5](/images/kubernetes-on-digitalocean-screenshot-5.png)
+![Kubernetes on Digital Ocean Screenshot #5](https://geek-cookbook.funkypenguin.co.nz/)images/kubernetes-on-digitalocean-screenshot-5.png)
 
 DigitalOcean will provide you with a "kubeconfig" file to use to access your cluster. It's at the bottom of the page (_illustrated below_), and easy to miss (_in my experience_).
 
-![Kubernetes on Digital Ocean Screenshot #6](/images/kubernetes-on-digitalocean-screenshot-6.png)
+![Kubernetes on Digital Ocean Screenshot #6](https://geek-cookbook.funkypenguin.co.nz/)images/kubernetes-on-digitalocean-screenshot-6.png)
 
 ## Release the kubectl!
 
@@ -72,21 +72,15 @@ That's it. You have a beautiful new kubernetes cluster ready for some action!
 
 Still with me? Good. Move on to creating your own external load balancer..
 
-* [Start](/kubernetes/start/) - Why Kubernetes?
-* [Design](/kubernetes/design/) - How does it fit together?
+* [Start](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/start/) - Why Kubernetes?
+* [Design](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/design/) - How does it fit together?
 * Cluster (this page) - Setup a basic cluster
-* [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access
-* [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
-* [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
-* [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
+* [Load Balancer](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/loadbalancer/) - Setup inbound access
+* [Snapshots](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/snapshots/) - Automatically backup your persistent data
+* [Helm](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/helm/) - Uber-recipes from fellow geeks
+* [Traefik](https://geek-cookbook.funkypenguin.co.nz/)kubernetes/traefik/) - Traefik Ingress via Helm
 
 
 ## Chef's Notes
 
 1. Ok, yes, there's not much you can do with your cluster _yet_. But stay tuned, more Kubernetes fun to come!
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

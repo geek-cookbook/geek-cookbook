@@ -1,26 +1,26 @@
 !!! warning
-    This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+    This is not a complete recipe - it's a component of the [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 # SABnzbd
 
 ## Introduction
 
-SABnzbd is the workhorse of the stack. It takes .nzb files as input (_manually or from other [autopirate](/recipes/autopirate/) stack tools_), then connects to your chosen Usenet provider, downloads all the individual binaries referenced by the .nzb, and then tests/repairs/combines/uncompresses them all into the final result - media files.
+SABnzbd is the workhorse of the stack. It takes .nzb files as input (_manually or from other [autopirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) stack tools_), then connects to your chosen Usenet provider, downloads all the individual binaries referenced by the .nzb, and then tests/repairs/combines/uncompresses them all into the final result - media files.
 
 ![SABNZBD Screenshot](../../images/sabnzbd.png)
 
 !!! tip "Sponsored Project"
-    SABnzbd is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. It's not sexy, but it's consistent and reliable, and I enjoy the fruits of its labor near-daily.
+    SABnzbd is one of my [sponsored projects](https://geek-cookbook.funkypenguin.co.nz/)sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. It's not sexy, but it's consistent and reliable, and I enjoy the fruits of its labor near-daily.
 
 ## Inclusion into AutoPirate
 
-To include SABnzbd in your [AutoPirate](/recipes/autopirate/) stack
-(_The only reason you **wouldn't** use SABnzbd, would be if you were using [NZBGet](/recipes/autopirate/nzbget.md) instead_), include the following in your autopirate.yml stack definition file:
+To include SABnzbd in your [AutoPirate](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/) stack
+(_The only reason you **wouldn't** use SABnzbd, would be if you were using [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget.md) instead_), include the following in your autopirate.yml stack definition file:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 
-````
+```
 sabnzbd:
   image: linuxserver/sabnzbd:latest
   env_file : /var/data/config/autopirate/sabnzbd.env  
@@ -51,7 +51,7 @@ sabnzbd_proxy:
     -email-domain=example.com
     -provider=github
     -authenticated-emails-file=/authenticated-emails.txt
-````
+```
 
 !!! warning "Important Note re hostname validation"
 
@@ -63,31 +63,25 @@ sabnzbd_proxy:
 
 ## Assemble more tools..
 
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipes/autopirate/end/)** section:
+Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/)** section:
 
 * SABnzbd (this page)
-* [NZBGet](/recipes/autopirate/nzbget.md)
-* [RTorrent](/recipes/autopirate/rtorrent/)
-* [Sonarr](/recipes/autopirate/sonarr/)
-* [Radarr](/recipes/autopirate/radarr/)
-* [Mylar](/recipes/autopirate/mylar/)
-* [Lazy Librarian](/recipes/autopirate/lazylibrarian/)
-* [Headphones](/recipes/autopirate/headphones/)
-* [Lidarr](/recipes/autopirate/lidarr/)
-* [NZBHydra](/recipes/autopirate/nzbhydra/)
-* [NZBHydra2](/recipes/autopirate/nzbhydra2/)
-* [Ombi](/recipes/autopirate/ombi/)
-* [Jackett](/recipes/autopirate/jackett/)
-* [Heimdall](/recipes/autopirate/heimdall/)
-* [End](/recipes/autopirate/end/) (launch the stack)
+* [NZBGet](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbget.md)
+* [RTorrent](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/rtorrent/)
+* [Sonarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/sonarr/)
+* [Radarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/radarr/)
+* [Mylar](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/mylar/)
+* [Lazy Librarian](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lazylibrarian/)
+* [Headphones](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/headphones/)
+* [Lidarr](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/lidarr/)
+* [NZBHydra](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra/)
+* [NZBHydra2](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/nzbhydra2/)
+* [Ombi](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/ombi/)
+* [Jackett](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/jackett/)
+* [Heimdall](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/heimdall/)
+* [End](https://geek-cookbook.funkypenguin.co.nz/)recipes/autopirate/end/) (launch the stack)
 
 
 ## Chef's Notes 📓
 
 1. In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
-
-### Tip your waiter (support me) 👏
-
-Did you receive excellent service? Want to make your waiter happy? (_..and support development of current and future recipes!_) See the [support](/support/) page for (_free or paid)_ ways to say thank you! 👏
-
-### Your comments? 💬

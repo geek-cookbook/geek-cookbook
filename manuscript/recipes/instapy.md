@@ -1,5 +1,3 @@
-hero: Automate your social life! (what could go wrong?)
-
 # InstaPy
 
 [InstaPy](https://github.com/timgrossmann/InstaPy) is an Instagram bot, developed by [Tim Grossman](https://github.com/timgrossmann). Tim describes his motivation and experiences developing the bot [here](https://medium.freecodecamp.org/my-open-source-instagram-bot-got-me-2-500-real-followers-for-5-in-server-costs-e40491358340).
@@ -8,11 +6,17 @@ What's an Instagram bot? Basically, you feed the bot your Instagram user/passwor
 
 ![InstaPy Screenshot](../images/instapy.png)
 
-Great power, right? A client (_yes, you can [hire](https://www.funkypenguin.co.nz/contact/) me!_) asked me to integrate InstaPy into their swarm, and this recipe is the result.
+Great power, right? A client (_yes, you can [hire](https://www.funkypenguin.co.nz/) me!_) asked me to integrate InstaPy into their swarm, and this recipe is the result.
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+!!! summary "Ingredients"
+    Existing:
+
+    1. [X] [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph.md)
+    2. [X] [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik_public) configured per design
+    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+
 
 ## Preparation
 
@@ -64,7 +68,7 @@ services:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
 
 ### Command your bot
 

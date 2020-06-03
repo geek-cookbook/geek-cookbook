@@ -1,6 +1,6 @@
 # KeyCloak
 
-[KeyCloak](https://www.keycloak.org/) is "*an open source identity and access management solution*". Using a local database, or a variety of backends (_think [OpenLDAP](/recipes/openldap/)_), you can provide Single Sign-On (SSO) using OpenID, OAuth 2.0, and SAML. KeyCloak's OpenID provider can be used in combination with [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/), to protect [vulnerable services](/recipe/nzbget/) with an extra layer of authentication.
+[KeyCloak](https://www.keycloak.org/) is "*an open source identity and access management solution*". Using a local database, or a variety of backends (_think [OpenLDAP](https://geek-cookbook.funkypenguin.co.nz/)recipes/openldap/)_), you can provide Single Sign-On (SSO) using OpenID, OAuth 2.0, and SAML. KeyCloak's OpenID provider can be used in combination with [Traefik Forward Auth](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik-forward-auth/), to protect [vulnerable services](https://geek-cookbook.funkypenguin.co.nz/)recipe/nzbget/) with an extra layer of authentication.
 
 !!! important
     Initial development of this recipe was sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
@@ -14,9 +14,9 @@
 !!! Summary
     Existing:
 
-    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph/)
-    * [X] [Traefik](/ha-docker-swarm/traefik_public) configured per design
-    * [X] DNS entry for the hostname (_i.e. "keycloak.your-domain.com"_) you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
+    * [X] [Docker swarm cluster](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/design/) with [persistent shared storage](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/shared-storage-ceph/)
+    * [X] [Traefik](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/traefik_public) configured per design
+    * [X] DNS entry for the hostname (_i.e. "keycloak.your-domain.com"_) you intend to use, pointed to your [keepalived](https://geek-cookbook.funkypenguin.co.nz/)ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -69,7 +69,7 @@ BACKUP_FREQUENCY=1d
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 
 ```
 version: '3'
 
@@ -127,7 +127,7 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](https://geek-cookbook.funkypenguin.co.nz/)reference/networks/) here.
 
 
 ## Serving
