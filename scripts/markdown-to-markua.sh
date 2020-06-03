@@ -10,6 +10,12 @@ do
     # Can't use relative paths in a book, so make all paths static
     sed -i 's/](\//\](https:\/\/geek-cookbook.funkypenguin.co.nz\//g' $file
 
+    # GitHub emojis look beautiful but don't render nicely
+    sed -i 's/:[a-z\ ]://g' $file
+
+    # Animated gifs make leanpub fail, so strip 'em out by deleting the entire line
+    sed -i '/.gif/d' $file    
+
     # strip emojis
     tr -cd '\11\12\15\40-\176' < $file > $file-clean
     mv $file-clean $file
