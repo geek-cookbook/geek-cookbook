@@ -10,6 +10,7 @@ on:
 
 jobs:
   update-leanpub:
+    steps:
     - name: Checkout charts repo
       uses: actions/checkout@v2
 
