@@ -4,3 +4,4 @@ CHANGELOG.md
 whoami.md
 
 sections/ha-docker-swarm.md
+ha-docker-swarm/design.md
