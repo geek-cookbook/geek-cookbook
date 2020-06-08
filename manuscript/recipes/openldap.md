@@ -335,7 +335,7 @@ Create yours profile (_you chose a default profile in config.cfg above, remember
 Create a docker swarm config file in docker-compose syntax (v3), something like this, at  (```/var/data/config/openldap/openldap.yml```)
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
 ```
 version: '3'
 
