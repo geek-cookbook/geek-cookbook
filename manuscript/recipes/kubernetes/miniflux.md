@@ -118,7 +118,7 @@ Now that we have a [namespace](https://kubernetes.io/docs/concepts/overview/work
 Deployments tell Kubernetes about the desired state of the pod (*which it will then attempt to maintain*). Create the db deployment by excecuting the following. Note that the deployment refers to the secrets created above.
 
 !!! tip
-        I share (_with my [patreon patrons](https://www.patreon.com/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that patrons can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 👍
+        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 👍
 
 ```
 cat <<EOF > /var/data/miniflux/db-deployment.yml
