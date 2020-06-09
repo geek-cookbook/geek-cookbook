@@ -26,30 +26,11 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
   
 ## Preparation
 
-### Prepare the host
-
-The traefik container is aware of the __other__ docker containers in the swarm, because it has access to the docker socket at **/var/run/docker.sock**. This allows traefik to dynamically configure itself based on the labels found on containers in the swarm, which is hugely useful. To make this functionality work on a SELinux-enabled CentOS7 host, we need to add custom SELinux policy.
-
-!!! tip
-    The following is only necessary if you're using SELinux!
-
-Run the following to build and activate policy to permit containers to access docker.sock:
-
-```
-mkdir ~/dockersock
-cd ~/dockersock
-curl -O https://raw.githubusercontent.com/dpw/\
-selinux-dockersock/master/Makefile
-curl -O https://raw.githubusercontent.com/dpw/\
-selinux-dockersock/master/dockersock.te
-make && semodule -i dockersock.pp
-```
-
 ### Prepare traefik.toml
 
 While it's possible to configure traefik via docker command arguments, I prefer to create a config file (`traefik.toml`). This allows me to change traefik's behaviour by simply changing the file, and keeps my docker config simple.
 
-Create `/var/data/traefik/traefik.toml` as follows:
+Create `/var/data/traefikv1/traefik.toml` as follows:
 
 ```
 checkNewVersion = true

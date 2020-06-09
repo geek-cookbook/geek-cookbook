@@ -20,7 +20,7 @@ We'll need several directories to bind-mount into our container, so create them 
 
 ```
 mkdir -p /var/data/mattermost/{cert,config,data,logs,plugins,database-dump}
-mkdir -p /var/data/realtime/mattermost/database
+mkdir -p /var/data/runtime/mattermost/database
 ```
 
 ### Prepare environment
@@ -61,7 +61,7 @@ services:
       image: mattermost/mattermost-prod-db
       env_file: /var/data/config/mattermost/mattermost.env
       volumes:
-        - /var/data/realtime/mattermost/database:/var/lib/postgresql/data
+        - /var/data/runtime/mattermost/database:/var/lib/postgresql/data
       networks:
         - internal
 
