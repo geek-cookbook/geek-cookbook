@@ -6,12 +6,12 @@ So that we can confidently backup all our data, I've setup a data layout as foll
 
 ## Configuration data
 
-Configuration data goes into /var/data/config/[recipe name], and is typically only a docker-compose .yml, and a .env file
+Configuration data goes into `/var/data/config/[recipe name]`, and is typically only a docker-compose .yml, and a .env file
 
 ## Runtime data
 
-Realtime data (typically database files or files-in-use) are stored in /var/data/realtime/[recipe-name], and are **excluded** from backup (_They change constantly, and cannot be safely restored_).
+Realtime data (*typically database files or files-in-use*) are stored in `/var/data/runtime/[recipe-name]`, and are **excluded** from backup (_They change constantly, and cannot be safely restored_).
 
 ## Static data
 
-Static data goes into /var/data/[recipe name], and includes anything that can be safely backed up while a container is running. This includes database exports of the runtime data above.
+Static data goes into `/var/data/[recipe name]`, and includes anything that can be safely backed up while a container is running. This includes database exports of the runtime data above.
