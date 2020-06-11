@@ -30,7 +30,7 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 
 While it's possible to configure traefik via docker command arguments, I prefer to create a config file (`traefik.toml`). This allows me to change traefik's behaviour by simply changing the file, and keeps my docker config simple.
 
-Create `/var/data/traefikv1/traefik.toml` as follows:
+Create `/var/data/traefik/traefik.toml` as follows:
 
 ```
 checkNewVersion = true
@@ -134,7 +134,7 @@ services:
         protocol: tcp
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /var/data/config/traefik:/etc/traefik
+      - /var/data/traefik:/etc/traefik
       - /var/data/traefik/traefik.log:/traefik.log
       - /var/data/traefik/acme.json:/acme.json
     networks:
@@ -155,11 +155,13 @@ networks:
     external: true
 ```
 
-Docker won't start a service with a bind-mount to a non-existent file, so prepare an empty acme.json (_with the appropriate permissions_) by running:
+Docker won't start a service with a bind-mount to a non-existent file, so prepare an empty acme.json and traefik.log (_with the appropriate permissions_) by running:
 
 ```
 touch /var/data/traefik/acme.json
+touch /var/data/traefik/traefik.log
 chmod 600 /var/data/traefik/acme.json
+chmod 600 /var/data/traefik/traefik.log
 ```
 
 !!! warning
@@ -167,7 +169,7 @@ chmod 600 /var/data/traefik/acme.json
 
 Traefik will populate acme.json itself when it runs, but it needs to exist before the container will start (_Chicken, meet egg._)
 
-
+Likewise with the log file.
 
 ## Serving
 
