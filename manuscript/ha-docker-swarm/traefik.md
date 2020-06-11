@@ -114,7 +114,7 @@ version: "3"
 
 services:
   traefik:
-    image: traefik
+    image: traefik:v1.7.16
     command: --web --docker --docker.swarmmode --docker.watch --docker.domain=example.com --logLevel=DEBUG
     # Note below that we use host mode to avoid source nat being applied to our ingress HTTP/HTTPS sessions
     # Without host mode, all inbound sessions would have the source IP of the swarm nodes, rather than the
@@ -134,9 +134,9 @@ services:
         protocol: tcp
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /var/data/config/traefik:/etc/traefik
-      - /var/data/traefik/traefik.log:/traefik.log
-      - /var/data/traefik/acme.json:/acme.json
+      - /var/data/traefikv1:/etc/traefik
+      - /var/data/traefikv1/traefik.log:/traefik.log
+      - /var/data/traefikv1/acme.json:/acme.json
     networks:
       - traefik_public
     # Global mode makes an instance of traefik listen on _every_ node, so that regardless of which
@@ -155,11 +155,13 @@ networks:
     external: true
 ```
 
-Docker won't start a service with a bind-mount to a non-existent file, so prepare an empty acme.json (_with the appropriate permissions_) by running:
+Docker won't start a service with a bind-mount to a non-existent file, so prepare an empty acme.json and traefik.log (_with the appropriate permissions_) by running:
 
 ```
-touch /var/data/traefik/acme.json
-chmod 600 /var/data/traefik/acme.json
+touch /var/data/traefikv1/acme.json
+touch /var/data/traefikv1/traefik.log
+chmod 600 /var/data/traefikv1/acme.json
+chmod 600 /var/data/traefikv1/traefik.log
 ```
 
 !!! warning
@@ -167,13 +169,13 @@ chmod 600 /var/data/traefik/acme.json
 
 Traefik will populate acme.json itself when it runs, but it needs to exist before the container will start (_Chicken, meet egg._)
 
-
+Likewise with the log file.
 
 ## Serving
 
 ### Launch
 
-First, launch the traefik stack, which will do nothing other than create an overlay network by running `docker stack deploy traefik -c /var/data/traefik/traefik.yml`
+First, launch the traefik stack, which will do nothing other than create an overlay network by running `docker stack deploy traefik -c /var/data/config/traefik/traefik.yml`
 
 ```
 [root@kvm ~]# docker stack deploy traefik -c traefik.yml
@@ -182,7 +184,7 @@ Creating service traefik_scratch
 [root@kvm ~]#
 ```
 
-Now deploy the traefik appliation itself (*which will attach to the overlay network*) by running `docker stack deploy traefik-app -c /var/data/traefik/traefik-app.yml`
+Now deploy the traefik appliation itself (*which will attach to the overlay network*) by running `docker stack deploy traefik-app -c /var/data/config/traefik/traefik-app.yml`
 
 ```
 [root@kvm ~]# docker stack deploy traefik-app -c traefik-app.yml
