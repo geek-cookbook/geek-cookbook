@@ -33,7 +33,6 @@ nav:
     - Home: 
       - What is this: index.md
       - About: whoami.md
-      - Discord: discord.md
       - Sponsored Projects: sponsored-projects.md 
     # - 'Join Us! 🤝':
     #   - Hello: recipes/general/start.md
@@ -171,6 +170,7 @@ nav:
       - CHANGELOG: CHANGELOG.md
     - Support: 
       - Support: support.md      
+      - Discord: discord.md      
 
 theme:
   name: 'material'

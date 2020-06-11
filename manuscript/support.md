@@ -6,9 +6,9 @@ How do you get support for these receipes? There are several options...
 
 ## Discord: Where the cool kids are
 
-All the cool kids are hanging out in the [Discord server][1].
+All the cool kids are hanging out in the [Discord server](/discord/).
 
-> "Eh? What's Discord? Get off my lawn, young whippersnappers!!"
+> "Eh? What's a Discord? Get off my lawn, young whippersnappers!!"
 
 Yeah, I know. I also thought Discord was just for the gamer kids, but it turns out it's great for a geeky community. Why? [Let me elucidate ya.][2]..
 
