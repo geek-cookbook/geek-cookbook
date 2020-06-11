@@ -17,5 +17,6 @@ I regularly donate to / sponsor the following projects. **Join me** in supportin
 | [Pi-hole](https://pi-hole.net/) | [Patreon](https://www.patreon.com/pihole/posts)
 | [Franck Nijhof's Hassio Addons](https://www.frenck.nl/about/franck-nijhof/) | [Patreon](https://www.patreon.com/frenck/overview)
 | [WidgetBot's Discord Widget](https://widgetbot.io/) | [Patreon](https://www.patreon.com/widgetbot/overview)
+| [Carl-bot](https://carl.gg/) | [Patreon](https://www.patreon.com/carlbot)
 
 
