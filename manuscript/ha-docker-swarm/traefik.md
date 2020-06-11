@@ -30,7 +30,7 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 
 While it's possible to configure traefik via docker command arguments, I prefer to create a config file (`traefik.toml`). This allows me to change traefik's behaviour by simply changing the file, and keeps my docker config simple.
 
-Create `/var/data/traefik/traefik.toml` as follows:
+Create `/var/data/traefikv1/traefik.toml` as follows:
 
 ```
 checkNewVersion = true
@@ -134,9 +134,9 @@ services:
         protocol: tcp
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /var/data/traefik:/etc/traefik
-      - /var/data/traefik/traefik.log:/traefik.log
-      - /var/data/traefik/acme.json:/acme.json
+      - /var/data/traefikv1:/etc/traefik
+      - /var/data/traefikv1/traefik.log:/traefik.log
+      - /var/data/traefikv1/acme.json:/acme.json
     networks:
       - traefik_public
     # Global mode makes an instance of traefik listen on _every_ node, so that regardless of which
@@ -158,10 +158,10 @@ networks:
 Docker won't start a service with a bind-mount to a non-existent file, so prepare an empty acme.json and traefik.log (_with the appropriate permissions_) by running:
 
 ```
-touch /var/data/traefik/acme.json
-touch /var/data/traefik/traefik.log
-chmod 600 /var/data/traefik/acme.json
-chmod 600 /var/data/traefik/traefik.log
+touch /var/data/traefikv1/acme.json
+touch /var/data/traefikv1/traefik.log
+chmod 600 /var/data/traefikv1/acme.json
+chmod 600 /var/data/traefikv1/traefik.log
 ```
 
 !!! warning
@@ -175,7 +175,7 @@ Likewise with the log file.
 
 ### Launch
 
-First, launch the traefik stack, which will do nothing other than create an overlay network by running `docker stack deploy traefik -c /var/data/traefik/traefik.yml`
+First, launch the traefik stack, which will do nothing other than create an overlay network by running `docker stack deploy traefik -c /var/data/config/traefik/traefik.yml`
 
 ```
 [root@kvm ~]# docker stack deploy traefik -c traefik.yml
@@ -184,7 +184,7 @@ Creating service traefik_scratch
 [root@kvm ~]#
 ```
 
-Now deploy the traefik appliation itself (*which will attach to the overlay network*) by running `docker stack deploy traefik-app -c /var/data/traefik/traefik-app.yml`
+Now deploy the traefik appliation itself (*which will attach to the overlay network*) by running `docker stack deploy traefik-app -c /var/data/config/traefik/traefik-app.yml`
 
 ```
 [root@kvm ~]# docker stack deploy traefik-app -c traefik-app.yml
