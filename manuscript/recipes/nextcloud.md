@@ -105,7 +105,7 @@ services:
 
   db-backup:
     image: mariadb:10
-    env_file: /var/data/config/nextcloud/nextcloud.env
+    env_file: /var/data/config/nextcloud/nextcloud-db-backup.env
     volumes:
       - /var/data/nextcloud/database-dump:/dump
       - /etc/localtime:/etc/localtime:ro
