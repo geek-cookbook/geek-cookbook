@@ -25,7 +25,7 @@ k3s_masters
 k3s_workers
 
 [proxmox_servers]
-splinter    ansible_host=192.168.29.3   ansible_user=root
+splinter    ansible_host=192.168.29.3   ansible_user=root template_vm_id=201
 
 # Declare your desired proxmox VMs here. Note that the MAC address "lines up" with_
 # the IP address - this makes troubleshooting L2 issues easier under some circumstances,
@@ -33,12 +33,12 @@ splinter    ansible_host=192.168.29.3   ansible_user=root
 # when re-running the playbook.
 
 [proxmox_vms]
-raphael     ansible_host=192.168.38.101 mac=52:54:00:38:01:01
-donatello   ansible_host=192.168.38.102 mac=52:54:00:38:01:02
-leonardo    ansible_host=192.168.38.103 mac=52:54:00:38:01:03
-shredder    ansible_host=192.168.38.201 mac=52:54:00:38:02:01
-rocksteady  ansible_host=192.168.38.202 mac=52:54:00:38:02:02
-bebop       ansible_host=192.168.38.203 mac=52:54:00:38:02:03
+donatello   ansible_host=192.168.38.102 mac=52:54:00:38:01:02 proxmox_node=splinter
+leonardo    ansible_host=192.168.38.103 mac=52:54:00:38:01:03 proxmox_node=splinter
+shredder    ansible_host=192.168.38.201 mac=52:54:00:38:02:01 proxmox_node=splinter
+raphael     ansible_host=192.168.38.101 mac=52:54:00:38:01:01 proxmox_node=splinter
+rocksteady  ansible_host=192.168.38.202 mac=52:54:00:38:02:02 proxmox_node=splinter
+bebop       ansible_host=192.168.38.203 mac=52:54:00:38:02:03 proxmox_node=splinter
 
 [swarm_nodes]
 raphael     ansible_host=192.168.38.101 keepalived_priority=101 
@@ -60,12 +60,11 @@ bebop        ansible_host=192.168.38.203
 
 ### Config
 
-The variables used in the playbook are defined in `ansible/group_vars/all/main.yml`. **Your** variables are going to be defined in a group_vars file based on your username, so that they're [treated with a higher preference](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable) than the default values.
+The variables used in the playbook are defined in the `ansible/group_vars/all/main.yml`. **Your** variables are going to be defined in a group_vars file based on your username, so that they're [treated with a higher preference](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable) than the default values.
 
-Create a folder under `ansible/group_vars/<your-username>` to match the group name you inserted in line \#1 of your hosts file, and copy `ansible/group_vars/all/main.yml` into this folder. Any values found in this file will override any values specified in `ansible/group_vars/all/main.yml`, but any values _not_ found in your file will be inherited from `ansible/group_vars/all/main.yml`.
+Create a folder under `ansible/group_vars/<your-username>` to match the group name you inserted in line \#1 of your hosts file, and copy `ansible/group_vars/all/main.yml` into this folder. Any variables found in this file will override any variables specified in `ansible/group_vars/all/main.yml`, but any variables _not_ found in your file will be inherited from `ansible/group_vars/all/main.yml`. 
 
-!!! tip "Go to town with your delete key"
-    To keep your version clean, edit `ansible/group_vars/<your-username>/main.yml` and delete anything you don't care to change. This will keep your "override" file nice and clean.
+To further streamline config, a "empty" dictionary variable named `recipe_config` is configured in `ansible/group_vars/all/main.yml`. In your own vars file (`ansible/group_vars/<your-username>/main.yml`), populate this variable with your own preferred values, copied from `recipe_default_config`. When the playbook runs, your values will be combined with the default values.
 
 !!! tip "Commit `ansible/group_vars/<your-username>/` to your own repo" 
     For extra geek-fu, you could commit the contents of ``ansible/group_vars/<your-username>/` to your own repo, so that you can version/track your own config!

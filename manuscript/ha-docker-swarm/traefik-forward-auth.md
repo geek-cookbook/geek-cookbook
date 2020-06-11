@@ -29,16 +29,17 @@ Log into https://console.developers.google.com/, create a new project then searc
 
 Fill out the "OAuth Consent Screen" tab, and then click, "**Create Credentials**" > "**OAuth client ID**". Select "**Web Application**", fill in the name of your app, skip "**Authorized JavaScript origins**" and fill "**Authorized redirect URIs**" with either all the domains you will allow authentication from, appended with the url-path (*e.g. https://radarr.example.com/_oauth, https://radarr.example.com/_oauth, etc*), or if you don't like frustration, use a "auth host" URL instead, like "*https://auth.example.com/_oauth*" (*see below for details*)
 
-Store your client ID and secret safely - you'll need them for the next step.
+!!! tip
+    Store your client ID and secret safely - you'll need them for the next step.
 
 
 ### Prepare environment
 
-Create `/var/data/config/traefik/traefik-forward-auth.env` as follows:
+Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.env` as follows:
 
 ```
-CLIENT_ID=<your client id>
-CLIENT_SECRET=<your client secret>
+GOOGLE_CLIENT_ID=<your client id>
+GOOGLE_CLIENT_SECRET=<your client secret>
 OIDC_ISSUER=https://accounts.google.com
 SECRET=<a random string, make it up>
 # uncomment this to use a single auth host instead of individual redirect_uris (recommended but advanced)
@@ -48,12 +49,12 @@ COOKIE_DOMAINS=example.com
 
 ### Prepare the docker service config
 
-This is a small container, you can simply add the following content to the existing `traefik-app.yml` deployed in the previous [Traefik](/recipes/traefik/) recipe:
+Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.yml` as follows:
 
 ```
   traefik-forward-auth:
-    image: funkypenguin/traefik-forward-auth
-    env_file: /var/data/config/traefik/traefik-forward-auth.env
+    image: thomseddon/traefik-forward-auth:2.1.0
+    env_file: /var/data/config/traefik-forward-auth/traefik-forward-auth.env
     networks:
       - traefik_public
     # Uncomment these lines if you're using auth host mode
@@ -65,7 +66,7 @@ This is a small container, you can simply add the following content to the exist
     #    - traefik.frontend.auth.forward.trustForwardHeader=true
 ```
 
-If you're not confident that forward authentication is working, add a simple "whoami" test container, to help debug traefik forward auth, before attempting to add it to a more complex container.
+If you're not confident that forward authentication is working, add a simple "whoami" test container to the above .yml, to help debug traefik forward auth, before attempting to add it to a more complex container.
 
 ```
   # This simply validates that traefik forward authentication is working
@@ -91,7 +92,7 @@ If you're not confident that forward authentication is working, add a simple "wh
 
 ### Launch
 
-Redeploy traefik with ```docker stack deploy traefik-app -c /var/data/traefik/traeifk-app.yml```, to launch the traefik-forward-auth container. 
+Redeploy traefik with ```docker stack deploy traefik-forward-auth -c /var/data/traefik-forward-auth/traefik-forward-auth.yml```, to launch the traefik-forward-auth stack. 
 
 ### Test
 
@@ -111,6 +112,4 @@ What have we achieved? By adding an additional three simple labels to any servic
 ## Chef's Notes 📓
 
 1. Traefik forward auth replaces the use of [oauth_proxy containers](/reference/oauth_proxy/) found in some of the existing recipes
-2. [@thomaseddon's original version](https://github.com/thomseddon/traefik-forward-auth) of traefik-forward-auth only works with Google currently, but I've created a [fork](https://www.github.com/funkypenguin/traefik-forward-auth) of a [fork](https://github.com/noelcatt/traefik-forward-auth), which implements generic OIDC providers.
-3. I reviewed several implementations of forward authenticators for Traefik, but found most to be rather heavy-handed, or specific to a single auth provider. @thomaseddon's go-based docker image is 7MB in size, and with the generic OIDC patch (above), it can be extended to work with any OIDC provider.
-4. No, not github natively, but you can ferderate GitHub into KeyCloak, and then use KeyCloak as the OIDC provider.
+2. I reviewed several implementations of forward authenticators for Traefik, but found most to be rather heavy-handed, or specific to a single auth provider. @thomaseddon's go-based docker image is 7MB in size, and can be extended to work with any OIDC provider.
