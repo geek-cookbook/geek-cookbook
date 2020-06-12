@@ -18,7 +18,7 @@ This is accomplished with the use of keepalived on at least two nodes.
 
     New:
 
-    * [ ] At least 3 x IPv4 addresses (one for each node and one for the virtual IP)
+    * [ ] At least 3 x IPv4 addresses (*one for each node and one for the virtual IP*)
 
 ## Preparation
 
@@ -26,10 +26,10 @@ This is accomplished with the use of keepalived on at least two nodes.
 
 On all nodes which will participate in keepalived, we need the "ip_vs" kernel module, in order to permit serivces to bind to non-local interface addresses.
 
-Set this up once for both the primary and secondary nodes, by running:
+Set this up once-off for both the primary and secondary nodes, by running:
 
 ```
-echo "modprobe ip_vs" >> /etc/rc.local
+echo "modprobe ip_vs" >> /etc/modules
 modprobe ip_vs
 ```
 
@@ -44,26 +44,26 @@ Assuming your IPs are as follows:
 Run the following on the primary
 ```
 docker run -d --name keepalived --restart=always \
-  --cap-add=NET_ADMIN --net=host \
+  --cap-add=NET_ADMIN --cap-add=NET_BROADCAST --cap-add=NET_RAW --net=host \
   -e KEEPALIVED_UNICAST_PEERS="#PYTHON2BASH:['192.168.4.1', '192.168.4.2']" \
   -e KEEPALIVED_VIRTUAL_IPS=192.168.4.3 \
   -e KEEPALIVED_PRIORITY=200 \
-  osixia/keepalived:1.3.5
+  osixia/keepalived:2.0.20
 ```
 
 And on the secondary:
 ```
 docker run -d --name keepalived --restart=always \
-  --cap-add=NET_ADMIN --net=host \
+  --cap-add=NET_ADMIN --cap-add=NET_BROADCAST --cap-add=NET_RAW --net=host \
   -e KEEPALIVED_UNICAST_PEERS="#PYTHON2BASH:['192.168.4.1', '192.168.4.2']" \
   -e KEEPALIVED_VIRTUAL_IPS=192.168.4.3 \
   -e KEEPALIVED_PRIORITY=100 \
-  osixia/keepalived:1.3.5
+  osixia/keepalived:2.0.20
 ```
 
 ## Serving
 
-That's it. Each node will talk to the other via unicast (no need to un-firewall multicast addresses), and the node with the highest priority gets to be the master. When ingress traffic arrives on the master node via the VIP, docker's routing mesh will deliver it to the appropriate docker node.
+That's it. Each node will talk to the other via unicast (*no need to un-firewall multicast addresses*), and the node with the highest priority gets to be the master. When ingress traffic arrives on the master node via the VIP, docker's routing mesh will deliver it to the appropriate docker node.
 
 ## Chef's notes 📓
 
