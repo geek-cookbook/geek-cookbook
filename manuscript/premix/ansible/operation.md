@@ -124,6 +124,18 @@ To deploy traefik (overlay), traefikv1, and traefik-forward-auth:
 ansible-playbook -i host deploy.yml -t traefik,traefikv1,traefik-forward-auth
 ```
 
+### Deploy (semi-autopilot)
+
+Deploying on full autopilot above installs _a lot_ of stuff (and more is being added every day). There's a good chance you don't want everything that is or will be included in the playbook. We've created a special tag that will install the base infrastructure up to a point that you can then choose which recipes to install with the "selective" deploy method described above.
+
+To deploy the base infrastructure:
+
+```
+ansible-playbook -i host deploy.yml -t infrastructure
+```
+
+This will run the playbook up through the `traefik-forward-auth` role and leave you with a fresh "blank canvas" that you can then populate with the recipes of your choosing using the "selective" deploy method.
+
 ### Deploy (with debugging)
 
 If something went wrong, append `-vv` to your deploy command, for extra-verbose output :thumbsup:
