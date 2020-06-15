@@ -1,6 +1,6 @@
 # Discord
 
-The best way to engage with our geeky community is in our [Discord server](http://chat.funkypenguin.co.nz)
+The most realtime and exciting way engage with our geeky community is in our [Discord server](http://chat.funkypenguin.co.nz)
 
 !!! question "Eh? What's a Discord? Get off my lawn, young whippersnappers!!"
 
@@ -18,7 +18,13 @@ Yeah, I know. I also thought Discord was just for the gamer kids, but it turns o
 
 ## Code of Conduct
 
-This section will be fleshed out in future, but as a guideline, all interaction is expected to be civil and respectful.
+With the goal of creating a safe and inclusive community, we've adopted the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/), as described [here](/community/code-of-conduct/).
+
+### Reporting abuse
+
+To report a violation of our code of conduct in our Discord server, type `!report <thing to report>` in any channel. 
+
+Your report message will immediately be deleted from the channel, and an alert raised to moderators, who will address the issue as detailed in the [enforcement guidelines](/community/code-of-conduct/#enforcement-guidelines).
 
 ## Channels
 
@@ -73,15 +79,24 @@ If you need assistance at any time there are a few commands that you can run in 
 
 ## Spread the love (inviting others)
 
-If you want to send your friends a link to the Discord server there are two ways that you can do so. The most easiest way is you can send them http://chat.funkypenguin.co.nz,  or you can right click on the Discord server and click "Invite People"
+Invite your co-geeks to Discord by:
+
+1. Sending them a link to http://chat.funkypenguin.co.nz, or
+2. Right-click on the Discord server name and click "Invite People"
 
 ## Formatting your message
 
-Discord supports markdown, markdown allows you to format your messages for example you can bold your message, you can underline it. If you want to learn how to use markdown you can read one of the guides that Discord made on [how to use markdown](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline-)
+Discord supports minimal message formatting using [markdown](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline-).
+
+!!! tip "Editing your most recent message"
+    You can edit your most-recent message by pushing the up arrow, make your edits, and then push `Enter` to save!
 
 ## How do I suggest something?
 
-The first thing you will need to do is find the #suggestions channel in the Discord. Next you will make sure that your suggestion has not been suggested before. You can see if your suggestion has been requested by either reading the channel or you can use the search feature in the top right of your screen. If it has not been suggested then you will type the following message `!suggest [Suggestion]` For example `!suggest A guide on how to use Discord`. When you send the message a new message will appear with your suggestion where users can upvote or downvote your suggestion.
+1. Find the #completed channel (under the **Suggestions** category), and confirm that your suggestion hasn't already been voted on.
+2. Find the #in-flight channel (also under **Suggestions**), and confirm that your suggestion isn't already in-flight (*but not completed yet*)
+3. In any channel, type `!suggest [your suggestion goes here]`. A post will be created in #in-flight for other users to vote on your suggestion. Suggestions change color as more users vote on them.
+4. When your suggestion is completed (or a decision has been made), you'll receive a DM from carl-bot
 
 If there is something that is not listed in this guide but you cannot figure out you can head over to Discords support center [here](https://support.discord.com/hc/en-us) where they have resources to help you. (Or you can suggest to edit this guide)
 
