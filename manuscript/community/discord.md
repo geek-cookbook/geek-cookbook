@@ -93,13 +93,10 @@ Discord supports minimal message formatting using [markdown](https://support.dis
 
 ## How do I suggest something?
 
-1. Find the #completed channel (under the **Suggestions** category), and confirm that your suggestion hasn't already been voted on.
-2. Find the #in-flight channel (also under **Suggestions**), and confirm that your suggestion isn't already in-flight (*but not completed yet*)
+1. Find the #completed channel (*under the **Suggestions** category*), and confirm that your suggestion hasn't already been voted on.
+2. Find the #in-flight channel (*also under **Suggestions***), and confirm that your suggestion isn't already in-flight (*but not completed yet*)
 3. In any channel, type `!suggest [your suggestion goes here]`. A post will be created in #in-flight for other users to vote on your suggestion. Suggestions change color as more users vote on them.
-4. When your suggestion is completed (or a decision has been made), you'll receive a DM from carl-bot
-
-If there is something that is not listed in this guide but you cannot figure out you can head over to Discords support center [here](https://support.discord.com/hc/en-us) where they have resources to help you. (Or you can suggest to edit this guide)
-
+4. When your suggestion is completed (*or a decision has been made*), you'll receive a DM from carl-bot
 
 
 

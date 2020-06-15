@@ -170,6 +170,19 @@ raphael,donatello,leonardo:/ /var/data ceph name=admin,noatime,_netdev 0 0" >> /
 mount -a
 ```
 
+??? note "Additional steps on Debian Buster"
+    The above configuration worked on Ubuntu 18.04 **without** requiring a secret to be defined in `/etc/fstab`. Other users have [reported different results](https://discourse.geek-kitchen.funkypenguin.co.nz/t/shared-storage-ceph-funky-penguins-geek-cookbook/47/108) on Debian Buster, however, so consider trying this variation if you encounter error 22:
+
+    ```
+    apt-get install ceph-common
+    CEPHKEY=`sudo ceph-authtool -p /etc/ceph/ceph.client.admin.keyring`
+    echo -e "
+    # Mount cephfs volume \n
+    raphael,donatello,leonardo:/ /var/data ceph name=admin,secret=$CEPHKEY,noatime,_netdev 0 0" >> /etc/fstab
+    mount -a
+    ```
+
+
 ## Serving
 
 ### Sprinkle with tools
