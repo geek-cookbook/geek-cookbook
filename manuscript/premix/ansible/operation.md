@@ -14,7 +14,7 @@ Now we'll be creating 3 files..
 
 ### Hosts
 
-Create a new file at `ansible/hosts`, containing a variation on this:
+Create a new file at `ansible/hosts.your-username` containing a variation on this:
 
 ```
 [your-username:children]
@@ -55,7 +55,7 @@ bebop        ansible_host=192.168.38.203
 
 !!! note
 
-    1. Replace `your-username` in line \#1. This line makes all subsequent groups "children" of a master group based on your username, which we'll use in the following step to let you keep your configs/secrets separate from the main repo, with minimal friction.
+    1. Replace `your-username` in the file name and in line \#1. This line makes all subsequent groups "children" of a master group based on your username, which we'll use in the following step to let you keep your configs/secrets separate from the main repo, with minimal friction.
     2. If you don't populate a section, it won't get applied. I.e., if you don't care about k8s hosts, don't create any k8s groups, and all the k8s steps in the playbook will be ignored. The same is true for swarm_nodes.
 
 ### Config
@@ -106,7 +106,7 @@ The vault file is encrypted using a secret you store outside the repo, and now y
 
 ### Deploy (on autopilot)
 
-To deploy the playbook, run `ansible-playbook -i host deploy.yml`. This will deploy _everything_ on autopilot, including attempting to create VMs using Proxmox, if you've the necessary hosts.
+To deploy the playbook, run `ansible-playbook -i hosts.your-username deploy.yml`. This will deploy _everything_ on autopilot, including attempting to create VMs using Proxmox, if you've the necessary hosts.
 
 ### Deploy (selectively)
 
@@ -115,14 +115,26 @@ To run the playbook selectively (i.e., maybe just deploy traefik), add the name 
 I.e., to deploy only ceph:
 
 ```
-ansible-playbook -i host deploy.yml -t ceph
+ansible-playbook -i hosts.your-username deploy.yml -t ceph
 ```
 
 To deploy traefik (overlay), traefikv1, and traefik-forward-auth:
 
 ```
-ansible-playbook -i host deploy.yml -t traefik,traefikv1,traefik-forward-auth
+ansible-playbook -i hosts.your-username deploy.yml -t traefik,traefikv1,traefik-forward-auth
 ```
+
+### Deploy (semi-autopilot)
+
+Deploying on full autopilot above installs _a lot_ of stuff (and more is being added every day). There's a good chance you don't want everything that is or will be included in the playbook. We've created a special tag that will install the base infrastructure up to a point that you can then choose which recipes to install with the "selective" deploy method described above.
+
+To deploy the base infrastructure:
+
+```
+ansible-playbook -i hosts.your-username deploy.yml -t infrastructure
+```
+
+This will run the playbook up through the `traefik-forward-auth` role and leave you with a fresh "blank canvas" that you can then populate with the recipes of your choosing using the "selective" deploy method.
 
 ### Deploy (with debugging)
 
