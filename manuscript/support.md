@@ -1,14 +1,14 @@
 # Support
 
-> "Excuse me... waiter, there's a bug in this recipe!"
+!!! note "Excuse me... waiter, there's a bug in this recipe!"
 
 How do you get support for these receipes? There are several options...
 
 ## Discord: Where the cool kids are
 
-All the cool kids are hanging out in the [Discord server](/discord/).
+All the cool kids are hanging out in the [Discord server](/community/discord/).
 
-> "Eh? What's a Discord? Get off my lawn, young whippersnappers!!"
+!!! question "Eh? What's a Discord? Get off my lawn, young whippersnappers!!"
 
 Yeah, I know. I also thought Discord was just for the gamer kids, but it turns out it's great for a geeky community. Why? [Let me elucidate ya.][2]..
 
@@ -17,19 +17,23 @@ Yeah, I know. I also thought Discord was just for the gamer kids, but it turns o
 3. Costs nothing, no ads
 4. Mobile notifications are reliable, individual channels mutable, etc
 
-## Forums: Party like it's 1999
+## Discourse: Long-live discussion!
 
-For community support and engagement, I've setup a [Discourse forum][3]. Using this as the primary means of topical discussions makes it easy to share recipes / experiences with future geeks.
+For community support and engagement, we have a [Discourse forum][3]. Using this as the primary means of topical discussions makes it easy to share recipes / experiences with future geeks.
 
 ## Discuss a recipe
 
 Every recipe includes a section at the end for comments.
 
-If you have a comment / question about a specific recipe, navigate to the recipe, scroll to the bottom, and add your comment. You'll be sent to the [kitchen][4] to post the actual comment, but it'll be visible beneath the recipe _and_ at the kitchen. (_To post, you'll need to sign in using OAuth from github, google, etc, or create a new account_)
+If you have a comment / question about a specific recipe, navigate to the recipe, scroll to the bottom, and add your comment. You'll be sent to the [kitchen][4] to post the actual comment, but it'll be visible beneath the recipe _and_ at the kitchen. (_To post, you'll need to sign in using OAuth from Discord, github, google, etc, or create a new account_)
 
 ## Request a recipe
 
 I'd love to hear your ideas for more recipes. To request/suggest a recipe, create a new post in the [kitchen][5] with the details.
+
+## Contribute a recipe
+
+The only thing I love more than recipe ideas is recipe contributions! See details on contributing a recipe [here](/community/contribute/)
 
 ## Spit out a bug
 
@@ -42,11 +46,11 @@ Found a bug in your soup? Tell the chef by either:
 
 ### Buy my book 📖
 
-I'm also writing the Geek Cookbook as a formal eBook, on Leanpub (https://leanpub.com/geeks-cookbook). Buy it for $0.99 (_which is really just a token gesture of support_) - you can get it for free (_in PDF, mobi, or epub format_), or pay me what you think it's worth!
+I'm also writing the Geek Cookbook as a formal eBook, on Leanpub (https://leanpub.com/geeks-cookbook).
 
 ### [Sponsor][7] / [Patreonize][8] me 💰
 
-The best way to support this work is to become a [Sponsor]() (_GitHub_) or a [Patron][10] (_Patreon_). For as little as $5/month, you get:
+The best way to support this work is to become a [Sponsor]() (_GitHub_) or a [Patron][10] (_Patreon_). Sponsors get:
 
 * warm fuzzies,
 * access to the pre-mix repo,
@@ -59,13 +63,8 @@ Impulsively **[click here (NOW quick do it!)][11]** to sponsor me, or instead th
 
 ### Engage me 🏢
 
-Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified][13] consultant, this stuff is my bread and butter! :bread: :fork\_and\_knife: [Contact][14] me and let's talk!
+Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified][13] consultant, this stuff is my bread and butter! :bread: :fork_and_knife: [Contact][14] me and let's talk!
 
-### Discord
-
-Come and hang out in Discord..
-
-<iframe src="https://discordapp.com/widget?id=396055506072109067&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
 
 [1]:	http://chat.funkypenguin.co.nz
 [2]:	https://www.youtube.com/watch?v=1qHoSWxVqtE

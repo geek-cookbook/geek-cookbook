@@ -16,6 +16,9 @@ Yeah, I know. I also thought Discord was just for the gamer kids, but it turns o
 1. Create [an account](https://discordapp.com)
 2. [Join the geek party](http://chat.funkypenguin.co.nz)!
 
+
+<iframe src="https://discordapp.com/widget?id=396055506072109067&theme=dark" width="350" height="400" allowtransparency="true" frameborder="0"></iframe>
+
 ## Code of Conduct
 
 With the goal of creating a safe and inclusive community, we've adopted the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/), as described [here](/community/code-of-conduct/).

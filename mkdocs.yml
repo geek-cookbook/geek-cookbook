@@ -166,13 +166,16 @@ nav:
         - Design: premix/ansible/design.md
       - Swarm: premix/swarm.md
       - Kubernetes: premix/kubernetes.md      
-    - CHANGELOG: CHANGELOG.md
+    - CHANGELOG: 
+      - Start: CHANGELOG.md
+    - Support:
+      - Start: support.md      
     - Community: 
-      - Support: support.md
       - Code of Conduct: community/code-of-conduct.md 
+      - Contribute: community/contribute.md
       - Discord: community/discord.md  
-      # - Discourse: community/discourse.md
-      # - GitHub: community/github.md    
+    #   # - Discourse: community/discourse.md
+    #   # - GitHub: community/github.md    
 
 theme:
   name: 'material'
