@@ -35,7 +35,7 @@ So what does this mean for our stack? It means we can leverage Duplicity to back
 
 ### Setup data locations
 
-We'll need a folder to store a docker-compose .yml file, and an associated .env file. If you're following my filesystem layout, create /var/data/config/duplicity (for the config), and /var/data/duplicity (for the metadata) as follows:
+We'll need a folder to store a docker-compose .yml file, and an associated .env file. If you're following my filesystem layout, create `/var/data/config/duplicity` (*for the config*), and `/var/data/duplicity` (for the metadata) as follows:
 
 ```
 mkdir /var/data/config/duplicity
