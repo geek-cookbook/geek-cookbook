@@ -170,8 +170,11 @@ nav:
       - Start: CHANGELOG.md
     - Support:
       - Start: support.md      
+    - Contribute:
+      - Start: community/contribute.md
     - Community: 
       - Code of Conduct: community/code-of-conduct.md 
+      - Support: support.md      
       - Contribute: community/contribute.md
       - Discord: community/discord.md  
     #   # - Discourse: community/discourse.md
