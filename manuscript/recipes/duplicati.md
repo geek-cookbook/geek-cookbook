@@ -105,7 +105,7 @@ networks:
 Launch the Duplicati stack by running ```docker stack deploy duplicati -c <path-to-docker-compose.yml>```
 
 ### Create (and verify!) Your First Backup
-Once you authenticate through the traefik-forward-auth provider, you can start configuring your backup jobs via the Duplicati UI. All backup and restore job configuration is done through the UI. Be sure to read through the documentation on [Creating a new backup job](https://duplicati.readthedocs.io/en/latest/03-using-the-graphical-user-interface/#creating-a-new-backup-job) and [Restoring files from a backup](https://duplicati.readthedocs.io/en/latest/03-using-the-graphical-user-interface/#restoring-files-from-a-backup) from the 
+Once you authenticate through the traefik-forward-auth provider, you can start configuring your backup jobs via the Duplicati UI. All backup and restore job configuration is done through the UI. Be sure to read through the documentation on [Creating a new backup job](https://duplicati.readthedocs.io/en/latest/03-using-the-graphical-user-interface/#creating-a-new-backup-job) and [Restoring files from a backup](https://duplicati.readthedocs.io/en/latest/03-using-the-graphical-user-interface/#restoring-files-from-a-backup) for information on how to configure those jobs. 
 
 !!! warning
     An untested backup is not really a backup at all. Being ***sure*** you can succesfully restore files from your backup now could save you lots of heartache later after "something bad" happens.
