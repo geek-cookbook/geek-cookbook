@@ -2,7 +2,7 @@ hero: Duplicati - Yet another option to backup your exciting stuff. It's good to
 
 # Duplicati
 
-Intro
+Always have a backup plan<sup>2<sup>
 
 ![duplicati Screenshot](../images/duplicati.jpg)
 
@@ -41,7 +41,7 @@ cd /var/data/config/duplicati
 
 1. Generate a random passphrase to use to encrypt your data. **Save this somewhere safe**, without it you won't be able to restore!
 2. Seriously, **save**. **it**. **somewhere**. **safe**.
-3. Create `duplicati.env`, and populate with the following variables (replace "Europe/London" with your appropriate time zone from [this list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones))
+3. Create `duplicati.env`, and populate with the following variables (_replace "Europe/London" with your appropriate time zone from [this list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)_)
 ```
 PUID=0
 PGID=0
@@ -112,8 +112,8 @@ Once we authenticate through the traefik-forward-auth provider, we can start con
 
 !!! tip
     Backing up files on a regular basis is going to use a continually-increasing amount of disk space. To help with this, Duplicati offers a "Smart Backup Retention" scheme that will intelligently remove certain backups as they age while still maintaining a comprehensive backup history. You can set that configuration on the "Options" tab of the backup configuration.
-
 ## Chef's Notes 📓
+[^1]: Quote attributed to Mila Kunis
+[^2]: The [Duplicati 2 User's Manual](https://duplicati.readthedocs.io/en/latest/) contains all the information you'll need to configure backup endpoints, restore jobs, scheduling and advanced properties for your backup jobs.
 
-[^1]: The [Duplicati 2 User's Manual](https://duplicati.readthedocs.io/en/latest/) contains all the information you'll need to configure backup endpoints, restore jobs, scheduling and advanced properties for your backup jobs.
 
