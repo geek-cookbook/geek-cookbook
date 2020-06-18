@@ -76,7 +76,7 @@ version: '3'
 services:
   keycloak:
     image: jboss/keycloak
-    env_file: /var/data/config/keycloak/keycloak.env
+    env_file: /var/data/keycloak/keycloak.env
     volumes:
       - /etc/localtime:/etc/localtime:ro    
     networks:
@@ -89,7 +89,7 @@ services:
         - traefik.docker.network=traefik_public
 
   keycloak-db:
-    env_file: /var/data/config/keycloak/keycloak.env
+    env_file: /var/data/keycloak/keycloak.env
     image: postgres:10.1
     volumes:
       - /var/data/runtime/keycloak/database:/var/lib/postgresql/data
@@ -99,7 +99,7 @@ services:
 
   keycloak-db-backup:
     image: postgres:10.1
-    env_file: /var/data/config/keycloak/keycloak-backup.env
+    env_file: /var/data/keycloak/keycloak-backup.env
     volumes:
       - /var/data/keycloak/database-dump:/dump
       - /etc/localtime:/etc/localtime:ro
