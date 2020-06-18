@@ -2,7 +2,7 @@ hero: Duplicati - Yet another option to backup your exciting stuff. It's good to
 
 # Duplicati
 
-Always have a backup plan<sup>2<sup>
+Always have a backup plan<sup>1<sup>
 
 ![duplicati Screenshot](../images/duplicati.jpg)
 
