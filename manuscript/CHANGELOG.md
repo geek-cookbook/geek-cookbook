@@ -13,10 +13,10 @@ Also available via:
 
 ## Recently added recipes
 
+* Added recipe for [Duplicati](https://geek-cookbook.funkypenguin.co.nz/recipes/duplicati/), all-in-one backup solution with a handy GUI (_18 June 2020_)
 * Overhauled [Ceph (Shared Storage)](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph/) recipe for Ceph Octopus (v15) (_25 May 2020_) 
 * Added recipe for making your own [DIY Kubernetes Cluster](/kubernetes/diycluster/) (_14 December 2019_)
 * Added recipe for [authenticating Traefik Forward Auth against KeyCloak](/ha-docker-swarm/traefik-forward-auth/keycloak/) (_16 May 2019_)
-* Added [Bitwarden](/recipes/bitwarden/), an **awesome** open-source password manager, with great mobile sync support (_14 May 2019_)
 
 ## Recent improvements
 
