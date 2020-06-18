@@ -112,7 +112,9 @@ Once we authenticate through the traefik-forward-auth provider, we can start con
 
 !!! tip
     Backing up files on a regular basis is going to use a continually-increasing amount of disk space. To help with this, Duplicati offers a "Smart Backup Retention" scheme that will intelligently remove certain backups as they age while still maintaining a comprehensive backup history. You can set that configuration on the "Options" tab of the backup configuration.
+
 ## Chef's Notes 📓
+
 [^1]: Quote attributed to Mila Kunis
 [^2]: The [Duplicati 2 User's Manual](https://duplicati.readthedocs.io/en/latest/) contains all the information you'll need to configure backup endpoints, restore jobs, scheduling and advanced properties for your backup jobs.
 
