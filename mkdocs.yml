@@ -101,6 +101,7 @@ nav:
         - Bookstack: recipes/bookstack.md
         - Calibre-Web: recipes/calibre-web.md
         - Collabora Online: recipes/collabora-online.md
+        - Duplicati: recipes/duplicati.md
         - Ghost: recipes/ghost.md
         - GitLab: recipes/gitlab.md
         - GitLab Runner: recipes/gitlab-runner.md

@@ -52,3 +52,4 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [Graylog](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)                                                  | 172.16.52.0/24 |
 | [Harbor](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)                                                   | 172.16.53.0/24 |
 | [Harbor-Clair](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)                                             | 172.16.54.0/24 |
+| [Duplicati](https://geek-cookbook.funkypenguin.co.nz/recipes/duplicati/)                                           | 172.16.55.0/24 |
