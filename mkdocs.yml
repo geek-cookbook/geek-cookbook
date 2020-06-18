@@ -1,5 +1,5 @@
 site_name: Funky Penguin's Geek Cookbook
-site_description: 'The "Geek Cookbook" is a collection of guides for establishing your own highly-available docker container cluster (swarm). This swarm enables you to run self-hosted services such as GitLab, Plex, NextCloud, etc.'
+site_description: 'Testing 123'
 site_author: 'David Young'
 site_url: 'https://geek-cookbook.funkypenguin.co.nz'
 edit_uri: 'edit/master/manuscript/'
