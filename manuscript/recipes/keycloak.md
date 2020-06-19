@@ -31,7 +31,7 @@ mkdir -p /var/data/keycloak/database-dump
 
 ### Prepare environment
 
-Create `/var/data/keycloak/keycloak.env`, and populate with the following variables, customized for your own domain structure.
+Create `/var/data/config/keycloak/keycloak.env`, and populate with the following variables, customized for your own domain structure.
 
 ```
 # Technically, this could be auto-detected, but we prefer to be prescriptive
@@ -54,7 +54,7 @@ POSTGRES_USER=keycloak
 POSTGRES_PASSWORD=myuberpassword
 ```
 
-Create `/var/data/keycloak/keycloak-backup.env`, and populate with the following, so that your database can be backed up to the filesystem, daily:
+Create `/var/data/config/keycloak/keycloak-backup.env`, and populate with the following, so that your database can be backed up to the filesystem, daily:
 
 ```
 PGHOST=keycloak-db
@@ -76,7 +76,7 @@ version: '3'
 services:
   keycloak:
     image: jboss/keycloak
-    env_file: /var/data/keycloak/keycloak.env
+    env_file: /var/data/config/keycloak/keycloak.env
     volumes:
       - /etc/localtime:/etc/localtime:ro    
     networks:
@@ -89,7 +89,7 @@ services:
         - traefik.docker.network=traefik_public
 
   keycloak-db:
-    env_file: /var/data/keycloak/keycloak.env
+    env_file: /var/data/config/keycloak/keycloak.env
     image: postgres:10.1
     volumes:
       - /var/data/runtime/keycloak/database:/var/lib/postgresql/data
@@ -99,7 +99,7 @@ services:
 
   keycloak-db-backup:
     image: postgres:10.1
-    env_file: /var/data/keycloak/keycloak-backup.env
+    env_file: /var/data/config/keycloak/keycloak-backup.env
     volumes:
       - /var/data/keycloak/database-dump:/dump
       - /etc/localtime:/etc/localtime:ro
