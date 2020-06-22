@@ -110,7 +110,7 @@ networks:
 Create `/var/data/config/traefik/traefik-app.yml` as follows:
 
 ```
-version: "3"
+version: "3.2"
 
 services:
   traefik:
