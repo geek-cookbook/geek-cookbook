@@ -31,7 +31,7 @@ mkdir -p /var/data/keycloak/database-dump
 
 ### Prepare environment
 
-Create `/var/data/keycloak/keycloak.env`, and populate with the following variables, customized for your own domain structure.
+Create `/var/data/config/keycloak/keycloak.env`, and populate with the following variables, customized for your own domain structure.
 
 ```
 # Technically, this could be auto-detected, but we prefer to be prescriptive
@@ -54,7 +54,7 @@ POSTGRES_USER=keycloak
 POSTGRES_PASSWORD=myuberpassword
 ```
 
-Create `/var/data/keycloak/keycloak-backup.env`, and populate with the following, so that your database can be backed up to the filesystem, daily:
+Create `/var/data/config/keycloak/keycloak-backup.env`, and populate with the following, so that your database can be backed up to the filesystem, daily:
 
 ```
 PGHOST=keycloak-db
