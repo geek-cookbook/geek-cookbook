@@ -23,6 +23,8 @@ We'll need several directories to bind-mount into our container, so create them 
 mkdir /var/data/ttrss
 cd /var/data/ttrss
 mkdir -p {database,database-dump}
+mkdir /var/data/config/ttrss
+cd /var/data/config/ttrss
 ```
 
 ### Prepare environment
@@ -67,7 +69,7 @@ version: '3'
 services:
     db:
       image: postgres:latest
-      env_file: /var/data/ttrss/ttrss.env
+      env_file: /var/data/config/ttrss/ttrss.env
       volumes:
         - /var/data/ttrss/database:/var/lib/postgresql/data
       networks:
@@ -75,7 +77,7 @@ services:
 
     app:
       image: funkypenguin/docker-ttrss
-      env_file: /var/data/ttrss/ttrss.env
+      env_file: /var/data/config/ttrss/ttrss.env
       deploy:
         labels:
           - traefik.frontend.rule=Host:ttrss.funkypenguin.co.nz
@@ -87,7 +89,7 @@ services:
 
     db-backup:
       image: postgres:latest
-      env_file: /var/data/ttrss/ttrss.env
+      env_file: /var/data/config/ttrss/ttrss.env
       volumes:
         - /var/data/ttrss/database-dump:/dump
         - /etc/localtime:/etc/localtime:ro

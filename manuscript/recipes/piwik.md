@@ -41,7 +41,7 @@ services:
     image: mysql
     volumes:
       - /var/data/piwik/mysql/runtime:/var/lib/mysql
-    env_file: /var/data/piwik/piwik.env
+    env_file: /var/data/config/piwik/piwik.env
     networks:
     - internal
   app:
