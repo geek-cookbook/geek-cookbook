@@ -42,7 +42,7 @@ mkdir -p /var/data/runtime/miniflux/database
 Create ```/var/data/config/miniflux/miniflux.env``` something like this:
 
 ```
-DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
+DATABASE_URL=postgres://miniflux:secret@miniflux-db/miniflux?sslmode=disable
 POSTGRES_USER=miniflux
 POSTGRES_PASSWORD=secret
 
@@ -53,11 +53,14 @@ RUN_MIGRATIONS=1
 CREATE_ADMIN=1
 ADMIN_USERNAME=admin
 ADMIN_PASSWORD=test1234
+```
 
-# For backups
+Create ```/var/data/config/miniflux/miniflux-backup.env```, and populate with the following, so that your database can be backed up to the filesystem, daily:
+
+```
+PGHOST=miniflux-db
 PGUSER=miniflux
 PGPASSWORD=secret
-PGHOST=db
 BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
 ```
@@ -89,7 +92,7 @@ services:
         - traefik.port=8080
         - traefik.docker.network=traefik_public
 
-  db:
+  miniflux-db:
     env_file: /var/data/config/miniflux/miniflux.env
     image: postgres:10.1
     volumes:
@@ -98,9 +101,9 @@ services:
     networks:
       - internal
 
-  db-backup:
+  miniflux-db-backup:
     image: postgres:10.1
-    env_file: /var/data/config/miniflux/miniflux.env
+    env_file: /var/data/config/miniflux/miniflux-backup.env
     volumes:
       - /var/data/miniflux/database-dump:/dump
       - /etc/localtime:/etc/localtime:ro
