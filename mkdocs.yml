@@ -22,10 +22,12 @@ plugins:
   - search
   - minify:
       minify_html: true
-  # this doesn't work with the current netlify build process, which modifies .md files in the "publish" subfolder before building
   - git-revision-date-localized:
       type: date
   - autolinks
+
+
+
   # - htmlproofer
 
 #theme_dir: mkdocs-material
@@ -76,7 +78,6 @@ nav:
           - Jackett: recipes/autopirate/jackett.md
           - Heimdall: recipes/autopirate/heimdall.md
           - End: recipes/autopirate/end.md
-        - ElkarBackup: recipes/elkarbackup.md
         - Emby: recipes/emby.md
         - Home Assistant:
           - Start: recipes/homeassistant.md
@@ -91,10 +92,10 @@ nav:
         - Miniflux: recipes/miniflux.md
         - Munin: recipes/munin.md
         - NextCloud: recipes/nextcloud.md
-        - OwnTracks: recipes/owntracks.md
         - phpIPAM: recipes/phpipam.md
         - Plex: recipes/plex.md
         - PrivateBin: recipes/privatebin.md
+        - Restic: recipes/restic.md          
         - Swarmprom: recipes/swarmprom.md    
       - Recipes:
         - Bitwarden: recipes/bitwarden.md
@@ -102,6 +103,7 @@ nav:
         - Calibre-Web: recipes/calibre-web.md
         - Collabora Online: recipes/collabora-online.md
         - Duplicati: recipes/duplicati.md
+        - ElkarBackup: recipes/elkarbackup.md
         - Ghost: recipes/ghost.md
         - GitLab: recipes/gitlab.md
         - GitLab Runner: recipes/gitlab-runner.md
@@ -114,9 +116,10 @@ nav:
           - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md      
         - Minio: recipes/minio.md
         - OpenLDAP: recipes/openldap.md
-        - Piwik: recipes/piwik.md
+        - OwnTracks: recipes/owntracks.md
         - Portainer: recipes/portainer.md
         - Realms: recipes/realms.md
+        - Restic: recipes/restic.md        
         - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
         - Traefik: ha-docker-swarm/traefik.md
         - Traefik Forward Auth: 

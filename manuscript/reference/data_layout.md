@@ -10,7 +10,7 @@ Configuration data goes into `/var/data/config/[recipe name]`, and is typically 
 
 ## Runtime data
 
-Realtime data (*typically database files or files-in-use*) are stored in `/var/data/runtime/[recipe-name]`, and are **excluded** from backup (_They change constantly, and cannot be safely restored_).
+Runtime data (*typically database files or files-in-use*) are stored in `/var/data/runtime/[recipe-name]`, and are **excluded** from backup (_They change constantly, and cannot be safely restored_).
 
 ## Static data
 
