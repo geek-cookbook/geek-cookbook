@@ -6,7 +6,7 @@ Got nothing to contribute, but want to give back to the community? Here are some
 
 1. Star :star: the [repo](https://github.com/geek-cookbook/geek-cookbook/)
 2. [Sponsor](https://github.com/sponsors/funkypenguin) :heart: the chef
-3. Tweet 🐦 the [meat](https://ctt.ac/Vl6mc)!
+3. Tweet :bird: the [meat](https://ctt.ac/Vl6mc)!
 
 ## Contributing bugfixes 🐛
 

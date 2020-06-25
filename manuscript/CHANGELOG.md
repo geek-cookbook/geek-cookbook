@@ -13,14 +13,13 @@ Also available via:
 
 ## Recently added recipes
 
+* Added recipe for [Restic](https://geek-cookbook.funkypenguin.co.nz/recipes/restic/), simple and secure backup solution with **huge** range of target platforms via rclone  (_25 June 2020_)
 * Added recipe for [Duplicati](https://geek-cookbook.funkypenguin.co.nz/recipes/duplicati/), all-in-one backup solution with a handy GUI (_18 June 2020_)
 * Overhauled [Ceph (Shared Storage)](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph/) recipe for Ceph Octopus (v15) (_25 May 2020_) 
-* Added recipe for making your own [DIY Kubernetes Cluster](/kubernetes/diycluster/) (_14 December 2019_)
-* Added recipe for [authenticating Traefik Forward Auth against KeyCloak](/ha-docker-swarm/traefik-forward-auth/keycloak/) (_16 May 2019_)
+
 
 ## Recent improvements
 
 * Updated [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) for latest @thomseddon image (_11 Jun 2020_)
 * Added recipe for [automated snapshots of Kubernetes Persistent Volumes](/kubernetes/snapshots/), instructions for using [Helm](/kubernetes/helm/), and recipe for deploying [Traefik](/kubernetes/traefik/), which completes the Kubernetes cluster design! (_9 Feb 2019_)
 * Added detailed description (_and diagram_) of our [Kubernetes design](/kubernetes/design/), plus a [simple load-balancer design](kubernetes/loadbalancer/) to avoid the complexities/costs of permitting ingress access to a cluster (_7 Feb 2019_)
-* Added an [introductory/explanatory page, including a children's story, on Kubernetes](/kubernetes/start/) (_29 Jan 2019_)
