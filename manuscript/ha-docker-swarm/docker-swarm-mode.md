@@ -139,8 +139,8 @@ If your swarm runs for a long time, you might find yourself running older contai
 Create /var/data/config/shepherd/shepherd.env as follows:
 
 ```
-# Don't auto-update Plex or Emby, I might be watching a movie! (Customize this for the containers you _don't_ want to auto-update)
-BLACKLIST_SERVICES="plex_plex emby_emby"
+# Don't auto-update Plex or Emby (or Jellyfin), I might be watching a movie! (Customize this for the containers you _don't_ want to auto-update)
+BLACKLIST_SERVICES="plex_plex emby_emby jellyfin_jellyfin"
 # Run every 24 hours. Note that SLEEP_TIME appears to be in seconds.
 SLEEP_TIME=86400
 ```

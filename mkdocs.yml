@@ -83,6 +83,7 @@ nav:
           - Start: recipes/homeassistant.md
           - iBeacon: recipes/homeassistant/ibeacon.md
         - Huginn: recipes/huginn.md
+        - Jellyfin: recipes/jellyfin.md
         - Kanboard: recipes/kanboard.md
         - KeyCloak: 
           - Start: recipes/keycloak.md      

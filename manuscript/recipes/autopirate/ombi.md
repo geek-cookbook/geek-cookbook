@@ -8,10 +8,10 @@
 * Lets users request Movies and TV Shows (_whether it being the entire series, an entire season, or even single episodes._)
 * Easily manage your requests
 User management system (_supports plex.tv, Emby and local accounts_)
-* A landing page that will give you the availability of your Plex/Emby server and also add custom notification text to inform your users of downtime.
+* A landing page that will give you the availability of your Plex/Emby/Jellyfin server and also add custom notification text to inform your users of downtime.
 * Allows your users to get custom notifications!
 * Will show if the request is already on plex or even if it's already monitored.
-Automatically updates the status of requests when they are available on Plex/Emby
+Automatically updates the status of requests when they are available on Plex/Emby/Jellyfin
 
 ![Ombi Screenshot](../../images/ombi.png)
 
