@@ -22,16 +22,18 @@ First we need a folder to map the photoprism config file:
 mkdir /var/data/photoprism/config
 ```
 
-We will need a location to store photoprism thumbnails, as they can be recreated anytime (althought depending on your colleciton size it could take a while), we store them on a "non-backed" folder
+We will need a location to store photoprism thumbnails, as they can be recreated anytime (althought depending on your collection size it could take a while), we store them on a "non-backed-up" folder
 
 ```
 mkdir /var/data/runtime/photoprism/cache
 ```
 
 We will need to map three folders on our system / data:
-  1) originals - the folder where our original photo collection is stored (photoprism doesn't modify any original file, it only adds sidecars files).
-  2) import - the folder where photoprism will pick new photos to be added to the collection
-  3) export - the folder where photoprism will export photos.
+1) originals - the folder where our original photo collection is stored (photoprism doesn't modify any original file, it only adds sidecars files).
+2) import - the folder where photoprism will pick new photos to be added to the collection
+3) export - the folder where photoprism will export photos.
+  
+In order to be able to import/export files from / to  the originals folder make sure that the running user of the photoprims instance has write / read access to those folders.
 
 Photoprism has with its own running db, but if your collection is big (10K photos or more), the perfomance is best using an external db instance. We will use MariaDb, so we need the folders for running and backing the db:
 
@@ -42,7 +44,7 @@ mkdir /var/data/photoprism/database-dump
 
 ### Prepare environment
 
-Create photoprism.env, and populate with the following variables. Change passwords
+Create ```photoprism.env```, and populate with the following variables. Change passwords
 
 ```
 PHOTOPRISM_URL=https://photoprism.example.com
@@ -173,4 +175,4 @@ Browse to your new browser-cli-terminal at https://**YOUR-FQDN**, with user "adm
 
 ## Chef's Notes 📓
 
-1. Once it is running, you probably will want to launch an scan to index the originals photos. Go to library -> index and do a complete rescan (it will take a while, depending on your collection size)
+1. Once it is running, you probably will want to launch an scan to index the originals photos. Go to *library -> index* and do a complete rescan (it will take a while, depending on your collection size)
