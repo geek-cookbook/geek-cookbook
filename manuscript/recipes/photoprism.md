@@ -29,9 +29,10 @@ mkdir /var/data/runtime/photoprism/cache
 ```
 
 We will need to map three folders on our system / data:
-1) originals - the folder where our original photo collection is stored (photoprism doesn't modify any original file, it only adds sidecars files).
-2) import - the folder where photoprism will pick new photos to be added to the collection
-3) export - the folder where photoprism will export photos.
+
+1. originals - the folder where our original photo collection is stored (photoprism doesn't modify any original file, it only adds sidecars files).
+2. import - the folder where photoprism will pick new photos to be added to the collection
+3. export - the folder where photoprism will export photos.
   
 In order to be able to import/export files from / to  the originals folder make sure that the running user of the photoprims instance has write / read access to those folders.
 
