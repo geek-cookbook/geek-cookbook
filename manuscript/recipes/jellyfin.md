@@ -1,6 +1,6 @@
 # Jellyfin
 
-[Jellyfin](https://jellyfin.org/) is best described as "_like [Emby](/recipes/emby) but really FOSS.
+[Jellyfin](https://jellyfin.org/) is best described as "_like [Emby](/recipes/emby) but really [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software#:~:text=Free%20and%20open%2Dsource%20software%20(FOSS)%20is%20software%20that,software%20and%20open%2Dsource%20software.)_".
 
 ![Jellyfin Screenshot](../images/jellyfin.png)
 
@@ -16,7 +16,7 @@ If it looks very similar as Emby, is because it started as a fork of it, but it 
 
 ### Setup data locations
 
-We'll need a location to store Jellyfin's library data, config files, logs and temporary transcoding space, so create /var/data/jellyfin, and make sure it's owned by the user and group who also own your media data.
+We'll need a location to store Jellyfin's library data, config files, logs and temporary transcoding space, so create ```/var/data/jellyfin```, and make sure it's owned by the user and group who also own your media data.
 
 ```
 mkdir /var/data/jellyfin
@@ -76,7 +76,7 @@ networks:
     driver: overlay
     ipam:
       config:
-        - subnet: 172.16.67.0/24
+        - subnet: 172.16.57.0/24
 ```
 
 !!! note
