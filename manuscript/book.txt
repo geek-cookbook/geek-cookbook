@@ -39,6 +39,7 @@ recipes/emby.md
 recipes/homeassistant.md
 recipes/homeassistant/ibeacon.md
 recipes/huginn.md
+recipes/jellyfin.md
 recipes/kanboard.md
 recipes/miniflux.md
 recipes/munin.md

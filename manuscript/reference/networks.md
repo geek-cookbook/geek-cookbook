@@ -54,3 +54,4 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [Harbor-Clair](https://geek-cookbook.funkypenguin.co.nz/recipes/graylog/)                                             | 172.16.54.0/24 |
 | [Duplicati](https://geek-cookbook.funkypenguin.co.nz/recipes/duplicati/)                                              | 172.16.55.0/24 |
 | [Restic](https://geek-cookbook.funkypenguin.co.nz/recipes/restic/)                                                    | 172.16.56.0/24 |
+| [Jellyfin](https://geek-cookbook.funkypenguin.co.nz/recipes/jellyfin/)                                                | 172.16.57.0/24 |

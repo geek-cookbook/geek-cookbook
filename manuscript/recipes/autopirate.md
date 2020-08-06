@@ -24,7 +24,7 @@ Tools included in the AutoPirate stack are:
 * **[Mylar](https://github.com/evilhero/mylar)** : finds, downloads and manages comic books
 * **[Headphones](https://github.com/rembo10/headphones)** : finds, downloads and manages music
 * **[Lazy Librarian](https://github.com/itsmegb/LazyLibrarian)** : finds, downloads and manages ebooks
-* **[Ombi](https://github.com/tidusjar/Ombi)** : provides an interface to request additions to a [Plex](/recipes/plex/)/[Emby](/recipes/emby/) library using the above tools
+* **[Ombi](https://github.com/tidusjar/Ombi)** : provides an interface to request additions to a [Plex](/recipes/plex/)/[Emby](/recipes/emby/)/[Jellyfin](/recipes/jellyfin/) library using the above tools
 * **[Jackett](https://github.com/Jackett/Jackett)** : Provides an local, caching, API-based interface to torrent trackers, simplifying the way your tools search for torrents.
 
 Since this recipe is so long, and so many of the tools are optional to the final result (_i.e., if you're not interested in comics, you won't want Mylar_), I've described each individual tool on its own sub-recipe page (_below_), even though most of them are deployed very similarly.
