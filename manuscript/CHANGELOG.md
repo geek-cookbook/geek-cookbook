@@ -13,9 +13,11 @@ Also available via:
 
 ## Recently added recipes
 
-* Added recipe for [Restic](https://geek-cookbook.funkypenguin.co.nz/recipes/restic/), simple and secure backup solution with **huge** range of target platforms via rclone  (_25 June 2020_)
-* Added recipe for [Duplicati](https://geek-cookbook.funkypenguin.co.nz/recipes/duplicati/), all-in-one backup solution with a handy GUI (_18 June 2020_)
-* Overhauled [Ceph (Shared Storage)](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/shared-storage-ceph/) recipe for Ceph Octopus (v15) (_25 May 2020_) 
+* Added recipe for [Photoprism](/recipes/photoprism/), self-hosted photo app incorporating automated tagging using Tensorflow (_6 Aug 2020_)
+* Added recipe for [JellyFin](/recipes/jellyfin/), the [FOSS fork](https://www.linuxuprising.com/2018/12/jellyfin-free-software-emby-media.html#:~:text=The%20free%20software%20Emby%20fork,differences%20with%20the%20core%20developers.) of [Emby](/recipes/emby/) (_6 Aug 2020_)
+* Added recipe for [Restic](/recipes/restic/), simple and secure backup solution with **huge** range of target platforms via rclone  (_25 June 2020_)
+* Added recipe for [Duplicati](/recipes/duplicati/), all-in-one backup solution with a handy GUI (_18 June 2020_)
+* Overhauled [Ceph (Shared Storage)](/ha-docker-swarm/shared-storage-ceph/) recipe for Ceph Octopus (v15) (_25 May 2020_) 
 
 
 ## Recent improvements
