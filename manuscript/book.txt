@@ -67,6 +67,7 @@ recipes/openldap.md
 recipes/mail.md
 recipes/minio.md
 recipes/piwik.md
+recipes/photoprism.md
 recipes/portainer.md
 recipes/realms.md
 recipes/tiny-tiny-rss.md
