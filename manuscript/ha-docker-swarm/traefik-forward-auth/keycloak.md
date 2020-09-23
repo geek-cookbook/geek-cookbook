@@ -11,7 +11,7 @@ While the [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) recipe 
     
     New:
 
-    * [ ] DNS entry for your auth host (*"auth.yourdomain.com" is a good choice*), pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+    * [ ] DNS entry for your auth host (*"auth.yourdomain.com" is a good choice*), pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
