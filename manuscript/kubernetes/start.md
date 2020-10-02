@@ -44,7 +44,7 @@ Let's talk some definitions. Kubernetes.io provides a [glossary](https://kuberne
 
 ## Mm.. maaaaybe, how do I start?
 
-If you're like me, and you learn by doing, either play with the examples at https://labs.play-with-k8s.com/, or jump right in by setting up a Google Cloud trial (_you get $300 credit for 12 months_), or a small cluster on [Digital Ocean](/kubernetes/digitalocean/).
+If you're like me, and you learn by doing, either play with the examples at https://labs.play-with-k8s.com/, or jump right in by setting up a Google Cloud trial (_you get $300 credit for 12 months_), or a small cluster on [Digital Ocean](https://www.digitalocean.com/?refcode=e33b78ad621b).
 
 If you're the learn-by-watching type, just search for "Kubernetes introduction video". There's a **lot** of great content available.
 
