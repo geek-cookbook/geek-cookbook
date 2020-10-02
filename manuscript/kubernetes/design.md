@@ -1,6 +1,6 @@
 # Design
 
-Like the [Docker Swarm](ha-docker-swarm/design/) "_private cloud_" design, the Kubernetes design is:
+Like the [Docker Swarm](/ha-docker-swarm/design/) "_private cloud_" design, the Kubernetes design is:
 
 * **Highly-available** (_can tolerate the failure of a single component_)
 * **Scalable** (_can add resource or capacity as required_)
