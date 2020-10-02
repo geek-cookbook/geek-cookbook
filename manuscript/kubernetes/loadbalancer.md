@@ -4,7 +4,7 @@ One of the issues I encountered early on in migrating my Docker Swarm workloads 
 
 There were several complications with the "traditional" mechanisms of providing a load-balanced ingress, not the least of which was cost. I also found that even if I paid my cloud provider (_Google_) for a load-balancer Kubernetes service, this service required a unique IP per exposed port, which was incompatible with my mining pool empire (_mining pools need to expose multiple ports on the same DNS name_).
 
-See further examination of the problem and possible solutions in the [Kubernetes design](kubernetes/design/#the-challenges-of-external-access) page.
+See further examination of the problem and possible solutions in the [Kubernetes design](/kubernetes/design/#the-challenges-of-external-access) page.
 
 This recipe details a simple design to permit the exposure of as many ports as you like, on a single public IP, to a cluster of Kubernetes nodes running as many pods/containers as you need, with services exposed via NodePort.
 
