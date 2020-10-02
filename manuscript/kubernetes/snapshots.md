@@ -2,7 +2,7 @@
 
 Before we get carried away creating pods, services, deployments etc, let's spare a thought for _security_... (_DevSecPenguinOps, here we come!_). In the context of this recipe, security refers to safe-guarding your data from accidental loss, as well as malicious impact.
 
-Under [Docker Swarm](/ha-docker-swarm/design/), we used [shared storage](/ha-docker-swarm/shared-storage-ceph/) with [Duplicity](/recipes/duplicity/) (or [ElkarBackup](recipes/elkarbackup/)) to automate backups of our persistent data.
+Under [Docker Swarm](/ha-docker-swarm/design/), we used [shared storage](/ha-docker-swarm/shared-storage-ceph/) with [Duplicity](/recipes/duplicity/) (or [ElkarBackup](/recipes/elkarbackup/)) to automate backups of our persistent data.
 
 Now that we're playing in the deep end with Kubernetes, we'll need a Cloud-native backup solution...
 
