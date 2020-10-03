@@ -22,8 +22,8 @@ I'd encourage you to spend some time reading https://github.com/stefanprodan/swa
 ## Ingredients
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) on **17.09.0 or newer** (_doesn't work with CentOS Atomic, unfortunately_) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
-3. DNS entry for the hostnames you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+2. [Traefik](/ha-docker-swarm/traefik) configured per design
+3. DNS entry for the hostnames you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 

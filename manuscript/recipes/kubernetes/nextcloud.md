@@ -15,7 +15,7 @@ Details
 
 ## Ingredients
 
-1. [Kubernetes cluster](/kubernetes/digital-ocean/)
+1. [Kubernetes cluster](/kubernetes/cluster/)
 
 ## Preparation
 

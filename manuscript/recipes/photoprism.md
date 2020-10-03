@@ -10,8 +10,8 @@ hero: Your own private google photos
 ## Ingredients
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+2. [Traefik](/ha-docker-swarm/traefik) configured per design
+3. DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 

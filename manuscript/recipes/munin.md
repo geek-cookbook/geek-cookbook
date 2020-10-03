@@ -12,13 +12,13 @@ Munin uses the excellent ​RRDTool (written by Tobi Oetiker) and the framework 
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
 2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+3. DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
 ### Prepare target nodes
 
-Depending on what you want to monitor, you'll want to install munin-node. On Ubuntu/Debian, you'll use ```apt-get install munin-node```, and on RHEL/CentOS, run ```yum install munin-node```. Remember to edit ```/etc/munin/munin-node.conf```, and set your node to allow the server to poll it, by adding ```cidr_allow x.x.x.x/x```.
+Depending on what you want to monitor, you'll want to install munin-node. On Ubuntu/Debian, you'll use `apt-get install munin-node`, and on RHEL/CentOS, run `yum install munin-node`. Remember to edit `/etc/munin/munin-node.conf`, and set your node to allow the server to poll it, by adding `cidr_allow x.x.x.x/x`.
 
 On CentOS Atomic, of course, you can't install munin-node directly, but you can run it as a containerized instance. In this case, you can't use swarm since you need the container running in privileged mode, so launch a munin-node container on each atomic host using:
 
@@ -33,7 +33,6 @@ docker run -d --name munin-node --restart=always \
   funkypenguin/munin-node
 ```
 
-
 ### Setup data locations
 
 We'll need several directories to bind-mount into our container, so create them in /var/data/munin:
@@ -46,7 +45,7 @@ mkdir -p {log,lib,run,cache}
 
 ### Prepare environment
 
-Create /var/data/config/munin/munin.env, and populate with the following variables. Use the OAUTH2 variables if you plan to use an [oauth2_proxy](/reference/oauth_proxy/) to protect munin, and set at a **minimum** the ```MUNIN_USER```, ```MUNIN_PASSWORD```, and ```NODES``` values:
+Create /var/data/config/munin/munin.env, and populate with the following variables. Use the OAUTH2 variables if you plan to use an [oauth2_proxy](/reference/oauth_proxy/) to protect munin, and set at a **minimum** the `MUNIN_USER`, `MUNIN_PASSWORD`, and `NODES` values:
 
 ```
 # Use these if you plan to protect the webUI with an oauth_proxy
@@ -74,8 +73,7 @@ SNMP_NODES="router1:10.0.0.254:9999"
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a `git pull` and a `docker stack deploy` 👍
 
 ```
 version: '3'
@@ -84,14 +82,14 @@ services:
 
   munin:
     image: funkypenguin/munin-server
-    env_file: /var/data/config/munin/munin.env    
+    env_file: /var/data/config/munin/munin.env
     networks:
       - internal
     volumes:
       - /var/data/munin/log:/var/log/munin
       - /var/data/munin/lib:/var/lib/munin
       - /var/data/munin/run:/var/run/munin
-      - /var/data/munin/cache:/var/cache/munin  
+      - /var/data/munin/cache:/var/cache/munin
 
   proxy:
     image: funkypenguin/oauth2_proxy
@@ -123,14 +121,13 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
+Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
 
 ## Serving
 
 ### Launch Munin stack
 
-Launch the Munin stack by running ```docker stack deploy munin -c <path -to-docker-compose.yml>```
+Launch the Munin stack by running `docker stack deploy munin -c <path -to-docker-compose.yml>`
 
 Log into your new instance at https://**YOUR-FQDN**, with user and password password you specified in munin.env above.
 

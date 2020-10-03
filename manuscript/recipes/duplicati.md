@@ -22,7 +22,7 @@ Similar to the other backup options in the Cookbook, we can use Duplicati to bac
 
 !!! summary "Ingredients"
     * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-    * [X] [Traefik](/ha-docker-swarm/traefik_public) and [Traefik-Forward-Auth](/ha-docker-swarm/traefik-forward-auth) configured per design
+    * [X] [Traefik](/ha-docker-swarm/traefik) and [Traefik-Forward-Auth](/ha-docker-swarm/traefik-forward-auth) configured per design
     * [X] Credentials for one of the Duplicati's supported upload destinations
 
 ## Preparation
