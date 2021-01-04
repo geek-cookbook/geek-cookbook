@@ -3,7 +3,7 @@
 
 # Mylar
 
-[Mylar](https://github.com/evilhero/mylar) is a tool for downloading and managing digital comic books.
+[Mylar](https://github.com/mylar3/mylar3) is a tool for downloading and managing digital comic books.
 
 ![Mylar Screenshot](../../images/mylar.jpg)
 
@@ -13,7 +13,7 @@ To include Mylar in your [AutoPirate](/recipes/autopirate/) stack, include the f
 
 ````
 mylar:
-  image: linuxserver/mylar:latest
+  image: linuxserver/mylar3:latest
   env_file : /var/data/config/autopirate/mylar.env
   volumes:
    - /var/data/autopirate/mylar:/config
