@@ -5,7 +5,7 @@ While the [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) recipe 
 ## Ingredients
 
 !!! Summary
-Existing:
+    Existing:
 
     * [X] [KeyCloak](/recipes/keycloak/) recipe deployed successfully, with a [local user](/recipes/keycloak/create-user/) and an [OIDC client](/recipes/keycloak/setup-oidc-provider/)
 
