@@ -14,7 +14,7 @@ Restic is one of the more popular open-source backup solutions, and is often [co
 
 !!! summary "Ingredients"
     * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-    * [X] [Traefik](/ha-docker-swarm/traefik_public) and [Traefik-Forward-Auth](/ha-docker-swarm/traefik-forward-auth) configured per design
+    * [X] [Traefik](/ha-docker-swarm/traefik) and [Traefik-Forward-Auth](/ha-docker-swarm/traefik-forward-auth) configured per design
     * [X] Credentials for one of Restic's [supported repositories](https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html)
 
 ## Preparation

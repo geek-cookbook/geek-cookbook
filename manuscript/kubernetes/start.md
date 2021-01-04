@@ -24,27 +24,27 @@ Yes, but that's a necessary sacrifice for the maturity, power and flexibility it
 
 Let's talk some definitions. Kubernetes.io provides a [glossary](https://kubernetes.io/docs/reference/glossary/?fundamental=true). My definitions are below:
 
-* **Node** : A compute instance which runs docker containers, managed by a cluster master.
+- **Node** : A compute instance which runs docker containers, managed by a cluster master.
 
-* **Cluster** : One or more "worker nodes" which run containers. Very similar to a Docker Swarm node. In most cloud provider deployments, the [master node for your cluster is provided free of charge](https://www.sdxcentral.com/articles/news/google-eliminates-gke-management-fees-kubernetes-clusters/2017/11/), but you don't get to access it.
+- **Cluster** : One or more "worker nodes" which run containers. Very similar to a Docker Swarm node. In most cloud provider deployments, the [master node for your cluster is provided free of charge](https://www.sdxcentral.com/articles/news/google-eliminates-gke-management-fees-kubernetes-clusters/2017/11/), but you don't get to access it.
 
-* **Pod** : A collection of one or more the containers. If a pod runs multiple containers, these containers always run on the same node.
+- **Pod** : A collection of one or more the containers. If a pod runs multiple containers, these containers always run on the same node.
 
-* **Deployment** : A definition of a desired state. I.e., "I want a pod with containers A and B running". The Kubernetes master then ensures that any changes necessary to maintain the state are taken. (_I.e., if a pod crashes, but is supposed to be running, a new pod will be started_)
+- **Deployment** : A definition of a desired state. I.e., "I want a pod with containers A and B running". The Kubernetes master then ensures that any changes necessary to maintain the state are taken. (_I.e., if a pod crashes, but is supposed to be running, a new pod will be started_)
 
-* **Service** : Unlike Docker Swarm, service discovery is not _built in_ to Kubernetes. For your pods to discover each other (say, to have "webserver" talk to "database"), you create a service for each pod, and refer to these services when you want your containers (_in pods_) to talk to each other. Complicated, yes, but the abstraction allows you to do powerful things, like auto-scale-up a bunch of database "pods" behind a service called "database", or perform a rolling container image upgrade with zero impact.
+- **Service** : Unlike Docker Swarm, service discovery is not _built in_ to Kubernetes. For your pods to discover each other (say, to have "webserver" talk to "database"), you create a service for each pod, and refer to these services when you want your containers (_in pods_) to talk to each other. Complicated, yes, but the abstraction allows you to do powerful things, like auto-scale-up a bunch of database "pods" behind a service called "database", or perform a rolling container image upgrade with zero impact.
 
-* **External access** : Services not only allow pods to discover each other, but they're also the mechanism through which the outside world can talk to a container. At the simplest level, this is akin to exposing a container port on a docker host.
+- **External access** : Services not only allow pods to discover each other, but they're also the mechanism through which the outside world can talk to a container. At the simplest level, this is akin to exposing a container port on a docker host.
 
-* **Ingress** : When mapping ports to applications is inadequate (think virtual web hosts), an ingress is a sort of "inbound router" which can receive requests on one port (i.e., HTTPS), and forward them to a variety of internal pods, based on things like VHOST, etc. For us, this is the functional equivalent of what Traefik does in Docker Swarm. In fact, we use a Traefik Ingress in Kubernetes to accomplish the same.
+- **Ingress** : When mapping ports to applications is inadequate (think virtual web hosts), an ingress is a sort of "inbound router" which can receive requests on one port (i.e., HTTPS), and forward them to a variety of internal pods, based on things like VHOST, etc. For us, this is the functional equivalent of what Traefik does in Docker Swarm. In fact, we use a Traefik Ingress in Kubernetes to accomplish the same.
 
-* **Persistent Volume** : A virtual disk which is attached to a pod, storing persistent data. Meets the requirement for shared storage from Docker Swarm. I.e., if a persistent volume (PV) is bound to a pod, and the pod dies and is recreated, or get upgraded to a new image, the PV the data is bound to the new container. PVs can be "claimed" in a YAML definition, so that your Kubernetes provider will auto-create a PV when you launch your pod. PVs can be snapshotted.
+- **Persistent Volume** : A virtual disk which is attached to a pod, storing persistent data. Meets the requirement for shared storage from Docker Swarm. I.e., if a persistent volume (PV) is bound to a pod, and the pod dies and is recreated, or get upgraded to a new image, the PV the data is bound to the new container. PVs can be "claimed" in a YAML definition, so that your Kubernetes provider will auto-create a PV when you launch your pod. PVs can be snapshotted.
 
-* **Namespace** : An abstraction to separate a collection of pods, services, ingresses, etc. A "virtual cluster within a cluster". Can be used for security, or simplicity. For example, since we don't have individual docker stacks anymore, if you commonly name your database container "db", and you want to deploy two applications which both use a database container, how will you name your services? Use namespaces to keep each application ("nextcloud" vs "kanboard") separate. Namespaces also allow you to allocate resources **limits** to the aggregate of containers in a namespace, so you could, for example, limit the "nextcloud" namespace to 2.3 CPUs and 1200MB RAM.
+- **Namespace** : An abstraction to separate a collection of pods, services, ingresses, etc. A "virtual cluster within a cluster". Can be used for security, or simplicity. For example, since we don't have individual docker stacks anymore, if you commonly name your database container "db", and you want to deploy two applications which both use a database container, how will you name your services? Use namespaces to keep each application ("nextcloud" vs "kanboard") separate. Namespaces also allow you to allocate resources **limits** to the aggregate of containers in a namespace, so you could, for example, limit the "nextcloud" namespace to 2.3 CPUs and 1200MB RAM.
 
 ## Mm.. maaaaybe, how do I start?
 
-If you're like me, and you learn by doing, either play with the examples at https://labs.play-with-k8s.com/, or jump right in by setting up a Google Cloud trial (_you get $300 credit for 12 months_), or a small cluster on [Digital Ocean](/kubernetes/digitalocean/).
+If you're like me, and you learn by doing, either play with the examples at https://labs.play-with-k8s.com/, or jump right in by setting up a Google Cloud trial (_you get \$300 credit for 12 months_), or a small cluster on [Digital Ocean](/kubernetes/cluster/).
 
 If you're the learn-by-watching type, just search for "Kubernetes introduction video". There's a **lot** of great content available.
 
@@ -58,10 +58,10 @@ I'd love for your [feedback](/support/) on the Kubernetes recipes, as well as su
 
 Still with me? Good. Move on to reviewing the design elements
 
-* Start (this page) - Why Kubernetes?
-* [Design](/kubernetes/design/) - How does it fit together?
-* [Cluster](/kubernetes/cluster/) - Setup a basic cluster
-* [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access
-* [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
-* [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
-* [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
+- Start (this page) - Why Kubernetes?
+- [Design](/kubernetes/design/) - How does it fit together?
+- [Cluster](/kubernetes/cluster/) - Setup a basic cluster
+- [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access
+- [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
+- [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
+- [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm

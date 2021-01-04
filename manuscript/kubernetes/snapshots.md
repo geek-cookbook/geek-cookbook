@@ -2,7 +2,7 @@
 
 Before we get carried away creating pods, services, deployments etc, let's spare a thought for _security_... (_DevSecPenguinOps, here we come!_). In the context of this recipe, security refers to safe-guarding your data from accidental loss, as well as malicious impact.
 
-Under [Docker Swarm](/ha-docker-swarm/design/), we used [shared storage](/ha-docker-swarm/shared-storage-ceph/) with [Duplicity](/recipes/duplicity/) (or [ElkarBackup](recipes/elkarbackup/)) to automate backups of our persistent data.
+Under [Docker Swarm](/ha-docker-swarm/design/), we used [shared storage](/ha-docker-swarm/shared-storage-ceph/) with [Duplicity](/recipes/duplicity/) (or [ElkarBackup](/recipes/elkarbackup/)) to automate backups of our persistent data.
 
 Now that we're playing in the deep end with Kubernetes, we'll need a Cloud-native backup solution...
 
@@ -23,7 +23,7 @@ This recipe employs a clever tool ([miracle2k/k8s-snapshots](https://github.com/
 
 If you're running GKE, run the following to create a RoleBinding, allowing your user to grant rights-it-doesn't-currently-have to the service account responsible for creating the snapshots:
 
-```kubectl create clusterrolebinding your-user-cluster-admin-binding \
+````kubectl create clusterrolebinding your-user-cluster-admin-binding \
  --clusterrole=cluster-admin --user=<your user@yourdomain>```
 
 !!! question
@@ -33,8 +33,10 @@ If you're running GKE, run the following to create a RoleBinding, allowing your 
 
 If your cluster is RBAC-enabled (_it probably is_), you'll need to create a ClusterRole and ClusterRoleBinding to allow k8s_snapshots to see your PVs and friends:
 
-```
+````
+
 kubectl apply -f https://raw.githubusercontent.com/miracle2k/k8s-snapshots/master/rbac.yaml
+
 ```
 
 ## Serving
@@ -44,24 +46,25 @@ kubectl apply -f https://raw.githubusercontent.com/miracle2k/k8s-snapshots/maste
 Ready? Run the following to create a deployment in to the kube-system namespace:
 
 ```
+
 cat <<EOF | kubectl create -f -
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: k8s-snapshots
-  namespace: kube-system
+name: k8s-snapshots
+namespace: kube-system
 spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: k8s-snapshots
-    spec:
-      containers:
-      - name: k8s-snapshots
-        image: elsdoerfer/k8s-snapshots:v2.0
+replicas: 1
+template:
+metadata:
+labels:
+app: k8s-snapshots
+spec:
+containers: - name: k8s-snapshots
+image: elsdoerfer/k8s-snapshots:v2.0
 EOF
-```
+
+````
 
 Confirm your pod is running and happy by running ```kubectl get pods -n kubec-system```, and ```kubectl -n kube-system logs k8s-snapshots<tab-to-auto-complete>```
 
@@ -71,7 +74,8 @@ k8s-snapshots relies on annotations to tell it how frequently to snapshot your P
 
 From the k8s-snapshots README:
 
-```
+````
+
 The generations are defined by a list of deltas formatted as ISO 8601 durations (this differs from tarsnapper). PT60S or PT1M means a minute, PT12H or P0.5D is half a day, P1W or P7D is a week. The number of backups in each generation is implied by it's and the parent generation's delta.
 
 For example, given the deltas PT1H P1D P7D, the first generation will consist of 24 backups each one hour older than the previous (or the closest approximation possible given the available backups), the second generation of 7 backups each one day older than the previous, and backups older than 7 days will be discarded for good.
@@ -79,38 +83,44 @@ For example, given the deltas PT1H P1D P7D, the first generation will consist of
 The most recent backup is always kept.
 
 The first delta is the backup interval.
+
 ```
 
 To add the annotation to an existing PV, run something like this:
 
 ```
+
 kubectl patch pv pvc-01f74065-8fe9-11e6-abdd-42010af00148 -p \
-  '{"metadata": {"annotations": {"backup.kubernetes.io/deltas": "P1D P30D P360D"}}}'
+ '{"metadata": {"annotations": {"backup.kubernetes.io/deltas": "P1D P30D P360D"}}}'
+
 ```
 
 To add the annotation to a _new_ PV, add the following annotation to your **PVC**:
 
 ```
+
 backup.kubernetes.io/deltas: PT1H P2D P30D P180D
+
 ```
 
 Here's an example of the PVC for the UniFi recipe, which includes 7 daily snapshots of the PV:
 
 ```
+
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: controller-volumeclaim
-  namespace: unifi
-  annotations:
-    backup.kubernetes.io/deltas: P1D P7D
+name: controller-volumeclaim
+namespace: unifi
+annotations:
+backup.kubernetes.io/deltas: P1D P7D
 spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-```
+accessModes: - ReadWriteOnce
+resources:
+requests:
+storage: 1Gi
+
+````
 
 And here's what my snapshot list looks like after a few days:
 
@@ -122,40 +132,43 @@ If you're running traditional compute instances with your cloud provider (I do t
 
 To do so, first create a custom resource, ```SnapshotRule```:
 
-```
+````
+
 cat <<EOF | kubectl create -f -
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
-  name: snapshotrules.k8s-snapshots.elsdoerfer.com
+name: snapshotrules.k8s-snapshots.elsdoerfer.com
 spec:
-  group: k8s-snapshots.elsdoerfer.com
-  version: v1
-  scope: Namespaced
-  names:
-    plural: snapshotrules
-    singular: snapshotrule
-    kind: SnapshotRule
-    shortNames:
-    - sr
+group: k8s-snapshots.elsdoerfer.com
+version: v1
+scope: Namespaced
+names:
+plural: snapshotrules
+singular: snapshotrule
+kind: SnapshotRule
+shortNames: - sr
 EOF
-```
+
+````
 
 Then identify the volume ID of your volume, and create an appropriate ```SnapshotRule```:
 
-```
+````
+
 cat <<EOF | kubectl apply -f -
 apiVersion: "k8s-snapshots.elsdoerfer.com/v1"
 kind: SnapshotRule
 metadata:
-  name: haproxy-badass-loadbalancer
+name: haproxy-badass-loadbalancer
 spec:
-  deltas: P1D P7D
-  backend: google
-  disk:
-     name: haproxy2
-     zone: australia-southeast1-a
+deltas: P1D P7D
+backend: google
+disk:
+name: haproxy2
+zone: australia-southeast1-a
 EOF
+
 ```
 
 !!! note
@@ -178,3 +191,4 @@ Still with me? Good. Move on to understanding Helm charts...
 ## Chef's Notes
 
 1. I've submitted [2 PRs](https://github.com/miracle2k/k8s-snapshots/pulls/funkypenguin) to the k8s-snapshots repo. The first [updates the README for GKE RBAC requirements](https://github.com/miracle2k/k8s-snapshots/pull/71), and the second [fixes a minor typo](https://github.com/miracle2k/k8s-snapshots/pull/74).
+```

@@ -8,7 +8,7 @@ phpIPAM fulfils a non-sexy, but important role - It helps you manage your IP add
 
 ## Why should you care about this?
 
-You probably have a home network, with 20-30 IP addresses, for your family devices, your ![IoT devices](/recipe/home-assistant), your smart TV, etc. If you want to (a) monitor them, and (b) audit who does what, you care about what IPs they're assigned by your DHCP server.
+You probably have a home network, with 20-30 IP addresses, for your family devices, your ![IoT devices](/recipes/homeassistant), your smart TV, etc. If you want to (a) monitor them, and (b) audit who does what, you care about what IPs they're assigned by your DHCP server.
 
 You could simple keep track of all devices with leases in your DHCP server, but what happens if your (_hypothetical?_) Ubiquity Edge Router X crashes and burns due to lack of disk space, and you loose track of all your leases? Well, you have to start from scratch, is what!
 
@@ -19,8 +19,8 @@ Enter phpIPAM. A tool designed to help home keeps as well as large organisations
 ## Ingredients
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
-3. DNS entry for the hostname (_i.e. "phpipam.your-domain.com"_) you intend to use for phpIPAM, pointed to your [keepalived](ha-docker-swarm/keepalived/) IPIP
+2. [Traefik](/ha-docker-swarm/traefik) configured per design
+3. DNS entry for the hostname (_i.e. "phpipam.your-domain.com"_) you intend to use for phpIPAM, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IPIP
 
 ## Preparation
 
@@ -36,6 +36,7 @@ mkdir /var/data/runtime/phpipam -p
 ### Prepare environment
 
 Create phpipam.env, and populate with the following variables
+
 ```
 # Setup for github, phpipam application
 OAUTH2_PROXY_CLIENT_ID=
@@ -77,12 +78,11 @@ BACKUP_FREQUENCY=1d
 
 I usually protect my stacks using an [oauth proxy](/reference/oauth_proxy/) container in front of the app. This protects me from either accidentally exposing a platform to the world, or having a insecure platform accessed and abused.
 
-In the case of phpIPAM, the oauth_proxy creates an additional complexity, since it passes the "Authorization" HTTP header to the phpIPAM container. phpIPAH then examines the header, determines that the provided username (_my email address associated with my oauth provider_) doesn't match a local user account, and denies me access without the opportunity to retry.
+In the case of phpIPAM, the oauth*proxy creates an additional complexity, since it passes the "Authorization" HTTP header to the phpIPAM container. phpIPAH then examines the header, determines that the provided username (\_my email address associated with my oauth provider*) doesn't match a local user account, and denies me access without the opportunity to retry.
 
 The (_dirty_) solution I've come up with is to insert an Nginx instance in the path between the oauth_proxy and the phpIPAM container itself. Nginx can remove the authorization header, so that phpIPAM can prompt me to login with a web-based form.
 
 Create /var/data/phpipam/nginx.conf as follows:
-
 
 ```
 upstream app-upstream {
@@ -108,8 +108,7 @@ server {
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 !!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a `git pull` and a `docker stack deploy` 👍
 
 ```
 version: '3'
@@ -193,15 +192,13 @@ networks:
 ```
 
 !!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
-
+Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
 
 ## Serving
 
 ### Launch phpIPAM stack
 
-Launch the phpIPAM stack by running ```docker stack deploy phpipam -c <path -to-docker-compose.yml>```
+Launch the phpIPAM stack by running `docker stack deploy phpipam -c <path -to-docker-compose.yml>`
 
 Log into your new instance at https://**YOUR-FQDN**, and follow the on-screen prompts to set your first user/password.
 

@@ -6,14 +6,13 @@ When dealing with large container (looking at you, GitLab!), this can result in 
 
 The solution is to run an official Docker registry container as a ["pull-through" cache, or "registry mirror"](https://docs.docker.com/registry/recipes/mirror/). By using our persistent storage for the registry cache, we can ensure we have a single copy of all the containers we've pulled at least once. After the first pull, any subsequent pulls from our nodes will use the cached version from our registry mirror. As a result, services are available more quickly when restarting container nodes, and we can be more aggressive about cleaning up unused containers on our nodes (more later)
 
-The registry mirror runs as a swarm stack, using a simple docker-compose.yml. Customize __your mirror FQDN__ below, so that Traefik will generate the appropriate LetsEncrypt certificates for it, and make it available via HTTPS.
+The registry mirror runs as a swarm stack, using a simple docker-compose.yml. Customize **your mirror FQDN** below, so that Traefik will generate the appropriate LetsEncrypt certificates for it, and make it available via HTTPS.
 
 ## Ingredients
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
 2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
-
+3. DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -45,10 +44,10 @@ networks:
 ```
 
 !!! note "Unencrypted registry"
-    We create this registry without consideration for SSL, which will fail if we attempt to use the registry directly. However, we're going to use the HTTPS-proxied version via Traefik, leveraging Traefik to manage the LetsEncrypt certificates required.
-
+We create this registry without consideration for SSL, which will fail if we attempt to use the registry directly. However, we're going to use the HTTPS-proxied version via Traefik, leveraging Traefik to manage the LetsEncrypt certificates required.
 
 Create /var/data/registry/registry-mirror-config.yml as follows:
+
 ```
 version: 0.1
 log:
@@ -78,7 +77,7 @@ proxy:
 
 ### Launch registry stack
 
-Launch the registry stack by running ```docker stack deploy registry -c <path-to-docker-compose.yml>```
+Launch the registry stack by running `docker stack deploy registry -c <path-to-docker-compose.yml>`
 
 ### Enable registry mirror and experimental features
 
@@ -103,11 +102,12 @@ To:
 ```
 
 Then restart docker by running:
-````
+
+```
 systemctl restart docker-latest
-````
+```
 
 !!! tip ""
-    Note the extra comma required after "false" above
+Note the extra comma required after "false" above
 
 ## Chef's notes 📓

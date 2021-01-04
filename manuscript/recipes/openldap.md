@@ -5,7 +5,7 @@
 
     [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
 
-LDAP is probably the most ubiquitous authentication backend, before the current era of "[stupid social sign-ons](https://www.usatoday.com/story/tech/columnist/2018/10/23/how-separate-your-social-networks-your-regular-sites/1687763002/)". Many of the recipes featured in the cookbook (_[NextCloud](/recipe/nextcloud/), [Kanboard](/recipe/kanboard/), [Gitlab](/recipe/gitlab/), etc_) offer LDAP integration.
+LDAP is probably the most ubiquitous authentication backend, before the current era of "[stupid social sign-ons](https://www.usatoday.com/story/tech/columnist/2018/10/23/how-separate-your-social-networks-your-regular-sites/1687763002/)". Many of the recipes featured in the cookbook (_[NextCloud](/recipes/nextcloud/), [Kanboard](/recipes/kanboard/), [Gitlab](/recipes/gitlab/), etc_) offer LDAP integration.
 
 ## Big deal, who cares?
 
@@ -21,13 +21,13 @@ This recipe combines the raw power of OpenLDAP with the flexibility and features
 
 ## What's the takeaway?
 
-What you'll end up with is a directory structure which will allow integration with popular tools (_[NextCloud](/recipe/nextcloud/), [Kanboard](/recipe/kanboard/), [Gitlab](/recipe/gitlab/), etc_), as well as with KeyCloak (_an upcoming recipe_), for **true** SSO.
+What you'll end up with is a directory structure which will allow integration with popular tools (_[NextCloud](/recipes/nextcloud/), [Kanboard](/recipes/kanboard/), [Gitlab](/recipes/gitlab/), etc_), as well as with KeyCloak (_an upcoming recipe_), for **true** SSO.
 
 ## Ingredients
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
-3. DNS entry for the hostname (_i.e. "lam.your-domain.com"_) you intend to use for LDAP Account Manager, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+2. [Traefik](/ha-docker-swarm/traefik) configured per design
+3. DNS entry for the hostname (_i.e. "lam.your-domain.com"_) you intend to use for LDAP Account Manager, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
