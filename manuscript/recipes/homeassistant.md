@@ -36,6 +36,9 @@ mkdir /var/data/runtime/homeassistant/influxdb
 Create /var/data/config/homeassistant/grafana.env, and populate with the following - this is to enable grafana to work with oauth2_proxy without requiring an additional level of authentication:
 ```
 GF_AUTH_BASIC_ENABLED=false
+OAUTH2_PROXY_CLIENT_ID=
+OAUTH2_PROXY_CLIENT_SECRET=
+OAUTH2_PROXY_COOKIE_SECRET=
 ```
 
 ### Setup Docker Swarm
@@ -55,7 +58,7 @@ services:
       networks:
         - internal
       volumes:
-        - /var/data/homeassistant/influxdb:/var/lib/influxdb
+        - /var/data/runtime/homeassistant/influxdb:/var/lib/influxdb
         - /etc/localtime:/etc/localtime:ro
 
     homeassistant:
