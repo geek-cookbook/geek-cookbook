@@ -193,8 +193,9 @@ theme:
   logo: 'images/site-logo.svg'
   favicon: 'images/site-logo.svg'
   features:
-      - tabs
-      - instant 
+      - navigation.tabs
+      - navigation.instant
+      - navigation.tabs.sticky 
   icon:
     repo: 'fontawesome/brands/github'
   palette:
