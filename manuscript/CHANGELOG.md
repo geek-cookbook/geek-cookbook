@@ -13,6 +13,7 @@ Also available via:
 
 ## Recently added recipes
 
+* Added recipe for [Komga](/recipes/komga/), a beautiful interface to manage and enjoy your comics / graphic novels (_5 Jan 2021_)
 * Added recipe for [Photoprism](/recipes/photoprism/), self-hosted photo app incorporating automated tagging using Tensorflow (_6 Aug 2020_)
 * Added recipe for [JellyFin](/recipes/jellyfin/), the [FOSS fork](https://www.linuxuprising.com/2018/12/jellyfin-free-software-emby-media.html#:~:text=The%20free%20software%20Emby%20fork,differences%20with%20the%20core%20developers.) of [Emby](/recipes/emby/) (_6 Aug 2020_)
 * Added recipe for [Restic](/recipes/restic/), simple and secure backup solution with **huge** range of target platforms via rclone  (_25 June 2020_)

@@ -115,6 +115,7 @@ nav:
           - Users: recipes/keycloak/create-user.md
           - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
           - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md      
+        - Komga: recipes/komga.md
         - Minio: recipes/minio.md
         - OpenLDAP: recipes/openldap.md
         - OwnTracks: recipes/owntracks.md
@@ -248,6 +249,9 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
+  - pymdownx.snippets:
+      check_paths: true
+      base_path: _snippets
   - pymdownx.emoji:
       emoji_index: !!python/name:pymdownx.emoji.twemoji
       emoji_generator: !!python/name:pymdownx.emoji.to_svg    
