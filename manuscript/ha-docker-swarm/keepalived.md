@@ -8,6 +8,8 @@ Normally this is done using a HA loadbalancer, but since Docker Swarm aready pro
 
 This is accomplished with the use of keepalived on at least two nodes.
 
+![Ceph Screenshot](../images/keepalived.png)
+
 ## Ingredients
 
 !!! summary "Ingredients"
@@ -18,13 +20,13 @@ This is accomplished with the use of keepalived on at least two nodes.
 
     New:
 
-    * [ ] At least 3 x IPv4 addresses (*one for each node and one for the virtual IP*)
+    * [ ] At least 3 x IPv4 addresses (*one for each node and one for the virtual IP[^1])
 
 ## Preparation
 
 ### Enable IPVS module
 
-On all nodes which will participate in keepalived, we need the "ip_vs" kernel module, in order to permit serivces to bind to non-local interface addresses.
+On all nodes which will participate in keepalived, we need the "ip_vs" kernel module, in order to permit services to bind to non-local interface addresses.
 
 Set this up once-off for both the primary and secondary nodes, by running:
 
@@ -37,9 +39,11 @@ modprobe ip_vs
 
 Assuming your IPs are as follows:
 
+```
 * 192.168.4.1 : Primary
 * 192.168.4.2 : Secondary
 * 192.168.4.3 : Virtual
+```
 
 Run the following on the primary
 ```
@@ -51,7 +55,7 @@ docker run -d --name keepalived --restart=always \
   osixia/keepalived:2.0.20
 ```
 
-And on the secondary:
+And on the secondary[^2]:
 ```
 docker run -d --name keepalived --restart=always \
   --cap-add=NET_ADMIN --cap-add=NET_BROADCAST --cap-add=NET_RAW --net=host \
@@ -65,7 +69,20 @@ docker run -d --name keepalived --restart=always \
 
 That's it. Each node will talk to the other via unicast (*no need to un-firewall multicast addresses*), and the node with the highest priority gets to be the master. When ingress traffic arrives on the master node via the VIP, docker's routing mesh will deliver it to the appropriate docker node.
 
+
+## Summary
+
+What have we achieved?
+
+!!! summary "Summary"
+    Created:
+
+    * [X] A Virtual IP to which all cluster traffic can be forwarded externally, making it "*Highly Available*"
+
+--8<-- "5-min-install.md"
+
+
 ## Chef's notes 📓
 
-1. Some hosting platforms (*OpenStack, for one*) won't allow you to simply "claim" a virtual IP. Each node is only able to receive traffic targetted to its unique IP, unless certain security controls are disabled by the cloud administrator. In this case, keepalived is not the right solution, and a platform-specific load-balancing solution should be used. In OpenStack, this is Neutron's "Load Balancer As A Service" (LBAAS) component. AWS, GCP and Azure would likely include similar protections.
-2. More than 2 nodes can participate in keepalived. Simply ensure that each node has the appropriate priority set, and the node with the highest priority will become the master.
+[^1]: Some hosting platforms (*OpenStack, for one*) won't allow you to simply "claim" a virtual IP. Each node is only able to receive traffic targetted to its unique IP, unless certain security controls are disabled by the cloud administrator. In this case, keepalived is not the right solution, and a platform-specific load-balancing solution should be used. In OpenStack, this is Neutron's "Load Balancer As A Service" (LBAAS) component. AWS, GCP and Azure would likely include similar protections.
+[^2]: More than 2 nodes can participate in keepalived. Simply ensure that each node has the appropriate priority set, and the node with the highest priority will become the master.
