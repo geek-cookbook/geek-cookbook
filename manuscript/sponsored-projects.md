@@ -7,6 +7,7 @@ I regularly donate to / sponsor the following projects. **Join me** in supportin
 | Project | Donate via..      
 | ------------- |-------------|
 | [Komga](/recipes/komga/)      | [GitHub Sponsors](https://github.com/sponsors/gotson)
+| [Material for MKDocs](https://squidfunk.github.io/mkdocs-material/) | [GitHub Sponsors](https://github.com/sponsors/squidfunk)
 | [Calibre](https://calibre-ebook.com/) | [Credit Card](https://calibre-ebook.com/donate) / [Patreon](https://www.patreon.com/kovidgoyal) / [LibrePay](https://liberapay.com/kovidgoyal/donate)
 | [LinuxServer.io](https://www.linuxserver.io) | [PayPal](https://www.linuxserver.io/donate)
 | [WidgetBot's Discord Widget](https://widgetbot.io/) | [Patreon](https://www.patreon.com/widgetbot/overview)
