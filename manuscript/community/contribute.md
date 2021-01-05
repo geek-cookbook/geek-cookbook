@@ -5,10 +5,13 @@
 Got nothing to contribute, but want to give back to the community? Here are some ideas:
 
 1. Star :star: the [repo](https://github.com/geek-cookbook/geek-cookbook/)
-2. [Sponsor](https://github.com/sponsors/funkypenguin) :heart: the chef
-3. Tweet :bird: the [meat](https://ctt.ac/Vl6mc)!
+2. Tweet :bird: the [meat](https://ctt.ac/Vl6mc)!
 
-## Contributing bugfixes 🐛
+## Contributing moneyz 💰
+
+Sponsor [your chef](https://github.com/sponsors/funkypenguin) :heart:, or [join us](/sponsored-projects/) in supporting the open-source projects we enjoy!
+
+## Contributing bugfixorz 🐛
 
 Found a typo / error in a recipe? Each recipe includes a link to make the fix, directly on GitHub:
 
@@ -39,3 +42,4 @@ The process is basically:
 ## Contributing skillz 💪
 
 Got mad skillz, but neither the time nor inclination for recipe-cooking? Jump into [Discord](/community/discord/) or [Discourse](/community/discourse/), and help your fellow geeks with their questions, or just hang out bump up our member count!
+
