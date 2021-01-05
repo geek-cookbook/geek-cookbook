@@ -71,6 +71,10 @@ Launch the Komga stack by running ```docker stack deploy komga -c <path -to-dock
 
 Log into your new instance at https://**YOUR-FQDN**. Since it's a fresh installation, Komga will prompt you to setup a username and password, after which you'll be able to setup your library, and tweak all teh butt0ns!
 
+### Save teh wurld!
+
+If Komga scratches your particular itch, please join me in [sponsoring the developer](https://github.com/sponsors/gotson) :heart:
+
 ## Chef's Notes 📓
 
 [^1]: Since Komga doesn't need to communicate with any other services, we don't need a separate overlay network for it. Provided Traefik can reach Komga via the `traefik_public` overlay network, we've got all we need.
