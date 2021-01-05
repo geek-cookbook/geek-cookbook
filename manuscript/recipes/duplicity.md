@@ -117,8 +117,7 @@ Examine the contents of /var/data/duplicity/tmp/traefik-restored.yml to confirm 
 
 Now that we have confidence in our backup/restore process, let's automate it by creating a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a `git pull` and a `docker stack deploy` 👍
+--8<-- "premix-cta.md"
 
 ```
 version: "3"

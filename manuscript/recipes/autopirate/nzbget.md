@@ -14,8 +14,7 @@ NZBGet performs the same function as [SABnzbd](/recipes/autopirate/sabnzbd.md) (
 To include NZBGet in your [AutoPirate](/recipes/autopirate/) stack
 (_The only reason you **wouldn't** use NZBGet, would be if you were using [SABnzbd](/recipes/autopirate/sabnzbd/) instead_), include the following in your autopirate.yml stack definition file:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
 ````
 nzbget:

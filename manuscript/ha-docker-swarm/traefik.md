@@ -103,9 +103,7 @@ networks:
         - subnet: 172.16.200.0/24
 ```
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 Create `/var/data/config/traefik/traefik-app.yml` as follows:
 
@@ -203,7 +201,7 @@ ID                  NAME                                        IMAGE           
 
 ### Check Traefik Dashboard
 
-You should now be able to access your traefik instance on http://<node IP\>:8080 - It'll look a little lonely currently (*below*), but we'll populate it as we add recipes :)
+You should now be able to access[^1] your traefik instance on http://<node IP\>:8080 - It'll look a little lonely currently (*below*), but we'll populate it as we add recipes :)
 
 ![Screenshot of Traefik, post-launch](/images/traefik-post-launch.png)
 
@@ -219,4 +217,4 @@ You should now be able to access your traefik instance on http://<node IP\>:8080
 
 ## Chef's Notes  📓
 
-1. Did you notice how no authentication was required to view the Traefik dashboard? Eek! We'll tackle that in the next section, regarding [Traefik Forward Authentication](/ha-docker-swarm/traefik-forward-auth/)!
+[^1]: Did you notice how no authentication was required to view the Traefik dashboard? Eek! We'll tackle that in the next section, regarding [Traefik Forward Authentication](/ha-docker-swarm/traefik-forward-auth/)!

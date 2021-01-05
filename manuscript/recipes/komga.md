@@ -33,7 +33,7 @@ mkdir /var/data/komga
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
---8<-- "recipe-cta.md"
+--8<-- "premix-cta.md"
 
 ```
 version: "3.2"

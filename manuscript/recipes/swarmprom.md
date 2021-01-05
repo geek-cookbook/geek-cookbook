@@ -95,11 +95,9 @@ GF_SECURITY_ADMIN_PASSWORD=ilovemybatmanunderpants
 
 Create a docker swarm config file in docker-compose syntax (v3), based on the original swarmprom [docker-compose.yml](https://github.com/stefanprodan/swarmprom/blob/master/docker-compose.yml) file
 
+--8<-- "premix-cta.md"
 
 ???+ note "This example is 274 lines long. Click here to collapse it for better readability"
-
-    !!! tip
-            I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
 
       ```
       version: "3.3"

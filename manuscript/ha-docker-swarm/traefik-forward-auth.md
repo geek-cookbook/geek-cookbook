@@ -83,10 +83,7 @@ If you're not confident that forward authentication is working, add a simple "wh
         - traefik.frontend.auth.forward.trustForwardHeader=true
 ```
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
-
+--8<-- "premix-cta.md"
 
 ## Serving
 
@@ -111,5 +108,5 @@ What have we achieved? By adding an additional three simple labels to any servic
 
 ## Chef's Notes 📓
 
-1. Traefik forward auth replaces the use of [oauth_proxy containers](/reference/oauth_proxy/) found in some of the existing recipes
-2. I reviewed several implementations of forward authenticators for Traefik, but found most to be rather heavy-handed, or specific to a single auth provider. @thomaseddon's go-based docker image is 7MB in size, and can be extended to work with any OIDC provider.
+[^1]: Traefik forward auth replaces the use of [oauth_proxy containers](/reference/oauth_proxy/) found in some of the existing recipes
+[^2]: I reviewed several implementations of forward authenticators for Traefik, but found most to be rather heavy-handed, or specific to a single auth provider. @thomaseddon's go-based docker image is 7MB in size, and can be extended to work with any OIDC provider.
