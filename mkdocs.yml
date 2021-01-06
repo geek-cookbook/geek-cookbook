@@ -190,7 +190,7 @@ nav:
 theme:
   name: 'material'
   custom_dir: 'overrides'
-  disqus: 'geeks-cookbook'
+  # disqus: 'geeks-cookbook'
   logo: 'images/site-logo.svg'
   favicon: 'images/site-logo.svg'
   features:
