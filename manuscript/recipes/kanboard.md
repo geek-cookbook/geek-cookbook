@@ -63,8 +63,7 @@ services:
   kanboard:
     image: kanboard/kanboard
     volumes:
-     - /var/data/kanboard/data:/var/www/app/data
-     - /var/data/kanboard/plugins:/var/www/app/plugins
+     - /var/data/kanboard:/var/www/app/
     networks:
     - internal
     deploy:
