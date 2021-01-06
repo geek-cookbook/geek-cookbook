@@ -167,16 +167,13 @@ Launch shepherd by running ```docker stack deploy shepherd -c /var/data/config/s
 
 ## Summary
 
+--8<-- "5-min-install.md"
+
 What have we achieved?
 
 !!! summary "Summary"
     Created:
 
     * [X] [Docker swarm cluster](/ha-docker-swarm/design/)
-
-
---8<-- "5-min-install.md"
-
-## Chef's Notes 📓
 
 --8<-- "recipe-footer.md"

@@ -66,6 +66,4 @@ Still with me? Good. Move on to reviewing the design elements
 - [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
 - [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
 
-## Chef's Notes
-
 --8<-- "recipe-footer.md"

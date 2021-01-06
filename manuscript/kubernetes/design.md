@@ -129,6 +129,4 @@ Still with me? Good. Move on to creating your cluster!
 - [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
 - [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
 
-## Chef's Notes
-
 --8<-- "recipe-footer.md"

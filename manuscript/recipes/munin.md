@@ -130,8 +130,6 @@ Launch the Munin stack by running `docker stack deploy munin -c <path -to-docker
 
 Log into your new instance at https://**YOUR-FQDN**, with user and password password you specified in munin.env above.
 
-## Chef's Notes 📓
-
-1. If you wanted to expose the Munin UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the munin container. You'd also need to add the traefik_public network to the munin container.
+[^1]: If you wanted to expose the Munin UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the munin container. You'd also need to add the traefik_public network to the munin container.
 
 --8<-- "recipe-footer.md"

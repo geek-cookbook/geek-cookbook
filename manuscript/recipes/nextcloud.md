@@ -217,9 +217,7 @@ location: https://nextcloud.batcave.org/remote.php/dav/
 
 Note that this .htaccess can be overwritten by NextCloud, and you may have to reapply the change in future. I've created an [issue requesting a permanent fix](https://github.com/nextcloud/docker/issues/577).
 
-## Chef's Notes 📓
-
-1. Since many of my other recipes use PostgreSQL, I'd have preferred to use Postgres over MariaDB, but MariaDB seems to be the [preferred database type](https://github.com/nextcloud/server/issues/5912).
-2. I'm [not the first user](https://github.com/nextcloud/docker/issues/528) to stumble across the service discovery bug with reverse proxies.
+[^1]: Since many of my other recipes use PostgreSQL, I'd have preferred to use Postgres over MariaDB, but MariaDB seems to be the [preferred database type](https://github.com/nextcloud/server/issues/5912).
+[^2]: I'm [not the first user](https://github.com/nextcloud/docker/issues/528) to stumble across the service discovery bug with reverse proxies.
 
 --8<-- "recipe-footer.md"

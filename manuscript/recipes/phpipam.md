@@ -201,8 +201,6 @@ Launch the phpIPAM stack by running `docker stack deploy phpipam -c <path -to-do
 
 Log into your new instance at https://**YOUR-FQDN**, and follow the on-screen prompts to set your first user/password.
 
-## Chef's Notes 📓
-
-1. If you wanted to expose the phpIPAM UI directly, you could remove the oauth2_proxy and the nginx services from the design, and move the traefik_public-related labels directly to the phpipam container. You'd also need to add the traefik_public network to the phpipam container.
+[^1]: If you wanted to expose the phpIPAM UI directly, you could remove the oauth2_proxy and the nginx services from the design, and move the traefik_public-related labels directly to the phpipam container. You'd also need to add the traefik_public network to the phpipam container.
 
 --8<-- "recipe-footer.md"

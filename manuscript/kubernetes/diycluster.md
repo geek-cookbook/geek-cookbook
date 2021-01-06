@@ -310,6 +310,4 @@ Feel free to talk to today's chef in the discord, or see one of his many other l
 The links above are just redirect links incase anything ever changes, and it has analytics too
 -->
 
-## Chef's Notes
-
 --8<-- "recipe-footer.md"

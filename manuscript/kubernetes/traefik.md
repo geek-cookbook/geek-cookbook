@@ -208,9 +208,6 @@ Here's a recap:
 
 I'll be adding more Kubernetes versions of existing recipes soon. Check out the [MQTT](/recipes/mqtt/) recipe for a start!
 
-
-## Chef's Notes
-
 [^1]: It's kinda lame to be able to bring up Traefik but not to use it. I'll be adding the oauth_proxy element shortly, which will make this last step a little more conclusive and exciting!
 
 --8<-- "recipe-footer.md"

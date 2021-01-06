@@ -126,13 +126,4 @@ Launch the TTRSS stack by running ```docker stack deploy ttrss -c <path -to-dock
 
 Log into your new instance at https://**YOUR-FQDN** - the first user you create will be an administrative user.
 
-
-## Chef's Notes 📓
-
-There are several TTRSS containers available on docker hub, none of them "official". I chose [x86dev's container](https://github.com/x86dev/docker-ttrss) for its features - such as my favorite skins and plugins, and the daily automatic updates from the "rolling release" master. Some of the features of the container I use are due to a [PR](https://github.com/x86dev/docker-ttrss/pull/12) I submitted:
-
-1. Docker swarm looses the docker-compose concept of "dependencies" between containers. In the case of this stack, the application server typically starts up before the database container, which causes the database autoconfiguration scripts to fail, and brings up the app in a broken state. To prevent this, I  include "[wait-for](https://github.com/Eficode/wait-for/)", which (combined with "S6_BEHAVIOUR_IF_STAGE2_FAILS=2"), will cause the app container to restart (and attempt to auto-configure itself) until the database is ready.
-
-2. The upstream git URL [changed recently](https://discourse.tt-rss.org/t/gitlab-is-overbloated-shit-garbage/325/6), but my experience of the new repository is that it's **SO** slow, that the initial "git clone" on setup of the container times out. To work around this, I created [my own repo](https://github.com/funkypenguin/tt-rss.git), cloned upstream, pushed it into my repo, and pointed the container at my own repo with TTRSS_REPO. I don't get the _latest_ code changes, but at least the app container starts up. When upstream git is performing properly, I'll remove TTRSS_REPO to revert back to the "rolling release".
-
 --8<-- "recipe-footer.md"

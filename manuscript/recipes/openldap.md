@@ -434,8 +434,6 @@ You've now setup your OpenLDAP directory structure, and your administration inte
 
 Create your users using the "**New User**" button.
 
-## Chef's Notes 📓
-
 [^1]: [The KeyCloak](/recipes/keycloak/authenticate-against-openldap/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.
 
 --8<-- "recipe-footer.md"

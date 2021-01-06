@@ -132,6 +132,4 @@ Launch the KeyCloak stack by running `docker stack deploy keycloak -c <path -to-
 
 Log into your new instance at https://**YOUR-FQDN**, and login with the user/password you defined in `keycloak.env`.
 
-## Chef's Notes
-
 --8<-- "recipe-footer.md"

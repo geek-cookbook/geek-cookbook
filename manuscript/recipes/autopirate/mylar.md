@@ -66,8 +66,6 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [Heimdall](/recipes/autopirate/heimdall/)
 * [End](/recipes/autopirate/end/) (launch the stack)
 
-## Chef's Notes 📓
-
 [^1]: In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
 [^2]. If you intend to configure Mylar to perform its own NZB searches and push the hits to a downloader such as SABnzbd, then in addition to configuring the connection to SAB with host, port and api key, you will need to set the parameter `host_return` parameter to the fully qualified Mylar address (e.g. `http://mylar:8090`).
 

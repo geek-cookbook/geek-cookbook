@@ -37,6 +37,4 @@ We've setup users in KeyCloak, which we can now use to authenticate to KeyCloak,
 
     * [X] Username / password to authenticate against [KeyCloak](/recipes/keycloak/)
 
-## Chef's Notes 📓
-
 --8<-- "recipe-footer.md"

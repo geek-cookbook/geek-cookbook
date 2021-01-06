@@ -176,9 +176,6 @@ QmbqPBLJNXWpbXEX6bVhYLo2ruEBE7mh1tfT9s6VXUzYYx | 28c13ec68f33 | Sees 2 other pee
 / #
 ```
 
-
-## Chef's Notes 📓
-
-1. I'm still trying to work out how to _mount_ the ipfs data in my filesystem in a usable way. Which is why this is still a WIP :)
+[^1]: I'm still trying to work out how to _mount_ the ipfs data in my filesystem in a usable way. Which is why this is still a WIP :)
 
 --8<-- "recipe-footer.md"

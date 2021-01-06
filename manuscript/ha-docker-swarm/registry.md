@@ -110,6 +110,4 @@ systemctl restart docker-latest
 !!! tip ""
 Note the extra comma required after "false" above
 
-## Chef's notes 📓
-
 --8<-- "recipe-footer.md"

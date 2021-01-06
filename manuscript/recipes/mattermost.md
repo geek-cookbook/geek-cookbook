@@ -112,10 +112,6 @@ networks:
 
 Launch the MatterMost stack by running ```docker stack deploy mattermost -c <path -to-docker-compose.yml>```
 
-Log into your new instance at https://**YOUR-FQDN**, with user "root" and the password you specified in gitlab.env.
-
-## Chef's Notes 📓
-
-1. If you wanted to expose the Wekan UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the wekan container. You'd also need to add the traefik_public network to the wekan container.
+Log into your new instance at https://**YOUR-FQDN**, with user "root" and the password you specified in mattermost.env.
 
 --8<-- "recipe-footer.md"

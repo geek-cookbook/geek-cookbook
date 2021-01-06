@@ -172,8 +172,6 @@ Launch the Photoprism stack by running ```docker stack deploy photoprism -c <pat
 
 Browse to your new browser-cli-terminal at https://**YOUR-FQDN**, with user "admin" and the password you specified in photoprism.env
 
-## Chef's Notes 📓
-
-1. Once it is running, you probably will want to launch an scan to index the originals photos. Go to *library -> index* and do a complete rescan (it will take a while, depending on your collection size)
+[^1]: Once it is running, you probably will want to launch an scan to index the originals photos. Go to *library -> index* and do a complete rescan (it will take a while, depending on your collection size)
 
 --8<-- "recipe-footer.md"

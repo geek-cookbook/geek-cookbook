@@ -75,8 +75,6 @@ Log into your new instance at https://**YOUR-FQDN**. Since it's a fresh installa
 
 If Komga scratches your particular itch, please join me in [sponsoring the developer](https://github.com/sponsors/gotson) :heart:
 
-## Chef's Notes 📓
-
 [^1]: Since Komga doesn't need to communicate with any other services, we don't need a separate overlay network for it. Provided Traefik can reach Komga via the `traefik_public` overlay network, we've got all we need.
 
 --8<-- "recipe-footer.md"

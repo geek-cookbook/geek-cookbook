@@ -92,10 +92,8 @@ Browse to your new instance at https://**YOUR-FQDN**, and create a new user acco
 
 Once you've created your account, jump over to https://bitwarden.com/#download and download the apps for your mobile and browser, and start adding your logins!
 
-## Chef's Notes 📓
-
-1. You'll notice we're not using the *official* container images (*[all 6 of them required](https://help.bitwarden.com/article/install-on-premise/#install-bitwarden)!)*, but rather a [more lightweight version ideal for self-hosting](https://hub.docker.com/r/bitwardenrs/server). All of the elements are contained within a single container, and SQLite is used for the database backend.
-2. As mentioned above, readers should refer to the [dani-garcia/bitwarden_rs wiki](https://github.com/dani-garcia/bitwarden_rs) for details on customizing the behaviour of Bitwarden.
-3. The inclusion of Bitwarden was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz)- Thanks Gerry!
+[^1]: You'll notice we're not using the *official* container images (*[all 6 of them required](https://help.bitwarden.com/article/install-on-premise/#install-bitwarden)!)*, but rather a [more lightweight version ideal for self-hosting](https://hub.docker.com/r/bitwardenrs/server). All of the elements are contained within a single container, and SQLite is used for the database backend.
+[^2]: As mentioned above, readers should refer to the [dani-garcia/bitwarden_rs wiki](https://github.com/dani-garcia/bitwarden_rs) for details on customizing the behaviour of Bitwarden.
+[^3]: The inclusion of Bitwarden was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz)- Thanks Gerry!
 
 --8<-- "recipe-footer.md"

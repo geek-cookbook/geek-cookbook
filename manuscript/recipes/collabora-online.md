@@ -292,8 +292,6 @@ In NextCloud, Install the **Collabora Online** app (https://apps.nextcloud.com/a
 
 Now browse your NextCloud files. Click the plus (+) sign to create a new document, and create either a new document, spreadsheet, or presentation. Name your document and then click on it. If Collabora is setup correctly, you'll shortly enter into the rich editing interface provided by Collabora :)
 
-## Chef's Notes 📓
-
-1. Yes, this recipe is complicated. And you probably only care if you feel strongly about using Open Source rich document editing in the browser, vs using something like Google Docs. It works impressively well however, once it works. I hope to make this recipe simpler once the CODE developers have documented how to pass optional parameters as environment variables.
+[^1]: Yes, this recipe is complicated. And you probably only care if you feel strongly about using Open Source rich document editing in the browser, vs using something like Google Docs. It works impressively well however, once it works. I hope to make this recipe simpler once the CODE developers have documented how to pass optional parameters as environment variables.
 
 --8<-- "recipe-footer.md"

@@ -113,8 +113,6 @@ Created:
 
     * [X] Traefik-forward-auth configured to authenticate against KeyCloak
 
-## Chef's Notes 📓
-
 [^1]: KeyCloak is very powerful. You can add 2FA and all other clever things outside of the scope of this simple recipe ;)
 
 --8<-- "recipe-footer.md"

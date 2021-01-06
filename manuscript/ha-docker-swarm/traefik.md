@@ -214,9 +214,6 @@ You should now be able to access[^1] your traefik instance on http://<node IP\>:
     * [X] Frontend proxy which will dynamically configure itself for new backend containers
     * [X] Automatic SSL support for all proxied resources
 
-
-## Chef's Notes  📓
-
 [^1]: Did you notice how no authentication was required to view the Traefik dashboard? Eek! We'll tackle that in the next section, regarding [Traefik Forward Authentication](/ha-docker-swarm/traefik-forward-auth/)!
 
 --8<-- "recipe-footer.md"

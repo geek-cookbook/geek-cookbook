@@ -89,8 +89,6 @@ Upon restore, docker failed to start on one of the VMs due to local disk space i
 
 In summary, although I suffered an **unplanned power outage to all of my infrastructure**, followed by a **failure of a third of my hosts**... ==all my platforms are 100% available[^1] with **absolutely no manual intervention**==.
 
-## Chef's Notes 📓
-
 [^1]: Since there's no impact to availability, I can fix (or just reinstall) the failed node whenever convenient.
 
 --8<-- "recipe-footer.md"

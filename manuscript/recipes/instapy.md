@@ -128,8 +128,6 @@ After swarm deploys, you won't see much, but you can monitor what InstaPy is doi
 
 You can **also** watch the bot at work by VNCing to your docker swarm, password "secret". You'll see Selenium browser window cycling away, interacting with all your real/fake friends on Instagram :)
 
-## Chef's Notes 📓
-
-1. Amazingly, my bot has ended up tagging more _non-penguins_ than actual penguins. I don't understand how Instagrammers come up with their hashtags!
+[^1]: Amazingly, my bot has ended up tagging more _non-penguins_ than actual penguins. I don't understand how Instagrammers come up with their hashtags!
 
 --8<-- "recipe-footer.md"

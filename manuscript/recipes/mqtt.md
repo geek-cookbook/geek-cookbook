@@ -204,6 +204,4 @@ mqtt-65f4d96945-bjj44         1/1       Running   0          5m
 
 To actually **use** your new MQTT broker, you'll need to connect to any one of your nodes (`kubectl get nodes -o wide`) on port 30883 (_the nodeport service we created earlier_). More info on that, and a loadbalancer design, to follow shortly :)
 
-## Chef's Notes 📓
-
 --8<-- "recipe-footer.md"
