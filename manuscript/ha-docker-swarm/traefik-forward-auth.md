@@ -110,3 +110,5 @@ What have we achieved? By adding an additional three simple labels to any servic
 
 [^1]: Traefik forward auth replaces the use of [oauth_proxy containers](/reference/oauth_proxy/) found in some of the existing recipes
 [^2]: I reviewed several implementations of forward authenticators for Traefik, but found most to be rather heavy-handed, or specific to a single auth provider. @thomaseddon's go-based docker image is 7MB in size, and can be extended to work with any OIDC provider.
+
+--8<-- "recipe-footer.md"

@@ -84,3 +84,5 @@ Still with me? Good. Move on to creating your own external load balancer..
 ## Chef's Notes
 
 1. Ok, yes, there's not much you can do with your cluster _yet_. But stay tuned, more Kubernetes fun to come!
+
+--8<-- "recipe-footer.md"

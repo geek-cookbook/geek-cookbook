@@ -78,3 +78,5 @@ If Komga scratches your particular itch, please join me in [sponsoring the devel
 ## Chef's Notes 📓
 
 [^1]: Since Komga doesn't need to communicate with any other services, we don't need a separate overlay network for it. Provided Traefik can reach Komga via the `traefik_public` overlay network, we've got all we need.
+
+--8<-- "recipe-footer.md"

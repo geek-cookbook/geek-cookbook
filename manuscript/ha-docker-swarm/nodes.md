@@ -77,3 +77,5 @@ After completing the above, you should have:
     * [X] Connectivity to each other within the same subnet, and on a low-latency link (_i.e., no WAN links_)
 
 ## Chef's Notes 📓
+
+--8<-- "recipe-footer.md"

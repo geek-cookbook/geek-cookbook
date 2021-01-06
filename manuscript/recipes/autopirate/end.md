@@ -12,3 +12,5 @@ Log into each of your new tools at its respective HTTPS URL. You'll be prompted 
 ## Chef's Notes 📓
 
 1. This is a complex stack. Sing out in the comments if you found a flaw or need a hand :)
+
+--8<-- "recipe-footer.md"

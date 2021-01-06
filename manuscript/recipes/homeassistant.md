@@ -132,3 +132,5 @@ Log into your new instance at https://**YOUR-FQDN**, the password you created in
 ## Chef's Notes 📓
 
 1. I **tried** to protect Home Assistant using [oauth2_proxy](/reference/oauth_proxy), but HA is incompatible with the websockets implementation used by Home Assistant. Until this can be fixed, I suggest that geeks set frontend: api_key to a long and complex string, and rely on this to prevent malevolent internet miscreants from turning their lights on at 2am!
+
+--8<-- "recipe-footer.md"

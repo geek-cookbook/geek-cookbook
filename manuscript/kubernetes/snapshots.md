@@ -190,5 +190,7 @@ Still with me? Good. Move on to understanding Helm charts...
 
 ## Chef's Notes
 
-1. I've submitted [2 PRs](https://github.com/miracle2k/k8s-snapshots/pulls/funkypenguin) to the k8s-snapshots repo. The first [updates the README for GKE RBAC requirements](https://github.com/miracle2k/k8s-snapshots/pull/71), and the second [fixes a minor typo](https://github.com/miracle2k/k8s-snapshots/pull/74).
+[^1]: I've submitted [2 PRs](https://github.com/miracle2k/k8s-snapshots/pulls/funkypenguin) to the k8s-snapshots repo. The first [updates the README for GKE RBAC requirements](https://github.com/miracle2k/k8s-snapshots/pull/71), and the second [fixes a minor typo](https://github.com/miracle2k/k8s-snapshots/pull/74).
 ```
+
+--8<-- "recipe-footer.md"

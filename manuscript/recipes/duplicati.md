@@ -2,7 +2,7 @@ hero: Duplicati - Yet another option to backup your exciting stuff. It's good to
 
 # Duplicati
 
-Always have a backup plan<sup>1<sup>
+Always have a backup plan[^1]
 
 ![duplicati Screenshot](../images/duplicati.jpg)
 
@@ -115,5 +115,7 @@ Once we authenticate through the traefik-forward-auth provider, we can start con
 
 ## Chef's Notes  📓
 
-1. Quote attributed to Mila Kunis
-2. The [Duplicati 2 User's Manual](https://duplicati.readthedocs.io/en/latest/) contains all the information you'll need to configure backup endpoints, restore jobs, scheduling and advanced properties for your backup jobs.
+[^1]: Quote attributed to Mila Kunis
+[^2]: The [Duplicati 2 User's Manual](https://duplicati.readthedocs.io/en/latest/) contains all the information you'll need to configure backup endpoints, restore jobs, scheduling and advanced properties for your backup jobs.
+
+--8<-- "recipe-footer.md"

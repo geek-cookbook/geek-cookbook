@@ -65,3 +65,5 @@ Log into your new instance at https://**YOUR-FQDN**. You'll be prompted to set y
 ## Chef's Notes 📓
 
 1. I wanted to use oauth2_proxy to provide an additional layer of security for Portainer, but the proxy seems to break the authentication mechanism, effectively making the stack **so** secure, that it can't be logged into!
+
+--8<-- "recipe-footer.md"

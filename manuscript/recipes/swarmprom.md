@@ -392,3 +392,5 @@ Log into your new grafana instance, check out your beautiful graphs. Move onto d
 ## Chef's Notes 📓
 
 1. Pay close attention to the ```grafana.env``` config. If you encounter errors about ```basic auth failed```, or failed CSS, it's likely due to misconfiguration of one of the grafana environment variables.
+
+--8<-- "recipe-footer.md"

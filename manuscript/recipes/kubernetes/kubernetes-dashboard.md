@@ -33,3 +33,5 @@ At this point, you should be able to access your instance on your chosen DNS nam
 ## Chef's Notes
 
 1. The simplest deployment of Kanboard uses the default SQLite database backend, stored on the persistent volume. You can convert this to a "real" database running MySQL or PostgreSQL, and running an an additional database pod and service. Contact me if you'd like further details ;)
+
+--8<-- "recipe-footer.md"

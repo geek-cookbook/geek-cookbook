@@ -208,3 +208,5 @@ root@raphael:~#
 1. The `/var/data/restic/restic.exclude` exists to provide you with a way to exclude data you don't care to backup.
 2. A recent benchmark of various backup tools, including Restic, can be found [here](https://forum.duplicati.com/t/big-comparison-borg-vs-restic-vs-arq-5-vs-duplicacy-vs-duplicati/9952).
 3. A paid-for UI for Restic can be found [here](https://forum.restic.net/t/web-ui-for-restic/667/26).
+
+--8<-- "recipe-footer.md"

@@ -59,4 +59,6 @@ Log into your new instance at https://**YOUR-FQDN**, with user "root" and the pa
 ## Chef's Notes 📓
 
 1. The [PrivateBin repo](https://github.com/PrivateBin/PrivateBin/blob/master/INSTALL.md) explains how to tweak configuration options, or to use a database instead of file storage, if your volume justifies it :)
-2. The inclusion of PrivateBin was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Jerry!!
+2. The inclusion of PrivateBin was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Gerry!!
+
+--8<-- "recipe-footer.md"

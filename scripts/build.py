@@ -87,26 +87,27 @@ class Filters:
 
         return content
 
-    def footer(self, content, context):
-        """Appends a footer to the end of every manuscript file"""
-        if not hasattr(self, "footer_content"):
-            self.footer_path = os.path.join(
-                os.path.dirname(__file__), "recipe-footer.md")
-            footer_file = open(self.footer_path)
-            self.footer_content = footer_file.read()
-            self.footer_search = self.footer_content.split("\n")[
-                0].replace("#", "")
-            footer_file.close()
-        if "index.md" in context['file_name']:
-            log(LOG.DEBUG, "footer",
-                f"ignoring {context['file_name']} as it contains index.md")
-            return content
+    # disabled for now because we're using snippets
+    # def footer(self, content, context):
+    #     """Appends a footer to the end of every manuscript file"""
+    #     if not hasattr(self, "footer_content"):
+    #         self.footer_path = os.path.join(
+    #             os.path.dirname(__file__), "recipe-footer.md")
+    #         footer_file = open(self.footer_path)
+    #         self.footer_content = footer_file.read()
+    #         self.footer_search = self.footer_content.split("\n")[
+    #             0].replace("#", "")
+    #         footer_file.close()
+    #     if "index.md" in context['file_name']:
+    #         log(LOG.DEBUG, "footer",
+    #             f"ignoring {context['file_name']} as it contains index.md")
+    #         return content
 
-        if self.footer_search in content:
-            log(LOG.WARN, "footer",
-                f"Footer is hard-coded in {context['file_name']}")
-            return content
-        return content + "\n" + self.footer_content
+    #     if self.footer_search in content:
+    #         log(LOG.WARN, "footer",
+    #             f"Footer is hard-coded in {context['file_name']}")
+    #         return content
+    #     return content + "\n" + self.footer_content
 
 
 def flattern(obj):

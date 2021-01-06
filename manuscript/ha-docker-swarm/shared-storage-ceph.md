@@ -229,3 +229,5 @@ Here's a screencast of the playbook in action. I sped up the boring parts, it ac
 ## Chef's Notes 📓
 
 [^1]: Minimum Viable Cluster acronym copyright, trademark, and whatever else, to Funky Penguin for 1,000,000 years.
+
+--8<-- "recipe-footer.md"

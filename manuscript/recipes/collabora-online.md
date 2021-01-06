@@ -1,10 +1,5 @@
 # Collabora Online
 
-!!! important
-    Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
-
-    [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
-
 Collabora Online Development Edition (or "[CODE](https://www.collaboraoffice.com/code/#what_is_code)"), is the lightweight, or "home" edition of the commercially-supported [Collabora Online](https://www.collaboraoffice.com/collabora-online/) platform. It
 
 It's basically the [LibreOffice](https://www.libreoffice.org/) interface in a web-browser. CODE is not a standalone app, it's a backend intended to be accessed via "WOPI" from an existing interface (_in our case, [NextCloud](/recipes/nextcloud/)_)
@@ -297,12 +292,8 @@ In NextCloud, Install the **Collabora Online** app (https://apps.nextcloud.com/a
 
 Now browse your NextCloud files. Click the plus (+) sign to create a new document, and create either a new document, spreadsheet, or presentation. Name your document and then click on it. If Collabora is setup correctly, you'll shortly enter into the rich editing interface provided by Collabora :)
 
-!!! important
-    Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
-
-    [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
-
 ## Chef's Notes 📓
 
 1. Yes, this recipe is complicated. And you probably only care if you feel strongly about using Open Source rich document editing in the browser, vs using something like Google Docs. It works impressively well however, once it works. I hope to make this recipe simpler once the CODE developers have documented how to pass optional parameters as environment variables.
 
+--8<-- "recipe-footer.md"

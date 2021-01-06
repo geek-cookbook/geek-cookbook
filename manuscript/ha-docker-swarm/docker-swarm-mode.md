@@ -178,3 +178,5 @@ What have we achieved?
 --8<-- "5-min-install.md"
 
 ## Chef's Notes 📓
+
+--8<-- "recipe-footer.md"

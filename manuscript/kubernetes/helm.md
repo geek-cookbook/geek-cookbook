@@ -60,3 +60,5 @@ Still with me? Good. Move on to understanding Helm charts...
 ## Chef's Notes
 
 1. Of course, you can have lots of fun deploying all sorts of things via Helm. Check out https://github.com/helm/charts for some examples.
+
+--8<-- "recipe-footer.md"

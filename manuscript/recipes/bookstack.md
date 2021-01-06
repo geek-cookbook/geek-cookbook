@@ -140,3 +140,5 @@ Log into your new instance at https://**YOUR-FQDN**, authenticate with oauth_pro
 ## Chef's Notes 📓
 
 1. If you wanted to expose the BookStack UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the bookstack container. You'd also need to add the traefik_public network to the bookstack container.
+
+--8<-- "recipe-footer.md"

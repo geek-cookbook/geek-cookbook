@@ -133,3 +133,5 @@ Log into your new instance at https://**YOUR-FQDN**, with user and password pass
 ## Chef's Notes 📓
 
 1. If you wanted to expose the Munin UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the munin container. You'd also need to add the traefik_public network to the munin container.
+
+--8<-- "recipe-footer.md"

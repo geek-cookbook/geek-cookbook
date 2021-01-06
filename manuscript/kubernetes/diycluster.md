@@ -298,7 +298,7 @@ Now that you have wasted half a lifetime on installing your very own cluster, yo
 * [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
 * [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
 
-## About your Chef
+## About your guest chef
 
 This article, believe it or not, was not diced up by your regular chef (funkypenguin).
 Instead, today's article was diced up by HexF, a fellow kiwi (hence a lot of kiwi references) who enjoys his sysadmin time.
@@ -309,3 +309,7 @@ Feel free to talk to today's chef in the discord, or see one of his many other l
 <!--
 The links above are just redirect links incase anything ever changes, and it has analytics too
 -->
+
+## Chef's Notes
+
+--8<-- "recipe-footer.md"

@@ -1,10 +1,5 @@
 # OpenLDAP
 
-!!! important
-    Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
-
-    [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
-
 LDAP is probably the most ubiquitous authentication backend, before the current era of "[stupid social sign-ons](https://www.usatoday.com/story/tech/columnist/2018/10/23/how-separate-your-social-networks-your-regular-sites/1687763002/)". Many of the recipes featured in the cookbook (_[NextCloud](/recipes/nextcloud/), [Kanboard](/recipes/kanboard/), [Gitlab](/recipes/gitlab/), etc_) offer LDAP integration.
 
 ## Big deal, who cares?
@@ -439,12 +434,8 @@ You've now setup your OpenLDAP directory structure, and your administration inte
 
 Create your users using the "**New User**" button.
 
-
-!!! important
-    Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
-
-    [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
-
 ## Chef's Notes 📓
 
-1. [The KeyCloak](/recipes/keycloak/authenticate-against-openldap/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.
+[^1]: [The KeyCloak](/recipes/keycloak/authenticate-against-openldap/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.
+
+--8<-- "recipe-footer.md"

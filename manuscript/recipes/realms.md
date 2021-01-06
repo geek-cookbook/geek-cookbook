@@ -110,3 +110,5 @@ Log into your new instance at https://**YOUR-FQDN**, authenticate against oauth_
 
 1. If you wanted to expose the Realms UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the realms container. You'd also need to add the traefik_public network to the realms container.
 2. The inclusion of Realms was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz). Thanks gkoerk!
+
+--8<-- "recipe-footer.md"

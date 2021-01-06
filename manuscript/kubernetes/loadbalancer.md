@@ -330,3 +330,5 @@ Still with me? Good. Move on to setting up an ingress SSL terminating proxy with
 ## Chef's Notes
 
 1. This is MVP of the load balancer solution. Any suggestions for improvements are welcome 😉
+
+--8<-- "recipe-footer.md"

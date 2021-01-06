@@ -114,4 +114,6 @@ Log into your new instance at https://**YOUR-FQDN**, with user "root" and the pa
 
 ## Chef's Notes 📓
 
-1. If you wanted to expose the Wekan UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the wekan container. You'd also need to add the traefik_public network to the wekan container.
+[^1]: If you wanted to expose the Wekan UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the wekan container. You'd also need to add the traefik_public network to the wekan container.
+
+--8<-- "recipe-footer.md"

@@ -53,3 +53,5 @@ We've setup an OIDC client in KeyCloak, which we can now use to protect vulnerab
     * [X] Client ID and Client Secret used to authenticate against KeyCloak with OpenID Connect
 
 ## Chef's Notes 📓
+
+--8<-- "recipe-footer.md"
