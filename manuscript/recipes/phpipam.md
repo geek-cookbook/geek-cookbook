@@ -107,8 +107,7 @@ server {
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a `git pull` and a `docker stack deploy` 👍
+--8<-- "premix-cta.md"
 
 ```
 version: '3'
@@ -202,6 +201,6 @@ Launch the phpIPAM stack by running `docker stack deploy phpipam -c <path -to-do
 
 Log into your new instance at https://**YOUR-FQDN**, and follow the on-screen prompts to set your first user/password.
 
-## Chef's Notes 📓
+[^1]: If you wanted to expose the phpIPAM UI directly, you could remove the oauth2_proxy and the nginx services from the design, and move the traefik_public-related labels directly to the phpipam container. You'd also need to add the traefik_public network to the phpipam container.
 
-1. If you wanted to expose the phpIPAM UI directly, you could remove the oauth2_proxy and the nginx services from the design, and move the traefik_public-related labels directly to the phpipam container. You'd also need to add the traefik_public network to the phpipam container.
+--8<-- "recipe-footer.md"

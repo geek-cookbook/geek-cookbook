@@ -117,8 +117,7 @@ Examine the contents of /var/data/duplicity/tmp/traefik-restored.yml to confirm 
 
 Now that we have confidence in our backup/restore process, let's automate it by creating a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a `git pull` and a `docker stack deploy` 👍
+--8<-- "premix-cta.md"
 
 ```
 version: "3"
@@ -155,7 +154,7 @@ Launch Duplicity stack by running `docker stack deploy duplicity -c <path -to-do
 
 Nothing will happen. Very boring. But when the cron script fires (daily), duplicity will do its thing, and backup everything in /var/data to your cloud destination.
 
-## Chef's Notes 📓
+[^1]: Automatic backup can still fail if nobody checks that it's running successfully. I'll be working on an upcoming recipe to monitor the elements of the stack, including the success/failure of duplicity jobs.
+[^2]: The container provides the facility to specify an SMTP host and port, but not credentials, which makes it close to useless. As a result, I've left SMTP out of this recipe. To enable email notifications (if your SMTP server doesn't require auth), add `SMTP_HOST`, `SMTP_PORT`, `EMAIL_FROM` and `EMAIL_TO` variables to `duplicity.env`.
 
-1. Automatic backup can still fail if nobody checks that it's running successfully. I'll be working on an upcoming recipe to monitor the elements of the stack, including the success/failure of duplicity jobs.
-2. The container provides the facility to specify an SMTP host and port, but not credentials, which makes it close to useless. As a result, I've left SMTP out of this recipe. To enable email notifications (if your SMTP server doesn't require auth), add `SMTP_HOST`, `SMTP_PORT`, `EMAIL_FROM` and `EMAIL_TO` variables to duplicity.env
+--8<-- "recipe-footer.md"

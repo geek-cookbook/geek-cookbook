@@ -81,8 +81,7 @@ What have we achieved?
 
 --8<-- "5-min-install.md"
 
-
-## Chef's notes 📓
-
 [^1]: Some hosting platforms (*OpenStack, for one*) won't allow you to simply "claim" a virtual IP. Each node is only able to receive traffic targetted to its unique IP, unless certain security controls are disabled by the cloud administrator. In this case, keepalived is not the right solution, and a platform-specific load-balancing solution should be used. In OpenStack, this is Neutron's "Load Balancer As A Service" (LBAAS) component. AWS, GCP and Azure would likely include similar protections.
 [^2]: More than 2 nodes can participate in keepalived. Simply ensure that each node has the appropriate priority set, and the node with the highest priority will become the master.
+
+--8<-- "recipe-footer.md"

@@ -44,8 +44,7 @@ mylar_proxy:
     -authenticated-emails-file=/authenticated-emails.txt
 ````
 
-!!! tip
-    I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
 ## Assemble more tools..
 
@@ -67,11 +66,10 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [Heimdall](/recipes/autopirate/heimdall/)
 * [End](/recipes/autopirate/end/) (launch the stack)
 
-
-## Chef's Notes 📓
-
-1. In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
-
-2. If you intend to configure Mylar to perform its own NZB searches and push the hits to a downloader such as SABnzbd, then in addition to configuring the connection to SAB with host, port and api key, you will need to set the parameter `host_return` parameter to the fully qualified Mylar address (e.g. `http://mylar:8090`).
+[^1]: In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
+[^2]. If you intend to configure Mylar to perform its own NZB searches and push the hits to a downloader such as SABnzbd, then in addition to configuring the connection to SAB with host, port and api key, you will need to set the parameter `host_return` parameter to the fully qualified Mylar address (e.g. `http://mylar:8090`).
 
     This will provide the link to the downloader necessary to initiate the download.  This parameter is not presented in the user interface so the config file (`$MYLAR_HOME/config.ini`) will need to be manually updated.  The parameter can be found under the [Interface] section of the file. ([Details](https://github.com/evilhero/mylar/issues/2242))
+
+
+--8<-- "recipe-footer.md"

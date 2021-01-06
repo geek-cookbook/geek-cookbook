@@ -53,8 +53,7 @@ BACKUP_FREQUENCY=1d
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-    I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
 ```
 version: '3'
@@ -140,6 +139,6 @@ Launch the Wekan stack by running ```docker stack deploy wekan -c <path -to-dock
 
 Log into your new instance at https://**YOUR-FQDN**, with user "root" and the password you specified in gitlab.env.
 
-## Chef's Notes 📓
+[^1]: If you wanted to expose the Wekan UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the wekan container. You'd also need to add the traefik network to the wekan container.
 
-1. If you wanted to expose the Wekan UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the wekan container. You'd also need to add the traefik network to the wekan container.
+--8<-- "recipe-footer.md"

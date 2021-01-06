@@ -91,9 +91,7 @@ BACKUP_FREQUENCY=1d
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 ```
 version: '3.3'
@@ -174,6 +172,6 @@ Launch the Photoprism stack by running ```docker stack deploy photoprism -c <pat
 
 Browse to your new browser-cli-terminal at https://**YOUR-FQDN**, with user "admin" and the password you specified in photoprism.env
 
-## Chef's Notes 📓
+[^1]: Once it is running, you probably will want to launch an scan to index the originals photos. Go to *library -> index* and do a complete rescan (it will take a while, depending on your collection size)
 
-1. Once it is running, you probably will want to launch an scan to index the originals photos. Go to *library -> index* and do a complete rescan (it will take a while, depending on your collection size)
+--8<-- "recipe-footer.md"

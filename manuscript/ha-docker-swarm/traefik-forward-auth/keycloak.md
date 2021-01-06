@@ -80,8 +80,7 @@ If you're not confident that forward authentication is working, add a simple "wh
         - traefik.frontend.auth.forward.trustForwardHeader=true
 ```
 
-!!! tip
-I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a `git pull` and a `docker stack deploy` 👍
+--8<-- "premix-cta.md"
 
 ## Serving
 
@@ -114,6 +113,6 @@ Created:
 
     * [X] Traefik-forward-auth configured to authenticate against KeyCloak
 
-## Chef's Notes 📓
+[^1]: KeyCloak is very powerful. You can add 2FA and all other clever things outside of the scope of this simple recipe ;)
 
-1. KeyCloak is very powerful. You can add 2FA and all other clever things outside of the scope of this simple recipe ;)
+--8<-- "recipe-footer.md"

@@ -94,8 +94,7 @@ Create the necessary DNS TXT entries for your domain(s). Note that although open
 
 Create a docker swarm config file in docker-compose syntax (_v3.2 - because we need to expose mail ports in "host mode"_), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
 ```
 version: '3.2'
@@ -178,8 +177,8 @@ SSL_TYPE=letsencrypt
 
 Launch the mail server stack by running ```docker stack deploy docker-mailserver -c <path-to-docker-mailserver.yml>```
 
-## Chef's Notes 📓
+[^1]: One of the elements of this design which I didn't appreciate at first is that since the config is entirely file-based, **setup.sh** can be run on any container host, provided it has the shared data mounted. This means that even though docker-mailserver was not designed with docker swarm in mind, it works perfectl with swarm. I.e., from any node, regardless of where the container is actually running, you're able to add/delete email addresses, view logs, etc.
 
-1. One of the elements of this design which I didn't appreciate at first is that since the config is entirely file-based, **setup.sh** can be run on any container host, provided it has the shared data mounted. This means that even though docker-mailserver was not designed with docker swarm in mind, it works perfectl with swarm. I.e., from any node, regardless of where the container is actually running, you're able to add/delete email addresses, view logs, etc.
+[^2]: If you're using sieve with Rainloop, take note of the [workaround](https://discourse.geek-kitchen.funkypenguin.co.nz/t/mail-server-funky-penguins-geek-cookbook/70/15) identified by [ggilley](https://discourse.geek-kitchen.funkypenguin.co.nz/u/ggilley)
 
-2. If you're using sieve with Rainloop, take note of the [workaround](https://discourse.geek-kitchen.funkypenguin.co.nz/t/mail-server-funky-penguins-geek-cookbook/70/15) identified by [ggilley](https://discourse.geek-kitchen.funkypenguin.co.nz/u/ggilley)
+--8<-- "recipe-footer.md"

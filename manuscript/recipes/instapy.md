@@ -32,9 +32,7 @@ mkdir -p /var/data/instapy/logs
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 ```
 version: '3'
@@ -130,6 +128,6 @@ After swarm deploys, you won't see much, but you can monitor what InstaPy is doi
 
 You can **also** watch the bot at work by VNCing to your docker swarm, password "secret". You'll see Selenium browser window cycling away, interacting with all your real/fake friends on Instagram :)
 
-## Chef's Notes 📓
+[^1]: Amazingly, my bot has ended up tagging more _non-penguins_ than actual penguins. I don't understand how Instagrammers come up with their hashtags!
 
-1. Amazingly, my bot has ended up tagging more _non-penguins_ than actual penguins. I don't understand how Instagrammers come up with their hashtags!
+--8<-- "recipe-footer.md"

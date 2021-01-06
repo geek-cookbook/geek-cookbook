@@ -68,9 +68,7 @@ BACKUP_FREQUENCY=1d
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 ```
 version: '3'
@@ -142,6 +140,6 @@ Launch the Huginn stack by running ```docker stack deploy huginn -c <path -to-do
 
 Log into your new instance at https://**YOUR-FQDN**. You'll need to use the "Sign Up" button, and (optionally) enter your invitation code in order to create your account.
 
-## Chef's Notes 📓
+[^1]: I initially considered putting an oauth proxy in front of Huginn, but since the invitation code logic prevents untrusted access, and since using a proxy would break oauth for features such as Twitter integration, I left it out.
 
-1. I initially considered putting an oauth proxy in front of Huginn, but since the invitation code logic prevents untrusted access, and since using a proxy would break oauth for sevices like Twitter integration, I left it out.
+--8<-- "recipe-footer.md"

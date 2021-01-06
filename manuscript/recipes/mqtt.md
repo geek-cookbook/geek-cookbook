@@ -114,8 +114,7 @@ Because. See [my blog post here](https://www.funkypenguin.co.nz/beware-the-hidde
 
 Now that we have a volume, a service, and a namespace, we can create a deployment for the mqtt pod. Note below the use of volume mounts, environment variables, as well as the secrets.
 
-!!! tip
-I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that sponsors can launch any recipe with just a `git pull` and a `kubectl create -f *.yml` 👍
+--8<-- "premix-cta.md"
 
 ```
 cat <<EOF > /var/data/mqtt/mqtt.yml
@@ -205,4 +204,4 @@ mqtt-65f4d96945-bjj44         1/1       Running   0          5m
 
 To actually **use** your new MQTT broker, you'll need to connect to any one of your nodes (`kubectl get nodes -o wide`) on port 30883 (_the nodeport service we created earlier_). More info on that, and a loadbalancer design, to follow shortly :)
 
-## Chef's Notes 📓
+--8<-- "recipe-footer.md"

@@ -76,9 +76,7 @@ BACKUP_FREQUENCY=1d
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 ```
 version: '3'
@@ -195,8 +193,7 @@ Even with all these elements in place, you still need to enable Redis under Inte
 
 ![Wallabag Imports](../images/wallabag_imports.png)
 
+[^1]: If you wanted to expose the Wallabag UI directly (_required for the iOS/Android apps_), you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the wallabag container. You'd also need to add the traefik_public network to the wallabag container. I found the iOS app to be unreliable and clunky, so elected to leave my oauth_proxy enabled, and to simply use the webUI on my mobile devices instead. YMMMV.
+[^2]: I've not tested the email integration, but you'd need an SMTP server listening on port 25 (_since we can't change the port_) to use it
 
-## Chef's Notes 📓
-
-1. If you wanted to expose the Wallabag UI directly (_required for the iOS/Android apps_), you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the wallabag container. You'd also need to add the traefik_public network to the wallabag container. I found the iOS app to be unreliable and clunky, so elected to leave my oauth_proxy enabled, and to simply use the webUI on my mobile devices instead. YMMMV.
-2. I've not tested the email integration, but you'd need an SMTP server listening on port 25 (_since we can't change the port_) to use it
+--8<-- "recipe-footer.md"

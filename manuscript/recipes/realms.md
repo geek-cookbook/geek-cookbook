@@ -47,9 +47,7 @@ OAUTH2_PROXY_COOKIE_SECRET=
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 ```
 version: "3"
@@ -108,7 +106,7 @@ Launch the Wekan stack by running ```docker stack deploy realms -c <path -to-doc
 
 Log into your new instance at https://**YOUR-FQDN**, authenticate against oauth_proxy, and you're immediately presented with Realms wiki, waiting for a fresh edit ;)
 
-## Chef's Notes 📓
+[^1]: If you wanted to expose the Realms UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the realms container. You'd also need to add the traefik_public network to the realms container.
+[^2]: The inclusion of Realms was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz). Thanks gkoerk!
 
-1. If you wanted to expose the Realms UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the realms container. You'd also need to add the traefik_public network to the realms container.
-2. The inclusion of Realms was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz). Thanks gkoerk!
+--8<-- "recipe-footer.md"

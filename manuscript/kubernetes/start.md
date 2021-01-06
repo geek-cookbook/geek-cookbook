@@ -65,3 +65,5 @@ Still with me? Good. Move on to reviewing the design elements
 - [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
 - [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
 - [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
+
+--8<-- "recipe-footer.md"

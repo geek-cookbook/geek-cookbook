@@ -1,10 +1,5 @@
 # OpenLDAP
 
-!!! important
-    Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
-
-    [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
-
 LDAP is probably the most ubiquitous authentication backend, before the current era of "[stupid social sign-ons](https://www.usatoday.com/story/tech/columnist/2018/10/23/how-separate-your-social-networks-your-regular-sites/1687763002/)". Many of the recipes featured in the cookbook (_[NextCloud](/recipes/nextcloud/), [Kanboard](/recipes/kanboard/), [Gitlab](/recipes/gitlab/), etc_) offer LDAP integration.
 
 ## Big deal, who cares?
@@ -334,8 +329,8 @@ Create yours profile (_you chose a default profile in config.cfg above, remember
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this, at  (```/var/data/config/openldap/openldap.yml```)
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
+
 ```
 version: '3'
 
@@ -439,12 +434,6 @@ You've now setup your OpenLDAP directory structure, and your administration inte
 
 Create your users using the "**New User**" button.
 
+[^1]: [The KeyCloak](/recipes/keycloak/authenticate-against-openldap/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.
 
-!!! important
-    Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
-
-    [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
-
-## Chef's Notes 📓
-
-1. [The KeyCloak](/recipes/keycloak/authenticate-against-openldap/) recipe illustrates how to integrate KeyCloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.
+--8<-- "recipe-footer.md"

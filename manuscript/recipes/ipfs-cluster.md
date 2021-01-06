@@ -2,9 +2,6 @@
     This recipe is **incomplete**, and remains a work in progress.
     So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 😁
 
-!!! important
-    Development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/)
-    
 # IPFS
 
 The intention of this recipe is to provide a local IPFS cluster for the purpose of providing persistent storage for the various components of the recipes
@@ -179,7 +176,6 @@ QmbqPBLJNXWpbXEX6bVhYLo2ruEBE7mh1tfT9s6VXUzYYx | 28c13ec68f33 | Sees 2 other pee
 / #
 ```
 
+[^1]: I'm still trying to work out how to _mount_ the ipfs data in my filesystem in a usable way. Which is why this is still a WIP :)
 
-## Chef's Notes 📓
-
-1. I'm still trying to work out how to _mount_ the ipfs data in my filesystem in a usable way. Which is why this is still a WIP :)
+--8<-- "recipe-footer.md"

@@ -45,9 +45,7 @@ MINIO_SECRET_KEY=<another random, complex string>
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 ```
 version: '3.1'
@@ -170,9 +168,8 @@ To permanently mount an S3 bucket using goofys, I'd add something like this to /
 goofys#bucket   /mnt/mountpoint        fuse     _netdev,allow_other,--file-mode=0666    0       0
 ```
 
-## Chef's Notes 📓
+[^1]: There are many S3-filesystem-mounting tools available, I just picked Goofys because it's simple. Google is your friend :)
+[^2]: Some applications (_like [NextCloud](/recipes/nextcloud/)_) can natively mount S3 buckets
+[^3]: Some backup tools (_like [Duplicity](/recipes/duplicity/)_) can backup directly to S3 buckets
 
-1. There are many S3-filesystem-mounting tools available, I just picked Goofys because it's simple. Google is your friend :)
-2. Some applications (_like [NextCloud](/recipes/nextcloud/)_) can natively mount S3 buckets
-3. Some backup tools (_like [Duplicity](/recipes/duplicity/)_) can backup directly to S3 buckets
-
+--8<-- "recipe-footer.md"
