@@ -34,7 +34,8 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
         "yzhang.markdown-all-in-one",
-        "darkriszty.markdown-table-prettify"
+        "darkriszty.markdown-table-prettify",
+		"mdickin.markdown-shortcuts"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

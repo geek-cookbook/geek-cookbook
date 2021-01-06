@@ -1,4 +1,4 @@
-# What is this?
+# What is this thing?
 
 Funky Penguin's "**[Geek Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](/ha-docker-swarm/design/) or [Kubernetes](/kubernetes/start/). 
 

@@ -25,6 +25,20 @@ Here's a [113-second video](https://static.funkypenguin.co.nz/how-to-contribute-
 
 Want to contributing an entirely new recipe! Awesome!
 
+### GitHub Codespaces
+
+[GitHub Codespaces](https://github.com/features/codespaces) provides a browser-based VSCode interface, pre-configured for your development environment. For no-hassle contributions to the cookbook with realtime previews, visit the [repo](https://github.com/geek-cookbook/geek-cookbook), and when clicking the download button (*where you're usually get the URL to clone a repo*), click on "**Open with CodeSpaces**" instead:
+
+![](https://static.funkypenguin.co.nz/2021/geek-cookbookgeek-cookbook_The_Geeks_Cookbook_is_a_collection_of_guides_for_establishing_your_own_highly-available_privat_2021-01-07_11-41-25.png)
+
+You'll shortly be dropped into the VSCode interface, with mkdocs/material pre-installed and running. Any changes you make are auto-saved (*there's no "Save" button*), and available in the port-forwarded preview within seconds:
+
+![](https://static.funkypenguin.co.nz/2021/contribute.md__geek-cookbook_Codespaces__Visual_Studio_Code_-_Insiders__Codespaces_2021-01-07_11-50-25.png)
+
+Once happy with your changes, drive VSCode as normal to create a branch, commit, push, and create a pull request. You can also abandon the browser window at any time, and return later to pick up where you left off (*even on a different device!*)
+
+### Editing locally
+
 The process is basically:
 
 1. [Fork the repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
@@ -38,6 +52,8 @@ The process is basically:
 9. The pull request will trigger the creation of a preview environment, as illustrated below. Use the deploy preview to confirm that your recipe is as tasty as possible!
 
 ![](https://static.funkypenguin.co.nz/illustrate-pr-with-deploy-preview-for-geek-cookbook.png)
+
+
 
 ## Contributing skillz 💪
 
