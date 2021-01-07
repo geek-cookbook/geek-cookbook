@@ -1,7 +1,7 @@
 const button = new Crate({
   server: '396055506072109067',
   channel: '396055506663374849',
-  color: '#black',
+  color: 'black',
   indicator: false,
   notifications: true
 })
