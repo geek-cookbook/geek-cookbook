@@ -4,7 +4,7 @@ new Crate({
   color: 'black',
   indicator: false,
   notifications: true,
-  indicator: boolean,
+  indicator: true,
   timeout: 5000
 })
 
