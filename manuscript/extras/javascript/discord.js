@@ -3,7 +3,9 @@ new Crate({
   channel: '396055506663374849',
   color: 'black',
   indicator: false,
-  notifications: true
+  notifications: true,
+  indicator: boolean,
+  timeout: 5000
 })
 
 // Display for 10 seconds + custom avatar
