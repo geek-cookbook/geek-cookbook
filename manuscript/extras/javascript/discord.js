@@ -9,6 +9,6 @@ new Crate({
 // Display for 10 seconds + custom avatar
 crate.notify({
   content: 'Need a 🤚? Hot, sweaty geeks are waiting to chat to you! Click 👇',
-  timeout: 10000,
+  timeout: 5000,
   avatar: 'https://avatars2.githubusercontent.com/u/1524686?s=400&v=4'
 })
