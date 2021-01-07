@@ -28,9 +28,7 @@ mkdir /var/data/portainer
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 ```
 version: "3"
@@ -64,6 +62,6 @@ Launch the Portainer stack by running ```docker stack deploy portainer -c <path 
 
 Log into your new instance at https://**YOUR-FQDN**. You'll be prompted to set your admin user/password.
 
-## Chef's Notes 📓
+[^1]: I wanted to use oauth2_proxy to provide an additional layer of security for Portainer, but the proxy seems to break the authentication mechanism, effectively making the stack **so** secure, that it can't be logged into!
 
-1. I wanted to use oauth2_proxy to provide an additional layer of security for Portainer, but the proxy seems to break the authentication mechanism, effectively making the stack **so** secure, that it can't be logged into!
+--8<-- "recipe-footer.md"

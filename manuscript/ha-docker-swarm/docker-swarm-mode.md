@@ -1,6 +1,6 @@
 # Docker Swarm Mode
 
-For truly highly-available services with Docker containers, we need an orchestration system. Docker Swarm (as defined at 1.13) is the simplest way to achieve redundancy, such that a single docker host could be turned off, and none of our services will be interrupted.
+For truly highly-available services with Docker containers, we need an orchestration system. Docker Swarm (*as defined at 1.13*) is the simplest way to achieve redundancy, such that a single docker host could be turned off, and none of our services will be interrupted.
 
 ## Ingredients
 
@@ -81,13 +81,13 @@ To add a manager to this swarm, run the following command:
 Run the command provided on your other nodes to join them to the swarm as managers. After addition of a node, the output of ```docker node ls``` (on either host) should reflect all the nodes:
 
 
-````
+```
 [root@ds2 davidy]# docker node ls
 ID                           HOSTNAME                STATUS  AVAILABILITY  MANAGER STATUS
 b54vls3wf8xztwfz79nlkivt8    ds1.funkypenguin.co.nz  Ready   Active        Leader
 xmw49jt5a1j87a6ihul76gbgy *  ds2.funkypenguin.co.nz  Ready   Active        Reachable
 [root@ds2 davidy]#
-````
+```
 
 ### Setup automated cleanup
 
@@ -95,7 +95,7 @@ Docker swarm doesn't do any cleanup of old images, so as you experiment with var
 
 To address this, we'll run the "[meltwater/docker-cleanup](https://github.com/meltwater/docker-cleanup)" container on all of our nodes. The container will clean up unused images after 30 minutes.
 
-First, create docker-cleanup.env (_mine is under /var/data/config/docker-cleanup_), and exclude container images we **know** we want to keep:
+First, create `docker-cleanup.env` (_mine is under `/var/data/config/docker-cleanup`_), and exclude container images we **know** we want to keep:
 
 ```
 KEEP_IMAGES=traefik,keepalived,docker-mailserver
@@ -136,7 +136,7 @@ Launch the cleanup stack by running ```docker stack deploy docker-cleanup -c <pa
 
 If your swarm runs for a long time, you might find yourself running older container images, after newer versions have been released. If you're the sort of geek who wants to live on the edge, configure [shepherd](https://github.com/djmaze/shepherd) to auto-update your container images regularly.
 
-Create /var/data/config/shepherd/shepherd.env as follows:
+Create `/var/data/config/shepherd/shepherd.env` as follows:
 
 ```
 # Don't auto-update Plex or Emby (or Jellyfin), I might be watching a movie! (Customize this for the containers you _don't_ want to auto-update)
@@ -165,11 +165,15 @@ services:
 
 Launch shepherd by running ```docker stack deploy shepherd -c /var/data/config/shepherd/shepherd.yml```, and then just forget about it, comfortable in the knowledge that every day, Shepherd will check that your images are the latest available, and if not, will destroy and recreate the container on the latest available image.
 
-### Summary 
+## Summary
 
-After completing the above, you should have:
-    
-* [X] [Docker swarm cluster](/ha-docker-swarm/design/)
+--8<-- "5-min-install.md"
 
+What have we achieved?
 
-## Chef's Notes 📓
+!!! summary "Summary"
+    Created:
+
+    * [X] [Docker swarm cluster](/ha-docker-swarm/design/)
+
+--8<-- "recipe-footer.md"

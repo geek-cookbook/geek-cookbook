@@ -14,8 +14,7 @@ NZBGet performs the same function as [SABnzbd](/recipes/autopirate/sabnzbd.md) (
 To include NZBGet in your [AutoPirate](/recipes/autopirate/) stack
 (_The only reason you **wouldn't** use NZBGet, would be if you were using [SABnzbd](/recipes/autopirate/sabnzbd/) instead_), include the following in your autopirate.yml stack definition file:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
 ````
 nzbget:
@@ -74,7 +73,6 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [Heimdall](/recipes/autopirate/heimdall/)
 * [End](/recipes/autopirate/end/) (launch the stack)
 
+[^1]: In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
 
-## Chef's Notes 📓
-
-1. In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
+--8<-- "recipe-footer.md"

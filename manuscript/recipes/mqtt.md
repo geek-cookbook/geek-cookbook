@@ -1,7 +1,7 @@
 hero: Kubernetes. The hero we deserve.
 
 !!! danger "This recipe is a work in progress"
-    This recipe is **incomplete**, and is featured to align the [sponsors](https://github.com/sponsors/funkypenguin)'s "premix" repository with the cookbook.  "_premix_" is a private git repository available to [GitHub sponsors](https://github.com/sponsors/funkypenguin), which includes all the necessary .yml files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 👍
+This recipe is **incomplete**, and is featured to align the [sponsors](https://github.com/sponsors/funkypenguin)'s "premix" repository with the cookbook. "_premix_" is a private git repository available to [GitHub sponsors](https://github.com/sponsors/funkypenguin), which includes all the necessary .yml files for all published recipes. This means that sponsors can launch any recipe with just a `git pull` and a `kubectl create -f *.yml` 👍
 
     So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 😁
 
@@ -19,7 +19,7 @@ A workaround to this bug is to run an MQTT broker **external** to the raspberry 
 
 ## Ingredients
 
-1. A [Kubernetes cluster](/kubernetes/digital-ocean/)
+1. A [Kubernetes cluster](/kubernetes/cluster/)
 
 ## Preparation
 
@@ -89,6 +89,7 @@ spec:
 EOF
 kubectl create -f /var/data/mqtt/service-nodeport.yml
 ```
+
 ### Create secrets
 
 It's not always desirable to have sensitive data stored in your .yml files. Maybe you want to check your config into a git repository, or share it. Using Kubernetes Secrets means that you can create "secrets", and use these in your deployments by name, without exposing their contents.
@@ -104,8 +105,8 @@ kubectl create secret -n mqtt generic mqtt-credentials \
    --from-file=letsencrypt-email.secret
 ```
 
-!!! tip "Why use ```echo -n```?"
-    Because. See [my blog post here](https://www.funkypenguin.co.nz/beware-the-hidden-newlines-in-kubernetes-secrets/) for the pain of hunting invisible newlines, that's why!
+!!! tip "Why use `echo -n`?"
+Because. See [my blog post here](https://www.funkypenguin.co.nz/beware-the-hidden-newlines-in-kubernetes-secrets/) for the pain of hunting invisible newlines, that's why!
 
 ## Serving
 
@@ -113,8 +114,7 @@ kubectl create secret -n mqtt generic mqtt-credentials \
 
 Now that we have a volume, a service, and a namespace, we can create a deployment for the mqtt pod. Note below the use of volume mounts, environment variables, as well as the secrets.
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 👍
+--8<-- "premix-cta.md"
 
 ```
 cat <<EOF > /var/data/mqtt/mqtt.yml
@@ -193,7 +193,7 @@ EOF
 kubectl create -f /var/data/mqtt/mqtt.yml
 ```
 
-Check that your deployment is running, with ```kubectl get pods -n mqtt```. After a minute or so, you should see a "Running" pod, as illustrated below:
+Check that your deployment is running, with `kubectl get pods -n mqtt`. After a minute or so, you should see a "Running" pod, as illustrated below:
 
 ```
 [davidy:~/Documents/Personal/Projects/mqtt-k8s] 130 % kubectl get pods -n mqtt
@@ -202,6 +202,6 @@ mqtt-65f4d96945-bjj44         1/1       Running   0          5m
 [davidy:~/Documents/Personal/Projects/mqtt-k8s] %
 ```
 
-To actually **use** your new MQTT broker, you'll need to connect to any one of your nodes (```kubectl get nodes -o wide```) on port 30883 (_the nodeport service we created earlier_). More info on that, and a loadbalancer design, to follow shortly :)
+To actually **use** your new MQTT broker, you'll need to connect to any one of your nodes (`kubectl get nodes -o wide`) on port 30883 (_the nodeport service we created earlier_). More info on that, and a loadbalancer design, to follow shortly :)
 
-## Chef's Notes 📓
+--8<-- "recipe-footer.md"

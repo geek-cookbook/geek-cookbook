@@ -39,6 +39,8 @@ mkdir -p /etc/ceph
 
 The process takes about 30 seconds, after which, you'll have a MVC (*Minimum Viable Cluster*)[^1], encompassing a single monitor and mgr instance on your chosen node. Here's the complete output from a fresh install:
 
+[^1]: Minimum Viable Cluster acronym copyright, trademark, and whatever else, to Funky Penguin for 1,000,000 years.
+
 ??? "Example output from a fresh cephadm bootstrap"
     ```
     root@raphael:~# MYIP=`ip route get 1.1.1.1 | grep -oP 'src \K\S+'`
@@ -216,9 +218,7 @@ What have we achieved?
     * [X] Resiliency in the event of the failure of a single node
     * [X] Beautiful dashboard 
 
-## The easy, 5-minute install
-
-I share (_with [sponsors][github_sponsor] and [patrons][patreon]_) a private "_premix_" GitHub repository, which includes an ansible playbook for deploying the entire Geek's Cookbook stack, automatically. This means that members can create the entire environment with just a ```git pull``` and an ```ansible-playbook deploy.yml``` 👍
+--8<-- "5-min-install.md"
 
 Here's a screencast of the playbook in action. I sped up the boring parts, it actually takes ==5 min== (*you can tell by the timestamps on the prompt*):
 
@@ -226,6 +226,8 @@ Here's a screencast of the playbook in action. I sped up the boring parts, it ac
 [patreon]:	        https://www.patreon.com/bePatron?u=6982506
 [github_sponsor]:   https://github.com/sponsors/funkypenguin
 
-## Chef's Notes 📓
 
-[^1]: Minimum Viable Cluster acronym copyright, trademark, and whatever else, to Funky Penguin for 1,000,000 years.
+
+
+
+--8<-- "recipe-footer.md"

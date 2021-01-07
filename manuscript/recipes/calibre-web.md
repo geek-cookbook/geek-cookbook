@@ -25,7 +25,7 @@ Support for editing eBook metadata and deleting eBooks from Calibre library
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
 2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+3. DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -59,9 +59,7 @@ Follow the [instructions](https://github.com/bitly/oauth2_proxy) to setup your o
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 ```
 version: '3'
@@ -122,7 +120,7 @@ Launch the Calibre-Web stack by running ```docker stack deploy calibre-web -c <p
 
 Log into your new instance at https://**YOUR-FQDN**. You'll be directed to the initial GUI configuraition. Set the first field (_Location of Calibre database_) to "_/books/_", and when complete, login using defaults username of "**admin**" with password "**admin123**".
 
-## Chef's Notes 📓
+[^1]: Yes, Calibre does provide a server component. But it's not as fully-featured as Calibre-Web (_i.e., you can't use it to send ebooks directly to your Kindle_)
+[^2]: A future enhancement might be integrating this recipe with the filestore for [NextCloud](/recipes/nextcloud/), so that the desktop database (Calibre) can be kept synced with Calibre-Web.
 
-1. Yes, Calibre does provide a server component. But it's not as fully-featured as Calibre-Web (_i.e., you can't use it to send ebooks directly to your Kindle_)
-2. A future enhancement might be integrating this recipe with the filestore for [NextCloud](/recipes/nextcloud/), so that the desktop database (Calibre) can be kept synced with Calibre-Web.
+--8<-- "recipe-footer.md"

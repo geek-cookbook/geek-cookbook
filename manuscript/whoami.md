@@ -16,7 +16,7 @@ One of our suppliers asked me to quote to do the same for their organization. Wi
 
 During the same "real" job above, I wanted to deploy [jabberd](https://en.wikipedia.org/wiki/Jabberd14), for internal instant messaging within the organization, and as a means to control the sprawl of ad-hoc instant-messaging among staff, using ICQ, MSN, and Yahoo Messenger.
 
-To get management approval to deploy, I wrote a logger (with web UI) for jabber conversations ([Bandersnatch](https://www.funkypenguin.co.nz/project/bandersnatch/)), and a [75-page user manual](https://www.funkypenguin.co.nz/book/jajc-manual/) (_in [Docbook XML](http://www.docbook.org/)_) for a spunky Russian WinXP jabber client, [JAJC](http://jajc.jrudevels.org/).
+To get management approval to deploy, I wrote a logger (with web UI) for jabber conversations ([Bandersnatch](https://www.funkypenguin.co.nz/project/bandersnatch/)), and a [75-page user manual](https://www.funkypenguin.co.nz/blog/jajc-manual/) (_in [Docbook XML](http://www.docbook.org/)_) for a spunky Russian WinXP jabber client, [JAJC](http://jajc.jrudevels.org/).
 
 Due to my contributions to [phpList](http://www.phplist.com), I was approached in 2011 by [Packt Publishing](http://www.packtpub.com), to [write a book](https://www.funkypenguin.co.nz/book/phplist-2-email-campaign-manager) about using PHPList.
 

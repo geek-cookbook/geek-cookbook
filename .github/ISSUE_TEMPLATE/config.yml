@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discord Server
+    url: http://chat.funkypenguin.co.nz/
+    about: For real-time, short-lived help
+  - name: Discourse Forums
+    url: https://discourse.geek-kitchen.funkypenguin.co.nz/
+    about: For asyncronous, long-lived discussions

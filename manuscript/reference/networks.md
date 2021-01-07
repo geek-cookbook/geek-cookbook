@@ -3,7 +3,7 @@
 In order to avoid IP addressing conflicts as we bring swarm networks up/down, we will statically address each docker overlay network, and record the details below:
 
 | Network                                                                                                               | Range          |
-|-----------------------------------------------------------------------------------------------------------------------|----------------|
+| --------------------------------------------------------------------------------------------------------------------- | -------------- |
 | [Traefik](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik/)                                          | _unspecified_  |
 | [Docker-cleanup](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/docker-swarm-mode/#setup-automated-cleanup) | 172.16.0.0/24  |
 | [Mail Server](https://geek-cookbook.funkypenguin.co.nz/recipes/mail/)                                                 | 172.16.1.0/24  |
@@ -19,7 +19,7 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [Autopirate](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/)                                            | 172.16.11.0/24 |
 | [Nextcloud](https://geek-cookbook.funkypenguin.co.nz/recipes/nextcloud/)                                              | 172.16.12.0/24 |
 | [Portainer](https://geek-cookbook.funkypenguin.co.nz/recipes/portainer/)                                              | 172.16.13.0/24 |
-| [Home-Assistant](https://geek-cookbook.funkypenguin.co.nz/recipes/home-assistant/)                                    | 172.16.14.0/24 |
+| [Home Assistant](https://geek-cookbook.funkypenguin.co.nz/recipes/homeassistant/)                                     | 172.16.14.0/24 |
 | [OwnTracks](https://geek-cookbook.funkypenguin.co.nz/recipes/owntracks/)                                              | 172.16.15.0/24 |
 | [Plex](https://geek-cookbook.funkypenguin.co.nz/recipes/plex/)                                                        | 172.16.16.0/24 |
 | [Emby](https://geek-cookbook.funkypenguin.co.nz/recipes/emby/)                                                        | 172.16.17.0/24 |
@@ -33,7 +33,7 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [Bookstack](https://geek-cookbook.funkypenguin.co.nz/recipes/bookstack/)                                              | 172.16.33.0/24 |
 | [Swarmprom](https://geek-cookbook.funkypenguin.co.nz/recipes/swarmprom/)                                              | 172.16.34.0/24 |
 | [Realms](https://geek-cookbook.funkypenguin.co.nz/recipes/realms/)                                                    | 172.16.35.0/24 |
-| [ElkarBackup](https://geek-cookbook.funkypenguin.co.nz/recipes/elkarbackp/)                                           | 172.16.36.0/24 |
+| [ElkarBackup](https://geek-cookbook.funkypenguin.co.nz/recipes/elkarbackup/)                                          | 172.16.36.0/24 |
 | [Mayan EDMS](https://geek-cookbook.funkypenguin.co.nz/recipes/realms/)                                                | 172.16.37.0/24 |
 | [Shaarli](https://geek-cookbook.funkypenguin.co.nz/recipes/shaarli/)                                                  | 172.16.38.0/24 |
 | [OpenLDAP](https://geek-cookbook.funkypenguin.co.nz/recipes/openldap/)                                                | 172.16.39.0/24 |

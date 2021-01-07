@@ -13,7 +13,7 @@ Using a smartphone app, OwnTracks allows you to collect and analyse your own loc
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
 2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+3. DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -43,9 +43,7 @@ OTR_HOST=owntracks.example.com
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 ```
 version: "3.0"
@@ -108,8 +106,8 @@ Launch the OwnTracks stack by running ```docker stack deploy owntracks -c <path 
 
 Log into your new instance at https://**YOUR-FQDN**, with user "root" and the password you specified in gitlab.env.
 
-## Chef's Notes 📓
+[^1]: If you wanted to expose the OwnTracks Web UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the wekan container. You'd also need to add the traefik network to the owntracks container.
+[^2]: I'm using my own image rather than owntracks/recorderd, because of a [potentially swarm-breaking bug](https://github.com/owntracks/recorderd/issues/14) I found in the official container. If this gets resolved (_or if I was mistaken_) I'll update the recipe accordingly.
+[^3]: By default, you'll get a fully accessible, unprotected MQTT broker. This may not be suitable for public exposure, so you'll want to look into securing mosquitto with TLS and ACLs.
 
-1. If you wanted to expose the OwnTracks Web UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the wekan container. You'd also need to add the traefik network to the owntracks container.
-2. I'm using my own image rather than owntracks/recorderd, because of a [potentially swarm-breaking bug](https://github.com/owntracks/recorderd/issues/14) I found in the official container. If this gets resolved (_or if I was mistaken_) I'll update the recipe accordingly.
-3. By default, you'll get a fully accessible, unprotected MQTT broker. This may not be suitable for public exposure, so you'll want to look into securing mosquitto with TLS and ACLs.
+--8<-- "recipe-footer.md"

@@ -12,8 +12,8 @@ Docker does maintain an [official "Omnibus" container](https://docs.gitlab.com/o
     Existing:
 
     1. [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-    2. [X] [Traefik](/ha-docker-swarm/traefik_public) configured per design
-    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+    2. [X] [Traefik](/ha-docker-swarm/traefik) configured per design
+    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -61,8 +61,7 @@ GITLAB_ROOT_PASSWORD=changeme
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-    I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
 ````
 version: '3'
@@ -132,9 +131,6 @@ Launch the mail server stack by running ```docker stack deploy gitlab -c <path -
 
 Log into your new instance at https://[your FQDN], with user "root" and the password you specified in gitlab.env.
 
+[^1]: I use the **sameersbn/gitlab:latest** image, rather than a specific version. This lets me execute updates simply by redeploying the stack (and why **wouldn't** I want the latest version?)
 
-## Chef's Notes 📓
-
-A few comments on decisions taken in this design:
-
-1. I use the **sameersbn/gitlab:latest** image, rather than a specific version. This lets me execute updates simply by redeploying the stack (and why **wouldn't** I want the latest version?)
+--8<-- "recipe-footer.md"

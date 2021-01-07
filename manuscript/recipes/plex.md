@@ -10,7 +10,7 @@ hero: A recipe to manage your Media 🎥 📺 🎵
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
 2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. A DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+3. A DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -37,9 +37,7 @@ PGID=42
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 ```
 version: "3.0"
@@ -94,7 +92,7 @@ Launch the Plex stack by running ```docker stack deploy plex -c <path -to-docker
 
 Log into your new instance at https://**YOUR-FQDN** (You'll need to setup a plex.tv login for remote access / discovery to work from certain clients)
 
-## Chef's Notes 📓
+[^1]: Plex uses port 32400 for remote access, using your plex.tv user/password to authenticate you. The inclusion of the traefik proxy in this recipe is simply to allow you to use the web client (as opposed to a client app) by connecting directly to your instance, as opposed to browsing your media via https://plex.tv/web
+[^2]: Got an NVIDIA GPU? See [this blog post](https://www.funkypenguin.co.nz/note/gpu-transcoding-with-emby-plex-using-docker-nvidia/) re how to use your GPU to transcode your media!
 
-1. Plex uses port 32400 for remote access, using your plex.tv user/password to authenticate you. The inclusion of the traefik proxy in this recipe is simply to allow you to use the web client (as opposed to a client app) by connecting directly to your instance, as opposed to browsing your media via https://plex.tv/web
-2. Got an NVIDIA GPU? See [this blog post](https://www.funkypenguin.co.nz/note/gpu-transcoding-with-emby-plex-using-docker-nvidia/) re how to use your GPU to transcode your media!
+--8<-- "recipe-footer.md"

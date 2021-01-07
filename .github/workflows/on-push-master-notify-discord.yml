@@ -24,6 +24,8 @@ jobs:
 
           The [Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz) has been updated!
 
-          Here's what's fresh:
-          :cupcake: [${{github.event.commits[0].message}}]({{ EVENT_PAYLOAD.compare }})
+          Here's what @{{ GITHUB_ACTOR }} just cooked:
+
+          :partying_face: [${{github.event.commits[0].message}}]({{ EVENT_PAYLOAD.compare }})
+          ---
           

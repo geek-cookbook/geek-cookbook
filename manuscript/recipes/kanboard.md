@@ -26,7 +26,7 @@ Features include:
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
 2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry pointing your NextCloud url (_kanboard.example.com_) to your [keepalived](ha-docker-swarm/keepalived/) IP
+3. DNS entry pointing your NextCloud url (_kanboard.example.com_) to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 
 ## Preparation
@@ -54,9 +54,7 @@ OAUTH2_PROXY_COOKIE_SECRET=
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 ```
 version: '3'
@@ -65,8 +63,7 @@ services:
   kanboard:
     image: kanboard/kanboard
     volumes:
-     - /var/data/kanboard/data:/var/www/app/data
-     - /var/data/kanboard/plugins:/var/www/app/plugins
+     - /var/data/kanboard:/var/www/app/
     networks:
     - internal
     deploy:
@@ -116,7 +113,7 @@ Launch the Kanboard stack by running ```docker stack deploy kanboard -c <path -t
 
 Log into your new instance at https://**YOUR-FQDN**. Default credentials are admin/admin, after which you can change (_under 'profile'_) and add more users.
 
-## Chef's Notes 📓
+[^1]: The default theme can be significantly improved by applying the [ThemePlus](https://github.com/phsteffen/kanboard-themeplus) plugin.
+[^2]: Kanboard becomes more useful when you integrate in/outbound email with [MailGun](https://github.com/kanboard/plugin-mailgun), [SendGrid](https://github.com/kanboard/plugin-sendgrid), or [Postmark](https://github.com/kanboard/plugin-postmark).
 
-1. The default theme can be significantly improved by applying the [ThemePlus](https://github.com/phsteffen/kanboard-themeplus) plugin.
-2. Kanboard becomes more useful when you integrate in/outbound email with [MailGun](https://github.com/kanboard/plugin-mailgun), [SendGrid](https://github.com/kanboard/plugin-sendgrid), or [Postmark](https://github.com/kanboard/plugin-postmark).
+--8<-- "recipe-footer.md"

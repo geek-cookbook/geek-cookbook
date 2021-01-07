@@ -23,7 +23,7 @@ I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/rev
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
 2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry pointing your Miniflux url (i.e. _miniflux.example.com_) to your [keepalived](ha-docker-swarm/keepalived/) IP
+3. DNS entry pointing your Miniflux url (i.e. _miniflux.example.com_) to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -71,8 +71,7 @@ The entire application is configured using environment variables, including the 
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
 ```
 version: '3'
@@ -139,6 +138,6 @@ Launch the Miniflux stack by running ```docker stack deploy miniflux -c <path -t
 
 Log into your new instance at https://**YOUR-FQDN**, using the credentials you setup in the environment flie. After this, change your user/password as you see fit, and comment out the ```CREATE_ADMIN``` line in the env file (_if you don't, then an **additional** admin will be created the next time you deploy_)
 
-## Chef's Notes 📓
+[^1]: Find the bookmarklet under the **Settings -> Integration** page.
 
-1. Find the bookmarklet under the **Settings -> Integration** page.
+--8<-- "recipe-footer.md"

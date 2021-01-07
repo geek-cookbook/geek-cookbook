@@ -19,8 +19,8 @@ Here are some other possible use cases:
 ## Ingredients
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+2. [Traefik](/ha-docker-swarm/traefik) configured per design
+3. DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -41,9 +41,7 @@ SSHUSER=batman
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 ```
 version: "3"
@@ -98,7 +96,7 @@ Launch the Wetty stack by running ```docker stack deploy wetty -c <path -to-dock
 
 Browse to your new browser-cli-terminal at https://**YOUR-FQDN**. Authenticate with your OAuth provider, and then proceed to login, either to the remote host you specified (_batcomputer.batcave.com, in the example above_), or using user and password "term" to log directly into the Wetty alpine container (_from which you can establish egress SSH_)
 
-## Chef's Notes 📓
+[^1]: You could set SSHHOST to the IP of the "docker0" interface on your host, which is normally 172.17.0.1. (_Or run ```/sbin/ip route|awk '/default/ { print $3 }'``` in the container_) This would then provide you the ability to remote-manage your swarm with only web access to Wetty.
+[^2]: The inclusion of Wetty was due to the efforts of @gpulido in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Gabriel!
 
-1. You could set SSHHOST to the IP of the "docker0" interface on your host, which is normally 172.17.0.1. (_Or run ```/sbin/ip route|awk '/default/ { print $3 }'``` in the container_) This would then provide you the ability to remote-manage your swarm with only web access to Wetty.
-2. The inclusion of Wetty was due to the efforts of @gpulido in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Gabriel!
+--8<-- "recipe-footer.md"

@@ -14,7 +14,7 @@ Restic is one of the more popular open-source backup solutions, and is often [co
 
 !!! summary "Ingredients"
     * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-    * [X] [Traefik](/ha-docker-swarm/traefik_public) and [Traefik-Forward-Auth](/ha-docker-swarm/traefik-forward-auth) configured per design
+    * [X] [Traefik](/ha-docker-swarm/traefik) and [Traefik-Forward-Auth](/ha-docker-swarm/traefik-forward-auth) configured per design
     * [X] Credentials for one of Restic's [supported repositories](https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html)
 
 ## Preparation
@@ -103,8 +103,7 @@ RESTIC_PASSWORD=<repo_password>
 
 Create a docker swarm config file in docker-compose syntax (v3) in `/var/data/restic/restic.yml` , something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
 ```
 version: "3.2"
@@ -204,8 +203,8 @@ root@raphael:~#
     The example above restores the **entire** `/var/data` folder (*minus any exclusions*). To restore just a subset of data, add the `-i <regex>` argument, i.e. `-i plex`
 
 
-## Chef's Notes 📓
+[^1]: The `/var/data/restic/restic.exclude` exists to provide you with a way to exclude data you don't care to backup.
+[^2]: A recent benchmark of various backup tools, including Restic, can be found [here](https://forum.duplicati.com/t/big-comparison-borg-vs-restic-vs-arq-5-vs-duplicacy-vs-duplicati/9952).
+[^3]: A paid-for UI for Restic can be found [here](https://forum.restic.net/t/web-ui-for-restic/667/26).
 
-1. The `/var/data/restic/restic.exclude` exists to provide you with a way to exclude data you don't care to backup.
-2. A recent benchmark of various backup tools, including Restic, can be found [here](https://forum.duplicati.com/t/big-comparison-borg-vs-restic-vs-arq-5-vs-duplicacy-vs-duplicati/9952).
-3. A paid-for UI for Restic can be found [here](https://forum.restic.net/t/web-ui-for-restic/667/26).
+--8<-- "recipe-footer.md"

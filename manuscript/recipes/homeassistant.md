@@ -10,7 +10,7 @@ This recipie combines the [extensibility](https://home-assistant.io/components/)
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
 2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+3. DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -36,15 +36,16 @@ mkdir /var/data/runtime/homeassistant/influxdb
 Create /var/data/config/homeassistant/grafana.env, and populate with the following - this is to enable grafana to work with oauth2_proxy without requiring an additional level of authentication:
 ```
 GF_AUTH_BASIC_ENABLED=false
+OAUTH2_PROXY_CLIENT_ID=
+OAUTH2_PROXY_CLIENT_SECRET=
+OAUTH2_PROXY_COOKIE_SECRET=
 ```
 
 ### Setup Docker Swarm
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-
+--8<-- "premix-cta.md"
 
 ```
 version: "3"
@@ -55,7 +56,7 @@ services:
       networks:
         - internal
       volumes:
-        - /var/data/homeassistant/influxdb:/var/lib/influxdb
+        - /var/data/runtime/homeassistant/influxdb:/var/lib/influxdb
         - /etc/localtime:/etc/localtime:ro
 
     homeassistant:
@@ -128,6 +129,6 @@ Launch the Home Assistant stack by running ```docker stack deploy homeassistant 
 
 Log into your new instance at https://**YOUR-FQDN**, the password you created in configuration.yml as "frontend - api_key". Then setup a bunch of sensors, and log into https://grafana.**YOUR FQDN** and create some beautiful graphs :)
 
-## Chef's Notes 📓
+[^1]: I **tried** to protect Home Assistant using [oauth2_proxy](/reference/oauth_proxy), but HA is incompatible with the websockets implementation used by Home Assistant. Until this can be fixed, I suggest that geeks set frontend: api_key to a long and complex string, and rely on this to prevent malevolent internet miscreants from turning their lights on at 2am!
 
-1. I **tried** to protect Home Assistant using [oauth2_proxy](/reference/oauth_proxy), but HA is incompatible with the websockets implementation used by Home Assistant. Until this can be fixed, I suggest that geeks set frontend: api_key to a long and complex string, and rely on this to prevent malevolent internet miscreants from turning their lights on at 2am!
+--8<-- "recipe-footer.md"

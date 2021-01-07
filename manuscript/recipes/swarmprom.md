@@ -22,8 +22,8 @@ I'd encourage you to spend some time reading https://github.com/stefanprodan/swa
 ## Ingredients
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) on **17.09.0 or newer** (_doesn't work with CentOS Atomic, unfortunately_) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
-3. DNS entry for the hostnames you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+2. [Traefik](/ha-docker-swarm/traefik) configured per design
+3. DNS entry for the hostnames you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
 ## Preparation
 
@@ -95,11 +95,9 @@ GF_SECURITY_ADMIN_PASSWORD=ilovemybatmanunderpants
 
 Create a docker swarm config file in docker-compose syntax (v3), based on the original swarmprom [docker-compose.yml](https://github.com/stefanprodan/swarmprom/blob/master/docker-compose.yml) file
 
+--8<-- "premix-cta.md"
 
 ???+ note "This example is 274 lines long. Click here to collapse it for better readability"
-
-    !!! tip
-            I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
 
       ```
       version: "3.3"
@@ -391,6 +389,6 @@ Launch the Swarm stack by running ```docker stack deploy swarmprom -c <path -to-
 
 Log into your new grafana instance, check out your beautiful graphs. Move onto drooling over Prometheus, AlertManager, and Unsee.
 
-## Chef's Notes 📓
+[^1]: Pay close attention to the ```grafana.env``` config. If you encounter errors about ```basic auth failed```, or failed CSS, it's likely due to misconfiguration of one of the grafana environment variables.
 
-1. Pay close attention to the ```grafana.env``` config. If you encounter errors about ```basic auth failed```, or failed CSS, it's likely due to misconfiguration of one of the grafana environment variables.
+--8<-- "recipe-footer.md"
