@@ -1,4 +1,9 @@
-new Crate({
-  server: '396055506072109067', // Funky Penguin's Geek Cookbook
-  channel: '396055506663374849' // #general
+const button = new Crate({
+  server: '396055506072109067',
+  channel: '396055506663374849',
+  color: '#795548',
+  indicator: false,
+  notifications: true
 })
+
+button.notify('Need a 🤚? Hot sweaty geeks are waiting to chat to you! Click 👇')
