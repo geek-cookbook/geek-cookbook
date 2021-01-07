@@ -1,23 +1,27 @@
 ---
 name: "\U0001F370 Request a recipe!"
 about: "I have a request for a fresh recipe \U0001F60B"
-title: "[recipe request] "
-labels: ''
-assignees: ''
+title: "[recipe request] I'd really like my favorite app <name> included"
+labels: 'i: recipe/new'
+assignees: 'funkypenguin'
 
 ---
 
 ## Recipe Request
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I have an issue when [...]
+** Describe the new recipe you'd like added **
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen. Add any considered drawbacks.
+** Explain where we can find more details about it **
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## Checklist
 
-**Teachability, Documentation, Adoption, Migration Strategy**
-If you can, explain how users will be able to use this and possibly write out a version the docs.
-Maybe a screenshot or design?
+[ ] Is there already a similar recipe in the cookbook? (i.e., Emby and Jellyfin)
+[ ] Is there already a docker-compose config available for the app?
+
+## The million-dollar question
+
+Are you willing to help create the recipe?
+
+[ ] Yes
+[ ] No
+
