@@ -195,7 +195,7 @@ theme:
   favicon: 'images/site-logo.svg'
   features:
       - navigation.tabs
-      - navigation.instant
+      - navigation.instant 
       - navigation.tabs.sticky 
   icon:
     repo: 'fontawesome/brands/github'
