@@ -57,5 +57,5 @@ The process is basically:
 
 ## Contributing skillz 💪
 
-Got mad skillz, but neither the time nor inclination for recipe-cooking? Jump into [Discord](/community/discord/) or [Discourse](/community/discourse/), and help your fellow geeks with their questions, or just hang out bump up our member count!
+Got mad skillz, but neither the time nor inclination for recipe-cooking? [Scan the GitHub contributions page](https://github.com/geek-cookbook/geek-cookbook/contribute), [Discussions](https://github.com/geek-cookbook/geek-cookbook/discussions), or jump into [Discord](/community/discord/) or [Discourse](/community/discourse/), and help your fellow geeks with their questions, or just hang out bump up our member count!
 
