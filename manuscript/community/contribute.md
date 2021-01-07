@@ -23,7 +23,11 @@ Here's a [113-second video](https://static.funkypenguin.co.nz/how-to-contribute-
 
 ## Contributing recipes 🎁
 
-Want to contributing an entirely new recipe! Awesome!
+Want to contributing an entirely new recipe? Awesome!
+
+For the best experience, start by [creating an issue](https://github.com/geek-cookbook/geek-cookbook/issues/) in the repo (*check whether an existing issue for this recipe exists too!*). Populating the issue template will flesh out the requirements for the recipe, and having the new recipe pre-approved will avoid wasted effort if the recipe _doesn't_ meet requirements for addition, for some reason (*i.e., if it's been superceded by an existing recipe*)
+
+Once your issue has been reviewed and approved, start working on a PR using either GitHub Codespaces or local dev (below). As soon as you're ready to share your work, create a WIP PR, so that a preview URL will be generated. Iterate on your PR, marking it as ready for review when it's ... ready :grin:
 
 ### GitHub Codespaces
 
