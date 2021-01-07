@@ -9,19 +9,87 @@ assignees: 'funkypenguin'
 
 ## Recipe Request
 
-** Describe the new recipe you'd like added **
+** Briefly describe the new recipe you'd like added **
 
-** Explain where we can find more details about it **
+### Prerequisites
 
-## Checklist
+Let's talk about must-haves. If you can't 
 
-[ ] Is there already a similar recipe in the cookbook? (i.e., Emby and Jellyfin)
-[ ] Is there already a docker-compose config available for the app?
+* [ ] I have searched and confirmed no existing open or closed issues/PRs for this app
+* [ ] The app is actively supported by its developers (_i.e., not deprecated_)
 
-## The million-dollar question
+### Basic details
 
-Are you willing to help create the recipe?
+Add as many of the details below as possible - this'll help to determine the structure of the recipe:
 
-[ ] Yes
-[ ] No
+* [ ] Project homepage:
+* [ ] Docker image:
+* [ ] Subreddit (optional):
+* [ ] Docker-compose file (optional):
+
+### Screenshot
+
+<!-- Paste in a single, beautiful screenshot, which should be included in the recipe -->
+
+### Access Control 
+
+Does the app provide its own authentication (i.e. NextCloud), or does it require an authentication frontend (i.e., Radarr)?
+
+How should access to the app be managed?
+
+* [ ] The app provides its own, trustworthy authentication, or access control is unnecessary. I'd be happy exposing it to the internet
+* [ ] The app needs something in front of it to secure access (traefik-forward-auth, authelia, etc)
+
+<!-- Add any extra details necessary to explain the selections above -->
+
+### Config Management
+
+How is the app configured? Some applications are configured [entirely using environment variables](https://12factor.net), some need static config files mounted into their container, and some are configured using an interactive setup process (NextCloud). 
+
+* [ ] Environment variables
+* [ ] Static config file
+* [ ] Interactive setup which then persists the config somewhere to the filesystem
+
+<!-- Add any extra details necessary to explain the selections above -->
+
+### Connectivity
+
+What sort of network connectivity does the app need?
+
+* [ ] None
+* [ ] Requires inbound web access HTTP/S access
+* [ ] Requires inbound arbitrary TCP/UDP access
+* [ ] Requires connectivity to other apps
+
+<!-- Add any extra details necessary to explain the selections above -->
+
+### Data Management
+
+What sort of persisted data does the app need?
+
+* [ ] The app needs access to its own persistent data (i.e. logs, database directory, etc)
+* [ ] The app needs access to outside data (i.e. Plex)
+* [ ] The app needs access to *another* app's data
+
+<!-- Add any extra details necessary to explain the selections above -->
+
+### Backup
+
+How is backup of the app's data to be handled?
+
+* [ ] Backup is unnecessary
+* [ ] A simple file-based copy of the app's data folders will suffice
+* [ ] A process is required to create backups for a file-based copy (i.e., a mysql database dump)
+* [ ] A custom backup/restore process is required (provide details below)
+
+<!-- Add any extra details necessary to explain the selections above -->
+
+
+### Level of engagement
+
+I'm willing to:
+
+* [ ] Submit a PR for the recipe
+* [ ] Test the recipe
+* [ ] Engage the community on Q&A for the recipe
 
