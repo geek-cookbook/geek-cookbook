@@ -47,10 +47,28 @@ To include Heimdall in your [AutoPirate](/recipes/autopirate/) stack, include th
       -email-domain=example.com
       -provider=github
       -authenticated-emails-file=/authenticated-emails.txt
-
-
-
 ```
+
+## To use [Traefik Forward Authentication (TFA)](/ha-docker-swarm/traefik-forward-auth/):
+```
+  heimdall:
+    image: linuxserver/heimdall:latest
+    env_file: /var/data/config/autopirate/heimdall.env
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/data/heimdall:/config
+    networks:
+      - internal
+      - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:heimdall.example.com
+      - traefik.port=80
+      - traefik.frontend.auth.foreard.address=http://traefik-forward-auth:4181
+      - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
+      - traefik.frontend.auth.forward.trustForwardHeader=true
+      - traefik.docker.network=traefik_public
+  ```
 
 !!! tip
 I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a `git pull` and a `docker stack deploy` 👍
