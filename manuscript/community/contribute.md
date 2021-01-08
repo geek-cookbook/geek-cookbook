@@ -9,7 +9,7 @@ Got nothing to contribute, but want to give back to the community? Here are some
 
 ## Contributing moneyz 💰
 
-Sponsor [your chef](https://github.com/sponsors/funkypenguin) :heart:, or [join us](/sponsored-projects/) in supporting the open-source projects we enjoy!
+Sponsor [your chef](https://github.com/sponsors/funkypenguin) :heart:, or [join us](/#sponsored-projects) in supporting the open-source projects we enjoy!
 
 ## Contributing bugfixorz 🐛
 

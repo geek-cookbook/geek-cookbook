@@ -8,9 +8,6 @@
 
 ![Sonarr Screenshot](../../images/sonarr.png)
 
-!!! tip "Sponsored Project"
-    Sonarr is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I forget it's there until I (reliably) receive an email with new and exciting updates 😁
-
 ## Inclusion into AutoPirate
 
 To include Sonarr in your [AutoPirate](/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
