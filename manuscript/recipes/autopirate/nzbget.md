@@ -49,7 +49,26 @@ nzbget_proxy:
     -provider=github
     -authenticated-emails-file=/authenticated-emails.txt
 ````
-
+## To use [Traefik Forward Authentication (TFA)](/ha-docker-swarm/traefik-forward-auth/):
+````
+nzbget:
+  image: linuxserver/nzbget
+  env_file : /var/data/config/autopirate/nzbget.env  
+  volumes:
+   - /var/data/autopirate/nzbget:/config
+   - /var/data/media:/data
+  networks:
+  - internal
+  - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:ombi.example.com
+      - traefik.port=6789
+      - traefik.frontend.auth.foreard.address=http://traefik-forward-auth:4181
+      - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
+      - traefik.frontend.auth.forward.trustForwardHeader=true
+      - traefik.docker.network=traefik_public
+  ````
 !!! note
     NZBGet uses a 401 header to prompt for authentication. When you use OAuth2_proxy, this seems to break. Since we trust OAuth to authenticate us, we can just disable NZGet's own authentication, by changing ControlPassword to null in nzbget.conf (i.e. ```ControlPassword=```)
 
