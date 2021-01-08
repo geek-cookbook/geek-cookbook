@@ -52,6 +52,26 @@ sabnzbd_proxy:
     -provider=github
     -authenticated-emails-file=/authenticated-emails.txt
 ````
+## To use [Traefik Forward Authentication (TFA)](/ha-docker-swarm/traefik-forward-auth/):
+````
+sabnzbd:
+  image: linuxserver/sabnzbd:latest
+  env_file : /var/data/config/autopirate/sabnzbd.env  
+  volumes:
+   - /var/data/autopirate/sabnzbd:/config
+   - /var/data/media:/media
+  networks:
+  - internal
+  - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:ombi.example.com
+      - traefik.port=8080
+      - traefik.frontend.auth.foreard.address=http://traefik-forward-auth:4181
+      - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
+      - traefik.frontend.auth.forward.trustForwardHeader=true
+      - traefik.docker.network=traefik_public
+  ````
 
 !!! warning "Important Note re hostname validation"
 
