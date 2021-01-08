@@ -4,13 +4,13 @@
 # Fetch git history so that we get last-updated timestamps
 git fetch --unshallow
 
-# install mkdocs (or insiders version, if we're passed a GH_TOKEN var)
-if [ -z "$GH_TOKEN" ]
-then
-  pip install mkdocs-material
-else
+# # install mkdocs (or insiders version, if we're passed a GH_TOKEN var)
+# if [ -z "$GH_TOKEN" ]
+# then
+#   pip install mkdocs-material
+# else
   pip install git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
-fi
+# fi
 
 # Run python build script
 python3 scripts/build.py mkdocs.yml
