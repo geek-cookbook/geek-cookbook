@@ -32,19 +32,7 @@ plugins:
 
 #theme_dir: mkdocs-material
 nav:
-    - Home: 
-      - What is this: index.md
-      - About: whoami.md
-      - Sponsored Projects: sponsored-projects.md 
-    # - 'Join Us! 🤝':
-    #   - Hello: recipes/general/start.md
-    #   - iPad Pro Geeking: recipes/general/ipad-pro-geeking.md
-    #   - Kid-safe WiFi: recipes/general/kid-safe-wifi.md      
-    # Upcoming section
-    # - '#geeklife':
-    #   - Hello: recipes/general/start.md
-    #   - iPad Pro Geeking: recipes/general/ipad-pro-geeking.md
-    #   - Kid-safe WiFi: recipes/general/kid-safe-wifi.md              
+    - Home: index.md         
     - Docker Swarm: 
       - Preparation:
         - Design: ha-docker-swarm/design.md
@@ -151,7 +139,7 @@ nav:
   #       - CyberChef : recipes/cyberchef.md
     - Kubernetes:
       - Preparation:
-        - Start: kubernetes/start.md
+        - Start: kubernetes/index.md
         - Design: kubernetes/design.md
         - Cluster: kubernetes/cluster.md
         - DIY Cluster: kubernetes/diycluster.md
@@ -161,12 +149,8 @@ nav:
         - Traefik: kubernetes/traefik.md      
       - Chef's Favorites:
         - Kanboard: recipes/kubernetes/kanboard.md
-     #   - Kubernetes Dashboard: recipes/kubernetes/kubernetes-dashboard.md
         - Miniflux: recipes/kubernetes/miniflux.md
-  #      - NextCloud: recipes/kubernetes/nextcloud.md
-  #      - phpIPAM: recipes/kubernetes/phpipam.md
-  #      - PrivateBin: recipes/kubernetes/privatebin.md
-    - Premix:
+    - 🍰 Get Premix!:
       - Start: premix.md
       - Ansible: 
         - Operation: premix/ansible/operation.md        
@@ -196,12 +180,30 @@ theme:
   features:
       - navigation.tabs
       - navigation.instant 
-      - navigation.tabs.sticky 
+      - navigation.tabs.sticky  
+      - navigation.sections
+      - search.suggest
+      - search.highlight
+      - search.share
   icon:
     repo: 'fontawesome/brands/github'
   palette:
-    primary: 'black'
-    accent: 'indigo'
+    # Toggle light mode
+    - scheme: default
+      primary: 'black'
+      accent: 'indigo'
+      toggle:
+        icon: material/toggle-switch
+        name: Burn my eyes!
+
+    # Toggle dark mode
+    - scheme: slate
+      primary: 'grey'
+      accent: 'indigo'
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Love my eyes!
+
   font:
     text: 'Ubuntu'
     code: 'Ubuntu Mono'
@@ -222,7 +224,7 @@ extra:
       link: 'https://leanpub.com/geeks-cookbook'    
     - icon: 'material/mailbox'
       link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'             
-  
+  generator: false  
 
 # Google Analytics
 google_analytics:
