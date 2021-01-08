@@ -49,7 +49,26 @@ nzbhydra_proxy:
     -provider=github
     -authenticated-emails-file=/authenticated-emails.txt
 ````
-
+## To use [Traefik Forward Authentication (TFA)](/ha-docker-swarm/traefik-forward-auth/):
+````
+nzbhydra:
+  image: linuxserver/hydra:latest
+  env_file : /var/data/config/autopirate/nzbhydra.env
+  volumes:
+   - /var/data/autopirate/nzbhydra:/config
+  networks:
+  - internal
+  - traefik_public
+  deploy:
+    labels:
+      - traefik.frontend.rule=Host:nzbhydra.example.com
+      - traefik.port=5075
+      - traefik.frontend.auth.foreard.address=http://traefik-forward-auth:4181
+      - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
+      - traefik.frontend.auth.forward.trustForwardHeader=true
+      - traefik.docker.network=traefik_public
+  ````
+  
 !!! tip
     I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
 
