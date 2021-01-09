@@ -17,7 +17,7 @@ So you've just watched a bunch of superhero movies, and you're suddenly inspired
 
     Related:
 
-    * [X] [AutoPirate](/autopirate/) components (*specifically [Mylar](/autopirate/mylar/)*), for searching for, downloading, and managing comic books
+    * [X] [AutoPirate](/recipes/autopirate/) components (*specifically [Mylar](/recipes/autopirate/mylar/)*), for searching for, downloading, and managing comic books
 
 ## Preparation
 
