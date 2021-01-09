@@ -33,7 +33,7 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
 !!! quote "...how useful the recipes are for people just getting started with containers..."
 
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">.<a href="https://twitter.com/funkypenguin?ref_src=twsrc%5Etfw">@funkypenguin</a> One of the surprising realizations from following Funky Penguins cookbooks <a href="https://t.co/XvZ2qLJa5N">https://t.co/XvZ2qLJa5N</a> for so long is how useful the recipes are for people just getting started with containers and how it gives them real, interesting usecases to attach to their learning</p>&mdash; DevOps Daniel (@DanielSHouston) <a href="https://twitter.com/DanielSHouston/status/1213419203379773442?ref_src=twsrc%5Etfw">January 4, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    "One of the surprising realizations from following Funky Penguins cookbooks for so long is how useful the recipes are for people just getting started with containers and how it gives them real, interesting usecases to attach to their learning" - [DevOps Daniel (@DanielSHouston)](https://twitter.com/DanielSHouston/status/1213419203379773442)
 
 ## Who are you?
 
