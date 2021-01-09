@@ -7,8 +7,13 @@ assignees: funkypenguin
 
 ---
 
-<!-- You can ignore this section, it's used to make the issue look beautiful. Skip to #Summary below.. >
+<!-- You can ignore this section, it's used to make the issue look beautiful. 
+     Skip to the summary section below.. -->
 
+- [Recipe Request](#recipe-request)
+  - [💬 Summary](#-summary)
+  - [📝 Instructions](#-instructions)
+  - [🖼 Screenshot](#-screenshot)
 - [Checklist](#checklist)
   - [☑️ Prerequisites](#️-prerequisites)
   - [👮‍♂️ Access Control](#️-access-control)
@@ -22,14 +27,13 @@ assignees: funkypenguin
   
 # Recipe Request
 
-
 ## 💬 Summary
 
 <!-- ** Briefly describe the new recipe you'd like added -->
 
-* Project homepage: `https://my-project-page`
-* Docker image: `repository/image`
-* Subreddit (optional): `https://reddit.com/r/<app name>`
+* Project homepage: https://my-project-page
+* Docker image: repository/image
+* Subreddit (optional): https://reddit.com/r/selfhosted
 
 ## 📝 Instructions
 
@@ -63,7 +67,7 @@ Does the app provide its own authentication (_i.e. NextCloud_), or does it requi
 
 How should access to the app be managed?
 
-* [ ] The app provides its own, trustworthy authentication, or access control is unnecessary. I'd be happy exposing it to the internet
+* [ ] The app provides its own, trustworthy authentication, or access control is unnecessary. (*I'd be happy exposing it to the internet*)
 * [ ] The app needs something in front of it to secure access (_traefik-forward-auth, authelia, etc_)
 
 <!-- Add any extra details necessary to explain the selections above -->
@@ -73,6 +77,7 @@ How should access to the app be managed?
 How is the app configured? Some applications are configured [entirely using environment variables](https://12factor.net), some need static config files mounted into their container, and some are configured using an interactive setup process (_i.e. NextCloud_). 
 
 * [ ] Environment variables
+* [ ] Command-line options
 * [ ] Static config file
 * [ ] Interactive setup which then persists the config somewhere to the filesystem
 
