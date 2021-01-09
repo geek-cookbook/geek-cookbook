@@ -7,10 +7,8 @@ assignees: funkypenguin
 
 ---
 
-- [Recipe Request](#recipe-request)
-  - [Summary](#summary)
-  - [📝 Instructions](#-instructions)
-  - [🖼 Screenshot](#-screenshot)
+<!-- You can ignore this section, it's used to make the issue look beautiful. Skip to #Summary below.. >
+
 - [Checklist](#checklist)
   - [☑️ Prerequisites](#️-prerequisites)
   - [👮‍♂️ Access Control](#️-access-control)
@@ -20,15 +18,14 @@ assignees: funkypenguin
   - [🪂 Backup](#-backup)
   - [🤹‍♀️ Orchestration Platform](#️-orchestration-platform)
   - [💍 Engagement](#-engagement)
-- [Done](#done)
+- [What's next?](#whats-next)
   
 # Recipe Request
 
-** Briefly describe the new recipe you'd like added **
 
-## Summary
+## 💬 Summary
 
-<!-- Add as many of the details below as possible - this'll help to determine the structure of the recipe. Check the items you've populated, and delete the irrelevent lines -->
+<!-- ** Briefly describe the new recipe you'd like added -->
 
 * Project homepage: `https://my-project-page`
 * Docker image: `repository/image`
@@ -129,7 +126,7 @@ I'm willing to:
 * [ ] Test the recipe
 * [ ] Engage the community on Q&A for the recipe
 
-# Done
+# What's next?
 
 What happens next? 🙋‍♂️
 
