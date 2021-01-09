@@ -1,7 +1,7 @@
 ---
 name: "\U0001F370 Request a recipe!"
 about: "I have a request for a fresh recipe \U0001F60B"
-title: "[recipe request] "
+title: "[recipe] "
 labels: recipe/request, status/backlog
 assignees: funkypenguin
 
