@@ -7,32 +7,45 @@ assignees: funkypenguin
 
 ---
 
-## Recipe Request
+# Recipe Request
 
 ** Briefly describe the new recipe you'd like added **
 
-### Prerequisites
+## Summary
 
-Let's talk about must-haves. If you don't know the answer to the following, then go no further until you do!
+<!-- Add as many of the details below as possible - this'll help to determine the structure of the recipe. Check the items you've populated, and delete the irrelevent lines -->
+
+* Project homepage: `https://my-project-page`
+* Docker image: `repository/image`
+* Subreddit (optional): `https://reddit.com/r/<app name>`
+
+## 📝 Instructions
+
+<!-- Most projects include instructions on how to deploy via Docker. Include a link to the relevant documentation below, as well as the actual instructions / docker-compose file. -->
+
+```
+< upstream docker compose / install instructions go here >
+```
+
+## 🖼 Screenshot
+
+<!-- Paste in a single, beautiful screenshot, which should be included in the recipe -->
+
+<!-- 
+That's it for the text entry. Save the issue and then use the much-nicer rich viewer to complete the checklist below.
+-->
+
+# Checklist
+
+## ✔ Prerequisites
+
+First, some house-keeping. Review closed issues and PRs, and confirm that this recipe hasn't already been proposed, deprecated, or duplicated before. Also confirm that the application itself is not abandoned.
 
 * [ ] I have searched and confirmed no existing open or closed issues/PRs for this app
 * [ ] The app is actively supported by its developers (_i.e., not deprecated_)
 
-### Basic details
 
-Add as many of the details below as possible - this'll help to determine the structure of the recipe:
-
-* [ ] Project homepage:
-* [ ] Docker image:
-* [ ] Subreddit (optional):
-* [ ] Docker-compose file (optional):
-* [ ] Kubernetes helm chart (optional): 
-
-### Screenshot
-
-<!-- Paste in a single, beautiful screenshot, which should be included in the recipe -->
-
-### Access Control 
+## 👮‍♂️ Access Control 
 
 Does the app provide its own authentication (_i.e. NextCloud_), or does it require an authentication frontend (_i.e., Radarr_)?
 
@@ -43,7 +56,7 @@ How should access to the app be managed?
 
 <!-- Add any extra details necessary to explain the selections above -->
 
-### Config Management
+## ⚙️ Config Management
 
 How is the app configured? Some applications are configured [entirely using environment variables](https://12factor.net), some need static config files mounted into their container, and some are configured using an interactive setup process (_i.e. NextCloud_). 
 
@@ -53,7 +66,7 @@ How is the app configured? Some applications are configured [entirely using envi
 
 <!-- Add any extra details necessary to explain the selections above -->
 
-### Connectivity
+## 🪠 Connectivity
 
 What sort of network connectivity does the app need?
 
@@ -64,7 +77,7 @@ What sort of network connectivity does the app need?
 
 <!-- Add any extra details necessary to explain the selections above -->
 
-### Data Management
+## 💾 Data Management
 
 What sort of persisted data does the app need?
 
@@ -74,7 +87,7 @@ What sort of persisted data does the app need?
 
 <!-- Add any extra details necessary to explain the selections above -->
 
-### Backup
+## 🪂 Backup
 
 How is backup of the app's data to be handled?
 
@@ -85,18 +98,22 @@ How is backup of the app's data to be handled?
 
 <!-- Add any extra details necessary to explain the selections above -->
 
-### Platform
+## 🤹‍♀️ Orchestration Platform
 
 Which platform(s) are you interested in a recipe supporting?
+
 * [ ] Docker Swarm (_via docker-compose files_)
 * [ ] Docker Swarm (_via premix ansible deploy_)
 * [ ] Kubernetes (_via a helm chart_)
 
-
-### Level of engagement
+## 💍 Engagement
 
 I'm willing to:
 
 * [ ] Submit a PR for the recipe
 * [ ] Test the recipe
 * [ ] Engage the community on Q&A for the recipe
+
+# 🙋‍♂️ What happens next?
+
+Seek buy-in from the [community](http://chat.funkypenguin.co.nz), to indicate whether the recipe is a good fit for the cookbook or not.
