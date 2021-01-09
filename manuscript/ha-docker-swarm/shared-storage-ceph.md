@@ -145,7 +145,7 @@ It's now necessary to tranfer the following files to your ==other== nodes, so th
 Back on the ==master== node, run `ceph orch host add <node-name>` once for each other node you want to join to the cluster. You can validate the results by running `ceph orch host ls`
 
 !!! question "Should we be concerned about giving cephadm using root access over SSH?"
-    Not really. Docker is inherently insecure at the host-level anyway (*think what would happen if you launched a global-mode stack with a malicious container image which mounted `/root/.ssh`*), so worrying about cephadm seems a little barn-door-after-horses-bolted. If you take host-level security seriously, consider switching to [Kubernetes](/kubernetes/start/) :) 
+    Not really. Docker is inherently insecure at the host-level anyway (*think what would happen if you launched a global-mode stack with a malicious container image which mounted `/root/.ssh`*), so worrying about cephadm seems a little barn-door-after-horses-bolted. If you take host-level security seriously, consider switching to [Kubernetes](/kubernetes/) :) 
 
 ### Add OSDs
 

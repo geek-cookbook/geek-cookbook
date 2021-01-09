@@ -4,9 +4,6 @@
 
 ![Kubernetes Snapshots](/images/kubernetes-helm.png)
 
-!!! note
-    Given enough interest, I may provide a helm-compatible version of the pre-mix repository for [supporters](/support/). [Hit me up](/whoami/#contact-me) if you're interested!
-
 ## Ingredients
 
 1. [Kubernetes cluster](/kubernetes/cluster/)
@@ -47,7 +44,7 @@ That's it - not very exciting I know, but we'll need helm for the next and final
 
 Still with me? Good. Move on to understanding Helm charts...
 
-* [Start](/kubernetes/start/) - Why Kubernetes?
+* [Start](/kubernetes/) - Why Kubernetes?
 * [Design](/kubernetes/design/) - How does it fit together?
 * [Cluster](/kubernetes/cluster/) - Setup a basic cluster
 * [Load Balancer](/kubernetes/loadbalancer/) Setup inbound access

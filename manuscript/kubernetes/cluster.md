@@ -72,7 +72,7 @@ That's it. You have a beautiful new kubernetes cluster ready for some action!
 
 Still with me? Good. Move on to creating your own external load balancer..
 
-* [Start](/kubernetes/start/) - Why Kubernetes?
+* [Start](/kubernetes/) - Why Kubernetes?
 * [Design](/kubernetes/design/) - How does it fit together?
 * Cluster (this page) - Setup a basic cluster
 * [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access

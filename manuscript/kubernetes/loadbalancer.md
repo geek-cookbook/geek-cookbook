@@ -319,7 +319,7 @@ Feb 06 23:04:28 haproxy2 webhook[1433]: [webhook] 2019/02/06 23:04:28 command ou
 
 Still with me? Good. Move on to setting up an ingress SSL terminating proxy with Traefik..
 
-- [Start](/kubernetes/start/) - Why Kubernetes?
+- [Start](/kubernetes/) - Why Kubernetes?
 - [Design](/kubernetes/design/) - How does it fit together?
 - [Cluster](/kubernetes/cluster/) - Setup a basic cluster
 - Load Balancer (this page) - Setup inbound access

@@ -178,7 +178,7 @@ EOF
 
 Still with me? Good. Move on to understanding Helm charts...
 
-* [Start](/kubernetes/start/) - Why Kubernetes?
+* [Start](/kubernetes/) - Why Kubernetes?
 * [Design](/kubernetes/design/) - How does it fit together?
 * [Cluster](/kubernetes/cluster/) - Setup a basic cluster
 * [Load Balancer](/kubernetes/loadbalancer/) Setup inbound access

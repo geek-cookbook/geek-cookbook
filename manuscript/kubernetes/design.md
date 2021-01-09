@@ -121,7 +121,7 @@ Finally, the DNS for all externally-accessible services is pointed to the IP of 
 
 Still with me? Good. Move on to creating your cluster!
 
-- [Start](/kubernetes/start/) - Why Kubernetes?
+- [Start](/kubernetes/) - Why Kubernetes?
 - Design (this page) - How does it fit together?
 - [Cluster](/kubernetes/cluster/) - Setup a basic cluster
 - [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access
