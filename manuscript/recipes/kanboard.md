@@ -4,9 +4,6 @@ hero: Kanboard - A recipe to get your personal kanban on
 
 Kanboard is a Kanban tool, developed by [Frédéric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux](/recipes/miniflux/)_)
 
-!!! tip "Sponsored Project"
-    Kanboard is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 😓
-
 Features include:
 
 * Visualize your work
@@ -103,7 +100,6 @@ networks:
       config:
         - subnet: 172.16.8.0/24    
 ```
-
 
 ## Serving
 

@@ -290,7 +290,7 @@ This section is WIP, instead, try using the K3S guide above 🙂
 
 Now that you have wasted half a lifetime on installing your very own cluster, you can install more to it. Like a load balancer!
 
-* [Start](/kubernetes/start/) - Why Kubernetes?
+* [Start](/kubernetes/) - Why Kubernetes?
 * [Design](/kubernetes/design/) - How does it fit together?
 * Cluster (this page) - Setup a basic cluster
 * [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access

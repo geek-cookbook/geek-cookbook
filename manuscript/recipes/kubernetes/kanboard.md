@@ -4,9 +4,6 @@ Kanboard is a Kanban tool, developed by [Frédéric Guillot](https://github.com/
 
 ![Kanboard Screenshot](/images/kanboard.png)
 
-!!! tip "Sponsored Project"
-    Kanboard is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 😓
-
 Features include:
 
 * Visualize your work

@@ -196,7 +196,7 @@ We're doneburgers! 🍔 We now have all the pieces to safely deploy recipes into
 
 Here's a recap:
 
-* [Start](/kubernetes/start/) - Why Kubernetes?
+* [Start](/kubernetes/) - Why Kubernetes?
 * [Design](/kubernetes/design/) - How does it fit together?
 * [Cluster](/kubernetes/cluster/) - Setup a basic cluster
 * [Load Balancer](/kubernetes/loadbalancer/) Setup inbound access

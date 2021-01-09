@@ -86,7 +86,7 @@ echo mysecretpassword > ~/.ansible/vault-password-geek-cookbook-premix
 Create an ansible-vault encrypted file in the `group_vars/<your-username>/vault.yml` using this password file:
 
 ```
-ansible-vault create --encrypt-vault-id geek-cookbook-premix vars/vault.yml
+ansible-vault create --vault-id geek-cookbook-premix vars/vault.yml
 ```
 
 Insert your secret values into this file (*refer to `group_vars/all/01_fake_vault.yml` for placeholders*), using a prefix of `vault_`, like this:

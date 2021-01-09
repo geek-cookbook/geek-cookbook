@@ -1,6 +1,12 @@
-# What is this thing?
+---
+hide:
+  - navigation # Hide navigation
+  # - toc        # Hide table of contents
+---
 
-Funky Penguin's "**[Geek Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](/ha-docker-swarm/design/) or [Kubernetes](/kubernetes/start/). 
+# Welcome, fellow geek :wave:
+
+Funky Penguin's "**[Geek Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](/ha-docker-swarm/design/) or [Kubernetes](/kubernetes/). 
 
 Running such a platform enables you to run self-hosted tools such as [AutoPirate](/recipes/autopirate/) (*Radarr, Sonarr, NZBGet and friends*), [Plex](https://www.plex.tv/), [NextCloud](https://nextcloud.com/), and includes elements such as:
 
@@ -27,7 +33,11 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
 !!! quote "...how useful the recipes are for people just getting started with containers..."
 
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">.<a href="https://twitter.com/funkypenguin?ref_src=twsrc%5Etfw">@funkypenguin</a> One of the surprising realizations from following Funky Penguins cookbooks <a href="https://t.co/XvZ2qLJa5N">https://t.co/XvZ2qLJa5N</a> for so long is how useful the recipes are for people just getting started with containers and how it gives them real, interesting usecases to attach to their learning</p>&mdash; DevOps Daniel (@DanielSHouston) <a href="https://twitter.com/DanielSHouston/status/1213419203379773442?ref_src=twsrc%5Etfw">January 4, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    "One of the surprising realizations from following Funky Penguins cookbooks for so long is how useful the recipes are for people just getting started with containers and how it gives them real, interesting usecases to attach to their learning" - [DevOps Daniel (@DanielSHouston)](https://twitter.com/DanielSHouston/status/1213419203379773442)
+
+## Who are you?
+
+:wave: Hi, I'm [David](https://www.funkypenguin.co.nz/about/)
 
 
 ## What have you done for me lately? (CHANGELOG)
@@ -58,10 +68,9 @@ The best way to support this work is to become a [GitHub Sponsor](https://github
 
 Impulsively **[click here (NOW quick do it!)](https://github.com/sponsors/funkypenguin)** to [sponsor me](https://github.com/sponsors/funkypenguin) via GitHub, or [patronize me via Patreon](https://www.patreon.com/bePatron?u=6982506)!
 
-
 ### Work with me 🤝
 
-Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified](https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-02-22&ci=AWS00794574) consultant, this stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch](https://www.funkypenguin.co.nz/contact/), and let's talk business!
+Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS](https://www.youracclaim.com/badges/a0c4a196-55ab-4472-b46b-b610b44dc00f/public_url) / [CNCF](https://www.youracclaim.com/badges/cd307d51-544b-4bc6-97b0-9015e40df40d/public_url)-[certified](https://www.youracclaim.com/badges/9ed9280a-fb92-46ca-b307-8f74a2cccf1d/public_url) [cloud/architecture consultant](https://www.funkypenguin.co.nz/about/), I've been doing (*and loving!*) this for 20+ years, and it's my bread and butter! :bread: :fork_and_knife: [Get in touch](https://www.funkypenguin.co.nz/contact/), and let's talk business!
 
 
 !!! quote "He unblocked me on all the technical hurdles to launching my SaaS in GKE!"
@@ -79,3 +88,19 @@ Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm 
 ### Buy my book 📖
 
 I'm publishing the Geek Cookbook as a formal eBook (*PDF, mobi, epub*), on Leanpub (https://leanpub.com/geek-cookbook). Check it out!
+
+### Sponsored Projects
+
+I'm supported and motivated by [GitHub Sponsors](https://github.com/sponsors/funkypenguin), [Patreon patrons](https://www.patreon.com/funkypenguin) and [LeanPub readers](https://leanpub.com/geeks-cookbook) who have generously sponsored me.
+
+I regularly donate to / sponsor the following projects. **Join me** in supporting these geeks, and encouraging them to continue building the ingredients for your favourite recipes!
+
+| Project | Donate via..      
+| ------------- |-------------|
+| [Komga](/recipes/komga/)      | [GitHub Sponsors](https://github.com/sponsors/gotson)
+| [Material for MKDocs](https://squidfunk.github.io/mkdocs-material/) | [GitHub Sponsors](https://github.com/sponsors/squidfunk)
+| [Calibre](https://calibre-ebook.com/) | [Credit Card](https://calibre-ebook.com/donate) / [Patreon](https://www.patreon.com/kovidgoyal) / [LibrePay](https://liberapay.com/kovidgoyal/donate)
+| [LinuxServer.io](https://www.linuxserver.io) | [PayPal](https://www.linuxserver.io/donate)
+| [WidgetBot's Discord Widget](https://widgetbot.io/) | [Patreon](https://www.patreon.com/widgetbot/overview)
+| [Carl-bot](https://carl.gg/) | [Patreon](https://www.patreon.com/carlbot)
+

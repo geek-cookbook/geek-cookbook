@@ -9,9 +9,6 @@ SABnzbd is the workhorse of the stack. It takes .nzb files as input (_manually o
 
 ![SABNZBD Screenshot](../../images/sabnzbd.png)
 
-!!! tip "Sponsored Project"
-    SABnzbd is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. It's not sexy, but it's consistent and reliable, and I enjoy the fruits of its labor near-daily.
-
 ## Inclusion into AutoPirate
 
 To include SABnzbd in your [AutoPirate](/recipes/autopirate/) stack
