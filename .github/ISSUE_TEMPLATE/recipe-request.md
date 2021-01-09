@@ -7,6 +7,21 @@ assignees: funkypenguin
 
 ---
 
+- [Recipe Request](#recipe-request)
+  - [Summary](#summary)
+  - [📝 Instructions](#-instructions)
+  - [🖼 Screenshot](#-screenshot)
+- [Checklist](#checklist)
+  - [☑️ Prerequisites](#️-prerequisites)
+  - [👮‍♂️ Access Control](#️-access-control)
+  - [⚙️ Config Management](#️-config-management)
+  - [🪠 Connectivity](#-connectivity)
+  - [💾 Data Management](#-data-management)
+  - [🪂 Backup](#-backup)
+  - [🤹‍♀️ Orchestration Platform](#️-orchestration-platform)
+  - [💍 Engagement](#-engagement)
+- [Done](#done)
+  
 # Recipe Request
 
 ** Briefly describe the new recipe you'd like added **
@@ -37,7 +52,7 @@ That's it for the text entry. Save the issue and then use the much-nicer rich vi
 
 # Checklist
 
-## ✔ Prerequisites
+## ☑️ Prerequisites
 
 First, some house-keeping. Review closed issues and PRs, and confirm that this recipe hasn't already been proposed, deprecated, or duplicated before. Also confirm that the application itself is not abandoned.
 
@@ -114,6 +129,8 @@ I'm willing to:
 * [ ] Test the recipe
 * [ ] Engage the community on Q&A for the recipe
 
-# 🙋‍♂️ What happens next?
+# Done
+
+What happens next? 🙋‍♂️
 
 Seek buy-in from the [community](http://chat.funkypenguin.co.nz), to indicate whether the recipe is a good fit for the cookbook or not.
