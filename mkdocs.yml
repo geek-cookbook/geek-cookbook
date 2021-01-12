@@ -25,6 +25,8 @@ plugins:
   - git-revision-date-localized:
       type: date
   - autolinks
+  - macros:
+      verbose: true
 
 
 
@@ -104,6 +106,7 @@ nav:
           - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
           - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md      
         - Komga: recipes/komga.md
+        - Linx: recipes/linx.md
         - Minio: recipes/minio.md
         - OpenLDAP: recipes/openldap.md
         - OwnTracks: recipes/owntracks.md
@@ -150,24 +153,22 @@ nav:
       - Chef's Favorites:
         - Kanboard: recipes/kubernetes/kanboard.md
         - Miniflux: recipes/kubernetes/miniflux.md
-    - 🍰 Get Premix!:
+    - 🚀 Get Premix!:
       - Start: premix.md
       - Ansible: 
         - Operation: premix/ansible/operation.md        
         - Design: premix/ansible/design.md
       - Swarm: premix/swarm.md
       - Kubernetes: premix/kubernetes.md      
-    - CHANGELOG: 
-      - Start: CHANGELOG.md
-    - Support:
-      - Start: support.md      
-    - Contribute:
-      - Start: community/contribute.md
+    - CHANGELOG: CHANGELOG.md
+    - Support: support.md      
+    - Contribute: community/contribute.md
     - Community: 
-      - Code of Conduct: community/code-of-conduct.md 
+      - Discord: community/discord.md 
       - Support: support.md      
       - Contribute: community/contribute.md
-      - Discord: community/discord.md  
+      - Code of Conduct: community/code-of-conduct.md 
+ 
     #   # - Discourse: community/discourse.md
     #   # - GitHub: community/github.md    
 
@@ -231,14 +232,16 @@ google_analytics:
   - 'UA-139253-18'
   - 'auto'
 
-extra_css:
-  - 'stylesheets/mailchimp.css'
+# extra_css:
 
 extra_javascript:
-  - 'extras/javascript/discord.js' 
+  - extras/javascript/discord.js
+  - extras/javascript/sortable-tables.js
+  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
 
 # Extensions
 markdown_extensions:
+  - attr_list
   - admonition
   - codehilite:
       linenums: true

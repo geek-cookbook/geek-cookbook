@@ -1,10 +1,10 @@
-# <///RECIPE NAME>
+# Linx
 
 Ever wanted to quickly share a screenshot, but don't want to use imgur, sign up for a service, or have your image tracked across the internet for all time? 
 
 Want to privately share some log output with a password, or a self-destructing cat picture?
 
-![Linx Screenshot](../images/linx.png)
+![Linx Screenshot](../images/linx.png){: loading=lazy }
 
 [Linx](https://github.com/andreimarcu/linx-server) is self-hosted file/media-sharing service, which features:
 
