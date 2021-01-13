@@ -17,15 +17,16 @@ jobs:
     - name: Discord notification
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-      uses: Ilshidur/action-discord@master
+        DISCORD_EMBEDS: |
+          {
+          "description": "```${{github.event.commits[0].message}}```",
+          "url": "{{ EVENT_PAYLOAD.compare }}",
+          "color": 7418285,
+          "author": {
+            "name": "${{github.sender.login}}",
+            "url": "${{github.sender.html_url}}",
+            "icon_url": "${{github.sender.avatar_url}}"
+          }
+      uses: Ilshidur/action-discord@master@0.3.0
       with:
-        args: |
-          Greetings, geeks!  🤓
-
-          The [Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz) has been updated!
-
-          Here's what @{{ GITHUB_ACTOR }} just cooked:
-
-          :partying_face: [${{github.event.commits[0].message}}]({{ EVENT_PAYLOAD.compare }})
-          ---
-          
+        args: The [Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz) has been updated!
