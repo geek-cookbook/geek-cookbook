@@ -97,6 +97,7 @@ Create a docker swarm config file in docker-compose syntax (v3), based on the or
 
 --8<-- "premix-cta.md"
 
+{% raw %}
 ???+ note "This example is 274 lines long. Click here to collapse it for better readability"
 
       ```
@@ -379,7 +380,7 @@ Create a docker swarm config file in docker-compose syntax (v3), based on the or
     !!! note
         Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
 
-
+{% endraw %}
 
 ## Serving
 
