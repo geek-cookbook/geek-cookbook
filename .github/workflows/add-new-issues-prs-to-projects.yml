@@ -16,6 +16,8 @@ jobs:
     - name: Assign issues and pull requests with any "recipe" label to project 1 (recipes)
       uses: srggrs/assign-one-project-github-action@1.2.0
       if: |
-        contains(github.event.issue.labels.*.name, 'recipe')
+        contains(github.event.issue.labels.*.name, 'recipe/request') ||
+        contains(github.event.issue.labels.*.name, 'recipe/new') ||
+        contains(github.event.issue.labels.*.name, 'recipe/update')
       with:
         project: 'https://github.com/geek-cookbook/geek-cookbook/projects/1'
