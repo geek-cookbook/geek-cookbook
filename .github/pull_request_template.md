@@ -33,3 +33,4 @@ delete these next checks if not adding a new recipe
 - [ ] I'm using the [oldest-possible version](https://docs.docker.com/compose/compose-file/compose-versioning/#version-3) of Docker-compose syntax for the feature my recipe needs
 - [ ] If traefik integration is required, I've included both v1 and v2 labels (*see [template](/manuscript/recipes/template.md)*)
 - [ ] If a recipe-specific overlay network is required, I've used a unique subnet and recorded it in [networks.md](manuscript/reference/networks.md)
+- [ ] I've considered updating `.github/CODEOWNERS` so that I'll be automatically included as a reviewer on future changes to this recipe
