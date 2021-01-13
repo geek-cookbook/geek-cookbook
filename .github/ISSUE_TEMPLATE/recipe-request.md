@@ -5,8 +5,21 @@ title: "[recipe] "
 labels: recipe/request, status/backlog, good first issue
 ---
 
-<!-- You can ignore this section, it's used to make the issue look beautiful. 
-     Skip to the summary section below.. -->
+<!-- Greetings, fellow geek!
+
+(o_
+//\
+V_/_   "What's this screwy template?"
+
+The idea here is to _quickly_ create a new recipe request, with a minimum of text entry,
+followed by a checklist-driven recipe-preparation process.
+
+"Umm.. what do I do now?"
+
+Fill out the basic section that the penguin points you to, and then save the issue. It'll be
+rendered in GitHub's UI, after which go through the checklists and make the necessary adjustments
+
+-->
 
 - [Recipe Request](#recipe-request)
   - [💬 Summary](#-summary)
@@ -27,15 +40,31 @@ labels: recipe/request, status/backlog, good first issue
 
 ## 💬 Summary
 
-<!-- ** Briefly describe the new recipe you'd like added -->
+<!-- 
 
-* Project homepage: https://my-project-page
-* Docker image: repository/image
-* Subreddit (optional): https://reddit.com/r/selfhosted
+(o_
+//\
+V_/_   "Briefly describe the new recipe you'd like added"
+
+-->
+
+* Description: <!-- replace with 1-2 line description of the project -->
+* Project homepage: <!-- replace with URL to the project home page -->
+* Docker image: <!-- replace with link to the preferred docker container -->
+* Community (optional): <!-- replace a link to the project's community or subreddit, 
+                             if appropriate. If not, delete this line -->
 
 ## 📝 Instructions
 
-<!-- Most projects include instructions on how to deploy via Docker. Include a link to the relevant documentation below, as well as the actual instructions / docker-compose file. -->
+<!-- 
+
+(o_
+//\
+V_/_   "Most projects include instructions on how to deploy via Docker. 
+        Include a link to the relevant documentation below, as well as 
+        the actual instructions / docker-compose file" 
+        
+-->
 
 ```
 < upstream docker compose / install instructions go here >
@@ -43,10 +72,18 @@ labels: recipe/request, status/backlog, good first issue
 
 ## 🖼 Screenshot
 
-<!-- Paste in a single, beautiful screenshot, which should be included in the recipe -->
-
 <!-- 
+
+(o_
+//\
+V_/_    "Paste in a single, beautiful screenshot, which should be included in the recipe"
+
+
+
+*** 
 That's it for the text entry. Save the issue and then use the much-nicer rich viewer to complete the checklist below.
+***
+
 -->
 
 # Checklist
