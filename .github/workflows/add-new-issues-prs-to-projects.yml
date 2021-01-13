@@ -1,0 +1,21 @@
+name: Add new issues/prs to projects
+
+on:
+  issues:
+    types: [opened, labeled]
+  pull_request:
+    types: [opened, labeled]
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  assign-recipes-to-project:
+    runs-on: ubuntu-latest
+    name: assign recipes to recipe project
+    steps:
+    - name: Assign issues and pull requests with any "recipe" label to project 1 (recipes)
+      uses: srggrs/assign-one-project-github-action@1.2.0
+      if: |
+        contains(github.event.issue.labels.*.name, 'recipe')
+      with:
+        project: 'https://github.com/geek-cookbook/geek-cookbook/projects/1'

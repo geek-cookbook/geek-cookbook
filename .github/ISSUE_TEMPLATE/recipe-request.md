@@ -2,9 +2,7 @@
 name: "\U0001F370 Request a recipe!"
 about: "I have a request for a fresh recipe \U0001F60B"
 title: "[recipe] "
-labels: recipe/request, status/backlog
-assignees: funkypenguin
-
+labels: recipe/request, status/backlog, good first issue
 ---
 
 <!-- You can ignore this section, it's used to make the issue look beautiful. 
