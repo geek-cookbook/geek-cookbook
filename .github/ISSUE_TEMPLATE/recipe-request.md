@@ -48,10 +48,11 @@ V_/_   "Briefly describe the new recipe you'd like added"
 
 -->
 
-* Description: <!-- replace with 1-2 line description of the project -->
-* Project homepage: <!-- replace with URL to the project home page -->
-* Docker image: <!-- replace with link to the preferred docker container -->
-* Community (optional): <!-- replace a link to the project's community or subreddit, 
+> <!-- replace with 1-2 line description of the project -->
+
+* [ ] Project homepage: <!-- replace with URL to the project home page -->
+* [ ] Docker image: <!-- replace with link to the preferred docker container -->
+* [ ] Community (optional): <!-- replace a link to the project's community or subreddit, 
                              if appropriate. If not, delete this line -->
 
 ## 📝 Instructions
