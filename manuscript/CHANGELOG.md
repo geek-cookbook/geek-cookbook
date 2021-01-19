@@ -8,6 +8,7 @@ hide:
 
 Recipe                             | Description                                                                         | Date
 -----------------------------------|-------------------------------------------------------------------------------------|--------------
+[CyberChef](/recipes/cyberchef/) | A web-based collection of useful tools for INFOSEC work, by the [GCHQ](https://en.wikipedia.org/wiki/GCHQ) | _19 Jan 2021_
 [Linx](/recipes/linx/)             | Quickly and securely share media/files with optional password-protection and expiry | _13 Jan 2021_
 [Komga](/recipes/komga/)           | Beautiful interface to manage and enjoy your comics / graphic novels                | _5 Jan 2021_
 [Photoprism](/recipes/photoprism/) | Self-hosted photo-management app incorporating automated tagging using Tensorflow   | _6 Aug 2020_

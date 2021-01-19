@@ -93,6 +93,7 @@ nav:
         - Bookstack: recipes/bookstack.md
         - Calibre-Web: recipes/calibre-web.md
         - Collabora Online: recipes/collabora-online.md
+        - CyberChef: recipes/cyberchef.md
         - Duplicati: recipes/duplicati.md
         - ElkarBackup: recipes/elkarbackup.md
         - Ghost: recipes/ghost.md
