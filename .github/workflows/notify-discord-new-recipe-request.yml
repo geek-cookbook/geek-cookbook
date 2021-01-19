@@ -26,6 +26,6 @@ jobs:
             "url": "${{github.sender.html_url}}",
             "icon_url": "${{github.sender.avatar_url}}"
           }
-      uses: Ilshidur/action-discord@master@0.3.0
+      uses: Ilshidur/action-discord@0.3.0
       with:
         args: The [Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz) has a new recipe request!
