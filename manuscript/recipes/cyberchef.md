@@ -1,6 +1,6 @@
 # CyberChef
 
-Are you a l33t h@x0r? Do you need the right tools at your fingertips to support your [#masterhacker](https://reddit.com/r/masterhacker) skillz? Look no further than CyberChef, lovingly baked for you by your friends at GHCQ[^1]!
+Are you a [l33t h@x0r](https://en.wikipedia.org/wiki/Hackers_(film))? Do you need the right tools at your fingertips to support your [#masterhacker](https://reddit.com/r/masterhacker) skillz? Look no further than CyberChef, lovingly baked for you by your friends at GHCQ[^1]!
 
 [^1]: [Government Communications Headquarters](https://en.wikipedia.org/wiki/GCHQ), commonly known as GCHQ, is an intelligence and security organisation responsible for providing signals intelligence and information assurance to the government and armed forces of the United Kingdom
 
@@ -67,7 +67,7 @@ networks:
 
 ### Cyber the Chef!
 
-Launch the Linx stack by running ```docker stack deploy cyberchef -c <path -to-docker-compose.yml>```
+Launch your CyberChef stack by running ```docker stack deploy cyberchef -c <path -to-docker-compose.yml>```, and then visit the URL you chose to begin the hackery!
 
 --8<-- "recipe-footer.md"
 
