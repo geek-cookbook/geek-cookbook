@@ -18,7 +18,7 @@ Want to know now when this recipe gets updated, or when future recipes are added
 
 <script type="text/javascript">
   DiscourseEmbed = { discourseUrl: 'https://discourse.geek-kitchen.funkypenguin.co.nz/',
-                     discourseEmbedUrl: '{{ page.canonical_url }}' };
+                     discourseEmbedUrl: document.URL };
 
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
