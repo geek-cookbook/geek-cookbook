@@ -4,14 +4,7 @@
 
 ![KeyCloak Screenshot](../images/keycloak.png)
 
-## Ingredients
-
-!!! Summary
-Existing:
-
-    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph/)
-    * [X] [Traefik](/ha-docker-swarm/traefik) configured per design
-    * [X] DNS entry for the hostname (_i.e. "keycloak.your-domain.com"_) you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -121,8 +114,7 @@ networks:
         - subnet: 172.16.49.0/24
 ```
 
-!!! note
-Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+--8<-- "reference-networks.md"
 
 ## Serving
 

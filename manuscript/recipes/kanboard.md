@@ -19,12 +19,7 @@ Features include:
 
 ![](/images/kanboard.png)
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry pointing your NextCloud url (_kanboard.example.com_) to your [keepalived](/ha-docker-swarm/keepalived/) IP
-
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 

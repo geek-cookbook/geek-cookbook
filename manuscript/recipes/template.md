@@ -14,16 +14,7 @@ Want to privately share some log output with a password, or a self-destructing c
 - :white_check_mark: Torrent download of files using web seeding
 - :white_check_mark: File expiry, deletion key, file access key, and random filename options
 
-
-## Ingredients
-
-!!! summary "Ingredients"
-    Already deployed:
-
-    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-    * [X] [Traefik](/ha-docker-swarm/traefik) configured per design
-    * [X] DNS entry for the hostname you intend to use (*or a wildcard*), pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
-
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 

@@ -6,14 +6,7 @@ hero: Ghost - A recipe for beautiful online publication.
 
 ![](/images/ghost.png)
 
-## Ingredients
-
-!!! summary "Ingredients"
-    Existing:
-
-    1. [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-    2. [X] [Traefik](/ha-docker-swarm/traefik) configured per design
-    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -24,7 +17,6 @@ Create the location for the bind-mount of the application data, so that it's per
 ```
 mkdir -p /var/data/ghost
 ```
-
 
 ### Setup Docker Swarm
 

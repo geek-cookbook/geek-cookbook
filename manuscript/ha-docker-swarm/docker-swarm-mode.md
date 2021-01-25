@@ -127,8 +127,7 @@ networks:
         - subnet: 172.16.0.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+--8<-- "reference-networks.md"
 
 Launch the cleanup stack by running ```docker stack deploy docker-cleanup -c <path-to-docker-compose.yml>```
 

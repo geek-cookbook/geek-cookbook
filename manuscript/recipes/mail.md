@@ -15,9 +15,8 @@ docker-mailserver doesn't include a webmail client, and one is not strictly need
 ## Ingredients
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. LetsEncrypt authorized email address for domain
-4. Access to manage DNS records for domains
+2. LetsEncrypt authorized email address for domain
+3. Access to manage DNS records for domains
 
 ## Preparation
 
@@ -153,8 +152,7 @@ networks:
         - subnet: 172.16.2.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot.
+--8<-- "reference-networks.md"
 
 A sample docker-mailserver.env file looks like this:
 

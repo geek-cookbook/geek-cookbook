@@ -6,11 +6,7 @@ Home Assistant is a home automation platform written in Python, with extensive s
 
 This recipie combines the [extensibility](https://home-assistant.io/components/) of [Home Assistant](https://home-assistant.io/) with the flexibility of [InfluxDB](https://docs.influxdata.com/influxdb/v1.4/) (_for time series data store_) and [Grafana](https://grafana.com/) (_for **beautiful** visualisation of that data_).
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -118,8 +114,7 @@ networks:
         - subnet: 172.16.13.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+--8<-- "reference-networks.md"
 
 ## Serving
 

@@ -6,11 +6,7 @@
 
 I've started experimenting with Emby as an alternative to Plex, because of the advanced [parental controls](https://github.com/MediaBrowser/Wiki/wiki/Parental-Controls) it offers. Based on my experimentation thus far, I have a "**kid-safe**" profile which automatically logs in, and only displays kid-safe content, based on ratings.
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -68,10 +64,7 @@ networks:
         - subnet: 172.16.17.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
-
+--8<-- "reference-networks.md"
 
 ## Serving
 

@@ -16,11 +16,7 @@ And that [HomeAssistant](/recipes/homeassistant/) config, which you so carefully
 
 Enter phpIPAM. A tool designed to help home keeps as well as large organisations keep track of their IP (_and VLAN, VRF, and AS number_) allocations.
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry for the hostname (_i.e. "phpipam.your-domain.com"_) you intend to use for phpIPAM, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IPIP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -190,8 +186,7 @@ networks:
         - subnet: 172.16.47.0/24
 ```
 
-!!! note
-Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
+--8<-- "reference-networks.md"
 
 ## Serving
 

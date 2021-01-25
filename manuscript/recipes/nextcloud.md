@@ -9,11 +9,7 @@ hero: Backup all your stuff. Share it. Privately.
 
 This recipe is based on the official NextCloud docker image, but includes seprate containers ofor the database (_MariaDB_), Redis (_for transactional locking_), Apache Solr (_for full-text searching_), automated database backup, (_you *do* backup the stuff you care about, right?_) and a separate cron container for running NextCloud's 15-min crons.
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry pointing your NextCloud url (_nextcloud.example.com_) to your [keepalived](/ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -151,10 +147,7 @@ networks:
         - subnet: 172.16.12.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
-
+--8<-- "reference-networks.md"
 
 ## Serving
 

@@ -19,11 +19,7 @@ cAdvisor (Container Advisor) provides container users an understanding of the re
 
 I'd encourage you to spend some time reading https://github.com/stefanprodan/swarmprom. Stefan has included detailed explanations about which elements perform which functions, as well as how to customize your stack. (_This is only a starting point, after all_)
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) on **17.09.0 or newer** (_doesn't work with CentOS Atomic, unfortunately_) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry for the hostnames you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 

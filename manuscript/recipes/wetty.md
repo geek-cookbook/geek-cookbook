@@ -16,11 +16,7 @@ Here are some other possible use cases:
 2. Access to long-running processes inside a tmux session (_like [irrsi](https://irssi.org/)_)
 3. Remote access to a VM / [container running Kali linux](https://github.com/offensive-security/kali-linux-docker), for penetration testing
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -83,10 +79,7 @@ networks:
         - subnet: 172.16.45.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
-
+--8<-- "reference-networks.md"
 
 ## Serving
 
