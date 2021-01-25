@@ -15,7 +15,7 @@ repo_url: 'https://github.com/geek-cookbook/geek-cookbook'
 docs_dir: 'manuscript'
 
 # Copyright
-copyright: 'Copyright &copy; 2016 - 2020 David Young, Funky Penguin Limited'
+copyright: 'Copyright &copy; 2016 - 2021 David Young, Funky Penguin Limited'
 
 # Plugins
 plugins:
@@ -85,6 +85,7 @@ nav:
         - NextCloud: recipes/nextcloud.md
         - phpIPAM: recipes/phpipam.md
         - Plex: recipes/plex.md
+        - Portainer: recipes/portainer.md        
         - PrivateBin: recipes/privatebin.md
         - Restic: recipes/restic.md          
         - Swarmprom: recipes/swarmprom.md    
@@ -112,7 +113,7 @@ nav:
         - OpenLDAP: recipes/openldap.md
         - OwnTracks: recipes/owntracks.md
         - Photoprism: recipes/photoprism.md
-        - Portainer: recipes/portainer.md
+        - Portainer: recipes/portainer.md        
         - Realms: recipes/realms.md
         - Restic: recipes/restic.md        
         - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
