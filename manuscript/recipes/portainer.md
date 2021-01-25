@@ -6,8 +6,6 @@ hero: A recipe for a sexy view of your Docker Swarm
 
 ![Portainer Screenshot](../images/portainer.png)
 
-This is a "lightweight" recipe, because Portainer is so "lightweight". But it **is** shiny...
-
 ## Ingredients
 
 1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
@@ -34,20 +32,58 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 version: "3"
 
 services:
-  app:
-    image: portainer/portainer
+  portainer:
+    image: portainer/portainer-ce
+    env_file: /var/data/config/portainer/portainer.env
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
       - /var/data/portainer:/data
     networks:
       - traefik_public
+      - internal
     deploy:
+      replicas: 1
       labels:
-        - traefik.frontend.rule=Host:portainer.funkypenguin.co.nz
-        - traefik.port=9000
+        # traefik
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
+
+        # traefikv1
+        - traefik.frontend.rule=Host:portainer.example.com
+        - traefik.port=9000    
+        # uncomment if you want to protect portainer with traefik-forward-auth using traefikv1 
+        # - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
+        # - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
+        # - traefik.frontend.auth.forward.trustForwardHeader=true        
+
+        # traefikv2
+        - "traefik.http.routers.portainer.rule=Host(`portainer.example.com`)"
+        - "traefik.http.routers.portainer.entrypoints=https"
+        - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+        # uncomment if you want to protect portainer with traefik-forward-auth using traefikv2         
+        # - "traefik.http.routers.portainer.middlewares=forward-auth"
       placement:
-        constraints: [node.role == manager]
-    command: -H unix:///var/run/docker.sock
+        constraints: [node.role == manager]                                                   
+    command: -H "tcp://tasks.portainer_agent:9001" --tlsskipverify
+
+  agent:
+    image: portainer/agent
+    environment:
+      AGENT_CLUSTER_ADDR: tasks.portainer_agent
+      CAP_HOST_MANAGEMENT: 1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+    ports:
+      - target: 9001
+        published: 9001
+        protocol: tcp
+        mode: host
+    networks:
+      - internal
+    deploy:
+      mode: global
+      placement:
+        constraints: [node.platform.os == linux]
 
 networks:
   traefik_public:
