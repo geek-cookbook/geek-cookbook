@@ -18,6 +18,7 @@ Recipe                             | Description                                
 
 Recipe                                                         | Description                           | Date
 ---------------------------------------------------------------|---------------------------------------|--------------
+[Portainer](/recipes/portainer/) | Bump to version 2, bringing "expert simplicity" to your Docker stack management | _25 Jan 2021_
 [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) | Now uses for latest @thomseddon image | _11 Jun 2020_
 
 
