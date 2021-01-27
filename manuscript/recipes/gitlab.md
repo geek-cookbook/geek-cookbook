@@ -56,7 +56,7 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 
 --8<-- "premix-cta.md"
 
-````
+```yaml
 version: '3'
 
 services:
@@ -105,7 +105,7 @@ networks:
     ipam:
       config:
         - subnet: 172.16.2.0/24
-````
+```
 
 --8<-- "reference-networks.md"
 

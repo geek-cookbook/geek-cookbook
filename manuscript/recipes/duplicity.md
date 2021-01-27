@@ -35,7 +35,7 @@ So what does this mean for our stack? It means we can leverage Duplicity to back
 
 We'll need a folder to store a docker-compose .yml file, and an associated .env file. If you're following my filesystem layout, create `/var/data/config/duplicity` (_for the config_), and `/var/data/duplicity` (_for the metadata_) as follows:
 
-```
+```bash
 mkdir /var/data/config/duplicity
 mkdir /var/data/duplicity
 cd /var/data/config/duplicity
@@ -90,7 +90,7 @@ Depending on what tier of storage you chose from your provider (_i.e., Google Co
 
 Run a variation of the following to confirm a file you expect to be backed up, **is** backed up. (_I used traefik.yml from the [traefik recipie](/ha-docker-swarm/traefik/), since this is likely to exist for every reader_).
 
-```
+```yaml
 docker run --env-file duplicity.env -it --rm \
 -v /var/data:/var/data:ro \
 -v /var/data/duplicity/tmp:/tmp \

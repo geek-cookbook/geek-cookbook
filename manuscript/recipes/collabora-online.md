@@ -67,7 +67,7 @@ termination=true
 
 Create ```/var/data/config/collabora/docker-compose.yml``` as follows:
 
-```
+```yaml
 version: "3.0"
 
 services:

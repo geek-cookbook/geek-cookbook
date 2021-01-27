@@ -44,7 +44,7 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 
 --8<-- "premix-cta.md"
 
-```
+```yaml
 version: "3.2" # https://docs.docker.com/compose/compose-file/compose-versioning/#version-3
 
 services:

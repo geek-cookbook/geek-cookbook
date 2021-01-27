@@ -96,7 +96,7 @@ Create a docker swarm config file in docker-compose syntax (v3), based on the or
 {% raw %}
 ???+ note "This example is 274 lines long. Click here to collapse it for better readability"
 
-      ```
+      ```yaml
       version: "3.3"
 
       networks:

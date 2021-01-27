@@ -43,7 +43,7 @@ IPFS_API=/ip4/172.17.0.1/tcp/5001
 
 Yes, I know. It's not as snazzy as docker swarm. Maybe we'll get there. But this implementation uses docker-compose, so create the following (_identical_) docker-compose.yml on each node:
 
-```
+```yaml
 version: "3"
 
 services:
