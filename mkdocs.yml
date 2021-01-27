@@ -97,6 +97,7 @@ nav:
         - CyberChef: recipes/cyberchef.md
         - Duplicati: recipes/duplicati.md
         - ElkarBackup: recipes/elkarbackup.md
+        - Funkwhale: recipes/funkwhale.md
         - Ghost: recipes/ghost.md
         - GitLab: recipes/gitlab.md
         - GitLab Runner: recipes/gitlab-runner.md
@@ -182,12 +183,12 @@ theme:
   favicon: 'images/site-logo.svg'
   features:
       - navigation.tabs
-#      - navigation.instant 
+      - navigation.instant 
       - navigation.tabs.sticky  
       - navigation.sections
-#      - search.suggest
+      - search.suggest
 #      - search.highlight
-#      - search.share
+      - search.share
   icon:
     repo: 'fontawesome/brands/github'
   palette:
