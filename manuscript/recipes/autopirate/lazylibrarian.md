@@ -15,9 +15,9 @@
 
 ## Inclusion into AutoPirate
 
-To include LazyLibrarian in your [AutoPirate](/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include LazyLibrarian in your [AutoPirate][autopirate] stack, include the following in your autopirate.yml stack definition file:
 
-````
+```yaml
 lazylibrarian:
   image: linuxserver/lazylibrarian:latest
   env_file : /var/data/config/autopirate/lazylibrarian.env
@@ -26,28 +26,24 @@ lazylibrarian:
    - /var/data/media:/media
   networks:
   - internal
-
-lazylibrarian_proxy:
-  image: a5huynh/oauth2_proxy
-  env_file : /var/data/config/autopirate/lazylibrarian.env
-  networks:
-    - internal
-    - traefik_public
   deploy:
     labels:
-      - traefik.frontend.rule=Host:lazylibrarian.example.com
+      # traefik
+      - traefik.enable=true
       - traefik.docker.network=traefik_public
-      - traefik.port=4180
-  volumes:
-    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
-  command: |
-    -cookie-secure=false
-    -upstream=http://lazylibrarian:5299
-    -redirect-url=https://lazylibrarian.example.com
-    -http-address=http://0.0.0.0:4180
-    -email-domain=example.com
-    -provider=github
-    -authenticated-emails-file=/authenticated-emails.txt
+
+      # traefikv1
+      - traefik.frontend.rule=Host:lazylibrarian.example.com
+      - traefik.port=5299
+      - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
+      - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
+      - traefik.frontend.auth.forward.trustForwardHeader=true        
+
+      # traefikv2
+      - "traefik.http.routers.lazylibrarian.rule=Host(`lazylibrarian.example.com`)"
+      - "traefik.http.routers.lazylibrarian.entrypoints=https"
+      - "traefik.http.services.lazylibrarian.loadbalancer.server.port=5299"
+      - "traefik.http.routers.lazylibrarian.middlewares=forward-auth"
 
 calibre-server:
   image: regueiro/calibre-server
@@ -56,31 +52,10 @@ calibre-server:
   networks:
   - internal    
 
-````
+```
 
 --8<-- "premix-cta.md"
-
-## Assemble more tools..
-
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipes/autopirate/end/)** section:
-
-* [SABnzbd](/recipes/autopirate/sabnzbd.md)
-* [NZBGet](/recipes/autopirate/nzbget.md)
-* [RTorrent](/recipes/autopirate/rtorrent/)
-* [Sonarr](/recipes/autopirate/sonarr/)
-* [Radarr](/recipes/autopirate/radarr/)
-* [Mylar](https://github.com/evilhero/mylar)
-* Lazy Librarian (this page)
-* [Headphones](/recipes/autopirate/headphones)
-* [Lidarr](/recipes/autopirate/lidarr/)
-* [NZBHydra](/recipes/autopirate/nzbhydra/)
-* [NZBHydra2](/recipes/autopirate/nzbhydra2/)
-* [Ombi](/recipes/autopirate/ombi/)
-* [Jackett](/recipes/autopirate/jackett/)
-* [Heimdall](/recipes/autopirate/heimdall/)
-* [End](/recipes/autopirate/end/) (launch the stack)
-
-[^1]: In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
-[^2]: The calibre-server container co-exists within the Lazy Librarian (LL) containers so that LL can automatically add a book to Calibre using the calibre-server interface. The calibre library can then be properly viewed using the [calibre-web](/recipes/calibre-web) recipe.
-
+--8<-- "recipe-autopirate-toc.md"
 --8<-- "recipe-footer.md"
+
+[^2]: The calibre-server container co-exists within the Lazy Librarian (LL) containers so that LL can automatically add a book to Calibre using the calibre-server interface. The calibre library can then be properly viewed using the [calibre-web](/recipes/calibre-web) recipe.

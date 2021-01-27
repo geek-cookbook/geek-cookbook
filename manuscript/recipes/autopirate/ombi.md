@@ -3,7 +3,7 @@
 
 # Ombi
 
-[Ombi](https://github.com/tidusjar/Ombi) is a useful addition to the [autopirate](/recipes/autopirate/) stack. Features include:
+[Ombi](https://github.com/tidusjar/Ombi) is a useful addition to the [autopirate][autopirate]stack. Features include:
 
 * Lets users request Movies and TV Shows (_whether it being the entire series, an entire season, or even single episodes._)
 * Easily manage your requests
@@ -19,7 +19,7 @@ Automatically updates the status of requests when they are available on Plex/Emb
 
 To include Ombi in your [AutoPirate](/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
-````
+```yaml
 ombi:
   image: linuxserver/ombi:latest
   env_file : /var/data/config/autopirate/ombi.env
@@ -36,43 +36,24 @@ ombi_proxy:
     - traefik_public
   deploy:
     labels:
-      - traefik.frontend.rule=Host:ombi.example.com
+      # traefik
+      - traefik.enable=true
       - traefik.docker.network=traefik_public
-      - traefik.port=4180
-  volumes:
-    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
-  command: |
-    -cookie-secure=false
-    -upstream=http://ombi:3579
-    -redirect-url=https://ombi.example.com
-    -http-address=http://0.0.0.0:4180
-    -email-domain=example.com
-    -provider=github
-    -authenticated-emails-file=/authenticated-emails.txt
-````
+
+      # traefikv1
+      - traefik.frontend.rule=Host:ombi.example.com
+      - traefik.port=3579
+      - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
+      - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
+      - traefik.frontend.auth.forward.trustForwardHeader=true        
+
+      # traefikv2
+      - "traefik.http.routers.ombi.rule=Host(`ombi.example.com`)"
+      - "traefik.http.routers.ombi.entrypoints=https"
+      - "traefik.http.services.ombi.loadbalancer.server.port=3579"
+      - "traefik.http.routers.ombi.middlewares=forward-auth"
+```
 
 --8<-- "premix-cta.md"
-
-## Assemble more tools..
-
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipes/autopirate/end/)** section:
-
-* [SABnzbd](/recipes/autopirate/sabnzbd.md)
-* [NZBGet](/recipes/autopirate/nzbget.md)
-* [RTorrent](/recipes/autopirate/rtorrent/)
-* [Sonarr](/recipes/autopirate/sonarr/)
-* [Radarr](/recipes/autopirate/radarr/)
-* [Mylar](/recipes/autopirate/mylar/)
-* [Lazy Librarian](/recipes/autopirate/lazylibrarian/)
-* [Headphones](/recipes/autopirate/headphones/)
-* [Lidarr](/recipes/autopirate/lidarr/)
-* [NZBHydra](/recipes/autopirate/nzbhydra/)
-* [NZBHydra2](/recipes/autopirate/nzbhydra2/)
-* Ombi (this page)
-* [Jackett](/recipes/autopirate/jackett/)
-* [Heimdall](/recipes/autopirate/heimdall/)
-* [End](/recipes/autopirate/end/) (launch the stack)
-
-[^1]: In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
-
+--8<-- "recipe-autopirate-toc.md"
 --8<-- "recipe-footer.md"

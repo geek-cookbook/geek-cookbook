@@ -1,13 +1,13 @@
-# Using Traefik Forward Auth with KeyCloak
+# Using Traefik Forward Auth with Dex
 
-While the [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) recipe demonstrated a quick way to protect a set of explicitly-specified URLs using OIDC credentials from a Google account, this recipe will illustrate how to use your own KeyCloak instance to secure **any** URLs within your DNS domain.
+[Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) is incredibly useful to secure services with an additional layer of authentication, provided by an OIDC-compatible provider. The simplest possible provides is CoreOS's Dex, configured with a static user/pass.
 
 ## Ingredients
 
 !!! Summary
     Existing:
 
-    * [X] [KeyCloak](/recipes/keycloak/) recipe deployed successfully, with a [local user](/recipes/keycloak/create-user/) and an [OIDC client](/recipes/keycloak/setup-oidc-provider/)
+    * [X] [Traefik](/recipes/keycloak/) recipe deployed successfully, with a [local user](/recipes/keycloak/create-user/) and an [OIDC client](/recipes/keycloak/setup-oidc-provider/)
 
     New:
 

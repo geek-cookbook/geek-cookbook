@@ -1,110 +1,36 @@
 # Traefik Forward Auth
 
-Now that we have Traefik deployed, automatically exposing SSL access to our Docker Swarm services using LetsEncrypt wildcard certificates, let's pause to consider that we may not _want_ some services exposed directly to the internet...
+Some of the platforms we use on our swarm may have strong, proven security to prevent abuse. Techniques such as rate-limiting (*to defeat brute force attacks*) or even support 2-factor authentication (*tiny-tiny-rss or Wallabag support this)*.
 
-..Wait, why not? Well, Traefik doesn't provide any form of authentication, it simply secures the **transmission** of the service between Docker Swarm and the end user. If you were to deploy a service with no native security (*[Radarr](/recipes/autopirate/radarr/) or [Sonarr](/recipes/autopirate/sonarr/) come to mind*), then anybody would be able to use it! Even services which _may_ have a layer of authentication **might** not be safe to expose publically - often open source projects may be maintained by enthusiasts who happily add extra features, but just pay lip service to security, on the basis that "*it's the user's problem to secure it in their own network*".
+Other platforms may provide **no authentication** (Traefik's web UI for example), or minimal, un-proven UI authentication which may have been added as an afterthought.
 
-To give us confidence that **we** can access our services, but BadGuys(tm) cannot, we'll deploy a layer of authentication **in front** of Traefik, using [Forward Authentication](https://docs.traefik.io/configuration/entrypoints/#forward-authentication). You can use your own  [KeyCloak](/recipes/keycloak/) instance for authentication, but to lower the barrier to entry, this recipe will assume you're authenticating against your own Google account.
+Still other platforms may hold such sensitive data (i.e., NextCloud), that we'll feel more secure by putting an additional authentication layer in front of them.
 
-## Ingredients
+This is the role of Traefik Forward Auth.
 
-!!! summary "Ingredients"
-    Existing:
+## How does it work?
 
-    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph)
-    * [X] [Traefik](/ha-docker-swarm/traefik/) configured per design
+**Normally**, Traefik proxies web requests directly to individual web apps running in containers. The user talks directly to the webapp, and the webapp is responsible for ensuring appropriate authentication.
 
-    New:
+When employing Traefik Forward Auth as "[middleware](https://doc.traefik.io/traefik/middlewares/forwardauth/)", the forward-auth process sits in the middle of this transaction - traefik receives the incoming request, "checks in" with the auth server to determine whether or not further authentication is required. If the user is authenticated, the auth server returns a 200 response code, and Traefik is authorized to forward the request to the backend. If not, traefik passes the auth server response back to the user - this process will usually direct the user to an authentication provider (_GitHub, Google, etc_), so that they can perform a login.
 
-    * [ ] Client ID and secret from an OpenID-Connect provider (Google, [KeyCloak](/recipes/keycloak/), Microsoft, etc..)
+Illustrated below:
+![Traefik Forward Auth](../images/traefik-forward-auth.png)
 
-## Preparation
+The advantage under this design is additional security. If I'm deploying a web app which I expect only an authenticated user to require access to (*unlike something intended to be accessed publically, like [Linx](/recipes/linx/)*), I'll pass the request through Traefik Forward Auth. The overhead is negligible, and the additional layer of security is well-worth it.
 
-### Obtain OAuth credentials
+## Authentication Providers
 
-!!! note
-    This recipe will demonstrate using Google OAuth for traefik forward authentication, but it's also possible to use a self-hosted KeyCloak instance - see the [KeyCloak OIDC Provider](/recipes/keycloak/setup-oidc-provider/) recipe for more details!
+Here are some recipes, in descending order of complexity:
 
-Log into https://console.developers.google.com/, create a new project then search for and select "Credentials" in the search bar. 
+### Dex
 
-Fill out the "OAuth Consent Screen" tab, and then click, "**Create Credentials**" > "**OAuth client ID**". Select "**Web Application**", fill in the name of your app, skip "**Authorized JavaScript origins**" and fill "**Authorized redirect URIs**" with either all the domains you will allow authentication from, appended with the url-path (*e.g. https://radarr.example.com/_oauth, https://radarr.example.com/_oauth, etc*), or if you don't like frustration, use a "auth host" URL instead, like "*https://auth.example.com/_oauth*" (*see below for details*)
+See [Using Traefik Forward Auth with Dex](/recipes/traefik-forward-auth/dex/)
 
-!!! tip
-    Store your client ID and secret safely - you'll need them for the next step.
+### Google
 
+See [Using Traefik Forward Auth with Google](/recipes/traefik-forward-auth/google/)
 
-### Prepare environment
+### KeyCloak
 
-Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.env` as follows:
-
-```
-GOOGLE_CLIENT_ID=<your client id>
-GOOGLE_CLIENT_SECRET=<your client secret>
-OIDC_ISSUER=https://accounts.google.com
-SECRET=<a random string, make it up>
-# uncomment this to use a single auth host instead of individual redirect_uris (recommended but advanced)
-#AUTH_HOST=auth.example.com
-COOKIE_DOMAINS=example.com
-```
-
-### Prepare the docker service config
-
-Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.yml` as follows:
-
-```
-  traefik-forward-auth:
-    image: thomseddon/traefik-forward-auth:2.1.0
-    env_file: /var/data/config/traefik-forward-auth/traefik-forward-auth.env
-    networks:
-      - traefik_public
-    # Uncomment these lines if you're using auth host mode
-    #deploy:
-    #  labels:
-    #    - traefik.port=4181
-    #    - traefik.frontend.rule=Host:auth.example.com
-    #    - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
-    #    - traefik.frontend.auth.forward.trustForwardHeader=true
-```
-
-If you're not confident that forward authentication is working, add a simple "whoami" test container to the above .yml, to help debug traefik forward auth, before attempting to add it to a more complex container.
-
-```
-  # This simply validates that traefik forward authentication is working
-  whoami:
-    image: containous/whoami
-    networks:
-      - traefik_public
-    deploy:
-      labels:
-        - traefik.frontend.rule=Host:whoami.example.com
-        - traefik.port=80
-        - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
-        - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
-        - traefik.frontend.auth.forward.trustForwardHeader=true
-```
-
---8<-- "premix-cta.md"
-
-## Serving
-
-### Launch
-
-Redeploy traefik with ```docker stack deploy traefik-forward-auth -c /var/data/traefik-forward-auth/traefik-forward-auth.yml```, to launch the traefik-forward-auth stack. 
-
-### Test
-
-Browse to https://whoami.example.com (*obviously, customized for your domain and having created a DNS record*), and all going according to plan, you should be redirected to a Google login. Once successfully logged in, you'll be directed to the basic whoami page.
-
-## Summary
-
-What have we achieved? By adding an additional three simple labels to any service, we can secure any service behind our choice of OAuth provider, with minimal processing / handling overhead.
-
-!!! summary "Summary"
-    Created:
-
-    * [X] Traefik-forward-auth configured to authenticate against an OIDC provider
-
-[^1]: Traefik forward auth replaces the use of [oauth_proxy containers](/reference/oauth_proxy/) found in some of the existing recipes
-[^2]: I reviewed several implementations of forward authenticators for Traefik, but found most to be rather heavy-handed, or specific to a single auth provider. @thomaseddon's go-based docker image is 7MB in size, and can be extended to work with any OIDC provider.
-
---8<-- "recipe-footer.md"
+See [Using Traefik Forward Auth with KeyCloak](/recipes/traefik-forward-auth/keycloak/)

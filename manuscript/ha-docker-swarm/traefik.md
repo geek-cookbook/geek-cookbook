@@ -13,15 +13,20 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 
 ![Traefik Screenshot](../images/traefik.png)
 
+!!! tip
+    In 2021, this recipe was updated for Traefik v2. There's really no reason to be using Traefikv1 anymore ;)
+
 ## Ingredients
 
-!!! summary "You'll need"
-    Existing
+!!! summary "Ingredients"
+    Already deployed:
 
-    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph)
+    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+    * [X] [Traefik](/ha-docker-swarm/traefik) configured per design
+    * [X] DNS entry for the hostname you intend to use (*or a wildcard*), pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
-    New
-
+    New:
+    
     * [ ] Access to update your DNS records for manual/automated [LetsEncrypt](https://letsencrypt.org/docs/challenge-types/) DNS-01 validation, or ingress HTTP/HTTPS for HTTP-01 validation
   
 ## Preparation
@@ -30,53 +35,58 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 
 While it's possible to configure traefik via docker command arguments, I prefer to create a config file (`traefik.toml`). This allows me to change traefik's behaviour by simply changing the file, and keeps my docker config simple.
 
-Create `/var/data/traefikv1/traefik.toml` as follows:
+Create `/var/data/traefikv2/traefik.toml` as follows:
 
 ```
-checkNewVersion = true
-defaultEntryPoints = ["http", "https"]
+[global]
+  checkNewVersion = true
 
-# This section enable LetsEncrypt automatic certificate generation / renewal
-[acme]
-email = "<your LetsEncrypt email address>"
-storage = "acme.json" # or "traefik/acme/account" if using KV store
-entryPoint = "https"
-acmeLogging = true
-onDemand = true
-OnHostRule = true
+# Enable the Dashboard
+[api]
+  dashboard = true
 
-# Request wildcard certificates per https://docs.traefik.io/configuration/acme/#wildcard-domains
-[[acme.domains]]
-  main = "*.example.com"
-  sans = ["example.com"]
+# Write out Traefik logs
+[log]
+  level = "INFO"
+  filePath = "/traefik.log"
 
-# Redirect all HTTP to HTTPS (why wouldn't you?)
-[entryPoints]
-  [entryPoints.http]
+[entryPoints.http]
   address = ":80"
-    [entryPoints.http.redirect]
-      entryPoint = "https"
-  [entryPoints.https]
+  # Redirect to HTTPS (why wouldn't you?)
+  [entryPoints.http.http.redirections.entryPoint]
+    to = "https"
+    scheme = "https"
+
+[entryPoints.https]
   address = ":443"
-    [entryPoints.https.tls]
+  [entryPoints.https.http.tls]
+    certResolver = "main"
 
-[web]
-address = ":8080"
-watch = true
+# Let's Encrypt
+[certificatesResolvers.main.acme]
+  email = "batman@example.com"
+  storage = "acme.json"
+  # uncomment to use staging CA for testing
+  # caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
+  [certificatesResolvers.main.acme.dnsChallenge]
+    provider = "route53"
+  # Uncomment to use HTTP validation, like a caveman!
+  # [certificatesResolvers.main.acme.httpChallenge]
+  #  entryPoint = "http"    
 
-[docker]
-endpoint = "tcp://127.0.0.1:2375"
-domain = "example.com"
-watch = true
-swarmmode = true
+# Docker Traefik provider
+[providers.docker]
+  endpoint = "unix:///var/run/docker.sock"
+  swarmMode = true
+  watch = true
 ```
 
 ### Prepare the docker service config
 
 !!! tip
-    "We'll want an overlay network, independent of our traefik stack, so that we can attach/detach all our other stacks (including traefik) to the overlay network. This way, we can undeploy/redepoly the traefik stack without having to bring every other stack first!" - voice of experience
+    "We'll want an overlay network, independent of our traefik stack, so that we can attach/detach all our other stacks (including traefik) to the overlay network. This way, we can undeploy/redepoly the traefik stack without having to bring down every other stack first!" - voice of hard-won experience
 
-Create `/var/data/config/traefik/traefik.yml` as follows:
+Create `/var/data/config/traefikv2/traefikv2.yml` as follows:
 
 ```
 version: "3.2"
@@ -105,18 +115,18 @@ networks:
 
 --8<-- "premix-cta.md"
 
-Create `/var/data/config/traefik/traefik-app.yml` as follows:
+Create `/var/data/config/traefikv2/traefikv2.yml` as follows:
 
 ```
 version: "3.2"
 
 services:
-  traefik:
-    image: traefik:v1.7.16
-    command: --web --docker --docker.swarmmode --docker.watch --docker.domain=example.com --logLevel=DEBUG
+  app:
+    image: traefik:v2.4
+    env_file: /var/data/config/traefikv2/traefikv2.env
     # Note below that we use host mode to avoid source nat being applied to our ingress HTTP/HTTPS sessions
     # Without host mode, all inbound sessions would have the source IP of the swarm nodes, rather than the
-    # original source IP, which would impact logging. If you don't care about this, you can expose ports the
+    # original source IP, which would impact logging. If you don't care about this, you can expose ports the 
     # "minimal" way instead
     ports:
       - target: 80
@@ -132,21 +142,30 @@ services:
         protocol: tcp
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /var/data/traefikv1:/etc/traefik
-      - /var/data/traefikv1/traefik.log:/traefik.log
-      - /var/data/traefikv1/acme.json:/acme.json
+      - /var/data/config/traefikv2:/etc/traefik
+      - /var/data/traefikv2/traefik.log:/traefik.log
+      - /var/data/traefikv2/acme.json:/acme.json
     networks:
       - traefik_public
     # Global mode makes an instance of traefik listen on _every_ node, so that regardless of which
     # node the request arrives on, it'll be forwarded to the correct backend service.
     deploy:
-      labels:
-        - "traefik.enable=false"
       mode: global
+      labels:
+        - "traefik.docker.network=traefik_public"
+        - "traefik.http.routers.api.rule=Host(`traefik.example.com`)"
+        - "traefik.http.routers.api.entrypoints=https"
+        - "traefik.http.routers.api.tls.domains[0].main=example.com"
+        - "traefik.http.routers.api.tls.domains[0].sans=*.example.com"        
+        - "traefik.http.routers.api.tls=true"
+        - "traefik.http.routers.api.tls.certresolver=main"
+        - "traefik.http.routers.api.service=api@internal"
+        - "traefik.http.services.dummy.loadbalancer.server.port=9999"
+
+        # uncomment this to enable forward authentication on the traefik api/dashboard
+        #- "traefik.http.routers.api.middlewares=forward-auth"      
       placement:
         constraints: [node.role == manager]
-      restart_policy:
-        condition: on-failure     
 
 networks:
   traefik_public:
@@ -156,10 +175,10 @@ networks:
 Docker won't start a service with a bind-mount to a non-existent file, so prepare an empty acme.json and traefik.log (_with the appropriate permissions_) by running:
 
 ```
-touch /var/data/traefikv1/acme.json
-touch /var/data/traefikv1/traefik.log
-chmod 600 /var/data/traefikv1/acme.json
-chmod 600 /var/data/traefikv1/traefik.log
+touch /var/data/traefikv2/acme.json
+touch /var/data/traefikv2/traefik.log
+chmod 600 /var/data/traefikv2/acme.json
+chmod 600 /var/data/traefikv2/traefik.log
 ```
 
 !!! warning
@@ -182,26 +201,26 @@ Creating service traefik_scratch
 [root@kvm ~]#
 ```
 
-Now deploy the traefik appliation itself (*which will attach to the overlay network*) by running `docker stack deploy traefik-app -c /var/data/config/traefik/traefik-app.yml`
+Now deploy the traefik application itself (*which will attach to the overlay network*) by running `docker stack deploy traefikv2 -c /var/data/config/traefikv2/traefikv2.yml`
 
 ```
-[root@kvm ~]# docker stack deploy traefik-app -c traefik-app.yml
-Creating service traefik-app_app
+[root@kvm ~]# docker stack deploy traefik-app -c traefikv2.yml
+Creating service traefikv2_app
 [root@kvm ~]#
 ```
 
-Confirm traefik is running with `docker stack ps traefik-app`:
+Confirm traefik is running with `docker stack ps traefikv2`:
 
 ```
-[root@kvm ~]# docker stack ps traefik-app
-ID                  NAME                                        IMAGE               NODE                     DESIRED STATE       CURRENT STATE            ERROR               PORTS
-74uipz4sgasm        traefik-app_app.t4vcm8siwc9s1xj4c2o4orhtx   traefik:alpine      kvm.funkypenguin.co.nz   Running             Running 33 seconds ago                       *:443->443/tcp,*:80->80/tcp
-[root@kvm ~]#
+root@raphael:~# docker stack ps traefikv2
+ID             NAME                                          IMAGE          NODE        DESIRED STATE   CURRENT STATE                ERROR     PORTS
+lmvqcfhap08o   traefikv2_app.dz178s1aahv16bapzqcnzc03p       traefik:v2.4   donatello   Running         Running 2 minutes ago                  *:443->443/tcp,*:80->80/tcp
+root@raphael:~#
 ```
 
 ### Check Traefik Dashboard
 
-You should now be able to access[^1] your traefik instance on http://<node IP\>:8080 - It'll look a little lonely currently (*below*), but we'll populate it as we add recipes :)
+You should now be able to access[^1] your traefik instance on **https://traefik.<your domain\>** (*if your LetsEncrypt certificate is working*), or **http://<node IP\>:8080** (*if it's not*)- It'll look a little lonely currently (*below*), but we'll populate it as we add recipes :grin:
 
 ![Screenshot of Traefik, post-launch](/images/traefik-post-launch.png)
 
