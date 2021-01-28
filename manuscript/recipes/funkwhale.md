@@ -68,12 +68,12 @@ services:
     deploy:
       labels:
         # traefik common
-        - traefik.enable=true
-        - traefik.docker.network=traefik_public
+        - "traefik.enable=true"
+        - "traefik.docker.network=traefik_public"
 
         # traefikv1
-        - traefik.frontend.rule=Host:funkwhale.example.com
-        - traefik.port=80     
+        - "traefik.frontend.rule=Host:funkwhale.example.com"
+        - "traefik.port=80"
 
         # traefikv2
         - "traefik.http.routers.linx.rule=Host(`funkwhale.example.com`)"
