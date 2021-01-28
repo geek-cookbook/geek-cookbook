@@ -45,7 +45,8 @@ nav:
         - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
         - Traefik: ha-docker-swarm/traefik.md
         - Traefik Forward Auth: 
-            - Start: ha-docker-swarm/traefik-forward-auth.md      
+            - Start: ha-docker-swarm/traefik-forward-auth.md 
+            - Google: ha-docker-swarm/traefik-forward-auth/google.md      
             - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
         - Registry: ha-docker-swarm/registry.md
         - Mail Server: recipes/mail.md
@@ -63,7 +64,6 @@ nav:
           - Headphones: recipes/autopirate/headphones.md
           - Lidarr: recipes/autopirate/lidarr.md
           - NZBHydra: recipes/autopirate/nzbhydra.md
-          - NZBHydra 2: recipes/autopirate/nzbhydra2.md
           - Ombi: recipes/autopirate/ombi.md
           - Jackett: recipes/autopirate/jackett.md
           - Heimdall: recipes/autopirate/heimdall.md
@@ -97,6 +97,7 @@ nav:
         - CyberChef: recipes/cyberchef.md
         - Duplicati: recipes/duplicati.md
         - ElkarBackup: recipes/elkarbackup.md
+        - Funkwhale: recipes/funkwhale.md
         - Ghost: recipes/ghost.md
         - GitLab: recipes/gitlab.md
         - GitLab Runner: recipes/gitlab-runner.md
