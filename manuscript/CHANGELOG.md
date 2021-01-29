@@ -18,6 +18,8 @@ Recipe                             | Description                                
 
 Recipe                                                         | Description                           | Date
 ---------------------------------------------------------------|---------------------------------------|--------------
+[Traefik Forward Auth][tfa] | Major update for Traefik v2, included instructions for Dex, Google, KeyCloak | _29 Jan 2021_
+[Autopirate][autopirate] | Updated all components for Traefik v2 labels | _29 Jan 2021_
 [Portainer](/recipes/portainer/) | Bump to version 2, bringing "expert simplicity" to your Docker stack management | _25 Jan 2021_
 [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) | Now uses for latest @thomseddon image | _11 Jun 2020_
 
@@ -31,3 +33,5 @@ Also available via:
 * Mastodon: https://mastodon.social/@geekcookbook_changes
 * RSS: https://mastodon.social/@geekcookbook_changes.rss
 * The #changelog channel in our [Discord server](http://chat.funkypenguin.co.nz)
+
+--8<-- "common-links.md"

@@ -19,6 +19,8 @@
 [funkwhale]:        /recipes/autopirate/funkwhale/
 [keycloak]:         /recipes/keycloak/
 [openldap]:         /recipes/openldap/
+[autopirate]:       /recipes/autopirate/
 [tfa-google]:       /ha-docker-swarm/traefik-forward-auth/google/
 [tfa-dex-static]:   /ha-docker-swarm/traefik-forward-auth/dex-static/
 [tfa-keycloak]:     /ha-docker-swarm/traefik-forward-auth/keycloak/
+[tfa]:              /ha-docker-swarm/traefik-forward-auth/
