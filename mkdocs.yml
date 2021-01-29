@@ -46,6 +46,7 @@ nav:
         - Traefik: ha-docker-swarm/traefik.md
         - Traefik Forward Auth: 
             - Start: ha-docker-swarm/traefik-forward-auth.md 
+            - Dex (static): ha-docker-swarm/traefik-forward-auth/dex-static.md    
             - Google: ha-docker-swarm/traefik-forward-auth/google.md      
             - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
         - Registry: ha-docker-swarm/registry.md
@@ -119,7 +120,9 @@ nav:
         - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
         - Traefik: ha-docker-swarm/traefik.md
         - Traefik Forward Auth: 
-            - Start: ha-docker-swarm/traefik-forward-auth.md      
+            - Start: ha-docker-swarm/traefik-forward-auth.md 
+            - Dex (static): ha-docker-swarm/traefik-forward-auth/dex-static.md    
+            - Google: ha-docker-swarm/traefik-forward-auth/google.md      
             - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
         - Wallabag: recipes/wallabag.md
         - Wekan: recipes/wekan.md

@@ -2,20 +2,9 @@
 
 While the [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) recipe demonstrated a quick way to protect a set of explicitly-specified URLs using OIDC credentials from a Google account, this recipe will illustrate how to use your own KeyCloak instance to secure **any** URLs within your DNS domain.
 
-## Ingredients
-
-!!! Summary
-    Existing:
-
-    * [X] [KeyCloak](/recipes/keycloak/) recipe deployed successfully, with a [local user](/recipes/keycloak/create-user/) and an [OIDC client](/recipes/keycloak/setup-oidc-provider/)
-
-    New:
-
-    * [ ] DNS entry for your auth host (*"auth.yourdomain.com" is a good choice*), pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-tfa-ingredients.md"
 
 ## Preparation
-
---8<--- "recipe-authhost-mode.md"
 
 ### Setup environment
 
@@ -94,7 +83,7 @@ And re-deploy your services :)
 What have we achieved? By adding an additional three simple labels to any service, we can secure any service behind our KeyCloak OIDC provider, with minimal processing / handling overhead.
 
 !!! summary "Summary"
-Created:
+    Created:
 
     * [X] Traefik-forward-auth configured to authenticate against KeyCloak
 

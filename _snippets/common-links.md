@@ -16,3 +16,9 @@
 [nzbhydra]:         /recipes/autopirate/nzbhydra/
 [lazylibrarian]:    /recipes/autopirate/lazylibrarian/
 [jackett]:          /recipes/autopirate/jackett/
+[funkwhale]:        /recipes/autopirate/funkwhale/
+[keycloak]:         /recipes/keycloak/
+[openldap]:         /recipes/openldap/
+[tfa-google]:       /ha-docker-swarm/traefik-forward-auth/google/
+[tfa-dex-static]:   /ha-docker-swarm/traefik-forward-auth/dex-static/
+[tfa-keycloak]:     /ha-docker-swarm/traefik-forward-auth/keycloak/
