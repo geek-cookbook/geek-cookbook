@@ -8,7 +8,7 @@ phpIPAM fulfils a non-sexy, but important role - It helps you manage your IP add
 
 ## Why should you care about this?
 
-You probably have a home network, with 20-30 IP addresses, for your family devices, your ![IoT devices](/recipes/homeassistant), your smart TV, etc. If you want to (a) monitor them, and (b) audit who does what, you care about what IPs they're assigned by your DHCP server.
+You probably have a home network, with 20-30 IP addresses, for your family devices, your [IoT devices](/recipes/homeassistant), your smart TV, etc. If you want to (a) monitor them, and (b) audit who does what, you care about what IPs they're assigned by your DHCP server.
 
 You could simple keep track of all devices with leases in your DHCP server, but what happens if your (_hypothetical?_) Ubiquity Edge Router X crashes and burns due to lack of disk space, and you loose track of all your leases? Well, you have to start from scratch, is what!
 
@@ -22,7 +22,7 @@ Enter phpIPAM. A tool designed to help home keeps as well as large organisations
 
 ### Setup data locations
 
-We'll need several directories to bind-mount into our container, so create them in /var/data/phpipam:
+We'll need several directories to bind-mount into our container, so create them in `/var/data/phpipam`:
 
 ```
 mkdir /var/data/phpipam/databases-dump -p
@@ -31,7 +31,7 @@ mkdir /var/data/runtime/phpipam -p
 
 ### Prepare environment
 
-Create phpipam.env, and populate with the following variables
+Create `phpipam.env`, and populate with the following variables
 
 ```
 # Setup for github, phpipam application
@@ -56,7 +56,7 @@ BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
 ```
 
-Additionally, create phpipam-backup.env, and populate with the following variables:
+Additionally, create `phpipam-backup.env`, and populate with the following variables:
 
 ```
 # For MariaDB/MySQL database
@@ -70,34 +70,7 @@ BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
 ```
 
-### Create nginx.conf
 
-I usually protect my stacks using an [oauth proxy](/reference/oauth_proxy/) container in front of the app. This protects me from either accidentally exposing a platform to the world, or having a insecure platform accessed and abused.
-
-In the case of phpIPAM, the oauth*proxy creates an additional complexity, since it passes the "Authorization" HTTP header to the phpIPAM container. phpIPAH then examines the header, determines that the provided username (\_my email address associated with my oauth provider*) doesn't match a local user account, and denies me access without the opportunity to retry.
-
-The (_dirty_) solution I've come up with is to insert an Nginx instance in the path between the oauth_proxy and the phpIPAM container itself. Nginx can remove the authorization header, so that phpIPAM can prompt me to login with a web-based form.
-
-Create /var/data/phpipam/nginx.conf as follows:
-
-```
-upstream app-upstream {
-    server app:80;
-}
-
-server {
-    listen 80;
-    server_name ~.;
-
-    # Just redirect everything to the upstream
-    # Yes, it's embarassing. We are just a mechanism to strip an AUTH header :(
-    location ^~ / {
-        proxy_pass http://app-upstream;
-	proxy_set_header       Authorization "";
-    }
-
-}
-```
 
 ### Setup Docker Swarm
 
@@ -118,44 +91,30 @@ services:
     volumes:
       - /var/data/runtime/phpipam/db:/var/lib/mysql
 
-  proxy:
-    image: funkypenguin/oauth2_proxy
+  app:
+    image: pierrecdn/phpipam
     env_file: /var/data/config/phpipam/phpipam.env
     networks:
       - internal
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:phpipam.example.com
-        - traefik.docker.network=traefik_public
-        - traefik.port=4180
-    volumes:
-      - /var/data/config/phpipam/authenticated-emails.txt:/authenticated-emails.txt
-    command: |
-      -cookie-secure=false
-      -upstream=http://nginx
-      -redirect-url=https://phpipam.example.com
-      -http-address=http://0.0.0.0:4180
-      -email-domain=example.com
-      -provider=github
-      -authenticated-emails-file=/authenticated-emails.txt
+        # traefik common
+        - "traefik.enable=true"
+        - "traefik.docker.network=traefik_public"
 
-  # Wait, what? Why do we have an oauth_proxy _and_ an nginx frontend for a simple webapp?
-  # Well, it's a long story. Basically, the phpipam container sees the "auth" headers passed by the
-  # oauth_proxy, and decides to use these exclusively to authenticate users. So no web-based login form, just "access denied"
-  # To work around this, we add nginx reverse proxy to the mix. A PITA, but an easy way to solve without altering the PHPIPAM code
-  nginx:
-    image: nginx:latest
-    networks:
-      - internal
-    volumes:
-      - /var/data/phpipam/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+        # traefikv1
+        - "traefik.frontend.rule=Host:phpipam.example.com"
+        - "traefik.port=80"
+        - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
+        - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
+        - traefik.frontend.auth.forward.trustForwardHeader=true           
 
-  app:
-    image: pierrecdn/phpipam
-    env_file: /var/data/config/phpipam/phpipam.env
-    networks:
-      - internal
+        # traefikv2
+        - "traefik.http.routers.phpipam.rule=Host(`phpipam.example.com`)"
+        - "traefik.http.routers.phpipam.entrypoints=https"
+        - "traefik.http.services.phpipam.loadbalancer.server.port=80" 
+        - "traefik.http.routers.api.middlewares=forward-auth"           
 
   db-backup:
     image: mariadb:10
@@ -196,6 +155,6 @@ Launch the phpIPAM stack by running `docker stack deploy phpipam -c <path -to-do
 
 Log into your new instance at https://**YOUR-FQDN**, and follow the on-screen prompts to set your first user/password.
 
-[^1]: If you wanted to expose the phpIPAM UI directly, you could remove the oauth2_proxy and the nginx services from the design, and move the traefik_public-related labels directly to the phpipam container. You'd also need to add the traefik_public network to the phpipam container.
+[^1]: If you wanted to expose the phpIPAM UI directly, you could remove the `traefik.http.routers.api.middlewares` label from the app container :thumbsup:
 
 --8<-- "recipe-footer.md"

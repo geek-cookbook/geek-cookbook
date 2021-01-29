@@ -117,7 +117,7 @@ networks:
 
 Create `/var/data/config/traefikv2/traefikv2.yml` as follows:
 
-```
+```yaml
 version: "3.2"
 
 services:
