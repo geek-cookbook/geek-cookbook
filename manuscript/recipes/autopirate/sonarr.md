@@ -10,9 +10,9 @@
 
 ## Inclusion into AutoPirate
 
-To include Sonarr in your [AutoPirate](/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include Sonarr in your [AutoPirate][autopirate] stack, include the following in your autopirate.yml stack definition file:
 
-````
+```yaml
 sonarr:
   image: linuxserver/sonarr:latest
   env_file : /var/data/config/autopirate/sonarr.env
@@ -21,52 +21,26 @@ sonarr:
    - /var/data/media:/media
   networks:
   - internal
-
-sonarr_proxy:
-  image: a5huynh/oauth2_proxy
-  env_file : /var/data/config/autopirate/sonarr.env
-  networks:
-    - internal
-    - traefik_public
   deploy:
     labels:
-      - traefik.frontend.rule=Host:sonarr.example.com
+      # traefik
+      - traefik.enable=true
       - traefik.docker.network=traefik_public
-      - traefik.port=4180
-  volumes:
-    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
-  command: |
-    -cookie-secure=false
-    -upstream=http://sonarr:8989
-    -redirect-url=https://sonarr.example.com
-    -http-address=http://0.0.0.0:4180
-    -email-domain=example.com
-    -provider=github
-    -authenticated-emails-file=/authenticated-emails.txt
-````
+
+      # traefikv1
+      - traefik.frontend.rule=Host:sonarr.example.com
+      - traefik.port=8989
+      - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
+      - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
+      - traefik.frontend.auth.forward.trustForwardHeader=true        
+
+      # traefikv2
+      - "traefik.http.routers.sonarr.rule=Host(`sonarr.example.com`)"
+      - "traefik.http.routers.sonarr.entrypoints=https"
+      - "traefik.http.services.sonarr.loadbalancer.server.port=8989"
+      - "traefik.http.routers.sonarr.middlewares=forward-auth"
+```
 
 --8<-- "premix-cta.md"
-
-## Assemble more tools..
-
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipes/autopirate/end/)** section:
-
-* [SABnzbd](/recipes/autopirate/sabnzbd.md)
-* [NZBGet](/recipes/autopirate/nzbget.md)
-* [RTorrent](/recipes/autopirate/rtorrent/)
-* Sonarr (this page)
-* [Radarr](/recipes/autopirate/radarr/)
-* [Mylar](/recipes/autopirate/mylar/)
-* [Lazy Librarian](/recipes/autopirate/lazylibrarian/)
-* [Headphones](/recipes/autopirate/headphones/)
-* [Lidarr](/recipes/autopirate/lidarr/)
-* [NZBHydra](/recipes/autopirate/nzbhydra/)
-* [NZBHydra2](/recipes/autopirate/nzbhydra2/)
-* [Ombi](/recipes/autopirate/ombi/)
-* [Jackett](/recipes/autopirate/jackett/)
-* [Heimdall](/recipes/autopirate/heimdall/)
-* [End](/recipes/autopirate/end/) (launch the stack)
-
-[^1]: In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
-
+--8<-- "recipe-autopirate-toc.md"
 --8<-- "recipe-footer.md"

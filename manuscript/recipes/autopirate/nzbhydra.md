@@ -1,77 +1,61 @@
 !!! warning
-    This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
+# NZBHydra 2
 
-# NZBHydra
+[NZBHydra 2](https://github.com/theotherp/nzbhydra2) is a meta search for NZB indexers. It provides easy access to a number of raw and newznab based indexers. You can search all your indexers from one place and use it as an indexer source for tools like Sonarr, Radarr or CouchPotato.
 
-[NZBHydra](https://github.com/theotherp/nzbhydra) is a meta search for NZB indexers. It provides easy access to a number of raw and newznab based indexers. You can search all your indexers from one place and use it as indexer source for tools like Sonarr or CouchPotato. Features include:
+![NZBHydra Screenshot](../../images/nzbhydra2.png)
 
-* Search by IMDB, TMDB, TVDB, TVRage and TVMaze ID (including season and episode) and filter by age and size. If an ID is not supported by an indexer it is attempted to be converted (e.g. TMDB to IMDB)
-* Query generation, meaning when you search for a movie using e.g. an IMDB ID a query will be generated for raw indexers. Searching for a series season 1 episode 2 will also generate queries for raw indexers, like s01e02 and 1x02
-* Grouping of results with the same title and of duplicate results, accounting for result posting time, size, group and poster. By default only one of the duplicates is shown. You can provide an indexer score to influence which one that might be
-* Compatible with Sonarr, CP, NZB 360, SickBeard, Mylar and Lazy Librarian (and others)
-* Statistics on indexers (average response time, share of results, access errors), searches and downloads per time of day and day of week, NZB download history and search history (both via internal GUI and API)
+Features include:
 
-![NZBHydra Screenshot](../../images/nzbhydra.png)
+- Searches Anizb, BinSearch, NZBIndex and any newznab compatible indexers. Merges all results, filters them by a number of configurable restrictions, recognizes duplicates and returns them all in one place
+- Add results to [NZBGet][nzbget] or [SABnzbd][sabnzbd]
+- Support for all relevant media IDs (IMDB, TMDB, TVDB, TVRage, TVMaze) and conversion between them
+- Query generation, meaning a query will be generated if only a media ID is provided in the search and the indexer doesn't support the ID or if no results were found
+- Compatible with [Sonarr][sonarr], [Radarr][radarr], [NZBGet][nzbget], [SABnzbd][sabnzbd], nzb360, CouchPotato, [Mylar][mylar], [Lazy Librarian][lazylibrarian], Sick Beard, [Jackett][jackett], Watcher, etc.
+- Search and download history and extensive stats. E.g. indexer response times, download shares, NZB age, etc.
+- Authentication and multi-user support
+- Automatic update of NZB download status by querying configured downloaders
+- RSS support with configurable cache times
+- Torrent support (_Although I prefer [Jackett][jackett] for this_):
+  - For GUI searches, allowing you to download torrents to a blackhole folder
+  - A separate Torznab compatible endpoint for API requests, allowing you to merge multiple trackers
+- Extensive configurability
+- Migration of database and settings from v1
 
 ## Inclusion into AutoPirate
 
-To include NZBHydra in your [AutoPirate](/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include NZBHydra2 in your [AutoPirate][autopirate] stack, include the following in your autopirate.yml stack definition file:
 
-````
-nzbhydra:
-  image: linuxserver/hydra:latest
-  env_file : /var/data/config/autopirate/nzbhydra.env
+```yaml
+nzbhydra2:
+  image: linuxserver/hydra2:latest
+  env_file : /var/data/config/autopirate/nzbhydra2.env
   volumes:
-   - /var/data/autopirate/nzbhydra:/config
+   - /var/data/autopirate/nzbhydra2:/config
   networks:
   - internal
-
-nzbhydra_proxy:
-  image: a5huynh/oauth2_proxy
-  env_file : /var/data/config/autopirate/nzbhydra.env
-  networks:
-    - internal
-    - traefik_public
   deploy:
     labels:
-      - traefik.frontend.rule=Host:nzbhydra.example.com
+      # traefik
+      - traefik.enable=true
       - traefik.docker.network=traefik_public
-      - traefik.port=4180
-  volumes:
-    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
-  command: |
-    -cookie-secure=false
-    -upstream=http://nzbhydra:5075
-    -redirect-url=https://nzbhydra.example.com
-    -http-address=http://0.0.0.0:4180
-    -email-domain=example.com
-    -provider=github
-    -authenticated-emails-file=/authenticated-emails.txt
-````
+
+      # traefikv1
+      - traefik.frontend.rule=Host:nzbhydra.example.com
+      - traefik.port=5076
+      - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
+      - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
+      - traefik.frontend.auth.forward.trustForwardHeader=true        
+
+      # traefikv2
+      - "traefik.http.routers.nzbhydra.rule=Host(`nzbhydra.example.com`)"
+      - "traefik.http.routers.nzbhydra.entrypoints=https"
+      - "traefik.http.services.nzbhydra.loadbalancer.server.port=5076"
+      - "traefik.http.routers.nzbhydra.middlewares=forward-auth"
+```
 
 --8<-- "premix-cta.md"
-
-## Assemble more tools..
-
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipes/autopirate/end/)** section:
-
-* [SABnzbd](/recipes/autopirate/sabnzbd.md)
-* [NZBGet](/recipes/autopirate/nzbget.md)
-* [RTorrent](/recipes/autopirate/rtorrent/)
-* [Sonarr](/recipes/autopirate/sonarr/)
-* [Radarr](/recipes/autopirate/radarr/)
-* [Mylar](/recipes/autopirate/mylar/)
-* [Lazy Librarian](/recipes/autopirate/lazylibrarian/)
-* [Headphones](/recipes/autopirate/headphones/)
-* [Lidarr](/recipes/autopirate/lidarr/)
-* NZBHydra (this page)
-* [NZBHydra2](/recipes/autopirate/nzbhydra2/)
-* [Ombi](/recipes/autopirate/ombi/)
-* [Jackett](/recipes/autopirate/jackett/)
-* [Heimdall](/recipes/autopirate/heimdall/)
-* [End](/recipes/autopirate/end/) (launch the stack)
-
-[^1]: In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
-
+--8<-- "recipe-autopirate-toc.md"
 --8<-- "recipe-footer.md"

@@ -27,7 +27,7 @@ CyberChef doesn't require any persistent storage, or fancy configuration, so sim
 
 --8<-- "premix-cta.md"
 
-```
+```yaml
 version: "3.2" # https://docs.docker.com/compose/compose-file/compose-versioning/#version-3
 
 services:

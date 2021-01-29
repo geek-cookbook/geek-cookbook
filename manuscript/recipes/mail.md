@@ -95,7 +95,7 @@ Create a docker swarm config file in docker-compose syntax (_v3.2 - because we n
 
 --8<-- "premix-cta.md"
 
-```
+```yaml
 version: '3.2'
 
 services:

@@ -49,7 +49,7 @@ kubectl create -f /var/data/mqtt/namespace.yaml
 
 Persistent volume claims are a streamlined way to create a persistent volume and assign it to a container in a pod. Create a claim for the certbot data:
 
-```
+```yaml
 cat <<EOF > /var/data/mqtt/persistent-volumeclaim.yml
 kind: PersistentVolumeClaim
 apiVersion: v1

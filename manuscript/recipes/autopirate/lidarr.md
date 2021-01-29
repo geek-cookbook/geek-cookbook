@@ -13,63 +13,35 @@ hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and
 
 To include Lidarr in your [AutoPirate](/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
 
-````
-lidarr:
-  image: linuxserver/lidarr:latest
-  env_file : /var/data/config/autopirate/lidarr.env
-  volumes:
-   - /var/data/autopirate/lidarr:/config
-   - /var/data/media:/media
-  networks:
-  - internal
+````yaml
+  lidarr:
+    image: linuxserver/lidarr:latest
+    env_file: /var/data/config/lidarr/lidarr.env
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/data/media:/media
+      - /var/data/lidarr:/config
+    deploy:
+      replicas: 1
+      labels:
+        # traefik
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
 
-lidarr_proxy:
-  image: a5huynh/oauth2_proxy
-  env_file : /var/data/config/autopirate/lidarr.env
-  networks:
-    - internal
-    - traefik_public
-  deploy:
-    labels:
-      - traefik.frontend.rule=Host:lidarr.example.com
-      - traefik.docker.network=traefik_public
-      - traefik.port=4180
-  volumes:
-    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
-  command: |
-    -cookie-secure=false
-    -upstream=http://lidarr:8181
-    -redirect-url=https://lidarr.example.com
-    -http-address=http://0.0.0.0:4180
-    -email-domain=example.com
-    -provider=github
-    -authenticated-emails-file=/authenticated-emails.txt
+        # traefikv1
+        - traefik.frontend.rule=Host:lidarr.example.com
+        - traefik.port=8686
+        - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
+        - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
+        - traefik.frontend.auth.forward.trustForwardHeader=true        
+
+        # traefikv2
+        - "traefik.http.routers.lidarr.rule=Host(`lidarr.example.com`)"
+        - "traefik.http.routers.lidarr.entrypoints=https"
+        - "traefik.http.services.lidarr.loadbalancer.server.port=8686"
+        - "traefik.http.routers.lidarr.middlewares=forward-auth"
 ````
 
 --8<-- "premix-cta.md"
-
-## Assemble more tools..
-
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipes/autopirate/end/)** section:
-
-* [SABnzbd](/recipes/autopirate/sabnzbd.md)
-* [NZBGet](/recipes/autopirate/nzbget.md)
-* [RTorrent](/recipes/autopirate/rtorrent/)
-* [Sonarr](/recipes/autopirate/sonarr/)
-* [Radarr](/recipes/autopirate/radarr/)
-* [Mylar](https://github.com/evilhero/mylar)
-* [Lazy Librarian](/recipes/autopirate/lazylibrarian/)
-* [Headphones](/recipes/autopirate/headphones/)
-* Lidarr (this page)
-* [NZBHydra](/recipes/autopirate/nzbhydra/)
-* [NZBHydra](/recipes/autopirate/nzbhydra/)
-* [NZBHydra2](/recipes/autopirate/nzbhydra2/)
-* [Ombi](/recipes/autopirate/ombi/)
-* [Jackett](/recipes/autopirate/jackett/)
-* [Heimdall](/recipes/autopirate/heimdall/)
-* [End](/recipes/autopirate/end/) (launch the stack)
-
-[^1]: In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
-[^2]: The addition of the Lidarr recipe was contributed by our very own @gpulido in Discord (http://chat.funkypenguin.co.nz) - Thanks Gabriel!
-
+--8<-- "recipe-autopirate-toc.md"
 --8<-- "recipe-footer.md"

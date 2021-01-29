@@ -58,13 +58,13 @@ Create ```/var/data/config/elkarbackup/elkarbackup-db-backup.env```, and populat
 
     No, me either :shrug:
 
-````
+```
 # For database backup (keep 7 days daily backups)
 MYSQL_PWD=<same as SYMFONY__DATABASE__PASSWORD above>
 MYSQL_USER=root
 BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
-````
+```
 
 ### Setup Docker Swarm
 
@@ -72,7 +72,7 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 
 --8<-- "premix-cta.md"
 
-```
+```yaml
 version: "3"
 
 services:

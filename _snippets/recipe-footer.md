@@ -27,7 +27,4 @@ Want to know now when this recipe gets updated, or when future recipes are added
   })();
 </script>
 
-
-
-[patreon]:	        https://www.patreon.com/bePatron?u=6982506
-[github_sponsor]:   https://github.com/sponsors/funkypenguin
+--8<-- "common-links.md"
