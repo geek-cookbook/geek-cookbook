@@ -3,7 +3,7 @@
 In order to avoid IP addressing conflicts as we bring swarm networks up/down, we will statically address each docker overlay network, and record the details below:
 
 | Network                                                                                                               | Range          |
-| --------------------------------------------------------------------------------------------------------------------- | -------------- |
+|-----------------------------------------------------------------------------------------------------------------------|----------------|
 | [Traefik](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/traefik/)                                          | _unspecified_  |
 | [Docker-cleanup](https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/docker-swarm-mode/#setup-automated-cleanup) | 172.16.0.0/24  |
 | [Mail Server](https://geek-cookbook.funkypenguin.co.nz/recipes/mail/)                                                 | 172.16.1.0/24  |
@@ -24,6 +24,7 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [Calibre-Web](https://geek-cookbook.funkypenguin.co.nz/recipes/calibre-web/)                                          | 172.16.18.0/24 |
 | [Wallabag](https://geek-cookbook.funkypenguin.co.nz/recipes/wallabag/)                                                | 172.16.19.0/24 |
 | [InstaPy](https://geek-cookbook.funkypenguin.co.nz/recipes/instapy/)                                                  | 172.16.20.0/24 |
+| [Archivy](https://geek-cookbook.funkypenguin.co.nz/recipes/archivy/)                                                  | 172.16.21.0/24 |
 | [MiniFlux](https://geek-cookbook.funkypenguin.co.nz/recipes/miniflux/)                                                | 172.16.22.0/24 |
 | [Gitlab Runner](https://geek-cookbook.funkypenguin.co.nz/recipes/gitlab-runner/)                                      | 172.16.23.0/24 |
 | [Munin](https://geek-cookbook.funkypenguin.co.nz/recipes/munin/)                                                      | 172.16.24.0/24 |

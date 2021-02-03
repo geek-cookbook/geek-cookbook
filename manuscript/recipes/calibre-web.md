@@ -115,5 +115,5 @@ Log into your new instance at https://**YOUR-FQDN**. You'll be directed to the i
 
 [^1]: Yes, Calibre does provide a server component. But it's not as fully-featured as Calibre-Web (_i.e., you can't use it to send ebooks directly to your Kindle_)
 [^2]: A future enhancement might be integrating this recipe with the filestore for [NextCloud](/recipes/nextcloud/), so that the desktop database (Calibre) can be kept synced with Calibre-Web.
-
+[^3]: If you plan to use calibre-web to send `.mobi` files to your Kindle via `@kindle.com` email addresses, be sure to add the sending address to the "[Approved Personal Documents Email List](https://www.amazon.com/hz/mycd/myx#/home/settings/payment)"
 --8<-- "recipe-footer.md"
