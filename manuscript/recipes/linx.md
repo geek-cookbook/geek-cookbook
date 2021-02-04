@@ -50,7 +50,6 @@ version: "3.2" # https://docs.docker.com/compose/compose-file/compose-versioning
 services:
   linx:
     image: andreimarcu/linx-server
-    env_file: /var/data/config/linx/linx.env
     command: -config /linx.conf
     volumes:
       - /var/data/linx/:/files/
