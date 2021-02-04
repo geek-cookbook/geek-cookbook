@@ -111,6 +111,7 @@ nav:
           - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md      
         - Komga: recipes/komga.md
         - Linx: recipes/linx.md
+        - Mealie: recipes/mealie.md
         - Minio: recipes/minio.md
         - OpenLDAP: recipes/openldap.md
         - OwnTracks: recipes/owntracks.md
@@ -254,11 +255,11 @@ markdown_extensions:
   - toc:
       permalink: true
   - footnotes
+  - pymdownx.critic
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.caret
-  - pymdownx.critic
   - pymdownx.details
   - pymdownx.snippets:
       check_paths: true
