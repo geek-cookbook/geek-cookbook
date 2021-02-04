@@ -1,12 +1,15 @@
 [autopirate]:       /recipes/autopirate/
 [bazarr]:           /recipes/autopirate/bazarr/
+[cyberchef]:        /recipes/cyberchef/
 [funkwhale]:        /recipes/autopirate/funkwhale/
 [github_sponsor]:   https://github.com/sponsors/funkypenguin
 [headphones]:       /recipes/autopirate/headphones/
 [jackett]:          /recipes/autopirate/jackett/
 [keycloak]:         /recipes/keycloak/
+[komga]:            /recipes/komga/
 [lazylibrarian]:    /recipes/autopirate/lazylibrarian/
 [lidarr]:           /recipes/autopirate/lidarr/
+[linx]:             /recipes/linx/
 [mealie]:           /recipes/mealie/
 [mylar]:            /recipes/autopirate/mylar/
 [nzbget]:           /recipes/autopirate/nzbget/
@@ -15,6 +18,8 @@
 [openldap]:         /recipes/openldap/
 [oscarr]:           /recipes/autopirate/oscarr/
 [patreon]:	        https://www.patreon.com/bePatron?u=6982506
+[photoprism]:       /recipes/photoprism/
+[portainer]:        /recipes/portainer/
 [radarr]:           /recipes/autopirate/radarr/
 [rtorrent]:         /recipes/autopirate/rtorrent/
 [sabnzbd]:          /recipes/autopirate/sabnzbd/
