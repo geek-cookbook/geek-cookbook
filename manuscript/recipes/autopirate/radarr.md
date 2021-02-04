@@ -22,14 +22,11 @@
 
 ![Radarr Screenshot](../../images/radarr.png)
 
-!!! tip "Sponsored Project"
-    Sonarr is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I forget it's there until I (reliably) receive an email with new and exciting updates 😁
-
 ## Inclusion into AutoPirate
 
-To include Radarr in your [AutoPirate](/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include Radarr in your [AutoPirate][autopirate] stack, include the following in your autopirate.yml stack definition file:
 
-````
+```yaml
 radarr:
   image: linuxserver/radarr:latest
   env_file : /var/data/config/autopirate/radarr.env
@@ -38,54 +35,26 @@ radarr:
    - /var/data/media:/media
   networks:
   - internal
-
-radarr_proxy:
-  image: a5huynh/oauth2_proxy
-  env_file : /var/data/config/autopirate/radarr.env
-  networks:
-    - internal
-    - traefik_public
   deploy:
     labels:
-      - traefik.frontend.rule=Host:radarr.example.com
+      # traefik
+      - traefik.enable=true
       - traefik.docker.network=traefik_public
-      - traefik.port=4180
-  volumes:
-    - /var/data/config/autopirate/authenticated-emails.txt:/authenticated-emails.txt
-  command: |
-    -cookie-secure=false
-    -upstream=http://radarr:7878
-    -redirect-url=https://radarr.example.com
-    -http-address=http://0.0.0.0:4180
-    -email-domain=example.com
-    -provider=github
-    -authenticated-emails-file=/authenticated-emails.txt
-````
 
-!!! tip
-    I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+      # traefikv1
+      - traefik.frontend.rule=Host:radarr.example.com
+      - traefik.port=7878
+      - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
+      - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
+      - traefik.frontend.auth.forward.trustForwardHeader=true        
 
-## Assemble more tools..
+      # traefikv2
+      - "traefik.http.routers.radarr.rule=Host(`radarr.example.com`)"
+      - "traefik.http.routers.radarr.entrypoints=https"
+      - "traefik.http.services.radarr.loadbalancer.server.port=7878"
+      - "traefik.http.routers.radarr.middlewares=forward-auth"
+```
 
-Continue through the list of tools below, adding whichever tools your want to use, and finishing with the **[end](/recipes/autopirate/end/)** section:
-
-* [SABnzbd](/recipes/autopirate/sabnzbd.md)
-* [NZBGet](/recipes/autopirate/nzbget.md)
-* [RTorrent](/recipes/autopirate/rtorrent/)
-* [Sonarr](/recipes/autopirate/sonarr/)
-* Radarr (this page)
-* [Mylar](/recipes/autopirate/mylar/)
-* [Lazy Librarian](/recipes/autopirate/lazylibrarian/)
-* [Headphones](/recipes/autopirate/headphones/)
-* [Lidarr](/recipes/autopirate/lidarr/)
-* [NZBHydra](/recipes/autopirate/nzbhydra/)
-* [NZBHydra2](/recipes/autopirate/nzbhydra2/)
-* [Ombi](/recipes/autopirate/ombi/)
-* [Jackett](/recipes/autopirate/jackett/)
-* [Heimdall](/recipes/autopirate/heimdall/)
-* [End](/recipes/autopirate/end/) (launch the stack)
-
-
-## Chef's Notes 📓
-
-1. In many cases, tools will integrate with each other. I.e., Radarr needs to talk to SABnzbd and NZBHydra, Ombi needs to talk to Radarr, etc. Since each tool runs within the stack under its own name, just refer to each tool by name (i.e. "radarr"), and docker swarm will resolve the name to the appropriate container. You can identify the tool-specific port by looking at the docker-compose service definition.
+--8<-- "premix-cta.md"
+--8<-- "recipe-autopirate-toc.md"
+--8<-- "recipe-footer.md"

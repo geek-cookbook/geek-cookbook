@@ -15,7 +15,7 @@ repo_url: 'https://github.com/geek-cookbook/geek-cookbook'
 docs_dir: 'manuscript'
 
 # Copyright
-copyright: 'Copyright &copy; 2016 - 2020 David Young, Funky Penguin Limited'
+copyright: 'Copyright &copy; 2016 - 2021 David Young, Funky Penguin Limited'
 
 # Plugins
 plugins:
@@ -25,6 +25,8 @@ plugins:
   - git-revision-date-localized:
       type: date
   - autolinks
+  - macros:
+      verbose: true
 
 
 
@@ -32,19 +34,7 @@ plugins:
 
 #theme_dir: mkdocs-material
 nav:
-    - Home: 
-      - What is this: index.md
-      - About: whoami.md
-      - Sponsored Projects: sponsored-projects.md 
-    # - 'Join Us! 🤝':
-    #   - Hello: recipes/general/start.md
-    #   - iPad Pro Geeking: recipes/general/ipad-pro-geeking.md
-    #   - Kid-safe WiFi: recipes/general/kid-safe-wifi.md      
-    # Upcoming section
-    # - '#geeklife':
-    #   - Hello: recipes/general/start.md
-    #   - iPad Pro Geeking: recipes/general/ipad-pro-geeking.md
-    #   - Kid-safe WiFi: recipes/general/kid-safe-wifi.md              
+    - Home: index.md         
     - Docker Swarm: 
       - Preparation:
         - Design: ha-docker-swarm/design.md
@@ -55,7 +45,9 @@ nav:
         - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
         - Traefik: ha-docker-swarm/traefik.md
         - Traefik Forward Auth: 
-            - Start: ha-docker-swarm/traefik-forward-auth.md      
+            - Start: ha-docker-swarm/traefik-forward-auth.md 
+            - Dex (static): ha-docker-swarm/traefik-forward-auth/dex-static.md    
+            - Google: ha-docker-swarm/traefik-forward-auth/google.md      
             - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
         - Registry: ha-docker-swarm/registry.md
         - Mail Server: recipes/mail.md
@@ -73,7 +65,6 @@ nav:
           - Headphones: recipes/autopirate/headphones.md
           - Lidarr: recipes/autopirate/lidarr.md
           - NZBHydra: recipes/autopirate/nzbhydra.md
-          - NZBHydra 2: recipes/autopirate/nzbhydra2.md
           - Ombi: recipes/autopirate/ombi.md
           - Jackett: recipes/autopirate/jackett.md
           - Heimdall: recipes/autopirate/heimdall.md
@@ -95,6 +86,7 @@ nav:
         - NextCloud: recipes/nextcloud.md
         - phpIPAM: recipes/phpipam.md
         - Plex: recipes/plex.md
+        - Portainer: recipes/portainer.md        
         - PrivateBin: recipes/privatebin.md
         - Restic: recipes/restic.md          
         - Swarmprom: recipes/swarmprom.md    
@@ -103,8 +95,10 @@ nav:
         - Bookstack: recipes/bookstack.md
         - Calibre-Web: recipes/calibre-web.md
         - Collabora Online: recipes/collabora-online.md
+        - CyberChef: recipes/cyberchef.md
         - Duplicati: recipes/duplicati.md
         - ElkarBackup: recipes/elkarbackup.md
+        - Funkwhale: recipes/funkwhale.md
         - Ghost: recipes/ghost.md
         - GitLab: recipes/gitlab.md
         - GitLab Runner: recipes/gitlab-runner.md
@@ -115,17 +109,22 @@ nav:
           - Users: recipes/keycloak/create-user.md
           - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
           - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md      
+        - Komga: recipes/komga.md
+        - Linx: recipes/linx.md
+        - Mealie: recipes/mealie.md
         - Minio: recipes/minio.md
         - OpenLDAP: recipes/openldap.md
         - OwnTracks: recipes/owntracks.md
         - Photoprism: recipes/photoprism.md
-        - Portainer: recipes/portainer.md
+        - Portainer: recipes/portainer.md        
         - Realms: recipes/realms.md
         - Restic: recipes/restic.md        
         - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
         - Traefik: ha-docker-swarm/traefik.md
         - Traefik Forward Auth: 
-            - Start: ha-docker-swarm/traefik-forward-auth.md      
+            - Start: ha-docker-swarm/traefik-forward-auth.md 
+            - Dex (static): ha-docker-swarm/traefik-forward-auth/dex-static.md    
+            - Google: ha-docker-swarm/traefik-forward-auth/google.md      
             - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
         - Wallabag: recipes/wallabag.md
         - Wekan: recipes/wekan.md
@@ -150,7 +149,7 @@ nav:
   #       - CyberChef : recipes/cyberchef.md
     - Kubernetes:
       - Preparation:
-        - Start: kubernetes/start.md
+        - Start: kubernetes/index.md
         - Design: kubernetes/design.md
         - Cluster: kubernetes/cluster.md
         - DIY Cluster: kubernetes/diycluster.md
@@ -160,46 +159,59 @@ nav:
         - Traefik: kubernetes/traefik.md      
       - Chef's Favorites:
         - Kanboard: recipes/kubernetes/kanboard.md
-     #   - Kubernetes Dashboard: recipes/kubernetes/kubernetes-dashboard.md
         - Miniflux: recipes/kubernetes/miniflux.md
-  #      - NextCloud: recipes/kubernetes/nextcloud.md
-  #      - phpIPAM: recipes/kubernetes/phpipam.md
-  #      - PrivateBin: recipes/kubernetes/privatebin.md
-    - Premix:
+    - 🚀 Get Premix!:
       - Start: premix.md
       - Ansible: 
         - Operation: premix/ansible/operation.md        
         - Design: premix/ansible/design.md
       - Swarm: premix/swarm.md
       - Kubernetes: premix/kubernetes.md      
-    - CHANGELOG: 
-      - Start: CHANGELOG.md
-    - Support:
-      - Start: support.md      
-    - Contribute:
-      - Start: community/contribute.md
+    - CHANGELOG: CHANGELOG.md
+    - Support: support.md      
+    - Contribute: community/contribute.md
     - Community: 
-      - Code of Conduct: community/code-of-conduct.md 
+      - Discord: community/discord.md 
       - Support: support.md      
       - Contribute: community/contribute.md
-      - Discord: community/discord.md  
+      - Code of Conduct: community/code-of-conduct.md 
+ 
     #   # - Discourse: community/discourse.md
     #   # - GitHub: community/github.md    
 
 theme:
   name: 'material'
   custom_dir: 'overrides'
-  disqus: 'geeks-cookbook'
+  # disqus: 'geeks-cookbook'
   logo: 'images/site-logo.svg'
   favicon: 'images/site-logo.svg'
   features:
-      - tabs
-      - instant 
+      - navigation.tabs
+      - navigation.instant 
+      - navigation.tabs.sticky  
+      - navigation.sections
+      - search.suggest
+#      - search.highlight
+      - search.share
   icon:
     repo: 'fontawesome/brands/github'
   palette:
-    primary: 'black'
-    accent: 'indigo'
+    # Toggle light mode
+    - scheme: default
+      primary: 'black'
+      accent: 'indigo'
+      toggle:
+        icon: material/toggle-switch
+        name: Burn my eyes!
+
+    # Toggle dark mode
+    - scheme: slate
+      primary: 'grey'
+      accent: 'indigo'
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Love my eyes!
+
   font:
     text: 'Ubuntu'
     code: 'Ubuntu Mono'
@@ -220,33 +232,38 @@ extra:
       link: 'https://leanpub.com/geeks-cookbook'    
     - icon: 'material/mailbox'
       link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'             
-  
+  generator: false  
 
 # Google Analytics
 google_analytics:
   - 'UA-139253-18'
   - 'auto'
 
-extra_css:
-  - 'stylesheets/mailchimp.css'
+# extra_css:
 
 extra_javascript:
-  - 'extras/javascript/discord.js' 
+  - extras/javascript/discord.js
+  - extras/javascript/sortable-tables.js
+  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
 
 # Extensions
 markdown_extensions:
+  - attr_list
   - admonition
   - codehilite:
       linenums: true
   - toc:
       permalink: true
   - footnotes
+  - pymdownx.critic
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.caret
-  - pymdownx.critic
   - pymdownx.details
+  - pymdownx.snippets:
+      check_paths: true
+      base_path: _snippets
   - pymdownx.emoji:
       emoji_index: !!python/name:pymdownx.emoji.twemoji
       emoji_generator: !!python/name:pymdownx.emoji.to_svg    

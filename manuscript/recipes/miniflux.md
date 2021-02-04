@@ -6,9 +6,6 @@ Miniflux is a lightweight RSS reader, developed by [Frédéric Guillot](https://
 
 ![Miniflux Screenshot](../images/miniflux.png)
 
-!!! tip "Sponsored Project"
-    Miniflux is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. Although I get to process my RSS feeds less frequently than I'd like to!
-
 I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/review/miniflux-lightweight-self-hosted-rss-reader/), but features (among many) that I appreciate:
 
 * Compatible with the Fever API, read your feeds through existing mobile and desktop clients (_This is the killer feature for me. I hardly ever read RSS on my desktop, I typically read on my iPhone or iPad, using [Fiery Feeds](http://cocoacake.net/apps/fiery/) or my new squeeze, [Unread](https://www.goldenhillsoftware.com/unread/)_)
@@ -19,11 +16,7 @@ I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/rev
 !!! abstract "2.0+ is a bit different"
     [Some things changed](https://docs.miniflux.net/en/latest/migration.html) when Miniflux 2.0 was released. For one thing, the only supported database is now postgresql (_no more SQLite_). External themes are gone, as is PHP (_in favor of golang_). It's been a controversial change, but I'm keen on minimal and single-purpose, so I'm still very happy with the direction of development. The developer has laid out his [opinions](https://docs.miniflux.net/en/latest/opinionated.html) re the decisions he's made in the course of development.
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry pointing your Miniflux url (i.e. _miniflux.example.com_) to your [keepalived](ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -71,10 +64,9 @@ The entire application is configured using environment variables, including the 
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
-```
+```yaml
 version: '3'
 
 services:
@@ -139,6 +131,6 @@ Launch the Miniflux stack by running ```docker stack deploy miniflux -c <path -t
 
 Log into your new instance at https://**YOUR-FQDN**, using the credentials you setup in the environment flie. After this, change your user/password as you see fit, and comment out the ```CREATE_ADMIN``` line in the env file (_if you don't, then an **additional** admin will be created the next time you deploy_)
 
-## Chef's Notes 📓
+[^1]: Find the bookmarklet under the **Settings -> Integration** page.
 
-1. Find the bookmarklet under the **Settings -> Integration** page.
+--8<-- "recipe-footer.md"

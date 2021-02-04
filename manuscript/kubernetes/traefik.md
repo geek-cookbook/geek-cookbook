@@ -196,7 +196,7 @@ We're doneburgers! 🍔 We now have all the pieces to safely deploy recipes into
 
 Here's a recap:
 
-* [Start](/kubernetes/start/) - Why Kubernetes?
+* [Start](/kubernetes/) - Why Kubernetes?
 * [Design](/kubernetes/design/) - How does it fit together?
 * [Cluster](/kubernetes/cluster/) - Setup a basic cluster
 * [Load Balancer](/kubernetes/loadbalancer/) Setup inbound access
@@ -208,7 +208,6 @@ Here's a recap:
 
 I'll be adding more Kubernetes versions of existing recipes soon. Check out the [MQTT](/recipes/mqtt/) recipe for a start!
 
+[^1]: It's kinda lame to be able to bring up Traefik but not to use it. I'll be adding the oauth_proxy element shortly, which will make this last step a little more conclusive and exciting!
 
-## Chef's Notes
-
-1. It's kinda lame to be able to bring up Traefik but not to use it. I'll be adding the oauth_proxy element shortly, which will make this last step a little more conclusive and exciting!
+--8<-- "recipe-footer.md"

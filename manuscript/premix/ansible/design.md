@@ -40,7 +40,7 @@ config:
       # cloudflare_api_key:
 
       # if you're using route53
-      AWS_ACCESS_KEY_ID: "{{ vault_config.traefik.aws_access_key_id }}"
-      AWS_SECRET_ACCESS_KEY: "{{ vault_config.traefik.aws_secret_access_key }}"
+      AWS_ACCESS_KEY_ID: {{ "{{ vault_config.traefik.aws_access_key_id }}" }}
+      AWS_SECRET_ACCESS_KEY: {{ "{{ vault_config.traefik.aws_secret_access_key }}" }}
       AWS_REGION: ""
 ```

@@ -6,14 +6,7 @@ hero: Ghost - A recipe for beautiful online publication.
 
 ![](/images/ghost.png)
 
-## Ingredients
-
-!!! summary "Ingredients"
-    Existing:
-
-    1. [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-    2. [X] [Traefik](/ha-docker-swarm/traefik_public) configured per design
-    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -25,15 +18,13 @@ Create the location for the bind-mount of the application data, so that it's per
 mkdir -p /var/data/ghost
 ```
 
-
 ### Setup Docker Swarm
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
-```
+```yaml
 version: '3'
 
 services:
@@ -64,12 +55,6 @@ Launch the Ghost stack by running ```docker stack deploy ghost -c <path -to-dock
 
 Create your first administrative account at https://**YOUR-FQDN**/admin/
 
-## Chef's Notes 📓
+[^1]: A default using the SQlite database takes 548k of space
 
-1. If I wasn't committed to a [static-site-generated blog](https://www.funkypenguin.co.nz/blog/), Ghost is the platform I'd use for my blog.
-2. A default using the SQlite database takes 548k of space:
-```
-[root@ds1 ghost]# du -sh /var/data/ghost/
-548K	/var/data/ghost/
-[root@ds1 ghost]#
-```
+--8<-- "recipe-footer.md"

@@ -50,7 +50,7 @@ I'm also writing the Geek Cookbook as a formal eBook, on Leanpub (https://leanpu
 
 ### [Sponsor][7] / [Patreonize][8] me 💰
 
-The best way to support this work is to become a [Sponsor]() (_GitHub_) or a [Patron][10] (_Patreon_). Sponsors get:
+The best way to support this work is to become a [Sponsor][11] (_GitHub_) or a [Patron][10] (_Patreon_). Sponsors get:
 
 * warm fuzzies,
 * access to the pre-mix repo,

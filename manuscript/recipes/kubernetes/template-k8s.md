@@ -5,7 +5,7 @@ Kanboard is a Kanban tool, developed by [Frédéric Guillot](https://github.com/
 ![Kanboard Screenshot](/images/kanboard.png)
 
 !!! tip "Sponsored Project"
-    Kanboard is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 😓
+    Kanboard is one of my [sponsored projects](/#sponsored-projects) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 😓
 
 Features include:
 
@@ -116,8 +116,7 @@ Now that we have a [namespace](https://kubernetes.io/docs/concepts/overview/work
 
 Create a deployment to tell Kubernetes about the desired state of the pod (*which it will then attempt to maintain*). Note below that we mount the persistent volume **twice**, to both ```/var/www/app/data``` and ```/var/www/app/plugins```, using the subPath value to differentiate them. This trick avoids us having to provision **two** persistent volumes just for data mounted in 2 separate locations.
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 👍
+--8<-- "premix-cta.md"
 
 ```
 cat <<EOF > /var/data/kanboard/deployment.yml
@@ -260,6 +259,4 @@ kubectl patch -n kanboard deployment app -p "{\"spec\":{\"template\":{\"metadata
 
 To look at the Kanboard pod's logs, run ```kubectl logs -n kanboard <name of pod per above> -f```. For further troubleshooting hints, see [Troubleshooting](/reference/kubernetes/troubleshooting/).
 
-## Chef's Notes
-
-1. The simplest deployment of Kanboard uses the default SQLite database backend, stored on the persistent volume. You can convert this to a "real" database running MySQL or PostgreSQL, and running an an additional database pod and service. Contact me if you'd like further details ;)
+[^1]: The simplest deployment of Kanboard uses the default SQLite database backend, stored on the persistent volume. You can convert this to a "real" database running MySQL or PostgreSQL, and running an an additional database pod and service. Contact me if you'd like further details ;)

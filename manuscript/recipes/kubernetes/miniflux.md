@@ -4,9 +4,6 @@ Miniflux is a lightweight RSS reader, developed by [Frédéric Guillot](https://
 
 ![Miniflux Screenshot](/images/miniflux.png)
 
-!!! tip "Sponsored Project"
-    Miniflux is one of my [sponsored projects](/sponsored-projects/) - a project I financially support on a regular basis because of its utility to me. Although I get to process my RSS feeds less frequently than I'd like to!
-
 I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/review/miniflux-lightweight-self-hosted-rss-reader/), but features (among many) that I appreciate:
 
 * Compatible with the Fever API, read your feeds through existing mobile and desktop clients (_This is the killer feature for me. I hardly ever read RSS on my desktop, I typically read on my iPhone or iPad, using [Fiery Feeds](http://cocoacake.net/apps/fiery/) or my new squeeze, [Unread](https://www.goldenhillsoftware.com/unread/)_)
@@ -117,8 +114,7 @@ Now that we have a [namespace](https://kubernetes.io/docs/concepts/overview/work
 
 Deployments tell Kubernetes about the desired state of the pod (*which it will then attempt to maintain*). Create the db deployment by excecuting the following. Note that the deployment refers to the secrets created above.
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary .yml files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```kubectl create -f *.yml``` 👍
+--8<-- "premix-cta.md"
 
 ```
 cat <<EOF > /var/data/miniflux/db-deployment.yml
@@ -318,3 +314,5 @@ At this point, you should be able to access your instance on your chosen DNS nam
 ### Troubleshooting
 
 To look at the Miniflux pod's logs, run ```kubectl logs -n miniflux <name of pod per above> -f```. For further troubleshooting hints, see [Troubleshooting](/reference/kubernetes/troubleshooting/).
+
+--8<-- "recipe-footer.md"

@@ -9,6 +9,6 @@ Confirm the container status by running "docker stack ps autopirate", and wait f
 
 Log into each of your new tools at its respective HTTPS URL. You'll be prompted to authenticate against your OAuth provider, and upon success, redirected to the tool's UI.
 
-## Chef's Notes 📓
+[^1]: This is a complex stack. Sing out in the comments if you found a flaw or need a hand :)
 
-1. This is a complex stack. Sing out in the comments if you found a flaw or need a hand :)
+--8<-- "recipe-footer.md"

@@ -6,11 +6,7 @@
 
 If it looks very similar as Emby, is because it started as a fork of it, but it has evolve since them. For a complete explanation of the why, look [here](https://jellyfin.org/docs/general/about.html).
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -41,11 +37,9 @@ GUID=
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
-
-```
+```yaml
 version: "3.0"
 
 services:
@@ -79,9 +73,7 @@ networks:
         - subnet: 172.16.57.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
+--8<-- "reference-networks.md"
 
 ## Serving
 
@@ -91,8 +83,8 @@ Launch the stack by running ```docker stack deploy jellyfin -c <path -to-docker-
 
 Log into your new instance at https://**YOUR-FQDN**, and complete the wizard-based setup to complete deploying your Jellyfin.
 
-## Chef's Notes 📓
+[^1]: I didn't use an [oauth2_proxy](/reference/oauth_proxy/) for this stack, because it would interfere with mobile client support.
+[^2]: Got an NVIDIA GPU? See [this blog post](https://www.funkypenguin.co.nz/note/gpu-transcoding-with-emby-plex-using-docker-nvidia/) re how to use your GPU to transcode your media!
+[^3]: We don't bother exposing the HTTPS port for Jellyfin, since [Traefik](/ha-docker-swarm/traefik/) is doing the SSL termination for us already.
 
-1. I didn't use an [oauth2_proxy](/reference/oauth_proxy/) for this stack, because it would interfere with mobile client support.
-2. Got an NVIDIA GPU? See [this blog post](https://www.funkypenguin.co.nz/note/gpu-transcoding-with-emby-plex-using-docker-nvidia/) re how to use your GPU to transcode your media!
-3. We don't bother exposing the HTTPS port for Jellyfin, since [Traefik](/ha-docker-swarm/traefik/) is doing the SSL termination for us already.
+--8<-- "recipe-footer.md"

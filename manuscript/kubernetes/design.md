@@ -1,17 +1,17 @@
 # Design
 
-Like the [Docker Swarm](ha-docker-swarm/design/) "_private cloud_" design, the Kubernetes design is:
+Like the [Docker Swarm](/ha-docker-swarm/design/) "_private cloud_" design, the Kubernetes design is:
 
-* **Highly-available** (_can tolerate the failure of a single component_)
-* **Scalable** (_can add resource or capacity as required_)
-* **Portable** (_run it in DigitalOcean today, AWS tomorrow and Azure on Thursday_)
-* **Secure** (_access protected with LetsEncrypt certificates_)
-* **Automated** (_requires minimal care and feeding_)
+- **Highly-available** (_can tolerate the failure of a single component_)
+- **Scalable** (_can add resource or capacity as required_)
+- **Portable** (_run it in DigitalOcean today, AWS tomorrow and Azure on Thursday_)
+- **Secure** (_access protected with LetsEncrypt certificates_)
+- **Automated** (_requires minimal care and feeding_)
 
-*Unlike* the Docker Swarm design, the Kubernetes design is:
+_Unlike_ the Docker Swarm design, the Kubernetes design is:
 
-* **Cloud-Native** (_While you **can** [run your own Kubernetes cluster](https://microk8s.io/), it's far simpler to let someone else manage the infrastructure, freeing you to play with the fun stuff_)
-* **Complex** (_Requires more basic elements, more verbose configuration, and provides more flexibility and customisability_)
+- **Cloud-Native** (_While you **can** [run your own Kubernetes cluster](https://microk8s.io/), it's far simpler to let someone else manage the infrastructure, freeing you to play with the fun stuff_)
+- **Complex** (_Requires more basic elements, more verbose configuration, and provides more flexibility and customisability_)
 
 ## Design Decisions
 
@@ -19,21 +19,21 @@ Like the [Docker Swarm](ha-docker-swarm/design/) "_private cloud_" design, the K
 
 This means that:
 
-* The design should work on GKE, AWS, DigitalOcean, Azure, or even MicroK8s
-* Custom service elements specific to individual providers are avoided
+- The design should work on GKE, AWS, DigitalOcean, Azure, or even MicroK8s
+- Custom service elements specific to individual providers are avoided
 
 **The simplest solution to achieve the desired result will be preferred**
 
 This means that:
 
-* Persistent volumes from the cloud provider are used for all persistent storage
-* We'll do things the "_Kubernetes way_", i.e., using secrets and configmaps, rather than trying to engineer around the Kubernetes basic building blocks.
+- Persistent volumes from the cloud provider are used for all persistent storage
+- We'll do things the "_Kubernetes way_", i.e., using secrets and configmaps, rather than trying to engineer around the Kubernetes basic building blocks.
 
 **Insofar as possible, the format of recipes will align with Docker Swarm**
 
 This means that:
 
-* We use Kubernetes namespaces to replicate Docker Swarm's "_per-stack_" networking and service discovery
+- We use Kubernetes namespaces to replicate Docker Swarm's "_per-stack_" networking and service discovery
 
 ## Security
 
@@ -41,12 +41,12 @@ Under this design, the only inbound connections we're permitting to our Kubernet
 
 ### Network Flows
 
-* HTTPS (TCP 443) : Serves individual docker containers via SSL-encrypted reverse proxy (_Traefik_)
-* Individual additional ports we choose to expose for specific recipes (_i.e., port 8443 for [MQTT](/recipes/mqtt/)_)
+- HTTPS (TCP 443) : Serves individual docker containers via SSL-encrypted reverse proxy (_Traefik_)
+- Individual additional ports we choose to expose for specific recipes (_i.e., port 8443 for [MQTT](/recipes/mqtt/)_)
 
 ### Authentication
 
-* Other than when an SSL-served application provides a trusted level of authentication, or where the application requires public exposure, applications served via Traefik will be protected with an OAuth proxy.
+- Other than when an SSL-served application provides a trusted level of authentication, or where the application requires public exposure, applications served via Traefik will be protected with an OAuth proxy.
 
 ## The challenges of external access
 
@@ -55,8 +55,9 @@ Because we're Cloude-Native now, it's complex to get traffic **into** our cluste
 1. **HostIP**: Map a port on the host to a service. This is analogous to Docker's port exposure, but lacking in that it restricts us to one host port per-container, and it's not possible to anticipate _which_ of your Kubernetes hosts is running a given container. Kubernetes does not have Docker Swarm's "routing mesh", allowing for simple load-balancing of incoming connections.
 
 2. **LoadBalancer**: Purchase a "loadbalancer" per-service from your cloud provider. While this is the simplest way to assure a fixed IP and port combination will always exist for your service, it has 2 significant limitations:
-    1. Cost is prohibitive, at roughly $US10/month per port
-    2. You won't get the _same_ fixed IP for multiple ports. So if you wanted to expose 443 and 25 (_webmail and smtp server, for example_), you'd find yourself assigned a port each on two **unique** IPs, a challenge for a single DNS-based service, like "_mail.batman.com_"
+
+   1. Cost is prohibitive, at roughly \$US10/month per port
+   2. You won't get the _same_ fixed IP for multiple ports. So if you wanted to expose 443 and 25 (_webmail and smtp server, for example_), you'd find yourself assigned a port each on two **unique** IPs, a challenge for a single DNS-based service, like "_mail.batman.com_"
 
 3. **NodePort**: Expose our service as a port (_between 30000-32767_) on the host which happens to be running the service. This is challenging because you might want to expose port 443, but that's not possible with NodePort.
 
@@ -92,7 +93,7 @@ The phone-home container calls the webhook, and tells HAProxy to listen on port 
 
 ### 2 : The Traefik Ingress
 
-In the "default" namespace, we have a Traefik "Ingress Controller". An Ingress controller is a way to use a single port (_say, 443_) plus some intelligence (_say, a defined mapping of URLs to services_) to route incoming requests to the appropriate containers (_via services_). Basically, the Trafeik ingress does what [Traefik does for us under Docker Swarm](/docker-ha-swarm/traefik/).
+In the "default" namespace, we have a Traefik "Ingress Controller". An Ingress controller is a way to use a single port (_say, 443_) plus some intelligence (_say, a defined mapping of URLs to services_) to route incoming requests to the appropriate containers (_via services_). Basically, the Trafeik ingress does what [Traefik does for us under Docker Swarm](/ha-docker-swarm/traefik/).
 
 What's happening in the diagram is that a phone-home pod is tied to the traefik pod using affinity, so that both containers will be executed on the same host. Again, the phone-home container calls a webhook on the HAProxy VM, auto-configuring HAproxy to send any HTTPs traffic to its calling address and customer NodePort port number.
 
@@ -120,10 +121,12 @@ Finally, the DNS for all externally-accessible services is pointed to the IP of 
 
 Still with me? Good. Move on to creating your cluster!
 
-* [Start](/kubernetes/start/) - Why Kubernetes?
-* Design (this page) - How does it fit together?
-* [Cluster](/kubernetes/cluster/) - Setup a basic cluster
-* [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access
-* [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
-* [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
-* [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
+- [Start](/kubernetes/) - Why Kubernetes?
+- Design (this page) - How does it fit together?
+- [Cluster](/kubernetes/cluster/) - Setup a basic cluster
+- [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access
+- [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
+- [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
+- [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
+
+--8<-- "recipe-footer.md"

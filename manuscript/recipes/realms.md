@@ -20,11 +20,7 @@ Features include:
 
     Also of note is that the docker image is 1.17GB in size, and the handful of commits to the [source GitHub repo](https://github.com/scragg0x/realms-wiki/commits/master)  in the past year has listed TravisCI build failures. This has many of the hallmarks of an abandoned project, to my mind.
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -47,11 +43,9 @@ OAUTH2_PROXY_COOKIE_SECRET=
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
-
-```
+```yaml
 version: "3"
 
 services:
@@ -95,10 +89,7 @@ networks:
         - subnet: 172.16.35.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
-
+--8<-- "reference-networks.md"
 
 ## Serving
 
@@ -108,7 +99,7 @@ Launch the Wekan stack by running ```docker stack deploy realms -c <path -to-doc
 
 Log into your new instance at https://**YOUR-FQDN**, authenticate against oauth_proxy, and you're immediately presented with Realms wiki, waiting for a fresh edit ;)
 
-## Chef's Notes 📓
+[^1]: If you wanted to expose the Realms UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the realms container. You'd also need to add the traefik_public network to the realms container.
+[^2]: The inclusion of Realms was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz). Thanks gkoerk!
 
-1. If you wanted to expose the Realms UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the realms container. You'd also need to add the traefik_public network to the realms container.
-2. The inclusion of Realms was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz). Thanks gkoerk!
+--8<-- "recipe-footer.md"

@@ -4,7 +4,7 @@ One of the issues I encountered early on in migrating my Docker Swarm workloads 
 
 There were several complications with the "traditional" mechanisms of providing a load-balanced ingress, not the least of which was cost. I also found that even if I paid my cloud provider (_Google_) for a load-balancer Kubernetes service, this service required a unique IP per exposed port, which was incompatible with my mining pool empire (_mining pools need to expose multiple ports on the same DNS name_).
 
-See further examination of the problem and possible solutions in the [Kubernetes design](kubernetes/design/#the-challenges-of-external-access) page.
+See further examination of the problem and possible solutions in the [Kubernetes design](/kubernetes/design/#the-challenges-of-external-access) page.
 
 This recipe details a simple design to permit the exposure of as many ports as you like, on a single public IP, to a cluster of Kubernetes nodes running as many pods/containers as you need, with services exposed via NodePort.
 
@@ -13,9 +13,8 @@ This recipe details a simple design to permit the exposure of as many ports as y
 ## Ingredients
 
 1. [Kubernetes cluster](/kubernetes/cluster/)
-2. VM _outside_ of Kubernetes cluster, with a fixed IP address. Perhaps, on a [$5/month Digital Ocean Droplet](https://www.digitalocean.com/?refcode=e33b78ad621b).. (_yes, another referral link. Mooar 🍷 for me!_)
+2. VM _outside_ of Kubernetes cluster, with a fixed IP address. Perhaps, on a [\$5/month Digital Ocean Droplet](https://www.digitalocean.com/?refcode=e33b78ad621b).. (_yes, another referral link. Mooar 🍷 for me!_)
 3. Geek-Fu required : 🐧🐧🐧 (_complex - inline adjustments required_)
-
 
 ## Preparation
 
@@ -24,7 +23,7 @@ This recipe details a simple design to permit the exposure of as many ports as y
 ### Create LetsEncrypt certificate
 
 !!! warning
-    Safety first, folks. You wouldn't run a webhook exposed to the big bad ol' internet without first securing it with a valid SSL certificate? Of course not, I didn't think so!
+Safety first, folks. You wouldn't run a webhook exposed to the big bad ol' internet without first securing it with a valid SSL certificate? Of course not, I didn't think so!
 
 Use whatever method you prefer to generate (and later, renew) your LetsEncrypt cert. The example below uses the CertBot docker image for CloudFlare DNS validation, since that's what I've used elsewhere.
 
@@ -38,13 +37,14 @@ dns_cloudflare_api_key=supersekritnevergonnatellyou
 ```
 
 I request my cert by running:
+
 ```
 cd /etc/webhook/
 docker run -ti --rm -v "$(pwd)"/letsencrypt:/etc/letsencrypt certbot/dns-cloudflare --preferred-challenges dns certonly --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini -d ''*.funkypenguin.co.nz'
 ```
 
 !!! question
-    Why use a wildcard cert? So my enemies can't examine my certs to enumerate my various services and discover my weaknesses, of course!
+Why use a wildcard cert? So my enemies can't examine my certs to enumerate my various services and discover my weaknesses, of course!
 
 I add the following as a cron command to renew my certs every day:
 
@@ -52,15 +52,15 @@ I add the following as a cron command to renew my certs every day:
 cd /etc/webhook && docker run -ti --rm -v "$(pwd)"/letsencrypt:/etc/letsencrypt certbot/dns-cloudflare renew --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini
 ```
 
-Once you've confirmed you've got a valid LetsEncrypt certificate stored in ```/etc/webhook/letsencrypt/live/<your domain>/fullcert.pem```, proceed to the next step..
+Once you've confirmed you've got a valid LetsEncrypt certificate stored in `/etc/webhook/letsencrypt/live/<your domain>/fullcert.pem`, proceed to the next step..
 
 ### Install webhook
 
-We're going to use https://github.com/adnanh/webhook to run our webhook. On some distributions (_❤️ ya, Debian!_), webhook and its associated systemd config can be installed by running ```apt-get install webhook```.
+We're going to use https://github.com/adnanh/webhook to run our webhook. On some distributions (_❤️ ya, Debian!_), webhook and its associated systemd config can be installed by running `apt-get install webhook`.
 
 ### Create webhook config
 
-We'll create a single webhook, by creating ```/etc/webhook/hooks.json``` as follows. Choose a nice secure random string for your MY_TOKEN value!
+We'll create a single webhook, by creating `/etc/webhook/hooks.json` as follows. Choose a nice secure random string for your MY_TOKEN value!
 
 ```
 mkdir /etc/webhook
@@ -113,14 +113,14 @@ EOF
 ```
 
 !!! note
-    Note that to avoid any bozo from calling our we're matching on a token header in the request called ```X-Funkypenguin-Token```. Webhook will **ignore** any request which doesn't include a matching token in the request header.
+Note that to avoid any bozo from calling our we're matching on a token header in the request called `X-Funkypenguin-Token`. Webhook will **ignore** any request which doesn't include a matching token in the request header.
 
 ### Update systemd for webhook
 
 !!! note
-    This section is particular to Debian Stretch and its webhook package. If you're using another OS for your VM, just ensure that you can start webhook with a config similar to the one illustrated below.
+This section is particular to Debian Stretch and its webhook package. If you're using another OS for your VM, just ensure that you can start webhook with a config similar to the one illustrated below.
 
-Since we want to force webhook to run in secure mode (_no point having a token if it can be extracted from a simple packet capture!_) I ran ```systemctl edit webhook```, and pasted in the following:
+Since we want to force webhook to run in secure mode (_no point having a token if it can be extracted from a simple packet capture!_) I ran `systemctl edit webhook`, and pasted in the following:
 
 ```
 [Service]
@@ -129,7 +129,7 @@ ExecStart=
 ExecStart=/usr/bin/webhook -hooks /etc/webhook/hooks.json -verbose -secure -cert /etc/webhook/letsencrypt/live/funkypenguin.co.nz/fullchain.pem -key /etc/webhook/letsencrypt/live/funkypenguin.co.nz/privkey.pem
 ```
 
-Then I restarted webhook by running ```systemctl enable webhook && systemctl restart webhook```. I watched the subsequent logs by running ```journalctl -u webhook -f```
+Then I restarted webhook by running `systemctl enable webhook && systemctl restart webhook`. I watched the subsequent logs by running `journalctl -u webhook -f`
 
 ### Create /etc/webhook/update-haproxy.sh
 
@@ -210,7 +210,7 @@ fi
 
 ### Create /etc/webhook/haproxy/global
 
-Create ```/etc/webhook/haproxy/global``` and populate with something like the following. This will be the non-dynamically generated part of our HAProxy config:
+Create `/etc/webhook/haproxy/global` and populate with something like the following. This will be the non-dynamically generated part of our HAProxy config:
 
 ```
 global
@@ -260,7 +260,7 @@ Whew! We now have all the components of our automated load-balancing solution in
 
 If you don't see the above, then check the following:
 
-1. Does the webhook verbose log (```journalctl -u webhook -f```) complain about invalid arguments or missing files?
+1. Does the webhook verbose log (`journalctl -u webhook -f`) complain about invalid arguments or missing files?
 2. Is port 9000 open to the internet on your VM?
 
 ### Apply to pods
@@ -315,20 +315,18 @@ Feb 06 23:04:28 haproxy2 webhook[1433]: [webhook] 2019/02/06 23:04:28 command ou
 <HAProxy restarts>
 ```
 
-
 ## Move on..
 
 Still with me? Good. Move on to setting up an ingress SSL terminating proxy with Traefik..
 
-* [Start](/kubernetes/start/) - Why Kubernetes?
-* [Design](/kubernetes/design/) - How does it fit together?
-* [Cluster](/kubernetes/cluster/) - Setup a basic cluster
-* Load Balancer (this page) - Setup inbound access
-* [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
-* [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
-* [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
+- [Start](/kubernetes/) - Why Kubernetes?
+- [Design](/kubernetes/design/) - How does it fit together?
+- [Cluster](/kubernetes/cluster/) - Setup a basic cluster
+- Load Balancer (this page) - Setup inbound access
+- [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
+- [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
+- [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
 
+[^1]: This is MVP of the load balancer solution. Any suggestions for improvements are welcome 😉
 
-## Chef's Notes
-
-1. This is MVP of the load balancer solution. Any suggestions for improvements are welcome 😉
+--8<-- "recipe-footer.md"

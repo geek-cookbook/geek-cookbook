@@ -30,15 +30,7 @@ Gollum meets all these requirements, and as an added bonus, is extremely fast an
 !!! note
     Since Gollum itself offers no user authentication, this design secures gollum behind an [oauth2 proxy](/reference/oauth_proxy/), so that in order to gain access to the Gollum UI at all, oauth2 authentication (_to GitHub, GitLab, Google, etc_) must have already occurred.
 
-
-## Ingredients
-
-!!! summary "Ingredients"
-    Existing:
-
-    1. [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-    2. [X] [Traefik](/ha-docker-swarm/traefik_public) configured per design
-    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -67,9 +59,9 @@ OAUTH2_PROXY_COOKIE_SECRET=
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-```
+--8<-- "premix-cta.md"
+
+```yaml
 version: '3'
 
 services:
@@ -116,10 +108,7 @@ networks:
         - subnet: 172.16.9.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
-
+--8<-- "reference-networks.md"
 
 ## Serving
 
@@ -129,6 +118,6 @@ Launch the Gollum stack by running ```docker stack deploy gollum -c <path-to-doc
 
 Authenticate against your OAuth provider, and then start editing your wiki!
 
-## Chef's Notes 📓
+[^1]: In the current implementation, Gollum is a "single user" tool only. The contents of the wiki are saved as markdown files under /var/data/gollum, and all the git commits are currently "Anonymous"
 
-1. In the current implementation, Gollum is a "single user" tool only. The contents of the wiki are saved as markdown files under /var/data/gollum, and all the git commits are currently "Anonymous"
+--8<-- "recipe-footer.md"

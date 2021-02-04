@@ -1,22 +1,10 @@
 # KeyCloak
 
-[KeyCloak](https://www.keycloak.org/) is "*an open source identity and access management solution*". Using a local database, or a variety of backends (_think [OpenLDAP](/recipes/openldap/)_), you can provide Single Sign-On (SSO) using OpenID, OAuth 2.0, and SAML. KeyCloak's OpenID provider can be used in combination with [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/), to protect [vulnerable services](/recipe/nzbget/) with an extra layer of authentication.
-
-!!! important
-    Initial development of this recipe was sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
-
-    [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
+[KeyCloak](https://www.keycloak.org/) is "_an open source identity and access management solution_". Using a local database, or a variety of backends (_think [OpenLDAP](/recipes/openldap/)_), you can provide Single Sign-On (SSO) using OpenID, OAuth 2.0, and SAML. KeyCloak's OpenID provider can be used in combination with [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/), to protect [vulnerable services](/recipes/autopirate/nzbget/) with an extra layer of authentication.
 
 ![KeyCloak Screenshot](../images/keycloak.png)
 
-## Ingredients
-
-!!! Summary
-    Existing:
-
-    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph/)
-    * [X] [Traefik](/ha-docker-swarm/traefik_public) configured per design
-    * [X] DNS entry for the hostname (_i.e. "keycloak.your-domain.com"_) you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -68,9 +56,9 @@ BACKUP_FREQUENCY=1d
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
-```
+--8<-- "premix-cta.md"
+
+```yaml
 version: '3'
 
 services:
@@ -78,7 +66,7 @@ services:
     image: jboss/keycloak
     env_file: /var/data/config/keycloak/keycloak.env
     volumes:
-      - /etc/localtime:/etc/localtime:ro    
+      - /etc/localtime:/etc/localtime:ro
     networks:
       - traefik_public
       - internal
@@ -93,7 +81,7 @@ services:
     image: postgres:10.1
     volumes:
       - /var/data/runtime/keycloak/database:/var/lib/postgresql/data
-      - /etc/localtime:/etc/localtime:ro    
+      - /etc/localtime:/etc/localtime:ro
     networks:
       - internal
 
@@ -123,25 +111,17 @@ networks:
     driver: overlay
     ipam:
       config:
-        - subnet: 172.16.49.0/24    
+        - subnet: 172.16.49.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
+--8<-- "reference-networks.md"
 
 ## Serving
 
 ### Launch KeyCloak stack
 
-Launch the KeyCloak stack by running ```docker stack deploy keycloak -c <path -to-docker-compose.yml>```
+Launch the KeyCloak stack by running `docker stack deploy keycloak -c <path -to-docker-compose.yml>`
 
 Log into your new instance at https://**YOUR-FQDN**, and login with the user/password you defined in `keycloak.env`.
 
-!!! important
-    Initial development of this recipe was sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
-
-    [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
-
-
-## Chef's Notes
+--8<-- "recipe-footer.md"

@@ -6,22 +6,13 @@ Don't be like [Cameron](http://haltandcatchfire.wikia.com/wiki/Cameron_Howe). Ba
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1UtFeMoqVHQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-!!! important
-    Ongoing development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
-
-    [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
-
 ElkarBackup is a free open-source backup solution based on RSync/RSnapshot. It's basically a web wrapper around rsync/rsnapshot, which means that your backups are just files on a filesystem, utilising hardlinks for tracking incremental changes. I find this result more reassuring than a blob of compressed, (encrypted?) data that [more sophisticated backup solutions](/recipes/duplicity/) would produce for you.
 
 ![ElkarBackup Screenshot](../images/elkarbackup.png)
 
 ## Details
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -67,23 +58,21 @@ Create ```/var/data/config/elkarbackup/elkarbackup-db-backup.env```, and populat
 
     No, me either :shrug:
 
-````
+```
 # For database backup (keep 7 days daily backups)
 MYSQL_PWD=<same as SYMFONY__DATABASE__PASSWORD above>
 MYSQL_USER=root
 BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
-````
+```
 
 ### Setup Docker Swarm
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
-
-```
+```yaml
 version: "3"
 
 services:
@@ -158,10 +147,7 @@ networks:
         - subnet: 172.16.36.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
-
+--8<-- "reference-networks.md"
 
 ## Serving
 
@@ -238,12 +224,7 @@ To restore files form a job, click on the "Restore" button in the WebUI, while o
 
 This takes you to a list of backup names and file paths. You can choose to download the entire contents of the backup from your browser as a .tar.gz, or to restore the backup to the client. If you click on the **name** of the backup, you can also drill down into the file structure, choosing to restore a single file or directory.
 
-!!! important
-    Ongoing development of this recipe is sponsored by [The Common Observatory](https://www.observe.global/). Thanks guys!
+[^1]: If you wanted to expose the ElkarBackup UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the app service. You'd also need to add the traefik_public network to the app service.
+[^2]: The original inclusion of ElkarBackup was due to the efforts of @gpulido in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Gabriel!
 
-    [![Common Observatory](../images/common_observatory.png)](https://www.observe.global/)
-
-## Chef's Notes 📓
-
-1. If you wanted to expose the ElkarBackup UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the app service. You'd also need to add the traefik_public network to the app service.
-2. The original inclusion of ElkarBackup was due to the efforts of @gpulido in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Gabriel!
+--8<-- "recipe-footer.md"

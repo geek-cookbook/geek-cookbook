@@ -4,9 +4,6 @@
 
 ![Kubernetes Snapshots](/images/kubernetes-helm.png)
 
-!!! note
-    Given enough interest, I may provide a helm-compatible version of the pre-mix repository for [supporters](/support/). [Hit me up](/whoami/#contact-me) if you're interested!
-
 ## Ingredients
 
 1. [Kubernetes cluster](/kubernetes/cluster/)
@@ -29,9 +26,9 @@ If you want to use a package manager:
 - [Scoop](https://scoop.sh/) users can use `scoop install helm`.
 - [GoFish](https://gofi.sh/) users can use `gofish install helm`.
 
-To rapidly get Helm up and running, start with the [Quick Start Guide](https://docs.helm.sh/using_helm/#quickstart-guide).
+To rapidly get Helm up and running, start with the [Quick Start Guide](https://helm.sh/docs/intro/quickstart/).
 
-See the [installation guide](https://docs.helm.sh/using_helm/#installing-helm) for more options,
+See the [installation guide](https://helm.sh/docs/intro/install/) for more options,
 including installing pre-releases.
 
 
@@ -47,7 +44,7 @@ That's it - not very exciting I know, but we'll need helm for the next and final
 
 Still with me? Good. Move on to understanding Helm charts...
 
-* [Start](/kubernetes/start/) - Why Kubernetes?
+* [Start](/kubernetes/) - Why Kubernetes?
 * [Design](/kubernetes/design/) - How does it fit together?
 * [Cluster](/kubernetes/cluster/) - Setup a basic cluster
 * [Load Balancer](/kubernetes/loadbalancer/) Setup inbound access
@@ -56,7 +53,6 @@ Still with me? Good. Move on to understanding Helm charts...
 * [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
 
 
+[^1]: Of course, you can have lots of fun deploying all sorts of things via Helm. Check out https://artifacthub.io for some examples.
 
-## Chef's Notes
-
-1. Of course, you can have lots of fun deploying all sorts of things via Helm. Check out https://github.com/helm/charts for some examples.
+--8<-- "recipe-footer.md"

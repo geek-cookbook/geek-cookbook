@@ -1,20 +1,20 @@
 # Create KeyCloak Users
 
 !!! warning
-    This is not a complete recipe - it's an optional component of the [Keycloak recipe](/recipes/keycloak/), but has been split into its own page to reduce complexity.
+This is not a complete recipe - it's an optional component of the [Keycloak recipe](/recipes/keycloak/), but has been split into its own page to reduce complexity.
 
-Unless you plan to authenticate against an outside provider (*[OpenLDAP](/recipes/keycloak/openldap/), below, for example*), you'll want to create some local users..
+Unless you plan to authenticate against an outside provider (_[OpenLDAP](/recipes/keycloak/authenticate-against-openldap/), below, for example_), you'll want to create some local users..
 
 ## Ingredients
 
 !!! Summary
-    Existing:
+Existing:
 
     * [X] [KeyCloak](/recipes/keycloak/) recipe deployed successfully
-  
+
 ### Create User
 
-Within the "Master" realm (*no need for more realms yet*), navigate to **Manage** -> **Users**, and then click **Add User** at the top right:
+Within the "Master" realm (_no need for more realms yet_), navigate to **Manage** -> **Users**, and then click **Add User** at the top right:
 
 ![Navigating to the add user interface in Keycloak](/images/keycloak-add-user-1.png)
 
@@ -36,3 +36,5 @@ We've setup users in KeyCloak, which we can now use to authenticate to KeyCloak,
     Created:
 
     * [X] Username / password to authenticate against [KeyCloak](/recipes/keycloak/)
+
+--8<-- "recipe-footer.md"

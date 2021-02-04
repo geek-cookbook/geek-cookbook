@@ -7,11 +7,7 @@ hero: Your own private google photos
 
 ![Photoprism Screenshot](../images/photoprism.png)
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik_public) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -91,11 +87,9 @@ BACKUP_FREQUENCY=1d
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
-
-```
+```yaml
 version: '3.3'
 
 services:
@@ -161,10 +155,7 @@ networks:
         - subnet: 172.16.90.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
-
+--8<-- "reference-networks.md"
 
 ## Serving
 
@@ -174,6 +165,6 @@ Launch the Photoprism stack by running ```docker stack deploy photoprism -c <pat
 
 Browse to your new browser-cli-terminal at https://**YOUR-FQDN**, with user "admin" and the password you specified in photoprism.env
 
-## Chef's Notes 📓
+[^1]: Once it is running, you probably will want to launch an scan to index the originals photos. Go to *library -> index* and do a complete rescan (it will take a while, depending on your collection size)
 
-1. Once it is running, you probably will want to launch an scan to index the originals photos. Go to *library -> index* and do a complete rescan (it will take a while, depending on your collection size)
+--8<-- "recipe-footer.md"

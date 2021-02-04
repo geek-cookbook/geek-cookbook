@@ -8,11 +8,7 @@ A friendly middle ground between heavyweights like MediaWiki or Confluence and [
 
 I like to protect my public-facing web UIs with an [oauth_proxy](/reference/oauth_proxy), ensuring that if an application bug (or a user misconfiguration) exposes the app to unplanned public scrutiny, I have a second layer of defense.
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik/) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](ha-docker-swarm/keepalived/) IP
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -52,11 +48,9 @@ DB_PASSWORD=secret
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
-
-```
+```yaml
 version: '3'
 
 services:
@@ -126,10 +120,7 @@ networks:
         - subnet: 172.16.33.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
-
+--8<-- "reference-networks.md"
 
 ## Serving
 
@@ -139,6 +130,6 @@ Launch the BookStack stack by running ```docker stack deploy bookstack -c <path 
 
 Log into your new instance at https://**YOUR-FQDN**, authenticate with oauth_proxy, and then login with username 'admin@admin.com' and password 'password'.
 
-## Chef's Notes 📓
+[^1]: If you wanted to expose the BookStack UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the bookstack container. You'd also need to add the traefik_public network to the bookstack container.
 
-1. If you wanted to expose the BookStack UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the bookstack container. You'd also need to add the traefik_public network to the bookstack container.
+--8<-- "recipe-footer.md"

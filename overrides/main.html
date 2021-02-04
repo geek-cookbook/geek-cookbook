@@ -1,20 +1,5 @@
 {% extends "base.html" %}
 
-{% block disqus %}
-<div id='discourse-comments'></div>
-
-	<script type="text/javascript">
-		  DiscourseEmbed = { discourseUrl: 'https://discourse.geek-kitchen.funkypenguin.co.nz/',
-			                       discourseEmbedUrl: '{{ page.canonical_url }}' };
-
-  (function() {
-	      var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-	      d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
-	      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-	    })();
-	</script>
-{% endblock %}
-
 {% block announce %}
   <style>.md-announce a,.md-announce a:focus,.md-announce a:hover{color:currentColor}.md-announce strong{white-space:nowrap}.md-announce .twitter{margin-left:.2em;color:#00acee}</style>
   <div align="center">
@@ -38,7 +23,9 @@
 
 
 {% block analytics %}
-<!-- RightMessage -->
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+</script>
+<!-- RightMessage 
 <script type="text/javascript"> 
 (function(p, a, n, d, o, b, c) {
     o = n.createElement('script'); o.type = 'text/javascript'; o.async = true; o.src = 'https://tb.rightmessage.com/'+p+'.js';
@@ -47,5 +34,5 @@
         b.parentNode.insertBefore(c, b); return c; }; c = d('', '-hidden', ''); d('-stay-invisible', '-stay-hidden', '-stay');
     setTimeout(o.onerror = function() { c.parentNode && c.parentNode.removeChild(c); }, a); b.parentNode.insertBefore(o, b);
 })('1802694484', 20000, document);
-</script>
+</script> -->
   {% endblock %}

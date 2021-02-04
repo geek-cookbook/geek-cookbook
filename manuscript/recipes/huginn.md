@@ -6,10 +6,7 @@ Huginn is a system for building agents that perform automated tasks for you onli
 
 <iframe src="https://player.vimeo.com/video/61976251" width="640" height="433" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-## Ingredients
-
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
+--8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
@@ -68,11 +65,9 @@ BACKUP_FREQUENCY=1d
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
-!!! tip
-        I share (_with my [sponsors](https://github.com/sponsors/funkypenguin)_) a private "_premix_" git repository, which includes necessary docker-compose and env files for all published recipes. This means that sponsors can launch any recipe with just a ```git pull``` and a ```docker stack deploy``` 👍
+--8<-- "premix-cta.md"
 
-
-```
+```yaml
 version: '3'
 
 services:
@@ -129,10 +124,7 @@ networks:
         - subnet: 172.16.6.0/24
 ```
 
-!!! note
-    Setup unique static subnets for every stack you deploy. This avoids IP/gateway conflicts which can otherwise occur when you're creating/removing stacks a lot. See [my list](/reference/networks/) here.
-
-
+--8<-- "reference-networks.md"
 
 ## Serving
 
@@ -142,6 +134,6 @@ Launch the Huginn stack by running ```docker stack deploy huginn -c <path -to-do
 
 Log into your new instance at https://**YOUR-FQDN**. You'll need to use the "Sign Up" button, and (optionally) enter your invitation code in order to create your account.
 
-## Chef's Notes 📓
+[^1]: I initially considered putting an oauth proxy in front of Huginn, but since the invitation code logic prevents untrusted access, and since using a proxy would break oauth for features such as Twitter integration, I left it out.
 
-1. I initially considered putting an oauth proxy in front of Huginn, but since the invitation code logic prevents untrusted access, and since using a proxy would break oauth for sevices like Twitter integration, I left it out.
+--8<-- "recipe-footer.md"

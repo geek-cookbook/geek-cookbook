@@ -72,7 +72,7 @@ That's it. You have a beautiful new kubernetes cluster ready for some action!
 
 Still with me? Good. Move on to creating your own external load balancer..
 
-* [Start](/kubernetes/start/) - Why Kubernetes?
+* [Start](/kubernetes/) - Why Kubernetes?
 * [Design](/kubernetes/design/) - How does it fit together?
 * Cluster (this page) - Setup a basic cluster
 * [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access
@@ -81,6 +81,6 @@ Still with me? Good. Move on to creating your own external load balancer..
 * [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
 
 
-## Chef's Notes
+[^1]: Ok, yes, there's not much you can do with your cluster _yet_. But stay tuned, more Kubernetes fun to come!
 
-1. Ok, yes, there's not much you can do with your cluster _yet_. But stay tuned, more Kubernetes fun to come!
+--8<-- "recipe-footer.md"

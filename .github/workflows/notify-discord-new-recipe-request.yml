@@ -1,0 +1,31 @@
+name: Notify Discord of new recipe requests
+
+on:
+  issues:
+    types: [opened]
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  assign-recipes-to-project:
+    runs-on: ubuntu-latest
+    name: notify Discord of new recipe request
+    steps:
+    - name: Discord notification
+      if: |
+              contains(github.event.issue.labels.*.name, 'recipe/request')    
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        DISCORD_EMBEDS: |
+          {
+          "description": "{{ EVENT_PAYLOAD.title }}",
+          "url": "{{ EVENT_PAYLOAD.url }}",
+          "color": 7418285,
+          "author": {
+            "name": "${{github.sender.login}}",
+            "url": "${{github.sender.html_url}}",
+            "icon_url": "${{github.sender.avatar_url}}"
+          }
+      uses: Ilshidur/action-discord@0.3.0
+      with:
+        args: The [Geek's Cookbook](https://geek-cookbook.funkypenguin.co.nz) has a new recipe request!
