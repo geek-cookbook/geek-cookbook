@@ -2,7 +2,7 @@
 
 [Mealie](https://github.com/hay-kot/mealie) is a self hosted recipe manager and meal planner (*with a RestAPI backend and a reactive frontend application built in Vue for a pleasant user experience*) for the whole family.
 
-Easily add recipes into your database by providing the url, and mealie will automatically import the relevant data or add a family recipe with the UI editor.
+Easily add recipes into your database by providing the url[^penguinfood], and mealie will automatically import the relevant data or add a family recipe with the UI editor.
 
 ![Mealie Screenshot](../images/mealie.png)
 
@@ -81,11 +81,11 @@ networks:
 
 ### Mealie is served!
 
-Launch the mealie stack by running ```docker stack deploy mealie -c <path -to-docker-compose.yml>```. The first time you access Mealie at https://<YOUR URL/>, you might think there's something wrong. There are **no** recipes, and no instructions. Hover over the little plus sign at the bottom right, and within a second, two icons appear. Click the "link" icon to import a recipe from a URL:
+Launch the mealie stack by running ```docker stack deploy mealie -c <path -to-docker-compose.yml>```. The first time you access Mealie at https://**YOUR FQDN**, you might think there's something wrong. There are **no** recipes, and no instructions. Hover over the little plus sign at the bottom right, and within a second, two icons appear. Click the "link" icon to import a recipe from a URL:
 
 ![Mealie Screenshot](../images/mealie-import-recipe.png)
 
-
+[^penguinfood]: I scraped all these recipes from https://www.food.com/search/penguin
 [^1]: If you plan to use Mealie for fancy things like an early-morning alarm to defrost the chicken, you may need to customize the [Traefik Forward Auth][tfa] rules, or even remove them entirely, for unauthenticated API access.
 [^2]: If you think Mealie is tasty, encourage the developer :cook: to keep on cookin', by [sponsoring him](https://github.com/sponsors/hay-kot) :heart:
 
