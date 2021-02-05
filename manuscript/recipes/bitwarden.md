@@ -55,12 +55,22 @@ services:
       - /var/data/bitwarden:/data/:rw
     deploy:
       labels:
-        - traefik.enable=true
+        # traefik common
+        - "traefik.enable=true"
+        - "traefik.docker.network=traefik_public"
+        # traefikv1
         - traefik.web.frontend.rule=Host:bitwarden.example.com
         - traefik.web.port=80
         - traefik.hub.frontend.rule=Host:bitwarden.example.com;Path:/notifications/hub
         - traefik.hub.port=3012
-        - traefik.docker.network=traefik_public
+        
+        #traefikv2
+        - "traefik.http.routers.bitwarden.rule=Host(`bitwarden.example.com`)"
+        - "traefik.http.services.bitwarden.loadbalancer.server.port=80"
+        - "traefik.http.routers.bitwarden.service=bitwarden"
+        - "traefik.http.routers.bitwarden-websocket.rule=Host(`bitwarden.example.com`) && Path(`/notifications/hub`)"
+        - "traefik.http.routers.bitwarden-websocket.service=bitwarden-websocket"
+        - "traefik.http.services.bitwarden-websocket.loadbalancer.server.port=3012"
     networks:
         - traefik_public
 
