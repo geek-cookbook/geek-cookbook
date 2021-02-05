@@ -63,7 +63,8 @@ Impulsively **[click here (NOW quick do it!)][11]** to sponsor me, or instead th
 
 ### Engage me 🏢
 
-Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS-certified][13] consultant, this stuff is my bread and butter! :bread: :fork_and_knife: [Contact][14] me and let's talk!
+Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS Certified Solution Architect (Professional)][aws_cert], a [CNCF-Certified Kubernetes Administrator](https://www.youracclaim.com/badges/cd307d51-544b-4bc6-97b0-9015e40df40d/public_url) and [Application Developer](https://www.youracclaim.com/badges/9ed9280a-fb92-46ca-b307-8f74a2cccf1d/public_url) - this stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch][contact], and let's talk business!
+
 
 
 [1]:	http://chat.funkypenguin.co.nz
@@ -77,5 +78,6 @@ Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm 
 [10]:	https://www.patreon.com/bePatron?u=6982506
 [11]:	https://github.com/sponsors/funkypenguin
 [12]:	https://github.com/funkypenguin
-[13]:	https://www.certmetrics.com/amazon/public/badge.aspx?i=4&t=c&d=2019-02-22&ci=AWS00794574
+[13]:	https://www.youracclaim.com/badges/a0c4a196-55ab-4472-b46b-b610b44dc00f/public_url
 [14]:	https://www.funkypenguin.co.nz
+[contact]:	        https://www.funkypenguin.co.nz
