@@ -4,7 +4,7 @@
  
  1. Necessary docker-compose and env files for all published recipes
  2. Ansible playbook for deploying the cookbook stack, as well as individual recipes
- 3. Helm charts for deploying deploying recipes into Kubernetes
+ 3. Helm charts for deploying recipes into Kubernetes
 
 The intention of Premix is that sponsors can launch any recipe with just a `git pull` followed by `ansible-playbook ...` (*Docker Swarm _or_ Kubernetes*), `docker stack deploy ...` (*Docker Swarm*), or `helm install ...` (*Kubernetes*).
 
