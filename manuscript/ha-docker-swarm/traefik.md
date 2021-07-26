@@ -114,7 +114,7 @@ networks:
 
 --8<-- "premix-cta.md"
 
-Create `/var/data/config/traefikv2/traefikv2.env` with the environment variables required by the provider you chose in the LetsEncrypt DNS Challenge section of `traefik.toml`. Full configuration options can be found in the [Traefik documentation](https://doc.traefik.io/traefik/https/acme/#providers). CloudFlare and Route53 examples are below.
+Create `/var/data/config/traefikv2/traefikv2.env` with the environment variables required by the provider you chose in the LetsEncrypt DNS Challenge section of `traefik.toml`. Full configuration options can be found in the [Traefik documentation](https://doc.traefik.io/traefik/https/acme/#providers). Route53 and CloudFlare examples are below.
 
 ```
 # Route53 example
@@ -122,9 +122,8 @@ AWS_ACCESS_KEY_ID=<your-aws-key>
 AWS_SECRET_ACCESS_KEY=<your-aws-secret>
 
 # CloudFlare example
-CLOUDFLARE_EMAIL=<your-cloudflare-email>
-CLOUDFLARE_API_KEY=<your-cloudflare-api-key>
-
+# CLOUDFLARE_EMAIL=<your-cloudflare-email>
+# CLOUDFLARE_API_KEY=<your-cloudflare-api-key>
 ```
 
 Create `/var/data/config/traefikv2/traefikv2.yml` as follows:
