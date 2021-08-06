@@ -21,10 +21,7 @@ Existing:
 We'll need several directories to bind-mount into our runner containers, so create them in `/var/data/gitlab`:
 
 ```
-cd /var/data
-mkdir gitlab
-cd gitlab
-mkdir -p {runners/1,runners/2}
+mkdir -p /var/data/gitlab/runners/{1,2}
 ```
 
 ### Setup Docker Swarm
