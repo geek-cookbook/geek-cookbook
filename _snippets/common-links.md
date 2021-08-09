@@ -12,6 +12,7 @@
 [linx]:             /recipes/linx/
 [mealie]:           /recipes/mealie/
 [mylar]:            /recipes/autopirate/mylar/
+[nightscout]:       /ha-docker-swarm/nightscout/
 [nzbget]:           /recipes/autopirate/nzbget/
 [nzbhydra]:         /recipes/autopirate/nzbhydra/
 [ombi]:             /recipes/autopirate/ombi/

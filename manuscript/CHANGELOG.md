@@ -8,13 +8,12 @@ hide:
 
 Recipe                   | Description                                                                                                      | Date
 -------------------------|------------------------------------------------------------------------------------------------------------------|--------------
+[NightScoute][nightscout]| Share your CGM data, setup advanced alarms and charts, for improved diabetes treatment and quality-of-life       | _9 Aug 2021_
 [Mealie][mealie]         | Delicious, API-driven recipe manager, able to scrape-and-import recipes from a URL :cook:                        | _4 Feb 2021_
 [Funkwhale][funkwhale]   | Enjoy, share, and federate your music in your own funky "pod". Think "Mastodon for Music" :whale: :musical_note: | _28 Jan 2021_
 [CyberChef][cyberchef]   | A web-based collection of useful tools for INFOSEC work, by the [GCHQ](https://en.wikipedia.org/wiki/GCHQ)       | _19 Jan 2021_
 [Linx][linx]             | Quickly and securely share media/files with optional password-protection and expiry                              | _13 Jan 2021_
 [Komga][komga]           | Beautiful interface to manage and enjoy your comics / graphic novels                                             | _5 Jan 2021_
-[Photoprism][photoprism] | Self-hosted photo-management app incorporating automated tagging using Tensorflow                                | _6 Aug 2020_
-
 
 ## Recent updates
 
