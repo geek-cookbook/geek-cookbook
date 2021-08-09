@@ -19,6 +19,7 @@ copyright: 'Copyright &copy; 2016 - 2021 David Young, Funky Penguin Limited'
 
 # Plugins
 plugins:
+  - social
   - search
   - minify:
       minify_html: true
@@ -113,6 +114,7 @@ nav:
         - Linx: recipes/linx.md
         - Mealie: recipes/mealie.md
         - Minio: recipes/minio.md
+        - NightScout: recipes/nightscout.md
         - OpenLDAP: recipes/openldap.md
         - OwnTracks: recipes/owntracks.md
         - Photoprism: recipes/photoprism.md
@@ -233,11 +235,18 @@ extra:
     - icon: 'material/mailbox'
       link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'             
   generator: false  
+  consent:
+    title: '🍪 Cookie consent'
+    description: > 
 
-# Google Analytics
-google_analytics:
-  - 'UA-139253-18'
-  - 'auto'
+      I know. cookies suck (except the choc-chip ones!), and so does invasive tracking. Thing is, without cookies, 
+      analytics can't record your visit, and I can't work out where/how to invest time to make the cookbook better. 
+      So, with your consent, I'd like to record what you look at and where you're from, so that I can make the 
+      cookbook even better! I promise I won't do anything nefarious! - David
+  analytics:
+    provider: google
+    property: 'UA-139253-18'
+
 
 # extra_css:
 
