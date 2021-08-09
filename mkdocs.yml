@@ -239,10 +239,10 @@ extra:
     title: '🍪 Cookie consent'
     description: > 
 
-      I know. cookies suck (_except the choc-chip ones!_), and so does invasive tracking. Thing is, without cookies, 
+      I know. cookies suck (except the choc-chip ones!), and so does invasive tracking. Thing is, without cookies, 
       analytics can't record your visit, and I can't work out where/how to invest time to make the cookbook better. 
       So, with your consent, I'd like to record what you look at and where you're from, so that I can make the 
-      cookbook even better! - David
+      cookbook even better! I promise I won't do anything nefarious! - David
   analytics:
     provider: google
     property: 'UA-139253-18'
