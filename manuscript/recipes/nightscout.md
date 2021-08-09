@@ -2,8 +2,10 @@
 
 Nightscout is "*...an open source, DIY project that allows real time access to a CGM data via personal website, smartwatch viewers, or apps and widgets available for smartphones*"
 
-!!! question "Yeah, but what's a CGM?" :drop_of_blood:
-    A CGM is a "continuos glucose monitor". If you have a blood-sugar-related disease (*i.e. diabetes*), you might wear a CGM in order to retrieve blood-glucose level readings, to inform your treatment. NightScout frees you from the CGM's supplier's limited and proprietary app, and unlocks advanced charting, alarming, and sharing features :muscle:
+!!! question "Yeah, but what's a CGM?" 
+    A CGM is a "continuos glucose monitor" :drop_of_blood: - If you have a blood-sugar-related disease (*i.e. diabetes*), you might wear a CGM in order to retrieve blood-glucose level readings, to inform your treatment. 
+    
+    NightScout frees you from the CGM's supplier's limited and proprietary app, and unlocks advanced charting, alarming, and sharing features :muscle:
 
 
 ![Nightscout Screenshot](../images/nightscout.png)
