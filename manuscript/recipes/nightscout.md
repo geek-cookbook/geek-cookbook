@@ -2,13 +2,13 @@
 
 Nightscout is "*...an open source, DIY project that allows real time access to a CGM data via personal website, smartwatch viewers, or apps and widgets available for smartphones*"
 
-!!! question "Yeah, but what's a CGM?"
+!!! question "Yeah, but what's a CGM?" :drop_of_blood:
     A CGM is a "continuos glucose monitor". If you have a blood-sugar-related disease (*i.e. diabetes*), you might wear a CGM in order to retrieve blood-glucose level readings, to inform your treatment. NightScout frees you from the CGM's supplier's limited and proprietary app, and unlocks advanced charting, alarming, and sharing features :muscle:
 
 
 ![Nightscout Screenshot](../images/nightscout.png)
 
-[Nightscout](https://nightscout.github.io/) is _the_ standard for open-source CGM data collection, used by diabetics and those who love them, to store, share, and retrieve blood-glocuse data, in order to live healthier and happier lives. It's used as the data sharing/syncing backend for all the popular smartphone apps, including [xDrip+](https://github.com/NightscoutFoundation/xDrip) (Android) and [Spike App](https://spike-app.com/) (iOS).
+[Nightscout](https://nightscout.github.io/) is _the_ standard for open-source CGM data collection, used by diabetics and those who love them, to store, share, and retrieve blood-glocuse data, in order to live healthier and happier lives. It's used as the data sharing/syncing backend for all the popular smartphone apps, including [xDrip+](https://github.com/NightscoutFoundation/xDrip) (*Android*) and [Spike App](https://spike-app.com/) (*iOS*).
 
 Most NightScout users will deploy to Heroko, using MongoDB Atlas, which is a [well-documented solution](https://nightscout.github.io/nightscout/new_user/). If you wanted to run NightScout on your own Docker stack though, then this recipe is for you!
 
@@ -20,8 +20,8 @@ Most NightScout users will deploy to Heroko, using MongoDB Atlas, which is a [we
 
 First we create a directory to hold Nightscout's database, as well as database backups:
 ```
-mkdir -p /var/data/runtime/nightscout/database  # /var/data/runtime is excluded from automated backups
-mkdir -p /var/data/nightscout/database          # /var/data is not
+mkdir -p /var/data/runtime/nightscout/database  # excluded from automated backups
+mkdir -p /var/data/nightscout/database          # included in automated backups
 ```
 
 ### Create env file
@@ -159,6 +159,6 @@ networks:
 Launch the nightscout stack by running ```docker stack deploy nightscout -c <path -to-docker-compose.yml>```
 
 
-[^1]: Most of the time, you'll need an app which syncs to Nightscout, and these apps won't support OIDC auth, so] this recipe doesn't take into account any sort of authentication using [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/). Instead, NightScout is secured entirely with your `API_SECRET` above (*although it is possible to add more users once you're an admin*)
+[^1]: Most of the time, you'll need an app which syncs to Nightscout, and these apps won't support OIDC auth, so this recipe doesn't take into account any sort of authentication using [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/). Instead, NightScout is secured entirely with your `API_SECRET` above (*although it is possible to add more users once you're an admin*)
 
 --8<-- "recipe-footer.md"
