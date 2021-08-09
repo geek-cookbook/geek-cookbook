@@ -236,18 +236,17 @@ extra:
       link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'             
   generator: false  
   consent:
-    title: Cookie consent
+    title: '🍪 Cookie consent'
     description: > 
 
       I know. cookies suck (_except the choc-chip ones!_), and so does invasive tracking. Thing is, without cookies, 
       analytics can't record your visit, and I can't work out where/how to invest time to make the cookbook better. 
       So, with your consent, I'd like to record what you look at and where you're from, so that I can make the 
       cookbook even better! - David
+  analytics:
+    provider: google
+    property: 'UA-139253-18'
 
-# Google Analytics
-google_analytics:
-  - 'UA-139253-18'
-  - 'auto'
 
 # extra_css:
 
