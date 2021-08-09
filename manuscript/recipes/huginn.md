@@ -32,7 +32,7 @@ cat config/opendkim/keys/huginn.example.com/mail.txt
 
 ### Prepare environment
 
-Create /var/data/huginn/huginn.env, and populate with the following variables. Set the "INVITATION_CODE" variable if you want to require users to enter a code to sign up (protects the UI from abuse) (The full list of Huginn environment variables is available [here](https://github.com/huginn/huginn/blob/master/.env.example))
+Create /var/data/config/huginn/huginn.env, and populate with the following variables. Set the "INVITATION_CODE" variable if you want to require users to enter a code to sign up (protects the UI from abuse) (The full list of Huginn environment variables is available [here](https://github.com/huginn/huginn/blob/master/.env.example))
 
 ```
 # For huginn/huginn - essential
@@ -79,12 +79,21 @@ services:
     - /etc/localtime:/etc/localtime:ro
     networks:
     - internal
-    - traefik
+    - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:huginn.funkypenguin.co.nz
-        - traefik.docker.network=traefik
-        - traefik.port=3000
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
+
+        # traefikv1
+        - traefik.frontend.rule=Host:huginn.example.com
+        - traefik.port=3000     
+
+        # traefikv2
+        - "traefik.http.routers.huginn.rule=Host(`huginn.example.com`)"
+        - "traefik.http.routers.huginn.entrypoints=https"
+        - "traefik.http.services.huginn.loadbalancer.server.port=3000" 
 
   db:
     env_file: /var/data/config/huginn/huginn.env
@@ -115,7 +124,7 @@ services:
     - internal
 
 networks:
-  traefik:
+  traefik_public:
     external: true
   internal:
     driver: overlay
