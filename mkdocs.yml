@@ -239,10 +239,10 @@ extra:
     title: Cookie consent
     description: > 
 
-      We use cookies to recognize your repeated visits and preferences, as well
-      as to measure the effectiveness of our documentation and whether users
-      find what they're searching for. With your consent, you're helping us to
-      make our documentation better.
+      I know. cookies suck (_except the choc-chip ones!_), and so does invasive tracking. Thing is, without cookies, 
+      analytics can't record your visit, and I can't work out where/how to invest time to make the cookbook better. 
+      So, with your consent, I'd like to record what you look at and where you're from, so that I can make the 
+      cookbook even better! - David
 
 # Google Analytics
 google_analytics:
