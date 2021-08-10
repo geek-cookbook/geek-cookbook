@@ -238,11 +238,11 @@ extra:
     title: 'Would you like a cookie? 🍪'
     description: > 
 
-      I know. cookies suck (<I>except the choc-chip ones!</I>), and so does invasive tracking. Thing is, without cookies, 
+      I know. cookies suck (<I>except the fresh, warm, choc-chip ones!</I>), and so does invasive tracking. Thing is, without cookies, 
       analytics can't record your visit, and I can't work out where/how to invest time to make the cookbook better.
 
       <p>So, with your consent, I'd like to record what you look at and where you're from, so that I can make the 
-      cookbook even better. My analytics are public - <A HREF='https://plausible.io/geek-cookbook.funkypenguin.co.nz'>here</A>'s all I know about you! - David</p>
+      cookbook even better. My analytics are public - here's <A HREF='https://plausible.io/geek-cookbook.funkypenguin.co.nz' target="_blank">all</A> I know about you! - David</p>
     cookies:
       custom: Plausible Analytics     
   analytics:
