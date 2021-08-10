@@ -1,0 +1,5 @@
+# This file exists for production builds where we use the mkdocs-material-insiders code, with exclusive features
+# that don't degrade for the open-source version
+INHERIT: mkdocs.yml
+plugins:
+  social: {}

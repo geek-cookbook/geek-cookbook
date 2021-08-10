@@ -19,15 +19,14 @@ copyright: 'Copyright &copy; 2016 - 2021 David Young, Funky Penguin Limited'
 
 # Plugins
 plugins:
-  - social
-  - search
-  - minify:
-      minify_html: true
-  - git-revision-date-localized:
-      type: date
-  - autolinks
-  - macros:
-      verbose: true
+  search:
+  minify:
+    minify_html: true
+  git-revision-date-localized:
+    type: date
+  autolinks:
+  macros:
+    verbose: true
 
 
 
@@ -189,7 +188,7 @@ theme:
   favicon: 'images/site-logo.svg'
   features:
       - navigation.tabs
-      - navigation.instant 
+#      - navigation.instant 
       - navigation.tabs.sticky  
       - navigation.sections
       - search.suggest
@@ -236,16 +235,19 @@ extra:
       link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'             
   generator: false  
   consent:
-    title: '🍪 Cookie consent'
+    title: 'Would you like a cookie? 🍪'
     description: > 
 
-      I know. cookies suck (_except the choc-chip ones!_), and so does invasive tracking. Thing is, without cookies, 
-      analytics can't record your visit, and I can't work out where/how to invest time to make the cookbook better. 
-      So, with your consent, I'd like to record what you look at and where you're from, so that I can make the 
-      cookbook even better! - David
+      I know. cookies suck (<I>except the choc-chip ones!</I>), and so does invasive tracking. Thing is, without cookies, 
+      analytics can't record your visit, and I can't work out where/how to invest time to make the cookbook better.
+
+      <p>So, with your consent, I'd like to record what you look at and where you're from, so that I can make the 
+      cookbook even better! - David</p>
+    cookies:
+      custom: Plausible Analytics     
   analytics:
-    provider: google
-    property: 'UA-139253-18'
+    provider: plausible
+    data_domain: geek-cookbook.funkypenguin.co.nz
 
 
 # extra_css:

@@ -1,5 +1,6 @@
-#FROM squidfunk/mkdocs-material
-FROM ghcr.io/squidfunk/mkdocs-material-insiders
+ARG FROM_SOURCE=squidfunk/mkdocs-material
+FROM ${FROM_SOURCE}
+
 RUN pip install \
         mkdocs-autolinks-plugin \
         mkdocs-htmlproofer-plugin \
