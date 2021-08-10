@@ -1,6 +1,10 @@
+---
+description: While having a self-healing, scalable docker swarm is great for availability and scalability, none of that is worth a sausage if nobody can connect to your cluster!
+---
+
 # Keepalived
 
-While having a self-healing, scalable docker swarm is great for availability and scalability, none of that is any good if nobody can connect to your cluster.
+While having a self-healing, scalable docker swarm is great for availability and scalability, none of that is worth a sausage if nobody can connect to your cluster!
 
 In order to provide seamless external access to clustered resources, regardless of which node they're on and tolerant of node failure, you need to present a single IP to the world for external access.
 
