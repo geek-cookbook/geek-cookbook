@@ -12,7 +12,7 @@ SABnzbd is the workhorse of the stack. It takes .nzb files as input (_manually o
 ## Inclusion into AutoPirate
 
 To include SABnzbd in your [AutoPirate](/recipes/autopirate/) stack
-(_The only reason you **wouldn't** use SABnzbd, would be if you were using [NZBGet](/recipes/autopirate/nzbget.md) instead_), include the following in your autopirate.yml stack definition file:
+(_The only reason you **wouldn't** use SABnzbd, would be if you were using [NZBGet](/recipes/autopirate/nzbget/) instead_), include the following in your autopirate.yml stack definition file:
 
 --8<-- "premix-cta.md"
 
