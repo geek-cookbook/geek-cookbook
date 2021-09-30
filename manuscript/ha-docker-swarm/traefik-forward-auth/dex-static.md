@@ -35,6 +35,8 @@ staticClients:
   name: 'example.com'
   secret: bar
 
+enablePasswordDB: true
+
 staticPasswords:
 - email: "admin@example.com"
   # bcrypt hash of the string "password"

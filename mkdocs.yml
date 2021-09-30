@@ -19,14 +19,14 @@ copyright: 'Copyright &copy; 2016 - 2021 David Young, Funky Penguin Limited'
 
 # Plugins
 plugins:
-  - search
-  - minify:
-      minify_html: true
-  - git-revision-date-localized:
-      type: date
-  - autolinks
-  - macros:
-      verbose: true
+  search:
+  minify:
+    minify_html: true
+  git-revision-date-localized:
+    type: date
+  autolinks:
+  macros:
+    verbose: true
 
 
 
@@ -113,6 +113,7 @@ nav:
         - Linx: recipes/linx.md
         - Mealie: recipes/mealie.md
         - Minio: recipes/minio.md
+        - NightScout: recipes/nightscout.md
         - OpenLDAP: recipes/openldap.md
         - OwnTracks: recipes/owntracks.md
         - Photoprism: recipes/photoprism.md
@@ -187,7 +188,7 @@ theme:
   favicon: 'images/site-logo.svg'
   features:
       - navigation.tabs
-      - navigation.instant 
+#      - navigation.instant 
       - navigation.tabs.sticky  
       - navigation.sections
       - search.suggest
@@ -233,11 +234,21 @@ extra:
     - icon: 'material/mailbox'
       link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'             
   generator: false  
+  consent:
+    title: 'Would you like a cookie? 🍪'
+    description: > 
 
-# Google Analytics
-google_analytics:
-  - 'UA-139253-18'
-  - 'auto'
+      I know. cookies suck (<I>except the fresh, warm, choc-chip ones!</I>), and so does invasive tracking. Thing is, without cookies, 
+      analytics can't record your visit, and I can't work out where/how to invest time to make the cookbook better.
+
+      <p>So, with your consent, I'd like to record what you look at and where you're from, so that I can make the 
+      cookbook even better. My analytics are public - here's <A HREF='https://plausible.io/geek-cookbook.funkypenguin.co.nz' target="_blank">all</A> I know about you! - David</p>
+    cookies:
+      custom: Plausible Analytics     
+  analytics:
+    provider: plausible
+    data_domain: geek-cookbook.funkypenguin.co.nz
+
 
 # extra_css:
 

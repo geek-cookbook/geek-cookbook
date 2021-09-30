@@ -22,11 +22,10 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
     Already deployed:
 
     * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-    * [X] [Traefik](/ha-docker-swarm/traefik) configured per design
     * [X] DNS entry for the hostname you intend to use (*or a wildcard*), pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
     New:
-    
+    * [ ] Traefik configured per design
     * [ ] Access to update your DNS records for manual/automated [LetsEncrypt](https://letsencrypt.org/docs/challenge-types/) DNS-01 validation, or ingress HTTP/HTTPS for HTTP-01 validation
   
 ## Preparation
@@ -86,7 +85,7 @@ Create `/var/data/traefikv2/traefik.toml` as follows:
 !!! tip
     "We'll want an overlay network, independent of our traefik stack, so that we can attach/detach all our other stacks (including traefik) to the overlay network. This way, we can undeploy/redepoly the traefik stack without having to bring down every other stack first!" - voice of hard-won experience
 
-Create `/var/data/config/traefikv2/traefikv2.yml` as follows:
+Create `/var/data/config/traefik/traefik.yml` as follows:
 
 ```
 version: "3.2"
@@ -114,6 +113,18 @@ networks:
 ```
 
 --8<-- "premix-cta.md"
+
+Create `/var/data/config/traefikv2/traefikv2.env` with the environment variables required by the provider you chose in the LetsEncrypt DNS Challenge section of `traefik.toml`. Full configuration options can be found in the [Traefik documentation](https://doc.traefik.io/traefik/https/acme/#providers). Route53 and CloudFlare examples are below.
+
+```
+# Route53 example
+AWS_ACCESS_KEY_ID=<your-aws-key>
+AWS_SECRET_ACCESS_KEY=<your-aws-secret>
+
+# CloudFlare example
+# CLOUDFLARE_EMAIL=<your-cloudflare-email>
+# CLOUDFLARE_API_KEY=<your-cloudflare-api-key>
+```
 
 Create `/var/data/config/traefikv2/traefikv2.yml` as follows:
 
@@ -195,7 +206,7 @@ Likewise with the log file.
 First, launch the traefik stack, which will do nothing other than create an overlay network by running `docker stack deploy traefik -c /var/data/config/traefik/traefik.yml`
 
 ```
-[root@kvm ~]# docker stack deploy traefik -c traefik.yml
+[root@kvm ~]# docker stack deploy traefik -c /var/data/config/traefik/traefik.yml
 Creating network traefik_public
 Creating service traefik_scratch
 [root@kvm ~]#
@@ -204,8 +215,8 @@ Creating service traefik_scratch
 Now deploy the traefik application itself (*which will attach to the overlay network*) by running `docker stack deploy traefikv2 -c /var/data/config/traefikv2/traefikv2.yml`
 
 ```
-[root@kvm ~]# docker stack deploy traefik-app -c traefikv2.yml
-Creating service traefikv2_app
+[root@kvm ~]# docker stack deploy traefikv2 -c /var/data/config/traefikv2/traefikv2.yml
+Creating service traefikv2_traefikv2
 [root@kvm ~]#
 ```
 
