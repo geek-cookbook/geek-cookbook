@@ -177,7 +177,7 @@ http:
   middlewares:
     forward-auth:
       forwardAuth:
-        address: "http://authelia:9091/api/verify?rd=https://authelia.bencey.co.nz"
+        address: "http://authelia:9091/api/verify?rd=https://authelia.example.com"
         trustForwardHeader: true
         authResponseHeaders:
           - "Remote-User"
