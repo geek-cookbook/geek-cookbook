@@ -68,22 +68,13 @@ services:
     deploy:
       replicas: 1
       labels:
-        # traefik common
         - traefik.enable=true
-        - traefik.docker.network=traefik_public
-
-        # traefikv1
         - traefik.frontend.rule=Host:duplicati.example.com
         - traefik.port=8200
         - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
         - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
         - traefik.frontend.auth.forward.trustForwardHeader=true
-
-        # traefikv2
-        - "traefik.http.routers.duplicati.rule=Host(`duplicati.example.com`)"
-        - "traefik.http.routers.duplicati.entrypoints=https"
-        - "traefik.http.services.duplicati.loadbalancer.server.port=8200" 
-        - "traefik.http.routers.duplicati.middlewares=forward-auth"
+        - traefik.docker.network=traefik_public
     volumes:
       - /var/data/config/duplicati:/config
       - /var/data:/source
