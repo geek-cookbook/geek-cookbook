@@ -7,9 +7,9 @@ Authelia can be installed manually or can be installed using [Docker](https://hu
 Features include
 
 * Multiple two-factor methods such as 
-  * [Physical Security Key](https://www.authelia.com/docs/features/2fa/security-key) (Yubikey)
-  * OTP using Google Authenticator
-  * Mobile Notifications
+    * [Physical Security Key](https://www.authelia.com/docs/features/2fa/security-key) (Yubikey)
+    * OTP using Google Authenticator
+    * Mobile Notifications
 * Lockout users after too many failed login attempts
 * Highly Customizable Access Control using rules to match criteria such as subdomain, username, groups the user is in, and Network
 * Authelia [Community](https://discord.authelia.com/) Support
