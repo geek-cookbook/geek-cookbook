@@ -8,6 +8,7 @@ hide:
 
 Recipe                   | Description                                                                                                      | Date
 -------------------------|------------------------------------------------------------------------------------------------------------------|--------------
+[Archivebox][archivebox] | Website Archiving service to save websites to view offline      | _1 Oct 2021_
 [Authelia][authelia] | Authentication and two factor authorization server with Authelia      | _1 Oct 2021_
 [NightScout][nightscout] | Share your CGM :drop_of_blood: data, setup advanced alarms and charts, for improved diabetes treatment :syringe: and quality-of-life :runner:      | _9 Aug 2021_
 [Mealie][mealie]         | Delicious, API-driven recipe manager, able to scrape-and-import recipes from a URL :cook:                        | _4 Feb 2021_
