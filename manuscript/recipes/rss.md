@@ -6,14 +6,15 @@
 
 
 Features include
+
 * Ability to generate RSS feeds for sites that do not have one.
 * Can be used as a webserver or used as a CLI
 * Supports multiple output formats such as 
-  * Atom
-  * HTML
-  * JSON
-  * Mrss
-  * Plaintext
+    * Atom
+    * HTML
+    * JSON
+    * Mrss
+    * Plaintext
 
 --8<-- "recipe-standard-ingredients.md"
 
