@@ -1,3 +1,4 @@
+[archivebox]:       /recipes/archivebox/
 [autopirate]:       /recipes/autopirate/
 [bazarr]:           /recipes/autopirate/bazarr/
 [cyberchef]:        /recipes/cyberchef/
