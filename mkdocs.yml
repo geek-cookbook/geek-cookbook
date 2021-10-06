@@ -49,7 +49,6 @@ nav:
             - Dex (static): ha-docker-swarm/traefik-forward-auth/dex-static.md    
             - Google: ha-docker-swarm/traefik-forward-auth/google.md      
             - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
-        - Authelia: ha-docker-swarm/authelia.md
         - Registry: ha-docker-swarm/registry.md
         - Mail Server: recipes/mail.md
         - Duplicity: recipes/duplicity.md
