@@ -1,6 +1,7 @@
 # RSS Bridge
 
-[RSS-Bridge](https://github.com/RSS-Bridge/rss-bridge) is a PHP project capable of generating RSS and Atom feeds for websites that don't have one. It can be used on webservers or as a stand-alone application in CLI mode. You can deploy the service in different ways. Such as installing using PHP, Or you can setup using the Docker [Image](https://hub.docker.com/r/rssbridge/rss-bridge).
+
+Do you hate having to waste time looking for a specific post. [RSS-Bridge](https://github.com/RSS-Bridge/rss-bridge) can convert the busiest parts of the web into nice structured plaintext to help quickly find exactly what you are looking for.
 
 ![RSS Screenshot](../images/rssbridge.png)
 
@@ -71,5 +72,6 @@ networks:
 Launch the RSS Bridge stack by running ```docker stack deploy rssbridge -c <path -to-docker-compose.yml>```
 
 [^1]: The inclusion of RSS Bridge was due to the efforts of Bencey in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Ben!!
+[^2]: This recipe goes well with an RSS reader such as [miniflux] 
 
 --8<-- "recipe-footer.md"

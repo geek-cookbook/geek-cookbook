@@ -12,6 +12,7 @@
 [linx]:             /recipes/linx/
 [mealie]:           /recipes/mealie/
 [mylar]:            /recipes/autopirate/mylar/
+[miniflux]:         /recipes/miniflux/
 [nightscout]:       /recipes/nightscout/
 [nzbget]:           /recipes/autopirate/nzbget/
 [nzbhydra]:         /recipes/autopirate/nzbhydra/
