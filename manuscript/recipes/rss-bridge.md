@@ -1,21 +1,10 @@
 # RSS Bridge
 
 
-Do you hate having to waste time looking for a specific post. [RSS-Bridge](https://github.com/RSS-Bridge/rss-bridge) can convert the busiest parts of the web into nice structured plaintext to help quickly find exactly what you are looking for.
+Do you hate having to access multiple sites to view specific content? [RSS-Bridge](https://github.com/RSS-Bridge/rss-bridge) can convert content from a wide variety of websites such as (Reddit, Facebook, Twitter) so that it can be viewed in a structured and consistent way, all from one place (Your feed reader)
 
 ![RSS Screenshot](../images/rssbridge.png)
 
-
-Features include
-
-* Ability to generate RSS feeds for sites that do not have one.
-* Can be used as a webserver or used as a CLI
-* Supports multiple output formats such as 
-    * Atom
-    * HTML
-    * JSON
-    * Mrss
-    * Plaintext
 
 --8<-- "recipe-standard-ingredients.md"
 
