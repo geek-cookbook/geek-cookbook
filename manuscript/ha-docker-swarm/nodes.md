@@ -1,5 +1,6 @@
 ---
 description: Let's start building our Docker Swarm cluster... 🐳🐳🐳
+title: HA Docker Swarm Nodes 🐳🐳🐳
 ---
 # Nodes
 
