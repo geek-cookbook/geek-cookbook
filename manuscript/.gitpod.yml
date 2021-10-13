@@ -1,0 +1,6 @@
+image: squidfunk/mkdocs-material
+tasks:
+  - init: pip install -r requirements.txt
+ports:
+  - port: 8000
+    onOpen: open-preview
