@@ -188,11 +188,11 @@ theme:
   favicon: 'images/site-logo.svg'
   features:
       - navigation.tabs
-#      - navigation.instant 
+      - navigation.instant 
       - navigation.tabs.sticky  
       - navigation.sections
       - search.suggest
-#      - search.highlight
+      - search.highlight
       - search.share
   icon:
     repo: 'fontawesome/brands/github'

@@ -1,3 +1,6 @@
+---
+description: Jellyfin is best described as "like Emby but really FOSS". It started as an Emby fork, but has evolved significantly since then, with its own advantages over Emby.
+---
 # Jellyfin
 
 [Jellyfin](https://jellyfin.org/) is best described as "_like [Emby](/recipes/emby) but really [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software)_".
