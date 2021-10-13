@@ -1,3 +1,6 @@
+---
+description: Our Docker Swarm "private cloud" design is highly-available, scalable, portable, secure, and automated 💪
+---
 # Design
 
 In the design described below, our "private cloud" platform is:

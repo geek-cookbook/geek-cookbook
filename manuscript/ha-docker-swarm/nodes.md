@@ -1,9 +1,9 @@
+---
+description: Let's start building our Docker Swarm cluster... 🐳🐳🐳
+---
 # Nodes
 
 Let's start building our cluster. You can use either bare-metal machines or virtual machines - the configuration would be the same. To avoid confusion, I'll be referring to these as "nodes" from now on.
-
-!!! note
-    In 2017, I **initially** chose the "[Atomic](https://www.projectatomic.io/)" CentOS/Fedora image for the swarm hosts, but later found its outdated version of Docker to be problematic with advanced features like GPU transcoding (in [Plex](/recipes/plex/)), [Swarmprom](/recipes/swarmprom/), etc. In the end, I went mainstream and simply preferred a modern Ubuntu installation.
 
 ## Ingredients
 
@@ -11,7 +11,7 @@ Let's start building our cluster. You can use either bare-metal machines or virt
     New in this recipe:
 
     * [ ] 3 x nodes (*bare-metal or VMs*), each with:
-          * A mainstream Linux OS (*tested on either [CentOS](https://www.centos.org) 7+ or [Ubuntu](http://releases.ubuntu.com) 16.04+*)
+          * A mainstream Linux OS (*tested on either [CentOS](https://www.centos.org) 8+ or [Ubuntu](http://releases.ubuntu.com) 20.04+*)
           * At least 2GB RAM
           * At least 20GB disk space (_but it'll be tight_)
     * [ ] Connectivity to each other within the same subnet, and on a low-latency link (_i.e., no WAN links_)
@@ -77,3 +77,5 @@ After completing the above, you should have:
     * [X] Connectivity to each other within the same subnet, and on a low-latency link (_i.e., no WAN links_)
 
 --8<-- "recipe-footer.md"
+
+[^1]: Back in 2017, I **initially** chose the "[Atomic](https://www.projectatomic.io/)" CentOS/Fedora image for the swarm hosts, but later found its outdated version of Docker to be problematic with advanced features like GPU transcoding (in [Plex](/recipes/plex/)), [Swarmprom](/recipes/swarmprom/), etc. In the end, I went mainstream and simply preferred a modern Ubuntu installation.

@@ -81,3 +81,4 @@ Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm 
 [13]:	https://www.youracclaim.com/badges/a0c4a196-55ab-4472-b46b-b610b44dc00f/public_url
 [14]:	https://www.funkypenguin.co.nz
 [contact]:	        https://www.funkypenguin.co.nz
+[aws_cert]:	        https://www.youracclaim.com/badges/a0c4a196-55ab-4472-b46b-b610b44dc00f/public_url

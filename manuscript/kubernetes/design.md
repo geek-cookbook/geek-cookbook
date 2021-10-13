@@ -1,3 +1,6 @@
+---
+description: Like the Docker Swarm "private cloud" design, the Kubernetes design is highly-available, scalable, portable, secure, and automated
+---
 # Design
 
 Like the [Docker Swarm](/ha-docker-swarm/design/) "_private cloud_" design, the Kubernetes design is:
