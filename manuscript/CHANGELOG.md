@@ -8,7 +8,7 @@ hide:
 
 Recipe                   | Description                                                                                                      | Date
 -------------------------|------------------------------------------------------------------------------------------------------------------|--------------
-[Rss][rss] | Service that generates RSS Feeds for websites that don't have one. It can be used on webservers or as a stand-alone application in CLI mode      | _1 Oct 2021_
+[RSS-Bridge][rss-bridge] | Consume content from non-open platforms (*Facebook, Instagram, etc*) in your feed reader                         | _1 Oct 2021_
 [NightScout][nightscout] | Share your CGM :drop_of_blood: data, setup advanced alarms and charts, for improved diabetes treatment :syringe: and quality-of-life :runner:      | _9 Aug 2021_
 [Mealie][mealie]         | Delicious, API-driven recipe manager, able to scrape-and-import recipes from a URL :cook:                        | _4 Feb 2021_
 [Funkwhale][funkwhale]   | Enjoy, share, and federate your music in your own funky "pod". Think "Mastodon for Music" :whale: :musical_note: | _28 Jan 2021_

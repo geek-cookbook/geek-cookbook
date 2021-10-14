@@ -24,7 +24,7 @@
 [portainer]:        /recipes/portainer/
 [radarr]:           /recipes/autopirate/radarr/
 [rtorrent]:         /recipes/autopirate/rtorrent/
-[rss]:              /recipes/rss-bridge/
+[rss-bridge]:       /recipes/rss-bridge/
 [sabnzbd]:          /recipes/autopirate/sabnzbd/
 [sonarr]:           /recipes/autopirate/sonarr/
 [tfa-dex-static]:   /ha-docker-swarm/traefik-forward-auth/dex-static/

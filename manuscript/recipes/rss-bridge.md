@@ -1,10 +1,9 @@
 # RSS Bridge
 
 
-Do you hate having to access multiple sites to view specific content? [RSS-Bridge](https://github.com/RSS-Bridge/rss-bridge) can convert content from a wide variety of websites such as (Reddit, Facebook, Twitter) so that it can be viewed in a structured and consistent way, all from one place (Your feed reader)
+Do you hate having to access multiple sites to view specific content? [RSS-Bridge](https://github.com/RSS-Bridge/rss-bridge) can convert content from a wide variety of websites (*such as Reddit, Facebook, Twitter*) so that it can be viewed in a structured and consistent way, all from one place (Your feed reader)
 
-![RSS Screenshot](../images/rssbridge.png)
-
+![RSS-Bridge Screenshot](../images/rssbridge.png)
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -15,7 +14,7 @@ Do you hate having to access multiple sites to view specific content? [RSS-Bridg
 
 First we create a directory to hold the data which RSS Bridge will serve:
 
-```
+```bash
 mkdir /var/data/config/rssbridge
 cd /var/data/config/rssbridge
 ```
@@ -56,11 +55,11 @@ networks:
 
 ## Serving
 
-### Launch RSS Bridge!
+### Deploy the bridge!
 
 Launch the RSS Bridge stack by running ```docker stack deploy rssbridge -c <path -to-docker-compose.yml>```
 
-[^1]: The inclusion of RSS Bridge was due to the efforts of Bencey in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Ben!!
-[^2]: This recipe goes well with an RSS reader such as [miniflux] 
+[^1]: The inclusion of RSS Bridge was due to the efforts of @bencey in [Discord](http://chat.funkypenguin.co.nz) (Thanks Ben!)
+[^2]: This delicious recipe is well-paired with an RSS reader such as [Miniflux][miniflux]
 
 --8<-- "recipe-footer.md"
