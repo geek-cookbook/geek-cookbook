@@ -29,13 +29,13 @@ For the best experience, start by [creating an issue](https://github.com/geek-co
 
 Once your issue has been reviewed and approved, start working on a PR using either GitHub Codespaces or local dev (below). As soon as you're ready to share your work, create a WIP PR, so that a preview URL will be generated. Iterate on your PR, marking it as ready for review when it's ... ready :grin:
 
-### 🏆 GitPod (free up to 50h/month)
+### 🏆 GitPod
 
-GitPod is by far the smoothest and most slick way to edit the cookbook. Click [here](https://gitpod.io/#https://github.com/geek-cookbook/geek-cookbook) to launch a browser-based editing session! 🥷
+GitPod  (free up to 50h/month) is by far the smoothest and most slick way to edit the cookbook. Click [here](https://gitpod.io/#https://github.com/geek-cookbook/geek-cookbook) to launch a browser-based editing session! 🥷
 
-### 🥈 GitHub Codespaces (not free)
+### 🥈 GitHub Codespaces
 
-[GitHub Codespaces](https://github.com/features/codespaces) provides a browser-based VSCode interface, pre-configured for your development environment. For no-hassle contributions to the cookbook with realtime previews, visit the [repo](https://github.com/geek-cookbook/geek-cookbook), and when clicking the download button (*where you're usually get the URL to clone a repo*), click on "**Open with CodeSpaces**" instead:
+[GitHub Codespaces](https://github.com/features/codespaces) (_no longer free now that it's out of beta_) provides a browser-based VSCode interface, pre-configured for your development environment. For no-hassle contributions to the cookbook with realtime previews, visit the [repo](https://github.com/geek-cookbook/geek-cookbook), and when clicking the download button (*where you're usually get the URL to clone a repo*), click on "**Open with CodeSpaces**" instead:
 
 ![](https://static.funkypenguin.co.nz/2021/geek-cookbookgeek-cookbook_The_Geeks_Cookbook_is_a_collection_of_guides_for_establishing_your_own_highly-available_privat_2021-01-07_11-41-25.png)
 
