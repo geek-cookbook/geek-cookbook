@@ -3,4 +3,4 @@ tasks:
   - command: mkdocs serve
 ports:
   - port: 8000
-    onOpen: open-preview
+    onOpen: open-browser

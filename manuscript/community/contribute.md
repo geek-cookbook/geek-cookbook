@@ -29,6 +29,10 @@ For the best experience, start by [creating an issue](https://github.com/geek-co
 
 Once your issue has been reviewed and approved, start working on a PR using either GitHub Codespaces or local dev (below). As soon as you're ready to share your work, create a WIP PR, so that a preview URL will be generated. Iterate on your PR, marking it as ready for review when it's ... ready :grin:
 
+### GitPod
+
+https://gitpod.io/#https://github.com/geek-cookbook/geek-cookbook
+
 ### GitHub Codespaces
 
 [GitHub Codespaces](https://github.com/features/codespaces) provides a browser-based VSCode interface, pre-configured for your development environment. For no-hassle contributions to the cookbook with realtime previews, visit the [repo](https://github.com/geek-cookbook/geek-cookbook), and when clicking the download button (*where you're usually get the URL to clone a repo*), click on "**Open with CodeSpaces**" instead:
