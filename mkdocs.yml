@@ -119,7 +119,8 @@ nav:
         - Photoprism: recipes/photoprism.md
         - Portainer: recipes/portainer.md        
         - Realms: recipes/realms.md
-        - Restic: recipes/restic.md        
+        - Restic: recipes/restic.md
+        - RSS Bridge: recipes/rss-bridge.md        
         - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
         - Traefik: ha-docker-swarm/traefik.md
         - Traefik Forward Auth: 

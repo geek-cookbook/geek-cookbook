@@ -12,6 +12,7 @@
 [linx]:             /recipes/linx/
 [mealie]:           /recipes/mealie/
 [mylar]:            /recipes/autopirate/mylar/
+[miniflux]:         /recipes/miniflux/
 [nightscout]:       /recipes/nightscout/
 [nzbget]:           /recipes/autopirate/nzbget/
 [nzbhydra]:         /recipes/autopirate/nzbhydra/
@@ -23,6 +24,7 @@
 [portainer]:        /recipes/portainer/
 [radarr]:           /recipes/autopirate/radarr/
 [rtorrent]:         /recipes/autopirate/rtorrent/
+[rss-bridge]:       /recipes/rss-bridge/
 [sabnzbd]:          /recipes/autopirate/sabnzbd/
 [sonarr]:           /recipes/autopirate/sonarr/
 [tfa-dex-static]:   /ha-docker-swarm/traefik-forward-auth/dex-static/
