@@ -126,7 +126,6 @@ services:
   
   db-backup:
     image: postgres:latest
-    env_file: /var/data/config/huginn/huginn.env
     volumes:
       - /var/data/paperless/database-dump:/dump
       - /etc/localtime:/etc/localtime:ro
