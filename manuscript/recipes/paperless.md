@@ -2,6 +2,8 @@ hero: Paperless NG - Index and archive all of your scanned paper documents
 
 # Paperless NG
 
+TODO: Description of paperless
+
 ![Paperless Screenshot](../images/paperless-screenshot.png)
 
 
@@ -11,7 +13,7 @@ hero: Paperless NG - Index and archive all of your scanned paper documents
 
 ### Setup data locations
 
-We'll need a folder to store a docker-compose configuration file and an associated environment file. If you're following my filesystem layout, create `/var/data/config/paperless` (*for the config*). We'll also need to create `/var/data/paperless` and a few subdirectories (*for the metadata*) as follows:
+We'll need a folder to store a docker-compose configuration file and an associated environment file. If you're following my filesystem layout, create `/var/data/config/paperless` (*for the config*). We'll also need to create `/var/data/paperless` and a few subdirectories (*for the metadata*). Lastly, we need a directory for the database backups to reside in as well.
 
 ```
 mkdir /var/data/config/paperless
@@ -21,6 +23,7 @@ mkdir /var/data/paperless/data
 mkdir /var/data/paperless/export
 mkdir /var/data/paperless/media
 mkdir /var/data/paperless/pgdata
+mkdir /var/data/paperless/database-dump
 ```
 
 !!! question "Which is it, Paperless or Paperless-NG?"
@@ -44,6 +47,7 @@ PAPERLESS_TIKA_ENDPOINT=http://tika:9998
 EOF
 ```
 You'll need to replace some of the text in the snippet above:
+
 * *\<timezone\>* - Replace with an entry from [the timezone database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (eg: America/New_York)
 * *\<admin_user\>* - Username of the superuser account that will be created on first run. Without this and the *\<admin_password\>* you won't be able to log into Paperless
 * *\<admin_password\>* - Password of the superuser account above.
@@ -56,32 +60,17 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 --8<-- "premix-cta.md"
 
 ```yaml
-version: "3.4"
+version: "3.2"
 services:
+  
   broker:
     image: redis:6.0
-    networks:
-      - internal
-
-  db:
-    image: postgres:13
-    volumes:
-      - /var/data/paperless/pgdata:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DB: paperless
-      POSTGRES_USER: paperless
-      POSTGRES_PASSWORD: paperless
     networks:
       - internal
 
   webserver:
     image: jonaswinkler/paperless-ng:latest
     env_file: paperless.env
-    depends_on:
-      - db
-      - broker
-      - gotenberg
-      - tika
     volumes:
       - /var/data/paperless/data:/usr/src/paperless/data
       - /var/data/paperless/media:/usr/src/paperless/media
@@ -122,6 +111,39 @@ services:
     networks:
       - internal
 
+  db:
+    image: postgres:13
+    volumes:
+      - /var/data/paperless/pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: paperless
+      POSTGRES_USER: paperless
+      POSTGRES_PASSWORD: paperless
+    networks:
+      - internal
+  
+  db-backup:
+    image: postgres:latest
+    env_file: /var/data/config/huginn/huginn.env
+    volumes:
+      - /var/data/paperless/database-dump:/dump
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      BACKUP_NUM_KEEP: 7
+      BACKUP_FREQUENCY: 1d
+    entrypoint: |
+      bash -c 'bash -s <<EOF
+      trap "break;exit" SIGHUP SIGINT SIGTERM
+      sleep 2m
+      while /bin/true; do
+        pg_dump -Fc > /dump/dump_\`date +%d-%m-%Y"_"%H_%M_%S\`.psql
+        (ls -t /dump/dump*.psql|head -n $$BACKUP_NUM_KEEP;ls /dump/dump*.psql)|sort|uniq -u|xargs rm -- {}
+        sleep $$BACKUP_FREQUENCY
+      done
+      EOF'
+    networks:
+    - internal
+
 networks:
   traefik_public:
     external: true
@@ -133,10 +155,13 @@ networks:
 
 ```
 You'll notice that there are several items under "services" in this stack. Let's take a look at what each one does:
-* PostgreSQL - Database engine to store metadata for all the documents. [^1] 
-* Gotenburg - Tool that facilitates converting MS Office documents, HTML, Markdown and other document types to PDF
-* Tika - The OCR engine that extracts text from image-only documents
-* Broker - Redis server that other services use to share data
+
+* broker - Redis server that other services use to share data
+* webserver - The UI that you will use to add and view documents, edit document metadata, and configure the application settings.
+* gotenburg - Tool that facilitates converting MS Office documents, HTML, Markdown and other document types to PDF
+* tika - The OCR engine that extracts text from image-only documents
+* db - PostgreSQL database engine to store metadata for all the documents. [^1] 
+* db-backup - Service to dump the PostgreSQL database to a backup file on disk once per day
 
 ## Serving
 
