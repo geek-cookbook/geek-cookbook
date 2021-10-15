@@ -48,10 +48,10 @@ EOF
 ```
 You'll need to replace some of the text in the snippet above:
 
-* *<timezone>* - Replace with an entry from [the timezone database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (eg: America/New_York)
-* *<admin_user>* - Username of the superuser account that will be created on first run. Without this and the *\<admin_password\>* you won't be able to log into Paperless
-* *<admin_password>* - Password of the superuser account above.
-* *<admin_email>* - Email address of the superuser account above.
+* *&lt;timezone&gt;* - Replace with an entry from [the timezone database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (eg: America/New_York)
+* *&lt;admin_user&gt;* - Username of the superuser account that will be created on first run. Without this and the *&lt;admin_password&gt;* you won't be able to log into Paperless
+* *&lt;admin_password&gt;* - Password of the superuser account above.
+* *&lt;admin_email&gt;* - Email address of the superuser account above.
 
 ### Setup Docker Swarm
 
