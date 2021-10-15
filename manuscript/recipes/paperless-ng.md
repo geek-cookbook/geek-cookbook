@@ -1,4 +1,6 @@
-hero: Paperless NG - Index and archive all of your scanned paper documents
+---
+description: Paperless NG - Easily index, search, and view archive all of your scanned paper documents
+---
 
 # Paperless NG
 
