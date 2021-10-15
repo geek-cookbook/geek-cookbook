@@ -1,7 +1,11 @@
-!!! warning
-    This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+---
+description: Mylar 🦹‍♀️ is a tool for downloading and managing digital comic books.
+---
 
 # Mylar
+
+!!! warning
+    This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 [Mylar](https://github.com/mylar3/mylar3) is a tool for downloading and managing digital comic books.
 

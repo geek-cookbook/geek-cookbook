@@ -1,8 +1,11 @@
-!!! warning
-    This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+---
+description: Radarr 🎬 is a tool for finding, downloading and managing movies
+---
 
 # Radarr
 
+!!! warning
+    This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 [Radarr](https://radarr.video/) is a tool for finding, downloading and managing movies. Features include:
 

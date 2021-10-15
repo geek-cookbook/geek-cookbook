@@ -1,7 +1,10 @@
-!!! warning
-    This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+---
+description: LazyLibrarian 📚 is a tool to follow authors and grab metadata for all your digital reading needs.
+---
 
 # LazyLibrarian
+!!! warning
+    This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 [LazyLibrarian](https://github.com/DobyTang/LazyLibrarian) is a tool to follow authors and grab metadata for all your digital reading needs. It uses a combination of Goodreads Librarything and optionally GoogleBooks as sources for author info and book info. Features include:
 

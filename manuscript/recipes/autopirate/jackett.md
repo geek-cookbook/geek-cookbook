@@ -1,9 +1,12 @@
-!!! warning
-This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
-
+---
+description: Jackett 🧥 works as a proxy server, standardizing your apps' access to torrent indexers
+---
 # Jackett
 
-[Jackett](https://github.com/Jackett/Jackett) works as a proxy server: it translates queries from apps (*[Sonarr][sonarr], [Radarr][radarr], [Mylar][mylarr], etc*) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software.
+!!! warning
+    This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+
+[Jackett](https://github.com/Jackett/Jackett) works as a proxy server: it translates queries from apps (*[Sonarr][sonarr], [Radarr][radarr], [Mylar][mylar], etc*) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software.
 
 This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.
 
