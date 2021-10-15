@@ -1,4 +1,6 @@
-hero: Duplicati - Yet another option to backup your exciting stuff. It's good to have options.
+---
+description: Duplicati - Yet another option to backup your exciting stuff. It's good to have options.
+---
 
 # Duplicati
 

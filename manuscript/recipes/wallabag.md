@@ -1,4 +1,6 @@
-hero: Read-it-later, mate!
+---
+description: Read-it-later, mate!
+---
 
 # Wallabag
 

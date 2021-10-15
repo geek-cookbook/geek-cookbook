@@ -1,4 +1,6 @@
-hero: Kanboard - A recipe to get your personal kanban on
+---
+description: Get your personal kanban on!
+---
 
 # Kanboard
 

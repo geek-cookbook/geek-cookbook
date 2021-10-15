@@ -1,4 +1,6 @@
-hero: A recipe to manage your Media 🎥 📺 🎵
+---
+description: Play back all your media on all your devices
+---
 
 # Plex
 

@@ -1,5 +1,5 @@
 ---
-description: Jackett 🧥 works as a proxy server, standardizing your apps' access to torrent indexers
+description: Jackett works as a proxy server, standardizing your apps' access to torrent indexers
 ---
 # Jackett
 

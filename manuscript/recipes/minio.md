@@ -1,3 +1,7 @@
+---
+description: Self-hosted S3-compatible object storage
+---
+
 # Minio
 
 Minio is a high performance distributed object storage server, designed for

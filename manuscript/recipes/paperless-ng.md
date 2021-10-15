@@ -1,5 +1,5 @@
 ---
-description: Paperless NG - Easily index, search, and view archive all of your scanned paper documents
+description: Easily index, search, and view archive all of your scanned dead-tree documents
 ---
 
 # Paperless NG

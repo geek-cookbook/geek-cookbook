@@ -1,3 +1,7 @@
+---
+description: A tasty tool to manage your meals and shopping list
+---
+
 # Mealie
 
 [Mealie](https://github.com/hay-kot/mealie) is a self hosted recipe manager and meal planner (*with a RestAPI backend and a reactive frontend application built in Vue for a pleasant user experience*) for the whole family.

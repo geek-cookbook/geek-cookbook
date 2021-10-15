@@ -1,4 +1,6 @@
-hero: Gollum - A recipe for your own git-based wiki
+---
+description: Gollum - A recipe for your own git-based wiki. My preciousssss
+---
 
 # Gollum
 

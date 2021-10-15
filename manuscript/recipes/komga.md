@@ -1,3 +1,7 @@
+---
+description: Bazinga! Comic book management FTW!
+---
+
 # Komga
 
 So you've just watched a bunch of superhero movies, and you're suddenly inspired to deep-dive into the weird world of comic books? You're already rocking [AutoPirate](/recipes/autopirate/) with [Mylar](/recipes/autopirate/mylar/) and [NZBGet](/recipes/autopirate/nzbget/) to grab content, but how to manage and enjoy your growing collection?

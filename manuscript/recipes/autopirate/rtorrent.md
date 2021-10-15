@@ -1,5 +1,5 @@
 ---
-description: A popular tool for managing BitTorrent 💾 downloads
+description: A popular tool for managing BitTorrent downloads
 ---
 
 # RTorrent / ruTorrent

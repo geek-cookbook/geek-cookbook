@@ -1,3 +1,7 @@
+---
+description: Automate your fake Instagram life with automated fakery!
+---
+
 # InstaPy
 
 [InstaPy](https://github.com/timgrossmann/InstaPy) is an Instagram bot, developed by [Tim Grossman](https://github.com/timgrossmann). Tim describes his motivation and experiences developing the bot [here](https://medium.freecodecamp.org/my-open-source-instagram-bot-got-me-2-500-real-followers-for-5-in-server-costs-e40491358340).

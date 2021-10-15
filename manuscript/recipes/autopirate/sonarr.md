@@ -1,5 +1,5 @@
 ---
-description: Sonarr 📺 is a tool for finding, downloading and managing TV series
+description: Sonarr is a tool for finding, downloading and managing TV series
 ---
 
 # Sonarr

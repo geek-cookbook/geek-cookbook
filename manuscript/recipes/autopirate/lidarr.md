@@ -1,5 +1,5 @@
 ---
-description: Lidarr 🎵 is an automated music downloader for NZB and Torrent
+description: Lidarr is an automated music downloader for NZB and Torrent
 ---
 # Lidarr
 !!! warning

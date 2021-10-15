@@ -1,5 +1,5 @@
 ---
-description: Radarr 🎬 is a tool for finding, downloading and managing movies
+description: Radarr is a tool for finding, downloading and managing movies
 ---
 
 # Radarr

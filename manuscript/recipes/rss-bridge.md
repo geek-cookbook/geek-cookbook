@@ -1,5 +1,8 @@
-# RSS Bridge
+---
+description: Stalk your ex on Facebook in your feedreader!
+---
 
+# RSS Bridge
 
 Do you hate having to access multiple sites to view specific content? [RSS-Bridge](https://github.com/RSS-Bridge/rss-bridge) can convert content from a wide variety of websites (*such as Reddit, Facebook, Twitter*) so that it can be viewed in a structured and consistent way, all from one place (Your feed reader)
 

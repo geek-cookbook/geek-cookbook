@@ -1,5 +1,5 @@
 ---
-description: Ombi is like your media butler 🍽 - it recommends, finds what you want to watch!
+description: Ombi is like your media butler - it recommends, finds what you want to watch!
 ---
 
 # Ombi
