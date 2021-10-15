@@ -1,5 +1,5 @@
 ---
-description: NZBGet 💾 is a tool for downloading "content" from Usenet providers
+description: NZBGet is a tool for downloading "content" from Usenet providers
 ---
 
 # NZBGet

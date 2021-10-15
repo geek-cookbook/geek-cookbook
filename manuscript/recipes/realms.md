@@ -1,3 +1,7 @@
+---
+description: A git-based wiki with auth and registration
+---
+
 # Realms
 
 Realms is a git-based wiki (_like [Gollum](/recipes/gollum/), but with basic authentication and registration_)

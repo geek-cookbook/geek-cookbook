@@ -1,3 +1,7 @@
+---
+description: Funkwhale is a decentralized, federated music streaming platform
+---
+
 # Funkwhale
 
 [Funkwhale](https://funkwhale.audio) is a decentralized, federated, and open music streaming / sharing platform. Think of it as "Mastodon for music". Here's a nifty online [demo](https://demo.funkwhale.audio/) :musical_note:

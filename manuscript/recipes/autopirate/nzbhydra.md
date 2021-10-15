@@ -1,5 +1,5 @@
 ---
-description: NZBHydra 🐍 is a meta search engine for NZB indexers
+description: NZBHydra is a meta search engine for NZB indexers
 ---
 
 # NZBHydra 2

@@ -1,3 +1,7 @@
+---
+description: CGM data with an API, for diabetic quality-of-life improvements
+---
+
 # Nightscout
 
 Nightscout is "*...an open source, DIY project that allows real time access to a CGM data via personal website, smartwatch viewers, or apps and widgets available for smartphones*"

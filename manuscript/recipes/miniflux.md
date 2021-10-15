@@ -1,4 +1,6 @@
-hero: Miniflux - A recipe for a lightweight minimalist RSS reader
+---
+description: A lightweight minimalist RSS reader
+---
 
 # Miniflux
 

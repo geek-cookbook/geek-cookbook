@@ -1,5 +1,5 @@
 ---
-description: Mylar 🦹‍♀️ is a tool for downloading and managing digital comic books.
+description: Mylar is a tool for downloading and managing digital comic books.
 ---
 
 # Mylar

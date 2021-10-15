@@ -1,4 +1,6 @@
-hero: Your own private google photos
+---
+description: ML-powered private photo hosting
+---
 
 # Photoprism
 

@@ -1,4 +1,6 @@
-hero: Docker-mailserver - A recipe for a self-contained mailserver and friends ✉️
+---
+description: A self-contained mailserver with spam-fighting friends
+---
 
 # Mail Server
 

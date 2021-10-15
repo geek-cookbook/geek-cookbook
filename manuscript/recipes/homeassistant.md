@@ -1,3 +1,7 @@
+---
+description: Assist your home automation
+---
+
 # Home Assistant
 
 Home Assistant is a home automation platform written in Python, with extensive support for 3rd-party home-automation platforms including Xaomi, Phillips Hue, and a [bazillion](https://home-assistant.io/components/) others.

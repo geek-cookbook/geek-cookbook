@@ -1,5 +1,5 @@
 ---
-description: Neat 😘 one-sentence description of recipe for social media previews
+description: Neat one-sentence description of recipe for social media previews
 ---
 
 # <///RECIPE NAME>

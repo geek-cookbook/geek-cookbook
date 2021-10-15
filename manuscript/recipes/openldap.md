@@ -1,3 +1,7 @@
+---
+description: Authenticate like it's 1990!
+---
+
 # OpenLDAP
 
 LDAP is probably the most ubiquitous authentication backend, before the current era of "[stupid social sign-ons](https://www.usatoday.com/story/tech/columnist/2018/10/23/how-separate-your-social-networks-your-regular-sites/1687763002/)". Many of the recipes featured in the cookbook (_[NextCloud](/recipes/nextcloud/), [Kanboard](/recipes/kanboard/), [Gitlab](/recipes/gitlab/), etc_) offer LDAP integration.

@@ -1,4 +1,6 @@
-hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and organising your media 📺 🎥 🎵 📖
+---
+description: A fully-featured recipe to automate finding, downloading, and organising media
+---
 
 # AutoPirate
 

@@ -1,3 +1,7 @@
+---
+description: Quickly share self-destructing screenshots, text, etc
+---
+
 # Linx
 
 Ever wanted to quickly share a screenshot, but don't want to use imgur, sign up for a service, or have your image tracked across the internet for all time? 

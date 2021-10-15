@@ -1,5 +1,5 @@
 ---
-description: Headphones 🎧 is an automated music downloader for NZB and BitTorrent
+description: Headphones is an automated music downloader for NZB and BitTorrent
 ---
 # Headphones
 !!! warning

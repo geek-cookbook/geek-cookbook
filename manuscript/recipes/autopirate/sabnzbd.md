@@ -1,5 +1,5 @@
 ---
-description: SABnzbd 💾 downloads and assembles your usenet content
+description: SABnzbd downloads and assembles your usenet content
 ---
 
 # SABnzbd

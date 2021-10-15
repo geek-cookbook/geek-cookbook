@@ -1,5 +1,5 @@
 ---
-description: Readarr 📚 is "Sonarr/Radarr for eBooks"
+description: Readarr is "Sonarr/Radarr for eBooks"
 ---
 
 
