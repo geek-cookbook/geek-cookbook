@@ -31,8 +31,7 @@ mkdir /var/data/paperless/pgdata
 To stay consistent with the other recipes, we'll create a file to store environemnt variables in. There's more than 1 service in this stack, but we'll only create one one environment file that will be used by the web server (more on this later).
 
 ```
-cd /var/data/config/paperless
-cat << EOF > /var/data/config/mealie/mealie.env
+cat << EOF > /var/data/config/paperless/paperless.env
 PAPERLESS_TIME_ZONE:<timezone>
 PAPERLESS_ADMIN_USER=<admin_user>
 PAPERLESS_ADMIN_PASSWORD=<admin_password>
