@@ -2,7 +2,7 @@ hero: Paperless NG - Index and archive all of your scanned paper documents
 
 # Paperless NG
 
-TODO: Description of paperless
+Paper is a nightmare. Environmental issues aside, there’s no excuse for it in the 21st century. It takes up space, collects dust, doesn’t support any form of a search feature, indexing is tedious, it’s heavy and prone to damage & loss. [^1] Paperless NG will OCR, index, and store data about your documents so they are easy to search and view, unlike that hulking metal file cabinet you have in your office.
 
 ![Paperless Screenshot](../images/paperless-screenshot.png)
 
@@ -160,7 +160,7 @@ You'll notice that there are several items under "services" in this stack. Let's
 * webserver - The UI that you will use to add and view documents, edit document metadata, and configure the application settings.
 * gotenburg - Tool that facilitates converting MS Office documents, HTML, Markdown and other document types to PDF
 * tika - The OCR engine that extracts text from image-only documents
-* db - PostgreSQL database engine to store metadata for all the documents. [^1] 
+* db - PostgreSQL database engine to store metadata for all the documents. [^2] 
 * db-backup - Service to dump the PostgreSQL database to a backup file on disk once per day
 
 ## Serving
@@ -169,6 +169,7 @@ Launch the paperless stack by running ```docker stack deploy paperless -c <path 
 
 Head over to the [Paperless documentation](https://paperless-ng.readthedocs.io/en/latest) to see how to configure and use the application then revel in the fact you can now search all your scanned documents to to your heart's content.
 
-[^1]: This particular stack configuration was chosen because it includes a "real" database in PostgreSQL versus the more lightweight SQLite database. After all, if you go to the trouble of scanning and importing a pile of documents, you want to know the database is robust enough to keep your data safe.
+[^1]: Taken directly from [Paperless documentation](https://paperless-ng.readthedocs.io/en/latest)
+[^2]: This particular stack configuration was chosen because it includes a "real" database in PostgreSQL versus the more lightweight SQLite database. After all, if you go to the trouble of scanning and importing a pile of documents, you want to know the database is robust enough to keep your data safe.
 
 --8<-- "recipe-footer.md"
