@@ -19,7 +19,7 @@
 [ombi]:             /recipes/autopirate/ombi/
 [openldap]:         /recipes/openldap/
 [oscarr]:           /recipes/autopirate/oscarr/
-[paperless-ng]      /recipes/paperless-ng/
+[paperless-ng]:     /recipes/paperless-ng/
 [patreon]:	        https://www.patreon.com/bePatron?u=6982506
 [photoprism]:       /recipes/photoprism/
 [portainer]:        /recipes/portainer/
