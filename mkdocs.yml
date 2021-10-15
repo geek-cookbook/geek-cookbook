@@ -119,6 +119,7 @@ nav:
         - OpenLDAP: recipes/openldap.md
         - OwnTracks: recipes/owntracks.md
         - Photoprism: recipes/photoprism.md
+        - Paperless NG: recipes/paperless-ng.md
         - Portainer: recipes/portainer.md        
         - Realms: recipes/realms.md
         - Restic: recipes/restic.md

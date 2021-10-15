@@ -8,6 +8,7 @@ hide:
 
 Recipe                   | Description                                                                                                      | Date
 -------------------------|------------------------------------------------------------------------------------------------------------------|--------------
+[Paperless-NG][paperless-ng] | Organize, index, search, and view all your documents                         | _14 Oct 2021_
 [RSS-Bridge][rss-bridge] | Consume content from non-open platforms (*Facebook, Instagram, etc*) in your feed reader                         | _1 Oct 2021_
 [NightScout][nightscout] | Share your CGM :drop_of_blood: data, setup advanced alarms and charts, for improved diabetes treatment :syringe: and quality-of-life :runner:      | _9 Aug 2021_
 [Mealie][mealie]         | Delicious, API-driven recipe manager, able to scrape-and-import recipes from a URL :cook:                        | _4 Feb 2021_
