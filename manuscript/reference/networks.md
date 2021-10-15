@@ -41,3 +41,4 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [Duplicati](https://geek-cookbook.funkypenguin.co.nz/recipes/duplicati/)                                              | 172.16.55.0/24 |
 | [Restic](https://geek-cookbook.funkypenguin.co.nz/recipes/restic/)                                                    | 172.16.56.0/24 |
 | [Jellyfin](https://geek-cookbook.funkypenguin.co.nz/recipes/jellyfin/)                                                | 172.16.57.0/24 |
+| [Paperless NG](https://geek-cookbook.funkypenguin.co.nz/recipes/paperless/)                                           | 172.16.58.0/24 |
