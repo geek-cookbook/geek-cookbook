@@ -22,7 +22,7 @@ mkdir /var/data/paperless/consume
 mkdir /var/data/paperless/data
 mkdir /var/data/paperless/export
 mkdir /var/data/paperless/media
-mkdir /var/data/paperless/pgdata
+mkdir /var/data/runtime/paperless/pgdata
 mkdir /var/data/paperless/database-dump
 ```
 
@@ -48,10 +48,10 @@ EOF
 ```
 You'll need to replace some of the text in the snippet above:
 
-* *&lt;timezone&gt;* - Replace with an entry from [the timezone database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (eg: America/New_York)
-* *&lt;admin_user&gt;* - Username of the superuser account that will be created on first run. Without this and the *&lt;admin_password&gt;* you won't be able to log into Paperless
-* *&lt;admin_password&gt;* - Password of the superuser account above.
-* *&lt;admin_email&gt;* - Email address of the superuser account above.
+* `<timezone>` - Replace with an entry from [the timezone database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (eg: America/New_York)
+* `<admin_user>` - Username of the superuser account that will be created on first run. Without this and the *&lt;admin_password&gt;* you won't be able to log into Paperless
+* `<admin_password>` - Password of the superuser account above.
+* `<admin_email>` - Email address of the superuser account above.
 
 ### Setup Docker Swarm
 
@@ -114,7 +114,7 @@ services:
   db:
     image: postgres:13
     volumes:
-      - /var/data/paperless/pgdata:/var/lib/postgresql/data
+      - /var/data/runtime/paperless/pgdata:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: paperless
       POSTGRES_USER: paperless
@@ -129,6 +129,9 @@ services:
       - /var/data/paperless/database-dump:/dump
       - /etc/localtime:/etc/localtime:ro
     environment:
+      POSTGRES_DB: paperless
+      POSTGRES_USER: paperless
+      POSTGRES_PASSWORD: paperless
       BACKUP_NUM_KEEP: 7
       BACKUP_FREQUENCY: 1d
     entrypoint: |
