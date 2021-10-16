@@ -35,7 +35,12 @@ cd /var/data/config/authelia
 
 ### Create config file
 
-Authelia configurations are defined in configuration.yml.
+Authelia configurations are defined in configuration.yml. Some are required and some are optional. So begin by creating an empty configuration.yml file and add content to it as defined below. Optional configuration settings can be viewed on Authelia's [Documentation](https://www.authelia.com/docs/configuration/) 
+
+
+```
+nano /var/data/config/authelia/configuration.yml
+```
 
 ```yml
 ###############################################################
@@ -115,7 +120,7 @@ notifier:
 
 
 ### Create User Accounts
-Create users_database.yml this will be where we can create user accounts and give them groups
+Create /var/data/config/authelia/users_database.yml this will be where we can create user accounts and give them groups
 
 ```yaml
 users:
@@ -141,25 +146,35 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 
 
 ```yaml
-version: "3.4"
+version: "3.2"
 
 services:
   authelia:
-    image: authelia/authelia:4.21.0
+    image: authelia/authelia
     volumes:
       - /var/data/config/authelia:/config
     networks:
       - traefik_public
     deploy:
       labels:
-        - "traefik.enable=true"
-        - "traefik.http.routers.authelia.entrypoints=https"
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
+
+        # traefikv1
+        - traefik.frontend.rule=Host:authelia.example.com
+        - traefik.port=80
+        - 'traefik.frontend.auth.forward.address=http://authelia:9091/api/verify?rd=https://authelia.example.com/'
+        - 'traefik.frontend.auth.forward.trustForwardHeader=true'
+        - 'traefik.frontend.auth.forward.authResponseHeaders=Remote-User,Remote-Groups,Remote-Name,Remote-Email'
+
+        # traefikv2
         - "traefik.http.routers.authelia.rule=Host(`authelia.example.com`)"
+        - "traefik.http.routers.authelia.entrypoints=https"
+        - "traefik.http.services.authelia.loadbalancer.server.port=9091"
         - "traefik.http.middlewares.authelia.forwardauth.address=http://authelia:9091/api/verify?rd=https://authelia.example.com"
         - "traefik.http.middlewares.authelia.forwardauth.trustForwardHeader=true"
         - "traefik.http.middlewares.authelia.forwardauth.authResponseHeaders=Remote-User, Remote-Groups"
-        - "traefik.http.services.authelia.loadbalancer.server.port=9091"
-
 
 networks:
   traefik_public:
@@ -204,5 +219,8 @@ Now if we wish to put authelia behind a service all we will need to do is add th
 
 Launch the Authelia stack by running ```docker stack deploy authelia -c <path -to-docker-compose.yml>```
 
+
+
+[^1]: The inclusion of Authelia was due to the efforts of @bencey in Discord (Thanks Ben!)
 
 --8<-- "recipe-footer.md"
