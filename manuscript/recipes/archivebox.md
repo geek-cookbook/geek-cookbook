@@ -38,7 +38,7 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 --8<-- "premix-cta.md"
 
 ```yaml
-version: '3.4'
+version: '3.2'
 
 services:
     archivebox:
@@ -87,5 +87,10 @@ Once you have created a docker-compose file you will need to run the following c
 ### Launch Archivebox!
 
 Launch the Archivebox stack by running ```docker stack deploy archivebox -c <path -to-docker-compose.yml>```
+
+
+
+[^1]: The inclusion of Archivebox was due to the efforts of @bencey in Discord (Thanks Ben!)
+
 
 --8<-- "recipe-footer.md"
