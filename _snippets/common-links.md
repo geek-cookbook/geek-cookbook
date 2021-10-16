@@ -1,4 +1,5 @@
 [autopirate]:       /recipes/autopirate/
+[authelia]:         /ha-docker-swarm/authelia/
 [bazarr]:           /recipes/autopirate/bazarr/
 [cyberchef]:        /recipes/cyberchef/
 [funkwhale]:        /recipes/autopirate/funkwhale/
@@ -26,7 +27,6 @@
 [sabnzbd]:          /recipes/autopirate/sabnzbd/
 [sonarr]:           /recipes/autopirate/sonarr/
 [tfa-dex-static]:   /ha-docker-swarm/traefik-forward-auth/dex-static/
-[authelia]:       /ha-docker-swarm/authelia/
 [tfa-google]:       /ha-docker-swarm/traefik-forward-auth/google/
 [tfa-keycloak]:     /ha-docker-swarm/traefik-forward-auth/keycloak/
 [tfa]:              /ha-docker-swarm/traefik-forward-auth/
