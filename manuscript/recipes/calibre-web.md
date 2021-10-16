@@ -1,4 +1,6 @@
-hero: Manage your ebook collection. Like a BOSS.
+---
+description: Manage your ebook collection. Like a BOSS.
+---
 
 # Calibre-Web
 

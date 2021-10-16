@@ -1,3 +1,7 @@
+---
+description: Geeky RSS reader
+---
+
 # Tiny Tiny RSS
 
 [Tiny Tiny RSS](https://tt-rss.org/) is a self-hosted, AJAX-based RSS reader, which rose to popularity as a replacement for Google Reader. It supports ~~geeky~~ advanced features, such as:

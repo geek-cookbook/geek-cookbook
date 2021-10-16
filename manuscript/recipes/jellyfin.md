@@ -1,3 +1,7 @@
+---
+description: Jellyfin is best described as "like Emby but really FOSS"
+---
+
 # Jellyfin
 
 [Jellyfin](https://jellyfin.org/) is best described as "_like [Emby](/recipes/emby) but really [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software)_".

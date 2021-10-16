@@ -1,4 +1,6 @@
-hero: Backup all your stuff. Share it. Privately.
+---
+description: Share docs. Backup files. Share stuff.
+---
 
 # NextCloud
 

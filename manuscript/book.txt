@@ -67,6 +67,7 @@ recipes/keycloak/setup-oidc-provider.md
 recipes/openldap.md
 recipes/mail.md
 recipes/minio.md
+recipes/paperless-ng.md
 recipes/piwik.md
 recipes/photoprism.md
 recipes/portainer.md

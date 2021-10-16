@@ -1,3 +1,7 @@
+---
+description: A self-hosted Trello
+---
+
 # Wekan
 
 Wekan is an open-source kanban board which allows a card-based task and to-do management, similar to tools like WorkFlowy or Trello.

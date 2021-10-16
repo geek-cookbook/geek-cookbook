@@ -1,9 +1,11 @@
+---
+description: Headphones is an automated music downloader for NZB and BitTorrent
+---
+# Headphones
 !!! warning
     This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
-# Headphones
-
-[Headphones](https://github.com/rembo10/headphones) is an automated music downloader for NZB and Torrent, written in Python. It supports SABnzbd, NZBget, Transmission, µTorrent, Deluge and Blackhole.
+[Headphones](https://github.com/rembo10/headphones) is an automated music downloader for NZB and Torrent, written in Python. It supports [SABnzbd][sabnzbd], [NZBget][nzbget], Transmission, µTorrent, Deluge and Blackhole.
 
 ![Headphones Screenshot](../../images/headphones.png)
 

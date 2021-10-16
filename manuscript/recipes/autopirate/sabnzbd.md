@@ -1,11 +1,15 @@
-!!! warning
-    This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+---
+description: SABnzbd downloads and assembles your usenet content
+---
 
 # SABnzbd
 
+!!! warning
+    This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+
 ## Introduction
 
-SABnzbd is the workhorse of the stack. It takes .nzb files as input (_manually or from other [autopirate](/recipes/autopirate/) stack tools_), then connects to your chosen Usenet provider, downloads all the individual binaries referenced by the .nzb, and then tests/repairs/combines/uncompresses them all into the final result - media files.
+SABnzbd is a workhorse of the stack. It takes .nzb files as input (_manually or from other [autopirate](/recipes/autopirate/) stack tools_), then connects to your chosen Usenet provider, downloads all the individual binaries referenced by the .nzb, and then tests/repairs/combines/uncompresses them all into the final result - media files.
 
 ![SABNZBD Screenshot](../../images/sabnzbd.png)
 

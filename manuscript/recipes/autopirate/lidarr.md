@@ -1,11 +1,11 @@
-hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and organising your media 📺 🎥 🎵 📖
-
+---
+description: Lidarr is an automated music downloader for NZB and Torrent
+---
+# Lidarr
 !!! warning
     This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
-# Lidarr
-
-[Lidarr](https://lidarr.audio/) is an automated music downloader for NZB and Torrent. It performs the same function as [Headphones](/recipes/autopirate/headphones), but is written using the same(ish) codebase as [Radarr](/recipes/autopirate/radarr/) and [Sonarr](/recipes/autopirate/sonarr). It's blazingly fast, and includes beautiful album/artist art. Lidarr supports [SABnzbd](/recipes/autopirate/sabnzbd/), [NZBGet](/recipes/autopirate/nzbget/), Transmission, µTorrent, Deluge and Blackhole (_just like Sonarr / Radarr_)
+[Lidarr](https://lidarr.audio/) is an automated music downloader for NZB and Torrent. It performs the same function as [Headphones](/recipes/autopirate/headphones), but is written using the same(ish) codebase as [Radarr][radarr] and [Sonarr][sonarr]. It's blazingly fast, and includes beautiful album/artist art. Lidarr supports [SABnzbd][sabnzbd], [NZBGet][nzbget], Transmission, µTorrent, Deluge and Blackhole (_just like Sonarr / Radarr_)
 
 ![Lidarr Screenshot](../../images/lidarr.png)
 

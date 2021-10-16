@@ -1,4 +1,6 @@
-hero: Huginn - A recipe for self-hosted, hackable version of IFFTT / Zapier
+---
+description: A self-hosted, hackable version of IFFTT / Zapier
+---
 
 # Huginn
 

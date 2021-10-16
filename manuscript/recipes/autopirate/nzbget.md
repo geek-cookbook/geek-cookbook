@@ -1,7 +1,11 @@
-!!! warning
-    This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+---
+description: NZBGet is a tool for downloading "content" from Usenet providers
+---
 
 # NZBGet
+
+!!! warning
+    This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
 ## Introduction
 
