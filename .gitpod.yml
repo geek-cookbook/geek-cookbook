@@ -1,0 +1,12 @@
+
+tasks:
+  - init: pip install -r requirements.txt
+  - command: mkdocs serve
+ports:
+  - port: 8000
+    onOpen: notify
+vscode:
+  extensions:
+    - yzhang.markdown-all-in-one
+    - davidanson.vscode-markdownlint
+    - bpruitt-goddard.mermaid-markdown-syntax-highlighting

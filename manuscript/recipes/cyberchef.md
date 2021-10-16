@@ -1,3 +1,7 @@
+---
+description: Be a l33t h@xor with this toolkit from the GHCQ
+---
+
 # CyberChef
 
 Are you a [l33t h@x0r](https://en.wikipedia.org/wiki/Hackers_(film))? Do you need the right tools at your fingertips to support your [#masterhacker](https://reddit.com/r/masterhacker) skillz? Look no further than CyberChef, lovingly baked for you by your friends at GHCQ[^1]!

@@ -1,3 +1,7 @@
+---
+description: Collabora Online is a FOSS alternative to MS Office, in your browser!
+---
+
 # Collabora Online
 
 Collabora Online Development Edition (or "[CODE](https://www.collaboraoffice.com/code/#what_is_code)"), is the lightweight, or "home" edition of the commercially-supported [Collabora Online](https://www.collaboraoffice.com/collabora-online/) platform. It

@@ -1,4 +1,6 @@
-hero: A recipe for a sexy view of your Docker Swarm
+---
+description: A UI to make Docker less geeky
+---
 
 # Portainer
 

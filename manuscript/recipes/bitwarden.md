@@ -1,3 +1,7 @@
+---
+description: Protecting your secritz from all teh haxzors!
+---
+
 # Bitwarden
 
 Heard about the [latest password breach](https://www.databreaches.net) (*since lunch*)? [HaveYouBeenPowned](http://haveibeenpwned.com) yet (*today*)? [Passwords are broken](https://www.theguardian.com/technology/2008/nov/13/internet-passwords), and as the amount of sites for which you need to store credentials grows exponetially, so does the risk of using a common password.

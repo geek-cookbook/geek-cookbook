@@ -1,4 +1,6 @@
-hero: AutoPirate - A fully-featured recipe to automate finding, downloading, and organising your media 📺 🎥 🎵 📖
+---
+description: A fully-featured recipe to automate finding, downloading, and organising media
+---
 
 # AutoPirate
 
@@ -6,7 +8,7 @@ Once the cutting edge of the "internet" (_pre-world-wide-web and mosiac days_), 
 
 A good starter for the usenet scene is https://www.reddit.com/r/usenet/. Because it's so damn complicated, a host of automated tools exist to automate the process of finding, downloading, and managing content. The tools included in this recipe are as follows:
 
-![Autopirate Screenshot](../images/autopirate.png)
+![Autopirate Screenshot](../../images/autopirate.png)
 
 This recipe presents a method to combine these tools into a single swarm deployment, and make them available securely.
 
@@ -26,6 +28,8 @@ Tools included in the AutoPirate stack are:
  
 * [Radarr][radarr] finds, downloads and manages movies
 
+* [Readarr][readarr] finds, downloads, and manages eBooks
+
 * [Lidarr][lidarr] is an automated music downloader for NZB and Torrent. It performs the same function as [Headphones][headphones], but is written using the same(ish) codebase as [Radarr][radarr] and [Sonarr](/recipes/autopirate/sonarr). It's blazingly fast, and includes beautiful album/artist art. Lidarr supports [SABnzbd](/recipes/autopirate/sabnzbd/), [NZBGet](/recipes/autopirate/nzbget/), Transmission, µTorrent, Deluge and Blackhole (_just like Sonarr / Radarr_)
 
 * [Mylar][mylar] is a tool for downloading and managing digital comic books / "graphic novels"
@@ -43,10 +47,16 @@ Since this recipe is so long, and so many of the tools are optional to the final
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. Access to NZB indexers and Usenet servers
-4. DNS entries configured for each of the NZB tools in this recipe that you want to use
+!!! summary "Ingredients"
+    Already deployed:
+
+    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+    * [X] [Traefik](/ha-docker-swarm/traefik) configured per design
+    * [X] DNS entry for the hostname you intend to use (*or a wildcard*), pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
+
+    Related:
+
+    * [X] [Traefik Forward Auth](ha-docker-swarm/traefik-forward-auth/) to secure your Traefik-exposed services with an additional layer of authentication
 
 ## Preparation
 
@@ -54,7 +64,7 @@ Since this recipe is so long, and so many of the tools are optional to the final
 
 We'll need a unique directories for each tool in the stack, bind-mounted into our containers, so create them upfront, in /var/data/autopirate:
 
-```
+```bash
 mkdir /var/data/autopirate
 cd /var/data/autopirate
 mkdir -p {lazylibrarian,mylar,ombi,sonarr,radarr,headphones,plexpy,nzbhydra,sabnzbd,nzbget,rtorrent,jackett}
@@ -62,7 +72,7 @@ mkdir -p {lazylibrarian,mylar,ombi,sonarr,radarr,headphones,plexpy,nzbhydra,sabn
 
 Create a directory for the storage of your downloaded media, i.e., something like:
 
-```
+```bash
 mkdir /var/data/media
 ```
 

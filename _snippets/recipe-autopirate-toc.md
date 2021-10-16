@@ -12,6 +12,7 @@ Continue through the list of tools below, adding whichever tools your want to us
 * [NZBHydra](/recipes/autopirate/nzbhydra/)
 * [Ombi](/recipes/autopirate/ombi/)
 * [Radarr](/recipes/autopirate/radarr/)
+* [Readarr](/recipes/autopirate/readarr/) 
 * [RTorrent](/recipes/autopirate/rtorrent/)
 * [SABnzbd](/recipes/autopirate/sabnzbd/)
 * [Sonarr](/recipes/autopirate/sonarr/)

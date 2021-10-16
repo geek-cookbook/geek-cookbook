@@ -1,4 +1,6 @@
-hero: Ghost - A recipe for beautiful online publication.
+---
+description: Ghost - Beautiful online publicatio (who you gonna call?)
+---
 
 # Ghost
 

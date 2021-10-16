@@ -1,4 +1,6 @@
-hero: Terminal in a browser, baby! 💻
+---
+description: Terminal in a browser, baby!
+---
 
 # Wetty
 

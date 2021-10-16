@@ -1,3 +1,7 @@
+---
+description: Gitlab Runner - A gopher for GitLab
+---
+
 # Gitlab Runner
 
 Some features of GitLab require a "[runner](https://docs.gitlab.com/runner/)" (_in the sense of a "gopher" or a "minion"_). A runner "registers" itself with a GitLab instance, and is given tasks to run. Tasks include running Continuous Integration (CI) builds, and building container images.

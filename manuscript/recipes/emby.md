@@ -1,3 +1,7 @@
+---
+description: Kick-ass media player!
+---
+
 # Emby
 
 [Emby](https://emby.media/) (_think "M.B." or "Media Browser"_) is best described as "_like [Plex](/recipes/plex/) but different_" 😁 - It's a bit geekier and less polished than Plex, but it allows for more flexibility and customization.
