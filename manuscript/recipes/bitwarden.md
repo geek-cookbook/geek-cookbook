@@ -40,7 +40,7 @@ mkdir /var/data/bitwarden
 Create `/var/data/config/bitwarden/bitwarden.env`, and **leave it empty for now**.
 
 !!! question
-    What, why an empty env file? Well, the container supports lots of customizations via environment variables, for things like toggling self-registration, 2FA, etc. These are too complex to go into for this recipe, but readers are recommended to review the [dani-garcia/bitwarden_rs wiki](https://github.com/dani-garcia/bitwarden_rs), and customize their installation to suite.
+    What, why an empty env file? Well, the container supports lots of customizations via environment variables, for things like toggling self-registration, 2FA, etc. These are too complex to go into for this recipe, but readers are recommended to review the [dani-garcia/vaultwarden wiki](https://github.com/dani-garcia/vaultwarden/wiki), and customize their installation to suite.
 
 ### Setup Docker Swarm
 
@@ -52,7 +52,7 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 version: "3"
 services:
   bitwarden:
-    image: bitwardenrs/server
+    image: vaultwarden/server
     env_file: /var/data/config/bitwarden/bitwarden.env
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -99,8 +99,8 @@ Browse to your new instance at https://**YOUR-FQDN**, and create a new user acco
 
 Once you've created your account, jump over to https://bitwarden.com/#download and download the apps for your mobile and browser, and start adding your logins!
 
-[^1]: You'll notice we're not using the *official* container images (*[all 6 of them required](https://help.bitwarden.com/article/install-on-premise/#install-bitwarden)!)*, but rather a [more lightweight version ideal for self-hosting](https://hub.docker.com/r/bitwardenrs/server). All of the elements are contained within a single container, and SQLite is used for the database backend.
-[^2]: As mentioned above, readers should refer to the [dani-garcia/bitwarden_rs wiki](https://github.com/dani-garcia/bitwarden_rs) for details on customizing the behaviour of Bitwarden.
-[^3]: The inclusion of Bitwarden was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz)- Thanks Gerry!
+[^1]: You'll notice we're not using the *official* container images (*[all 6 of them required](https://help.bitwarden.com/article/install-on-premise/#install-bitwarden)!)*, but rather a [more lightweight version ideal for self-hosting](https://hub.docker.com/r/vaultwarden/server). All of the elements are contained within a single container, and SQLite is used for the database backend.
+[^2]: As mentioned above, readers should refer to the [dani-garcia/vaultwarden wiki](https://github.com/dani-garcia/vaultwarden) for details on customizing the behaviour of Bitwarden.
+[^3]: The inclusion of Bitwarden was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz)- Unfortunately on the 22nd August 2020 Jerry passed away. Jerry was very passionate and highly regarded in the field of Information Technology. He will be missed.
 
 --8<-- "recipe-footer.md"

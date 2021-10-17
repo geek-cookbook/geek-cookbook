@@ -1,4 +1,5 @@
 [autopirate]:       /recipes/autopirate/
+[authelia]:         /ha-docker-swarm/authelia/
 [bazarr]:           /recipes/autopirate/bazarr/
 [calibre-web]:      /recipes/calibre-web/
 [cyberchef]:        /recipes/cyberchef/
