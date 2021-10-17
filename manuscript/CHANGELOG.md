@@ -8,18 +8,11 @@ hide:
 
 Recipe                   | Description                                                                                                      | Date
 -------------------------|------------------------------------------------------------------------------------------------------------------|--------------
-<<<<<<< HEAD
-[Authelia][authelia] | Authentication and two factor authorization server with Authelia      | _1 Oct 2021_
-=======
+[Authelia][authelia] | Authentication and two factor authorization server with Authelia      | _18 Oct 2021_
+[Readarr][readarr] | [Autopirate][autopirate] component to grab and manage eBooks (*think "Sonarr/Radarr for books*")                     | _18 Oct 2021_
 [Paperless-NG][paperless-ng] | Organize, index, search, and view all your documents                         | _14 Oct 2021_
 [RSS-Bridge][rss-bridge] | Consume content from non-open platforms (*Facebook, Instagram, etc*) in your feed reader                         | _1 Oct 2021_
->>>>>>> c976c670dd54abddfd4bc76c98637f9bf5a3a18a
 [NightScout][nightscout] | Share your CGM :drop_of_blood: data, setup advanced alarms and charts, for improved diabetes treatment :syringe: and quality-of-life :runner:      | _9 Aug 2021_
-[Mealie][mealie]         | Delicious, API-driven recipe manager, able to scrape-and-import recipes from a URL :cook:                        | _4 Feb 2021_
-[Funkwhale][funkwhale]   | Enjoy, share, and federate your music in your own funky "pod". Think "Mastodon for Music" :whale: :musical_note: | _28 Jan 2021_
-[CyberChef][cyberchef]   | A web-based collection of useful tools for INFOSEC work, by the [GCHQ](https://en.wikipedia.org/wiki/GCHQ)       | _19 Jan 2021_
-[Linx][linx]             | Quickly and securely share media/files with optional password-protection and expiry                              | _13 Jan 2021_
-[Komga][komga]           | Beautiful interface to manage and enjoy your comics / graphic novels                                             | _5 Jan 2021_
 
 ## Recent updates
 
