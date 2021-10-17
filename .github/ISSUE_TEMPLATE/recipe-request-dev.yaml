@@ -1,4 +1,4 @@
-name: "🍰 Request a recipe!"
+name: "🍰 Request a new recipe!"
 description: I have a request for a fresh recipe 😋"
 title: "[recipe] "
 labels: ["recipe/request", "status/backlog", "good first issue"]
