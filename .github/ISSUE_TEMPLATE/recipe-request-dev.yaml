@@ -34,7 +34,6 @@ body:
         First, some house-keeping. 
         ✅ Review [closed issues](https://github.com/funkypenguin/geek-cookbook/issues?q=is%3Aissue+is%3Aclosed) and [PRs](https://github.com/funkypenguin/geek-cookbook/pulls?q=is%3Apr+is%3Aclosed), and confirm that this recipe hasn't already been proposed, deprecated, or duplicated before. 
         ✅ Confirm that the application itself is not abandoned by the developer
-      multiple: true
       options:
         - label: I have searched and confirmed no existing open or closed [closed issues](https://github.com/funkypenguin/geek-cookbook/issues?q=is%3Aissue+is%3Aclosed)/PRs for this app
           required: true
