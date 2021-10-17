@@ -1,0 +1,47 @@
+name: "\U0001F370 Request a recipe!"
+description: I have a request for a fresh recipe \U0001F60B"
+title: "[recipe] "
+labels: ["recipe/request", "status/backlog", "good first issue"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Greetings, fellow geek! Thanks for taking the time to request this recipe!
+  - type: input
+    id: project_homepage
+    attributes:
+      label: Project Homepage
+      description: Provide a link to the project's homepage
+      placeholder: e.g. https://radarr.video/
+    validations:
+      required: true
+  - type: dropdown
+    id: pre_requisites
+    attributes:
+      label: First, some house-keeping. Review closed issues and PRs, and confirm that this recipe hasn't already been proposed, deprecated, or duplicated before. Also confirm that the application itself is not abandoned.
+      multiple: true
+      options:
+        - I have searched and confirmed no existing open or closed issues/PRs for this app
+        - The app is actively supported by its developers (_i.e., not deprecated_)
+
+  - type: dropdown
+    id: authentication
+    attributes:
+      label: |
+        Does the app provide its own authentication (_i.e. NextCloud_), or does it require an authentication frontend (_i.e., Radarr_)?
+
+        How should access to the app be managed?
+      multiple: false
+      options:
+        - The app provides its own, trustworthy authentication, or access control is unnecessary. (*I'd be happy exposing it to the internet*)
+        - The app needs something in front of it to secure access (_traefik-forward-auth, authelia, etc_)
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://geek-cookbook.funkypenguin.co.nz/community/code-of-conduct/)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
