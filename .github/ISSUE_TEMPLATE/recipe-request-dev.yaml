@@ -8,6 +8,15 @@ body:
     attributes:
       value: |
         Greetings, fellow geek! Thanks for taking the time to request this recipe!
+
+  - type: checkboxes
+    attributes:
+      label: Contribution guidelines
+      description: Please read the contribution guidelines before proceeding.
+      options:
+        - label: I've read the [contribution guide](https://geek-cookbook.funkypenguin.co.nz/community/contribute/) and wholeheartedly agree
+          required: true
+
   - type: input
     id: project_homepage
     attributes:
@@ -16,7 +25,8 @@ body:
       placeholder: e.g. https://radarr.video/
     validations:
       required: true
-  - type: dropdown
+
+  - type: checkboxes
     id: sanity_check
     attributes:
       label: Sanity check
@@ -26,8 +36,10 @@ body:
         ✅ Confirm that the application itself is not abandoned by the developer
       multiple: true
       options:
-        - ✅ I have searched and confirmed no existing open or closed issues/PRs for this app
-        - ✅ The app is actively supported by its developers (i.e., not deprecated or abandoned)
+        - label: I have searched and confirmed no existing open or closed [closed issues](https://github.com/funkypenguin/geek-cookbook/issues?q=is%3Aissue+is%3Aclosed)/PRs for this app
+          required: true
+        - label: The app is actively supported by its developers (i.e., not deprecated or abandoned)
+          required:
 
   - type: dropdown
     id: authentication
