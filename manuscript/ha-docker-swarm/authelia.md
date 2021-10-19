@@ -2,7 +2,7 @@
 
 [Authelia](https://github.com/authelia/authelia) is an open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal. It acts as a companion of reverse proxies like Nginx, Traefik, or HAProxy to let them know whether queries should pass through. Unauthenticated users are redirected to Authelia Sign-in portal instead.
 
-Authelia can be installed manually or can be installed using [Docker](https://hub.docker.com/r/authelia/authelia).
+![Authelia Screenshot](../images/authelia.png)
 
 Features include
 
@@ -16,7 +16,6 @@ Features include
 * Full list of features can be viewed [Here](https://www.authelia.com/docs/features/)
 
 
-![Authelia Screenshot](../images/authelia.png)
 
 --8<-- "recipe-tfa-ingredients.md"
 
@@ -35,13 +34,12 @@ cd /var/data/config/authelia
 
 ### Create config file
 
-Authelia configurations are defined in configuration.yml. Some are required and some are optional. So begin by creating an empty configuration.yml file and add content to it as defined below. Optional configuration settings can be viewed on Authelia's [Documentation](https://www.authelia.com/docs/configuration/) 
+Authelia configurations are defined in `/var/data/config/authelia/configuration.yml`. Some are required and some are optional. So begin by creating an empty configuration.yml file and add content to it as defined below. Optional configuration settings can be viewed on Authelia's [Documentation](https://www.authelia.com/docs/configuration/) 
 
 
-```
-nano /var/data/config/authelia/configuration.yml
-```
-
+!!! warning
+    Your variables may vary significantly from what's illustrated below, and it's best to read up and understand exactly what each option does.
+    
 ```yml
 ###############################################################
 #                   Authelia configuration                    #
@@ -215,10 +213,16 @@ Now if we wish to put authelia behind a service all we will need to do is add th
 
 ## Serving
 
-### Launch the Authelia!
+### Launch Authelia!
 
 Launch the Authelia stack by running ```docker stack deploy authelia -c <path -to-docker-compose.yml>```
 
+
+## Testing
+
+To test the service works successfully. Try to access a service that you had added the middleware label to. If it works successfully you will be presented with a login screen
+
+![Authelia Screenshot](../images/authelia_login.png)
 
 
 [^1]: The inclusion of Authelia was due to the efforts of @bencey in Discord (Thanks Ben!)
