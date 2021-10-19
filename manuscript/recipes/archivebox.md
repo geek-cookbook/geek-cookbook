@@ -1,8 +1,9 @@
 # Archivebox
 
-![Archivebox Screenshot](../images/archivebox.png)
 
 [ArchiveBox](https://github.com/ArchiveBox/ArchiveBox) is a self-hosted internet archiving solution to collect and save sites you wish to view offline.
+
+![Archivebox Screenshot](../images/archivebox.png)
 
 
 Features include
@@ -11,10 +12,6 @@ Features include
 * Ability to autosave to [archive.org](https://github.com/ArchiveBox/ArchiveBox/wiki/Configuration#submit_archive_dot_org)
 * Supports Scheduled importing
 * Supports Realtime importing
-* Multiple methods of installation
-    * [CLI](https://github.com/ArchiveBox/ArchiveBox#quickstart)
-    * [Docker](https://hub.docker.com/r/archivebox/archivebox)
-    * [Manually](https://github.com/ArchiveBox/ArchiveBox#-manual-setup) Such as Apt, Brew, pip
 
 
 --8<-- "recipe-standard-ingredients.md"
@@ -78,8 +75,8 @@ networks:
 
 ### Initalizing Archivebox
 
-Once you have created a docker-compose file you will need to run the following command to configure archivebox and create an account
-`docker-compose run archivebox init --setup`
+Once you have created the docker file you will need to run the following command to configure archivebox and create an account.
+`docker run -v /var/data/archivebox:/data -it archivebox/archivebox init --setup`
 
 
 ## Serving
