@@ -125,7 +125,7 @@ services:
       - internal
   
   db-backup:
-    image: postgres:latest
+    image: postgres:13
     volumes:
       - /var/data/paperless/database-dump:/dump
       - /etc/localtime:/etc/localtime:ro
