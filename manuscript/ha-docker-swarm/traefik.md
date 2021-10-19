@@ -25,6 +25,7 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
     * [X] DNS entry for the hostname you intend to use (*or a wildcard*), pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
 
     New:
+    
     * [ ] Traefik configured per design
     * [ ] Access to update your DNS records for manual/automated [LetsEncrypt](https://letsencrypt.org/docs/challenge-types/) DNS-01 validation, or ingress HTTP/HTTPS for HTTP-01 validation
   
