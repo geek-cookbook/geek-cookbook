@@ -93,6 +93,7 @@ nav:
         - Restic: recipes/restic.md          
         - Swarmprom: recipes/swarmprom.md    
       - Recipes:
+        - Archive Box: recipes/archivebox.md
         - Bitwarden: recipes/bitwarden.md
         - Bookstack: recipes/bookstack.md
         - Calibre-Web: recipes/calibre-web.md

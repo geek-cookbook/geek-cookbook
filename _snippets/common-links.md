@@ -1,3 +1,4 @@
+[archivebox]:       /recipes/archivebox/
 [autopirate]:       /recipes/autopirate/
 [authelia]:         /ha-docker-swarm/authelia/
 [bazarr]:           /recipes/autopirate/bazarr/
