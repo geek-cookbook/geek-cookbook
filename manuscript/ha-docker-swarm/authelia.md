@@ -204,6 +204,10 @@ We will then need to add the following to `traefik.toml`
   filename = "/etc/traefik/dynamic.yml"
 ```
 
+!!! tip
+    The default Traefik forward Auth is a very minimal authentication service that provides google and openID authentication. Authelia provides more features such as multiple methods of authentication (Hardware, OTP, Email) and push notifications.
+
+
 Now if we wish to put authelia behind a service all we will need to do is add the following to the labels
 
 `- "traefik.http.routers.service.middlewares=forward-auth@file"`
