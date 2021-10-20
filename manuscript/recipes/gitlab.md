@@ -81,13 +81,22 @@ services:
     image: sameersbn/gitlab:latest
     env_file: /var/data/config/gitlab/gitlab.env
     networks:
-    - internal
-    - traefik_public
+      - internal
+      - traefik_public
     deploy:
       labels:
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
+
+        # traefikv1
         - traefik.frontend.rule=Host:gitlab.example.com
-        - traefik.docker.network=traefik
         - traefik.port=80
+
+        # traefikv2
+        - "traefik.http.routers.gitlab.rule=Host(`gitlab.example.com`)"
+        - "traefik.http.services.gitlab.loadbalancer.server.port=80"
+        - "traefik.enable=true"
       restart_policy:
         delay: 10s
         max_attempts: 10
