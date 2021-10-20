@@ -1,6 +1,3 @@
-# Don't include built site
-site/
-
 # Don't include staging area for publishing
 publish/
 
