@@ -6,6 +6,7 @@ description: Real heroes backup their shizz!
 
 Don't be like [Cameron](http://haltandcatchfire.wikia.com/wiki/Cameron_Howe). Backup your stuff.
 
+<!-- markdownlint-disable MD033 -->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1UtFeMoqVHQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ElkarBackup is a free open-source backup solution based on RSync/RSnapshot. It's basically a web wrapper around rsync/rsnapshot, which means that your backups are just files on a filesystem, utilising hardlinks for tracking incremental changes. I find this result more reassuring than a blob of compressed, (encrypted?) data that [more sophisticated backup solutions](/recipes/duplicity/) would produce for you.
@@ -22,7 +23,7 @@ ElkarBackup is a free open-source backup solution based on RSync/RSnapshot. It's
 
 We'll need several directories to bind-mount into our container, so create them in /var/data/elkarbackup:
 
-```
+```bash
 mkdir -p /var/data/elkarbackup/{backups,uploads,sshkeys,database-dump}
 mkdir -p /var/data/runtime/elkarbackup/db
 mkdir -p /var/data/config/elkarbackup
@@ -31,7 +32,8 @@ mkdir -p /var/data/config/elkarbackup
 ### Prepare environment
 
 Create /var/data/config/elkarbackup/elkarbackup.env, and populate with the following variables
-```
+
+```bash
 SYMFONY__DATABASE__PASSWORD=password
 EB_CRON=enabled
 TZ='Etc/UTC'
@@ -60,7 +62,7 @@ Create ```/var/data/config/elkarbackup/elkarbackup-db-backup.env```, and populat
 
     No, me either :shrug:
 
-```
+```bash
 # For database backup (keep 7 days daily backups)
 MYSQL_PWD=<same as SYMFONY__DATABASE__PASSWORD above>
 MYSQL_USER=root
@@ -175,7 +177,7 @@ From the WebUI, you can download a script intended to be executed on a remote ho
 
 Here's a variation to the standard script, which I've employed:
 
-```
+```bash
 #!/bin/bash
 
 REPOSITORY=/var/data/elkarbackup/backups

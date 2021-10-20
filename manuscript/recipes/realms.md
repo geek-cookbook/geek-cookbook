@@ -32,12 +32,13 @@ Features include:
 
 Since we'll start with a basic Realms install, let's just create a single directory to hold the realms (SQLite) data:
 
-```
+```bash
 mkdir /var/data/realms/
 ```
 
 Create realms.env, and populate with the following variables (_if you intend to use an [oauth_proxy](/reference/oauth_proxy) to double-secure your installation, which I recommend_)
-```
+
+```bash
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=

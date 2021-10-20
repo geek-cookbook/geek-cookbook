@@ -31,7 +31,6 @@ To rapidly get Helm up and running, start with the [Quick Start Guide](https://h
 See the [installation guide](https://helm.sh/docs/intro/install/) for more options,
 including installing pre-releases.
 
-
 ## Serving
 
 ### Initialise Helm
@@ -44,15 +43,14 @@ That's it - not very exciting I know, but we'll need helm for the next and final
 
 Still with me? Good. Move on to understanding Helm charts...
 
-* [Start](/kubernetes/) - Why Kubernetes?
-* [Design](/kubernetes/design/) - How does it fit together?
-* [Cluster](/kubernetes/cluster/) - Setup a basic cluster
-* [Load Balancer](/kubernetes/loadbalancer/) Setup inbound access
-* [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
-* Helm (this page) - Uber-recipes from fellow geeks
-* [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
+- [Start](/kubernetes/) - Why Kubernetes?
+- [Design](/kubernetes/design/) - How does it fit together?
+- [Cluster](/kubernetes/cluster/) - Setup a basic cluster
+- [Load Balancer](/kubernetes/loadbalancer/) Setup inbound access
+- [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
+- Helm (this page) - Uber-recipes from fellow geeks
+- [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
 
-
-[^1]: Of course, you can have lots of fun deploying all sorts of things via Helm. Check out https://artifacthub.io for some examples.
+[^1]: Of course, you can have lots of fun deploying all sorts of things via Helm. Check out <https://artifacthub.io> for some examples.
 
 --8<-- "recipe-footer.md"

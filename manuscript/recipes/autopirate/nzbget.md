@@ -49,7 +49,6 @@ nzbget:
 
 [^tfa]: Since we're relying on [Traefik Forward Auth][tfa] to protect us, we can just disable NZGet's own authentication, by changing ControlPassword to null in nzbget.conf (i.e. ```ControlPassword=```)
 
-
 --8<-- "premix-cta.md"
 --8<-- "recipe-autopirate-toc.md"
 --8<-- "recipe-footer.md"

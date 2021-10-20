@@ -13,7 +13,7 @@ So you've just watched a bunch of superhero movies, and you're suddenly inspired
 ## Ingredients
 
 --8<-- "recipe-standard-ingredients.md"
-    * [X] [AutoPirate](/recipes/autopirate/) components (*specifically [Mylar](/recipes/autopirate/mylar/)*), for searching for, downloading, and managing comic books
+    *[X] [AutoPirate](/recipes/autopirate/) components (*specifically [Mylar](/recipes/autopirate/mylar/)*), for searching for, downloading, and managing comic books
 
 ## Preparation
 
@@ -21,7 +21,7 @@ So you've just watched a bunch of superhero movies, and you're suddenly inspired
 
 First we create a directory to hold the komga database, logs and other persistent data:
 
-```
+```bash
 mkdir /var/data/komga
 ```
 
