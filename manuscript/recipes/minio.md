@@ -60,8 +60,19 @@ services:
       - traefik_public
     deploy:
       labels:
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
+
+        # traefikv1
         - traefik.frontend.rule=Host:minio.example.com
-        - traefik.port=9000
+        - traefik.port=9000     
+
+        # traefikv2
+        - "traefik.http.routers.minio.rule=Host(`minio.example.com`)"
+        - "traefik.http.services.minio.loadbalancer.server.port=9000"
+        - "traefik.enable=true"
+        
     command:  minio server /data
 
 networks:
