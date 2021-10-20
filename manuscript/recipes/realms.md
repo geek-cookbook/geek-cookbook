@@ -94,6 +94,6 @@ Log into your new instance at https://**YOUR-FQDN**, authenticate against oauth_
 
 [^1]: If you wanted to expose the realms UI directly, you could remove the traefik-forward-auth from the design.
 
-[^2]: The inclusion of Bitwarden was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz)- Unfortunately on the 22nd August 2020 Jerry passed away. Jerry was very passionate and highly regarded in the field of Information Technology. He will be missed.
+[^2]: The inclusion of Realms was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz)- Unfortunately on the 22nd August 2020 Jerry passed away. Jerry was very passionate and highly regarded in the field of Information Technology. He will be missed.
 
 --8<-- "recipe-footer.md"
