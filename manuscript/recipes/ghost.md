@@ -39,9 +39,18 @@ services:
     - traefik_public
     deploy:
       labels:
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
+
+        # traefikv1
         - traefik.frontend.rule=Host:ghost.example.com
-        - traefik.docker.network=traefik
-        - traefik.port=2368
+        - traefik.port=2368     
+
+        # traefikv2
+        - "traefik.http.routers.ghost.rule=Host(`ghost.example.com`)"
+        - "traefik.http.services.ghost.loadbalancer.server.port=2368"
+        - "traefik.enable=true"
 
 networks:
   traefik_public:
