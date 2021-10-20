@@ -30,7 +30,7 @@ As you'll note in the (_real world_) screenshot above, my requirements for a per
 Gollum meets all these requirements, and as an added bonus, is extremely fast and lightweight.
 
 !!! note
-    Since Gollum itself offers no user authentication, this design secures gollum behind an [oauth2 proxy](/reference/oauth_proxy/), so that in order to gain access to the Gollum UI at all, oauth2 authentication (_to GitHub, GitLab, Google, etc_) must have already occurred.
+    Since Gollum itself offers no user authentication, this design secures gollum behind [traefik-forward-auth](/ha-docker-swarm/traefik-forward-auth/), so that in order to gain access to the Gollum UI at all, authentication must have already occurred.
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -44,17 +44,6 @@ We'll need an empty git repository in /var/data/gollum for our data:
 mkdir /var/data/gollum
 cd /var/data/gollum
 git init
-```
-
-### Prepare environment
-
-1. Choose an oauth provider, and obtain a client ID and secret
-2. Create gollum.env, and populate with the following variables (_you can make the cookie secret whatever you like_)
-
-```
-OAUTH2_PROXY_CLIENT_ID=
-OAUTH2_PROXY_CLIENT_SECRET=
-OAUTH2_PROXY_COOKIE_SECRET=
 ```
 
 ### Setup Docker Swarm
@@ -72,33 +61,29 @@ services:
     volumes:
      - /var/data/gollum:/gollum
     networks:
-    - internal
-    command: |
-      --allow-uploads
-      --emoji
-      --user-icons gravatar
-
-  proxy:
-    image: a5huynh/oauth2_proxy
-    env_file : /var/data/config/gollum/gollum.env
-    networks:
       - internal
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:gollum.example.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=4180
-    volumes:
-      - /var/data/config/gollum/authenticated-emails.txt:/authenticated-emails.txt
+
+        # traefikv1
+        - traefik.frontend.rule=Host:gollum.example.com
+        - traefik.port=4567     
+
+        # traefikv2
+        - "traefik.http.routers.gollum.rule=Host(`gollum.example.com`)"
+        - "traefik.http.services.gollum.loadbalancer.server.port=4567"
+        - "traefik.enable=true"
+
+        # Remove if you wish to access the URL directly
+        - "traefik.http.routers.wekan.middlewares=forward-auth@file"
     command: |
-      -cookie-secure=false
-      -upstream=http://app:4567
-      -redirect-url=https://gollum.example.com
-      -http-address=http://0.0.0.0:4180
-      -email-domain=example.com
-      -provider=github
-      -authenticated-emails-file=/authenticated-emails.txt
+      --allow-uploads
+      --emoji
+      --user-icons gravatar
 
 networks:
   traefik_public:
@@ -117,8 +102,6 @@ networks:
 ### Launch Gollum stack
 
 Launch the Gollum stack by running ```docker stack deploy gollum -c <path-to-docker-compose.yml>```
-
-Authenticate against your OAuth provider, and then start editing your wiki!
 
 [^1]: In the current implementation, Gollum is a "single user" tool only. The contents of the wiki are saved as markdown files under /var/data/gollum, and all the git commits are currently "Anonymous"
 
