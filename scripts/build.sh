@@ -18,7 +18,3 @@ else
   pip install -e mkdocs-material-insiders  
   mkdocs build -f mkdocs-insiders.yml
 fi
-
-# Setup any necessary netlify redirects
-cp netlify_redirects.txt site/_redirects
-
