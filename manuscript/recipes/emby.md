@@ -49,9 +49,18 @@ services:
       - /srv/data/:/data
     deploy:
       labels:
-        - traefik.frontend.rule=Host:emby.example.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=8096
+
+        # traefikv1
+        - traefik.frontend.rule=Host:emby.example.com
+        - traefik.port=8096     
+
+        # traefikv2
+        - "traefik.http.routers.emby.rule=Host(`emby.example.com`)"
+        - "traefik.http.services.emby.loadbalancer.server.port=8096"
+        - "traefik.enable=true"
     networks:
         - traefik_public
         - internal
