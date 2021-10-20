@@ -82,9 +82,18 @@ services:
     - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:miniflux.example.com
-        - traefik.port=8080
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
+
+        # traefikv1
+        - traefik.frontend.rule=Host:miniflux.example.com
+        - traefik.port=8080     
+
+        # traefikv2
+        - "traefik.http.routers.miniflux.rule=Host(`miniflux.example.com`)"
+        - "traefik.http.services.miniflux.loadbalancer.server.port=8080"
+        - "traefik.enable=true"
 
   miniflux-db:
     env_file: /var/data/config/miniflux/miniflux.env
