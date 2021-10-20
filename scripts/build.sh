@@ -4,9 +4,6 @@
 # Fetch git history so that we get last-updated timestamps
 git fetch --unshallow
 
-# Setup any necessary netlify redirects
-cp netlify_redirects.txt site/_redirects
-
 # Run python build script to check for errors
 python3 scripts/build.py mkdocs.yml
 
@@ -22,4 +19,6 @@ else
   mkdocs build -f mkdocs-insiders.yml
 fi
 
+# Setup any necessary netlify redirects
+cp netlify_redirects.txt site/_redirects
 
