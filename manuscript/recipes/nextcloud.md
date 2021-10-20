@@ -77,9 +77,19 @@ services:
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:nextcloud.example.com
-        - traefik.docker.network=traefik_public
-        - traefik.port=80
+          # traefik common
+          - traefik.enable=true
+          - traefik.docker.network=traefik_public
+
+          # traefikv1
+          - traefik.frontend.rule=Host:nextcloud.example.com
+          - traefik.port=80     
+
+          # traefikv2
+          - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.example.com`)"
+          - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
+          - "traefik.enable=true"
+
     volumes:
     - /var/data/nextcloud/html:/var/www/html
     - /var/data/nextcloud/apps:/var/www/html/custom_apps
