@@ -8,6 +8,7 @@ hide:
 
 Recipe                   | Description                                                                                                      | Date
 -------------------------|------------------------------------------------------------------------------------------------------------------|--------------
+[Archivebox][archivebox] | Website Archiving service to save websites to view offline      | _19 Oct 2021_
 [Readarr][readarr] | [Autopirate][autopirate] component to grab and manage eBooks (*think "Sonarr/Radarr for books*")                     | _18 Oct 2021_
 [Paperless-NG][paperless-ng] | Organize, index, search, and view all your documents                         | _14 Oct 2021_
 [RSS-Bridge][rss-bridge] | Consume content from non-open platforms (*Facebook, Instagram, etc*) in your feed reader                         | _1 Oct 2021_
