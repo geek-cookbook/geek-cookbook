@@ -22,7 +22,7 @@ There are plugins for [Chrome](https://chrome.google.com/webstore/detail/wallaba
 
 We need a filesystem location to store images that Wallabag downloads from the original sources, to re-display when you read your articles, as well as nightly database dumps (_which you **should [backup](/recipes/duplicity/)**_), so create something like this:
 
-```bash
+```
 mkdir -p /var/data/wallabag
 cd /var/data/wallabag
 mkdir -p {images,db-dump}
@@ -31,8 +31,7 @@ mkdir -p {images,db-dump}
 ### Prepare environment
 
 Create wallabag.env, and populate with the following variables. The only variable you **have** to change is SYMFONY__ENV__DOMAIN_NAME - this **must** be the URL that your Wallabag instance will be available at (_else you'll have no CSS_)
-
-```bash
+```
 # For the DB container
 POSTGRES_PASSWORD=wallabag
 POSTGRES_USER=wallabag
@@ -61,7 +60,7 @@ OAUTH2_PROXY_COOKIE_SECRET=
 
 Now create wallabag-backup.env in the same folder, with the following contents. (_This is necessary to prevent environment variables required for backup from breaking the DB container_)
 
-```bash
+```
 # For database backups
 PGUSER=wallabag
 PGPASSWORD=wallabag
@@ -69,6 +68,7 @@ PGHOST=db
 BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
 ```
+
 
 ### Setup Docker Swarm
 

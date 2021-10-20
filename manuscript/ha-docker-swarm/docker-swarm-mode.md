@@ -6,7 +6,7 @@ For truly highly-available services with Docker containers, we need an orchestra
 
 !!! summary
     Existing
-
+    
     * [X] 3 x nodes (*bare-metal or VMs*), each with:
           * A mainstream Linux OS (*tested on either [CentOS](https://www.centos.org) 7+ or [Ubuntu](http://releases.ubuntu.com) 16.04+*)
           * At least 2GB RAM
@@ -19,20 +19,19 @@ For truly highly-available services with Docker containers, we need an orchestra
 
 Add some handy bash auto-completion for docker. Without this, you'll get annoyed that you can't autocomplete ```docker stack deploy <blah> -c <blah.yml>``` commands.
 
-```bash
+```
 cd /etc/bash_completion.d/
 curl -O https://raw.githubusercontent.com/docker/cli/b75596e1e4d5295ac69b9934d1bd8aff691a0de8/contrib/completion/bash/docker
 ```
 
 Install some useful bash aliases on each host
-
-```bash
+```
 cd ~
 curl -O https://raw.githubusercontent.com/funkypenguin/geek-cookbook/master/examples/scripts/gcb-aliases.sh
 echo 'source ~/gcb-aliases.sh' >> ~/.bash_profile
 ```
 
-## Serving
+## Serving 
 
 ### Release the swarm!
 
@@ -40,7 +39,7 @@ Now, to launch a swarm. Pick a target node, and run `docker swarm init`
 
 Yeah, that was it. Seriously. Now we have a 1-node swarm.
 
-```bash
+```
 [root@ds1 ~]# docker swarm init
 Swarm initialized: current node (b54vls3wf8xztwfz79nlkivt8) is now a manager.
 
@@ -57,7 +56,7 @@ To add a manager to this swarm, run 'docker swarm join-token manager' and follow
 
 Run `docker node ls` to confirm that you have a 1-node swarm:
 
-```bash
+```
 [root@ds1 ~]# docker node ls
 ID                           HOSTNAME                STATUS  AVAILABILITY  MANAGER STATUS
 b54vls3wf8xztwfz79nlkivt8 *  ds1.funkypenguin.co.nz  Ready   Active        Leader
@@ -68,7 +67,7 @@ Note that when you run `docker swarm init` above, the CLI output gives youe a co
 
 On the first swarm node, generate the necessary token to join another manager by running ```docker swarm join-token manager```:
 
-```bash
+```
 [root@ds1 ~]# docker swarm join-token manager
 To add a manager to this swarm, run the following command:
 
@@ -81,7 +80,8 @@ To add a manager to this swarm, run the following command:
 
 Run the command provided on your other nodes to join them to the swarm as managers. After addition of a node, the output of ```docker node ls``` (on either host) should reflect all the nodes:
 
-```bash
+
+```
 [root@ds2 davidy]# docker node ls
 ID                           HOSTNAME                STATUS  AVAILABILITY  MANAGER STATUS
 b54vls3wf8xztwfz79nlkivt8    ds1.funkypenguin.co.nz  Ready   Active        Leader
@@ -97,14 +97,14 @@ To address this, we'll run the "[meltwater/docker-cleanup](https://github.com/me
 
 First, create `docker-cleanup.env` (_mine is under `/var/data/config/docker-cleanup`_), and exclude container images we **know** we want to keep:
 
-```bash
+```
 KEEP_IMAGES=traefik,keepalived,docker-mailserver
 DEBUG=1
 ```
 
 Then create a docker-compose.yml as follows:
 
-```yaml
+```
 version: "3"
 
 services:
@@ -137,7 +137,7 @@ If your swarm runs for a long time, you might find yourself running older contai
 
 Create `/var/data/config/shepherd/shepherd.env` as follows:
 
-```bash
+```
 # Don't auto-update Plex or Emby (or Jellyfin), I might be watching a movie! (Customize this for the containers you _don't_ want to auto-update)
 BLACKLIST_SERVICES="plex_plex emby_emby jellyfin_jellyfin"
 # Run every 24 hours. Note that SLEEP_TIME appears to be in seconds.
@@ -146,7 +146,7 @@ SLEEP_TIME=86400
 
 Then create /var/data/config/shepherd/shepherd.yml as follows:
 
-```yaml
+```
 version: "3"
 
 services:

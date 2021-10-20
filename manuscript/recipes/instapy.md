@@ -20,7 +20,7 @@ Great power, right? A client (_yes, you can [hire](https://www.funkypenguin.co.n
 
 We need a data location to store InstaPy's config, as well as its log files. Create /var/data/instapy per below
 
-```bash
+```
 mkdir -p /var/data/instapy/logs
 ```
 
@@ -65,18 +65,18 @@ services:
 
 ### Command your bot
 
-Create a variation of <https://github.com/timgrossmann/InstaPy/blob/master/docker_quickstart.py> at /var/data/instapy/instapy.py (the file we bind-mounted in the swarm config above)
+Create a variation of https://github.com/timgrossmann/InstaPy/blob/master/docker_quickstart.py at /var/data/instapy/instapy.py (the file we bind-mounted in the swarm config above)
 
 Change at least the following:
 
-```bash
+````
 insta_username = ''
 insta_password = ''
-```
+````
 
 Here's an example of my config, set to like a single penguin-pic per run:
 
-```python
+```
 insta_username = 'funkypenguin'
 insta_password = 'followmemypersonalbrandisawesome'
 
@@ -117,7 +117,6 @@ Launch the bot by running ```docker stack deploy instapy -c <path -to-docker-com
 
 While you're waiting for Docker to pull down the images, educate yourself on the risk of a robotic uprising:
 
-<!-- markdownlint-disable MD033 -->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/B1BdQcJ2ZYY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 After swarm deploys, you won't see much, but you can monitor what InstaPy is doing, by running ```docker service logs instapy_web```.

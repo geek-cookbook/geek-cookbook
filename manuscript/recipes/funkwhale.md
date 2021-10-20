@@ -20,7 +20,7 @@ You will be then able to interact with other people regardless of which pod they
 
 First we create a directory to hold our funky data:
 
-```bash
+```
 mkdir /var/data/funkwhale
 ```
 
@@ -95,16 +95,16 @@ networks:
 
 ### Unleash the Whale! 🐳
 
-Launch the Funkwhale stack by running `docker stack deploy funkwhale -c <path -to-docker-compose.yml>`, and then watch the container logs using `docker stack logs funkywhale_funkywhale<tab-completion-helps>`.
+Launch the Funkwhale stack by running `docker stack deploy funkwhale -c <path -to-docker-compose.yml>`, and then watch the container logs using `docker stack logs funkywhale_funkywhale<tab-completion-helps>`. 
 
 You'll know the container is ready when you see an ascii version of the Funkwhale logo, followed by:
 
-```bash
+```
 [2021-01-27 22:52:24 +0000] [411] [INFO] ASGI 'lifespan' protocol appears unsupported.
 [2021-01-27 22:52:24 +0000] [411] [INFO] Application startup complete.
 ```
 
-The first time we run Funkwhale, we need to setup the superuser account.
+The first time we run Funkwhale, we need to setup the superuser account. 
 
 !!! tip
     If you're running a multi-node swarm, this next step needs to be executed on the node which is currently running Funkwhale. Identify this with `docker stack ps funkwhale`
@@ -132,8 +132,9 @@ Superuser created successfully.
 root@swarm:~#
 ```
 
+
 [^1]: Since the whole purpose of media sharing is to share **publically**, and Funkwhale includes robust user authentication, this recipe doesn't employ traefik-based authentication using [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/).
-[^2]: These instructions are an opinionated simplication of the official instructions found at <https://docs.funkwhale.audio/installation/docker.html>
+[^2]: These instructions are an opinionated simplication of the official instructions found at https://docs.funkwhale.audio/installation/docker.html
 [^3]: It should be noted that if you import your existing media, the files will be **copied** into Funkwhale's data folder. There doesn't seem to be a way to point Funkwhale at an existing collection and have it just play it from the filesystem. To this end, be prepared for double disk space usage if you plan to import your entire music collection!
 [^5]: No consideration is given at this point to backing up the Funkwhale data. Post a comment below if you'd like to see a backup container added!
 [^4]: If the funky whale is "playing your song", note that the funkwhale project is [looking for maintainers](https://blog.funkwhale.audio/~/Announcements/funkwhale-is-looking-for-new-maintainers/).

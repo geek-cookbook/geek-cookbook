@@ -18,9 +18,10 @@ cAdvisor (Container Advisor) provides container users an understanding of the re
 * [Alert Manager](https://github.com/prometheus/alertmanager) Alertmanager handles alerts sent by client applications such as the Prometheus server. It takes care of deduplicating, grouping, and routing them to the correct receiver integrations such as email, Slack, etc.
 * [Unsee](https://github.com/cloudflare/unsee) is an alert dashboard for Alert Manager
 
+
 ## How does this magic work?
 
-I'd encourage you to spend some time reading <https://github.com/stefanprodan/swarmprom>. Stefan has included detailed explanations about which elements perform which functions, as well as how to customize your stack. (_This is only a starting point, after all_)
+I'd encourage you to spend some time reading https://github.com/stefanprodan/swarmprom. Stefan has included detailed explanations about which elements perform which functions, as well as how to customize your stack. (_This is only a starting point, after all_)
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -36,7 +37,7 @@ Grafana includes decent login protections, but from what I can see, Prometheus, 
 
 Edit (_or create, depending on your OS_) /etc/docker/daemon.json, and add the following, to enable the experimental export of metrics to Prometheus:
 
-```json
+```
 {
   "metrics-addr" : "0.0.0.0:9323",
   "experimental" : true
@@ -45,11 +46,12 @@ Edit (_or create, depending on your OS_) /etc/docker/daemon.json, and add the fo
 
 Restart docker with ```systemctl restart docker```
 
+
 ### Setup and populate data locations
 
 We'll need several files to bind-mount into our containers, so create directories for them and get the latest copies:
 
-```bash
+```
 mkdir -p /var/data/swarmprom/dockerd-exporter/
 cd /var/data/swarmprom/dockerd-exporter/
 wget https://raw.githubusercontent.com/stefanprodan/swarmprom/master/dockerd-exporter/Caddyfile
@@ -72,8 +74,7 @@ chown nobody:nogroup /var/data/runtime/prometheus
 Grafana will make all the data we collect from our swarm beautiful.
 
 Create /var/data/swarmprom/grafana.env, and populate with the following variables
-
-```bash
+```
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=

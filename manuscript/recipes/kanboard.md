@@ -19,7 +19,7 @@ Features include:
 * Free, open source and self-hosted
 * Super simple installation
 
-![Kanboard screenshot](/images/kanboard.png)
+![](/images/kanboard.png)
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -29,7 +29,7 @@ Features include:
 
 Create the location for the bind-mount of the application data, so that it's persistent:
 
-```bash
+```
 mkdir -p /var/data/kanboard
 ```
 
@@ -37,7 +37,7 @@ mkdir -p /var/data/kanboard
 
 If you intend to use an [OAuth proxy](/reference/oauth_proxy/) to further secure public access to your instance, create a ```kanboard.env``` file to hold your environment variables, and populate with your OAuth provider's details (_the cookie secret you can just make up_):
 
-```bash
+```
 # If you decide to protect kanboard with an oauth_proxy, complete these
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=

@@ -15,7 +15,8 @@ Yeah, I know. I also thought Discord was just for the gamer kids, but it turns o
 
 1. Create [an account](https://discordapp.com)
 2. [Join the geek party](http://chat.funkypenguin.co.nz)!
-<!-- markdownlint-disable MD033 -->
+
+
 <iframe src="https://discordapp.com/widget?id=396055506072109067&theme=dark" width="350" height="400" allowtransparency="true" frameborder="0"></iframe>
 
 ## Code of Conduct
@@ -24,7 +25,7 @@ With the goal of creating a safe and inclusive community, we've adopted the [Con
 
 ### Reporting abuse
 
-To report a violation of our code of conduct in our Discord server, type `!report <thing to report>` in any channel.
+To report a violation of our code of conduct in our Discord server, type `!report <thing to report>` in any channel. 
 
 Your report message will immediately be deleted from the channel, and an alert raised to moderators, who will address the issue as detailed in the [enforcement guidelines](/community/code-of-conduct/#enforcement-guidelines).
 
@@ -40,7 +41,7 @@ Your report message will immediately be deleted from the channel, and an alert r
 | #premix-updates    | Updates on all pushes to the master branch of the premix   |
 | #discourse-updates | Updates to Discourse topics                                |
 
-### 💬 Discussion
+### 💬 Discussion 
 
 | Channel Name   | Channel Use                                              |
 |----------------|----------------------------------------------------------|
@@ -54,19 +55,21 @@ Your report message will immediately be deleted from the channel, and an alert r
 | #advertisements   | In here you can advertise your stream, services or websites, at a limit of 2 posts per day                           |
 | #dev              | Used for collaboratio around current development.                                                    |
 
-### Suggestions
+
+### Suggestions 
 
 | Channel Name | Channel Use                         |
 |--------------|-------------------------------------|
 | #in-flight   | A list of all suggestions in-flight |
 | #completed   | A list of completed suggestions     |
 
-### Music
+### Music 
 
 | Channel Name     | Channel Use                       |
 |------------------|-----------------------------------|
 | #music           | DJs go here to control music      |
 | #listen-to-music | Jump in here to rock out to music |
+
 
 ## How to get help.
 
@@ -76,11 +79,12 @@ If you need assistance at any time there are a few commands that you can run in 
 
 `!faq` Shows frequently asked questions.
 
+
 ## Spread the love (inviting others)
 
 Invite your co-geeks to Discord by:
 
-1. Sending them a link to <http://chat.funkypenguin.co.nz>, or
+1. Sending them a link to http://chat.funkypenguin.co.nz, or
 2. Right-click on the Discord server name and click "Invite People"
 
 ## Formatting your message
@@ -96,3 +100,8 @@ Discord supports minimal message formatting using [markdown](https://support.dis
 2. Find the #in-flight channel (*also under **Suggestions***), and confirm that your suggestion isn't already in-flight (*but not completed yet*)
 3. In any channel, type `!suggest [your suggestion goes here]`. A post will be created in #in-flight for other users to vote on your suggestion. Suggestions change color as more users vote on them.
 4. When your suggestion is completed (*or a decision has been made*), you'll receive a DM from carl-bot
+
+
+
+
+    

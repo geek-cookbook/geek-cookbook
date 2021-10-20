@@ -6,10 +6,11 @@ description: CGM data with an API, for diabetic quality-of-life improvements
 
 Nightscout is "*...an open source, DIY project that allows real time access to a CGM data via personal website, smartwatch viewers, or apps and widgets available for smartphones*"
 
-!!! question "Yeah, but what's a CGM?"
-    A CGM is a "continuos glucose monitor" :drop_of_blood: - If you have a blood-sugar-related disease (*i.e. diabetes*), you might wear a CGM in order to retrieve blood-glucose level readings, to inform your treatment.
-
+!!! question "Yeah, but what's a CGM?" 
+    A CGM is a "continuos glucose monitor" :drop_of_blood: - If you have a blood-sugar-related disease (*i.e. diabetes*), you might wear a CGM in order to retrieve blood-glucose level readings, to inform your treatment. 
+    
     NightScout frees you from the CGM's supplier's limited and proprietary app, and unlocks advanced charting, alarming, and sharing features :muscle:
+
 
 ![Nightscout Screenshot](../images/nightscout.png)
 
@@ -24,15 +25,14 @@ Most NightScout users will deploy to Heroko, using MongoDB Atlas, which is a [we
 ### Setup data locations
 
 First we create a directory to hold Nightscout's database, as well as database backups:
-
-```bash
+```
 mkdir -p /var/data/runtime/nightscout/database  # excluded from automated backups
 mkdir -p /var/data/nightscout/database          # included in automated backups
 ```
 
 ### Create env file
 
-NightScout is configured entirely using environment variables, so create something like this as `/var/data/config/nightscout/nightscout.env`:
+NightScout is configured entirely using environment variables, so create something like this as `/var/data/config/nightscout/nightscout.env`: 
 
 !!! warning
     Your variables may vary significantly from what's illustrated below, and it's best to read up and understand exactly what each option does.
@@ -163,6 +163,7 @@ networks:
 ### Launch nightscout!
 
 Launch the nightscout stack by running ```docker stack deploy nightscout -c <path -to-docker-compose.yml>```
+
 
 [^1]: Most of the time, you'll need an app which syncs to Nightscout, and these apps won't support OIDC auth, so this recipe doesn't take into account any sort of authentication using [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/). Instead, NightScout is secured entirely with your `API_SECRET` above (*although it is possible to add more users once you're an admin*)
 

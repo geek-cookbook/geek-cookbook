@@ -1,4 +1,4 @@
-# Miniflux
+#Miniflux
 
 Miniflux is a lightweight RSS reader, developed by [Frédéric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of the favorite Open Source Kanban app, [Kanboard](/recipes/kanboard/)_)
 
@@ -14,6 +14,7 @@ I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/rev
 !!! abstract "2.0+ is a bit different"
     [Some things changed](https://docs.miniflux.net/en/latest/migration.html) when Miniflux 2.0 was released. For one thing, the only supported database is now postgresql (_no more SQLite_). External themes are gone, as is PHP (_in favor of golang_). It's been a controversial change, but I'm keen on minimal and single-purpose, so I'm still very happy with the direction of development. The developer has laid out his [opinions](https://docs.miniflux.net/en/latest/opinionated.html) re the decisions he's made in the course of development.
 
+
 ## Ingredients
 
 1. A [Kubernetes Cluster](/kubernetes/design/) including [Traefik Ingress](/kubernetes/traefik/)
@@ -25,7 +26,7 @@ I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/rev
 
 When you deployed [Traefik via the helm chart](/kubernetes/traefik/), you would have customized ```values.yml``` for your deployment. In ```values.yml``` is a list of namespaces which Traefik is permitted to access. Update ```values.yml``` to include the *miniflux* namespace, as illustrated below:
 
-```yaml
+```
 <snip>
 kubernetes:
   namespaces:
@@ -42,7 +43,7 @@ If you've updated ```values.yml```, upgrade your traefik deployment via helm, by
 
 Although we could simply bind-mount local volumes to a local Kubuernetes cluster, since we're targetting a cloud-based Kubernetes deployment, we only need a local path to store the YAML files which define the various aspects of our Kubernetes deployment.
 
-```bash
+```
 mkdir /var/data/config/miniflux
 ```
 
@@ -50,7 +51,7 @@ mkdir /var/data/config/miniflux
 
 We use Kubernetes namespaces for service discovery and isolation between our stacks, so create a namespace for the miniflux stack with the following .yml:
 
-```bash
+```
 cat <<EOF > /var/data/config/miniflux/namespace.yml
 apiVersion: v1
 kind: Namespace
@@ -64,7 +65,7 @@ kubectl create -f /var/data/config/miniflux/namespace.yaml
 
 Persistent volume claims are a streamlined way to create a persistent volume and assign it to a container in a pod. Create a claim for the miniflux postgres database:
 
-```bash
+```
 cat <<EOF > /var/data/config/miniflux/db-persistent-volumeclaim.yml
 kkind: PersistentVolumeClaim
 apiVersion: v1
@@ -90,7 +91,7 @@ kubectl create -f /var/data/config/miniflux/db-persistent-volumeclaim.yaml
 
 It's not always desirable to have sensitive data stored in your .yml files. Maybe you want to check your config into a git repository, or share it. Using Kubernetes Secrets means that you can create "secrets", and use these in your deployments by name, without exposing their contents. Run the following, replacing ```imtoosexyformyadminpassword```, and the ```mydbpass``` value in both postgress-password.secret **and** database-url.secret:
 
-```bash
+```
 echo -n "imtoosexyformyadminpassword" > admin-password.secret
 echo -n "mydbpass"                    > postgres-password.secret
 echo -n "postgres://miniflux:mydbpass@db/miniflux?sslmode=disable" > database-url.secret
@@ -104,9 +105,10 @@ kubectl create secret -n mqtt generic miniflux-credentials \
 !!! tip "Why use ```echo -n```?"
     Because. See [my blog post here](https://www.funkypenguin.co.nz/beware-the-hidden-newlines-in-kubernetes-secrets/) for the pain of hunting invisible newlines, that's why!
 
+
 ## Serving
 
-Now that we have a [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/), a [persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/), and a [configmap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/), we can create [deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [services](https://kubernetes.io/docs/concepts/services-networking/service/), and an [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) for the miniflux [pods](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/).
+Now that we have a [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/), a [persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/), and a [configmap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/), we can create [deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [services](https://kubernetes.io/docs/concepts/services-networking/service/), and an [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) for the miniflux [pods](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/). 
 
 ### Create db deployment
 
@@ -114,7 +116,7 @@ Deployments tell Kubernetes about the desired state of the pod (*which it will t
 
 --8<-- "premix-cta.md"
 
-```bash
+```
 cat <<EOF > /var/data/miniflux/db-deployment.yml
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -157,7 +159,7 @@ spec:
 
 Create the app deployment by excecuting the following. Again, note that the deployment refers to the secrets created above.
 
-```bash
+```
 cat <<EOF > /var/data/miniflux/app-deployment.yml
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -205,7 +207,7 @@ kubectl create -f /var/data/miniflux/deployment.yml
 
 Check that your deployment is running, with ```kubectl get pods -n miniflux```. After a minute or so, you should see 2 "Running" pods, as illustrated below:
 
-```bash
+```
 [funkypenguin:~] % kubectl get pods -n miniflux
 NAME                   READY     STATUS    RESTARTS   AGE
 app-667c667b75-5jjm9   1/1       Running   0          4d
@@ -217,7 +219,7 @@ db-fcd47b88f-9vvqt     1/1       Running   0          4d
 
 The db service resource "advertises" the availability of PostgreSQL's port (TCP 5432) in your pod, to the rest of the cluster (*constrained within your namespace*). It seems a little like overkill coming from the Docker Swarm's automated "service discovery" model, but the Kubernetes design allows for load balancing, rolling upgrades, and health checks of individual pods, without impacting the rest of the cluster elements.
 
-```bash
+```
 cat <<EOF > /var/data/miniflux/db-service.yml
 kind: Service
 apiVersion: v1
@@ -239,7 +241,8 @@ kubectl create -f /var/data/miniflux/service.yml
 
 The app service resource "advertises" the availability of miniflux's HTTP listener port (TCP 8080) in your pod. This is the service which will be referred to by the ingress (below), so that Traefik can route incoming traffic to the miniflux app.
 
-```bash
+
+```
 cat <<EOF > /var/data/miniflux/app-service.yml
 kind: Service
 apiVersion: v1
@@ -261,7 +264,7 @@ kubectl create -f /var/data/miniflux/app-service.yml
 
 Check that your services are deployed, with ```kubectl get services -n miniflux```. You should see something like this:
 
-```bash
+```
 [funkypenguin:~] % kubectl get services -n miniflux
 NAME      TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
 app       ClusterIP   None         <none>        8080/TCP   55d
@@ -273,7 +276,7 @@ db        ClusterIP   None         <none>        5432/TCP   55d
 
 The ingress resource tells Traefik what to forward inbound requests for *miniflux.example.com* to your service (defined above), which in turn passes the request to the "app" pod. Adjust the config below for your domain.
 
-```bash
+```
 cat <<EOF > /var/data/miniflux/ingress.yml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -296,7 +299,7 @@ kubectl create -f /var/data/miniflux/ingress.yml
 
 Check that your service is deployed, with ```kubectl get ingress -n miniflux```. You should see something like this:
 
-```bash
+```
 [funkypenguin:~] 130 % kubectl get ingress -n miniflux
 NAME      HOSTS                         ADDRESS   PORTS     AGE
 app       miniflux.funkypenguin.co.nz             80        55d
@@ -305,7 +308,8 @@ app       miniflux.funkypenguin.co.nz             80        55d
 
 ### Access Miniflux
 
-At this point, you should be able to access your instance on your chosen DNS name (*i.e. <https://miniflux.example.com>*)
+At this point, you should be able to access your instance on your chosen DNS name (*i.e. https://miniflux.example.com*)
+
 
 ### Troubleshooting
 

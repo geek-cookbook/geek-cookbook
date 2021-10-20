@@ -8,7 +8,6 @@ Now that we're playing in the deep end with Kubernetes, we'll need a Cloud-nativ
 
 It bears repeating though - don't be like [Cameron](http://haltandcatchfire.wikia.com/wiki/Cameron_Howe). Backup your stuff.
 
-<!-- markdownlint-disable MD033 -->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1UtFeMoqVHQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 This recipe employs a clever tool ([miracle2k/k8s-snapshots](https://github.com/miracle2k/k8s-snapshots)), running _inside_ your cluster, to trigger automated snapshots of your persistent volumes, using your cloud provider's APIs.
@@ -34,8 +33,10 @@ If you're running GKE, run the following to create a RoleBinding, allowing your 
 
 If your cluster is RBAC-enabled (_it probably is_), you'll need to create a ClusterRole and ClusterRoleBinding to allow k8s_snapshots to see your PVs and friends:
 
-````bash
+````
+
 kubectl apply -f https://raw.githubusercontent.com/miracle2k/k8s-snapshots/master/rbac.yaml
+
 ```
 
 ## Serving
@@ -44,7 +45,7 @@ kubectl apply -f https://raw.githubusercontent.com/miracle2k/k8s-snapshots/maste
 
 Ready? Run the following to create a deployment in to the kube-system namespace:
 
-```bash
+```
 
 cat <<EOF | kubectl create -f -
 apiVersion: extensions/v1beta1
@@ -73,30 +74,39 @@ k8s-snapshots relies on annotations to tell it how frequently to snapshot your P
 
 From the k8s-snapshots README:
 
-> The generations are defined by a list of deltas formatted as ISO 8601 durations (this differs from tarsnapper). PT60S or PT1M means a minute, PT12H or P0.5D is half a day, P1W or P7D is a week. The number of backups in each generation is implied by it's and the parent generation's delta.
->
-> For example, given the deltas PT1H P1D P7D, the first generation will consist of 24 backups each one hour older than the previous (or the closest approximation possible given the available backups), the second generation of 7 backups each one day older than the previous, and backups older than 7 days will be discarded for good.
->
-> The most recent backup is always kept.
->
-> The first delta is the backup interval.
+````
+
+The generations are defined by a list of deltas formatted as ISO 8601 durations (this differs from tarsnapper). PT60S or PT1M means a minute, PT12H or P0.5D is half a day, P1W or P7D is a week. The number of backups in each generation is implied by it's and the parent generation's delta.
+
+For example, given the deltas PT1H P1D P7D, the first generation will consist of 24 backups each one hour older than the previous (or the closest approximation possible given the available backups), the second generation of 7 backups each one day older than the previous, and backups older than 7 days will be discarded for good.
+
+The most recent backup is always kept.
+
+The first delta is the backup interval.
+
+```
 
 To add the annotation to an existing PV, run something like this:
 
-```bash
+```
+
 kubectl patch pv pvc-01f74065-8fe9-11e6-abdd-42010af00148 -p \
  '{"metadata": {"annotations": {"backup.kubernetes.io/deltas": "P1D P30D P360D"}}}'
+
 ```
 
 To add the annotation to a _new_ PV, add the following annotation to your **PVC**:
 
-```yaml
+```
+
 backup.kubernetes.io/deltas: PT1H P2D P30D P180D
+
 ```
 
 Here's an example of the PVC for the UniFi recipe, which includes 7 daily snapshots of the PV:
 
-```yaml
+```
+
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
@@ -109,6 +119,7 @@ accessModes: - ReadWriteOnce
 resources:
 requests:
 storage: 1Gi
+
 ````
 
 And here's what my snapshot list looks like after a few days:
@@ -121,7 +132,8 @@ If you're running traditional compute instances with your cloud provider (I do t
 
 To do so, first create a custom resource, ```SnapshotRule```:
 
-````bash
+````
+
 cat <<EOF | kubectl create -f -
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
@@ -137,11 +149,13 @@ singular: snapshotrule
 kind: SnapshotRule
 shortNames: - sr
 EOF
+
 ````
 
 Then identify the volume ID of your volume, and create an appropriate ```SnapshotRule```:
 
-````bash
+````
+
 cat <<EOF | kubectl apply -f -
 apiVersion: "k8s-snapshots.elsdoerfer.com/v1"
 kind: SnapshotRule

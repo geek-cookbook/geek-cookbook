@@ -1,6 +1,4 @@
----
-description: A boring recipe to backup your exciting stuff. Boring is good.
----
+hero: Duplicity - A boring recipe to backup your exciting stuff. Boring is good.
 
 # Duplicity
 
@@ -56,7 +54,7 @@ I didn't already have an archival/backup provider, so I chose Google Cloud "clou
 2. Seriously, **save**. **it**. **somewhere**. **safe**.
 3. Create duplicity.env, and populate with the following variables
 
-```bash
+```
 SRC=/var/data/
 DST=gs://jack-and-jills-bucket/yes-you-can-have-subdirectories
 TMPDIR=/tmp
@@ -74,7 +72,7 @@ See the [data layout reference](/reference/data_layout/) for an explanation of t
 
 Before we launch the automated daily backups, let's run a test backup, as follows:
 
-```bash
+```
 docker run --env-file duplicity.env -it --rm -v \
 /var/data:/var/data:ro -v /var/data/duplicity/tmp:/tmp -v \
 /var/data/duplicity/archive:/archive tecnativa/duplicity \
@@ -103,7 +101,7 @@ duplicity list-current-files \
 
 Once you've identified a file to test-restore, use a variation of the following to restore it to /tmp (_from the perspective of the container - it's actually /var/data/duplicity/tmp_)
 
-```bash
+```
 docker run --env-file duplicity.env -it --rm \
 -v /var/data:/var/data:ro \
 -v /var/data/duplicity/tmp:/tmp \
@@ -121,7 +119,7 @@ Now that we have confidence in our backup/restore process, let's automate it by 
 
 --8<-- "premix-cta.md"
 
-```yaml
+```
 version: "3"
 
 services:

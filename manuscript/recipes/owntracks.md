@@ -21,7 +21,7 @@ Using a smartphone app, OwnTracks allows you to collect and analyse your own loc
 
 We'll need a directory so store OwnTracks' data , so create  ```/var/data/owntracks```:
 
-```bash
+```
 mkdir /var/data/owntracks
 ```
 
@@ -29,7 +29,7 @@ mkdir /var/data/owntracks
 
 Create owntracks.env, and populate with the following variables
 
-```bash
+```
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=

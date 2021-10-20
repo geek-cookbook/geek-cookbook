@@ -6,7 +6,6 @@ description: Don't be like Cameron. Back up your shizz.
 
 Don't be like [Cameron](http://haltandcatchfire.wikia.com/wiki/Cameron_Howe). Backup your stuff.
 
-<!-- markdownlint-disable MD033 -->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1UtFeMoqVHQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [Restic](https://restic.net/) is a backup program intended to be easy, fast, verifiable, secure, efficient, and free. Restic supports a range of backup targets, including local disk, [SFTP](https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#sftp), [S3](https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#amazon-s3) (*or compatible APIs like [Minio](https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#minio-server)*), [Backblaze B2](https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#backblaze-b2), [Azure](https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#microsoft-azure-blob-storage), [Google Cloud Storage](https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#google-cloud-storage), and zillions of others via [rclone](https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html#other-services-via-rclone).
@@ -24,7 +23,7 @@ Restic is one of the more popular open-source backup solutions, and is often [co
 
 We'll need a data location to bind-mount persistent config (*an exclusion list*) into our container, so create them as below:
 
-```bash
+```
 mkdir -p /var/data/restic/
 mkdir -p /var/data/config/restic
 echo /var/data/runtime >> /var/data/restic/restic.exclude
@@ -37,7 +36,7 @@ echo /var/data/runtime >> /var/data/restic/restic.exclude
 
 Create `/var/data/config/restic/restic-backup.env`, and populate with the following variables:
 
-```bash
+```
 # run on startup, otherwise just on cron
 RUN_ON_STARTUP=true
 
@@ -71,7 +70,7 @@ RESTIC_FORGET_ARGS=--keep-daily 7 --keep-monthly 12
 
 Create `/var/data/config/restic/restic-prune.env`, and populate with the following variables:
 
-```bash
+```
 # run on startup, otherwise just on cron
 RUN_ON_STARTUP=false
 
@@ -98,6 +97,7 @@ RESTIC_PASSWORD=<repo_password>
 
 !!! question "Why create two separate .env files?"
     Although there's duplication involved, maintaining 2 files for the two services within the stack keeps it clean, and allows you to potentially alter the behaviour of one service without impacting the other in future
+
 
 ### Setup Docker Swarm
 
@@ -144,7 +144,7 @@ networks:
 
 Launch the Restic stack by running `docker stack deploy restic -c <path -to-docker-compose.yml>`, and watch the logs by running `docker service logs restic_backup` - you should see something like this:
 
-```bash
+```
 root@raphael:~# docker service logs restic_backup  -f
 restic_backup.1.9sii77j9jf0x@leonardo    | Checking configured repository '<repo_name>' ...
 restic_backup.1.9sii77j9jf0x@leonardo    | Fatal: unable to open config file: Stat: stat <repo_name>/config: no such file or directory
@@ -175,14 +175,14 @@ Repeat after me : "**It's not a backup unless you've tested a restore**"
 
 The simplest way to test your restore is to run the container once, using the variables you're already prepared, with custom arguments, as follows:
 
-```bash
+```
 docker run --rm -it --name restic-restore --env-file /var/data/config/restic/restic-backup.env \
   -v /tmp/restore:/restore mazzolino/restic restore latest --target /restore
 ```
 
 In my example:
 
-```bash
+```
 root@raphael:~# docker run --rm -it --name restic-restore --env-file /var/data/config/restic/restic-backup.env \
 >   -v /tmp/restore:/restore mazzolino/restic restore latest --target /restore
 Unable to find image 'mazzolino/restic:latest' locally
@@ -198,6 +198,7 @@ root@raphael:~#
 
 !!! tip "Restoring a subset of data"
     The example above restores the **entire** `/var/data` folder (*minus any exclusions*). To restore just a subset of data, add the `-i <regex>` argument, i.e. `-i plex`
+
 
 [^1]: The `/var/data/restic/restic.exclude` exists to provide you with a way to exclude data you don't care to backup.
 [^2]: A recent benchmark of various backup tools, including Restic, can be found [here](https://forum.duplicati.com/t/big-comparison-borg-vs-restic-vs-arq-5-vs-duplicacy-vs-duplicati/9952).
