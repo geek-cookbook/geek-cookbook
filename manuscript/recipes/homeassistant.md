@@ -33,12 +33,9 @@ mkdir /var/data/runtime/homeassistant/influxdb
 
 ### Prepare environment
 
-Create /var/data/config/homeassistant/grafana.env, and populate with the following - this is to enable grafana to work with oauth2_proxy without requiring an additional level of authentication:
+Create /var/data/config/homeassistant/grafana.env, and populate with the following - this is to enable grafana to work with traefik authentication without requiring an additional level of authentication:
 ```
 GF_AUTH_BASIC_ENABLED=false
-OAUTH2_PROXY_CLIENT_ID=
-OAUTH2_PROXY_CLIENT_SECRET=
-OAUTH2_PROXY_COOKIE_SECRET=
 ```
 
 ### Setup Docker Swarm
@@ -67,9 +64,18 @@ services:
         - /etc/localtime:/etc/localtime:ro
       deploy:
         labels:
-          - traefik.frontend.rule=Host:homeassistant.example.com
+          # traefik common
+          - traefik.enable=true
           - traefik.docker.network=traefik_public
-          - traefik.port=8123
+
+          # traefikv1
+          - traefik.frontend.rule=Host:homeassistant.example.com
+          - traefik.port=8123     
+
+          # traefikv2
+          - "traefik.http.routers.homeassistant.rule=Host(`homeassistant.example.com`)"
+          - "traefik.http.services.homeassistant.loadbalancer.server.port=8123"
+          - "traefik.enable=true"
       networks:
         - traefik_public
         - internal
@@ -84,29 +90,24 @@ services:
         - /etc/localtime:/etc/localtime:ro
       networks:
         - internal
-
-    grafana-proxy:
-      image: a5huynh/oauth2_proxy
-      env_file : /var/data/config/homeassistant/grafana.env
-      dns_search: hq.example.com
-      networks:
-        - internal
         - traefik_public
       deploy:
         labels:
-          - traefik.frontend.rule=Host:grafana.example.com
+          # traefik common
+          - traefik.enable=true
           - traefik.docker.network=traefik_public
-          - traefik.port=4180
-      volumes:
-        - /var/data/config/homeassistant/authenticated-emails.txt:/authenticated-emails.txt
-      command: |
-        -cookie-secure=false
-        -upstream=http://grafana-app:3000
-        -redirect-url=https://grafana.example.com
-        -http-address=http://0.0.0.0:4180
-        -email-domain=example.com
-        -provider=github
-        -authenticated-emails-file=/authenticated-emails.txt
+
+          # traefikv1
+          - traefik.frontend.rule=Host:grafana.example.com
+          - traefik.port=3000     
+
+          # traefikv2
+          - "traefik.http.routers.grafana.rule=Host(`grafana.example.com`)"
+          - "traefik.http.services.grafana.loadbalancer.server.port=3000"
+          - "traefik.enable=true"
+
+          # Remove if you wish to access the URL directly
+          - "traefik.http.routers.grafana.middlewares=forward-auth@file"
 
 networks:
   traefik_public:
