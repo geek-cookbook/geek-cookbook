@@ -12,9 +12,9 @@ This recipe will illustrate how to point Traefik Forward Auth to Google, confirm
 
 #### TL;DR
 
-Log into https://console.developers.google.com/, create a new project then search for and select "**Credentials**" in the search bar. 
+Log into <https://console.developers.google.com/>, create a new project then search for and select "**Credentials**" in the search bar.
 
- Fill out the "OAuth Consent Screen" tab, and then click, "**Create Credentials**" > "**OAuth client ID**". Select "**Web Application**", fill in the name of your app, skip "**Authorized JavaScript origins**" and fill "**Authorized redirect URIs**" with either all the domains you will allow authentication from, appended with the url-path (*e.g. https://radarr.example.com/_oauth, https://radarr.example.com/_oauth, etc*), or if you don't like frustration, use a "auth host" URL instead, like "*https://auth.example.com/_oauth*" (*see below for details*)
+ Fill out the "OAuth Consent Screen" tab, and then click, "**Create Credentials**" > "**OAuth client ID**". Select "**Web Application**", fill in the name of your app, skip "**Authorized JavaScript origins**" and fill "**Authorized redirect URIs**" with either all the domains you will allow authentication from, appended with the url-path (*e.g. <https://radarr.example.com/_oauth>, <https://radarr.example.com/_oauth>, etc*), or if you don't like frustration, use a "auth host" URL instead, like "*<https://auth.example.com/_oauth>*" (*see below for details*)
 
 #### Monkey see, monkey do 🙈
 
@@ -27,7 +27,7 @@ Here's a [screencast I recorded](https://static.funkypenguin.co.nz/2021/screenca
 
 Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.env` as follows:
 
-```
+```bash
 PROVIDERS_GOOGLE_CLIENT_ID=<your client id>
 PROVIDERS_GOOGLE_CLIENT_SECRET=<your client secret>
 SECRET=<a random string, make it up>
@@ -41,7 +41,7 @@ WHITELIST=you@yourdomain.com, me@mydomain.com
 
 Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.yml` as follows:
 
-```
+```yaml
   traefik-forward-auth:
     image: thomseddon/traefik-forward-auth:2.1.0
     env_file: /var/data/config/traefik-forward-auth/traefik-forward-auth.env
@@ -77,7 +77,7 @@ Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.yml` as follo
 
 If you're not confident that forward authentication is working, add a simple "whoami" test container to the above .yml, to help debug traefik forward auth, before attempting to add it to a more complex container.
 
-```
+```yaml
   # This simply validates that traefik forward authentication is working
   whoami:
     image: containous/whoami
@@ -114,7 +114,7 @@ Deploy traefik-forward-auth with ```docker stack deploy traefik-forward-auth -c 
 
 ### Test
 
-Browse to https://whoami.example.com (*obviously, customized for your domain and having created a DNS record*), and all going according to plan, you should be redirected to a Google login. Once successfully logged in, you'll be directed to the basic whoami page.
+Browse to <https://whoami.example.com> (*obviously, customized for your domain and having created a DNS record*), and all going according to plan, you should be redirected to a Google login. Once successfully logged in, you'll be directed to the basic whoami page.
 
 ## Summary
 

@@ -1,8 +1,8 @@
+# IPFS
+
 !!! danger "This recipe is a work in progress"
     This recipe is **incomplete**, and remains a work in progress.
     So... There may be errors and inaccuracies. Jump into [Discord](http://chat.funkypenguin.co.nz) if you're encountering issues 😁
-
-# IPFS
 
 The intention of this recipe is to provide a local IPFS cluster for the purpose of providing persistent storage for the various components of the recipes
 
@@ -22,7 +22,7 @@ Since IPFS may _replace_ ceph or glusterfs as a shared-storage provider for the 
 
 On _each_ node, therefore run the following, to create the persistent data storage for ipfs and ipfs-cluster:
 
-```
+```bash
 mkdir -p {/var/ipfs/daemon,/var/ipfs/cluster}
 ```
 
@@ -32,7 +32,7 @@ ipfs-cluster nodes require a common secret, a 32-bit hex-encoded string, in orde
 
 Now on _each_ node, create ```/var/ipfs/cluster:/data/ipfs-cluster```, including both the secret, *and* the IP of docker0 interface on your hosts (_on my hosts, this is always 172.17.0.1_). We do this (_the trick with docker0)_ to allow ipfs-cluster to talk to the local ipfs daemon, per-node:
 
-```
+```bash
 SECRET=<string generated above>
 
 # Use docker0 to access daemon
@@ -72,10 +72,9 @@ services:
 
 Launch all nodes independently with ```docker-compose -f ipfs.yml up```. At this point, the nodes are each running independently, unaware of each other. But we do this to ensure that service.json is populated on each node, using the IPFS_API environment variable we specified in ipfs.env. (_it's only used on the first run_)
 
-
 The output looks something like this:
 
-```
+```bash
 cluster_1  | 11:03:33.272  INFO    restapi: REST API (libp2p-http): ENABLED. Listening on:
 cluster_1  |         /ip4/127.0.0.1/tcp/9096/ipfs/QmbqPBLJNXWpbXEX6bVhYLo2ruEBE7mh1tfT9s6VXUzYYx
 cluster_1  |         /ip4/172.18.0.3/tcp/9096/ipfs/QmbqPBLJNXWpbXEX6bVhYLo2ruEBE7mh1tfT9s6VXUzYYx
@@ -101,7 +100,7 @@ Pick a node to be your primary node, and CTRL-C the others.
 
 Look for a line like this in the output of the primary node:
 
-```
+```bash
 /ip4/127.0.0.1/tcp/9096/ipfs/QmbqPBLJNXWpbXEX6bVhYLo2ruEBE7mh1tfT9s6VXUzYYx
 ```
 
@@ -111,8 +110,7 @@ You'll note several addresses listed, all ending in the same hash. None of these
 
 On each of the non-primary nodes, run the following, replacing **IP-OF-PRIMARY-NODE** with the actual IP of the primary node, and **HASHY-MC-HASHFACE** with your own hash from primary output above.
 
-
-```
+```bash
 docker run --rm -it -v /var/ipfs/cluster:/data/ipfs-cluster \
     --entrypoint ipfs-cluster-service ipfs/ipfs-cluster \
     daemon --bootstrap \ /ip4/IP-OF-PRIMARY-NODE/tcp/9096/ipfs/HASHY-MC-HASHFACE
@@ -120,7 +118,7 @@ docker run --rm -it -v /var/ipfs/cluster:/data/ipfs-cluster \
 
 You'll see output like this:
 
-```
+```bash
 10:55:26.121  INFO    service: Bootstrapping to /ip4/192.168.31.13/tcp/9096/ipfs/QmPrmQvW5knXLBE94jzpxvdtLSwXZeFE5DSY3FuMxypDsT daemon.go:153
 10:55:26.121  INFO   ipfshttp: IPFS Proxy: /ip4/0.0.0.0/tcp/9095 -> /ip4/172.17.0.1/tcp/5001 ipfshttp.go:221
 10:55:26.304 ERROR   ipfshttp: error posting to IPFS: Post http://172.17.0.1:5001/api/v0/id: dial tcp 172.17.0.1:5001: connect: connection refused ipfshttp.go:708
@@ -144,7 +142,7 @@ docker-exec into one of the cluster containers (_it doesn't matter which one_), 
 
 You should see output from each node member, indicating it can see its other peers. Here's my output from a 3-node cluster:
 
-```
+```bash
 / # ipfs-cluster-ctl peers ls
 QmPrmQvW5knXLBE94jzpxvdtLSwXZeFE5DSY3FuMxypDsT | ef68b1437c56 | Sees 2 other peers
   > Addresses:

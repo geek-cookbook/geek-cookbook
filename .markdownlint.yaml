@@ -11,7 +11,7 @@
 # Allow trailing punctuation in headings
 "MD026": false
 
-# Always used fenced code blocks
-"MD046":
-    "style": "fenced"
+# We use fenced code blocks, but this test conflicts with the admonitions plugin we use, which relies 
+# on indentation (which is then falsely detected as a code block)
+"MD046": false
 

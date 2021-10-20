@@ -18,7 +18,7 @@ This recipie combines the [extensibility](https://home-assistant.io/components/)
 
 We'll need several directories to bind-mount into our container, so create them in /var/data/homeassistant:
 
-```
+```bash
 mkdir /var/data/homeassistant
 cd /var/data/homeassistant
 mkdir -p {homeassistant,grafana,influxdb-backup}
@@ -26,15 +26,15 @@ mkdir -p {homeassistant,grafana,influxdb-backup}
 
 Now create a directory for the influxdb realtime data:
 
-
-```
+```bash
 mkdir /var/data/runtime/homeassistant/influxdb
 ```
 
 ### Prepare environment
 
 Create /var/data/config/homeassistant/grafana.env, and populate with the following - this is to enable grafana to work with oauth2_proxy without requiring an additional level of authentication:
-```
+
+```bash
 GF_AUTH_BASIC_ENABLED=false
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
@@ -126,7 +126,7 @@ networks:
 
 Launch the Home Assistant stack by running ```docker stack deploy homeassistant -c <path -to-docker-compose.yml>```
 
-Log into your new instance at https://**YOUR-FQDN**, the password you created in configuration.yml as "frontend - api_key". Then setup a bunch of sensors, and log into https://grafana.**YOUR FQDN** and create some beautiful graphs :)
+Log into your new instance at https://**YOUR-FQDN**, the password you created in configuration.yml as "frontend - api_key". Then setup a bunch of sensors, and log into <https://grafana>.**YOUR FQDN** and create some beautiful graphs :)
 
 [^1]: I **tried** to protect Home Assistant using [oauth2_proxy](/reference/oauth_proxy), but HA is incompatible with the websockets implementation used by Home Assistant. Until this can be fixed, I suggest that geeks set frontend: api_key to a long and complex string, and rely on this to prevent malevolent internet miscreants from turning their lights on at 2am!
 

@@ -6,7 +6,7 @@ description: A fully-featured recipe to automate finding, downloading, and organ
 
 Once the cutting edge of the "internet" (_pre-world-wide-web and mosiac days_), Usenet is now a murky, geeky alternative to torrents for file-sharing. However, it's **cool** geeky, especially if you're into having a fully automated media platform.
 
-A good starter for the usenet scene is https://www.reddit.com/r/usenet/. Because it's so damn complicated, a host of automated tools exist to automate the process of finding, downloading, and managing content. The tools included in this recipe are as follows:
+A good starter for the usenet scene is <https://www.reddit.com/r/usenet/>. Because it's so damn complicated, a host of automated tools exist to automate the process of finding, downloading, and managing content. The tools included in this recipe are as follows:
 
 ![Autopirate Screenshot](../../images/autopirate.png)
 
@@ -25,7 +25,7 @@ Tools included in the AutoPirate stack are:
 * [NZBHydra][nzbhydra] is a meta search for NZB indexers. It provides easy access to a number of raw and newznab based indexers. You can search all your indexers from one place and use it as indexer source for tools like [Sonarr][sonarr] or [Radarr][radarr].
   
 * [Sonarr][sonarr] finds, downloads and manages TV shows
- 
+
 * [Radarr][radarr] finds, downloads and manages movies
 
 * [Readarr][readarr] finds, downloads, and manages eBooks
@@ -43,7 +43,6 @@ Tools included in the AutoPirate stack are:
 * [Jackett][jackett] works as a proxy server: it translates queries from apps (*[Sonarr][sonarr], [Radarr][radarr], [Mylar][mylar], etc*) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software.
 
 Since this recipe is so long, and so many of the tools are optional to the final result (_i.e., if you're not interested in comics, you won't want Mylar_), I've described each individual tool on its own sub-recipe page (_below_), even though most of them are deployed very similarly.
-
 
 ## Ingredients
 
@@ -88,9 +87,9 @@ To mitigate the risk associated with public exposure of these tools (_you're on 
 
 This is tedious, but you only have to do it once. Each tool (Sonarr, Radarr, etc) to be protected by an OAuth proxy, requires unique configuration. I use github to provide my oauth, giving each tool a unique logo while I'm at it (make up your own random string for OAUTH2PROXYCOOKIE_SECRET)
 
-For each tool, create /var/data/autopirate/<tool>.env, and set the following:
+For each tool, create `/var/data/autopirate/<tool>.env`, and set the following:
 
-```
+```bash
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=
@@ -98,7 +97,7 @@ PUID=4242
 PGID=4242
 ```
 
-Create at least /var/data/autopirate/authenticated-emails.txt, containing at least your own email address with your OAuth provider. If you wanted to grant access to a specific tool to other users, you'd need a unique authenticated-emails-<tool>.txt which included both normal email address as well as any addresses to be granted tool-specific access.
+Create at least /var/data/autopirate/authenticated-emails.txt, containing at least your own email address with your OAuth provider. If you wanted to grant access to a specific tool to other users, you'd need a unique `authenticated-emails-<tool>.txt` which included both normal email address as well as any addresses to be granted tool-specific access.
 
 ### Setup components
 
@@ -106,7 +105,7 @@ Create at least /var/data/autopirate/authenticated-emails.txt, containing at lea
 
 **Start** with a swarm config file in docker-compose syntax, like this:
 
-````
+````yaml
 version: '3'
 
 services:
@@ -114,7 +113,7 @@ services:
 
 And **end** with a stanza like this:
 
-````
+````yaml
 networks:
   traefik_public:
     external: true
