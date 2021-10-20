@@ -58,9 +58,19 @@ services:
       - /srv/data/:/data
     deploy:
       labels:
-        - traefik.frontend.rule=Host:jellyfin.example.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=8096
+
+        # traefikv1
+        - traefik.frontend.rule=Host:jellyfin.example.com
+        - traefik.port=8096     
+
+        # traefikv2
+        - "traefik.http.routers.jellyfin.rule=Host(`jellyfin.example.com`)"
+        - "traefik.http.services.jellyfin.loadbalancer.server.port=8096"
+        - "traefik.enable=true"
+
     networks:
         - traefik_public
         - internal
