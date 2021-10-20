@@ -1,7 +1,7 @@
-# Launch Autopirate stack
-
 !!! warning
     This is not a complete recipe - it's the conclusion to the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
+
+### Launch Autopirate stack
 
 Launch the AutoPirate stack by running ```docker stack deploy autopirate -c <path -to-docker-compose.yml>```
 

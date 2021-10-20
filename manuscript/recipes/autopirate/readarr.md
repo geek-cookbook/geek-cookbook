@@ -4,7 +4,6 @@ description: Readarr is "Sonarr/Radarr for eBooks"
 
 
 # Readarr
-
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
@@ -23,6 +22,7 @@ Features include:
 * Full integration with [SABnzbd][sabnzbd] and [NZBGet][sabnzbd]
 * Full integration with [Calibre][calibre-web] (add to library, conversion)
 * And a beautiful UI!
+
 
 ## Inclusion into AutoPirate
 

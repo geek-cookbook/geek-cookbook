@@ -7,7 +7,7 @@ description: A UI to make Docker less geeky
 !!! tip
     Some time after originally publishing this recipe, I had the opportunity to meet the [Portainer team](https://www.reseller.co.nz/article/682233/kiwi-startup-portainer-io-closes-1-2m-seed-round/), who are based out of Auckland, New Zealand. We now have an ongoing friendly working relationship. Portainer is my [GitHub Sponsor][github_sponsor] :heart:, and in return, I maintain their [official Kubernetes helm charts](https://github.com/portainer/k8s)! :thumbsup:
 
-[Portainer](https://portainer.io/) is a lightweight sexy UI for visualizing your docker environment. It also happens to integrate well with Docker Swarm clusters, which makes it a great fit for our stack.
+[Portainer](https://portainer.io/) is a lightweight sexy UI for visualizing your docker environment. It also happens to integrate well with Docker Swarm clusters, which makes it a great fit for our stack. 
 
 Portainer attempts to take the "geekiness" out of containers, by wrapping all the jargon and complexity in a shiny UI and some simple abstractions. It's a great addition to any stack, especially if you're just starting your containerization journey!
 
@@ -21,7 +21,7 @@ Portainer attempts to take the "geekiness" out of containers, by wrapping all th
 
 Create a folder to store portainer's persistent data:
 
-```bash
+```
 mkdir /var/data/portainer
 ```
 

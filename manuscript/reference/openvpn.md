@@ -10,13 +10,13 @@ In my case, I needed each docker node to connect via [OpenVPN](http://www.openvp
 
 Yes, SELinux. Install a custom policy permitting a docker container to create tun interfaces, like this:
 
-````bash
+````
 cat << EOF > docker-openvpn.te
 module docker-openvpn 1.0;
 
 require {
- type svirt_lxc_net_t;
- class tun_socket create;
+	type svirt_lxc_net_t;
+	class tun_socket create;
 }
 
 #============= svirt_lxc_net_t ==============
@@ -35,7 +35,7 @@ Even with the SELinux policy above, I still need to insert the "tun" module into
 
 Run the following to auto-insert the tun module on boot:
 
-````bash
+````
 cat << EOF >> /etc/rc.d/rc.local
 # Insert the "tun" module so that the vpn-client container can access /dev/net/tun
 /sbin/modprobe tun
@@ -47,7 +47,7 @@ chmod 755 /etc/rc.d/rc.local
 
 Finally, for each node, I exported client credentials, and SCP'd them over to the docker node, into /root/my-vpn-configs-here/. I also had to use the NET_ADMIN cap-add parameter, as illustrated below:
 
-````bash
+````
 docker run -d --name vpn-client \
   --restart=always --cap-add=NET_ADMIN --net=host \
   --device /dev/net/tun \

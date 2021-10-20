@@ -16,7 +16,7 @@ PrivateBin is a minimalist, open source online pastebin where the server (can) h
 
 We'll need a single location to bind-mount into our container, so create /var/data/privatebin, and make it world-writable (_there might be a more secure way to do this!_)
 
-```bash
+```
 mkdir /var/data/privatebin
 chmod 777 /var/data/privatebin/
 ```

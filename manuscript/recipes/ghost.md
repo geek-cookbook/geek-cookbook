@@ -6,7 +6,7 @@ description: Ghost - Beautiful online publicatio (who you gonna call?)
 
 [Ghost](https://ghost.org) is "a fully open source, hackable platform for building and running a modern online publication."
 
-![Ghost screenshot](/images/ghost.png)
+![](/images/ghost.png)
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -16,7 +16,7 @@ description: Ghost - Beautiful online publicatio (who you gonna call?)
 
 Create the location for the bind-mount of the application data, so that it's persistent:
 
-```bash
+```
 mkdir -p /var/data/ghost
 ```
 
@@ -47,6 +47,7 @@ networks:
   traefik_public:
     external: true
 ```
+
 
 ## Serving
 

@@ -4,7 +4,7 @@ description: Quickly share self-destructing screenshots, text, etc
 
 # Linx
 
-Ever wanted to quickly share a screenshot, but don't want to use imgur, sign up for a service, or have your image tracked across the internet for all time?
+Ever wanted to quickly share a screenshot, but don't want to use imgur, sign up for a service, or have your image tracked across the internet for all time? 
 
 Want to privately share some log output with a password, or a self-destructing cat picture?
 
@@ -26,7 +26,7 @@ Want to privately share some log output with a password, or a self-destructing c
 
 First we create a directory to hold the data which linx will serve:
 
-```bash
+```
 mkdir /var/data/linx
 ```
 
@@ -34,7 +34,7 @@ mkdir /var/data/linx
 
 Linx is configured using a flat text file, so create this on the Docker host, and then we'll mount it (*read-only*) into the container, below.
 
-```bash
+```
 mkdir /var/data/config/linx
 cat << EOF > /var/data/config/linx/linx.conf
 # Refer to https://github.com/andreimarcu/linx-server for details
@@ -86,6 +86,7 @@ networks:
 ### Launch the Linx!
 
 Launch the Linx stack by running ```docker stack deploy linx -c <path -to-docker-compose.yml>```
+
 
 [^1]: Since the whole purpose of media/file sharing is to share stuff with **strangers**, this recipe doesn't take into account any sort of authentication using [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/).
 

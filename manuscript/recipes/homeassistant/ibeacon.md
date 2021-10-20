@@ -8,7 +8,7 @@ One of the most useful features of Home Assistant is location awareness. I don't
 ## Ingredients
 
 1. [HomeAssistant](/recipes/homeassistant/) per recipe
-2. iBeacon(s) - This recipe is for <https://s.click.aliexpress.com/e/bzyLCnAp>
+2. iBeacon(s) - This recipe is for https://s.click.aliexpress.com/e/bzyLCnAp
 3. [LightBlue Explorer](https://itunes.apple.com/nz/app/lightblue-explorer/id557428110?mt=8)
 
 ## Preparation
@@ -17,7 +17,7 @@ One of the most useful features of Home Assistant is location awareness. I don't
 
 The iBeacons come with no UUID. We use the LightBlue Explorer app to pair with them (_code is "123456"_), and assign own own UUID.
 
-Generate your own UUID, or get a random one at <https://www.uuidgenerator.net/>
+Generate your own UUID, or get a random one at https://www.uuidgenerator.net/
 
 Plug in your iBeacon, launch LightBlue Explorer, and find your iBeacon. The first time you attempt to interrogate it, you'll be prompted to pair. Although it's not recorded anywhere in the documentation (_grr!_), the pairing code is **123456**
 

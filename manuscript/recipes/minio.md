@@ -27,7 +27,7 @@ Possible use-cases:
 
 We'll need a directory to hold our minio file store, as well as our minio client config, so create a structure at /var/data/minio:
 
-```bash
+```
 mkdir /var/data/minio
 cd /var/data/minio
 mkdir -p {mc,data}
@@ -36,8 +36,7 @@ mkdir -p {mc,data}
 ### Prepare environment
 
 Create minio.env, and populate with the following variables
-
-```bash
+```
 MINIO_ACCESS_KEY=<some random, complex string>
 MINIO_SECRET_KEY=<another random, complex string>
 ```
@@ -90,13 +89,13 @@ To administer the Minio server, we need the Minio client. While it's possible to
 
 I created an alias on my docker nodes, allowing me to run mc quickly:
 
-```bash
+```
 alias mc='docker run -it -v /docker/minio/mc/:/root/.mc/ --network traefik_public minio/mc'
 ```
 
 Now I use the alias to launch the client shell, and connect to my minio instance (_I could also use the external, traefik-provided URL_)
 
-```bash
+```
 root@ds1:~# mc config host add minio http://app:9000 admin iambatman
 mc: Configuration written to `/root/.mc/config.json`. Please update your access credentials.
 mc: Successfully created `/root/.mc/share`.
@@ -108,11 +107,11 @@ root@ds1:~#
 
 ### Add (readonly) user
 
-Use mc to add a (readonly or readwrite) user, by running ```mc admin user add minio <access key> <secret key> <access level>```
+Use mc to add a (readonly or readwrite) user, by running ``` mc admin user add minio <access key> <secret key> <access level>```
 
 Example:
 
-```bash
+```
 root@ds1:~# mc admin user add minio spiderman peterparker readonly
 Added user `spiderman` successfully.
 root@ds1:~#
@@ -120,7 +119,7 @@ root@ds1:~#
 
 Confirm by listing your users (_admin is excluded from the list_):
 
-```bash
+```
 root@node1:~# mc admin user list minio
 enabled    spiderman             readonly
 root@node1:~#
@@ -134,7 +133,7 @@ The simplest permission scheme is "on or off". Either a bucket has a policy, or 
 
 After **no** policy, the most restrictive policy you can attach to a bucket is "download". This policy will allow authenticated users to download contents from the bucket. Apply the "download" policy to a bucket by running ```mc policy download minio/<bucket name>```, i.e.:
 
-```bash
+```
 root@ds1:# mc policy download minio/comics
 Access permission for `minio/comics` is set to `download`
 root@ds1:#
@@ -155,7 +154,7 @@ I tested the S3 mount using [goofys](https://github.com/kahing/goofys), "a high-
 
 First, I created ~/.aws/credentials, as follows:
 
-```ini
+```
 [default]
 aws_access_key_id=spiderman
 aws_secret_access_key=peterparker
@@ -165,7 +164,7 @@ And then I ran (_in the foreground, for debugging_), ```goofys --f -debug_s3 --d
 
 To permanently mount an S3 bucket using goofys, I'd add something like this to /etc/fstab:
 
-```bash
+```
 goofys#bucket   /mnt/mountpoint        fuse     _netdev,allow_other,--file-mode=0666    0       0
 ```
 

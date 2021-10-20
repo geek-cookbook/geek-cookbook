@@ -34,7 +34,7 @@ On all nodes which will participate in keepalived, we need the "ip_vs" kernel mo
 
 Set this up once-off for both the primary and secondary nodes, by running:
 
-```bash
+```
 echo "modprobe ip_vs" >> /etc/modules
 modprobe ip_vs
 ```
@@ -43,13 +43,14 @@ modprobe ip_vs
 
 Assuming your IPs are as follows:
 
-- 192.168.4.1 : Primary
-- 192.168.4.2 : Secondary
-- 192.168.4.3 : Virtual
+```
+* 192.168.4.1 : Primary
+* 192.168.4.2 : Secondary
+* 192.168.4.3 : Virtual
+```
 
 Run the following on the primary
-
-```bash
+```
 docker run -d --name keepalived --restart=always \
   --cap-add=NET_ADMIN --cap-add=NET_BROADCAST --cap-add=NET_RAW --net=host \
   -e KEEPALIVED_UNICAST_PEERS="#PYTHON2BASH:['192.168.4.1', '192.168.4.2']" \
@@ -59,8 +60,7 @@ docker run -d --name keepalived --restart=always \
 ```
 
 And on the secondary[^2]:
-
-```bash
+```
 docker run -d --name keepalived --restart=always \
   --cap-add=NET_ADMIN --cap-add=NET_BROADCAST --cap-add=NET_RAW --net=host \
   -e KEEPALIVED_UNICAST_PEERS="#PYTHON2BASH:['192.168.4.1', '192.168.4.2']" \
@@ -72,6 +72,7 @@ docker run -d --name keepalived --restart=always \
 ## Serving
 
 That's it. Each node will talk to the other via unicast (*no need to un-firewall multicast addresses*), and the node with the highest priority gets to be the master. When ingress traffic arrives on the master node via the VIP, docker's routing mesh will deliver it to the appropriate docker node.
+
 
 ## Summary
 

@@ -4,6 +4,9 @@ Kanboard is a Kanban tool, developed by [Frédéric Guillot](https://github.com/
 
 ![Kanboard Screenshot](/images/kanboard.png)
 
+!!! tip "Sponsored Project"
+    Kanboard is one of my [sponsored projects](/#sponsored-projects) - a project I financially support on a regular basis because of its utility to me. I use it both in my DayJob(tm), and to manage my overflowing, overly-optimistic personal commitments! 😓
+
 Features include:
 
 * Visualize your work
@@ -257,5 +260,3 @@ kubectl patch -n kanboard deployment app -p "{\"spec\":{\"template\":{\"metadata
 To look at the Kanboard pod's logs, run ```kubectl logs -n kanboard <name of pod per above> -f```. For further troubleshooting hints, see [Troubleshooting](/reference/kubernetes/troubleshooting/).
 
 [^1]: The simplest deployment of Kanboard uses the default SQLite database backend, stored on the persistent volume. You can convert this to a "real" database running MySQL or PostgreSQL, and running an an additional database pod and service. Contact me if you'd like further details ;)
-
---8<-- "recipe-footer.md"

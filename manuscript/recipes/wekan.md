@@ -23,7 +23,7 @@ There's a [video](https://www.youtube.com/watch?v=N3iMLwCNOro) of the developer 
 
 We'll need several directories to bind-mount into our container, so create them in /var/data/wekan:
 
-```bash
+```
 mkdir /var/data/wekan
 cd /var/data/wekan
 mkdir -p {wekan-db,wekan-db-dump}
@@ -36,7 +36,7 @@ You'll need to know the following:
 1. Choose an oauth provider, and obtain a client ID and secret
 2. Create wekan.env, and populate with the following variables
 
-```bash
+```
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=

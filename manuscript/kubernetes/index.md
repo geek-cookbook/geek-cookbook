@@ -2,7 +2,6 @@
 
 My first introduction to Kubernetes was a children's story:
 
-<!-- markdownlint-disable MD033 -->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4ht22ReBjno" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Wait, what?
@@ -45,7 +44,7 @@ Let's talk some definitions. Kubernetes.io provides a [glossary](https://kuberne
 
 ## Mm.. maaaaybe, how do I start?
 
-If you're like me, and you learn by doing, either play with the examples at <https://labs.play-with-k8s.com/>, or jump right in by setting up a Google Cloud trial (_you get \$300 credit for 12 months_), or a small cluster on [Digital Ocean](/kubernetes/cluster/).
+If you're like me, and you learn by doing, either play with the examples at https://labs.play-with-k8s.com/, or jump right in by setting up a Google Cloud trial (_you get \$300 credit for 12 months_), or a small cluster on [Digital Ocean](/kubernetes/cluster/).
 
 If you're the learn-by-watching type, just search for "Kubernetes introduction video". There's a **lot** of great content available.
 

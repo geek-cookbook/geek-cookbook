@@ -42,8 +42,7 @@ DigitalOcean will provide you with a "kubeconfig" file to use to access your clu
 Save your kubeconfig file somewhere, and test it our by running ```kubectl --kubeconfig=<PATH TO KUBECONFIG> get nodes```
 
 Example output:
-
-```bash
+```
 [davidy:~/Downloads] 130 % kubectl --kubeconfig=penguins-are-the-sexiest-geeks-kubeconfig.yaml get nodes
 NAME                  STATUS    ROLES     AGE       VERSION
 festive-merkle-8n9e   Ready     <none>    20s       v1.13.1
@@ -52,7 +51,7 @@ festive-merkle-8n9e   Ready     <none>    20s       v1.13.1
 
 In the example above, my nodes were being deployed. Repeat the command to see your nodes spring into existence:
 
-```bash
+```
 [davidy:~/Downloads] % kubectl --kubeconfig=penguins-are-the-sexiest-geeks-kubeconfig.yaml get nodes
 NAME                  STATUS    ROLES     AGE       VERSION
 festive-merkle-8n96   Ready     <none>    6s        v1.13.1
@@ -80,6 +79,7 @@ Still with me? Good. Move on to creating your own external load balancer..
 * [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
 * [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
 * [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
+
 
 [^1]: Ok, yes, there's not much you can do with your cluster _yet_. But stay tuned, more Kubernetes fun to come!
 
