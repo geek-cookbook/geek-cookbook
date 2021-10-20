@@ -27,7 +27,7 @@ Features include
 
 First, we create a directory to hold the data which authelia will serve:
 
-```
+```bash
 mkdir /var/data/config/authelia
 cd /var/data/config/authelia
 ```
