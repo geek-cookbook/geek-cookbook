@@ -22,9 +22,18 @@ Here are some other possible use cases:
 
 ## Preparation
 
+### Setup data locations
+
+First we create a directory to hold the data which wetty will serve:
+
+```bash
+mkdir /var/data/config/wetty
+cd /var/data/config/wetty
+```
+
 ### Prepare environment
 
-Create wetty.env, and populate with the following variables
+Create `/var/data/config/wetty.env`, and populate with the following variables
 ```
 # To use WeTTY to SSH to a host besides the (mostly useless) alpine container it comes with
 SSHHOST=batcomputer.batcave.com
