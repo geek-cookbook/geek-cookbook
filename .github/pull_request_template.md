@@ -14,9 +14,11 @@
 
 ## Types of changes
 <!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
+<!-- ignore-task-list-start -->
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to change)
+<!-- ignore-task-list-end -->
 
 ## Checklist
 <!--- Go over all the following points, and put an `x` in all the boxes that apply. -->
@@ -24,10 +26,14 @@
 
 - [ ] I have read the [contribution guide](https://geek-cookbook.funkypenguin.co.nz/community/contribute/#contributing-recipes)
 - [ ] The format of my changes matches that of other recipes (*ideally it was copied from [template](/manuscript/recipes/template.md)*)
-- [ ] I've added at least one footnote to my recipe (*Chef's Notes*)
+
 <!-- 
 delete these next checks if not adding a new recipe 
 -->
+
+### Recipe-specific checks
+
+- [ ] I've added at least one footnote to my recipe (*Chef's Notes*)
 - [ ] I've updated `common_links.md` in the `_snippets` directory and sorted alphabetically
 - [ ] I've updated the navigation in `mkdocs.yaml` in alphabetical order
 - [ ] I've updated `CHANGELOG.md` in reverse chronological order order
