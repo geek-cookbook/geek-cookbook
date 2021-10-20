@@ -36,13 +36,6 @@ Since we'll start with a basic Realms install, let's just create a single direct
 mkdir /var/data/realms/
 ```
 
-Create realms.env, and populate with the following variables (_if you intend to use an [oauth_proxy](/reference/oauth_proxy) to double-secure your installation, which I recommend_)
-```
-OAUTH2_PROXY_CLIENT_ID=
-OAUTH2_PROXY_CLIENT_SECRET=
-OAUTH2_PROXY_COOKIE_SECRET=
-```
-
 ### Setup Docker Swarm
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
@@ -55,33 +48,29 @@ version: "3"
 services:
   realms:
     image: realms/realms-wiki:latest
-    env_file: /var/data/config/realms/realms.env
     volumes:
       - /var/data/realms:/home/wiki/data
-    networks:
-      - internal
-
-  realms_proxy:
-    image: funkypenguin/oauth2_proxy:latest
-    env_file : /var/data/config/realms/realms.env
     networks:
       - internal
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:realms.funkypenguin.co.nz
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=4180
-    volumes:
-      - /var/data/config/realms/authenticated-emails.txt:/authenticated-emails.txt
-    command: |
-      -cookie-secure=false
-      -upstream=http://realms:5000
-      -redirect-url=https://realms.funkypenguin.co.nz
-      -http-address=http://0.0.0.0:4180
-      -email-domain=funkypenguin.co.nz
-      -provider=github
-      -authenticated-emails-file=/authenticated-emails.txt
+
+        # traefikv1
+        - traefik.frontend.rule=Host:realms.example.com
+        - traefik.port=5000     
+
+        # traefikv2
+        - "traefik.http.routers.realms.rule=Host(`realms.example.com`)"
+        - "traefik.http.services.realms.loadbalancer.server.port=5000"
+        - "traefik.enable=true"
+
+        # Remove if you wish to access the URL directly
+        - "traefik.http.routers.realms.middlewares=forward-auth@file"
+
 
 networks:
   traefik_public:
@@ -103,7 +92,8 @@ Launch the Wekan stack by running ```docker stack deploy realms -c <path -to-doc
 
 Log into your new instance at https://**YOUR-FQDN**, authenticate against oauth_proxy, and you're immediately presented with Realms wiki, waiting for a fresh edit ;)
 
-[^1]: If you wanted to expose the Realms UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the realms container. You'd also need to add the traefik_public network to the realms container.
-[^2]: The inclusion of Realms was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz). Thanks gkoerk!
+[^1]: If you wanted to expose the realms UI directly, you could remove the traefik-forward-auth from the design.
+
+[^3]: The inclusion of Bitwarden was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz)- Unfortunately on the 22nd August 2020 Jerry passed away. Jerry was very passionate and highly regarded in the field of Information Technology. He will be missed.
 
 --8<-- "recipe-footer.md"
