@@ -44,11 +44,6 @@ TZ='Etc/UTC'
 
 # For mysql
 MYSQL_ROOT_PASSWORD=password
-
-#oauth2_proxy
-OAUTH2_PROXY_CLIENT_ID=
-OAUTH2_PROXY_CLIENT_SECRET=
-OAUTH2_PROXY_COOKIE_SECRET=
 ```
 
 Create ```/var/data/config/elkarbackup/elkarbackup-db-backup.env```, and populate with the following, to setup the nightly database dump.
@@ -111,33 +106,30 @@ services:
     env_file: /var/data/config/elkarbackup/elkarbackup.env
     networks:
       - internal
+      - traefik_public
     volumes:
        - /etc/localtime:/etc/localtime:ro
        - /var/data/:/var/data
        - /var/data/elkarbackup/backups:/app/backups
        - /var/data/elkarbackup/uploads:/app/uploads
        - /var/data/elkarbackup/sshkeys:/app/.ssh
+    deploy:
+      labels:
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
 
-   proxy:
-     image: funkypenguin/oauth2_proxy
-     env_file: /var/data/config/elkarbackup/elkarbackup.env
-     networks:
-       - traefik_public
-       - internal
-     deploy:
-       labels:
-         - traefik.frontend.rule=Host:elkarbackup.example.com
-         - traefik.port=4180
-     volumes:
-       - /var/data/config/traefik/authenticated-emails.txt:/authenticated-emails.txt
-     command: |
-       -cookie-secure=false
-       -upstream=http://app:80
-       -redirect-url=https://elkarbackup.example.com
-       -http-address=http://0.0.0.0:4180
-       -email-domain=example.com
-       -provider=github
-       -authenticated-emails-file=/authenticated-emails.txt
+        # traefikv1
+        - traefik.frontend.rule=Host:elkarbackup.example.com
+        - traefik.port=80     
+
+        # traefikv2
+        - "traefik.http.routers.elkarbackup.rule=Host(`elkarbackup.example.com`)"
+        - "traefik.http.services.elkarbackup.loadbalancer.server.port=80"
+        - "traefik.enable=true"
+
+        # Remove if you wish to access the URL directly
+        - "traefik.http.routers.elkarbackup.middlewares=forward-auth@file"
 
 networks:
   traefik_public:
@@ -226,7 +218,7 @@ To restore files form a job, click on the "Restore" button in the WebUI, while o
 
 This takes you to a list of backup names and file paths. You can choose to download the entire contents of the backup from your browser as a .tar.gz, or to restore the backup to the client. If you click on the **name** of the backup, you can also drill down into the file structure, choosing to restore a single file or directory.
 
-[^1]: If you wanted to expose the ElkarBackup UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the app service. You'd also need to add the traefik_public network to the app service.
+[^1]: If you wanted to expose the ElkarBackup UI directly, you could remove the traefik-forward-auth from the design.
 [^2]: The original inclusion of ElkarBackup was due to the efforts of @gpulido in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Gabriel!
 
 --8<-- "recipe-footer.md"
