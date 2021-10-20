@@ -10,13 +10,13 @@ description: Terminal in a browser, baby!
 
 ## Why would you need SSH in a browser window?
 
-Need shell access to a node with no external access? Deploy Wetty behind an [oauth_proxy](/reference/oauth_proxy/) with a SSL-terminating reverse proxy ([traefik](/ha-docker-swarm/traefik/)), and suddenly you have the means to SSH to your private host from any web browser (_protected by your [oauth_proxy](/reference/oauth_proxy/) of course, and your OAuth provider's 2FA_)
+Need shell access to a node with no external access? Deploy Wetty behind an [traefik-forward-auth](/ha-docker-swarm/traefik-forward-auth/) with a SSL-terminating reverse proxy ([traefik](/ha-docker-swarm/traefik/)), and suddenly you have the means to SSH to your private host from any web browser (_protected by your [traefik-forward-auth](/ha-docker-swarm/traefik-forward-auth/) of course._)
 
 Here are some other possible use cases:
 
 1. Access to SSH / CLI from an environment where outgoing SSH is locked down, or SSH client isn't / can't be installed. (_i.e., a corporate network_)
 2. Access to long-running processes inside a tmux session (_like [irrsi](https://irssi.org/)_)
-3. Remote access to a VM / [container running Kali linux](https://github.com/offensive-security/kali-linux-docker), for penetration testing
+3. Remote access to a VM / [container running Kali linux](https://gitlab.com/kalilinux/build-scripts/kali-docker), for penetration testing
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -24,12 +24,8 @@ Here are some other possible use cases:
 
 ### Prepare environment
 
-Create wetty.env, and populate with the following variables per the [oauth_proxy](/reference/oauth_proxy/) instructions:
+Create wetty.env, and populate with the following variables
 ```
-OAUTH2_PROXY_CLIENT_ID=
-OAUTH2_PROXY_CLIENT_SECRET=
-OAUTH2_PROXY_COOKIE_SECRET=
-
 # To use WeTTY to SSH to a host besides the (mostly useless) alpine container it comes with
 SSHHOST=batcomputer.batcave.com
 SSHUSER=batman
@@ -47,29 +43,24 @@ services:
   wetty:
     image: krishnasrinivas/wetty
     env_file : /var/data/config/wetty/wetty.env
-    networks:
-        - internal
-  proxy:
-    image: funkypenguin/oauth2_proxy:latest
-    env_file: /var/data/config/wetty/wetty.env
+    deploy:
+      labels:
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
+
+        # traefikv1
+        - traefik.frontend.rule=Host:wetty.example.com
+        - traefik.port=3000     
+
+        # traefikv2
+        - "traefik.http.routers.wetty.rule=Host(`wetty.example.com`)"
+        - "traefik.http.services.wetty.loadbalancer.server.port=3000"
+        - "traefik.enable=true"
+        - "traefik.http.routers.wetty.middlewares=forward-auth@file"
     networks:
       - internal
       - traefik_public
-    deploy:
-      labels:
-        - traefik.frontend.rule=Host:wetty.funkypenguin.co.nz
-        - traefik.docker.network=traefik_public
-        - traefik.port=4180
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /var/data/config/wetty/authenticated-emails.txt:/authenticated-emails.txt
-    command: |
-      -cookie-secure=false
-      -upstream=http://wetty:3000
-      -redirect-url=https://wetty.funkypenguin.co.nz
-      -http-address=http://0.0.0.0:4180
-      -provider=github
-      -authenticated-emails-file=/authenticated-emails.txt
 
 networks:
   traefik_public:
