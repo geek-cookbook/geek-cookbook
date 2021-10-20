@@ -33,17 +33,6 @@ Create the location for the bind-mount of the application data, so that it's per
 mkdir -p /var/data/kanboard
 ```
 
-### Setup Environment
-
-If you intend to use an [OAuth proxy](/reference/oauth_proxy/) to further secure public access to your instance, create a ```kanboard.env``` file to hold your environment variables, and populate with your OAuth provider's details (_the cookie secret you can just make up_):
-
-```
-# If you decide to protect kanboard with an oauth_proxy, complete these
-OAUTH2_PROXY_CLIENT_ID=
-OAUTH2_PROXY_CLIENT_SECRET=
-OAUTH2_PROXY_COOKIE_SECRET=
-```
-
 ### Setup Docker Swarm
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
@@ -59,34 +48,22 @@ services:
     volumes:
      - /var/data/kanboard:/var/www/app/
     networks:
-    - internal
+      - internal
+      - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:kanboard.example.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=80
 
-    proxy:
-      image: a5huynh/oauth2_proxy
-      env_file : /var/data/config/kanboard/kanboard.env
-      networks:
-        - internal
-        - traefik_public
-      deploy:
-        labels:
-          - traefik.frontend.rule=Host:kanboard.example.com
-          - traefik.docker.network=traefik_public
-          - traefik.port=4180
-      volumes:
-        - /var/data/config/kanboard/authenticated-emails.txt:/authenticated-emails.txt
-      command: |
-        -cookie-secure=false
-        -upstream=http://app
-        -redirect-url=https://kanboard.example.com
-        -http-address=http://0.0.0.0:4180
-        -email-domain=example.com
-        -provider=github
-        -authenticated-emails-file=/authenticated-emails.txt
+        # traefikv1
+        - traefik.frontend.rule=Host:kanboard.example.com
+        - traefik.port=80     
+
+        # traefikv2
+        - "traefik.http.routers.kanboard.rule=Host(`kanboard.example.com`)"
+        - "traefik.http.services.kanboard.loadbalancer.server.port=80"
+        - "traefik.enable=true"
 
 networks:
   traefik_public:
