@@ -67,33 +67,29 @@ services:
     volumes:
       - /var/data/runtime/bookstack/db:/var/lib/mysql
 
-  proxy:
-    image: a5huynh/oauth2_proxy
-    env_file : /var/data/config/bookstack/bookstack.env
-    networks:
-      - internal
-      - traefik_public
-    deploy:
-      labels:
-        - traefik.frontend.rule=Host:bookstack.example.com
-        - traefik.docker.network=traefik_public
-        - traefik.port=4180
-    volumes:
-      - /var/data/config/bookstack/authenticated-emails.txt:/authenticated-emails.txt
-    command: |
-      -cookie-secure=false
-      -upstream=http://app
-      -redirect-url=https://bookstack.example.com
-      -http-address=http://0.0.0.0:4180
-      -email-domain=example.com
-      -provider=github
-      -authenticated-emails-file=/authenticated-emails.txt
-
   app:
     image: solidnerd/bookstack
     env_file: /var/data/config/bookstack/bookstack.env
     networks:
       - internal
+      - traefik_public
+    deploy:
+      labels:
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
+
+        # traefikv1
+        - traefik.frontend.rule=Host:bookstack.example.com
+        - traefik.port=4180     
+
+        # traefikv2
+        - "traefik.http.routers.bookstack.rule=Host(`bookstack.example.com`)"
+        - "traefik.http.services.bookstack.loadbalancer.server.port=4180"
+        - "traefik.enable=true"
+
+        # Remove if you wish to access the URL directly
+        - "traefik.http.routers.bookstack.middlewares=forward-auth@file"
 
   db-backup:
     image: mariadb:10
@@ -134,6 +130,6 @@ Launch the BookStack stack by running ```docker stack deploy bookstack -c <path 
 
 Log into your new instance at https://**YOUR-FQDN**, authenticate with oauth_proxy, and then login with username 'admin@admin.com' and password 'password'.
 
-[^1]: If you wanted to expose the BookStack UI directly, you could remove the oauth2_proxy from the design, and move the traefik_public-related labels directly to the bookstack container. You'd also need to add the traefik_public network to the bookstack container.
+[^1]: If you wanted to expose the Bookstack UI directly, you could remove the traefik-forward-auth from the design.
 
 --8<-- "recipe-footer.md"
