@@ -49,9 +49,18 @@ services:
       - /var/data/media:/media
     deploy:
       labels:
-        - traefik.frontend.rule=Host:plex.example.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=32400
+
+        # traefikv1
+        - traefik.frontend.rule=Host:plex.example.com
+        - traefik.port=32400     
+
+        # traefikv2
+        - "traefik.http.routers.plex.rule=Host(`plex.example.com`)"
+        - "traefik.http.services.plex.loadbalancer.server.port=32400"
+        - "traefik.enable=true"
     networks:
         - traefik_public
         - internal
