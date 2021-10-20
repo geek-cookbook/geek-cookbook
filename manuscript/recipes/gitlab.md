@@ -114,7 +114,7 @@ networks:
 
 Launch the mail server stack by running ```docker stack deploy gitlab -c <path -to-docker-compose.yml>```
 
-Log into your new instance at <https://[your> FQDN], with user "root" and the password you specified in gitlab.env.
+Log into your new instance at `https://[your FQDN]`, with user "root" and the password you specified in gitlab.env.
 
 [^1]: I use the **sameersbn/gitlab:latest** image, rather than a specific version. This lets me execute updates simply by redeploying the stack (and why **wouldn't** I want the latest version?)
 
