@@ -1,0 +1,24 @@
+name: 'mkdocs sanity check'
+on: 
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  mkdocs-sanity-check:
+    name: Check mkdocs builds successfully
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+        architecture: x64
+
+    - name: Install requirements
+      run: python3 -m pip install -r requirements.txt
+
+    - name: Test mkdocs builds
+      run: python3 -m mkdocs build
