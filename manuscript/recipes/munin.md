@@ -1,4 +1,3 @@
-
 ---
 description: Network resource monitoring tool for quick analysis
 ---
@@ -23,7 +22,7 @@ Depending on what you want to monitor, you'll want to install munin-node. On Ubu
 
 On CentOS Atomic, of course, you can't install munin-node directly, but you can run it as a containerized instance. In this case, you can't use swarm since you need the container running in privileged mode, so launch a munin-node container on each atomic host using:
 
-```
+```bash
 docker run -d --name munin-node --restart=always \
   --privileged --net=host \
   -v /:/rootfs:ro \
@@ -38,7 +37,7 @@ docker run -d --name munin-node --restart=always \
 
 We'll need several directories to bind-mount into our container, so create them in /var/data/munin:
 
-```
+```bash
 mkdir /var/data/munin
 cd /var/data/munin
 mkdir -p {log,lib,run,cache}
@@ -48,7 +47,7 @@ mkdir -p {log,lib,run,cache}
 
 Create /var/data/config/munin/munin.env, and populate with the following variables. Use the OAUTH2 variables if you plan to use an [oauth2_proxy](/reference/oauth_proxy/) to protect munin, and set at a **minimum** the `MUNIN_USER`, `MUNIN_PASSWORD`, and `NODES` values:
 
-```
+```bash
 # Use these if you plan to protect the webUI with an oauth_proxy
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=

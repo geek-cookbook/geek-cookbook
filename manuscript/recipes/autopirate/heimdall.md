@@ -2,6 +2,7 @@
 description: Heimdall is a beautiful dashboard for all your web applications
 ---
 # Heimdall
+
 !!! warning
     This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 

@@ -22,7 +22,6 @@ Support for editing eBook metadata and deleting eBooks from Calibre library
 * Support for reading eBooks directly in the browser (.txt, .epub, .pdf, .cbr, .cbt, .cbz)
 * Upload new books in PDF, epub, fb2 format
 
-
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -31,7 +30,7 @@ Support for editing eBook metadata and deleting eBooks from Calibre library
 
 We'll need a directory to store some config data for Calibre-Web, container, so create /var/data/calibre-web, and ensure the directory is owned by the same use which owns your Calibre data (below)
 
-```
+```bash
 mkdir /var/data/calibre-web
 chown calibre:calibre /var/data/calibre-web # for example
 ```
@@ -42,7 +41,7 @@ Ensure that your Calibre library is accessible to the swarm (_i.e., exists on sh
 
 We'll use an [oauth-proxy](/reference/oauth_proxy/) to protect the UI from public access, so create calibre-web.env, and populate with the following variables:
 
-```
+```bash
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=<make this a random string>
@@ -51,7 +50,6 @@ PGID=
 ```
 
 Follow the [instructions](https://github.com/bitly/oauth2_proxy) to setup your oauth provider. You need to setup a unique key/secret for each instance of the proxy you want to run, since in each case the callback URL will differ.
-
 
 ### Setup Docker Swarm
 

@@ -44,7 +44,7 @@ The process takes about 30 seconds, after which, you'll have a MVC (*Minimum Via
 ??? "Example output from a fresh cephadm bootstrap"
     ```
     root@raphael:~# MYIP=`ip route get 1.1.1.1 | grep -oP 'src \K\S+'`
-    root@raphael:~# curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
+    root@raphael:~# curl --silent --remote-name --location <https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm>
 
     root@raphael:~# chmod +x cephadm
     root@raphael:~# mkdir -p /etc/ceph
@@ -130,7 +130,6 @@ The process takes about 30 seconds, after which, you'll have a MVC (*Minimum Via
     root@raphael:~#
     ```
 
-
 ### Prepare other nodes
 
 It's now necessary to tranfer the following files to your ==other== nodes, so that cephadm can add them to your cluster, and so that they'll be able to mount the cephfs when we're done:
@@ -141,11 +140,10 @@ It's now necessary to tranfer the following files to your ==other== nodes, so th
 | `/etc/ceph/ceph.client.admin.keyring` | `/etc/ceph/ceph.client.admin.keyring`                      |
 | `/etc/ceph/ceph.pub`                  | `/root/.ssh/authorized_keys` (append to anything existing) |
 
-
 Back on the ==master== node, run `ceph orch host add <node-name>` once for each other node you want to join to the cluster. You can validate the results by running `ceph orch host ls`
 
 !!! question "Should we be concerned about giving cephadm using root access over SSH?"
-    Not really. Docker is inherently insecure at the host-level anyway (*think what would happen if you launched a global-mode stack with a malicious container image which mounted `/root/.ssh`*), so worrying about cephadm seems a little barn-door-after-horses-bolted. If you take host-level security seriously, consider switching to [Kubernetes](/kubernetes/) :) 
+    Not really. Docker is inherently insecure at the host-level anyway (*think what would happen if you launched a global-mode stack with a malicious container image which mounted `/root/.ssh`*), so worrying about cephadm seems a little barn-door-after-horses-bolted. If you take host-level security seriously, consider switching to [Kubernetes](/kubernetes/) :)
 
 ### Add OSDs
 
@@ -184,7 +182,6 @@ mount -a
     mount -a
     ```
 
-
 ## Serving
 
 ### Sprinkle with tools
@@ -199,7 +196,7 @@ cephadm install ceph-common
 
 ### Drool over dashboard
 
-Ceph now includes a comprehensive dashboard, provided by the mgr daemon. The dashboard will be accessible at https://[IP of your ceph master node]:8443, but you'll need to run `ceph dashboard ac-user-create <username> <password> administrator` first, to create an administrator account:
+Ceph now includes a comprehensive dashboard, provided by the mgr daemon. The dashboard will be accessible at `https://[IP of your ceph master node]:8443`, but you'll need to run `ceph dashboard ac-user-create <username> <password> administrator` first, to create an administrator account:
 
 ```
 root@raphael:~# ceph dashboard ac-user-create batman supermansucks administrator
@@ -223,11 +220,7 @@ What have we achieved?
 Here's a screencast of the playbook in action. I sped up the boring parts, it actually takes ==5 min== (*you can tell by the timestamps on the prompt*):
 
 ![Screencast of ceph install via ansible](https://static.funkypenguin.co.nz/ceph_install_via_ansible_playbook.gif)
-[patreon]:	        https://www.patreon.com/bePatron?u=6982506
-[github_sponsor]:   https://github.com/sponsors/funkypenguin
-
-
-
-
+[patreon]:         <https://www.patreon.com/bePatron?u=6982506>
+[github_sponsor]:   <https://github.com/sponsors/funkypenguin>
 
 --8<-- "recipe-footer.md"

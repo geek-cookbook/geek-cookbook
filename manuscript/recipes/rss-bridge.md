@@ -10,7 +10,6 @@ Do you hate having to access multiple sites to view specific content? [RSS-Bridg
 
 --8<-- "recipe-standard-ingredients.md"
 
-
 ## Preparation
 
 ### Setup data locations

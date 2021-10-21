@@ -13,13 +13,13 @@ This recipe utilises the [traefik helm chart](https://github.com/helm/charts/tre
 
 Clone the helm charts, by running:
 
-```
+```bash
 git clone https://github.com/helm/charts
 ```
 
 Change to stable/traefik:
 
-```
+```bash
 cd charts/stable/traefik
 ```
 
@@ -29,7 +29,7 @@ The beauty of the helm approach is that all the complexity of the Kubernetes ele
 
 These are my values, you'll need to adjust for your own situation:
 
-```
+```yaml
 imageTag: alpine
 serviceType: NodePort
 # yes, we're not listening on 80 or 443 because we don't want to pay for a loadbalancer IP to do this. I use poor-mans-k8s-lb instead
@@ -101,7 +101,7 @@ Since we deployed Traefik using helm, we need to take a slightly different appro
 
 Create phone-home.yaml as follows:
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -141,7 +141,7 @@ spec:
 
 Create your webhook token secret by running:
 
-```
+```bash
 echo -n "imtoosecretformyshorts" > webhook_token.secret
 kubectl create secret generic traefik-credentials --from-file=webhook_token.secret
 ```
@@ -169,20 +169,20 @@ Run ```kubectl create -f phone-home.yaml``` to create the pod.
 
 Run ```kubectl get pods -o wide``` to confirm that both the phone-home pod and the traefik pod are on the same node:
 
-```
+```bash
 # kubectl get pods -o wide
 NAME                       READY     STATUS              RESTARTS   AGE       IP           NODE
 phonehome-traefik          1/1       Running             0          20h       10.56.2.55   gke-penguins-are-sexy-8b85ef4d-2c9g
 traefik-69db67f64c-5666c   1/1       Running             0          10d       10.56.2.30   gkepenguins-are-sexy-8b85ef4d-2c9g
 ```
 
-Now browse to https://<your load balancer>, and you should get a valid SSL cert, along with a 404 error (_you haven't deployed any other recipes yet_)
+Now browse to `https://<your load balancer`, and you should get a valid SSL cert, along with a 404 error (_you haven't deployed any other recipes yet_)
 
 ### Making changes
 
 If you change a value in values.yaml, and want to update the traefik pod, run:
 
-```
+```bash
 helm upgrade --values values.yml traefik stable/traefik --recreate-pods
 ```
 

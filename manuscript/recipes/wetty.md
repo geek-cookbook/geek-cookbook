@@ -25,7 +25,8 @@ Here are some other possible use cases:
 ### Prepare environment
 
 Create wetty.env, and populate with the following variables per the [oauth_proxy](/reference/oauth_proxy/) instructions:
-```
+
+```bash
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=

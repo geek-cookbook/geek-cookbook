@@ -28,8 +28,8 @@ Recipe                      | Description                                       
 
 Also available via:
 
-* Mastodon: https://mastodon.social/@geekcookbook_changes
-* RSS: https://mastodon.social/@geekcookbook_changes.rss
+* Mastodon: <https://mastodon.social/@geekcookbook_changes>
+* RSS: <https://mastodon.social/@geekcookbook_changes.rss>
 * The #changelog channel in our [Discord server](http://chat.funkypenguin.co.nz)
 
 --8<-- "common-links.md"
