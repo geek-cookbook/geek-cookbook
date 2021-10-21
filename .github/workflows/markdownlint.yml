@@ -5,7 +5,7 @@ on:
 
 jobs:
   lint-markdown:
-    name: Lint changelog file
+    name: Lint markdown
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
@@ -14,6 +14,6 @@ jobs:
     - name: Lint markdown files
       uses: docker://avtodev/markdown-lint:v1 # fastest way
       with:
-        config: '/.markdownlint.yml'
+        config: '/.markdownlint.yaml'
         args: '/**/*.md'
         ignore: '_snippets' # multiple files must be separated with single space
