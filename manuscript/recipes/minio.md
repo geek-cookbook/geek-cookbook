@@ -25,7 +25,7 @@ Possible use-cases:
 
 ### Setup data locations
 
-We'll need a directory to hold our minio file store. You can create a blank directory wherever you like (I used `/var/data/minio`), or point the `/data` volume to a pre-existing folder structure.
+We'll need a directory to hold our minio file store. You can create a blank directory wherever you like (*I used `/var/data/minio`*), or point the `/data` volume to a pre-existing folder structure.
 
 ```bash
 mkdir /var/data/minio
@@ -33,7 +33,7 @@ mkdir /var/data/minio
 
 ### Prepare environment
 
-Create minio.env, and populate with the following variables. `MINIO_BROWSER_REDIRECT_URL` is especially important since recent versions of Minio will redirect web browsers to this URL when they hit the API directly. (*If you find yourself redirected to `http://your-minio-url:9001`, then you've not set this value correctly!*)
+Create `minio.env`, and populate with the variables below.
 
 ```bash
 MINIO_ROOT_USER=hackme
@@ -41,6 +41,10 @@ MINIO_ROOT_PASSWORD=becauseiforgottochangethepassword
 MINIO_BROWSER_REDIRECT_URL=https://minio-console.example.com
 MINIO_SERVER_URL=https://minio.example.com
 ```
+
+!!! note "If minio redirects you to :9001"
+    `MINIO_BROWSER_REDIRECT_URL` is especially important since recent versions of Minio will redirect web browsers to this URL when they hit the API directly. (*If you find yourself redirected to `http://your-minio-url:9001`, then you've not set this value correctly!*)
+
 
 ### Setup Docker Swarm
 
@@ -118,7 +122,7 @@ If all you need is single-user access to your data, you're done! 🎉
 
 If, however, you want to expose data to multiple users, at different privilege levels, you'll need the minio client to create some users and (_potentially_) policies...
 
-## Minio Trickz
+## Minio Trickz :clown:
 
 ### Setup minio client
 
