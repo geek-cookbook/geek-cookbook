@@ -14,6 +14,6 @@ jobs:
     - name: Lint markdown files
       uses: docker://avtodev/markdown-lint:v1 # fastest way
       with:
-        config: '/.markdownlint.yaml'
-        args: '/**/*.md'
+        config: '.markdownlint.yaml'
+        args: '**/*.md'
         ignore: '_snippets' # multiple files must be separated with single space
