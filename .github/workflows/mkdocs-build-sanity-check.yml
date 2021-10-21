@@ -1,7 +1,7 @@
 name: 'mkdocs sanity check'
 on: 
   pull_request:
-    types: [opened, edited, synchronize]
+    types: [opened, synchronize]
 
 jobs:
   mkdocs-sanity-check:
