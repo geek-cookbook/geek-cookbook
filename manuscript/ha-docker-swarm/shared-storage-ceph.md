@@ -29,7 +29,7 @@ One of your nodes will become the cephadm "master" node. Although all nodes will
 
 Run the following on the ==master== node:
 
-```
+```bash
 MYIP=`ip route get 1.1.1.1 | grep -oP 'src \K\S+'`
 curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
 chmod +x cephadm
@@ -159,7 +159,7 @@ You can watch the progress by running `ceph fs ls` (to see the fs is configured)
 
 On ==every== node, create a mountpoint for the data, by running ```mkdir /var/data```, add an entry to fstab to ensure the volume is auto-mounted on boot, and ensure the volume is actually _mounted_ if there's a network / boot delay getting access to the gluster volume:
 
-```
+```bash
 mkdir /var/data
 
 MYNODES="<node1>,<node2>,<node3>" # Add your own nodes here, comma-delimited
@@ -188,7 +188,7 @@ mount -a
 
 Although it's possible to use `cephadm shell` to exec into a container with the necessary ceph tools, it's more convenient to use the native CLI tools. To this end, on each node, run the following, which will install the appropriate apt repository, and install the latest ceph CLI tools:
 
-```
+```bash
 curl -L https://download.ceph.com/keys/release.asc | sudo apt-key add -
 cephadm add-repo --release octopus
 cephadm install ceph-common
@@ -198,7 +198,7 @@ cephadm install ceph-common
 
 Ceph now includes a comprehensive dashboard, provided by the mgr daemon. The dashboard will be accessible at `https://[IP of your ceph master node]:8443`, but you'll need to run `ceph dashboard ac-user-create <username> <password> administrator` first, to create an administrator account:
 
-```
+```bash
 root@raphael:~# ceph dashboard ac-user-create batman supermansucks administrator
 {"username": "batman", "password": "$2b$12$3HkjY85mav.dq3HHAZiWP.KkMiuoV2TURZFH.6WFfo/BPZCT/0gr.", "roles": ["administrator"], "name": null, "email": null, "lastUpdate": 1590372281, "enabled": true, "pwdExpirationDate": null, "pwdUpdateRequired": false}
 root@raphael:~#
