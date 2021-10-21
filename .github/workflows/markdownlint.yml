@@ -1,0 +1,19 @@
+name: 'Lint Markdown'
+on: 
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  lint-markdown:
+    name: Lint changelog file
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Lint markdown files
+      uses: docker://avtodev/markdown-lint:v1 # fastest way
+      with:
+        config: '/.markdownlint.yml'
+        args: '/**/*.md'
+        ignore: '_snippets' # multiple files must be separated with single space
