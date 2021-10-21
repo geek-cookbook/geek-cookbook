@@ -49,7 +49,7 @@ staticPasswords:
 
 Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.env` as follows:
 
-```
+```bash
 DEFAULT_PROVIDER: oidc
 PROVIDERS_OIDC_CLIENT_ID: foo                         # This is the staticClients.id value in config.yml above
 PROVIDERS_OIDC_CLIENT_SECRET: bar                     # This is the staticClients.secret value in config.yml above
@@ -176,7 +176,7 @@ Once you redeploy traefik-forward-auth with the above, it **should** use dex as 
 
 ### Test
 
-Browse to https://whoami.example.com (_obviously, customized for your domain and having created a DNS record_), and all going according to plan, you'll be redirected to a CoreOS Dex login. Once successfully logged in, you'll be directed to the basic whoami page :thumbsup:
+Browse to <https://whoami.example.com> (_obviously, customized for your domain and having created a DNS record_), and all going according to plan, you'll be redirected to a CoreOS Dex login. Once successfully logged in, you'll be directed to the basic whoami page :thumbsup:
 
 ### Protect services
 

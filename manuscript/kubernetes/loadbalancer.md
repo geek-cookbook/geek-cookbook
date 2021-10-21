@@ -31,14 +31,14 @@ We **could** run our webhook as a simple HTTP listener, but really, in a world w
 
 In my case, since I use CloudFlare, I create /etc/webhook/letsencrypt/cloudflare.ini:
 
-```
+```ini
 dns_cloudflare_email=davidy@funkypenguin.co.nz
 dns_cloudflare_api_key=supersekritnevergonnatellyou
 ```
 
 I request my cert by running:
 
-```
+```bash
 cd /etc/webhook/
 docker run -ti --rm -v "$(pwd)"/letsencrypt:/etc/letsencrypt certbot/dns-cloudflare --preferred-challenges dns certonly --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini -d ''*.funkypenguin.co.nz'
 ```
@@ -48,7 +48,7 @@ Why use a wildcard cert? So my enemies can't examine my certs to enumerate my va
 
 I add the following as a cron command to renew my certs every day:
 
-```
+```bash
 cd /etc/webhook && docker run -ti --rm -v "$(pwd)"/letsencrypt:/etc/letsencrypt certbot/dns-cloudflare renew --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini
 ```
 
@@ -56,13 +56,13 @@ Once you've confirmed you've got a valid LetsEncrypt certificate stored in `/etc
 
 ### Install webhook
 
-We're going to use https://github.com/adnanh/webhook to run our webhook. On some distributions (_❤️ ya, Debian!_), webhook and its associated systemd config can be installed by running `apt-get install webhook`.
+We're going to use <https://github.com/adnanh/webhook> to run our webhook. On some distributions (_❤️ ya, Debian!_), webhook and its associated systemd config can be installed by running `apt-get install webhook`.
 
 ### Create webhook config
 
 We'll create a single webhook, by creating `/etc/webhook/hooks.json` as follows. Choose a nice secure random string for your MY_TOKEN value!
 
-```
+```bash
 mkdir /etc/webhook
 export MY_TOKEN=ilovecheese
 echo << EOF > /etc/webhook/hooks.json
@@ -100,8 +100,8 @@ echo << EOF > /etc/webhook/hooks.json
       {
         "type": "value",
         "value": "$MY_TOKEN",
-	"parameter":
-	{
+ "parameter":
+ {
         "source": "header",
         "name": "X-Funkypenguin-Token"
       }
@@ -122,7 +122,7 @@ This section is particular to Debian Stretch and its webhook package. If you're 
 
 Since we want to force webhook to run in secure mode (_no point having a token if it can be extracted from a simple packet capture!_) I ran `systemctl edit webhook`, and pasted in the following:
 
-```
+```bash
 [Service]
 # Override the default (non-secure) behaviour of webhook by passing our certificate details and custom hooks.json location
 ExecStart=
@@ -135,7 +135,7 @@ Then I restarted webhook by running `systemctl enable webhook && systemctl resta
 
 When successfully authenticated with our top-secret token, our webhook will execute a local script, defined as follows (_yes, you should create this file_):
 
-```
+```bash
 #!/bin/bash
 
 NAME=$1
@@ -153,9 +153,9 @@ fi
 
 # Either add or remove a service based on $ACTION
 case $ACTION in
-	add)
-		# Create the portion of haproxy config
-		cat << EOF > /etc/webhook/haproxy/$FRONTEND_PORT.inc
+ add)
+  # Create the portion of haproxy config
+  cat << EOF > /etc/webhook/haproxy/$FRONTEND_PORT.inc
 ### >> Used to run $NAME:${FRONTEND_PORT}
 frontend ${FRONTEND_PORT}_frontend
   bind *:$FRONTEND_PORT
@@ -170,13 +170,13 @@ backend ${FRONTEND_PORT}_backend
   server s1 $DST_IP:$BACKEND_PORT
 ### << Used to run $NAME:$FRONTEND_PORT
 EOF
-		;;
-	delete)
-		rm /etc/webhook/haproxy/$FRONTEND_PORT.inc
-		;;
-	*)
-		echo "Invalid action $ACTION"
-		exit 2
+  ;;
+ delete)
+  rm /etc/webhook/haproxy/$FRONTEND_PORT.inc
+  ;;
+ *)
+  echo "Invalid action $ACTION"
+  exit 2
 esac
 
 # Concatenate all the haproxy configs into a single file
@@ -188,8 +188,8 @@ haproxy -f /etc/webhook/haproxy/pre_validate.cfg -c
 # If validation was successful, only _then_ copy it over to /etc/haproxy/haproxy.cfg, and reload
 if [[ $? -gt 0 ]]
 then
-	echo "HAProxy validation failed, not continuing"
-	exit 2
+ echo "HAProxy validation failed, not continuing"
+ exit 2
 else
   # Remember what the original file looked like
   m1=$(md5sum "/etc/haproxy/haproxy.cfg")
@@ -212,7 +212,7 @@ fi
 
 Create `/etc/webhook/haproxy/global` and populate with something like the following. This will be the non-dynamically generated part of our HAProxy config:
 
-```
+```ini
 global
         log /dev/log    local0
         log /dev/log    local1 notice
@@ -256,7 +256,7 @@ defaults
 
 ### Take the bait!
 
-Whew! We now have all the components of our automated load-balancing solution in place. Browse to your VM's FQDN at https://whatever.it.is:9000/hooks/update-haproxy, and you should see the text "_Hook rules were not satisfied_", with a valid SSL certificate (_You didn't send a token_).
+Whew! We now have all the components of our automated load-balancing solution in place. Browse to your VM's FQDN at <https://whatever.it.is:9000/hooks/update-haproxy>, and you should see the text "_Hook rules were not satisfied_", with a valid SSL certificate (_You didn't send a token_).
 
 If you don't see the above, then check the following:
 
@@ -267,7 +267,7 @@ If you don't see the above, then check the following:
 
 You'll see me use this design in any Kubernetes-based recipe which requires container-specific ports, like UniFi. Here's an excerpt of the .yml which defines the UniFi controller:
 
-```
+```yaml
 <snip>
 spec:
   containers:
@@ -305,7 +305,7 @@ The takeaways here are:
 
 Here's what the webhook logs look like when the above is added to the UniFi deployment:
 
-```
+```bash
 Feb 06 23:04:28 haproxy2 webhook[1433]: [webhook] 2019/02/06 23:04:28 Started POST /hooks/update-haproxy
 Feb 06 23:04:28 haproxy2 webhook[1433]: [webhook] 2019/02/06 23:04:28 update-haproxy got matched
 Feb 06 23:04:28 haproxy2 webhook[1433]: [webhook] 2019/02/06 23:04:28 update-haproxy hook triggered successfully

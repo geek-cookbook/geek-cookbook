@@ -3,6 +3,7 @@ description: LazyLibrarian is a tool to follow authors and grab metadata for all
 ---
 
 # LazyLibrarian
+
 !!! warning
     This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 

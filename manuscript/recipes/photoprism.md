@@ -6,7 +6,6 @@ description: ML-powered private photo hosting
 
 [Photoprism™](https://github.com/photoprism/photoprism) "is a server-based application for browsing, organizing and sharing your personal photo collection. It makes use of the latest technologies to automatically tag and find pictures without getting in your way. Say goodbye to solutions that force you to upload your visual memories to the cloud."
 
-
 ![Photoprism Screenshot](../images/photoprism.png)
 
 --8<-- "recipe-standard-ingredients.md"
@@ -16,13 +15,14 @@ description: ML-powered private photo hosting
 ### Setup data locations
 
 First we need a folder to map the photoprism config file:
-```
+
+```bash
 mkdir /var/data/photoprism/config
 ```
 
 We will need a location to store photoprism thumbnails, as they can be recreated anytime (althought depending on your collection size it could take a while), we store them on a "non-backed-up" folder
 
-```
+```bash
 mkdir /var/data/runtime/photoprism/cache
 ```
 
@@ -36,7 +36,7 @@ In order to be able to import/export files from / to  the originals folder make 
 
 Photoprism has with its own running db, but if your collection is big (10K photos or more), the perfomance is best using an external db instance. We will use MariaDb, so we need the folders for running and backing the db:
 
-```
+```bash
 mkdir /var/data/runtime/photoprism/db
 mkdir /var/data/photoprism/database-dump
 ```
@@ -45,7 +45,7 @@ mkdir /var/data/photoprism/database-dump
 
 Create ```photoprism.env```, and populate with the following variables. Change passwords
 
-```
+```bash
 PHOTOPRISM_URL=https://photoprism.example.com
 PHOTOPRISM_TITLE=PhotoPrism
 PHOTOPRISM_SUBTITLE=Browse your life
@@ -77,7 +77,7 @@ MYSQL_DATABASE=photoprism
 
 Now create a **separate** photoprism-db-backup.env file, to capture the environment variables necessary to perform the backup. (_If the same variables are shared with the mariadb container, they [cause issues](https://discourse.geek-kitchen.funkypenguin.co.nz/t/nextcloud-funky-penguins-geek-cookbook/254/3?u=funkypenguin) with database access_)
 
-````
+````bash
 # For database backup (keep 7 days daily backups)
 MYSQL_PWD=<set to something secure, same as MYSQL_ROOT_PASSWORD above>
 MYSQL_USER=root

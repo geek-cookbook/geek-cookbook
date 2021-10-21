@@ -36,7 +36,7 @@ While it's possible to configure traefik via docker command arguments, I prefer 
 
 Create `/var/data/traefikv2/traefik.toml` as follows:
 
-```
+```bash
 [global]
   checkNewVersion = true
 
@@ -87,7 +87,7 @@ Create `/var/data/traefikv2/traefik.toml` as follows:
 
 Create `/var/data/config/traefik/traefik.yml` as follows:
 
-```
+```yaml
 version: "3.2"
 
 # What is this?
@@ -116,7 +116,7 @@ networks:
 
 Create `/var/data/config/traefikv2/traefikv2.env` with the environment variables required by the provider you chose in the LetsEncrypt DNS Challenge section of `traefik.toml`. Full configuration options can be found in the [Traefik documentation](https://doc.traefik.io/traefik/https/acme/#providers). Route53 and CloudFlare examples are below.
 
-```
+```bash
 # Route53 example
 AWS_ACCESS_KEY_ID=<your-aws-key>
 AWS_SECRET_ACCESS_KEY=<your-aws-secret>
@@ -185,7 +185,7 @@ networks:
 
 Docker won't start a service with a bind-mount to a non-existent file, so prepare an empty acme.json and traefik.log (_with the appropriate permissions_) by running:
 
-```
+```bash
 touch /var/data/traefikv2/acme.json
 touch /var/data/traefikv2/traefik.log
 chmod 600 /var/data/traefikv2/acme.json
@@ -205,7 +205,7 @@ Likewise with the log file.
 
 First, launch the traefik stack, which will do nothing other than create an overlay network by running `docker stack deploy traefik -c /var/data/config/traefik/traefik.yml`
 
-```
+```bash
 [root@kvm ~]# docker stack deploy traefik -c /var/data/config/traefik/traefik.yml
 Creating network traefik_public
 Creating service traefik_scratch
@@ -214,7 +214,7 @@ Creating service traefik_scratch
 
 Now deploy the traefik application itself (*which will attach to the overlay network*) by running `docker stack deploy traefikv2 -c /var/data/config/traefikv2/traefikv2.yml`
 
-```
+```bash
 [root@kvm ~]# docker stack deploy traefikv2 -c /var/data/config/traefikv2/traefikv2.yml
 Creating service traefikv2_traefikv2
 [root@kvm ~]#
@@ -222,7 +222,7 @@ Creating service traefikv2_traefikv2
 
 Confirm traefik is running with `docker stack ps traefikv2`:
 
-```
+```bash
 root@raphael:~# docker stack ps traefikv2
 ID             NAME                                          IMAGE          NODE        DESIRED STATE   CURRENT STATE                ERROR     PORTS
 lmvqcfhap08o   traefikv2_app.dz178s1aahv16bapzqcnzc03p       traefik:v2.4   donatello   Running         Running 2 minutes ago                  *:443->443/tcp,*:80->80/tcp
@@ -231,11 +231,11 @@ root@raphael:~#
 
 ### Check Traefik Dashboard
 
-You should now be able to access[^1] your traefik instance on **https://traefik.<your domain\>** (*if your LetsEncrypt certificate is working*), or **http://<node IP\>:8080** (*if it's not*)- It'll look a little lonely currently (*below*), but we'll populate it as we add recipes :grin:
+You should now be able to access[^1] your traefik instance on `https://traefik.<your domain\>` (*if your LetsEncrypt certificate is working*), or `http://<node IP\>:8080` (*if it's not*)- It'll look a little lonely currently (*below*), but we'll populate it as we add recipes :grin:
 
 ![Screenshot of Traefik, post-launch](/images/traefik-post-launch.png)
 
-### Summary 
+### Summary
 
 !!! summary
     We've achieved:

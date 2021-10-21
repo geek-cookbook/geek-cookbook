@@ -15,21 +15,21 @@ _Unlike_ the Docker Swarm design, the Kubernetes design is:
 
 ## Design Decisions
 
-**The design and recipes are provider-agnostic**
+### The design and recipes are provider-agnostic**
 
 This means that:
 
 - The design should work on GKE, AWS, DigitalOcean, Azure, or even MicroK8s
 - Custom service elements specific to individual providers are avoided
 
-**The simplest solution to achieve the desired result will be preferred**
+### The simplest solution to achieve the desired result will be preferred**
 
 This means that:
 
 - Persistent volumes from the cloud provider are used for all persistent storage
 - We'll do things the "_Kubernetes way_", i.e., using secrets and configmaps, rather than trying to engineer around the Kubernetes basic building blocks.
 
-**Insofar as possible, the format of recipes will align with Docker Swarm**
+### Insofar as possible, the format of recipes will align with Docker Swarm**
 
 This means that:
 

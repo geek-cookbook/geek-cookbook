@@ -8,4 +8,4 @@
 
 ## Conventions
 
-1. When creating swarm networks, we always explicitly set the subnet in the overlay network, to avoid potential conflicts (_which docker won't prevent, but which will generate errors_) (https://github.com/moby/moby/issues/26912)
+1. When creating swarm networks, we always explicitly set the subnet in the overlay network, to avoid potential conflicts (_which docker won't prevent, but which will generate errors_) (<https://github.com/moby/moby/issues/26912>)

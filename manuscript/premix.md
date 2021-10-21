@@ -1,7 +1,7 @@
 # Premix Repository
 
  "Premix" is a private git repository available to [GitHub sponsors](https://github.com/sponsors/funkypenguin), which includes:
- 
+
  1. Necessary docker-compose and env files for all published recipes
  2. Ansible playbook for deploying the cookbook stack, as well as individual recipes
  3. Helm charts for deploying recipes into Kubernetes
@@ -15,8 +15,8 @@ Generally, each recipe with necessary files is contained within its own folder. 
 Here's a sample of the directory structure:
 
 ??? "What will I find in the pre-mix?"
-    ```
-    .
+    ```bash
+   .
     ├── README.md
     ├── ansible
     │   ├── README.md
@@ -154,7 +154,7 @@ Here's a sample of the directory structure:
     │   │   │   └── funkycore-1.0.0.tgz
     │   │   ├── templates
     │   │   │   ├── NOTES.txt
-    │   │   │   ├── _helpers.tpl
+│   │   │   ├──_helpers.tpl
     │   │   │   ├── apps
     │   │   │   │   ├── bazarr
     │   │   │   │   │   ├── config-pvc.yaml
@@ -228,7 +228,7 @@ Here's a sample of the directory structure:
     │   │   │   └── postgresql-8.3.0.tgz
     │   │   ├── myvalues.yaml
     │   │   ├── templates
-    │   │   │   ├── _helpers.tpl
+│   │   │   ├──_helpers.tpl
     │   │   │   ├── deployment.yaml
     │   │   │   ├── ingress
     │   │   │   │   ├── kube.yaml
@@ -496,7 +496,7 @@ Here's a sample of the directory structure:
     │   │   ├── Chart.yaml
     │   │   ├── templates
     │   │   │   ├── NOTES.TXT
-    │   │   │   ├── _helpers.tpl
+│   │   │   ├──_helpers.tpl
     │   │   │   ├── deployment.yaml
     │   │   │   ├── ingress
     │   │   │   │   ├── kube.yaml

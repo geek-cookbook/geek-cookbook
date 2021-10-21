@@ -1,18 +1,18 @@
+---
+description: A self-hosted internet archiving solution
+---
 # Archivebox
-
 
 [ArchiveBox](https://github.com/ArchiveBox/ArchiveBox) is a self-hosted internet archiving solution to collect and save sites you wish to view offline.
 
 ![Archivebox Screenshot](../images/archivebox.png)
 
+Features include:
 
-Features include
-
-* Uses standard formats such as HTML, JSON, PDF, PNG
-* Ability to autosave to [archive.org](https://github.com/ArchiveBox/ArchiveBox/wiki/Configuration#submit_archive_dot_org)
-* Supports Scheduled importing
-* Supports Realtime importing
-
+- Uses standard formats such as HTML, JSON, PDF, PNG
+- Ability to autosave to [archive.org](https://github.com/ArchiveBox/ArchiveBox/wiki/Configuration#submit_archive_dot_org)
+- Supports Scheduled importing
+- Supports Realtime importing
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -22,7 +22,7 @@ Features include
 
 First, we create a directory to hold the data which archivebox will store:
 
-```
+```bash
 mkdir /var/data/archivebox
 mkdir /var/data/config/archivebox
 cd /var/data/config/archivebox
@@ -72,12 +72,10 @@ networks:
     external: true
 ```
 
-
 ### Initalizing Archivebox
 
 Once you have created the docker file you will need to run the following command to configure archivebox and create an account.
 `docker run -v /var/data/archivebox:/data -it archivebox/archivebox init --setup`
-
 
 ## Serving
 
@@ -85,9 +83,6 @@ Once you have created the docker file you will need to run the following command
 
 Launch the Archivebox stack by running ```docker stack deploy archivebox -c <path -to-docker-compose.yml>```
 
-
-
 [^1]: The inclusion of Archivebox was due to the efforts of @bencey in Discord (Thanks Ben!)
-
 
 --8<-- "recipe-footer.md"
