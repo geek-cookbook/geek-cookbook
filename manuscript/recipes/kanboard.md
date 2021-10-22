@@ -19,7 +19,7 @@ Features include:
 * Free, open source and self-hosted
 * Super simple installation
 
-![](/images/kanboard.png)
+![Kanboard screenshot](/images/kanboard.png)
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -29,7 +29,7 @@ Features include:
 
 Create the location for the bind-mount of the application data, so that it's persistent:
 
-```
+```bash
 mkdir -p /var/data/kanboard
 ```
 

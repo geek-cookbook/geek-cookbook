@@ -14,10 +14,10 @@ Are you a [l33t h@x0r](https://en.wikipedia.org/wiki/Hackers_(film))? Do you nee
 
 Here are some examples of fancy hax0r tricks you can do with CyberChef:
 
- - [Decode a Base64-encoded string][2]
- - [Decrypt and disassemble shellcode][6]
- - [Perform AES decryption, extracting the IV from the beginning of the cipher stream][10]
- - [Automagically detect several layers of nested encoding][12]
+- [Decode a Base64-encoded string][2]
+- [Decrypt and disassemble shellcode][6]
+- [Perform AES decryption, extracting the IV from the beginning of the cipher stream][10]
+- [Automagically detect several layers of nested encoding][12]
 
 Here's a [live demo](https://gchq.github.io/CyberChef)!
 

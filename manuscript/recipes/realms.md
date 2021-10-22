@@ -32,7 +32,7 @@ Features include:
 
 Since we'll start with a basic Realms install, let's just create a single directory to hold the realms (SQLite) data:
 
-```
+```bash
 mkdir /var/data/realms/
 ```
 

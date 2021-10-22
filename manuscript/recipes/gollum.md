@@ -16,7 +16,6 @@ Gollum pages:
 * Can be edited with your favourite system editor or IDE (_changes will be visible after committing_) or with the built-in web interface.
 * Can be displayed in all versions (_commits_).
 
-
 ![Gollum Screenshot](../images/gollum.png)
 
 As you'll note in the (_real world_) screenshot above, my requirements for a personal wiki are:
@@ -40,11 +39,14 @@ Gollum meets all these requirements, and as an added bonus, is extremely fast an
 
 We'll need an empty git repository in /var/data/gollum for our data:
 
-```
+```bash
 mkdir /var/data/gollum
 cd /var/data/gollum
 git init
 ```
+### Prepare environment
+
+1. Create `/var/data/config/gollum/gollum.env`, and populate with the following variables (_you can make the cookie secret whatever you like_)
 
 ### Setup Docker Swarm
 

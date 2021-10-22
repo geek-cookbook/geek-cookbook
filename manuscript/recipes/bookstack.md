@@ -20,7 +20,7 @@ I like to protect my public-facing web UIs with an [oauth_proxy](/reference/oaut
 
 We'll need several directories to bind-mount into our container, so create them in /var/data/bookstack:
 
-```
+```bash
 mkdir -p /var/data/bookstack/database-dump
 mkdir -p /var/data/runtime/bookstack/db
 ```
@@ -29,7 +29,7 @@ mkdir -p /var/data/runtime/bookstack/db
 
 Create bookstack.env, and populate with the following variables. Set the [oauth_proxy](/reference/oauth_proxy) variables provided by your OAuth provider (if applicable.)
 
-```
+```bash
 # For oauth-proxy (optional)
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=

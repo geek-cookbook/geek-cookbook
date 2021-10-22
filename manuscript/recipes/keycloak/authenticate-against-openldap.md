@@ -55,7 +55,6 @@ For each of the following mappers, click the name, and set the "_Read Only_" fla
 
 ![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-4.png)
 
-
 ## Summary
 
 We've setup a new realm in KeyCloak, and configured read-write federation to an [OpenLDAP](/recipes/openldap/) backend. We can now manage our LDAP users using either KeyCloak or LDAP directly, and we can protect vulnerable services using [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/).

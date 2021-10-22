@@ -23,7 +23,7 @@ There's a [video](https://www.youtube.com/watch?v=N3iMLwCNOro) of the developer 
 
 We'll need several directories to bind-mount into our container, so create them in /var/data/wekan:
 
-```
+```bash
 mkdir /var/data/wekan
 cd /var/data/wekan
 mkdir -p {wekan-db,wekan-db-dump}
@@ -35,7 +35,8 @@ You'll need to know the following:
 
 Create `/var/data/config/wekan.env`, and populate with the following variables
 
-```
+
+```bash
 MONGO_URL=mongodb://wekandb:27017/wekan
 ROOT_URL=https://wekan.example.com
 MAIL_URL=smtp://wekan@wekan.example.com:password@mail.example.com:587/

@@ -28,7 +28,7 @@ Enter phpIPAM. A tool designed to help home keeps as well as large organisations
 
 We'll need several directories to bind-mount into our container, so create them in `/var/data/phpipam`:
 
-```
+```bash
 mkdir /var/data/phpipam/databases-dump -p
 mkdir /var/data/runtime/phpipam -p
 ```
@@ -37,7 +37,7 @@ mkdir /var/data/runtime/phpipam -p
 
 Create `phpipam.env`, and populate with the following variables
 
-```
+```bash
 # Setup for github, phpipam application
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
@@ -62,7 +62,7 @@ BACKUP_FREQUENCY=1d
 
 Additionally, create `phpipam-backup.env`, and populate with the following variables:
 
-```
+```bash
 # For MariaDB/MySQL database
 MYSQL_ROOT_PASSWORD=imtoosecretformyshorts
 MYSQL_DATABASE=phpipam
@@ -73,8 +73,6 @@ MYSQL_PASSWORD=secret
 BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
 ```
-
-
 
 ### Setup Docker Swarm
 

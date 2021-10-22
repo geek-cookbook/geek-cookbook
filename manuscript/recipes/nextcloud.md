@@ -5,7 +5,8 @@ description: Share docs. Backup files. Share stuff.
 # NextCloud
 
 [NextCloud](https://www.nextcloud.org/) (_a [fork of OwnCloud](https://owncloud.org/blog/owncloud-statement-concerning-the-formation-of-nextcloud-by-frank-karlitschek/), led by original developer Frank Karlitschek_) is a suite of client-server software for creating and using file hosting services. It is functionally similar to Dropbox, although Nextcloud is free and open-source, allowing anyone to install and operate it on a private server.
- - https://en.wikipedia.org/wiki/Nextcloud
+
+- <https://en.wikipedia.org/wiki/Nextcloud>
 
 ![NextCloud Screenshot](../images/nextcloud.png)
 
@@ -19,7 +20,7 @@ This recipe is based on the official NextCloud docker image, but includes seprat
 
 We'll need several directories for [static data](/reference/data_layout/#static-data) to bind-mount into our container, so create them in /var/data/nextcloud (_so that they can be [backed up](/recipes/duplicity/)_)
 
-```
+```bash
 mkdir /var/data/nextcloud
 cd /var/data/nextcloud
 mkdir -p {html,apps,config,data,database-dump}
@@ -27,17 +28,17 @@ mkdir -p {html,apps,config,data,database-dump}
 
 Now make **more** directories for [runtime data](/reference/data_layout/#runtime-data) (_so that they can be **not** backed-up_):
 
-```
+```bash
 mkdir /var/data/runtime/nextcloud
 cd /var/data/runtime/nextcloud
 mkdir -p {db,redis}
 ```
 
-
 ### Prepare environment
 
 Create nextcloud.env, and populate with the following variables
-```
+
+```bash
 NEXTCLOUD_ADMIN_USER=admin
 NEXTCLOUD_ADMIN_PASSWORD=FVuojphozxMVyaYCUWomiP9b
 MYSQL_HOST=db
@@ -51,7 +52,7 @@ MYSQL_PASSWORD=set to something secure>
 
 Now create a **separate** nextcloud-db-backup.env file, to capture the environment variables necessary to perform the backup. (_If the same variables are shared with the mariadb container, they [cause issues](https://discourse.geek-kitchen.funkypenguin.co.nz/t/nextcloud-funky-penguins-geek-cookbook/254/3?u=funkypenguin) with database access_)
 
-````
+````bash
 # For database backup (keep 7 days daily backups)
 MYSQL_PWD=<set to something secure, same as MYSQL_ROOT_PASSWORD above>
 MYSQL_USER=root
@@ -173,8 +174,8 @@ Log into your new instance at https://**YOUR-FQDN**, with user "admin" and the p
 
 To make NextCloud [a little snappier](https://docs.nextcloud.com/server/13/admin_manual/configuration_server/caching_configuration.html), edit ```/var/data/nextcloud/config/config.php``` (_now that it's been created on the first container launch_), and add the following:
 
-```
-  'redis' => array(
+```bash
+ 'redis' => array(
      'host' => 'redis',
      'port' => 6379,
       ),
@@ -188,31 +189,31 @@ Huzzah! NextCloud supports [service discovery for CalDAV/CardDAV](https://tools.
 
 We (_and anyone else using the [NextCloud Docker image](https://hub.docker.com/_/nextcloud/)_) are using an SSL-terminating reverse proxy ([Traefik](/ha-docker-swarm/traefik/)) in front of our NextCloud container. In fact, it's not **possible** to setup SSL **within** the NextCloud container.
 
-When using a reverse proxy, your device requests a URL from your proxy (https://nextcloud.batcave.com/.well-known/caldav), and the reverse proxy then passes that request **unencrypted** to the internal URL of the NextCloud instance (i.e., http://172.16.12.123/.well-known/caldav)
+When using a reverse proxy, your device requests a URL from your proxy (<https://nextcloud.batcave.com/.well-known/caldav>), and the reverse proxy then passes that request **unencrypted** to the internal URL of the NextCloud instance (i.e., <http://172.16.12.123/.well-known/caldav>)
 
-The Apache webserver on the NextCloud container (_knowing it was spoken to via HTTP_), responds with a 301 redirect to http://nextcloud.batcave.com/remote.php/dav/. See the problem? You requested an **HTTPS** (_encrypted_) url, and in return, you received a redirect to an **HTTP** (_unencrypted_) URL. Any sensible client (_iOS included_) will refuse such schenanigans.
+The Apache webserver on the NextCloud container (_knowing it was spoken to via HTTP_), responds with a 301 redirect to <http://nextcloud.batcave.com/remote.php/dav/>. See the problem? You requested an **HTTPS** (_encrypted_) url, and in return, you received a redirect to an **HTTP** (_unencrypted_) URL. Any sensible client (_iOS included_) will refuse such schenanigans.
 
 To correct this, we need to tell NextCloud to always redirect the .well-known URLs to an HTTPS location. This can only be done **after** deploying NextCloud, since it's only on first launch of the container that the .htaccess file is created in the first place.
 
 To make NextCloud service discovery work with Traefik reverse proxy, edit ```/var/data/nextcloud/html/.htaccess```, and change this:
 
-```
+```bash
 RewriteRule ^\.well-known/carddav /remote.php/dav/ [R=301,L]
 RewriteRule ^\.well-known/caldav /remote.php/dav/ [R=301,L]
 ```
 
 To this:
 
-```
+```bash
 RewriteRule ^\.well-known/carddav https://%{SERVER_NAME}/remote.php/dav/ [R=301,L]
 RewriteRule ^\.well-known/caldav https://%{SERVER_NAME}/remote.php/dav/ [R=301,L]
 ```
 
 Then restart your container with ```docker service update nextcloud_nextcloud --force``` to restart apache.
 
-Your can test for success by running ```curl -i https://nextcloud.batcave.org/.well-known/carddav```. You should get a 301 redirect to your equivalent of https://nextcloud.batcave.org/remote.php/dav/, as below:
+Your can test for success by running ```curl -i https://nextcloud.batcave.org/.well-known/carddav```. You should get a 301 redirect to your equivalent of <https://nextcloud.batcave.org/remote.php/dav/>, as below:
 
-```
+```bash
 [davidy:~] % curl -i https://nextcloud.batcave.org/.well-known/carddav
 HTTP/2 301
 content-type: text/html; charset=iso-8859-1

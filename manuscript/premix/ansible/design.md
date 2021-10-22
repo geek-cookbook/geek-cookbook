@@ -16,7 +16,7 @@ The ansible playbooks / roles in premix are intended to automate the deployment 
 
 ## Details
 
-**Duplication should be avoided**
+### Duplication should be avoided
 
 This means that ansible will use the same source files which we use to deploy swarm stacks manually (*i.e., /kanboard/*). This has some implications:
 
@@ -26,7 +26,7 @@ This means that ansible will use the same source files which we use to deploy sw
 
     In an ansible-based deployment, we **don't** clone the premix repo to /var/data/config. Instead, we clone it somewhere local, and then use the playbook to launch the stack, including the creation of ceph shared storage at /var/data/config. The necessary files are then **copied** from the cloned repo into `/var/data/config`, so that they can be altered by the user, backed up, etc. This separation of code from config makes it easier for users to pull down updates to the premix repo, without having to worry about merge conflicts etc for the files they've manually changed during deployment.
 
-**Configuration should be centralized**
+### Configuration should be centralized
 
 What we _don't_ want, is to manually be editing `<recipe>/<recipe>.env` files all over, and tracking changes to all of these. To this end, there's a `config` dictionary defined, which includes a subsection for each recipe. Here's an example:
 

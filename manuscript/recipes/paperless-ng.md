@@ -8,7 +8,6 @@ Paper is a nightmare. Environmental issues aside, there’s no excuse for it in 
 
 ![Paperless Screenshot](../images/paperless-screenshot.png)
 
-
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -17,7 +16,7 @@ Paper is a nightmare. Environmental issues aside, there’s no excuse for it in 
 
 We'll need a folder to store a docker-compose configuration file and an associated environment file. If you're following my filesystem layout, create `/var/data/config/paperless` (*for the config*). We'll also need to create `/var/data/paperless` and a few subdirectories (*for the metadata*). Lastly, we need a directory for the database backups to reside in as well.
 
-```
+```bash
 mkdir /var/data/config/paperless
 mkdir /var/data/paperless
 mkdir /var/data/paperless/consume
@@ -29,13 +28,13 @@ mkdir /var/data/paperless/database-dump
 ```
 
 !!! question "Which is it, Paperless or Paperless-NG?"
-    Technically the name of the application is `paperless-ng`. However, the [original     Paperless project](https://github.com/the-paperless-project/paperless) has been archived and the author recommends Paperless NG. So, to save some typing, we'll just   call it "Paperless". Additionally, if you use the automated tooling in the Premix Repo, Ansible *really* doesn't like the hypen. 
+    Technically the name of the application is `paperless-ng`. However, the [original     Paperless project](https://github.com/the-paperless-project/paperless) has been archived and the author recommends Paperless NG. So, to save some typing, we'll just   call it "Paperless". Additionally, if you use the automated tooling in the Premix Repo, Ansible *really* doesn't like the hypen.
 
 ### Create environment
 
 To stay consistent with the other recipes, we'll create a file to store environemnt variables in. There's more than 1 service in this stack, but we'll only create one one environment file that will be used by the web server (more on this later).
 
-```
+```bash
 cat << EOF > /var/data/config/paperless/paperless.env
 PAPERLESS_TIME_ZONE:<timezone>
 PAPERLESS_ADMIN_USER=<admin_user>
@@ -48,6 +47,7 @@ PAPERLESS_TIKA_GOTENBERG_ENDPOINT=http://gotenberg:3000
 PAPERLESS_TIKA_ENDPOINT=http://tika:9998
 EOF
 ```
+
 You'll need to replace some of the text in the snippet above:
 
 * `<timezone>` - Replace with an entry from [the timezone database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (eg: America/New_York)
@@ -158,13 +158,14 @@ networks:
         - subnet: 172.16.58.0/24 
 
 ```
+
 You'll notice that there are several items under "services" in this stack. Let's take a look at what each one does:
 
 * broker - Redis server that other services use to share data
 * webserver - The UI that you will use to add and view documents, edit document metadata, and configure the application settings.
 * gotenburg - Tool that facilitates converting MS Office documents, HTML, Markdown and other document types to PDF
 * tika - The OCR engine that extracts text from image-only documents
-* db - PostgreSQL database engine to store metadata for all the documents. [^2] 
+* db - PostgreSQL database engine to store metadata for all the documents. [^2]
 * db-backup - Service to dump the PostgreSQL database to a backup file on disk once per day
 
 ## Serving

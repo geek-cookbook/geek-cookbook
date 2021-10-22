@@ -30,7 +30,7 @@ What you'll end up with is a directory structure which will allow integration wi
 
 We'll need several directories to bind-mount into our container, so create them in /var/data/openldap:
 
-```
+```bash
 mkdir /var/data/openldap/openldap
 mkdir /var/data/runtime/openldap/
 ```
@@ -42,7 +42,7 @@ mkdir /var/data/runtime/openldap/
 
 Create /var/data/openldap/openldap.env, and populate with the following variables, customized for your own domain structure. Take care with LDAP_DOMAIN, this is core to your directory structure, and can't easily be changed later.
 
-```
+```bash
 LDAP_DOMAIN=batcave.gotham
 LDAP_ORGANISATION=BatCave Inc
 LDAP_ADMIN_PASSWORD=supermansucks
@@ -57,7 +57,7 @@ Create ```/var/data/openldap/lam/config/config.cfg``` as follows:
 
 ???+ note "Much scroll, very text. Click here to collapse it for better readability"
 
-    ```
+    ```bash
     # password to add/delete/rename configuration profiles (default: lam)
     password: {SSHA}D6AaX93kPmck9wAxNlq3GF93S7A= R7gkjQ==
 
@@ -127,7 +127,7 @@ Create yours profile (_you chose a default profile in config.cfg above, remember
 
 ???+ note "Much scroll, very text. Click here to collapse it for better readability"
 
-    ```
+    ```bash
     # LDAP Account Manager configuration
     #
     # Please do not modify this file manually. The configuration can be done completely by the LAM GUI.
@@ -382,7 +382,7 @@ networks:
 
 Create **another** stack config file (```/var/data/config/openldap/auth.yml```) containing just the auth_internal network, and a dummy container:
 
-```
+```yaml
 version: "3.2"
 
 # What is this?
@@ -406,9 +406,6 @@ networks:
       config:
         - subnet: 172.16.39.0/24
 ```
-
-
-
 
 ## Serving
 
