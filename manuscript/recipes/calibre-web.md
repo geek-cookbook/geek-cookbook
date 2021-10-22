@@ -39,15 +39,13 @@ Ensure that your Calibre library is accessible to the swarm (_i.e., exists on sh
 
 ### Prepare environment
 
-We'll use an [oauth-proxy](/reference/oauth_proxy/) to protect the UI from public access, so create calibre-web.env, and populate with the following variables:
+Create `/var/data/config/calibre-web/calibre-web.env`, and populate with the following variables
 
 ```bash
 
 PUID=
 PGID=
 ```
-
-Follow the [instructions](https://github.com/bitly/oauth2_proxy) to setup your oauth provider. You need to setup a unique key/secret for each instance of the proxy you want to run, since in each case the callback URL will differ.
 
 ### Setup Docker Swarm
 
