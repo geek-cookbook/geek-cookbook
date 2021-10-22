@@ -73,7 +73,7 @@ Grafana will make all the data we collect from our swarm beautiful.
 
 Create /var/data/swarmprom/grafana.env, and populate with the following variables
 
-```bash
+```yaml
 OAUTH2_PROXY_CLIENT_ID=
 OAUTH2_PROXY_CLIENT_SECRET=
 OAUTH2_PROXY_COOKIE_SECRET=
