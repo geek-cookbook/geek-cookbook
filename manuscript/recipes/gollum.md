@@ -40,13 +40,12 @@ Gollum meets all these requirements, and as an added bonus, is extremely fast an
 We'll need an empty git repository in /var/data/gollum for our data:
 
 ```bash
+
 mkdir /var/data/gollum
 cd /var/data/gollum
 git init
-```
-### Prepare environment
 
-1. Create `/var/data/config/gollum/gollum.env`, and populate with the following variables (_you can make the cookie secret whatever you like_)
+```
 
 ### Setup Docker Swarm
 
