@@ -34,7 +34,7 @@ cd /var/data/config/wetty
 ### Prepare environment
 
 Create `/var/data/config/wetty.env`, and populate with the following variables
-```
+```yaml
 # To use WeTTY to SSH to a host besides the (mostly useless) alpine container it comes with
 SSHHOST=batcomputer.batcave.com
 SSHUSER=batman
@@ -92,6 +92,7 @@ Launch the Wetty stack by running ```docker stack deploy wetty -c <path -to-dock
 Browse to your new browser-cli-terminal at https://**YOUR-FQDN**. Authenticate with your OAuth provider, and then proceed to login, either to the remote host you specified (_batcomputer.batcave.com, in the example above_), or using user and password "term" to log directly into the Wetty alpine container (_from which you can establish egress SSH_)
 
 [^1]: You could set SSHHOST to the IP of the "docker0" interface on your host, which is normally 172.17.0.1. (_Or run ```/sbin/ip route|awk '/default/ { print $3 }'``` in the container_) This would then provide you the ability to remote-manage your swarm with only web access to Wetty.
+
 [^2]: The inclusion of Wetty was due to the efforts of @gpulido in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Gabriel!
 
 --8<-- "recipe-footer.md"
