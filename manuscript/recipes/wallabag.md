@@ -32,7 +32,7 @@ mkdir -p {images,db-dump}
 
 Create `/var/data/config/wallabag/wallabag.env`, and populate with the following variables. The only variable you **have** to change is SYMFONY__ENV__DOMAIN_NAME - this **must** be the URL that your Wallabag instance will be available at (_else you'll have no CSS_)
 
-```bash
+```yaml
 # For the DB container
 POSTGRES_PASSWORD=wallabag
 POSTGRES_USER=wallabag
@@ -55,7 +55,7 @@ SYMFONY__ENV__FOSUSER_REGISTRATION=false
 
 Now create wallabag-backup.env in the same folder, with the following contents. (_This is necessary to prevent environment variables required for backup from breaking the DB container_)
 
-```bash
+```yaml
 # For database backups
 PGUSER=wallabag
 PGPASSWORD=wallabag
