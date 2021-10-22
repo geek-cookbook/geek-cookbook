@@ -32,7 +32,7 @@ cd /var/data/config/ttrss
 
 Create `/var/data/config/ttrs/ttrss.env`, and populate with the following variables, customizing at least the database password (POSTGRES_PASSWORD **and** DB_PASS) and the TTRSS_SELF_URL to point to your installation.
 
-```bash
+```yaml
 # Variables for postgres:latest
 POSTGRES_USER=ttrss
 POSTGRES_PASSWORD=mypassword
