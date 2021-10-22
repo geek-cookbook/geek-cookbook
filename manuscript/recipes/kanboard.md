@@ -48,7 +48,6 @@ services:
     volumes:
      - /var/data/kanboard:/var/www/app/
     networks:
-      - internal
       - traefik_public
     deploy:
       labels:
@@ -68,11 +67,6 @@ services:
 networks:
   traefik_public:
     external: true
-  internal:
-    driver: overlay
-    ipam:
-      config:
-        - subnet: 172.16.8.0/24    
 ```
 
 ## Serving

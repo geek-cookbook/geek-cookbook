@@ -53,7 +53,7 @@ SYMFONY__ENV__FROM_EMAIL=wallabag@example.com
 SYMFONY__ENV__FOSUSER_REGISTRATION=false
 ```
 
-Now create wallabag-backup.env in the same folder, with the following contents. (_This is necessary to prevent environment variables required for backup from breaking the DB container_)
+Now create wallabag-`/var/data/config/wallabag/backup.env` with the following contents. (_This is necessary to prevent environment variables required for backup from breaking the DB container_)
 
 ```yaml
 # For database backups

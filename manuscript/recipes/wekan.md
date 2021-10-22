@@ -31,8 +31,6 @@ mkdir -p {wekan-db,wekan-db-dump}
 
 ### Prepare environment
 
-You'll need to know the following:
-
 Create `/var/data/config/wekan.env`, and populate with the following variables
 
 
@@ -127,7 +125,7 @@ networks:
 
 Launch the Wekan stack by running ```docker stack deploy wekan -c <path -to-docker-compose.yml>```
 
-Log into your new instance at https://**YOUR-FQDN**, with user "root" and the password you specified in wekan.env.
+Log into your new instance at `https://**YOUR-FQDN**`, with user "root" and the password you specified in `wekan.env`.
 
 [^1]: If you wanted to expose the Wekan UI directly, you could remove the traefik-forward-auth from the design.
 

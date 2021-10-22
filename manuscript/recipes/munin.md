@@ -79,7 +79,6 @@ services:
     image: funkypenguin/munin-server
     env_file: /var/data/config/munin/munin.env
     networks:
-      - internal
       - traefik_public
     volumes:
       - /var/data/munin/log:/var/log/munin
@@ -107,11 +106,6 @@ services:
 networks:
   traefik_public:
     external: true
-  internal:
-    driver: overlay
-    ipam:
-      config:
-        - subnet: 172.16.24.0/24
 ```
 
 --8<-- "reference-networks.md"

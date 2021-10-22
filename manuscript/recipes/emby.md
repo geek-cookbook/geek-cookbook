@@ -63,18 +63,12 @@ services:
         - "traefik.enable=true"
     networks:
         - traefik_public
-        - internal
     ports:
       - 8096:8096
 
 networks:
   traefik_public:
     external: true
-  internal:
-    driver: overlay
-    ipam:
-      config:
-        - subnet: 172.16.17.0/24
 ```
 
 --8<-- "reference-networks.md"
