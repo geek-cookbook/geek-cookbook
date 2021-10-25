@@ -30,7 +30,7 @@ This presents another problem though - Docker Swarm with Traefik is superb at ma
 
 We run a single swarmed Nginx instance, which forwards all requests to an upstream, with the target IP of the docker0 interface, on port 9980 (_the port exposed by the CODE container_)
 
-We attach the necessary labels to the Nginx container to instruct Trafeik to setup a front/backend for collabora.<ourdomain\>. Now incoming requests to **https://collabora.<ourdomain\>** will hit Traefik, be forwarded to nginx (_wherever in the swarm it's running_), and then to port 9980 on the same node that nginx is running on.
+We attach the necessary labels to the Nginx container to instruct Trafeik to setup a front/backend for collabora.<ourdomain\>. Now incoming requests to `https://collabora.<ourdomain\>` will hit Traefik, be forwarded to nginx (_wherever in the swarm it's running_), and then to port 9980 on the same node that nginx is running on.
 
 What if we're running multiple nodes in our swarm, and nginx ends up on a different node to the one running Collabora via docker-compose? Well, either constrain nginx to the same node as Collabora (_example below_), or just launch an instance of Collabora on _every_ node then. It's just a rendering / GUI engine after all, it doesn't hold any persistent data.
 
@@ -42,7 +42,7 @@ Here's a (_highly technical_) diagram to illustrate:
 
 We'll need a directory for holding config to bind-mount into our containers, so create ```/var/data/collabora```, and ```/var/data/config/collabora``` for holding the docker/swarm config
 
-```
+```bash
 mkdir /var/data/collabora/
 mkdir /var/data/config/collabora/
 ```
@@ -59,7 +59,7 @@ Create /var/data/config/collabora/collabora.env, and populate with the following
     3. Set your server_name to collabora.<yourdomain\>. Escaping periods is unnecessary
     4. Your password cannot include triangular brackets - the entrypoint script will insert this password into an XML document, and triangular brackets will make bad(tm) things happen 🔥
 
-```
+```bash
 username=admin
 password=ilovemypassword
 domain=nextcloud\.batcave\.com
@@ -93,8 +93,7 @@ services:
 
 Create ```/var/data/config/collabora/nginx.conf``` as follows, changing the ```server_name``` value to match the environment variable you established above:
 
-
-```
+```ini
 upstream collabora-upstream {
     # Run collabora under docker-compose, since it needs MKNOD cap, which can't be provided by Docker Swarm.
     # The IP here is the typical IP of docker0 - change if yours is different.
@@ -128,7 +127,7 @@ server {
 
     # Admin Console websocket
     location ^~ /lool/adminws {
-	proxy_buffering off;
+ proxy_buffering off;
         proxy_pass http://collabora-upstream;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "Upgrade";
@@ -160,7 +159,7 @@ Create `/var/data/config/collabora/collabora.yml` as follows, changing the traef
 
 --8<-- "premix-cta.md"
 
-```
+```yaml
 version: "3.0"
 
 services:
@@ -171,10 +170,20 @@ services:
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:collabora.batcave.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
+
+        # traefikv1
+        - traefik.frontend.rule=Host:collabora.example.com
         - traefik.port=80
         - traefik.frontend.passHostHeader=true
+     
+
+        # traefikv2
+        - "traefik.http.routers.collabora.rule=Host(`collabora.example.com`)"
+        - "traefik.http.services.collabora.loadbalancer.server.port=80"
+        - "traefik.enable=true"
         # uncomment this line if you want to force nginx to always run on one node (i.e., the one running collabora)
       #placement:
       #  constraints:
@@ -195,14 +204,14 @@ Well. This is awkward. There's no documented way to make Collabora work with Doc
 
 Launching Collabora is (_for now_) a 2-step process. First.. we launch collabora itself, by running:
 
-```
+```bash
 cd /var/data/config/collabora/
 docker-compose -d up
 ```
 
 Output looks something like this:
 
-```
+```bash
 root@ds1:/var/data/config/collabora# docker-compose up -d
 WARNING: The Docker Engine you're using is running in swarm mode.
 
@@ -230,19 +239,19 @@ Now exec into the container (_from another shell session_), by running ```exec <
 
 Delete the collabora container by hitting CTRL-C in the docker-compose shell, running ```docker-compose rm```, and then altering this line in docker-compose.yml:
 
-```
-      - /var/data/collabora/loolwsd.xml:/etc/loolwsd/loolwsd.xml-new
+```bash
+     - /var/data/collabora/loolwsd.xml:/etc/loolwsd/loolwsd.xml-new
 ```
 
 To this:
 
-```
-      - /var/data/collabora/loolwsd.xml:/etc/loolwsd/loolwsd.xml
+```bash
+     - /var/data/collabora/loolwsd.xml:/etc/loolwsd/loolwsd.xml
 ```
 
 Edit /var/data/collabora/loolwsd.xml, find the **storage.filesystem.wopi** section, and add lines like this to the existing allow rules (_to allow IPv6-enabled hosts to still connect with their IPv4 addreses_):
 
-```
+```xml
 <host desc="Regex pattern of hostname to allow or deny." allow="true">::ffff:10\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</host>
 <host desc="Regex pattern of hostname to allow or deny." allow="true">::ffff:172\.1[6789]\.[0-9]{1,3}\.[0-9]{1,3}</host>
 <host desc="Regex pattern of hostname to allow or deny." allow="true">::ffff:172\.2[0-9]\.[0-9]{1,3}\.[0-9]{1,3}</host>
@@ -252,7 +261,7 @@ Edit /var/data/collabora/loolwsd.xml, find the **storage.filesystem.wopi** secti
 
 Find the **net.post_allow** section, and add a line like this:
 
-```
+```xml
 <host desc="RFC1918 private addressing in inet6 format">::ffff:10\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</host>
 <host desc="RFC1918 private addressing in inet6 format">::ffff:172\.1[6789]\.[0-9]{1,3}\.[0-9]{1,3}</host>
 <host desc="RFC1918 private addressing in inet6 format">::ffff:172\.2[0-9]\.[0-9]{1,3}\.[0-9]{1,3}</host>
@@ -262,35 +271,35 @@ Find the **net.post_allow** section, and add a line like this:
 
 Find these 2 lines:
 
-```
+```xml
 <ssl desc="SSL settings">
     <enable type="bool" default="true">true</enable>
 ```
 
 And change to:
 
-```
+```xml
 <ssl desc="SSL settings">
     <enable type="bool" default="true">false</enable>
 ```
 
 Now re-launch collabora (_with the correct with loolwsd.xml_) under docker-compose, by running:
 
-```
+```bash
 docker-compose -d up
 ```
 
 Once collabora is up, we launch the swarm stack, by running:
 
-```
+```bash
 docker stack deploy collabora -c /var/data/config/collabora/collabora.yml
 ```
 
-Visit **https://collabora.<yourdomain\>/l/loleaflet/dist/admin/admin.html** and confirm you can login with the user/password you specified in collabora.env
+Visit `https://collabora.<yourdomain\>/l/loleaflet/dist/admin/admin.html` and confirm you can login with the user/password you specified in collabora.env
 
 ### Integrate into NextCloud
 
-In NextCloud, Install the **Collabora Online** app (https://apps.nextcloud.com/apps/richdocuments), and then under **Settings -> Collabora Online**, set your Collabora Online Server to ```https://collabora.<your domain>```
+In NextCloud, Install the **Collabora Online** app (<https://apps.nextcloud.com/apps/richdocuments>), and then under **Settings -> Collabora Online**, set your Collabora Online Server to ```https://collabora.<your domain>```
 
 ![CODE Screenshot](../images/collabora-online-in-nextcloud.png)
 

@@ -6,6 +6,7 @@ description: A self-hosted, hackable version of IFFTT / Zapier
 
 Huginn is a system for building agents that perform automated tasks for you online. They can read the web, watch for events, and take actions on your behalf. Huginn's Agents create and consume events, propagating them along a directed graph. Think of it as a hackable version of IFTTT or Zapier on your own server.
 
+<!-- markdownlint-disable MD033 -->
 <iframe src="https://player.vimeo.com/video/61976251" width="640" height="433" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 --8<-- "recipe-standard-ingredients.md"
@@ -16,7 +17,7 @@ Huginn is a system for building agents that perform automated tasks for you onli
 
 Create the location for the bind-mount of the database, so that it's persistent:
 
-```
+```bash
 mkdir -p /var/data/huginn/database
 ```
 
@@ -24,7 +25,7 @@ mkdir -p /var/data/huginn/database
 
 Strictly speaking, you don't **have** to integrate Huginn with email. However, since we created our own mailserver stack earlier, it's worth using it to enable emails within Huginn.
 
-```
+```bash
 cd /var/data/docker-mailserver/
 ./setup.sh email add huginn@huginn.example.com my-password-here
 # Setup MX and DKIM if they don't already exist:
@@ -36,7 +37,7 @@ cat config/opendkim/keys/huginn.example.com/mail.txt
 
 Create /var/data/config/huginn/huginn.env, and populate with the following variables. Set the "INVITATION_CODE" variable if you want to require users to enter a code to sign up (protects the UI from abuse) (The full list of Huginn environment variables is available [here](https://github.com/huginn/huginn/blob/master/.env.example))
 
-```
+```bash
 # For huginn/huginn - essential
 SMTP_DOMAIN=your-domain-here.com
 SMTP_USER_NAME=you@gmail.com

@@ -26,7 +26,7 @@ docker-mailserver doesn't include a webmail client, and one is not strictly need
 
 We'll need several directories to bind-mount into our container, so create them in /var/data/docker-mailserver:
 
-```
+```bash
 cd /var/data
 mkdir docker-mailserver
 cd docker-mailserver
@@ -41,7 +41,7 @@ The docker-mailserver container can _renew_ our LetsEncrypt certs for us, but it
 
 In the example below, since I'm already using Traefik to manage the LE certs for my web platforms, I opted to use the DNS challenge to prove my ownership of the domain. The certbot client will prompt you to add a DNS record for domain verification.
 
-```
+```bash
 docker run -ti --rm -v \
 "$(pwd)"/letsencrypt:/etc/letsencrypt certbot/certbot \
 --manual --preferred-challenges dns certonly \
@@ -52,11 +52,12 @@ docker run -ti --rm -v \
 
 docker-mailserver comes with a handy bash script for managing the stack (which is just really a wrapper around the container.) It'll make our setup easier, so download it into the root of your configuration/data directory, and make it executable:
 
-```
+```bash
 curl -o setup.sh \
 https://raw.githubusercontent.com/tomav/docker-mailserver/master/setup.sh \
 chmod a+x ./setup.sh
 ```
+
 ### Create email accounts
 
 For every email address required, run ```./setup.sh email add <email> <password>``` to create the account. The command returns no output.
@@ -69,7 +70,7 @@ Run ```./setup.sh config dkim``` to create the necessary DKIM entries. The comma
 
 Examine the keys created by opendkim to identify the DNS TXT records required:
 
-```
+```bash
 for i in `find config/opendkim/keys/ -name mail.txt`; do \
 echo $i; \
 cat $i; \
@@ -78,16 +79,16 @@ done
 
 You'll end up with something like this:
 
-```
+```bash
 config/opendkim/keys/gitlab.example.com/mail.txt
-mail._domainkey	IN	TXT	( "v=DKIM1; k=rsa; "
-	  "p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYuQqDg2ZG8ZOfI1PvarF1Gcr5cJnCR8BeCj5HYgeRohSrxKL5utPEF/AWAxXYwnKpgYN837fu74GfqsIuOhu70lPhGV+O2gFVgpXYWHELvIiTqqO0QgarIN63WE2gzE4s0FckfLrMuxMoXr882wuzuJhXywGxOavybmjpnNHhbQIDAQAB" )  ; ----- DKIM key mail for gitlab.example.com
+mail._domainkey IN TXT ( "v=DKIM1; k=rsa; "
+   "p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYuQqDg2ZG8ZOfI1PvarF1Gcr5cJnCR8BeCj5HYgeRohSrxKL5utPEF/AWAxXYwnKpgYN837fu74GfqsIuOhu70lPhGV+O2gFVgpXYWHELvIiTqqO0QgarIN63WE2gzE4s0FckfLrMuxMoXr882wuzuJhXywGxOavybmjpnNHhbQIDAQAB" )  ; ----- DKIM key mail for gitlab.example.com
 [root@ds1 mail]#
 ```
 
 Create the necessary DNS TXT entries for your domain(s). Note that although opendkim splits the record across two lines, the actual record should be concatenated on creation. I.e., the DNS TXT record above should read:
 
-```
+```bash
 "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYuQqDg2ZG8ZOfI1PvarF1Gcr5cJnCR8BeCj5HYgeRohSrxKL5utPEF/AWAxXYwnKpgYN837fu74GfqsIuOhu70lPhGV+O2gFVgpXYWHELvIiTqqO0QgarIN63WE2gzE4s0FckfLrMuxMoXr882wuzuJhXywGxOavybmjpnNHhbQIDAQAB"
 ```
 
@@ -131,16 +132,25 @@ services:
     deploy:
       replicas: 1
 
-	rainloop:
+ rainloop:
     image: hardware/rainloop
     networks:
       - internal
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:rainloop.example.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=8888
+
+        # traefikv1
+        - traefik.frontend.rule=Host:rainloop.example.com
+        - traefik.port=8888     
+
+        # traefikv2
+        - "traefik.http.routers.rainloop.rule=Host(`rainloop.example.com`)"
+        - "traefik.http.services.rainloop.loadbalancer.server.port=8888"
+        - "traefik.enable=true"
     volumes:
       - /var/data/mailserver/rainloop:/rainloop/data
 
@@ -158,7 +168,7 @@ networks:
 
 A sample docker-mailserver.env file looks like this:
 
-```
+```bash
 ENABLE_SPAMASSASSIN=1
 ENABLE_CLAMAV=1
 ENABLE_POSTGREY=1
@@ -169,7 +179,6 @@ POSTMASTER_ADDRESS=admin@example.com
 PERMIT_DOCKER=network
 SSL_TYPE=letsencrypt
 ```
-
 
 ## Serving
 

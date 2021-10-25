@@ -6,7 +6,7 @@ description: Ghost - Beautiful online publicatio (who you gonna call?)
 
 [Ghost](https://ghost.org) is "a fully open source, hackable platform for building and running a modern online publication."
 
-![](/images/ghost.png)
+![Ghost screenshot](/images/ghost.png)
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -16,7 +16,7 @@ description: Ghost - Beautiful online publicatio (who you gonna call?)
 
 Create the location for the bind-mount of the application data, so that it's persistent:
 
-```
+```bash
 mkdir -p /var/data/ghost
 ```
 
@@ -39,15 +39,23 @@ services:
     - traefik_public
     deploy:
       labels:
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
+
+        # traefikv1
         - traefik.frontend.rule=Host:ghost.example.com
-        - traefik.docker.network=traefik
-        - traefik.port=2368
+        - traefik.port=2368     
+
+        # traefikv2
+        - "traefik.http.routers.ghost.rule=Host(`ghost.example.com`)"
+        - "traefik.http.services.ghost.loadbalancer.server.port=2368"
+        - "traefik.enable=true"
 
 networks:
   traefik_public:
     external: true
 ```
-
 
 ## Serving
 

@@ -32,7 +32,7 @@ On each host, run a variation following to create your bricks, adjusted for the 
 
 !!! note "The example below assumes /dev/vdb is dedicated to the gluster volume"
 
-```
+```bash
 (
 echo o # Create a new empty DOS partition table
 echo n # Add a new partition
@@ -60,7 +60,7 @@ Atomic doesn't include the Gluster server components.  This means we'll have to 
 
 Run the following on each host:
 
-````
+````bash
 docker run \
    -h glusterfs-server \
    -v /etc/glusterfs:/etc/glusterfs:z \
@@ -82,7 +82,7 @@ From the node, run `gluster peer probe <other host>`.
 
 Example output:
 
-```
+```bash
 [root@glusterfs-server /]# gluster peer probe ds1
 peer probe: success.
 [root@glusterfs-server /]#
@@ -92,7 +92,7 @@ Run ```gluster peer status``` on both nodes to confirm that they're properly con
 
 Example output:
 
-```
+```bash
 [root@glusterfs-server /]# gluster peer status
 Number of Peers: 1
 
@@ -108,7 +108,7 @@ Now we create a *replicated volume* out of our individual "bricks".
 
 Create the gluster volume by running:
 
-```
+```bash
 gluster volume create gv0 replica 2 \
  server1:/var/no-direct-write-here/brick1 \
  server2:/var/no-direct-write-here/brick1
@@ -116,7 +116,7 @@ gluster volume create gv0 replica 2 \
 
 Example output:
 
-```
+```bash
 [root@glusterfs-server /]# gluster volume create gv0 replica 2 ds1:/var/no-direct-write-here/brick1/gv0  ds3:/var/no-direct-write-here/brick1/gv0
 volume create: gv0: success: please start the volume to access data
 [root@glusterfs-server /]#
@@ -124,7 +124,7 @@ volume create: gv0: success: please start the volume to access data
 
 Start the volume by running ```gluster volume start gv0```
 
-```
+```bash
 [root@glusterfs-server /]# gluster volume start gv0
 volume start: gv0: success
 [root@glusterfs-server /]#
@@ -138,7 +138,7 @@ From one other host, run ```docker exec -it glusterfs-server bash``` to shell in
 
 On the host (i.e., outside of the container - type ```exit``` if you're still shelled in), create a mountpoint for the data, by running ```mkdir /var/data```, add an entry to fstab to ensure the volume is auto-mounted on boot, and ensure the volume is actually _mounted_ if there's a network / boot delay getting access to the gluster volume:
 
-```
+```bash
 mkdir /var/data
 MYHOST=`hostname -s`
 echo '' >> /etc/fstab >> /etc/fstab
@@ -149,7 +149,7 @@ mount -a
 
 For some reason, my nodes won't auto-mount this volume on boot. I even tried the trickery below, but they stubbornly refuse to automount:
 
-```
+```bash
 echo -e "\n\n# Give GlusterFS 10s to start before \
 mounting\nsleep 10s && mount -a" >> /etc/rc.local
 systemctl enable rc-local.service

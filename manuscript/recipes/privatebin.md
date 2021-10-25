@@ -16,7 +16,7 @@ PrivateBin is a minimalist, open source online pastebin where the server (can) h
 
 We'll need a single location to bind-mount into our container, so create /var/data/privatebin, and make it world-writable (_there might be a more secure way to do this!_)
 
-```
+```bash
 mkdir /var/data/privatebin
 chmod 777 /var/data/privatebin/
 ```
@@ -39,9 +39,18 @@ services:
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:privatebin.example.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=4180
+
+        # traefikv1
+        - traefik.frontend.rule=Host:privatebin.example.com
+        - traefik.port=4180     
+
+        # traefikv2
+        - "traefik.http.routers.privatebin.rule=Host(`privatebin.example.com`)"
+        - "traefik.http.services.privatebin.loadbalancer.server.port=4180"
+        - "traefik.enable=true"
 
 networks:
   traefik_public:
@@ -57,6 +66,6 @@ Launch the PrivateBin stack by running ```docker stack deploy privatebin -c <pat
 Log into your new instance at https://**YOUR-FQDN**, with user "root" and the password you specified in gitlab.env.
 
 [^1]: The [PrivateBin repo](https://github.com/PrivateBin/PrivateBin/blob/master/INSTALL.md) explains how to tweak configuration options, or to use a database instead of file storage, if your volume justifies it :)
-[^2]: The inclusion of PrivateBin was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Gerry!!
+[^2]: The inclusion of Privatebin was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz)- Unfortunately on the 22nd August 2020 Jerry passed away. Jerry was very passionate and highly regarded in the field of Information Technology. He will be missed.
 
 --8<-- "recipe-footer.md"

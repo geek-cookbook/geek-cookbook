@@ -8,7 +8,7 @@ hide:
 
 ## What is this?
 
-Funky Penguin's "**[Geek Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](/ha-docker-swarm/design/) or [Kubernetes](/kubernetes/). 
+Funky Penguin's "**[Geek Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](/ha-docker-swarm/design/) or [Kubernetes](/kubernetes/).
 
 [Dive into Docker Swarm](/ha-docker-swarm/design/){: .md-button .md-button--primary}
 [Kick it with Kubernetes](/kubernetes/){: .md-button}
@@ -44,7 +44,6 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
 :wave: Hi, I'm [David](https://www.funkypenguin.co.nz/about/)
 
-
 ## What have you done for me lately? (CHANGELOG)
 
 Check out recent change at [CHANGELOG](/CHANGELOG/)
@@ -58,7 +57,6 @@ I want your [support](https://github.com/sponsors/funkypenguin), either in the [
 * Come and say hi to me and the friendly geeks in the [Discord](http://chat.funkypenguin.co.nz) chat or the [Discourse](https://discourse.geek-kitchen.funkypenguin.co.nz/) forums - say hi, ask a question, or suggest a new recipe!
 * Tweet me up, I'm [@funkypenguin](https://twitter.com/funkypenguin)! 🐦
 * [Contact me](https://www.funkypenguin.co.nz/contact/) by a variety of channels
-
 
 ### [Sponsor](https://github.com/sponsors/funkypenguin) / [Patronize](https://www.patreon.com/bePatron?u=6982506) me ❤️
 
@@ -77,7 +75,6 @@ Impulsively **[click here (NOW quick do it!)](https://github.com/sponsors/funkyp
 
 Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS](https://www.youracclaim.com/badges/a0c4a196-55ab-4472-b46b-b610b44dc00f/public_url) / [CNCF](https://www.youracclaim.com/badges/cd307d51-544b-4bc6-97b0-9015e40df40d/public_url)-[certified](https://www.youracclaim.com/badges/9ed9280a-fb92-46ca-b307-8f74a2cccf1d/public_url) [cloud/architecture consultant](https://www.funkypenguin.co.nz/about/), I've been doing (*and loving!*) this for 20+ years, and it's my bread and butter! :bread: :fork_and_knife: [Get in touch](https://www.funkypenguin.co.nz/contact/), and let's talk business!
 
-
 !!! quote "He unblocked me on all the technical hurdles to launching my SaaS in GKE!"
 
     By the time I had enlisted Funky Penguin's help, I'd architected myself into a bit of a nightmare with Kubernetes. I knew what I wanted to achieve, but I'd made a mess of it. Funky Penguin (David) was able to jump right in and offer a vital second-think on everything I'd done, pointing out where things could be simplified and streamlined, and better alternatives. 
@@ -92,7 +89,7 @@ Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm 
 
 ### Buy my book 📖
 
-I'm publishing the Geek Cookbook as a formal eBook (*PDF, mobi, epub*), on Leanpub (https://leanpub.com/geek-cookbook). Check it out!
+I'm publishing the Geek Cookbook as a formal eBook (*PDF, mobi, epub*), on Leanpub (<https://leanpub.com/geek-cookbook>). Check it out!
 
 ### Sponsored Projects
 
@@ -100,7 +97,7 @@ I'm supported and motivated by [GitHub Sponsors](https://github.com/sponsors/fun
 
 I regularly donate to / sponsor the following projects. **Join me** in supporting these geeks, and encouraging them to continue building the ingredients for your favourite recipes!
 
-| Project | Donate via..      
+| Project | Donate via..
 | ------------- |-------------|
 | [Komga](/recipes/komga/)      | [GitHub Sponsors](https://github.com/sponsors/gotson)
 | [Material for MKDocs](https://squidfunk.github.io/mkdocs-material/) | [GitHub Sponsors](https://github.com/sponsors/squidfunk)
@@ -108,4 +105,3 @@ I regularly donate to / sponsor the following projects. **Join me** in supportin
 | [LinuxServer.io](https://www.linuxserver.io) | [PayPal](https://www.linuxserver.io/donate)
 | [WidgetBot's Discord Widget](https://widgetbot.io/) | [Patreon](https://www.patreon.com/widgetbot/overview)
 | [Carl-bot](https://carl.gg/) | [Patreon](https://www.patreon.com/carlbot)
-

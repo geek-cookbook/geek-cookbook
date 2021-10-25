@@ -30,7 +30,7 @@ What you'll end up with is a directory structure which will allow integration wi
 
 We'll need several directories to bind-mount into our container, so create them in /var/data/openldap:
 
-```
+```bash
 mkdir /var/data/openldap/openldap
 mkdir /var/data/runtime/openldap/
 ```
@@ -42,22 +42,12 @@ mkdir /var/data/runtime/openldap/
 
 Create /var/data/openldap/openldap.env, and populate with the following variables, customized for your own domain structure. Take care with LDAP_DOMAIN, this is core to your directory structure, and can't easily be changed later.
 
-```
+```bash
 LDAP_DOMAIN=batcave.gotham
 LDAP_ORGANISATION=BatCave Inc
 LDAP_ADMIN_PASSWORD=supermansucks
 LDAP_TLS=false
-
-# Use these if you plan to protect the LDAP Account Manager webUI with an oauth_proxy
-OAUTH2_PROXY_CLIENT_ID=
-OAUTH2_PROXY_CLIENT_SECRET=
-OAUTH2_PROXY_COOKIE_SECRET=
 ```
-
-!!! note
-    I use an [OAuth proxy](/reference/oauth_proxy/) to protect access to the web UI, when the sensitivity of the protected data (i.e. my authentication store) warrants it, or if I don't necessarily trust the security of the webUI.
-
-Create ```authenticated-emails.txt```, and populate with the email addresses (_matched to GitHub user accounts, in my case_) to which you want grant access, using OAuth2.
 
 ### Create config.cfg
 
@@ -67,7 +57,7 @@ Create ```/var/data/openldap/lam/config/config.cfg``` as follows:
 
 ???+ note "Much scroll, very text. Click here to collapse it for better readability"
 
-    ```
+    ```bash
     # password to add/delete/rename configuration profiles (default: lam)
     password: {SSHA}D6AaX93kPmck9wAxNlq3GF93S7A= R7gkjQ==
 
@@ -137,7 +127,7 @@ Create yours profile (_you chose a default profile in config.cfg above, remember
 
 ???+ note "Much scroll, very text. Click here to collapse it for better readability"
 
-    ```
+    ```bash
     # LDAP Account Manager configuration
     #
     # Please do not modify this file manually. The configuration can be done completely by the LAM GUI.
@@ -339,38 +329,38 @@ services:
     image: osixia/openldap
     env_file: /var/data/config/openldap/openldap.env
     networks:
-    - traefik_public
-    - auth_internal
+      - traefik_public
+      - auth_internal
     volumes:
-    - /var/data/runtime/openldap/:/var/lib/ldap
-    - /var/data/openldap/openldap/:/etc/ldap/slapd.d
+      - /var/data/runtime/openldap/:/var/lib/ldap
+      - /var/data/openldap/openldap/:/etc/ldap/slapd.d
+  
 
   lam:
     image: jacksgt/ldap-account-manager
     networks:
-    - auth_internal
-    volumes:
-    - /var/data/openldap/lam/config/config.cfg:/var/www/html/config/config.cfg
-    - /var/data/openldap/lam/config/batcave.conf:/var/www/html/config/batcave.conf
-
-  lam-proxy:
-    image: funkypenguin/oauth2_proxy
-    env_file: /var/data/config/openldap/openldap.env
-    networks:
-      - traefik_public
       - auth_internal
+      - traefik_public
+    volumes:
+      - /var/data/openldap/lam/config/config.cfg:/var/www/html/config/config.cfg
+      - /var/data/openldap/lam/config/batcave.conf:/var/www/html/config/batcave.conf
     deploy:
       labels:
-        - traefik.frontend.rule=Host:lam.batcave.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=4180
-    command: |
-      -cookie-secure=false
-      -upstream=http://lam:8080
-      -redirect-url=https://lam.batcave.com
-      -http-address=http://0.0.0.0:4180
-      -email-domain=batcave.com
-      -provider=github
+
+        # traefikv1
+        - traefik.frontend.rule=Host:iam.example.com
+        - traefik.port=8080     
+
+        # traefikv2
+        - "traefik.http.routers.iam.rule=Host(`iam.example.com`)"
+        - "traefik.http.services.iam.loadbalancer.server.port=8080"
+        - "traefik.enable=true"
+
+        # Remove if you wish to access the URL directly
+        - "traefik.http.routers.iam.middlewares=forward-auth@file"
 
 
 networks:
@@ -392,7 +382,7 @@ networks:
 
 Create **another** stack config file (```/var/data/config/openldap/auth.yml```) containing just the auth_internal network, and a dummy container:
 
-```
+```yaml
 version: "3.2"
 
 # What is this?
@@ -416,9 +406,6 @@ networks:
       config:
         - subnet: 172.16.39.0/24
 ```
-
-
-
 
 ## Serving
 

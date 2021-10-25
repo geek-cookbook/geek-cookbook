@@ -23,4 +23,4 @@ For a visual "top-like" display of your container's activity (_as well as a [det
 To execute, simply run `docker run --rm -ti --name ctop -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest`
 
 Example:
-![](https://github.com/bcicen/ctop/raw/master/_docs/img/grid.gif)
+![ctop screenshot](https://github.com/bcicen/ctop/raw/master/_docs/img/grid.gif)

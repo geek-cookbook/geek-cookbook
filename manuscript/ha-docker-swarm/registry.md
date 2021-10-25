@@ -18,7 +18,7 @@ The registry mirror runs as a swarm stack, using a simple docker-compose.yml. Cu
 
 Create /var/data/config/registry/registry.yml as follows:
 
-```
+```yaml
 version: "3"
 
 services:
@@ -48,7 +48,7 @@ We create this registry without consideration for SSL, which will fail if we att
 
 Create /var/data/registry/registry-mirror-config.yml as follows:
 
-```
+```yaml
 version: 0.1
 log:
   fields:
@@ -83,7 +83,7 @@ Launch the registry stack by running `docker stack deploy registry -c <path-to-d
 
 To tell docker to use the registry mirror, and (_while we're here_) in order to be able to watch the logs of any service from any manager node (_an experimental feature in the current Atomic docker build_), edit **/etc/docker-latest/daemon.json** on each node, and change from:
 
-```
+```json
 {
     "log-driver": "journald",
     "signature-verification": false
@@ -92,7 +92,7 @@ To tell docker to use the registry mirror, and (_while we're here_) in order to 
 
 To:
 
-```
+```json
 {
     "log-driver": "journald",
     "signature-verification": false,
@@ -103,7 +103,7 @@ To:
 
 Then restart docker by running:
 
-```
+```bash
 systemctl restart docker-latest
 ```
 

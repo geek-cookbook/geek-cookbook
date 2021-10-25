@@ -1,4 +1,4 @@
-#Kanboard
+# Kanboard
 
 Kanboard is a Kanban tool, developed by [Frédéric Guillot](https://github.com/fguillot). (_Who also happens to be the developer of my favorite RSS reader, [Miniflux](/recipes/miniflux/)_)
 
@@ -28,7 +28,7 @@ Features include:
 
 When you deployed [Traefik via the helm chart](/kubernetes/traefik/), you would have customized ```values.yml``` for your deployment. In ```values.yml``` is a list of namespaces which Traefik is permitted to access. Update ```values.yml``` to include the *kanboard* namespace, as illustrated below:
 
-```
+```yaml
 <snip>
 kubernetes:
   namespaces:
@@ -45,7 +45,7 @@ If you've updated ```values.yml```, upgrade your traefik deployment via helm, by
 
 Although we could simply bind-mount local volumes to a local Kubuernetes cluster, since we're targetting a cloud-based Kubernetes deployment, we only need a local path to store the YAML files which define the various aspects of our Kubernetes deployment.
 
-```
+```bash
 mkdir /var/data/config/kanboard
 ```
 
@@ -53,7 +53,7 @@ mkdir /var/data/config/kanboard
 
 We use Kubernetes namespaces for service discovery and isolation between our stacks, so create a namespace for the kanboard stack with the following .yml:
 
-```
+```bash
 cat <<EOF > /var/data/config/kanboard/namespace.yml
 apiVersion: v1
 kind: Namespace
@@ -67,7 +67,7 @@ kubectl create -f /var/data/config/kanboard/namespace.yaml
 
 Persistent volume claims are a streamlined way to create a persistent volume and assign it to a container in a pod. Create a claim for the kanboard app and plugin data:
 
-```
+```bash
 cat <<EOF > /var/data/config/kanboard/persistent-volumeclaim.yml
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -91,14 +91,15 @@ kubectl create -f /var/data/config/kanboard/kanboard-volumeclaim.yaml
 
 ### Create ConfigMap
 
-Kanboard's configuration is all contained within ```config.php```, which needs to be presented to the container. We _could_ maintain ```config.php``` in the persistent volume we created above, but this would require manually accessing the pod every time we wanted to make a change. 
+Kanboard's configuration is all contained within ```config.php```, which needs to be presented to the container. We _could_ maintain ```config.php``` in the persistent volume we created above, but this would require manually accessing the pod every time we wanted to make a change.
 
 Instead, we'll create ```config.php``` as a [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/), meaning it "lives" within the Kuberetes cluster and can be **presented** to our pod. When we want to make changes, we simply update the ConfigMap (*delete and recreate, to be accurate*), and relaunch the pod.
 
 Grab a copy of [config.default.php](https://github.com/kanboard/kanboard/blob/master/config.default.php), save it to ```/var/data/config/kanboard/config.php```, and customize it per [the guide](https://docs.kanboard.org/en/latest/admin_guide/config_file.html).
 
 At the very least, I'd suggest making the following changes:
-```
+
+```php
 define('PLUGIN_INSTALLER', true);    // Yes, I want to install plugins using the UI
 define('ENABLE_URL_REWRITE', false); // Yes, I want pretty URLs
 ```
@@ -107,7 +108,7 @@ Now create the configmap from config.php, by running ```kubectl create configmap
 
 ## Serving
 
-Now that we have a [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/), a [persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/), and a [configmap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/), we can create a [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [service](https://kubernetes.io/docs/concepts/services-networking/service/), and [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) for the kanboard [pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/). 
+Now that we have a [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/), a [persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/), and a [configmap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/), we can create a [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [service](https://kubernetes.io/docs/concepts/services-networking/service/), and [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) for the kanboard [pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/).
 
 ### Create deployment
 
@@ -115,7 +116,7 @@ Create a deployment to tell Kubernetes about the desired state of the pod (*whic
 
 --8<-- "premix-cta.md"
 
-```
+```bash
 cat <<EOF > /var/data/kanboard/deployment.yml
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -160,7 +161,7 @@ kubectl create -f /var/data/kanboard/deployment.yml
 
 Check that your deployment is running, with ```kubectl get pods -n kanboard```. After a minute or so, you should see a "Running" pod, as illustrated below:
 
-```
+```bash
 [funkypenguin:~] % kubectl get pods -n kanboard
 NAME                   READY     STATUS    RESTARTS   AGE
 app-79f97f7db6-hsmfg   1/1       Running   0          11d
@@ -171,7 +172,7 @@ app-79f97f7db6-hsmfg   1/1       Running   0          11d
 
 The service resource "advertises" the availability of TCP port 80 in your pod, to the rest of the cluster (*constrained within your namespace*). It seems a little like overkill coming from the Docker Swarm's automated "service discovery" model, but the Kubernetes design allows for load balancing, rolling upgrades, and health checks of individual pods, without impacting the rest of the cluster elements.
 
-```
+```bash
 cat <<EOF > /var/data/kanboard/service.yml
 kind: Service
 apiVersion: v1
@@ -191,7 +192,7 @@ kubectl create -f /var/data/kanboard/service.yml
 
 Check that your service is deployed, with ```kubectl get services -n kanboard```. You should see something like this:
 
-```
+```bash
 [funkypenguin:~] % kubectl get service -n kanboard
 NAME      TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 app       ClusterIP   None         <none>        80/TCP    38d
@@ -202,7 +203,7 @@ app       ClusterIP   None         <none>        80/TCP    38d
 
 The ingress resource tells Traefik what to forward inbound requests for *kanboard.example.com* to your service (defined above), which in turn passes the request to the "app" pod. Adjust the config below for your domain.
 
-```
+```bash
 cat <<EOF > /var/data/kanboard/ingress.yml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -225,7 +226,7 @@ kubectl create -f /var/data/kanboard/ingress.yml
 
 Check that your service is deployed, with ```kubectl get ingress -n kanboard```. You should see something like this:
 
-```
+```bash
 [funkypenguin:~] % kubectl get ingress -n kanboard
 NAME      HOSTS                         ADDRESS   PORTS     AGE
 app       kanboard.funkypenguin.co.nz             80        38d
@@ -234,21 +235,20 @@ app       kanboard.funkypenguin.co.nz             80        38d
 
 ### Access Kanboard
 
-At this point, you should be able to access your instance on your chosen DNS name (*i.e. https://kanboard.example.com*)
-
+At this point, you should be able to access your instance on your chosen DNS name (*i.e. <https://kanboard.example.com>*)
 
 ### Updating config.php
 
 Since ```config.php``` is a ConfigMap now, to update it, make your local changes, and then delete and recreate the ConfigMap, by running:
 
-```
+```bash
 kubectl delete configmap -n kanboard kanboard-config
 kubectl create configmap -n kanboard kanboard-config --from-file=config.php
 ```
 
 Then, in the absense of any other changes to the deployement definition, force the pod to restart by issuing a "null patch", as follows:
 
-```
+```bash
 kubectl patch -n kanboard deployment app -p "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
 ```
 

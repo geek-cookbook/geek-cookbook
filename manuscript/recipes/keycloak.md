@@ -16,7 +16,7 @@ description: Kick-ass OIDC and identity management
 
 We'll need several directories to bind-mount into our container for both runtime and backup data, so create them as follows
 
-```
+```bash
 mkdir -p /var/data/runtime/keycloak/database
 mkdir -p /var/data/keycloak/database-dump
 ```
@@ -25,7 +25,7 @@ mkdir -p /var/data/keycloak/database-dump
 
 Create `/var/data/config/keycloak/keycloak.env`, and populate with the following variables, customized for your own domain structure.
 
-```
+```bash
 # Technically, this could be auto-detected, but we prefer to be prescriptive
 DB_VENDOR=postgres
 DB_DATABASE=keycloak
@@ -48,7 +48,7 @@ POSTGRES_PASSWORD=myuberpassword
 
 Create `/var/data/config/keycloak/keycloak-backup.env`, and populate with the following, so that your database can be backed up to the filesystem, daily:
 
-```
+```bash
 PGHOST=keycloak-db
 PGUSER=keycloak
 PGPASSWORD=myuberpassword
@@ -76,9 +76,19 @@ services:
       - internal
     deploy:
       labels:
-        - traefik.frontend.rule=Host:keycloak.batcave.com
-        - traefik.port=8080
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
+
+        # traefikv1
+        - traefik.frontend.rule=Host:keycloak.example.com
+        - traefik.port=8080     
+
+        # traefikv2
+        - "traefik.http.routers.keycloak.rule=Host(`keycloak.example.com`)"
+        - "traefik.http.services.keycloak.loadbalancer.server.port=8080"
+        - "traefik.enable=true"
+
 
   keycloak-db:
     env_file: /var/data/config/keycloak/keycloak.env
