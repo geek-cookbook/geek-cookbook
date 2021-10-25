@@ -1,6 +1,6 @@
 [archivebox]:       /recipes/archivebox/
-[autopirate]:       /recipes/autopirate/
 [authelia]:         /ha-docker-swarm/authelia/
+[autopirate]:       /recipes/autopirate/
 [bazarr]:           /recipes/autopirate/bazarr/
 [calibre-web]:      /recipes/calibre-web/
 [cyberchef]:        /recipes/cyberchef/
@@ -17,6 +17,7 @@
 [linx]:             /recipes/linx/
 [mealie]:           /recipes/mealie/
 [miniflux]:         /recipes/miniflux/
+[minio]:            /recipes/minio/
 [mylar]:            /recipes/autopirate/mylar/
 [nightscout]:       /recipes/nightscout/
 [nzbget]:           /recipes/autopirate/nzbget/
@@ -25,7 +26,7 @@
 [openldap]:         /recipes/openldap/
 [oscarr]:           /recipes/autopirate/oscarr/
 [paperless-ng]:     /recipes/paperless-ng/
-[patreon]:	        https://www.patreon.com/bePatron?u=6982506
+[patreon]:          https://www.patreon.com/bePatron?u=6982506
 [photoprism]:       /recipes/photoprism/
 [plex]:             /recipes/plex/
 [portainer]:        /recipes/portainer/
