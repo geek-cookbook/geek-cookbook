@@ -45,13 +45,9 @@ mkdir -p {log,lib,run,cache}
 
 ### Prepare environment
 
-Create /var/data/config/munin/munin.env, and populate with the following variables. Use the OAUTH2 variables if you plan to use an [oauth2_proxy](/reference/oauth_proxy/) to protect munin, and set at a **minimum** the `MUNIN_USER`, `MUNIN_PASSWORD`, and `NODES` values:
+Create /var/data/config/munin/munin.env, and populate with the following variables. Set at a **minimum** the `MUNIN_USER`, `MUNIN_PASSWORD`, and `NODES` values:
 
 ```bash
-# Use these if you plan to protect the webUI with an oauth_proxy
-OAUTH2_PROXY_CLIENT_ID=
-OAUTH2_PROXY_CLIENT_SECRET=
-OAUTH2_PROXY_COOKIE_SECRET=
 
 MUNIN_USER=odin
 MUNIN_PASSWORD=lokiisadopted
@@ -83,40 +79,33 @@ services:
     image: funkypenguin/munin-server
     env_file: /var/data/config/munin/munin.env
     networks:
-      - internal
+      - traefik_public
     volumes:
       - /var/data/munin/log:/var/log/munin
       - /var/data/munin/lib:/var/lib/munin
       - /var/data/munin/run:/var/run/munin
       - /var/data/munin/cache:/var/cache/munin
-
-  proxy:
-    image: funkypenguin/oauth2_proxy
-    env_file: /var/data/config/munin/munin.env
-    networks:
-      - traefik_public
-      - internal
     deploy:
       labels:
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
+
+        # traefikv1
         - traefik.frontend.rule=Host:munin.example.com
-        - traefik.docker.network=traefik
-        - traefik.port=4180
-    command: |
-      -cookie-secure=false
-      -upstream=http://munin:8080
-      -redirect-url=https://munin.example.com
-      -http-address=http://0.0.0.0:4180
-      -email-domain=example.com
-      -provider=github
+        - traefik.port=8080     
+
+        # traefikv2
+        - "traefik.http.routers.munin.rule=Host(`munin.example.com`)"
+        - "traefik.http.services.munin.loadbalancer.server.port=8080"
+        - "traefik.enable=true"
+
+        # Remove if you wish to access the URL directly
+        - "traefik.http.routers.wekan.middlewares=forward-auth@file"
 
 networks:
   traefik_public:
     external: true
-  internal:
-    driver: overlay
-    ipam:
-      config:
-        - subnet: 172.16.24.0/24
 ```
 
 --8<-- "reference-networks.md"
@@ -129,6 +118,6 @@ Launch the Munin stack by running `docker stack deploy munin -c <path -to-docker
 
 Log into your new instance at https://**YOUR-FQDN**, with user and password password you specified in munin.env above.
 
-[^1]: If you wanted to expose the Munin UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the munin container. You'd also need to add the traefik_public network to the munin container.
+[^1]: If you wanted to expose the Munin UI directly, you could remove the traefik-forward-auth from the design.
 
 --8<-- "recipe-footer.md"

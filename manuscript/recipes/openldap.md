@@ -47,17 +47,7 @@ LDAP_DOMAIN=batcave.gotham
 LDAP_ORGANISATION=BatCave Inc
 LDAP_ADMIN_PASSWORD=supermansucks
 LDAP_TLS=false
-
-# Use these if you plan to protect the LDAP Account Manager webUI with an oauth_proxy
-OAUTH2_PROXY_CLIENT_ID=
-OAUTH2_PROXY_CLIENT_SECRET=
-OAUTH2_PROXY_COOKIE_SECRET=
 ```
-
-!!! note
-    I use an [OAuth proxy](/reference/oauth_proxy/) to protect access to the web UI, when the sensitivity of the protected data (i.e. my authentication store) warrants it, or if I don't necessarily trust the security of the webUI.
-
-Create ```authenticated-emails.txt```, and populate with the email addresses (_matched to GitHub user accounts, in my case_) to which you want grant access, using OAuth2.
 
 ### Create config.cfg
 
@@ -339,38 +329,38 @@ services:
     image: osixia/openldap
     env_file: /var/data/config/openldap/openldap.env
     networks:
-    - traefik_public
-    - auth_internal
+      - traefik_public
+      - auth_internal
     volumes:
-    - /var/data/runtime/openldap/:/var/lib/ldap
-    - /var/data/openldap/openldap/:/etc/ldap/slapd.d
+      - /var/data/runtime/openldap/:/var/lib/ldap
+      - /var/data/openldap/openldap/:/etc/ldap/slapd.d
+  
 
   lam:
     image: jacksgt/ldap-account-manager
     networks:
-    - auth_internal
-    volumes:
-    - /var/data/openldap/lam/config/config.cfg:/var/www/html/config/config.cfg
-    - /var/data/openldap/lam/config/batcave.conf:/var/www/html/config/batcave.conf
-
-  lam-proxy:
-    image: funkypenguin/oauth2_proxy
-    env_file: /var/data/config/openldap/openldap.env
-    networks:
-      - traefik_public
       - auth_internal
+      - traefik_public
+    volumes:
+      - /var/data/openldap/lam/config/config.cfg:/var/www/html/config/config.cfg
+      - /var/data/openldap/lam/config/batcave.conf:/var/www/html/config/batcave.conf
     deploy:
       labels:
-        - traefik.frontend.rule=Host:lam.batcave.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=4180
-    command: |
-      -cookie-secure=false
-      -upstream=http://lam:8080
-      -redirect-url=https://lam.batcave.com
-      -http-address=http://0.0.0.0:4180
-      -email-domain=batcave.com
-      -provider=github
+
+        # traefikv1
+        - traefik.frontend.rule=Host:iam.example.com
+        - traefik.port=8080     
+
+        # traefikv2
+        - "traefik.http.routers.iam.rule=Host(`iam.example.com`)"
+        - "traefik.http.services.iam.loadbalancer.server.port=8080"
+        - "traefik.enable=true"
+
+        # Remove if you wish to access the URL directly
+        - "traefik.http.routers.iam.middlewares=forward-auth@file"
 
 
 networks:

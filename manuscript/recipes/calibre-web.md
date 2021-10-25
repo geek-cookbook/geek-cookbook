@@ -39,17 +39,13 @@ Ensure that your Calibre library is accessible to the swarm (_i.e., exists on sh
 
 ### Prepare environment
 
-We'll use an [oauth-proxy](/reference/oauth_proxy/) to protect the UI from public access, so create calibre-web.env, and populate with the following variables:
+Create `/var/data/config/calibre-web/calibre-web.env`, and populate with the following variables
 
 ```bash
-OAUTH2_PROXY_CLIENT_ID=
-OAUTH2_PROXY_CLIENT_SECRET=
-OAUTH2_PROXY_COOKIE_SECRET=<make this a random string>
+
 PUID=
 PGID=
 ```
-
-Follow the [instructions](https://github.com/bitly/oauth2_proxy) to setup your oauth provider. You need to setup a unique key/secret for each instance of the proxy you want to run, since in each case the callback URL will differ.
 
 ### Setup Docker Swarm
 
@@ -68,30 +64,25 @@ services:
      - /var/data/calibre-web:/config
      - /srv/data/Archive/Ebooks/calibre:/books
     networks:
-    - internal
-
-  proxy:
-    image: a5huynh/oauth2_proxy
-    env_file : /var/data/config/calibre-web/calibre-web.env
-    dns_search: hq.example.com
-    networks:
       - internal
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:calibre-web.example.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=4180
-    volumes:
-      - /var/data/config/calibre-web/authenticated-emails.txt:/authenticated-emails.txt
-    command: |
-      -cookie-secure=false
-      -upstream=http://app:8083
-      -redirect-url=https://calibre-web.example.com
-      -http-address=http://0.0.0.0:4180
-      -email-domain=example.com
-      -provider=github
-      -authenticated-emails-file=/authenticated-emails.txt
+
+        # traefikv1
+        - traefik.frontend.rule=Host:calibre.example.com
+        - traefik.port=8083     
+
+        # traefikv2
+        - "traefik.http.routers.calibre.rule=Host(`calibre.example.com`)"
+        - "traefik.http.services.calibre.loadbalancer.server.port=8083"
+        - "traefik.enable=true"
+
+        # Remove if you wish to access the URL directly
+        - "traefik.http.routers.calibre.middlewares=forward-auth@file"
 
 networks:
   traefik_public:
@@ -111,7 +102,7 @@ networks:
 
 Launch the Calibre-Web stack by running ```docker stack deploy calibre-web -c <path -to-docker-compose.yml>```
 
-Log into your new instance at https://**YOUR-FQDN**. You'll be directed to the initial GUI configuraition. Set the first field (_Location of Calibre database_) to "_/books/_", and when complete, login using defaults username of "**admin**" with password "**admin123**".
+Log into your new instance at `https://**YOUR-FQDN**`. You'll be directed to the initial GUI configuraition. Set the first field (_Location of Calibre database_) to "_/books/_", and when complete, login using defaults username of "**admin**" with password "**admin123**".
 
 [^1]: Yes, Calibre does provide a server component. But it's not as fully-featured as Calibre-Web (_i.e., you can't use it to send ebooks directly to your Kindle_)
 [^2]: A future enhancement might be integrating this recipe with the filestore for [NextCloud](/recipes/nextcloud/), so that the desktop database (Calibre) can be kept synced with Calibre-Web.

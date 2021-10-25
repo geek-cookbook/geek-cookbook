@@ -101,7 +101,7 @@ RESTIC_PASSWORD=<repo_password>
 
 ### Setup Docker Swarm
 
-Create a docker swarm config file in docker-compose syntax (v3) in `/var/data/restic/restic.yml` , something like this:
+Create a docker swarm config file in docker-compose syntax (v3) in `/var/data/config/restic/restic.yml` , something like this:
 
 --8<-- "premix-cta.md"
 

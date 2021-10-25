@@ -45,7 +45,6 @@ MINIO_SERVER_URL=https://minio.example.com
 !!! note "If minio redirects you to :9001"
     `MINIO_BROWSER_REDIRECT_URL` is especially important since recent versions of Minio will redirect web browsers to this URL when they hit the API directly. (*If you find yourself redirected to `http://your-minio-url:9001`, then you've not set this value correctly!*)
 
-
 ### Setup Docker Swarm
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
@@ -110,15 +109,15 @@ networks:
 
 ### Launch Minio stack
 
-Launch the Minio stack by running ```docker stack deploy minio -c <path -to-docker-compose.yml>```
+Launch the Minio stack by running ``docker stack deploy minio -c <path -to-docker-compose.yml>`
 
-Log into your new instance at https://minio-console.**YOUR-FQDN**, with the root user and password you specified in `minio.env`.
+Log into your new instance at `https://minio-console.**YOUR-FQDN**`, with the root user and password you specified in `minio.env`.
 
-If you created ```/var/data/minio```, you'll see nothing. If you mapped `/data` to existing data, you should see all subdirectories in your existing folder represented as buckets.
+If you created `/var/data/minio`, you'll see nothing. If you mapped `/data` to existing data, you should see all subdirectories in your existing folder represented as buckets.
 
 Use the Minio console to create a user, or (*ill-advisedly*) continue using the root user/password!
 
-If all you need is single-user access to your data, you're done! 🎉 
+If all you need is single-user access to your data, you're done! 🎉
 
 If, however, you want to expose data to multiple users, at different privilege levels, you'll need the minio client to create some users and (_potentially_) policies...
 
@@ -193,7 +192,7 @@ aws_access_key_id=spiderman
 aws_secret_access_key=peterparker
 ```
 
-And then I ran (_in the foreground, for debugging_), ```goofys --f -debug_s3 --debug_fuse --endpoint=https://traefik.example.com <bucketname> <local mount point>```
+And then I ran (_in the foreground, for debugging_), `goofys --f -debug_s3 --debug_fuse --endpoint=https://traefik.example.com <bucketname> <local mount point>`
 
 To permanently mount an S3 bucket using goofys, I'd add something like this to /etc/fstab:
 

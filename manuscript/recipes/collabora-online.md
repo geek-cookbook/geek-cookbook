@@ -170,10 +170,20 @@ services:
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:collabora.batcave.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
+
+        # traefikv1
+        - traefik.frontend.rule=Host:collabora.example.com
         - traefik.port=80
         - traefik.frontend.passHostHeader=true
+     
+
+        # traefikv2
+        - "traefik.http.routers.collabora.rule=Host(`collabora.example.com`)"
+        - "traefik.http.services.collabora.loadbalancer.server.port=80"
+        - "traefik.enable=true"
         # uncomment this line if you want to force nginx to always run on one node (i.e., the one running collabora)
       #placement:
       #  constraints:

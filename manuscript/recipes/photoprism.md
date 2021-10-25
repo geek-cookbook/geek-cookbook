@@ -111,9 +111,20 @@ services:
 
     deploy:
       labels:
-        - traefik.frontend.rule=Host:photoprism.funkypenguin.co.nz
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=2342
+
+        # traefikv1
+        - traefik.frontend.rule=Host:photoprism.example.com
+        - traefik.port=2342     
+
+        # traefikv2
+        - "traefik.http.routers.photoprism.rule=Host(`photoprism.example.com`)"
+        - "traefik.http.services.photoprism.loadbalancer.server.port=2342"
+        - "traefik.enable=true"
+
+        
   db:
     image: mariadb:10.5
     env_file: /var/data/config/photoprism/photoprism.env

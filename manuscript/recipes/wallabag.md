@@ -30,9 +30,9 @@ mkdir -p {images,db-dump}
 
 ### Prepare environment
 
-Create wallabag.env, and populate with the following variables. The only variable you **have** to change is SYMFONY__ENV__DOMAIN_NAME - this **must** be the URL that your Wallabag instance will be available at (_else you'll have no CSS_)
+Create `/var/data/config/wallabag/wallabag.env`, and populate with the following variables. The only variable you **have** to change is SYMFONY__ENV__DOMAIN_NAME - this **must** be the URL that your Wallabag instance will be available at (_else you'll have no CSS_)
 
-```bash
+```yaml
 # For the DB container
 POSTGRES_PASSWORD=wallabag
 POSTGRES_USER=wallabag
@@ -51,17 +51,11 @@ SYMFONY__ENV__MAILER_USER=~
 SYMFONY__ENV__MAILER_PASSWORD=~
 SYMFONY__ENV__FROM_EMAIL=wallabag@example.com
 SYMFONY__ENV__FOSUSER_REGISTRATION=false
-
-
-# If you decide to protect wallabag with an oauth_proxy, complete these
-OAUTH2_PROXY_CLIENT_ID=
-OAUTH2_PROXY_CLIENT_SECRET=
-OAUTH2_PROXY_COOKIE_SECRET=
 ```
 
-Now create wallabag-backup.env in the same folder, with the following contents. (_This is necessary to prevent environment variables required for backup from breaking the DB container_)
+Now create wallabag-`/var/data/config/wallabag/backup.env` with the following contents. (_This is necessary to prevent environment variables required for backup from breaking the DB container_)
 
-```bash
+```yaml
 # For database backups
 PGUSER=wallabag
 PGPASSWORD=wallabag
@@ -79,7 +73,6 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 ```yaml
 version: '3'
 services:
-
   wallabag:
     image: wallabag/wallabag
     env_file: /var/data/config/wallabag/wallabag.env
@@ -87,28 +80,23 @@ services:
       - internal
     volumes:
       - /var/data/wallabag/images:/var/www/wallabag/web/assets/images
+    deploy:
+      labels:
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
 
-  wallabag_proxy:
-   image: a5huynh/oauth2_proxy
-   env_file: /var/data/config/wallabag/wallabag.env
-   networks:
-     - internal
-     - traefik_public
-   deploy:
-     labels:
-       - traefik.frontend.rule=Host:wallabag.example.com
-       - traefik.docker.network=traefik_public
-       - traefik.port=4180
-   volumes:
-     - /var/data/config/wallabag/authenticated-emails.txt:/authenticated-emails.txt
-   command: |
-     -cookie-secure=false
-     -upstream=http://wallabag:80
-     -redirect-url=https://wallabag.example.com
-     -http-address=http://0.0.0.0:4180
-     -email-domain=example.com
-     -provider=github
-     -authenticated-emails-file=/authenticated-emails.txt
+        # traefikv1
+        - traefik.frontend.rule=Host:wallabag.example.com
+        - traefik.port=80     
+
+        # traefikv2
+        - "traefik.http.routers.wallabag.rule=Host(`wallabag.example.com`)"
+        - "traefik.http.services.wallabag.loadbalancer.server.port=80"
+        - "traefik.enable=true"
+
+        # Remove if you wish to access the URL directly
+        - "traefik.http.routers.wallabag.middlewares=forward-auth@file"
 
   db:
     image: postgres
@@ -188,7 +176,8 @@ Even with all these elements in place, you still need to enable Redis under Inte
 
 ![Wallabag Imports](../images/wallabag_imports.png)
 
-[^1]: If you wanted to expose the Wallabag UI directly (_required for the iOS/Android apps_), you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the wallabag container. You'd also need to add the traefik_public network to the wallabag container. I found the iOS app to be unreliable and clunky, so elected to leave my oauth_proxy enabled, and to simply use the webUI on my mobile devices instead. YMMMV.
+[^1]: If you wanted to expose the Wekan UI directly, you could remove the traefik-forward-auth from the design. I found the iOS app to be unreliable and clunky, so elected to leave my traefik-forward-auth enabled, and to simply use the webUI on my mobile devices instead. YMMMV.
+
 [^2]: I've not tested the email integration, but you'd need an SMTP server listening on port 25 (_since we can't change the port_) to use it
 
 --8<-- "recipe-footer.md"

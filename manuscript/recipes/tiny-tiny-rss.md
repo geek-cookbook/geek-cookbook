@@ -30,9 +30,9 @@ cd /var/data/config/ttrss
 
 ### Prepare environment
 
-Create ttrss.env, and populate with the following variables, customizing at least the database password (POSTGRES_PASSWORD **and** DB_PASS) and the TTRSS_SELF_URL to point to your installation.
+Create `/var/data/config/ttrs/ttrss.env`, and populate with the following variables, customizing at least the database password (POSTGRES_PASSWORD **and** DB_PASS) and the TTRSS_SELF_URL to point to your installation.
 
-```bash
+```yaml
 # Variables for postgres:latest
 POSTGRES_USER=ttrss
 POSTGRES_PASSWORD=mypassword
@@ -79,12 +79,21 @@ services:
       env_file: /var/data/config/ttrss/ttrss.env
       deploy:
         labels:
-          - traefik.frontend.rule=Host:ttrss.funkypenguin.co.nz
-          - traefik.docker.network=traefik
-          - traefik.port=8080
+          # traefik common
+          - traefik.enable=true
+          - traefik.docker.network=traefik_public
+
+          # traefikv1
+          - traefik.frontend.rule=Host:ttrss.example.com
+          - traefik.port=8080     
+
+          # traefikv2
+          - "traefik.http.routers.ttrss.rule=Host(`ttrss.example.com`)"
+          - "traefik.http.services.ttrss.loadbalancer.server.port=8080"
+          - "traefik.enable=true"
       networks:
         - internal
-        - traefik
+        - traefik_public
 
     db-backup:
       image: postgres:latest
@@ -106,7 +115,7 @@ services:
       - internal
 
 networks:
-  traefik:
+  traefik_public:
     external: true
   internal:
     driver: overlay

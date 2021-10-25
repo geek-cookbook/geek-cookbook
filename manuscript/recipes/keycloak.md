@@ -76,9 +76,19 @@ services:
       - internal
     deploy:
       labels:
-        - traefik.frontend.rule=Host:keycloak.batcave.com
-        - traefik.port=8080
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
+
+        # traefikv1
+        - traefik.frontend.rule=Host:keycloak.example.com
+        - traefik.port=8080     
+
+        # traefikv2
+        - "traefik.http.routers.keycloak.rule=Host(`keycloak.example.com`)"
+        - "traefik.http.services.keycloak.loadbalancer.server.port=8080"
+        - "traefik.enable=true"
+
 
   keycloak-db:
     env_file: /var/data/config/keycloak/keycloak.env

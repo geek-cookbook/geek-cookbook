@@ -30,10 +30,6 @@ mkdir /var/data/owntracks
 Create owntracks.env, and populate with the following variables
 
 ```bash
-OAUTH2_PROXY_CLIENT_ID=
-OAUTH2_PROXY_CLIENT_SECRET=
-OAUTH2_PROXY_COOKIE_SECRET=
-
 OTR_USER=recorder
 OTR_PASS=yourpassword
 OTR_HOST=owntracks.example.com
@@ -56,32 +52,29 @@ services:
         - /var/data/owntracks:/owntracks
       networks:
         - internal
+        - traefik_public
       ports:
         - 1883:1883
         - 8883:8883
         - 8083:8083
-
-    owntracks-proxy:
-      image: a5huynh/oauth2_proxy
-      env_file : /var/data/config/owntracks/owntracks.env
-      networks:
-        - internal
-        - traefik_public
       deploy:
         labels:
-              - traefik.frontend.rule=Host:owntracks.example.com
+          # traefik common
+          - traefik.enable=true
           - traefik.docker.network=traefik_public
-          - traefik.port=4180
-      volumes:
-        - /var/data/config/owntracks/authenticated-emails.txt:/authenticated-emails.txt
-      command: |
-        -cookie-secure=false
-        -upstream=http://owntracks-app:8083
-        -redirect-url=https://owntracks.example.com
-        -http-address=http://0.0.0.0:4180
-        -email-domain=example.com
-        -provider=github
-        -authenticated-emails-file=/authenticated-emails.txt
+
+          # traefikv1
+          - traefik.frontend.rule=Host:owntracks-app.example.com
+          - traefik.port=8083     
+
+          # traefikv2
+          - "traefik.http.routers.owntracks.rule=Host(`owntracks-app.example.com`)"
+          - "traefik.http.services.owntracks.loadbalancer.server.port=8083"
+          - "traefik.enable=true"
+
+          # Remove if you wish to access the URL directly
+          - "traefik.http.routers.owntracks.middlewares=forward-auth@file"
+
 
 networks:
   traefik_public:
@@ -103,7 +96,7 @@ Launch the OwnTracks stack by running ```docker stack deploy owntracks -c <path 
 
 Log into your new instance at https://**YOUR-FQDN**, with user "root" and the password you specified in gitlab.env.
 
-[^1]: If you wanted to expose the OwnTracks Web UI directly, you could remove the oauth2_proxy from the design, and move the traefik-related labels directly to the wekan container. You'd also need to add the traefik network to the owntracks container.
+[^1]: If you wanted to expose the Owntracks UI directly, you could remove the traefik-forward-auth from the design.
 [^2]: I'm using my own image rather than owntracks/recorderd, because of a [potentially swarm-breaking bug](https://github.com/owntracks/recorderd/issues/14) I found in the official container. If this gets resolved (_or if I was mistaken_) I'll update the recipe accordingly.
 [^3]: By default, you'll get a fully accessible, unprotected MQTT broker. This may not be suitable for public exposure, so you'll want to look into securing mosquitto with TLS and ACLs.
 

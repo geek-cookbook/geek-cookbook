@@ -139,9 +139,18 @@ services:
       - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:rainloop.example.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=8888
+
+        # traefikv1
+        - traefik.frontend.rule=Host:rainloop.example.com
+        - traefik.port=8888     
+
+        # traefikv2
+        - "traefik.http.routers.rainloop.rule=Host(`rainloop.example.com`)"
+        - "traefik.http.services.rainloop.loadbalancer.server.port=8888"
+        - "traefik.enable=true"
     volumes:
       - /var/data/mailserver/rainloop:/rainloop/data
 
