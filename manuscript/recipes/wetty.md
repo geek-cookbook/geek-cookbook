@@ -34,6 +34,7 @@ cd /var/data/config/wetty
 ### Prepare environment
 
 Create `/var/data/config/wetty.env`, and populate with the following variables
+
 ```yaml
 
 # To use WeTTY to SSH to a host besides the (mostly useless) alpine container it comes with

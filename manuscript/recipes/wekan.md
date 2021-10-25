@@ -31,8 +31,7 @@ mkdir -p {wekan-db,wekan-db-dump}
 
 ### Prepare environment
 
-Create `/var/data/config/wekan.env`, and populate with the following variables
-
+Create `/var/data/config/wekan.env`, and populate with the following variables:
 
 ```yaml
 MONGO_URL=mongodb://wekandb:27017/wekan
