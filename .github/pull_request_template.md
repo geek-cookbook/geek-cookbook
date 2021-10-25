@@ -24,6 +24,7 @@
 
 - [ ] I have read the [contribution guide](https://geek-cookbook.funkypenguin.co.nz/community/contribute/#contributing-recipes)
 - [ ] The format of my changes matches that of other recipes (*ideally it was copied from [template](/manuscript/recipes/template.md)*)
+- [ ] My changes have passed markdown linting, either by running `./scripts/local-markdownlint.sh` locally, or by checking the status of the PR check below.
 
 <!-- 
 delete these next checks if not adding a new recipe 

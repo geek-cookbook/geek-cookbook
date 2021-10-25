@@ -1,5 +1,5 @@
 name: "🍰 Request a new recipe!"
-description: I have a request for a fresh recipe 😋
+description: I have a request for a fresh, tasty recipe 😋
 title: "[recipe] "
 labels: ["recipe/request", "status/backlog", "good first issue"]
 
@@ -7,7 +7,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Greetings, fellow geek! :wave: 
+        ## :wave: Greetings
+
+        Greetings, fellow geek! 
         
         Thanks for taking the time to request this recipe! This issue form helps to capture the 
         request in a standardized way, and to pre-gather as much information as possible, to expidite
@@ -27,7 +29,7 @@ body:
 
   - type: textarea
     attributes:
-      label: Description
+      label: 📜 Description
       description: Please provide a brief description of the proposed recipe
     validations:
       required: true
@@ -44,7 +46,7 @@ body:
   - type: input
     id: discord_id
     attributes:
-      label: Your Discord username
+      label: 💬 Your Discord username
       description: If you've joined our [Discord server](http://chat.funkypenguin.co.nz), enter your username here so that we can collaborate effectively
       placeholder: BobTheBuilder#4567
 
@@ -73,7 +75,7 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://geek-cookbook.funkypenguin.co.nz/community/code-of-conduct/)
+      description: By submitting this issue, you agree to follow our community's [Code of Conduct](https://geek-cookbook.funkypenguin.co.nz/community/code-of-conduct/)
       options:
         - label: I agree to follow this Geek Cookbook's Code of Conduct
           required: true

@@ -1,0 +1,81 @@
+name: "💡 Suggestion"
+description: I have a suggestion for an improvement 🧐
+title: "[suggestion] "
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## :wave: Greetings!
+
+        Greetings, fellow geek! 
+        
+        Thanks for taking the time to pass on a suggestion for improvement! This issue form helps to capture your 
+        suggestion in a standardized way, all the better to implement it!
+
+  - type: checkboxes
+    id: sanity_check
+    attributes:
+      label: 🤪 Sanity check
+      description: Let's first confirm that this is not a suggestion which has previously been discussed / proposed
+      options:
+        - label: I have searched and confirmed no existing [open](https://github.com/funkypenguin/geek-cookbook/issues?q=is%3Aissue) / [closed](https://github.com/funkypenguin/geek-cookbook/issues?q=is%3Aissue+is%3Aclosed) issues, or [open](https://github.com/funkypenguin/geek-cookbook/pulls?q=is%3Apr) / [closed](https://github.com/funkypenguin/geek-cookbook/pulls?q=is%3Apr+is%3Aclosed) PRs exist for this suggestion
+          required: true       
+          
+  - type: textarea
+    attributes:
+      label: 🤕 What's not right?
+      description: What's the challenge, or the area for improvement?
+      placeholder: A clear and concise description of what the problem/challenge is. Ex. I have an issue when [...]
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 🤯 Here's my idea!
+      description: Describe the solution you'd suggest
+      placeholder: A clear and concise description of what you want to happen. Add any considered drawbacks.
+    validations:
+      required: true      
+
+  - type: textarea
+    attributes:
+      label: 🤔 On the other hand..
+      description: Describe alternatives you've considered
+      placeholder: A clear and concise description of any alternative solutions or features you've considered.
+    validations:
+      required: true      
+
+  - type: textarea
+    attributes:
+      label: 🤩 But will it fly?
+      description: Teachability, Documentation, Adoption, Migration Strategy
+      placeholder: If you can, explain how users will be able to use this and possibly write out a version the docs. Maybe a screenshot or design?
+    validations:
+      required: true  
+
+  - type: input
+    id: discord_id
+    attributes:
+      label: 💬 Your Discord username
+      description: If you've joined our [Discord server](http://chat.funkypenguin.co.nz), enter your username here so that we can collaborate effectively
+      placeholder: BobTheBuilder#4567
+
+  - type: checkboxes
+    id: engagement
+    attributes:
+      label: 💍 Engagement
+      description: To see this suggestion implemented, I'm willing to...
+      options:
+        - label: Test the changes after a preview deploy and provide feedback
+        - label: Solicit community input in [Discord](http://chat.funkypenguin.co.nz)
+        - label: Submit a PR for a first-cut myself 🏆
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: ✅ Code of Conduct
+      description: By submitting this issue, I agree to follow our community's [Code of Conduct](https://geek-cookbook.funkypenguin.co.nz/community/code-of-conduct/)
+      options:
+        - label: I agree to follow this Geek Cookbook's Code of Conduct
+          required: true
