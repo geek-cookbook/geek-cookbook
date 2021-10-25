@@ -44,10 +44,6 @@ Found a bug in your soup? Tell the chef by either:
 
 ## Tip the chef
 
-### Buy my book 📖
-
-I'm also writing the Geek Cookbook as a formal eBook, on Leanpub (<https://leanpub.com/geeks-cookbook>).
-
 ### [Sponsor][7] / [Patreonize][8] me 💰
 
 The best way to support this work is to become a [Sponsor][11] (_GitHub_) or a [Patron][10] (_Patreon_). Sponsors get:
@@ -60,6 +56,14 @@ The best way to support this work is to become a [Sponsor][11] (_GitHub_) or a [
 .. and I get some pocket money every month to buy wine, cheese, and cryptocurrency! 🍷 💰
 
 Impulsively **[click here (NOW quick do it!)][11]** to sponsor me, or instead thoughtfully and analytically review my GitHub profile **[here][12]** and make up your own mind.
+
+### Buy my book 📖
+
+I'm also writing the Geek Cookbook as a formal eBook, on Leanpub (<https://leanpub.com/geeks-cookbook>). Buying it supports me once-off, and you continue to have access to the book as future recipes are added.
+
+### Buy me a coffee ☕️
+
+Want to hit me with an (anonymous) thank-you? [Buy me a coffee](https://www.buymeacoffee.com/funkypenguin)!
 
 ### Engage me 🏢
 
