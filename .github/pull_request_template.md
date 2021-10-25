@@ -24,10 +24,11 @@
 
 - [ ] I have read the [contribution guide](https://geek-cookbook.funkypenguin.co.nz/community/contribute/#contributing-recipes)
 - [ ] The format of my changes matches that of other recipes (*ideally it was copied from [template](/manuscript/recipes/template.md)*)
-- [ ] I've added at least one footnote to my recipe (*Chef's Notes*)
+
 <!-- 
 delete these next checks if not adding a new recipe 
 -->
+- [ ] I've added at least one footnote to my recipe (*Chef's Notes*)
 - [ ] I've updated `common_links.md` in the `_snippets` directory and sorted alphabetically
 - [ ] I've updated the navigation in `mkdocs.yaml` in alphabetical order
 - [ ] I've updated `CHANGELOG.md` in reverse chronological order order
