@@ -94,6 +94,10 @@ Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm 
 
 I'm publishing the Geek Cookbook as a formal eBook (*PDF, mobi, epub*), on Leanpub (https://leanpub.com/geek-cookbook). Check it out!
 
+### Buy me a coffee ☕️
+
+A sponsorship is too much commitment, and a book is TL;DR? Hit me up with a [one-time caffine shot](https://www.buymeacoffee.com/funkypenguin)!
+
 ### Sponsored Projects
 
 I'm supported and motivated by [GitHub Sponsors](https://github.com/sponsors/funkypenguin), [Patreon patrons](https://www.patreon.com/funkypenguin) and [LeanPub readers](https://leanpub.com/geeks-cookbook) who have generously sponsored me.
