@@ -8,7 +8,7 @@ Intro
 
 ![Duplicity Screenshot](../images/duplicity.png)
 
-[Duplicity](http://duplicity.nongnu.org/) backs directories by producing encrypted tar-format volumes and uploading them to a remote or local file server. Because duplicity uses librsync, the incremental archives are space efficient and only record the parts of files that have changed since the last backup. Because duplicity uses GnuPG to encrypt and/or sign these archives, they will be safe from spying and/or modification by the server.
+[Duplicity](https://duplicity.gitlab.io/duplicity-web/) backs directories by producing encrypted tar-format volumes and uploading them to a remote or local file server. Because duplicity uses librsync, the incremental archives are space efficient and only record the parts of files that have changed since the last backup. Because duplicity uses GnuPG to encrypt and/or sign these archives, they will be safe from spying and/or modification by the server.
 
 So what does this mean for our stack? It means we can leverage Duplicity to backup all our data-at-rest to a wide variety of cloud providers, including, but not limited to:
 
@@ -45,7 +45,7 @@ cd /var/data/config/duplicity
 
 ### (Optional) Create Google Cloud Storage bucket
 
-I didn't already have an archival/backup provider, so I chose Google Cloud "cloud" storage for the low price-point - 0.7 cents per GB/month (_Plus you [start with \$300 credit](https://cloud.google.com/free/) even when signing up for the free tier_). You can use any destination supported by [Duplicity's URL scheme though](http://duplicity.nongnu.org/duplicity.1.html#sect7), just make sure you specify the necessary [environment variables](http://duplicity.nongnu.org/duplicity.1.html#sect6).
+I didn't already have an archival/backup provider, so I chose Google Cloud "cloud" storage for the low price-point - 0.7 cents per GB/month (_Plus you [start with \$300 credit](https://cloud.google.com/free/) even when signing up for the free tier_). You can use any destination supported by [Duplicity's URL scheme though](https://duplicity.gitlab.io/duplicity-web/vers7/duplicity.1.html#sect7), just make sure you specify the necessary [environment variables](https://duplicity.gitlab.io/duplicity-web/vers7/duplicity.1.html#sect6).
 
 1. [Sign up](https://cloud.google.com/storage/docs/getting-started-console), create an empty project, enable billing, and create a bucket. Give your bucket a unique name, example "**jack-and-jills-bucket**" (_it's unique across the entire Google Cloud_)
 2. Under "Storage" section > "[Settings](https://console.cloud.google.com/project/_/storage/settings)" > "Interoperability" tab > click "Enable interoperable access" and then "Create a new key" button and note both Access Key and Secret.
