@@ -27,10 +27,12 @@ plugins:
   autolinks:
   macros:
     verbose: true
-
-
-
-  # - htmlproofer
+  htmlproofer:
+    # raise_error: True
+    # raise_error_excludes:
+    #   504: ['https://www.mkdocs.org/']
+    #   404: ['https://github.com/manuzhang/mkdocs-htmlproofer-plugin']
+    #   400: ['*']  
 
 #theme_dir: mkdocs-material
 nav:
@@ -45,7 +47,7 @@ nav:
         - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
         - Traefik: ha-docker-swarm/traefik.md
         - Traefik Forward Auth: 
-            - Start: ha-docker-swarm/traefik-forward-auth.md 
+            - ha-docker-swarm/traefik-forward-auth/index.md 
             - Dex (static): ha-docker-swarm/traefik-forward-auth/dex-static.md    
             - Google: ha-docker-swarm/traefik-forward-auth/google.md      
             - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
@@ -71,14 +73,12 @@ nav:
           - Sonarr: recipes/autopirate/sonarr.md
           - End: recipes/autopirate/end.md
         - Emby: recipes/emby.md
-        - Home Assistant:
-          - Start: recipes/homeassistant.md
-          - iBeacon: recipes/homeassistant/ibeacon.md
+        - Home Assistant: recipes/homeassistant.md
         - Huginn: recipes/huginn.md
         - Jellyfin: recipes/jellyfin.md
         - Kanboard: recipes/kanboard.md
         - KeyCloak: 
-          - Start: recipes/keycloak.md      
+          - recipes/keycloak/index.md   
           - Users: recipes/keycloak/create-user.md
           - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
           - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md
@@ -107,7 +107,7 @@ nav:
         - Gollum: recipes/gollum.md
         - InstaPy: recipes/instapy.md
         - KeyCloak: 
-          - Start: recipes/keycloak.md      
+          - recipes/keycloak/index.md      
           - Users: recipes/keycloak/create-user.md
           - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
           - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md      
@@ -127,7 +127,7 @@ nav:
         - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
         - Traefik: ha-docker-swarm/traefik.md
         - Traefik Forward Auth: 
-            - Start: ha-docker-swarm/traefik-forward-auth.md 
+            - ha-docker-swarm/traefik-forward-auth/index.md 
             - Dex (static): ha-docker-swarm/traefik-forward-auth/dex-static.md    
             - Google: ha-docker-swarm/traefik-forward-auth/google.md      
             - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
@@ -142,7 +142,7 @@ nav:
         - Troubleshooting: reference/troubleshooting.md         
     - Kubernetes:
       - Preparation:
-        - Start: kubernetes/index.md
+        - kubernetes/index.md
         - Design: kubernetes/design.md
         - Cluster: kubernetes/cluster.md
         - DIY Cluster: kubernetes/diycluster.md
@@ -154,7 +154,7 @@ nav:
         - Kanboard: recipes/kubernetes/kanboard.md
         - Miniflux: recipes/kubernetes/miniflux.md
     - 🚀 Get Premix!:
-      - Start: premix.md
+      - premix/index.md
       - Ansible: 
         - Operation: premix/ansible/operation.md        
         - Design: premix/ansible/design.md
