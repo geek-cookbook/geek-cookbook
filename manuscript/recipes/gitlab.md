@@ -1,5 +1,3 @@
-hero: Gitlab - A recipe for a self-hosted GitHub alternative
-
 # GitLab
 
 GitLab is a self-hosted [alternative to GitHub](https://about.gitlab.com/comparison/). The most common use case is (a set of) developers with the desire for the rich feature-set of GitHub, but with unlimited private repositories.
@@ -14,7 +12,7 @@ Docker does maintain an [official "Omnibus" container](https://docs.gitlab.com/o
 
 We'll need several directories to bind-mount into our container, so create them in /var/data/gitlab:
 
-```
+```bash
 cd /var/data
 mkdir gitlab
 cd gitlab
@@ -27,8 +25,9 @@ You'll need to know the following:
 
 1. Choose a password for postgresql, you'll need it for DB_PASS in the compose file (below)
 2. Generate 3 passwords using ```pwgen -Bsv1 64```. You'll use these for the XXX_KEY_BASE environment variables below
-2. Create gitlab.env, and populate with **at least** the following variables (the full set is available at https://github.com/sameersbn/docker-gitlab#available-configuration-parameters):
-```
+3. Create gitlab.env, and populate with **at least** the following variables (the full set is available at <https://github.com/sameersbn/docker-gitlab#available-configuration-parameters>):
+
+```bash
 DB_USER=gitlab
 DB_PASS=gitlabdbpass
 DB_NAME=gitlabhq_production
@@ -81,13 +80,22 @@ services:
     image: sameersbn/gitlab:latest
     env_file: /var/data/config/gitlab/gitlab.env
     networks:
-    - internal
-    - traefik_public
+      - internal
+      - traefik_public
     deploy:
       labels:
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
+
+        # traefikv1
         - traefik.frontend.rule=Host:gitlab.example.com
-        - traefik.docker.network=traefik
         - traefik.port=80
+
+        # traefikv2
+        - "traefik.http.routers.gitlab.rule=Host(`gitlab.example.com`)"
+        - "traefik.http.services.gitlab.loadbalancer.server.port=80"
+        - "traefik.enable=true"
       restart_policy:
         delay: 10s
         max_attempts: 10
@@ -115,7 +123,7 @@ networks:
 
 Launch the mail server stack by running ```docker stack deploy gitlab -c <path -to-docker-compose.yml>```
 
-Log into your new instance at https://[your FQDN], with user "root" and the password you specified in gitlab.env.
+Log into your new instance at `https://[your FQDN]`, with user "root" and the password you specified in gitlab.env.
 
 [^1]: I use the **sameersbn/gitlab:latest** image, rather than a specific version. This lets me execute updates simply by redeploying the stack (and why **wouldn't** I want the latest version?)
 

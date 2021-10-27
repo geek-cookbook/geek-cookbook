@@ -16,7 +16,7 @@ description: Play back all your media on all your devices
 
 We'll need a directories to bind-mount into our container for Plex to store its library, so create /var/data/plex:
 
-```
+```bash
 mkdir /var/data/plex
 ```
 
@@ -24,7 +24,7 @@ mkdir /var/data/plex
 
 Create plex.env, and populate with the following variables. Set PUID and GUID to the UID and GID of the user who owns your media files, on the local filesystem
 
-```
+```yaml
 EDGE=1
 VERSION=latest
 PUID=42
@@ -49,9 +49,18 @@ services:
       - /var/data/media:/media
     deploy:
       labels:
-        - traefik.frontend.rule=Host:plex.example.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=32400
+
+        # traefikv1
+        - traefik.frontend.rule=Host:plex.example.com
+        - traefik.port=32400     
+
+        # traefikv2
+        - "traefik.http.routers.plex.rule=Host(`plex.example.com`)"
+        - "traefik.http.services.plex.loadbalancer.server.port=32400"
+        - "traefik.enable=true"
     networks:
         - traefik_public
         - internal
@@ -87,7 +96,7 @@ Launch the Plex stack by running ```docker stack deploy plex -c <path -to-docker
 
 Log into your new instance at https://**YOUR-FQDN** (You'll need to setup a plex.tv login for remote access / discovery to work from certain clients)
 
-[^1]: Plex uses port 32400 for remote access, using your plex.tv user/password to authenticate you. The inclusion of the traefik proxy in this recipe is simply to allow you to use the web client (as opposed to a client app) by connecting directly to your instance, as opposed to browsing your media via https://plex.tv/web
+[^1]: Plex uses port 32400 for remote access, using your plex.tv user/password to authenticate you. The inclusion of the traefik proxy in this recipe is simply to allow you to use the web client (as opposed to a client app) by connecting directly to your instance, as opposed to browsing your media via <https://plex.tv/web>
 [^2]: Got an NVIDIA GPU? See [this blog post](https://www.funkypenguin.co.nz/note/gpu-transcoding-with-emby-plex-using-docker-nvidia/) re how to use your GPU to transcode your media!
 
 --8<-- "recipe-footer.md"

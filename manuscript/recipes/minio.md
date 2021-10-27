@@ -25,21 +25,25 @@ Possible use-cases:
 
 ### Setup data locations
 
-We'll need a directory to hold our minio file store, as well as our minio client config, so create a structure at /var/data/minio:
+We'll need a directory to hold our minio file store. You can create a blank directory wherever you like (*I used `/var/data/minio`*), or point the `/data` volume to a pre-existing folder structure.
 
-```
+```bash
 mkdir /var/data/minio
-cd /var/data/minio
-mkdir -p {mc,data}
 ```
 
 ### Prepare environment
 
-Create minio.env, and populate with the following variables
+Create `minio.env`, and populate with the variables below.
+
+```bash
+MINIO_ROOT_USER=hackme
+MINIO_ROOT_PASSWORD=becauseiforgottochangethepassword
+MINIO_BROWSER_REDIRECT_URL=https://minio-console.example.com
+MINIO_SERVER_URL=https://minio.example.com
 ```
-MINIO_ACCESS_KEY=<some random, complex string>
-MINIO_SECRET_KEY=<another random, complex string>
-```
+
+!!! note "If minio redirects you to :9001"
+    `MINIO_BROWSER_REDIRECT_URL` is especially important since recent versions of Minio will redirect web browsers to this URL when they hit the API directly. (*If you find yourself redirected to `http://your-minio-url:9001`, then you've not set this value correctly!*)
 
 ### Setup Docker Swarm
 
@@ -55,47 +59,75 @@ services:
     image: minio/minio
     env_file: /var/data/config/minio/minio.env
     volumes:
-     - /var/data/minio/data:/data
+     - /var/data/minio:/data
     networks:
       - traefik_public
     deploy:
       labels:
+        # traefik
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public 
+
+        # traefikv1
         - traefik.frontend.rule=Host:minio.example.com
-        - traefik.port=9000
-    command:  minio server /data
+        - traefik.port=9000   
+
+        - traefik.console.frontend.rule=Host:minio-console.example.com
+        - traefik.console.port=9001 
+
+        # traefikv2 (death-by-labels, much?)
+        - traefik.http.middlewares.redirect-https.redirectScheme.scheme=https
+        - traefik.http.middlewares.redirect-https.redirectScheme.permanent=true
+
+        - traefik.http.routers.minio-https.rule=Host(`minio.example.com`)
+        - traefik.http.routers.minio-https.entrypoints=https
+        - traefik.http.routers.minio-https.service=minio
+        - traefik.http.routers.minio-http.rule=Host(`minio.example.com`)
+        - traefik.http.routers.minio-http.entrypoints=http
+        - traefik.http.routers.minio-http.middlewares=redirect-https
+        - traefik.http.routers.minio-http.service=minio
+        - traefik.http.services.minio.loadbalancer.server.port=9000
+
+        - traefik.http.routers.minio-console-https.rule=Host(`minio-console.example.com`)
+        - traefik.http.routers.minio-console-https.entrypoints=https
+        - traefik.http.routers.minio-console-https.service=minio-console
+        - traefik.http.routers.minio-console-http.rule=Host(`minio-console.example.com`)
+        - traefik.http.routers.minio-console-http.entrypoints=http
+        - traefik.http.routers.minio-console-http.middlewares=redirect-https
+        - traefik.http.routers.minio-console-http.service=minio-console
+        - traefik.http.services.minio-console.loadbalancer.server.port=9001
+
+    command:  minio server /data --console-address ":9001"
 
 networks:
   traefik_public:
     external: true
+
 ```
 
 ## Serving
 
 ### Launch Minio stack
 
-Launch the Minio stack by running ```docker stack deploy minio -c <path -to-docker-compose.yml>```
+Launch the Minio stack by running ``docker stack deploy minio -c <path -to-docker-compose.yml>`
 
-Log into your new instance at https://**YOUR-FQDN**, with the access key and secret key you specified in minio.env.
+Log into your new instance at `https://minio-console.**YOUR-FQDN**`, with the root user and password you specified in `minio.env`.
 
-If you created ```/var/data/minio```, you'll see nothing. If you referenced existing data, you should see all subdirectories in your existing folder represented as buckets.
+If you created `/var/data/minio`, you'll see nothing. If you mapped `/data` to existing data, you should see all subdirectories in your existing folder represented as buckets.
+
+Use the Minio console to create a user, or (*ill-advisedly*) continue using the root user/password!
 
 If all you need is single-user access to your data, you're done! 🎉
 
 If, however, you want to expose data to multiple users, at different privilege levels, you'll need the minio client to create some users and (_potentially_) policies...
 
+## Minio Trickz :clown:
+
 ### Setup minio client
 
-To administer the Minio server, we need the Minio client. While it's possible to download the minio client and run it locally, it's just as easy to do it within a small (5Mb) container.
+While it's possible to fully administer Minio using the console, it's also possible using the `mc` CLI client, as illustrated below
 
-I created an alias on my docker nodes, allowing me to run mc quickly:
-
-```
-alias mc='docker run -it -v /docker/minio/mc/:/root/.mc/ --network traefik_public minio/mc'
-```
-
-Now I use the alias to launch the client shell, and connect to my minio instance (_I could also use the external, traefik-provided URL_)
-
-```
+```bash
 root@ds1:~# mc config host add minio http://app:9000 admin iambatman
 mc: Configuration written to `/root/.mc/config.json`. Please update your access credentials.
 mc: Successfully created `/root/.mc/share`.
@@ -107,11 +139,11 @@ root@ds1:~#
 
 ### Add (readonly) user
 
-Use mc to add a (readonly or readwrite) user, by running ``` mc admin user add minio <access key> <secret key> <access level>```
+Use mc to add a (readonly or readwrite) user, by running ```mc admin user add minio <access key> <secret key> <access level>```
 
 Example:
 
-```
+```bash
 root@ds1:~# mc admin user add minio spiderman peterparker readonly
 Added user `spiderman` successfully.
 root@ds1:~#
@@ -119,7 +151,7 @@ root@ds1:~#
 
 Confirm by listing your users (_admin is excluded from the list_):
 
-```
+```bash
 root@node1:~# mc admin user list minio
 enabled    spiderman             readonly
 root@node1:~#
@@ -133,7 +165,7 @@ The simplest permission scheme is "on or off". Either a bucket has a policy, or 
 
 After **no** policy, the most restrictive policy you can attach to a bucket is "download". This policy will allow authenticated users to download contents from the bucket. Apply the "download" policy to a bucket by running ```mc policy download minio/<bucket name>```, i.e.:
 
-```
+```bash
 root@ds1:# mc policy download minio/comics
 Access permission for `minio/comics` is set to `download`
 root@ds1:#
@@ -154,17 +186,17 @@ I tested the S3 mount using [goofys](https://github.com/kahing/goofys), "a high-
 
 First, I created ~/.aws/credentials, as follows:
 
-```
+```ini
 [default]
 aws_access_key_id=spiderman
 aws_secret_access_key=peterparker
 ```
 
-And then I ran (_in the foreground, for debugging_), ```goofys --f -debug_s3 --debug_fuse --endpoint=https://traefik.example.com <bucketname> <local mount point>```
+And then I ran (_in the foreground, for debugging_), `goofys --f -debug_s3 --debug_fuse --endpoint=https://traefik.example.com <bucketname> <local mount point>`
 
 To permanently mount an S3 bucket using goofys, I'd add something like this to /etc/fstab:
 
-```
+```bash
 goofys#bucket   /mnt/mountpoint        fuse     _netdev,allow_other,--file-mode=0666    0       0
 ```
 

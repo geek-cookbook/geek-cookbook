@@ -10,7 +10,7 @@ In the design described below, our "private cloud" platform is:
 
 ## Design Decisions
 
-**Where possible, services will be highly available.**
+### Where possible, services will be highly available.**
 
 This means that:
 
@@ -39,8 +39,7 @@ Under this design, the only inbound connections we're permitting to our docker s
 ### Authentication
 
 * Where the hosted application provides a trusted level of authentication (*i.e., [NextCloud](/recipes/nextcloud/)*), or where the application requires public exposure (*i.e. [Privatebin](/recipes/privatebin/)*), no additional layer of authentication will be required.
-* Where the hosted application provides inadequate (*i.e. [NZBGet](/recipes/autopirate/nzbget/)*) or no authentication (*i.e. [Gollum](/recipes/gollum/)*), a further authentication against an OAuth provider will be required. 
-
+* Where the hosted application provides inadequate (*i.e. [NZBGet](/recipes/autopirate/nzbget/)*) or no authentication (*i.e. [Gollum](/recipes/gollum/)*), a further authentication against an OAuth provider will be required.
 
 ## High availability
 
@@ -77,7 +76,6 @@ When the failed (*or upgraded*) host is restored to service, the following is il
 * Docker Swarm managers become aware of the recovered node, and will use it for scheduling **new** containers
 * Existing containers which were migrated off the node are not migrated backend
 * Keepalived VIP regains full redundancy
-
 
 ![HA function](../images/docker-swarm-node-restore.png)
 

@@ -18,7 +18,7 @@ I've started experimenting with Emby as an alternative to Plex, because of the a
 
 We'll need a location to store Emby's library data, config files, logs and temporary transcoding space, so create /var/data/emby, and make sure it's owned by the user and group who also own your media data.
 
-```
+```bash
 mkdir /var/data/emby
 ```
 
@@ -26,7 +26,7 @@ mkdir /var/data/emby
 
 Create emby.env, and populate with PUID/GUID for the user who owns the /var/data/emby directory (_above_) and your actual media content (_in this example, the media content is at **/srv/data**_)
 
-```
+```bash
 PUID=
 GUID=
 ```
@@ -49,23 +49,26 @@ services:
       - /srv/data/:/data
     deploy:
       labels:
-        - traefik.frontend.rule=Host:emby.example.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=8096
+
+        # traefikv1
+        - traefik.frontend.rule=Host:emby.example.com
+        - traefik.port=8096     
+
+        # traefikv2
+        - "traefik.http.routers.emby.rule=Host(`emby.example.com`)"
+        - "traefik.http.services.emby.loadbalancer.server.port=8096"
+        - "traefik.enable=true"
     networks:
         - traefik_public
-        - internal
     ports:
       - 8096:8096
 
 networks:
   traefik_public:
     external: true
-  internal:
-    driver: overlay
-    ipam:
-      config:
-        - subnet: 172.16.17.0/24
 ```
 
 --8<-- "reference-networks.md"

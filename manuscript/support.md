@@ -44,10 +44,6 @@ Found a bug in your soup? Tell the chef by either:
 
 ## Tip the chef
 
-### Buy my book 📖
-
-I'm also writing the Geek Cookbook as a formal eBook, on Leanpub (https://leanpub.com/geeks-cookbook).
-
 ### [Sponsor][7] / [Patreonize][8] me 💰
 
 The best way to support this work is to become a [Sponsor][11] (_GitHub_) or a [Patron][10] (_Patreon_). Sponsors get:

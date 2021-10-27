@@ -13,7 +13,7 @@ So you've just watched a bunch of superhero movies, and you're suddenly inspired
 ## Ingredients
 
 --8<-- "recipe-standard-ingredients.md"
-    * [X] [AutoPirate](/recipes/autopirate/) components (*specifically [Mylar](/recipes/autopirate/mylar/)*), for searching for, downloading, and managing comic books
+    *[X] [AutoPirate](/recipes/autopirate/) components (*specifically [Mylar](/recipes/autopirate/mylar/)*), for searching for, downloading, and managing comic books
 
 ## Preparation
 
@@ -21,7 +21,7 @@ So you've just watched a bunch of superhero movies, and you're suddenly inspired
 
 First we create a directory to hold the komga database, logs and other persistent data:
 
-```
+```bash
 mkdir /var/data/komga
 ```
 
@@ -44,13 +44,21 @@ services:
     deploy:
       replicas: 1
       labels:
+        # traefik common
         - traefik.enable=true
-        - traefik.frontend.rule=Host:komga.example.com
-        - traefik.port=8080
-        - traefik.frontend.auth.forward.address=http://traefik-forward-auth:4181
-        - traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User
-        - traefik.frontend.auth.forward.trustForwardHeader=true
         - traefik.docker.network=traefik_public
+
+        # traefikv1
+        - traefik.frontend.rule=Host:komga.example.com
+        - traefik.port=8080     
+
+        # traefikv2
+        - "traefik.http.routers.komga.rule=Host(`komga.example.com`)"
+        - "traefik.http.services.komga.loadbalancer.server.port=8080"
+        - "traefik.enable=true"
+
+        # Remove if you wish to access the URL directly
+        - "traefik.http.routers.komga.middlewares=forward-auth@file"
     networks:
       - traefik_public
 

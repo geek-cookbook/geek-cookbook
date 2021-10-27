@@ -12,7 +12,6 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [NightScout](https://geek-cookbook.funkypenguin.co.nz/recipes/nightscout/)                                            | 172.16.4.0/24  |
 | [Tiny Tiny RSS](https://geek-cookbook.funkypenguin.co.nz/recipes/tiny-tiny-rss/)                                      | 172.16.5.0/24  |
 | [Huginn](https://geek-cookbook.funkypenguin.co.nz/recipes/huginn/)                                                    | 172.16.6.0/24  |
-| [Kanboard](https://geek-cookbook.funkypenguin.co.nz/recipes/kanboard/)                                                | 172.16.8.0/24  |
 | [Gollum](https://geek-cookbook.funkypenguin.co.nz/recipes/gollum/)                                                    | 172.16.9.0/24  |
 | [Duplicity](https://geek-cookbook.funkypenguin.co.nz/recipes/duplicity/)                                              | 172.16.10.0/24 |
 | [Autopirate](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/)                                            | 172.16.11.0/24 |
@@ -21,14 +20,12 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [Home Assistant](https://geek-cookbook.funkypenguin.co.nz/recipes/homeassistant/)                                     | 172.16.14.0/24 |
 | [OwnTracks](https://geek-cookbook.funkypenguin.co.nz/recipes/owntracks/)                                              | 172.16.15.0/24 |
 | [Plex](https://geek-cookbook.funkypenguin.co.nz/recipes/plex/)                                                        | 172.16.16.0/24 |
-| [Emby](https://geek-cookbook.funkypenguin.co.nz/recipes/emby/)                                                        | 172.16.17.0/24 |
 | [Calibre-Web](https://geek-cookbook.funkypenguin.co.nz/recipes/calibre-web/)                                          | 172.16.18.0/24 |
 | [Wallabag](https://geek-cookbook.funkypenguin.co.nz/recipes/wallabag/)                                                | 172.16.19.0/24 |
 | [InstaPy](https://geek-cookbook.funkypenguin.co.nz/recipes/instapy/)                                                  | 172.16.20.0/24 |
 | [Archivy](https://geek-cookbook.funkypenguin.co.nz/recipes/archivy/)                                                  | 172.16.21.0/24 |
 | [MiniFlux](https://geek-cookbook.funkypenguin.co.nz/recipes/miniflux/)                                                | 172.16.22.0/24 |
 | [Gitlab Runner](https://geek-cookbook.funkypenguin.co.nz/recipes/gitlab-runner/)                                      | 172.16.23.0/24 |
-| [Munin](https://geek-cookbook.funkypenguin.co.nz/recipes/munin/)                                                      | 172.16.24.0/24 |
 | [Bookstack](https://geek-cookbook.funkypenguin.co.nz/recipes/bookstack/)                                              | 172.16.33.0/24 |
 | [Swarmprom](https://geek-cookbook.funkypenguin.co.nz/recipes/swarmprom/)                                              | 172.16.34.0/24 |
 | [Realms](https://geek-cookbook.funkypenguin.co.nz/recipes/realms/)                                                    | 172.16.35.0/24 |
@@ -40,5 +37,4 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [KeyCloak](https://geek-cookbook.funkypenguin.co.nz/recipes/keycloak/)                                                | 172.16.49.0/24 |
 | [Duplicati](https://geek-cookbook.funkypenguin.co.nz/recipes/duplicati/)                                              | 172.16.55.0/24 |
 | [Restic](https://geek-cookbook.funkypenguin.co.nz/recipes/restic/)                                                    | 172.16.56.0/24 |
-| [Jellyfin](https://geek-cookbook.funkypenguin.co.nz/recipes/jellyfin/)                                                | 172.16.57.0/24 |
 | [Paperless NG](https://geek-cookbook.funkypenguin.co.nz/recipes/paperless/)                                           | 172.16.58.0/24 |

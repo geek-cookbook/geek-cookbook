@@ -26,7 +26,7 @@ I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/rev
 
 Create the location for the bind-mount of the application data, so that it's persistent:
 
-```
+```bash
 mkdir -p /var/data/miniflux/database-dump
 mkdir -p /var/data/runtime/miniflux/database
 
@@ -36,7 +36,7 @@ mkdir -p /var/data/runtime/miniflux/database
 
 Create ```/var/data/config/miniflux/miniflux.env``` something like this:
 
-```
+```bash
 DATABASE_URL=postgres://miniflux:secret@miniflux-db/miniflux?sslmode=disable
 POSTGRES_USER=miniflux
 POSTGRES_PASSWORD=secret
@@ -52,7 +52,7 @@ ADMIN_PASSWORD=test1234
 
 Create ```/var/data/config/miniflux/miniflux-backup.env```, and populate with the following, so that your database can be backed up to the filesystem, daily:
 
-```
+```env
 PGHOST=miniflux-db
 PGUSER=miniflux
 PGPASSWORD=secret
@@ -82,9 +82,18 @@ services:
     - traefik_public
     deploy:
       labels:
-        - traefik.frontend.rule=Host:miniflux.example.com
-        - traefik.port=8080
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
+
+        # traefikv1
+        - traefik.frontend.rule=Host:miniflux.example.com
+        - traefik.port=8080     
+
+        # traefikv2
+        - "traefik.http.routers.miniflux.rule=Host(`miniflux.example.com`)"
+        - "traefik.http.services.miniflux.loadbalancer.server.port=8080"
+        - "traefik.enable=true"
 
   miniflux-db:
     env_file: /var/data/config/miniflux/miniflux.env
@@ -123,7 +132,6 @@ networks:
       config:
         - subnet: 172.16.22.0/24
 ```
-
 
 ## Serving
 

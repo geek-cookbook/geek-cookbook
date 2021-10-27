@@ -18,13 +18,13 @@ If it looks very similar as Emby, is because it started as a fork of it, but it 
 
 We'll need a location to store Jellyfin's library data, config files, logs and temporary transcoding space, so create ``/var/data/jellyfin``, and make sure it's owned by the user and group who also own your media data.
 
-```
+```bash
 mkdir /var/data/jellyfin
 ```
 
 Also if we want to avoid the cache to be part of the backup, we should create a location to map it on the runtime folder. It also has to be owned by the user and group who also own your media data.
 
-```
+```bash
 mkdir /var/data/runtime/jellyfin
 ```
 
@@ -32,7 +32,7 @@ mkdir /var/data/runtime/jellyfin
 
 Create jellyfin.env, and populate with PUID/GUID for the user who owns the /var/data/jellyfin directory (_above_) and your actual media content (_in this example, the media content is at **/srv/data**_)
 
-```
+```bash
 PUID=
 GUID=
 ```
@@ -58,23 +58,27 @@ services:
       - /srv/data/:/data
     deploy:
       labels:
-        - traefik.frontend.rule=Host:jellyfin.example.com
+        # traefik common
+        - traefik.enable=true
         - traefik.docker.network=traefik_public
-        - traefik.port=8096
+
+        # traefikv1
+        - traefik.frontend.rule=Host:jellyfin.example.com
+        - traefik.port=8096     
+
+        # traefikv2
+        - "traefik.http.routers.jellyfin.rule=Host(`jellyfin.example.com`)"
+        - "traefik.http.services.jellyfin.loadbalancer.server.port=8096"
+        - "traefik.enable=true"
+
     networks:
         - traefik_public
-        - internal
     ports:
       - 8096:8096
 
 networks:
   traefik_public:
     external: true
-  internal:
-    driver: overlay
-    ipam:
-      config:
-        - subnet: 172.16.57.0/24
 ```
 
 --8<-- "reference-networks.md"
