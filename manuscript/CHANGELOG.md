@@ -8,6 +8,7 @@ hide:
 
 Recipe                   | Description                                                                                                      | Date
 -------------------------|------------------------------------------------------------------------------------------------------------------|--------------
+[Prowlarr][prowlarr]     | An indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with the [AutoPirate][autopirate] friends | _27 Oct 2021_
 [Archivebox][archivebox] | Website Archiving service to save websites to view offline      | _19 Oct 2021_
 [Readarr][readarr] | [Autopirate][autopirate] component to grab and manage eBooks (*think "Sonarr/Radarr for books*")                     | _18 Oct 2021_
 [Paperless-NG][paperless-ng] | Organize, index, search, and view all your documents                         | _14 Oct 2021_

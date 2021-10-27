@@ -11,7 +11,7 @@ Miniflux is a lightweight RSS reader, developed by [Frédéric Guillot](https://
 I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/review/miniflux-lightweight-self-hosted-rss-reader/), but features (among many) that I appreciate:
 
 * Compatible with the Fever API, read your feeds through existing mobile and desktop clients (_This is the killer feature for me. I hardly ever read RSS on my desktop, I typically read on my iPhone or iPad, using [Fiery Feeds](http://cocoacake.net/apps/fiery/) or my new squeeze, [Unread](https://www.goldenhillsoftware.com/unread/)_)
-* Send your bookmarks to Pinboard, Wallabag, Shaarli or Instapaper (_I use this to automatically pin my bookmarks for collection on my [blog](https://www.funkypenguin.co.nz/blog/)_)
+* Send your bookmarks to Pinboard, Wallabag, Shaarli or Instapaper (_I use this to automatically pin my bookmarks for collection on my [blog](https://www.funkypenguin.co.nz)_)
 * Feeds can be configured to download a "full" version of the content (_rather than an excerpt_)
 * Use the Bookmarklet to subscribe to a website directly from any browsers
 

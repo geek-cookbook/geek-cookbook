@@ -9,7 +9,7 @@ large-scale private cloud infrastructure.
 
 However, at its simplest, Minio allows you to expose a local filestructure via the [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html). You could, for example, use it to provide access to "buckets" (folders) of data on your filestore, secured by access/secret keys, just like AWS S3. You can further interact with your "buckets" with common tools, just as if they were hosted on S3.
 
-Under a more advanced configuration, Minio runs in distributed mode, with [features](https://www.minio.io/features.html) including high-availability, mirroring, erasure-coding, and "bitrot detection".
+Under a more advanced configuration, Minio runs in distributed mode, with [features](https://docs.min.io/minio/baremetal/concepts/feature-overview.html) including high-availability, mirroring, erasure-coding, and "bitrot detection".
 
 ![Minio Screenshot](../images/minio.png)
 

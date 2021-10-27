@@ -10,7 +10,7 @@ Wekan is an open-source kanban board which allows a card-based task and to-do ma
 
 Wekan allows to create Boards, on which Cards can be moved around between a number of Columns. Boards can have many members, allowing for easy collaboration, just add everyone that should be able to work with you on the board to it, and you are good to go! You can assign colored Labels to cards to facilitate grouping and filtering, additionally you can add members to a card, for example to assign a task to someone.
 
-There's a [video](https://www.youtube.com/watch?v=N3iMLwCNOro) of the developer showing off the app, as well as a [functional demo](https://wekan.indie.host/b/t2YaGmyXgNkppcFBq/wekan-fork-roadmap).
+There's a [video](https://www.youtube.com/watch?v=N3iMLwCNOro) of the developer showing off the app, as well as a [functional demo](https://boards.wekan.team/b/D2SzJKZDS4Z48yeQH/wekan-open-source-kanban-board-with-mit-license).
 
 !!! note
     For added privacy, this design secures wekan behind a [traefik-forward-auth](/ha-docker-swarm/traefik-forward-auth/), so that in order to gain access to the wekan UI at all, authentication must have already occurred.

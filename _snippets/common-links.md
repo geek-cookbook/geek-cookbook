@@ -31,6 +31,7 @@
 [plex]:             /recipes/plex/
 [portainer]:        /recipes/portainer/
 [radarr]:           /recipes/autopirate/radarr/
+[prowlarr]:         /recipes/autopirate/prowlarr/
 [readarr]:          /recipes/autopirate/readarr/
 [rss-bridge]:       /recipes/rss-bridge/
 [rtorrent]:         /recipes/autopirate/rtorrent/

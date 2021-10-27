@@ -27,7 +27,7 @@ plugins:
   autolinks:
   macros:
     verbose: true
-  htmlproofer:
+  # htmlproofer:
     # raise_error: True
     # raise_error_excludes:
     #   504: ['https://www.mkdocs.org/']
@@ -65,6 +65,7 @@ nav:
           - Mylar: recipes/autopirate/mylar.md
           - NZBGet: recipes/autopirate/nzbget.md
           - NZBHydra: recipes/autopirate/nzbhydra.md
+          - Prowlarr: recipes/autopirate/prowlarr.md          
           - Ombi: recipes/autopirate/ombi.md
           - Radarr: recipes/autopirate/radarr.md
           - Readarr: recipes/autopirate/readarr.md          
