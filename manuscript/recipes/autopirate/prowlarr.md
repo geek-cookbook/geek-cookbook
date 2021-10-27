@@ -7,7 +7,7 @@ description: Prowlarr aggregates nzb/torrent searches. Like NZBHydra, but Arrr.
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
-[Prowlarr](https://github.com/Prowlarr/Prowlarr) is an indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps. 
+[Prowlarr](https://github.com/Prowlarr/Prowlarr) is an indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps.
 
 Prowlarr supports management of both Torrent Trackers and Usenet Indexers. It integrates seamlessly with [Lidarr][lidarr], [Mylar3][mylar], [Radarr][radarr], [Readarr][readarr], and [Sonarr][sonarr] offering complete management of your indexers with no per app Indexer setup required!
 
