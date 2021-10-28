@@ -13,7 +13,7 @@ Features include
 * Lockout users after too many failed login attempts
 * Highly Customizable Access Control using rules to match criteria such as subdomain, username, groups the user is in, and Network
 * Authelia [Community](https://discord.authelia.com/) Support
-* Full list of features can be viewed [Here](https://www.authelia.com/docs/features/)
+* Full list of features can be viewed [here](https://www.authelia.com/docs/features/)
 
 
 
@@ -54,7 +54,7 @@ log_level: warn
 jwt_secret: SECRET_GOES_HERE
 
 # https://docs.authelia.com/configuration/miscellaneous.html#default-redirection-url
-default_redirection_url: https://authelia.example.com
+default_redirection_url: https://auth.example.com
 
 totp:
   issuer: authelia.com
@@ -118,7 +118,7 @@ notifier:
 
 
 ### Create User Accounts
-Create /var/data/config/authelia/users_database.yml this will be where we can create user accounts and give them groups
+Create `/var/data/config/authelia/users_database.yml` this will be where we can create user accounts and give them groups
 
 ```yaml
 users:
@@ -160,19 +160,44 @@ services:
         - traefik.docker.network=traefik_public
 
         # traefikv1
-        - traefik.frontend.rule=Host:authelia.example.com
+        - traefik.frontend.rule=Host:auth.example.com
         - traefik.port=80
-        - 'traefik.frontend.auth.forward.address=http://authelia:9091/api/verify?rd=https://authelia.example.com/'
+        - 'traefik.frontend.auth.forward.address=http://authelia:9091/api/verify?rd=https://auth.example.com/'
         - 'traefik.frontend.auth.forward.trustForwardHeader=true'
         - 'traefik.frontend.auth.forward.authResponseHeaders=Remote-User,Remote-Groups,Remote-Name,Remote-Email'
 
         # traefikv2
-        - "traefik.http.routers.authelia.rule=Host(`authelia.example.com`)"
+        - "traefik.http.routers.authelia.rule=Host(`auth.example.com`)"
         - "traefik.http.routers.authelia.entrypoints=https"
         - "traefik.http.services.authelia.loadbalancer.server.port=9091"
-        - "traefik.http.middlewares.authelia.forwardauth.address=http://authelia:9091/api/verify?rd=https://authelia.example.com"
+        - "traefik.http.middlewares.authelia.forwardauth.address=http://authelia:9091/api/verify?rd=https://auth.example.com"
         - "traefik.http.middlewares.authelia.forwardauth.trustForwardHeader=true"
         - "traefik.http.middlewares.authelia.forwardauth.authResponseHeaders=Remote-User, Remote-Groups"
+
+  # This simply validates that traefik forward authentication is working
+  whoami:
+    image: containous/whoami
+    networks:
+      - traefik_public
+    deploy:
+      labels:
+        # traefik
+        - "traefik.enable=true"
+        - "traefik.docker.network=traefik_public"
+
+        # traefikv1
+        - "traefik.frontend.rule=Host:whoami.example.com"
+        - "traefik.http.services.whoami.loadbalancer.server.port=80"
+        - "traefik.frontend.auth.forward.address=http://authelia:9091/api/verify?rd=https://auth.example.com"
+        - "traefik.frontend.auth.forward.authResponseHeaders=X-Forwarded-User"
+        - "traefik.frontend.auth.forward.trustForwardHeader=true"
+
+        # traefikv2
+        - "traefik.http.routers.whoami.rule=Host(`whoami.example.com`)"
+        - "traefik.http.routers.whoami.entrypoints=https"
+        - "traefik.http.services.whoami.loadbalancer.server.port=80"
+        - "traefik.http.routers.service.middlewares=forward-auth@file"
+
 
 networks:
   traefik_public:
@@ -190,7 +215,7 @@ http:
   middlewares:
     forward-auth:
       forwardAuth:
-        address: "http://authelia:9091/api/verify?rd=https://authelia.example.com"
+        address: "http://authelia:9091/api/verify?rd=https://auth.example.com"
         trustForwardHeader: true
         authResponseHeaders:
           - "Remote-User"
@@ -201,10 +226,10 @@ We will then need to add the following to `traefik.toml`
 
 ```yaml
 [providers.file]
-  filename = "/etc/traefik/dynamic.yml"
+  filename = "/etc/traefik/middlewares.yml"
 ```
 
-!!! tip
+!!! Why not just use Traefik Forward Auth
     The default Traefik forward Auth is a very minimal authentication service that provides google and openID authentication. Authelia provides more features such as multiple methods of authentication (Hardware, OTP, Email) and push notifications.
 
 
