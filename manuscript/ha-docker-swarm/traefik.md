@@ -34,7 +34,7 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 
 While it's possible to configure traefik via docker command arguments, I prefer to create a config file (`traefik.toml`). This allows me to change traefik's behaviour by simply changing the file, and keeps my docker config simple.
 
-Create `/var/data/traefikv2/traefik.toml` as follows:
+Create `/var/data/config/traefikv2/traefik.toml` as follows:
 
 ```bash
 [global]
@@ -140,17 +140,9 @@ services:
     # original source IP, which would impact logging. If you don't care about this, you can expose ports the 
     # "minimal" way instead
     ports:
-      - target: 80
-        published: 80
-        protocol: tcp
-        mode: host
-      - target: 443
-        published: 443
-        protocol: tcp
-        mode: host
-      - target: 8080
-        published: 8080
-        protocol: tcp
+      - "80:80"
+      - "8080:8080" # traefik dashboard
+      - "443:443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /var/data/config/traefikv2:/etc/traefik
@@ -171,7 +163,7 @@ services:
         - "traefik.http.routers.api.tls=true"
         - "traefik.http.routers.api.tls.certresolver=main"
         - "traefik.http.routers.api.service=api@internal"
-        - "traefik.http.services.dummy.loadbalancer.server.port=9999"
+        - "traefik.http.services.api.loadbalancer.server.port=8080"
 
         # uncomment this to enable forward authentication on the traefik api/dashboard
         #- "traefik.http.routers.api.middlewares=forward-auth"      
