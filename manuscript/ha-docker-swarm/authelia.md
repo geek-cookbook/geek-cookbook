@@ -6,20 +6,16 @@
 
 Features include
 
-* Multiple two-factor methods such as 
-    * [Physical Security Key](https://www.authelia.com/docs/features/2fa/security-key) (Yubikey)
-    * OTP using Google Authenticator
-    * Mobile Notifications
+* Multiple two-factor methods such as
+  * [Physical Security Key](https://www.authelia.com/docs/features/2fa/security-key) (Yubikey)
+  * OTP using Google Authenticator
+  * Mobile Notifications
 * Lockout users after too many failed login attempts
 * Highly Customizable Access Control using rules to match criteria such as subdomain, username, groups the user is in, and Network
 * Authelia [Community](https://discord.authelia.com/) Support
 * Full list of features can be viewed [here](https://www.authelia.com/docs/features/)
 
-
-
 --8<-- "recipe-tfa-ingredients.md"
-
-
 
 ## Preparation
 
@@ -34,12 +30,11 @@ cd /var/data/config/authelia
 
 ### Create config file
 
-Authelia configurations are defined in `/var/data/config/authelia/configuration.yml`. Some are required and some are optional. So begin by creating an empty configuration.yml file and add content to it as defined below. Optional configuration settings can be viewed on Authelia's [Documentation](https://www.authelia.com/docs/configuration/) 
-
+Authelia configurations are defined in `/var/data/config/authelia/configuration.yml`. Some are required and some are optional. So begin by creating an empty configuration.yml file and add content to it as defined below. Optional configuration settings can be viewed on Authelia's [Documentation](https://www.authelia.com/docs/configuration/)
 
 !!! warning
     Your variables may vary significantly from what's illustrated below, and it's best to read up and understand exactly what each option does.
-    
+
 ```yml
 ###############################################################
 #                   Authelia configuration                    #
@@ -116,8 +111,8 @@ notifier:
 
 ```
 
-
 ### Create User Accounts
+
 Create `/var/data/config/authelia/users_database.yml` this will be where we can create user accounts and give them groups
 
 ```yaml
@@ -134,14 +129,11 @@ users:
 To create a hashed password you can run the following command
 `docker run authelia/authelia:latest authelia hash-password YOUR_PASSWORD`
 
-
-
 ### Setup Docker Swarm
 
 Create a docker swarm config file in docker-compose syntax (v3), something like this:
 
 --8<-- "premix-cta.md"
-
 
 ```yaml
 version: "3.2"
@@ -204,11 +196,9 @@ networks:
     external: true
 ```
 
-
 ### Traefik Configuration
 
 Now that we have created authelia we will need to configure traefik so we can run authelia in front of our services. We will first need to create a traefik middleware in `/var/data/config/traefik/middlewares.yml`
-
 
 ```yaml
 http:
@@ -232,13 +222,9 @@ We will then need to add the following to `traefik.toml`
 !!! Why not just use Traefik Forward Auth
     The default Traefik forward Auth is a very minimal authentication service that provides google and openID authentication. Authelia provides more features such as multiple methods of authentication (Hardware, OTP, Email) and push notifications.
 
-
 Now if we wish to put authelia behind a service all we will need to do is add the following to the labels
 
 `- "traefik.http.routers.service.middlewares=forward-auth@file"`
-
-
-
 
 ## Serving
 
@@ -246,13 +232,11 @@ Now if we wish to put authelia behind a service all we will need to do is add th
 
 Launch the Authelia stack by running ```docker stack deploy authelia -c <path -to-docker-compose.yml>```
 
-
 ## Testing
 
 To test the service works successfully. Try to access a service that you had added the middleware label to. If it works successfully you will be presented with a login screen
 
 ![Authelia Screenshot](../images/authelia_login.png)
-
 
 [^1]: The inclusion of Authelia was due to the efforts of @bencey in Discord (Thanks Ben!)
 
