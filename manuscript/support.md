@@ -63,7 +63,7 @@ I'm also writing the Geek Cookbook as a formal eBook, on Leanpub (<https://leanp
 
 ### Buy me a coffee ☕️
 
-Want to hit me with an (anonymous) thank-you? [Buy me a coffee](https://www.buymeacoffee.com/funkypenguin)!
+A sponsorship is too much commitment, and a book is TL;DR? Hit me up with a [one-time caffine shot](https://www.buymeacoffee.com/funkypenguin)!
 
 ### Engage me 🏢
 
@@ -82,4 +82,5 @@ Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm 
 [12]: https://github.com/funkypenguin
 [13]: https://www.youracclaim.com/badges/a0c4a196-55ab-4472-b46b-b610b44dc00f/public_url
 [14]: https://www.funkypenguin.co.nz
-[contact]:         https://www.funkypenguin.co.nz
+[contact]:         https://www.funkypenguin.co.nz/contact
+[aws_cert]:         https://www.youracclaim.com/badges/a0c4a196-55ab-4472-b46b-b610b44dc00f/public_url

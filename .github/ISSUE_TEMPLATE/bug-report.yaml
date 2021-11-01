@@ -1,0 +1,93 @@
+name: "🐛 Bug Report"
+description: If something isn't working as expected 🤒
+title: "[bug report] "
+assignees: funkypenguin
+labels: [ bug ]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## :wave: Greetings!
+
+        Greetings, fellow geek! 
+        
+        Thanks for taking the time to point out a bug 🐛! This issue form helps to capture the bug report in a standardized way, all the better to **squish** it! 🥾
+
+  - type: checkboxes
+    id: sanity_check
+    attributes:
+      label: 🤪 Sanity check
+      description: Let's first confirm that this is not a bug which is already under action
+      options:
+        - label: I have searched and confirmed no existing [open](https://github.com/funkypenguin/geek-cookbook/issues?q=is%3Aissue)/[closed](https://github.com/funkypenguin/geek-cookbook/issues?q=is%3Aissue+is%3Aclosed) issues exist for this bug
+          required: true       
+          
+  - type: textarea
+    attributes:
+      label: 1️⃣ Description
+      description: A clear and concise description of the bug
+      placeholder: I get an error when [...]
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 2️⃣ Expected Behaviour
+      placeholder: A clear and concise description of the expected behaviour
+    validations:
+      required: true      
+
+  - type: textarea
+    attributes:
+      label: 3️⃣ Actual Behaviour
+      placeholder: A clear and concise description of the actual behaviour
+    validations:
+      required: true      
+
+  - type: textarea
+    attributes:
+      label: 4️⃣ Steps to Reproduce
+      description: Describe how to reproduce the bug
+      placeholder: |        
+        1..
+        2..
+        3..
+    validations:
+      required: true  
+
+  - type: textarea
+    attributes:
+      label: 5️⃣ Possible solutions
+      description: Suggestions you may have on how to fix the bug
+
+  - type: textarea
+    attributes:
+      label: 6️⃣ Relevant Information
+      description: Paste in any relevant data, including YAML files, package versions, etc.     
+
+  - type: input
+    id: discord_id
+    attributes:
+      label: 💬 Your Discord username
+      description: If you've joined our [Discord server](http://chat.funkypenguin.co.nz), enter your username here so that we can collaborate effectively
+      placeholder: BobTheBuilder#4567
+
+  - type: checkboxes
+    id: engagement
+    attributes:
+      label: 💍 Engagement
+      description: To see this bug squished, I'm willing to...
+      options:
+        - label: Test the changes after a preview deploy and provide feedback
+        - label: Solicit community input in [Discord](http://chat.funkypenguin.co.nz)
+        - label: Submit a PR for a fix myself 🏆
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: ✅ Code of Conduct
+      description: By submitting this issue, I agree to follow our community's [Code of Conduct](https://geek-cookbook.funkypenguin.co.nz/community/code-of-conduct/)
+      options:
+        - label: I agree to follow this Geek Cookbook's Code of Conduct
+          required: true

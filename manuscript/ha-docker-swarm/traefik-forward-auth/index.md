@@ -19,7 +19,7 @@ This is the role of Traefik Forward Auth.
 When employing Traefik Forward Auth as "[middleware](https://doc.traefik.io/traefik/middlewares/forwardauth/)", the forward-auth process sits in the middle of this transaction - traefik receives the incoming request, "checks in" with the auth server to determine whether or not further authentication is required. If the user is authenticated, the auth server returns a 200 response code, and Traefik is authorized to forward the request to the backend. If not, traefik passes the auth server response back to the user - this process will usually direct the user to an authentication provider (_GitHub, Google, etc_), so that they can perform a login.
 
 Illustrated below:
-![Traefik Forward Auth](../images/traefik-forward-auth.png)
+![Traefik Forward Auth](../../images/traefik-forward-auth.png)
 
 The advantage under this design is additional security. If I'm deploying a web app which I expect only an authenticated user to require access to (*unlike something intended to be accessed publically, like [Linx](/recipes/linx/)*), I'll pass the request through Traefik Forward Auth. The overhead is negligible, and the additional layer of security is well-worth it.
 

@@ -4,9 +4,11 @@ description: Kick-ass OIDC and identity management
 
 # KeyCloak
 
-[KeyCloak](https://www.keycloak.org/) is "_an open source identity and access management solution_". Using a local database, or a variety of backends (_think [OpenLDAP](/recipes/openldap/)_), you can provide Single Sign-On (SSO) using OpenID, OAuth 2.0, and SAML. KeyCloak's OpenID provider can be used in combination with [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/), to protect [vulnerable services](/recipes/autopirate/nzbget/) with an extra layer of authentication.
+[KeyCloak](https://www.keycloak.org/) is "_an open source identity and access management solution_". Using a local database, or a variety of backends (_think [OpenLDAP](/recipes/openldap/)_), you can provide Single Sign-On (SSO) using OpenID, OAuth 2.0, and SAML.
 
-![KeyCloak Screenshot](../images/keycloak.png)
+KeyCloak's OpenID provider can also be used in combination with [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/), to protect [vulnerable services](/recipes/autopirate/nzbget/) with an extra layer of authentication.
+
+![KeyCloak Screenshot](../../images/keycloak.png)
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -39,7 +41,7 @@ KEYCLOAK_PASSWORD=ilovepasswords
 PROXY_ADDRESS_FORWARDING=true
 
 # What's our hostname?
-KEYCLOAK_HOSTNAME=keycloak.batcave.com
+KEYCLOAK_HOSTNAME=keycloak.example.com
 
 # Tell Postgress what user/password to create
 POSTGRES_USER=keycloak
@@ -76,20 +78,19 @@ services:
       - internal
     deploy:
       labels:
-        # traefik common
+        # traefik
         - traefik.enable=true
         - traefik.docker.network=traefik_public
 
         # traefikv1
         - traefik.frontend.rule=Host:keycloak.example.com
-        - traefik.port=8080     
+        - traefik.port=8080
 
         # traefikv2
         - "traefik.http.routers.keycloak.rule=Host(`keycloak.example.com`)"
+        - "traefik.http.routers.keycloak.entrypoints=https"
         - "traefik.http.services.keycloak.loadbalancer.server.port=8080"
-        - "traefik.enable=true"
-
-
+      
   keycloak-db:
     env_file: /var/data/config/keycloak/keycloak.env
     image: postgres:10.1
@@ -136,6 +137,8 @@ networks:
 
 Launch the KeyCloak stack by running `docker stack deploy keycloak -c <path -to-docker-compose.yml>`
 
-Log into your new instance at https://**YOUR-FQDN**, and login with the user/password you defined in `keycloak.env`.
+Log into your new instance at `https://YOUR-FQDN`, and login with the user/password you defined in `keycloak.env`.
 
 --8<-- "recipe-footer.md"
+
+[^1]: For more geeky {--pain--}{++fun++}, try integrating KeyCloak with [OpenLDAP][openldap] for an authentication backend!

@@ -22,3 +22,10 @@ jobs:
 
     - name: Test mkdocs builds
       run: python3 -m mkdocs build
+
+    # - name: Check for broken links
+    #   uses: lycheeverse/lychee-action@v1.0.9
+    #   with:
+    #     args: --verbose --no-progress site/**/*.html
+    #   env:
+    #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

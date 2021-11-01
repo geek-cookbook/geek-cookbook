@@ -304,7 +304,7 @@ This article, believe it or not, was not diced up by your regular chef (funkypen
 Instead, today's article was diced up by HexF, a fellow kiwi (hence a lot of kiwi references) who enjoys his sysadmin time.
 Feel free to talk to today's chef in the discord, or see one of his many other links that you can follow below
 
-[Twitter](https://hexf.me/api/social/twitter/geekcookbook) • [Website](https://hexf.me/api/social/website/geekcookbook) • [Github](https://hexf.me/api/social/github/geekcookbook)
+[Twitter](https://twitter.com/hexf_me) • [Website](https://hexf.me/) • [Github](https://github.com/hexf)
 
 <!--
 The links above are just redirect links incase anything ever changes, and it has analytics too
