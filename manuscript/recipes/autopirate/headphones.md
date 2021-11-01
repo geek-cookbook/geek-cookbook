@@ -16,7 +16,7 @@ To include Headphones in your [AutoPirate][autopirate] stack, include the follow
 
 ```yaml
 headphones:
-  image: linuxserver/headphones:latest
+  image: lscr.io/linuxserver/headphones:latest
   env_file : /var/data/config/autopirate/headphones.env
   volumes:
    - /var/data/autopirate/headphones:/config

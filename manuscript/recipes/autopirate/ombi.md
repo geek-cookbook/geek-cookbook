@@ -25,7 +25,7 @@ To include Ombi in your [AutoPirate](/recipes/autopirate/) stack, include the fo
 
 ```yaml
 ombi:
-  image: linuxserver/ombi:latest
+  image: lscr.io/linuxserver/ombi:latest
   env_file : /var/data/config/autopirate/ombi.env
   volumes:
    - /var/data/autopirate/ombi:/config

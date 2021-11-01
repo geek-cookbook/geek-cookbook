@@ -17,7 +17,7 @@ To include Sonarr in your [AutoPirate][autopirate] stack, include the following 
 
 ```yaml
 sonarr:
-  image: linuxserver/sonarr:latest
+  image: lscr.io/linuxserver/sonarr:latest
   env_file : /var/data/config/autopirate/sonarr.env
   volumes:
    - /var/data/autopirate/sonarr:/config
