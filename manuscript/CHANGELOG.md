@@ -8,6 +8,7 @@ hide:
 
 Recipe                   | Description                                                                                                      | Date
 -------------------------|------------------------------------------------------------------------------------------------------------------|--------------
+[Authelia][authelia] | Authentication and two factor authorization server with Authelia      | _1 Nov 2021_
 [Prowlarr][prowlarr]     | An indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with the [AutoPirate][autopirate] friends | _27 Oct 2021_
 [Archivebox][archivebox] | Website Archiving service to save websites to view offline      | _19 Oct 2021_
 [Readarr][readarr] | [Autopirate][autopirate] component to grab and manage eBooks (*think "Sonarr/Radarr for books*")                     | _18 Oct 2021_
