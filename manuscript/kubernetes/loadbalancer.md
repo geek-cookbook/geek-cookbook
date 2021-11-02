@@ -271,7 +271,7 @@ You'll see me use this design in any Kubernetes-based recipe which requires cont
 <snip>
 spec:
   containers:
-    - image: linuxserver/unifi
+    - image: lscr.io/linuxserver/unifi
       name: controller
       volumeMounts:
         - name: controller-volumeclaim

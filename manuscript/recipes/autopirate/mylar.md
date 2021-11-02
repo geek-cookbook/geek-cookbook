@@ -17,7 +17,7 @@ To include Mylar in your [AutoPirate](/recipes/autopirate/) stack, include the f
 
 ```yaml
 mylar:
-  image: linuxserver/mylar3:latest
+  image: lscr.io/linuxserver/mylar3:latest
   env_file : /var/data/config/autopirate/mylar.env
   volumes:
    - /var/data/autopirate/mylar:/config

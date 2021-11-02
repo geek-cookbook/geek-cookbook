@@ -20,7 +20,7 @@ To include Heimdall in your [AutoPirate](/recipes/autopirate/) stack, include th
 
 ```yaml
   heimdall:
-    image: linuxserver/heimdall:latest
+    image: lscr.io/linuxserver/heimdall:latest
     env_file: /var/data/config/autopirate/heimdall.env
     volumes:
       - /etc/localtime:/etc/localtime:ro

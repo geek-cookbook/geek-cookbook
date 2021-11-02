@@ -31,7 +31,7 @@ To include Radarr in your [AutoPirate][autopirate] stack, include the following 
 
 ```yaml
 radarr:
-  image: linuxserver/radarr:latest
+  image: lscr.io/linuxserver/radarr:latest
   env_file : /var/data/config/autopirate/radarr.env
   volumes:
    - /var/data/autopirate/radarr:/config
