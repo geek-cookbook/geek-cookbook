@@ -31,7 +31,7 @@ To include Prowlarr in your [AutoPirate][autopirate] stack, include the followin
 
 ```yaml
   prowlarr:
-    image: linuxserver/prowlarr:nightly
+    image: lscr.io/linuxserver/prowlarr:nightly
     env_file: /var/data/config/prowlarr/prowlarr.env
     volumes:
       - /var/data/media/:/media

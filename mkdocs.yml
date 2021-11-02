@@ -152,9 +152,9 @@ nav:
         - Snapshots: kubernetes/snapshots.md
         - Helm: kubernetes/helm.md
         - Traefik: kubernetes/traefik.md      
-      - Chef's Favorites:
-        - Kanboard: recipes/kubernetes/kanboard.md
-        - Miniflux: recipes/kubernetes/miniflux.md
+      # - Chef's Favorites:
+      #   - Istio: recipes/kubernetes/istio.md
+
     - 🚀 Get Premix!:
       - premix/index.md
       - Ansible: 

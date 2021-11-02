@@ -30,7 +30,7 @@ To include Readarr in your [AutoPirate][autopirate] stack, include something lik
 
 ```yaml
 radarr:
-  image: linuxserver/readarr:latest
+  image: lscr.io/linuxserver/readarr:latest
   env_file : /var/data/config/autopirate/readarr.env
   volumes:
    - /var/data/autopirate/readarr:/config

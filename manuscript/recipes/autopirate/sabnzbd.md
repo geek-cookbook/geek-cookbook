@@ -22,7 +22,7 @@ To include SABnzbd in your [AutoPirate](/recipes/autopirate/) stack
 
 ```yaml
 sabnzbd:
-  image: linuxserver/sabnzbd:latest
+  image: lscr.io/linuxserver/sabnzbd:latest
   env_file : /var/data/config/autopirate/sabnzbd.env  
   volumes:
     - /var/data/autopirate/sabnzbd:/config

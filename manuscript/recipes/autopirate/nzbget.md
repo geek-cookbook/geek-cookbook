@@ -20,7 +20,7 @@ To include NZBGet in your [AutoPirate](/recipes/autopirate/) stack
 
 ```yaml
 nzbget:
-  image: linuxserver/nzbget
+  image: lscr.io/linuxserver/nzbget
   env_file : /var/data/config/autopirate/nzbget.env  
   volumes:
    - /var/data/autopirate/nzbget:/config

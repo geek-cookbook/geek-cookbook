@@ -21,7 +21,7 @@ To include ruTorrent in your [AutoPirate][autopirate] stack, include the followi
 
 ```yaml
 rtorrent:
-  image: linuxserver/rutorrent
+  image: lscr.io/linuxserver/rutorrent
   env_file : /var/data/config/autopirate/rtorrent.env
   ports:
    - 36258:36258
