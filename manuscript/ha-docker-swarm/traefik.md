@@ -140,9 +140,17 @@ services:
     # original source IP, which would impact logging. If you don't care about this, you can expose ports the 
     # "minimal" way instead
     ports:
-      - "80:80"
-      - "8080:8080" # traefik dashboard
-      - "443:443"
+      - target: 80
+        published: 80
+        protocol: tcp
+        mode: host
+      - target: 443
+        published: 443
+        protocol: tcp
+        mode: host
+      - target: 8080
+        published: 8080
+        protocol: tcp
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /var/data/config/traefikv2:/etc/traefik
