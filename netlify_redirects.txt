@@ -5,5 +5,5 @@ https://geeks-cookbook.funkypenguin.co.nz/* https://geek-cookbook.funkypenguin.c
 https://geek-cookbook.funkypenguin.co.nz/recipies/* https://geek-cookbook.funkypenguin.co.nz/recipes/:splat 301!
 
 # Proxy plausible analytics per https://plausible.io/docs/proxy/guides/netlify
-/js/i-am-groot.js https://plausible.io/js/plausible.exclusions.outbound-links.js 200
+/js/i-am-groot.js https://plausible.io/js/plausible.outbound-links.js 200
 /api/event https://plausible.io/api/event 202
