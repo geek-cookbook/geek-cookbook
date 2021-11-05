@@ -3,68 +3,47 @@
 My first introduction to Kubernetes was a children's story:
 
 <!-- markdownlint-disable MD033 -->
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4ht22ReBjno" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R9-SOzep73w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Wait, what?
+## Why Kubernetes?
 
-Why would you want to use Kubernetes for your self-hosted recipes over simple Docker Swarm? Here's my personal take..
+Why would you want to Kubernetes for your self-hosted recipes, over simple Docker Swarm? Here's my personal take..
 
-I use Docker swarm both at home (_on a single-node swarm_), and on a trio of Ubuntu 16.04 VPSs in a shared lab OpenStack environment.
+### Docker Swarm is dead
 
-In both cases above, I'm responsible for maintaining the infrastructure supporting Docker - either the physical host, or the VPS operating systems.
+Sorry to say, but from where I sit, there's no innovation or development happening in docker swarm.
 
-I started experimenting with Kubernetes as a plan to improve the reliability of my cryptocurrency mining pools (_the contended lab VPSs negatively impacted the likelihood of finding a block_), and as a long-term replacement for my aging home server.
+Yes, I know, after Docker Inc [sold its platform business to Mirantis in Nov 2019](https://www.mirantis.com/blog/mirantis-acquires-docker-enterprise-platform-business/), in Feb 2020 Mirantis [back-tracked](https://www.mirantis.com/blog/mirantis-will-continue-to-support-and-develop-docker-swarm/) on their original plan to sunset swarm after 2 years, and stated that they'd continue to invest in swarm. But seriously, look around. Nobody is interested in swarm right now...
 
-What I enjoy about building recipes and self-hosting is **not** the operating system maintenance, it's the tools and applications that I can quickly launch in my swarms. If I could **only** play with the applications, and not bother with the maintenance, I totally would.
+... Not even Mirantis! As of Nov 2021, the Mirantis blog tag "[kubernetes](https://www.mirantis.com/tag/kubernetes/)" had 8 posts within the past month. The tag "[docker](https://www.mirantis.com/tag/docker/)" has 8 posts in the past **2 years**, the 8th being the original announcement of the Docker aquisition. The tag "[docker swarm](https://www.mirantis.com/tag/docker-swarm/)" has only 2 posts, **ever**.
 
-Kubernetes (_on a cloud provider, mind you!_) does this for me. I feed Kubernetes a series of YAML files, and it takes care of all the rest, including version upgrades, node failures/replacements, disk attach/detachments, etc.
+Dead. [Extinct. Like the doodoo](https://youtu.be/NxnZC9L_YXE?t=47).
+
+### Once you go Kubernetes, you can't go back
+
+For years now, [I've provided Kubernetes design consulting](https://www.funkypenguin.co.nz/work-with-me/) to small clients and large enterprises. The implementation details in each case vary widely, but there are some primitives which I've come to take for granted, and I wouldn't easily do without. A few examples:
+
+* **CLI drives API from anywhere**. From my laptop, I can use my credentials to manage any number of Kubernetes clusters, simply by switching kubectl "context". Each interaction is an API call against an HTTPS endpoint. No SSHing to hosts and manually running docker command as root!
+* **GitOps is magic**. There are multiple ways to achieve it, but having changes you commit to a repo automatically applied to a cluster, "Just Works(tm)". The process removes so much friction from making changes that it makes you more productive, and a better "gitizen" ;P
+* **Controllers are trustworthy**. I've come to trust that when I tell Kubernetes to run 3 replicas on separate hosts, to scale up a set of replicas based on CPU load metrics, or provision a blob of storage for a given workloa, that this will be done in a consistent and visible way. I'll be able to see logs / details for each action taken by the controller, and adjust my own instructions/configuration accordingly if necessary.
 
 ## Uggh, it's so complicated!
 
-Yes, but that's a necessary sacrifice for the maturity, power and flexibility it offers. Like docker-compose syntax, Kubernetes uses YAML to define its various, interworking components.
+Yes, it's more complex than Docker Swarm. And that complexity can definately be a barrier, although with improved tooling, it's continually becoming less-so. However, you don't need to be a mechanic to drive a car, or a mechanic to use a chainsaw. You just need a basic understanding of some core primitives, and then you get on with using the tool to achieve your goals, without needing to know every detail about how it works!
 
-Let's talk some definitions. Kubernetes.io provides a [glossary](https://kubernetes.io/docs/reference/glossary/?fundamental=true). My definitions are below:
+Your end-goal is probably "*I want to reliably self-host services I care about*", and not "*I want to fully understand a complex, scalable, and highly sophisticated container orchestrator*". [^1]
 
-- **Node** : A compute instance which runs docker containers, managed by a cluster master.
-
-- **Cluster** : One or more "worker nodes" which run containers. Very similar to a Docker Swarm node. In most cloud provider deployments, the [master node for your cluster is provided free of charge](https://www.sdxcentral.com/articles/news/google-eliminates-gke-management-fees-kubernetes-clusters/2017/11/), but you don't get to access it.
-
-- **Pod** : A collection of one or more the containers. If a pod runs multiple containers, these containers always run on the same node.
-
-- **Deployment** : A definition of a desired state. I.e., "I want a pod with containers A and B running". The Kubernetes master then ensures that any changes necessary to maintain the state are taken. (_I.e., if a pod crashes, but is supposed to be running, a new pod will be started_)
-
-- **Service** : Unlike Docker Swarm, service discovery is not _built in_ to Kubernetes. For your pods to discover each other (say, to have "webserver" talk to "database"), you create a service for each pod, and refer to these services when you want your containers (_in pods_) to talk to each other. Complicated, yes, but the abstraction allows you to do powerful things, like auto-scale-up a bunch of database "pods" behind a service called "database", or perform a rolling container image upgrade with zero impact.
-
-- **External access** : Services not only allow pods to discover each other, but they're also the mechanism through which the outside world can talk to a container. At the simplest level, this is akin to exposing a container port on a docker host.
-
-- **Ingress** : When mapping ports to applications is inadequate (think virtual web hosts), an ingress is a sort of "inbound router" which can receive requests on one port (i.e., HTTPS), and forward them to a variety of internal pods, based on things like VHOST, etc. For us, this is the functional equivalent of what Traefik does in Docker Swarm. In fact, we use a Traefik Ingress in Kubernetes to accomplish the same.
-
-- **Persistent Volume** : A virtual disk which is attached to a pod, storing persistent data. Meets the requirement for shared storage from Docker Swarm. I.e., if a persistent volume (PV) is bound to a pod, and the pod dies and is recreated, or get upgraded to a new image, the PV the data is bound to the new container. PVs can be "claimed" in a YAML definition, so that your Kubernetes provider will auto-create a PV when you launch your pod. PVs can be snapshotted.
-
-- **Namespace** : An abstraction to separate a collection of pods, services, ingresses, etc. A "virtual cluster within a cluster". Can be used for security, or simplicity. For example, since we don't have individual docker stacks anymore, if you commonly name your database container "db", and you want to deploy two applications which both use a database container, how will you name your services? Use namespaces to keep each application ("nextcloud" vs "kanboard") separate. Namespaces also allow you to allocate resources **limits** to the aggregate of containers in a namespace, so you could, for example, limit the "nextcloud" namespace to 2.3 CPUs and 1200MB RAM.
+So let's get on with learning how to use the tool...
 
 ## Mm.. maaaaybe, how do I start?
 
-If you're like me, and you learn by doing, either play with the examples at <https://labs.play-with-k8s.com/>, or jump right in by setting up a Google Cloud trial (_you get \$300 credit for 12 months_), or a small cluster on [Digital Ocean](/kubernetes/cluster/).
+Primarily you need 2 things:
 
-If you're the learn-by-watching type, just search for "Kubernetes introduction video". There's a **lot** of great content available.
+1. A cluster
+2. A way to deploy workloads into the cluster
 
-## I'm ready, gimme some recipes!
-
-As of Jan 2019, our first (_and only!_) Kubernetes recipe is a WIP for the Mosquitto [MQTT](/recipes/mqtt/) broker. It's a good, simple starter if you're into home automation (_shoutout to [Home Assistant](/recipes/homeassistant/)!_), since it only requires a single container, and a simple NodePort service.
-
-I'd love for your [feedback](/support/) on the Kubernetes recipes, as well as suggestions for what to add next. The current rough plan is to replicate the Chef's Favorites recipes (_see the left-hand panel_) into Kubernetes first.
-
-## Move on..
-
-Still with me? Good. Move on to reviewing the design elements
-
-- Start (this page) - Why Kubernetes?
-- [Design](/kubernetes/design/) - How does it fit together?
-- [Cluster](/kubernetes/cluster/) - Setup a basic cluster
-- [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access
-- [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
-- [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
-- [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
+Practically, you need some extras too, but you can mix-and-match these.
 
 --8<-- "recipe-footer.md"
+
+[^1]: Of course, if you **do** enjoy understanding the intricacies of how your tools work, you're in good company!
