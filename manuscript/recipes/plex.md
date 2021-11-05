@@ -42,7 +42,7 @@ version: "3.0"
 
 services:
   plex:
-    image: linuxserver/plex
+    image: lscr.io/linuxserver/plex
     env_file: plex.env
     volumes:
       - /var/data/config/plex:/config

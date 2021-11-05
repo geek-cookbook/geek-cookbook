@@ -16,7 +16,7 @@ To include Lidarr in your [AutoPirate](/recipes/autopirate/) stack, include the 
 
 ````yaml
   lidarr:
-    image: linuxserver/lidarr:latest
+    image: lscr.io/linuxserver/lidarr:latest
     env_file: /var/data/config/lidarr/lidarr.env
     volumes:
       - /etc/localtime:/etc/localtime:ro

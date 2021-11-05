@@ -23,7 +23,7 @@ To include LazyLibrarian in your [AutoPirate][autopirate] stack, include the fol
 
 ```yaml
 lazylibrarian:
-  image: linuxserver/lazylibrarian:latest
+  image: lscr.io/linuxserver/lazylibrarian:latest
   env_file : /var/data/config/autopirate/lazylibrarian.env
   volumes:
    - /var/data/autopirate/lazylibrarian:/config
