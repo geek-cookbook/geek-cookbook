@@ -51,6 +51,7 @@ nav:
             - Dex (static): ha-docker-swarm/traefik-forward-auth/dex-static.md    
             - Google: ha-docker-swarm/traefik-forward-auth/google.md      
             - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
+        - Authelia: ha-docker-swarm/authelia.md
         - Registry: ha-docker-swarm/registry.md
         - Mail Server: recipes/mail.md
         - Duplicity: recipes/duplicity.md
@@ -210,7 +211,6 @@ nav:
       #   - Traefik: kubernetes/wip.md
       #   - Vault: kubernetes/wip.md
       #   - Webook Receiver: kubernetes/wip.md
-
     - 🚀 Get Premix!:
       - premix/index.md
       - Ansible: 
@@ -286,21 +286,37 @@ extra:
     - icon: 'material/mailbox'
       link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'             
   generator: false  
-  consent:
-    title: 'Would you like a cookie? 🍪'
-    description: > 
+  # Plausible doesn't use cookies, so no need for this!
+  # consent:
+  #   title: 'Would you like a cookie? 🍪'
+  #   description: > 
 
-      I know. cookies suck (<I>except the fresh, warm, choc-chip ones!</I>), and so does invasive tracking. Thing is, without cookies, 
-      analytics can't record your visit, and I can't work out where/how to invest time to make the cookbook better.
+  #     I know. cookies suck (<I>except the fresh, warm, choc-chip ones!</I>), and so does invasive tracking. Thing is, without cookies, 
+  #     analytics can't record your visit, and I can't work out where/how to invest time to make the cookbook better.
 
-      <p>So, with your consent, I'd like to record what you look at and where you're from, so that I can make the 
-      cookbook even better. My analytics are public - here's <A HREF='https://plausible.io/geek-cookbook.funkypenguin.co.nz' target="_blank">all</A> I know about you! - David</p>
-    cookies:
-      custom: Plausible Analytics     
+  #     <p>So, with your consent, I'd like to record what you look at and where you're from, so that I can make the 
+  #     cookbook even better. My analytics are public - here's <A HREF='https://plausible.io/geek-cookbook.funkypenguin.co.nz' target="_blank">all</A> I know about you! - David</p>
+  #   cookies:
+  #     custom: Plausible Analytics     
   analytics:
     provider: plausible
     data_domain: geek-cookbook.funkypenguin.co.nz
-
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! 
+            
+#            Help us improve this page by
+#            using our <a href="..." target=_blank>feedback form</a>.
 
 # extra_css:
 

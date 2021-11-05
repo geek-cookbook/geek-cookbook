@@ -34,7 +34,7 @@ To include NZBHydra2 in your [AutoPirate][autopirate] stack, include the followi
 
 ```yaml
 nzbhydra2:
-  image: linuxserver/hydra2:latest
+  image: lscr.io/linuxserver/hydra2:latest
   env_file : /var/data/config/autopirate/nzbhydra2.env
   volumes:
    - /var/data/autopirate/nzbhydra2:/config

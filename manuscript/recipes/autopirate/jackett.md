@@ -18,7 +18,7 @@ To include Jackett in your [AutoPirate](/recipes/autopirate/) stack, include the
 
 ```yaml
 jackett:
-  image: linuxserver/jackett:latest
+  image: lscr.io/linuxserver/jackett:latest
   env_file : /var/data/config/autopirate/jackett.env
   volumes:
    - /var/data/autopirate/jackett:/config

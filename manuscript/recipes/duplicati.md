@@ -64,7 +64,7 @@ Create a docker swarm config file in docker-compose syntax (v3), something like 
 version: "3"
 services:
   duplicati:
-    image: linuxserver/duplicati
+    image: lscr.io/linuxserver/duplicati
     env_file: /var/data/config/duplicati/duplicati.env
     deploy:
       replicas: 1
