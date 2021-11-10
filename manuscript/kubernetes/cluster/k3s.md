@@ -1,15 +1,26 @@
-# Kubernetes on DigitalOcean
+# Deploy your cluster on k3s
 
-IMO, the easiest Kubernetes cloud provider to experiment with is [DigitalOcean](https://m.do.co/c/e33b78ad621b) (_this is a referral link_). I've included instructions below to start a basic cluster.
+If you're wanting to self-host your cluster, the simplest and most widely-supported approach is Rancher's [k3s](https://k3s.io/).
 
-![Kubernetes on Digital Ocean](/images/kubernetes-on-digitalocean.jpg)
+!!! summary "Ingredients"
 
-## Ingredients
+    * [ ] One or more "modern" Linux hosts to serve as cluster masters. (*Using an odd number of masters is required for HA*). Additional steps are required for [Raspbian Buster](https://rancher.com/docs/k3s/latest/en/advanced/#enabling-legacy-iptables-on-raspbian-buster), [Alpine](https://rancher.com/docs/k3s/latest/en/advanced/#additional-preparation-for-alpine-linux-setup), or [RHEL/CentOS](https://rancher.com/docs/k3s/latest/en/advanced/#additional-preparation-for-red-hat-centos-enterprise-linux).
 
-1. [DigitalOcean](https://www.digitalocean.com/?refcode=e33b78ad621b) account, either linked to a credit card or (_my preference for a trial_) topped up with $5 credit from PayPal. (_yes, this is a referral link, making me some 💰 to buy 🍷_)
-2. Geek-Fu required : 🐱 (easy - even has screenshots!)
+    Optional:
 
-## Preparation
+    * [ ] Additional hosts to serve as cluster agents (*assuming that not everybody gets to be a master!*)
+
+## Single node k3s cluster
+
+```bash
+K3S_TOKEN=SECRET k3s server --cluster-init
+```
+
+## Highly Availble k3s cluster
+
+```bash
+K3S_TOKEN=SECRET k3s server --cluster-init
+```
 
 ### Create DigitalOcean Account
 

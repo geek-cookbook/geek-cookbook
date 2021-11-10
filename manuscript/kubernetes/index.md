@@ -29,7 +29,7 @@ For years now, [I've provided Kubernetes design consulting](https://www.funkypen
 
 ## Uggh, it's so complicated!
 
-Yes, it's more complex than Docker Swarm. And that complexity can definately be a barrier, although with improved tooling, it's continually becoming less-so. However, you don't need to be a mechanic to drive a car, or a mechanic to use a chainsaw. You just need a basic understanding of some core primitives, and then you get on with using the tool to achieve your goals, without needing to know every detail about how it works!
+Yes, it's more complex than Docker Swarm. And that complexity can definately be a barrier, although with improved tooling, it's continually becoming less-so. However, you don't need to be a mechanic to drive a car or to use a chainsaw. You just need a basic understanding of some core primitives, and then you get on with using the tool to achieve your goals, without needing to know every detail about how it works!
 
 Your end-goal is probably "*I want to reliably self-host services I care about*", and not "*I want to fully understand a complex, scalable, and highly sophisticated container orchestrator*". [^1]
 
