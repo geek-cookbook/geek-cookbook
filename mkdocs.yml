@@ -151,7 +151,7 @@ nav:
           - Digital Ocean: kubernetes/cluster/digitalocean.md
       #     - Bare Metal: kubernetes/cluster/baremetal.md
       #     - Home Lab: kubernetes/cluster/baremetal.md
-          # - k3s: kubernetes/cluster/k3s.md
+          - k3s: kubernetes/cluster/k3s.md
       #     - The Hard Way: kubernetes/cluster/the-hard-way.md
       #   - Deployment:
       #     - kubernetes/deployment/index.md
