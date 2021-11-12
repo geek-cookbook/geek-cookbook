@@ -153,12 +153,15 @@ nav:
       #     - Home Lab: kubernetes/cluster/baremetal.md
           - k3s: kubernetes/cluster/k3s.md
       #     - The Hard Way: kubernetes/cluster/the-hard-way.md
-      #   - Deployment:
-      #     - kubernetes/deployment/index.md
+        - Deployment:
+          - kubernetes/deployment/index.md
       #     - YAML: kubernetes/wip.md
       #     - Helm: kubernetes/wip.md
       #     - GitHub Actions: kubernetes/wip.md
-      #     - Flux: kubernetes/wip.md
+          - Flux: 
+            - Install: kubernetes/deployment/flux/install.md
+            - Design: kubernetes/deployment/flux/design.md
+            - Operate: kubernetes/deployment/flux/operate.md
       # - Extras:
       #   - Load Balancer: 
       #     - kubernetes/loadbalancer/index.md
@@ -246,6 +249,7 @@ theme:
       - navigation.top
       - search.suggest
       - search.share
+      - content.code.annotate      
   icon:
     repo: 'fontawesome/brands/github'
   palette:
@@ -353,7 +357,11 @@ markdown_extensions:
       repo: geek-cookbook  
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde

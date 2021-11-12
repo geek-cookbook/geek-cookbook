@@ -8,7 +8,7 @@ Did you receive excellent service? Want to make your waiter happy? (_..and suppo
 
 ### Flirt with waiter (subscribe) 💌
 
-Want to know now when this recipe gets updated, or when future recipes are added? Subscribe to the [RSS feed](https://mastodon.social/@geekcookbook_changes.rss), or leave your email address below, and we'll keep you updated. (*double-opt-in, no monkey business, no spam)
+Want to know now when this recipe gets updated, or when future recipes are added? Subscribe to the [RSS feed](https://mastodon.social/@geekcookbook_changes.rss), or leave your email address below, and we'll keep you updated.
 
 --8<-- "convertkit-subscribe-form.html"
 

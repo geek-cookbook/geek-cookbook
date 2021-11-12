@@ -26,9 +26,6 @@ curl -fL https://get.k3s.io | K3S_TOKEN=${MYSECRET} \
     sh -s - --no-deploy traefik server --cluster-init
 ```
 
-!!! question "Why not deploy traefik?"
-    k3s comes with the traefik ingress "built-in", so why not deploy it? Because we'd rather deploy it **later** (*if we even want it*), using the same deployment strategy which we use with all of our other services.
-
 You should see output which looks something like this:
 
 ```bash
@@ -98,11 +95,17 @@ If you have more nodes which you want _not_ to be considered masters, then run t
 ```bash
 MYSECRET=iambatman
 curl -fL https://get.k3s.io | K3S_TOKEN=${MYSECRET} K3S_URL=https://<IP OF FIRST MASTER>:6443 \
-    sh -s -
+    sh -s - --no-deploy traefik server
 ```
 
 !!! question "y no kubectl on agent?"
     If you tried to run `k3s kubectl` on an agent, you'll notice that it returns an error about `localhost:8080` being refused. This is **normal**, and it happens because agents aren't necessarily "trusted" to the same degree that masters are, and so the cluster admin credentials are **not** saved to the filesystem, as they are with masters.
+
+!!! question "Why not deploy traefik?"
+    k3s comes with the traefik ingress "built-in", so why not deploy it? Because we'd rather deploy it **later** (*if we even want it*), using the same deployment strategy which we use with all of our other services.
+
+!!! tip "^Z undo undo ..."
+    Oops! Did you mess something up? Just run `k3s-agent-uninstall.sh` to wipe all traces of K3s agent, and start over!
 
 ## Release the kubectl!
 
