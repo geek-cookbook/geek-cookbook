@@ -1,3 +1,6 @@
+---
+description: Kubernetes Flux deployment strategy - Design
+---
 # Design
 
 !!! question "Shouldn't a design **precede** installation instructions?"

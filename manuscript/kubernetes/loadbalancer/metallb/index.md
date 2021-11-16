@@ -35,54 +35,57 @@ You'll need to make some decisions re IP allocations.
 
 We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/namespaces/namespace-metallb.yaml`:
 
-```yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: metallb-system
-```
+??? example "Example NameSpace (click to expand)"
+    ```yaml
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: metallb-system
+    ```
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the (*prolific*) [bitnami chart repository](https://github.com/bitnami/charts/tree/master/bitnami),so per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/helmrepositories/helmrepository-bitnami.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the (*prolific*) [bitnami chart repository](https://github.com/bitnami/charts/tree/master/bitnami), so per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/helmrepositories/helmrepository-bitnami.yaml`:
 
-```yaml
-apiVersion: source.toolkit.fluxcd.io/v1beta1
-kind: HelmRepository
-metadata:
-  name: bitnami
-  namespace: flux-system
-spec:
-  interval: 15m
-  url: https://charts.bitnami.com/bitnami
-```
+??? example "Example HelmRepository (click to expand)"
+    ```yaml
+    apiVersion: source.toolkit.fluxcd.io/v1beta1
+    kind: HelmRepository
+    metadata:
+      name: bitnami
+      namespace: flux-system
+    spec:
+      interval: 15m
+      url: https://charts.bitnami.com/bitnami
+    ```
 
 ### Kustomization
 
-Now that the "global" elements of this deployment (Namespace and HelmRepository) have been define, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/metallb-system`. I create this Kustomization in my flux repo at `flux-system/kustomizations/kustomization-metallb.yaml`:
+Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/metallb-system`. I create this Kustomization in my flux repo at `flux-system/kustomizations/kustomization-metallb.yaml`:
 
-```yaml
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-kind: Kustomization
-metadata:
-  name: metallb--metallb-system
-  namespace: flux-system
-spec:
-  interval: 15m
-  path: ./metallb-system
-  prune: true # remove any elements later removed from the above path
-  timeout: 2m # if not set, this defaults to interval duration, which is 1h
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  validation: server
-  healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: metallb-controller
-      namespace: metallb-system
+??? example "Example Kustomization (click to expand)"
+    ```yaml
+    apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+    kind: Kustomization
+    metadata:
+      name: metallb--metallb-system
+      namespace: flux-system
+    spec:
+      interval: 15m
+      path: ./metallb-system
+      prune: true # remove any elements later removed from the above path
+      timeout: 2m # if not set, this defaults to interval duration, which is 1h
+      sourceRef:
+        kind: GitRepository
+        name: flux-system
+      validation: server
+      healthChecks:
+        - apiVersion: apps/v1
+          kind: Deployment
+          name: metallb-controller
+          namespace: metallb-system
 
-```
+    ```
 
 !!! question "What's with that screwy name?"
     > Why'd you call the kustomization `metallb--metallb-system`?
@@ -94,50 +97,50 @@ spec:
 
 Now we're into the metallb-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami/charts/blob/master/bitnami/metallb/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this in my flux repo at `metallb/configmap-metallb-helm-chart-value-overrides.yaml`:
 
+??? example "Example ConfigMap (click to expand)"
+    ```yaml
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      creationTimestamp: null
+      name: metallb-helm-chart-value-overrides
+      namespace: metallb-system
+    data:
+      values.yaml: |-
+        ## @section Global parameters
+        ## Global Docker image parameters
+        ## Please, note that this will override the image parameters, including dependencies, configured to use the global value
+        ## Current available global Docker image parameters: imageRegistry, imagePullSecrets and storageClass
 
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  creationTimestamp: null
-  name: metallb-helm-chart-value-overrides
-  namespace: reloader
-data:
-  values.yaml: |-
-    ## @section Global parameters
-    ## Global Docker image parameters
-    ## Please, note that this will override the image parameters, including dependencies, configured to use the global value
-    ## Current available global Docker image parameters: imageRegistry, imagePullSecrets and storageClass
-
-    ## @param global.imageRegistry Global Docker image registry
-    ## @param global.imagePullSecrets Global Docker registry secret names as an array
-    ##
-    global:
-    imageRegistry: ""
-    ## E.g.
-    ## imagePullSecrets:
-    ##   - myRegistryKeySecretName
-    <snip>
-    prometheus:
-        ## Prometheus Operator service monitors
+        ## @param global.imageRegistry Global Docker image registry
+        ## @param global.imagePullSecrets Global Docker registry secret names as an array
         ##
-        serviceMonitor:
-        ## @param speaker.prometheus.serviceMonitor.enabled Enable support for Prometheus Operator
-        ##
-        enabled: false
-        ## @param speaker.prometheus.serviceMonitor.jobLabel Job label for scrape target
-        ##
-        jobLabel: "app.kubernetes.io/name"
-        ## @param speaker.prometheus.serviceMonitor.interval Scrape interval. If not set, the Prometheus default scrape interval is used
-        ##
-        interval: ""
-        ## @param speaker.prometheus.serviceMonitor.metricRelabelings Specify additional relabeling of metrics
-        ##
-        metricRelabelings: []
-        ## @param speaker.prometheus.serviceMonitor.relabelings Specify general relabeling
-        ##
-        relabelings: []
-```
+        global:
+        imageRegistry: ""
+        ## E.g.
+        ## imagePullSecrets:
+        ##   - myRegistryKeySecretName
+        <snip>
+        prometheus:
+            ## Prometheus Operator service monitors
+            ##
+            serviceMonitor:
+            ## @param speaker.prometheus.serviceMonitor.enabled Enable support for Prometheus Operator
+            ##
+            enabled: false
+            ## @param speaker.prometheus.serviceMonitor.jobLabel Job label for scrape target
+            ##
+            jobLabel: "app.kubernetes.io/name"
+            ## @param speaker.prometheus.serviceMonitor.interval Scrape interval. If not set, the Prometheus default scrape interval is used
+            ##
+            interval: ""
+            ## @param speaker.prometheus.serviceMonitor.metricRelabelings Specify additional relabeling of metrics
+            ##
+            metricRelabelings: []
+            ## @param speaker.prometheus.serviceMonitor.relabelings Specify general relabeling
+            ##
+            relabelings: []
+    ```
 
 !!! question "That's a lot of unnecessary text!"
     > Why not just paste in the subset of values I want to change?
@@ -155,29 +158,30 @@ Then work your way through the values you pasted, and change any which are speci
 
 Finally, it's time to actually configure MetalLB! As discussed above, I prefer to configure the helm chart to apply config from an existing ConfigMap, so that I isolate my application configuration from my chart configuration (*and make tracking changes easier*). In my setup, I'm using BGP against a pair of pfsense[^1] firewalls, so per the [official docs](https://metallb.universe.tf/configuration/), I use the following configuration, saved in my flux repo as `flux-system/configmap-metallb-config.yaml`:
 
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  namespace: metallb-system
-  name: metallb-config
-data:
-  config: |
-    peers:
-    - peer-address: 192.168.33.2  
-      peer-asn: 64501
-      my-asn: 64500
-    - peer-address: 192.168.33.4  
-      peer-asn: 64501
-      my-asn: 64500
-     
-    address-pools:
-    - name: default
-      protocol: bgp
-      avoid-buggy-ips: true
-      addresses:
-      - 192.168.32.0/24
-```
+??? example "Example ConfigMap (click to expand)"
+    ```yaml
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      namespace: metallb-system
+      name: metallb-config
+    data:
+      config: |
+        peers:
+        - peer-address: 192.168.33.2  
+          peer-asn: 64501
+          my-asn: 64500
+        - peer-address: 192.168.33.4  
+          peer-asn: 64501
+          my-asn: 64500
+        
+        address-pools:
+        - name: default
+          protocol: bgp
+          avoid-buggy-ips: true
+          addresses:
+          - 192.168.32.0/24
+    ```
 
 !!! question "What does that mean?"
     In the config referenced above, I define one pool of addresses (`192.168.32.0/24`) which MetalLB is responsible for allocating to my services. MetalLB will then "advertise" these addresses to my firewalls (`192.168.33.2` and `192.168.33.4`), in an eBGP relationship where the firewalls' ASN is `64501` and MetalLB's ASN is `64500`. Provided I'm using my firewalls as my default gateway (*a VIP*), when I try to access one of the `192.168.32.x` IPs from any subnet connected to my firewalls, the traffic will be routed from the firewall to one of the cluster nodes running the pods selected by that service.
@@ -205,29 +209,30 @@ data:
 
 Lastly, having set the scene above, we define the HelmRelease which will actually deploy MetalLB into the cluster, with the config and extra ConfigMap we defined above. I save this in my flux repo as `metallb/helmrelease-metallb.yaml`:
 
-```yaml
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: metallb
-  namespace: metallb-system
-spec:
-  chart:
+??? example "Example HelmRelease (click to expand)"
+    ```yaml
+    apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    metadata:
+      name: metallb
+      namespace: metallb-system
     spec:
-      chart: metallb
-      version: 2.x
-      sourceRef:
-        kind: HelmRepository
-        name: bitnami
-        namespace: flux-system
-  interval: 15m
-  timeout: 5m
-  releaseName: metallb
-  valuesFrom:
-  - kind: ConfigMap
-    name: metallb-helm-chart-value-overrides
-    valuesKey: values.yaml # This is the default, but best to be explicit for clarity
-```
+      chart:
+        spec:
+          chart: metallb
+          version: 2.x
+          sourceRef:
+            kind: HelmRepository
+            name: bitnami
+            namespace: flux-system
+      interval: 15m
+      timeout: 5m
+      releaseName: metallb
+      valuesFrom:
+      - kind: ConfigMap
+        name: metallb-helm-chart-value-overrides
+        valuesKey: values.yaml # This is the default, but best to be explicit for clarity
+    ```
 
 !!! question "Why not just put config in the HelmRelease?"
     While it's true that we could embed values directly into the HelmRelease YAML, this becomes unweildy with large helm charts. It's also simpler (less likely to result in error) if changes to **HelmReleases**, which affect **deployment** of the chart, are defined in separate files to changes in helm chart **values**, which affect **operation** of the chart.

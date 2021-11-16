@@ -169,8 +169,7 @@ nav:
             - MetalLB: 
               - kubernetes/loadbalancer/metallb/index.md
               - pfSense: kubernetes/loadbalancer/metallb/pfsense.md
-          - Sealed Secrets: 
-            - kubernetes/sealed-secrets.md
+          - Sealed Secrets: kubernetes/sealed-secrets.md
       #   - DNS: 
       #     - kubernetes/dns/index.md
       #     - External DNS: kubernetes/wip.md
