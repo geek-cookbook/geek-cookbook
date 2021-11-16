@@ -1,3 +1,6 @@
+---
+description: Choosing HOW to deploy Kubernetes
+---
 # Kubernetes Cluster
 
 There are an ever-increasing amount of ways to deploy and run Kubernetes. The primary distinction to be aware of is whether to fork out for a managed Kubernetes instance or not. Managed instances have some advantages, which I'll detail below, but these come at additional cost.

@@ -162,10 +162,15 @@ nav:
             - Install: kubernetes/deployment/flux/install.md
             - Design: kubernetes/deployment/flux/design.md
             - Operate: kubernetes/deployment/flux/operate.md
-      # - Extras:
-      #   - Load Balancer: 
-      #     - kubernetes/loadbalancer/index.md
-      #     - Metallb: kubernetes/wip.md
+        - Extras:
+          - Load Balancer: 
+            - kubernetes/loadbalancer/index.md
+            - k3s: kubernetes/loadbalancer/k3s.md
+            - MetalLB: 
+              - kubernetes/loadbalancer/metallb/index.md
+              - pfSense: kubernetes/loadbalancer/metallb/pfsense.md
+          - Sealed Secrets: 
+            - kubernetes/sealed-secrets.md
       #   - DNS: 
       #     - kubernetes/dns/index.md
       #     - External DNS: kubernetes/wip.md
@@ -244,7 +249,6 @@ theme:
       - navigation.tabs.sticky  
       - navigation.instant 
       - navigation.sections
-      - navigation.tracking
       - navigation.indexes
       - navigation.top
       - search.suggest

@@ -1,3 +1,6 @@
+---
+description: Creating a Kubernetes cluster on k3s
+---
 # Deploy your cluster on k3s
 
 If you're wanting to self-host your cluster, the simplest and most widely-supported approach is Rancher's [k3s](https://k3s.io/).
@@ -14,23 +17,39 @@ If you're wanting to self-host your cluster, the simplest and most widely-suppor
 
 Ensure you have sudo access to your nodes, and that each node meets the [installation requirements](https://rancher.com/docs/k3s/latest/en/installation/installation-requirements/).
 
-## Deploy k3s
+## Deploy k3s (one node only ever)
 
-### Deploy first master
-
-You may only have one node, but it's a good idea to prepare for future expansion by bootstrapping k3s in "embedded etcd" multi-master HA mode. Pick a secret to use for your server token, and run the following:
+If you only want a single-node k3s cluster, then simply run the following to do the deployment:
 
 ```bash
 MYSECRET=iambatman
 curl -fL https://get.k3s.io | K3S_TOKEN=${MYSECRET} \
-    sh -s - --no-deploy traefik server --cluster-init
+    sh -s - --disable traefik server
 ```
+
+!!! question "Why no traefik?"
+    k3s comes with the traefik ingress "built-in", so why not deploy it? Because we'd rather deploy it **later** (*if we even want it*), using the same [deployment strategy](/kubernetes/deployment/flux/) which we use with all of our other services, so that we can easily update/configure it.
+
+## Deploy k3s (mooar nodes!)
+
+### Deploy first master
+
+You may only have one node now, but it's a good idea to prepare for future expansion by bootstrapping k3s in "embedded etcd" multi-master HA mode. Pick a secret to use for your server token, and run the following:
+
+```bash
+MYSECRET=iambatman
+curl -fL https://get.k3s.io | K3S_TOKEN=${MYSECRET} \
+    sh -s - --disable traefik --disable servicelb server --cluster-init
+```
+
+!!! question "y no servicelb?"
+    K3s includes a [rudimentary load balancer](/kubernetes/loadbalancer/k3s/) which utilizes host ports to make a given port available on all nodes. If you plan to deploy one, and only one k3s node, then this is a viable configuration, and you can leave out the `--disable servicelb` text above. If you plan for more nodes and HA htough, then you're better off deploying [MetalLB](/kubernetes/loadbalancer/metallb/) to do "real" loadbalancing.
 
 You should see output which looks something like this:
 
 ```bash
 root@shredder:~# curl -fL https://get.k3s.io | K3S_TOKEN=${MYSECRET} \
->     sh -s - --no-deploy traefik server --cluster-init
+>     sh -s - --disable traefik server --cluster-init
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
@@ -74,7 +93,7 @@ Now that the first master is deploy, add additional masters (*remember to keep t
 ```bash
 MYSECRET=iambatman
 curl -fL https://get.k3s.io | K3S_TOKEN=${MYSECRET} \
-    sh -s - server --server https://<IP OF FIRST MASTER>:6443
+    sh -s - server --disable servicelb --server https://<IP OF FIRST MASTER>:6443
 ```
 
 Run `k3s kubectl get nodes` to see your new master node make friends with the others:
@@ -94,15 +113,13 @@ If you have more nodes which you want _not_ to be considered masters, then run t
 
 ```bash
 MYSECRET=iambatman
-curl -fL https://get.k3s.io | K3S_TOKEN=${MYSECRET} K3S_URL=https://<IP OF FIRST MASTER>:6443 \
-    sh -s - --no-deploy traefik server
+curl -fL https://get.k3s.io | K3S_TOKEN=${MYSECRET} \
+    K3S_URL=https://<IP OF FIRST MASTER>:6443 \
+    sh -s -
 ```
 
 !!! question "y no kubectl on agent?"
     If you tried to run `k3s kubectl` on an agent, you'll notice that it returns an error about `localhost:8080` being refused. This is **normal**, and it happens because agents aren't necessarily "trusted" to the same degree that masters are, and so the cluster admin credentials are **not** saved to the filesystem, as they are with masters.
-
-!!! question "Why not deploy traefik?"
-    k3s comes with the traefik ingress "built-in", so why not deploy it? Because we'd rather deploy it **later** (*if we even want it*), using the same deployment strategy which we use with all of our other services.
 
 !!! tip "^Z undo undo ..."
     Oops! Did you mess something up? Just run `k3s-agent-uninstall.sh` to wipe all traces of K3s agent, and start over!

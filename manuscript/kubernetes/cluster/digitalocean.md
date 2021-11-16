@@ -1,3 +1,6 @@
+---
+description: Creating a Kubernetes cluster on DigitalOcean
+---
 # Kubernetes on DigitalOcean
 
 IMO, the easiest Kubernetes cloud provider to experiment with is [DigitalOcean](https://m.do.co/c/e33b78ad621b) (_this is a referral link_). I've included instructions below to start a basic cluster.

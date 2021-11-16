@@ -1,3 +1,7 @@
+---
+description: Kubernetes deployment strategies
+---
+
 # Deployment
 
 So far our Kubernetes journey has been fairly linear - your standard "geek follows instructions" sort of deal.
@@ -14,3 +18,5 @@ The typical methods of deploying applications into Kubernetes, sorted from least
 2. A human applies a helm chart directly to the apiserver.
 3. A human updates a version-controlled set of configs, and a CI process applies YAML/helm chart directly to the apiserver.
 4. A human updates a version-controlled set of configs, and a trusted process _within_ the cluster "reaches out" to the config, and applies it to itself.
+
+In our case, #4 is achieved with [Flux](/kubernetes/deployment/flux/).

@@ -1,3 +1,7 @@
+---
+description: Kubernetes Flux deployment strategy - Installation
+---
+
 # Flux Installation
 
 [Flux](https://fluxcd.io/) is a set of continuous and progressive delivery solutions for Kubernetes that are open and extensible.
@@ -10,10 +14,9 @@ Using flux to manage deployments into the cluster means:
 
 !!! summary "Ingredients"
 
-    * [ ] [Install the flux CLI tools](https://fluxcd.io/docs/installation/#install-the-flux-cli) on a host which has access to your cluster's apiserver.
-    * [ ] Create a GitHub [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) that can create repositories by checking all permissions under repo.
-    * [ ] Create a private GitHub repository dedicated to your flux deployments
-
+    * [x] [Install the flux CLI tools](https://fluxcd.io/docs/installation/#install-the-flux-cli) on a host which has access to your cluster's apiserver.
+    * [x] Create a GitHub [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) that can create repositories by checking all permissions under repo.
+    * [x] Create a private GitHub repository dedicated to your flux deployments
 
 ## Basics
 
@@ -118,10 +121,10 @@ If you used my template repo, some extra things also happened..
       2. [kustomizations](https://github.com/geek-cookbook/template-flux/tree/main/flux-system/kustomizations), for storing additional kustomizations *(which in turn can reference other paths in the repo*)
       3. [namespaces](https://github.com/geek-cookbook/template-flux/tree/main/flux-system/namespaces), for storing namespace manifests (*since these need to exist before we can deploy helmreleases into them*)
 4. Because the `flux-system` Kustomization includes everything **recursively** under `flux-system` path in the repo, all of the above were **also** applied to the cluster
-5. I'd pre-prepared a [Namespace](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/namespaces/namespace-traefik.yaml), [HelmRepository](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/helmrepositories/helmrepository-traefik.yaml), and [Kustomization](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/kustomizations/kustomization-traefik.yaml) for traefik, so these were applied to the cluster
-6. The kustomization we added for traefik refers to the `traefik` path in the repo, so everything in **this** folder was **also** applied to the cluster
-7. In the `traefik` path of the repo is a [HelmRelease](https://github.com/geek-cookbook/template-flux/blob/main/traefik/helmrelease-traefik.yaml) (*an object describing how to deploy a helm chart*), and a [ConfigMap](https://github.com/geek-cookbook/template-flux/blob/main/traefik/configmap-traefik-helm-chart-value-overrides-configmap.yaml) (*which happens to contain the `values.yaml` for the Traefik helm chart*)
-8. Flux recognized the Traefik **HelmRelease**, applied it along with the values in the **ConfigMap**, and consequently we have Traefik deployed from the latest helm chart, into the cluster, and managed by Flux! 💪
+5. I'd pre-prepared a [Namespace](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/namespaces/namespace-podinfo.yaml), [HelmRepository](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/helmrepositories/helmrepository-podinfo.yaml), and [Kustomization](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/kustomizations/kustomization-podinfo.yaml) for "podinfo", a simple example application, so these were applied to the cluster
+6. The kustomization we added for podinfo refers to the `/podinfo` path in the repo, so everything in **this** folder was **also** applied to the cluster
+7. In the `/podinfo` path of the repo is a [HelmRelease](https://github.com/geek-cookbook/template-flux/blob/main/podinfo/helmrelease-podinfo.yaml) (*an object describing how to deploy a helm chart*), and a [ConfigMap](https://github.com/geek-cookbook/template-flux/blob/main/podinfo/configmap-pofinfo-helm-chart-value-overrides-configmap.yaml) (*which ontain the `values.yaml` for the podinfo helm chart*)
+8. Flux recognized the podinfo **HelmRelease**, applied it along with the values in the **ConfigMap**, and consequently we have podinfo deployed from the latest helm chart, into the cluster, and managed by Flux! 💪
 
 ## Wait, but why?
 
@@ -129,4 +132,4 @@ That's best explained on the [next page](/kubernetes/deployment/flux/design/), d
 
 --8<-- "recipe-footer.md"
 
-[^1]: The [template repo](https://github.com/geek-cookbook/template-flux/) also "bootstraps" a simple example re how to [operate flux](/kubernetes/deployment/flux/operate/), by deploying the Traefik helm chart.
+[^1]: The [template repo](https://github.com/geek-cookbook/template-flux/) also "bootstraps" a simple example re how to [operate flux](/kubernetes/deployment/flux/operate/), by deploying the podinfo helm chart.
