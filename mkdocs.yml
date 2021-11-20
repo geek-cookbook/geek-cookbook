@@ -142,7 +142,7 @@ nav:
         - Networks: reference/networks.md
         - OpenVPN : reference/openvpn.md
         - Troubleshooting: reference/troubleshooting.md         
-    - Kubernetes:
+    - ⛴ Kubernetes:
       - Preparation:
         - kubernetes/index.md
         - Introduction: kubernetes/index.md
@@ -162,7 +162,7 @@ nav:
             - Install: kubernetes/deployment/flux/install.md
             - Design: kubernetes/deployment/flux/design.md
             - Operate: kubernetes/deployment/flux/operate.md
-        - Extras:
+        - Essentials:
           - Load Balancer: 
             - kubernetes/loadbalancer/index.md
             - k3s: kubernetes/loadbalancer/k3s.md
@@ -170,12 +170,17 @@ nav:
               - kubernetes/loadbalancer/metallb/index.md
               - pfSense: kubernetes/loadbalancer/metallb/pfsense.md
           - Sealed Secrets: kubernetes/sealed-secrets.md
-      #   - DNS: 
-      #     - kubernetes/dns/index.md
-      #     - External DNS: kubernetes/wip.md
-      #   - SSL: 
-      #     - kubernetes/ssl/index.md
-      #     - Cert-Manager: kubernetes/wip.md
+          - External DNS: kubernetes/external-dns.md
+          - SSL Certificates:
+            - kubernetes/ssl-certificates/index.md
+            - Cert-Manager: kubernetes/ssl-certificates/cert-manager.md
+            - LetsEncrypt Issuers: kubernetes/ssl-certificates/letsencrypt-issuers.md
+            - Wildcard Certificate: kubernetes/ssl-certificates/letsencrypt-wildcard.md
+            - Secret Replicator: kubernetes/ssl-certificates/secret-replicator.md
+          - Ingress:
+            - kubernetes/ingress/index.md
+            - Traefik: kubernetes/ingress/traefik.md
+            - Nginx: kubernetes/ingress/nginx.md          
       #   - Backup: 
       #     - kubernetes/backup/index.md
       #     - kubernetes/wip.md
@@ -184,10 +189,7 @@ nav:
       #     - TopoLVM: kubernetes/wip.md
       #     - Rook Ceph: kubernetes/wip.md
       #     - OpenEBS: kubernetes/wip.md
-      #   - Ingress:
-      #     - kubernetes/ingress/index.md
-      #     - Traefik: kubernetes/wip.md
-      #     - Nginx: kubernetes/wip.md
+
       #   - Monitoring:
       #     - kubernetes/monitoring/index.md
       #     - Prometheus: kubernetes/wip.md

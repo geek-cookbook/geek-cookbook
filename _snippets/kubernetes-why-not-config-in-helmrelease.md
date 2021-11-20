@@ -1,0 +1,2 @@
+!!! question "Why not just put config in the HelmRelease?"
+    While it's true that we could embed values directly into the HelmRelease YAML, this becomes unweildy with large helm charts. It's also simpler (less likely to result in error) if changes to **HelmReleases**, which affect **deployment** of the chart, are defined in separate files to changes in helm chart **values**, which affect **operation** of the chart.

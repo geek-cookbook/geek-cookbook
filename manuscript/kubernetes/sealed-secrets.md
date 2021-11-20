@@ -66,7 +66,7 @@ metadata:
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the (*prolific*) [bitnami chart repository](https://github.com/bitnami/charts/tree/master/bitnami), so per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/helmrepositories/helmrepository-sealedsecrets.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/helmrepositories/helmrepository-sealedsecrets.yaml`:
 
 ??? example "Example HelmRepository (click to expand)"
     ```yaml
@@ -218,12 +218,7 @@ Now we're into the sealed-secrets-specific YAMLs. First, we create a ConfigMap, 
 
     ```
 
-!!! question "That's a lot of unnecessary text!"
-    > Why not just paste in the subset of values I want to change?
-
-    You know what's harder than working out which values from a 2000-line `values.yaml` to change?
-
-    Answer: Working out what values to change when the upstream helm chart has refactored or added options! By pasting in the entirety of the upstream chart, when it comes time to perform upgrades, you can just duplicate your ConfigMap YAML, paste the new values into one of the copies, and compare them side by side to ensure your original values/decisions persist in the new chart.
+--8<-- "kubernetes-why-full-values-in-configmap.md"
 
 Then work your way through the values you pasted, and change any which are specific to your configuration (*I stick with the defaults*).
 
@@ -256,8 +251,7 @@ Lastly, having set the scene above, we define the HelmRelease which will actuall
         valuesKey: values.yaml # This is the default, but best to be explicit for clarity
     ```
 
-!!! question "Why not just put config in the HelmRelease?"
-    While it's true that we could embed values directly into the HelmRelease YAML, this becomes unweildy with large helm charts. It's also simpler (less likely to result in error) if changes to **HelmReleases**, which affect **deployment** of the chart, are defined in separate files to changes in helm chart **values**, which affect **operation** of the chart.
+--8<-- "kubernetes-why-not-config-in-helmrelease.md"
 
 ## Serving
 
@@ -427,9 +421,6 @@ root@shredder:~#
 ```
 
 And now when you create your seadsecrets, refer to the public key you just created using `--cert <path to cert>`. These secrets will be decryptable by **any** sealedsecrets controller bootstrapped with the same keypair (*above*).
-
-
-
 
 --8<-- "recipe-footer.md"
 
