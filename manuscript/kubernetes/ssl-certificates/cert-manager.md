@@ -25,12 +25,12 @@ It will ensure certificates are valid and up to date, and attempt to renew certi
 We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/namespaces/namespace-cert-manager.yaml`:
 
 ??? example "Example Namespace (click to expand)"
-```yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: cert-manager
-```
+    ```yaml
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: cert-manager
+    ```
 
 ### HelmRepository
 
@@ -88,7 +88,7 @@ Now we're into the cert-manager-specific YAMLs. First, we create a ConfigMap, co
       namespace: cert-manager
     data:
       values.yaml: |-
-        <paste chart values.yaml (indented) here and alter as required>
+        # paste chart values.yaml (indented) here and alter as required>
     ```
 --8<-- "kubernetes-why-full-values-in-configmap.md"
 
@@ -130,9 +130,6 @@ Lastly, having set the scene above, we define the HelmRelease which will actuall
 Once you've committed your YAML files into your repo, you should soon see some pods appear in the `cert-manager` namespace!
 
 What do we have now? Well, we've got the cert-manager controller **running**, but it won't **do** anything until we define some certificate issuers, credentials, and certificates..
-
-
-
 
 ### Troubleshooting
 

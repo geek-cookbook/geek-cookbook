@@ -59,7 +59,6 @@ This section is a [direct copy of the official docs](https://fluxcd.io/docs/inst
     choco install flux
     ```
 
-
 ### Create GitHub Token
 
 Create a GitHub [personal access token](https://github.com/settings/tokens) that can create repositories by checking all permissions under repo. (*we'll use the token in the bootstrapping step below*)
@@ -92,7 +91,7 @@ flux bootstrap github \
 
 Once the flux bootstrap is completed without errors, list the pods in the cluster again, with `kubectl get pods -A`. This time, you see something like this:
 
-```
+```bash
 root@shredder:~# k3s kubectl get pods -A
 NAMESPACE     NAME                                       READY   STATUS    RESTARTS   AGE
 flux-system   helm-controller-f7c5b6c56-nk7rm            1/1     Running   0          5m48s
@@ -116,15 +115,15 @@ Flux installed its controllers into the `flux-system` namespace, and created two
 
 If you used my template repo, some extra things also happened..
 
-3. I'd pre-populated the `flux-system` directory in the template repo with 3 folders:
+1. I'd pre-populated the `flux-system` directory in the template repo with 3 folders:
       1. [helmrepositories](https://github.com/geek-cookbook/template-flux/tree/main/flux-system/helmrepositories), for storing repositories used for deploying helm charts
       2. [kustomizations](https://github.com/geek-cookbook/template-flux/tree/main/flux-system/kustomizations), for storing additional kustomizations *(which in turn can reference other paths in the repo*)
       3. [namespaces](https://github.com/geek-cookbook/template-flux/tree/main/flux-system/namespaces), for storing namespace manifests (*since these need to exist before we can deploy helmreleases into them*)
-4. Because the `flux-system` Kustomization includes everything **recursively** under `flux-system` path in the repo, all of the above were **also** applied to the cluster
-5. I'd pre-prepared a [Namespace](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/namespaces/namespace-podinfo.yaml), [HelmRepository](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/helmrepositories/helmrepository-podinfo.yaml), and [Kustomization](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/kustomizations/kustomization-podinfo.yaml) for "podinfo", a simple example application, so these were applied to the cluster
-6. The kustomization we added for podinfo refers to the `/podinfo` path in the repo, so everything in **this** folder was **also** applied to the cluster
-7. In the `/podinfo` path of the repo is a [HelmRelease](https://github.com/geek-cookbook/template-flux/blob/main/podinfo/helmrelease-podinfo.yaml) (*an object describing how to deploy a helm chart*), and a [ConfigMap](https://github.com/geek-cookbook/template-flux/blob/main/podinfo/configmap-pofinfo-helm-chart-value-overrides-configmap.yaml) (*which ontain the `values.yaml` for the podinfo helm chart*)
-8. Flux recognized the podinfo **HelmRelease**, applied it along with the values in the **ConfigMap**, and consequently we have podinfo deployed from the latest helm chart, into the cluster, and managed by Flux! 💪
+2. Because the `flux-system` Kustomization includes everything **recursively** under `flux-system` path in the repo, all of the above were **also** applied to the cluster
+3. I'd pre-prepared a [Namespace](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/namespaces/namespace-podinfo.yaml), [HelmRepository](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/helmrepositories/helmrepository-podinfo.yaml), and [Kustomization](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/kustomizations/kustomization-podinfo.yaml) for "podinfo", a simple example application, so these were applied to the cluster
+4. The kustomization we added for podinfo refers to the `/podinfo` path in the repo, so everything in **this** folder was **also** applied to the cluster
+5. In the `/podinfo` path of the repo is a [HelmRelease](https://github.com/geek-cookbook/template-flux/blob/main/podinfo/helmrelease-podinfo.yaml) (*an object describing how to deploy a helm chart*), and a [ConfigMap](https://github.com/geek-cookbook/template-flux/blob/main/podinfo/configmap-pofinfo-helm-chart-value-overrides-configmap.yaml) (*which ontain the `values.yaml` for the podinfo helm chart*)
+6. Flux recognized the podinfo **HelmRelease**, applied it along with the values in the **ConfigMap**, and consequently we have podinfo deployed from the latest helm chart, into the cluster, and managed by Flux! 💪
 
 ## Wait, but why?
 

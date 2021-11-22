@@ -19,6 +19,7 @@ ExternalDNS is a controller for Kubernetes which watches the objects you create 
 We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/namespaces/namespace-external-dns.yaml`:
 
 ??? example "Example Namespace (click to expand)"
+
 ```yaml
 apiVersion: v1
 kind: Namespace
@@ -931,7 +932,7 @@ Then work your way through the values you pasted, and change any which are speci
 
 I recommend changing:
 
-```
+```yaml
         sources:
           # - crd
           - service
@@ -941,7 +942,7 @@ I recommend changing:
 
 To:
 
-```
+```yaml
         sources:
           - crd
           # - service
@@ -956,7 +957,7 @@ To:
 
 ### Secret
 
-As you work your way through `values.yaml`, you'll notice that it contains specific placholders for credentials for various DNS providers. 
+As you work your way through `values.yaml`, you'll notice that it contains specific placholders for credentials for various DNS providers.
 Take for example, this config for cloudflare:
 
 ???+ example "Example snippet of CloudFlare config from ConfigMap"
@@ -980,7 +981,7 @@ Take for example, this config for cloudflare:
               proxied: true
     ```
 
-In the case of CloudFlare (*and this may differ per-provider*), you can either enter your credentials in cleartext (*baaad idea, since we intend to commit these files into a repo*), or you can reference a secret, which External DNS will expect to find in its namespace. 
+In the case of CloudFlare (*and this may differ per-provider*), you can either enter your credentials in cleartext (*baaad idea, since we intend to commit these files into a repo*), or you can reference a secret, which External DNS will expect to find in its namespace.
 
 Thanks to [Sealed Secrets](/kubernetes/sealed-secrets/), we have a safe way of committing secrets into our repository, so to create this cloudflare secret, you'd run something like this:
 

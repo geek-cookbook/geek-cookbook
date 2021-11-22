@@ -37,12 +37,12 @@ Consider this entity relationship diagram:
 
 And here's what it all means, starting from the top...
 
-1. The flux-system **Kustomization** tells flux to look in the repo in `/flux-system`, and apply any YAMLs it finds (*with optional kustomize templating, if you're an uber-ninja!*). 
+1. The flux-system **Kustomization** tells flux to look in the repo in `/flux-system`, and apply any YAMLs it finds (*with optional kustomize templating, if you're an uber-ninja!*).
 2. Within `/flux-system`, we've defined (for convenience), 3 subfolders, containing YAML for:
       1. `namespaces` : Any other **Namespaces** we want to deploy for our apps
       2. `helmrepositories` : Any **HelmRepositories** we later want to pull helm charts from
       3. `kustomizations` : An **Kustomizations** we need to tell flux to import YAMLs from **elsewhere** in the repository
-3. In turn, each app's **Kustomization** (*which we just defined above*) tells flux to look in the repo in the `/<app name>` path, and apply any YAMLs it finds (*with optional kustomize templating, if you're an uber-ninja!*). 
+3. In turn, each app's **Kustomization** (*which we just defined above*) tells flux to look in the repo in the `/<app name>` path, and apply any YAMLs it finds (*with optional kustomize templating, if you're an uber-ninja!*).
 4. Within the `/<app name>` path, we define **at least** the following:
       1. A **HelmRelease** for the app, telling flux which version of what chart to apply from which **HelmRepository**
       2. A **ConfigMap** for the HelmRelease, which contains all the custom (*and default!*) values for the chart

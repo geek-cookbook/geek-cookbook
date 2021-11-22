@@ -39,7 +39,7 @@ Identify your target helm chart. Let's take podinfo as an example. Here's the [o
 
 ### Create HelmRepository
 
-The README instructs users to add the repo "podinfo" with the URL `ttps://stefanprodan.github.io/podinfo`, so 
+The README instructs users to add the repo "podinfo" with the URL `ttps://stefanprodan.github.io/podinfo`, so
 create a suitable HelmRepository YAML in `flux-system/helmrepositories/helmrepository-podinfo.yaml`. Here's [my example](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/helmrepositories/helmrepository-podinfo.yaml).
 
 !!! question "Why such obtuse file names?"
@@ -122,7 +122,7 @@ Now create a HelmRelease for the chart - the HelmRelease defines how the (generi
 
 Finally, create a ConfigMap to be used to pass helm chart values to the chart. Note that it is **possible** to pass values directly in the HelmRelease, but.. it's messy. I find it easier to let the HelmRelease **describe** the release, and to let the configmap **configure** the release. It also makes tracking changes more straightforward.
 
-As a second note, it's strictly only necessary to include in the ConfigMap the values you want to **change** from the chart's defaults. I find this to be too confusing as charts are continually updated by their developers, and this can obsucre valuable options over time. So I place in my ConfigMaps the **entire** contents of the chart's `values.yaml` file, and then I explicitly overwrite the values I want to change. 
+As a second note, it's strictly only necessary to include in the ConfigMap the values you want to **change** from the chart's defaults. I find this to be too confusing as charts are continually updated by their developers, and this can obsucre valuable options over time. So I place in my ConfigMaps the **entire** contents of the chart's `values.yaml` file, and then I explicitly overwrite the values I want to change.
 
 !!! tip "Making chart updates simpl(er)"
     This also makes updating my values for an upstream chart refactor a simple process - I duplicate the ConfigMap, paste-overwrite with the values.yaml for the refactored/updated chart, and compare the old and new versions side-by-side, to ensure I'm still up-to-date.

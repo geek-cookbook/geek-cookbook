@@ -2,7 +2,7 @@
 
 Certificates are issued by certificate authorities. By far the most common issuer will be LetsEncrypt.
 
-In order for Cert Manager to request/renew certificates, we have to tell it about our **Issuers**. 
+In order for Cert Manager to request/renew certificates, we have to tell it about our **Issuers**.
 
 !!! note
     There's a minor distinction between an **Issuer** (*only issues certificates within one namespace*) and a **ClusterIssuer** (*issues certificates throughout the cluster*). Typically a **ClusterIssuer** will be suitable.
@@ -14,7 +14,7 @@ In order for Cert Manager to request/renew certificates, we have to tell it abou
     * [x] [Cert-Manager](/kubernetes/cert-manager/) deployed to request/renew certificates
     * [x] API credentials for a [supported DNS01 provider](https://cert-manager.io/docs/configuration/acme/dns01/) for LetsEncrypt wildcard certs
 
-## Preparation 
+## Preparation
 
 ### LetsEncrypt Staging
 
@@ -80,7 +80,6 @@ As you'd imagine, the "prod" version of the LetsEncrypt issues is very similar, 
 
 !!! note
     You'll note that there are two secrets referred to above - `privateKeySecretRef`, referencing `letsencrypt-prod` is for cert-manager to populate as a result of its ACME schenanigans - you don't have to do anything about this particular secret! The cloudflare-specific secret (*and this will change based on your provider*) is expected to be found in the same namespace as the certificate we'll be issuing, and will be discussed when we create our [wildcard certificate](/kubernetes/ssl-certificates/letsencrypt-wildcard/).
-    
 
 ## Serving
 

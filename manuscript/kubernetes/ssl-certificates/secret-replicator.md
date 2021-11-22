@@ -18,6 +18,7 @@ Kiwigrid's "[Secret Replicator](https://github.com/kiwigrid/secret-replicator)" 
 We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/namespaces/namespace-secret-replicator.yaml`:
 
 ??? example "Example Namespace (click to expand)"
+
 ```yaml
 apiVersion: v1
 kind: Namespace

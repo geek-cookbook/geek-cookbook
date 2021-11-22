@@ -118,7 +118,7 @@ Now we're into the topolvm-specific YAMLs. First, we create a ConfigMap, contain
       namespace: topolvm
     data:
       values.yaml: |-
-        <paste chart values.yaml (indented) here and alter as required>
+        # paste chart values.yaml (indented) here and alter as required>
     ```
 
 --8<-- "kubernetes-why-full-values-in-configmap.md"
@@ -273,7 +273,6 @@ Are things not working as expected? Try one of the following to look for issues:
 2. Watch the node logs, by running `kubectl logs -f -n topolvm-system -l app.kubernetes.io/name=topolvm-node`
 3. Watch the scheduler logs, by running `kubectl logs -f -n topolvm-system -l app.kubernetes.io/name=scheduler`
 4. Watch the controller node logs, by running `kubectl logs -f -n topolvm-system -l app.kubernetes.io/name=controller`
-
 
 --8<-- "recipe-footer.md"
 

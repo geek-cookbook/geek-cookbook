@@ -25,12 +25,12 @@ To take advantage of the various workarounds available, I find it best to put th
 We need a namespace to deploy our certificates and associated secrets into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/namespaces/namespace-letsencrypt-wildcard-cert.yaml`:
 
 ??? example "Example Namespace (click to expand)"
-```yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: letsencrypt-wildcard-cert
-```
+    ```yaml
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+    name: letsencrypt-wildcard-cert
+    ```
 
 ### Kustomization
 
@@ -101,7 +101,7 @@ Finally, we create our certificates! Here's an example certificate resource whic
       - "*.example.com"
     ```
 
-## Serving 
+## Serving
 
 ### Did it work?
 

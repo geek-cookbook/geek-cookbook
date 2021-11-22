@@ -10,7 +10,7 @@ But what about your secrets?
 
 In Kubernetes, a "Secret" is a "teeny-weeny" bit more secure ConfigMap, in that it's base-64 encoded to prevent shoulder-surfing, and access to secrets can be restricted (*separately to ConfigMaps*) using Kubernetes RBAC. In some cases, applications deployed via helm expect to find existing secrets within the cluster, containing things like AWS credentials (*External DNS, Cert Manager*), admin passwords (*Grafana*), etc.
 
-They're still not very secret though, and you certainly wouldn't want to be storing base64-encoded secrets in a git repository, public or otherwise! 
+They're still not very secret though, and you certainly wouldn't want to be storing base64-encoded secrets in a git repository, public or otherwise!
 
 An elegant solution to this problem is Bitnami Labs' Sealed Secrets.
 
@@ -26,8 +26,6 @@ A "[SealedSecret](https://github.com/bitnami-labs/sealed-secrets)" can only be d
     Optional:
 
     * [ ] Your own private/public PEM certificate pair for secret encryption/decryption (*ideal but not required*)
-
-
 
 ## Preparation
 
@@ -57,12 +55,12 @@ A "[SealedSecret](https://github.com/bitnami-labs/sealed-secrets)" can only be d
 We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/namespaces/namespace-sealed-secrets.yaml`:
 
 ??? example "Example Namespace (click to expand)"
-```yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: sealed-secrets
-```
+    ```yaml
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: sealed-secrets
+    ```
 
 ### HelmRepository
 
@@ -392,7 +390,7 @@ Once flux reconciled the above sealedsecret, the sealedsecrets controller in the
 
 ### Using our own keypair
 
-One flaw in the process above is that we rely on the sealedsecrets controller to generate its own public/private keypair. This means that the pair (*and therefore all the encrypted secrets*) are specific to this cluster (*and this instance of the sealedsecrets controller*) only. 
+One flaw in the process above is that we rely on the sealedsecrets controller to generate its own public/private keypair. This means that the pair (*and therefore all the encrypted secrets*) are specific to this cluster (*and this instance of the sealedsecrets controller*) only.
 
 To go "fully GitOps", we'd want to be able to rebuild our entire cluster "from scratch" using our flux repository. If the keypair is recreated when a new cluster is built, then the existing sealedsecrets would remain forever "sealed"..
 

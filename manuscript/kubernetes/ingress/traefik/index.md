@@ -93,7 +93,7 @@ Now we're into the traefik-specific YAMLs. First, we create a ConfigMap, contain
       namespace: traefik
     data:
       values.yaml: |-
-        <paste chart values.yaml (indented) here and alter as required>
+        # paste chart values.yaml (indented) here and alter as required>
     ```
 
 --8<-- "kubernetes-why-full-values-in-configmap.md"
@@ -191,10 +191,9 @@ To:
         - host: podinfo.<your domain name>
 ```
 
+Commit your changes, wait for a reconciliation, and run `kubectl get ingress -n podinfo`. You should see an ingress created matching the host defined above, and the ADDRESS value should match the service address of the traefik service.
 
-Commit your changes, wait for a reconciliation, and run `kubectl get ingress -n podinfo`. You should see an ingress created matching the host defined above, and the ADDRESS value should match the service address of the traefik service. 
-
-```
+```bash
 root@cn1:~# kubectl get ingress -A
 NAMESPACE               NAME                                 CLASS    HOSTS                                  ADDRESS        PORTS     AGE
 podinfo                 podinfo                              <none>   podinfo.example.com                    172.168.209.1   80, 443   91d
@@ -237,4 +236,4 @@ Are things not working as expected? Watch the traefik's logs with ```kubectl log
 
 --8<-- "recipe-footer.md"
 
-[^1]: The beauty of this design is that the same process will now work for any other application you deploy, without any additional manual effort for DNS or SSL setup! 
+[^1]: The beauty of this design is that the same process will now work for any other application you deploy, without any additional manual effort for DNS or SSL setup!

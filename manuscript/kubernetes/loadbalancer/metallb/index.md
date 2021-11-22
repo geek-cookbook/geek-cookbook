@@ -10,7 +10,6 @@ MetalLB does two jobs:
 1. Provides address allocation to services out of a pool of addresses which you define
 2. Announces these addresses to devices outside the cluster, either using ARP/NDP (L2) or BGP (L3)
 
-
 !!! summary "Ingredients"
 
     * [x] A [Kubernetes cluster](/kubernetes/cluster/) 
@@ -21,8 +20,7 @@ MetalLB does two jobs:
 
     * [ ] Network firewall/router supporting BGP (*ideal but not required*)
 
-
-## Preparation 
+## Preparation
 
 ### Allocations
 
@@ -91,7 +89,6 @@ Now that the "global" elements of this deployment (*Namespace and HelmRepository
     > Why'd you call the kustomization `metallb--metallb-system`?
 
     I keep my file and object names as consistent as possible. In most cases, the helm chart is named the same as the namespace, but in some cases, by upstream chart or historical convention, the namespace is different to the chart name. MetalLB is one of these - the helmrelease/chart name is `metallb`, but the typical namespace it's deployed in is `metallb-system`. (*Appending `-system` seems to be a convention used in some cases for applications which support the entire cluster*). To avoid confusion when I list all kustomizations with `kubectl get kustomization -A`, I give these oddballs a name which identifies both the helmrelease and the namespace.
-
 
 ### ConfigMap (for HelmRelease)
 
@@ -169,7 +166,7 @@ Finally, it's time to actually configure MetalLB! As discussed above, I prefer t
         - peer-address: 192.168.33.4  
           peer-asn: 64501
           my-asn: 64500
-        
+
         address-pools:
         - name: default
           protocol: bgp
@@ -198,7 +195,6 @@ Finally, it's time to actually configure MetalLB! As discussed above, I prefer t
         addresses:
         - 192.168.1.240-192.168.1.250
     ```
-
 
 ### HelmRelease
 

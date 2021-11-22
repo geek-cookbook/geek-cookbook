@@ -4,7 +4,7 @@ When you expose applications running within your cluster to the outside world, y
 
 !!! question "Why do I need SSL if it's just internal?"
     It's true that you could expose applications via HTTP only, and **not** bother with SSL. By doing so, however, you "train yourself"[^1] to ignore SSL certificates / browser security warnings.
-    
+
     One day, this behaviour will bite you in the ass. 
     
     If you want to be a person who relies on privacy and security, then insist on privacy and security **everywhere**.

@@ -20,7 +20,6 @@ Nginx Ingress Controller does make for a nice, simple "default" Ingress controll
     * [x] [Cert-Manager](/kubernetes/cert-manager/) deployed to request/renew certificates
     * [x] [External DNS](/kubernetes/external-dns/) configured to respond to ingresses, or with a wildcard DNS entry
 
-
 ## Preparation
 
 ### Namespace
@@ -93,7 +92,7 @@ Now we're into the nginx-ingress-controller-specific YAMLs. First, we create a C
       namespace: nginx-ingress-controller
     data:
       values.yaml: |-
-        <paste chart values.yaml (indented) here and alter as required>
+        # paste chart values.yaml (indented) here and alter as required
     ```
 
 --8<-- "kubernetes-why-full-values-in-configmap.md"
@@ -146,7 +145,7 @@ demo@shredder:~$
 
 ### How do I know it's working?
 
-#### Test Service 
+#### Test Service
 
 By default, the chart will deploy nginx ingress controller's service in [LoadBalancer](/kubernetes/loadbalancer/) mode. When you use kubectl to display the service (`kubectl get services -n nginx-ingress-controller`), you'll see the external IP displayed:
 
@@ -193,10 +192,9 @@ To:
         - host: podinfo.<your domain name>
 ```
 
+Commit your changes, wait for a reconciliation, and run `kubectl get ingress -n podinfo`. You should see an ingress created matching the host defined above, and the ADDRESS value should match the service address of the nginx-ingress-controller service.
 
-Commit your changes, wait for a reconciliation, and run `kubectl get ingress -n podinfo`. You should see an ingress created matching the host defined above, and the ADDRESS value should match the service address of the nginx-ingress-controller service. 
-
-```
+```bash
 root@cn1:~# kubectl get ingress -A
 NAMESPACE               NAME                                 CLASS    HOSTS                                  ADDRESS        PORTS     AGE
 podinfo                 podinfo                              <none>   podinfo.example.com                    172.168.209.1   80, 443   91d
@@ -239,4 +237,4 @@ Are things not working as expected? Watch the nginx-ingress-controller's logs wi
 
 --8<-- "recipe-footer.md"
 
-[^1]: The beauty of this design is that the same process will now work for any other application you deploy, without any additional manual effort for DNS or SSL setup! 
+[^1]: The beauty of this design is that the same process will now work for any other application you deploy, without any additional manual effort for DNS or SSL setup!

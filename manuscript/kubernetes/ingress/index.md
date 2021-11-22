@@ -3,7 +3,7 @@ description: What is a Kubernetes Ingress?
 ---
 # Ingresses
 
-In Kubernetes, an Ingress is a way to describe how to route traffic coming **into** the cluster, so that (*for example*) https://radarr.example.com will end up on a [Radarr][radarr] pod, but https://sonarr.example.com will end up on a [Sonarr][sonarr] pod.
+In Kubernetes, an Ingress is a way to describe how to route traffic coming **into** the cluster, so that (*for example*) <https://radarr.example.com> will end up on a [Radarr][radarr] pod, but <https://sonarr.example.com> will end up on a [Sonarr][sonarr] pod.
 
 ![Ingress illustration](/images/ingress.jpg)
 

@@ -9,4 +9,3 @@ Here are some popular options, ranked in difficulty/complexity, in vaguely ascen
 * OpenEBS (coming soon)
 * Rook Ceph (coming soon)
 * Longhorn (coming soon)
-
