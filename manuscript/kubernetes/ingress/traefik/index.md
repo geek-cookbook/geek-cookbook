@@ -1,13 +1,14 @@
----
-description: Nginx Ingress Controller
----
-# Nginx Ingress Controller
+# Traefik Ingress Controller
 
-The [Nginx Ingress Controller](https://kubernetes.github.io/ingress-nginx/) is the grandpappy of Ingress Controllers, with releases dating back ot at least 2016. Of course, Nginx itself is a battle-tested rock, [released in 2004](https://en.wikipedia.org/wiki/Nginx) and has been constantly updated / improved ever since.
+Unlike grumpy ol' man [Nginx](/kubernetes/ingress/ngnix/) :older_man:, Traefik, a microservice-friendly reverse proxy, is relatively fresh in the "cloud-native" space, having been "born" :baby_bottle: [in the same year that Kubernetes was launched](https://techcrunch.com/2020/09/23/five-years-after-creating-traefik-application-proxy-open-source-project-hits-2b-downloads/).
 
-Having such a pedigree though can make it a little awkward for the unfamiliar to configure Ngnix, whereas something like [Traefik](/kubernetes/ingress/traefik/), being newer-on-the-scene, is more user-friendly, and offers (*among other features*) a free **dashboard**. (*Nginx's dashboard is only available in the commercial Nginx+ package, which is a [monumental PITA](https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/) to run*)
+Traefik natively includes some features which Nginx lacks:
 
-Nginx Ingress Controller does make for a nice, simple "default" Ingress controller, if you don't want to do anything fancy.
+* [x] Ability to use cross-namespace TLS certificates (*this may be accidental, but it totally works currently*)
+* [x] An elegant "middleware" implementation allowing certain requests to pass through additional layers of authentication
+* [x] A beautiful dashboard
+
+![Traefik Screenshot](../../../images/traefik.png)
 
 !!! summary "Ingredients"
 
@@ -20,51 +21,50 @@ Nginx Ingress Controller does make for a nice, simple "default" Ingress controll
     * [x] [Cert-Manager](/kubernetes/cert-manager/) deployed to request/renew certificates
     * [x] [External DNS](/kubernetes/external-dns/) configured to respond to ingresses, or with a wildcard DNS entry
 
-
 ## Preparation
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/namespaces/namespace-nginx-ingress-controller.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/namespaces/namespace-traefik.yaml`:
 
 ??? example "Example NameSpace (click to expand)"
     ```yaml
     apiVersion: v1
     kind: Namespace
     metadata:
-      name: nginx-ingress-controller
+      name: traefik
     ```
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the (*prolific*) [bitnami chart repository](https://github.com/bitnami/charts/tree/master/bitnami), so per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/helmrepositories/helmrepository-bitnami.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the official [Traefik helm chart](https://github.com/traefik/traefik-helm-chart), so per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/helmrepositories/helmrepository-traefik.yaml`:
 
 ??? example "Example HelmRepository (click to expand)"
     ```yaml
     apiVersion: source.toolkit.fluxcd.io/v1beta1
     kind: HelmRepository
     metadata:
-      name: bitnami
+      name: traefik
       namespace: flux-system
     spec:
       interval: 15m
-      url: https://charts.bitnami.com/bitnami
+      url: https://helm.traefik.io/traefik
     ```
 
 ### Kustomization
 
-Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/nginx-ingress-controller`. I create this Kustomization in my flux repo at `flux-system/kustomizations/kustomization-nginx-ingress-controller.yaml`:
+Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/traefik`. I create this Kustomization in my flux repo at `flux-system/kustomizations/kustomization-traefik.yaml`:
 
 ??? example "Example Kustomization (click to expand)"
     ```yaml
     apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
     kind: Kustomization
     metadata:
-      name: nginx-ingress-controller
+      name: traefik
       namespace: flux-system
     spec:
       interval: 15m
-      path: ./nginx-ingress-controller
+      path: ./traefik
       prune: true # remove any elements later removed from the above path
       timeout: 2m # if not set, this defaults to interval duration, which is 1h
       sourceRef:
@@ -74,14 +74,14 @@ Now that the "global" elements of this deployment (*Namespace and HelmRepository
       healthChecks:
         - apiVersion: apps/v1
           kind: Deployment
-          name: nginx-ingress-controller
-          namespace: nginx-ingress-controller
+          name: traefik
+          namespace: traefik
 
     ```
 
 ### ConfigMap
 
-Now we're into the nginx-ingress-controller-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this in my flux repo at `nginx-ingress-controller/configmap-nginx-ingress-controller-helm-chart-value-overrides.yaml`:
+Now we're into the traefik-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/traefik/traefik-helm-chart/blob/master/traefik/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this in my flux repo at `traefik/configmap-traefik-helm-chart-value-overrides.yaml`:
 
 ??? example "Example ConfigMap (click to expand)"
     ```yaml
@@ -89,8 +89,8 @@ Now we're into the nginx-ingress-controller-specific YAMLs. First, we create a C
     kind: ConfigMap
     metadata:
       creationTimestamp: null
-      name: nginx-ingress-controller-helm-chart-value-overrides
-      namespace: nginx-ingress-controller
+      name: traefik-helm-chart-value-overrides
+      namespace: traefik
     data:
       values.yaml: |-
         <paste chart values.yaml (indented) here and alter as required>
@@ -102,19 +102,19 @@ Then work your way through the values you pasted, and change any which are speci
 
 ### HelmRelease
 
-Lastly, having set the scene above, we define the HelmRelease which will actually deploy nginx-ingress-controller into the cluster, with the config and extra ConfigMap we defined above. I save this in my flux repo as `nginx-ingress-controller/helmrelease-nginx-ingress-controller.yaml`:
+Lastly, having set the scene above, we define the HelmRelease which will actually deploy traefik into the cluster, with the config and extra ConfigMap we defined above. I save this in my flux repo as `traefik/helmrelease-traefik.yaml`:
 
 ??? example "Example HelmRelease (click to expand)"
     ```yaml
     apiVersion: helm.toolkit.fluxcd.io/v2beta1
     kind: HelmRelease
     metadata:
-      name: nginx-ingress-controller
-      namespace: nginx-ingress-controller
+      name: traefik
+      namespace: traefik
     spec:
       chart:
         spec:
-          chart: nginx-ingress-controller
+          chart: traefik
           version: 9.x
           sourceRef:
             kind: HelmRepository
@@ -122,46 +122,44 @@ Lastly, having set the scene above, we define the HelmRelease which will actuall
             namespace: flux-system
       interval: 15m
       timeout: 5m
-      releaseName: nginx-ingress-controller
+      releaseName: traefik
       valuesFrom:
       - kind: ConfigMap
-        name: nginx-ingress-controller-helm-chart-value-overrides
+        name: traefik-helm-chart-value-overrides
         valuesKey: values.yaml # This is the default, but best to be explicit for clarity
     ```
 
 --8<-- "kubernetes-why-not-config-in-helmrelease.md"
 
-## Deploy nginx-ingress-controller
+## Deploy traefik
 
-Having committed the above to your flux repository, you should shortly see a nginx-ingress-controller kustomization, and in the `nginx-ingress-controller` namespace, a controller and a speaker pod for every node:
+Having committed the above to your flux repository, you should shortly see a traefik kustomization, and in the `traefik` namespace, a controller and a speaker pod for every node:
 
 ```bash
-demo@shredder:~$ kubectl get pods -n nginx-ingress-controller
+demo@shredder:~$ kubectl get pods -n traefik
 NAME                                                        READY   STATUS    RESTARTS   AGE
-nginx-ingress-controller-5b849b4fbd-svbxk                   1/1     Running   0          24h
-nginx-ingress-controller-5b849b4fbd-xt7vc                   1/1     Running   0          24h
-nginx-ingress-controller-default-backend-867d86fb8f-t27j9   1/1     Running   0          24h
+traefik-5b849b4fbd-svbxk                   1/1     Running   0          24h
+traefik-5b849b4fbd-xt7vc                   1/1     Running   0          24h
 demo@shredder:~$
 ```
 
 ### How do I know it's working?
 
-#### Test Service 
+#### Test Service
 
-By default, the chart will deploy nginx ingress controller's service in [LoadBalancer](/kubernetes/loadbalancer/) mode. When you use kubectl to display the service (`kubectl get services -n nginx-ingress-controller`), you'll see the external IP displayed:
+By default, the chart will deploy Traefik in [LoadBalancer](/kubernetes/loadbalancer/) mode. When you use kubectl to display the service (`kubectl get services -n traefik`), you'll see the external IP displayed:
 
 ```bash
-demo@shredder:~$ kubectl get services -n nginx-ingress-controller
+demo@shredder:~$ kubectl get services -n traefik
 NAME                                       TYPE           CLUSTER-IP       EXTERNAL-IP      PORT(S)                      AGE
-nginx-ingress-controller                   LoadBalancer   10.152.183.162   172.168.209.1    80:30756/TCP,443:30462/TCP   24h
-nginx-ingress-controller-default-backend   ClusterIP      10.152.183.200   <none>           80/TCP                       24h
+traefik                   LoadBalancer   10.152.183.162   172.168.209.1    80:30756/TCP,443:30462/TCP   24h
 demo@shredder:~$
 ```
 
 !!! question "Where does the external IP come from?"
     If you're using [k3s's load balancer](/kubernetes/loadbalancer/k3s/), the external IP will likely be the IP of the the nodes running k3s. If you're using [MetalLB](/kubernetes/loadbalancer/metallb/), the external IP should come from the list of addresses in the pool you allocated.
 
-Pointing your web browser to the external IP displayed should result in the default backend page (*or an nginx-branded 404*). Congratulations, you have external access to the ingress controller! 🥳
+Pointing your web browser to the external IP displayed should result in a 404 page. Congratulations, you have external access to the Traefik ingress controller! 🥳
 
 #### Test Ingress
 
@@ -194,7 +192,7 @@ To:
 ```
 
 
-Commit your changes, wait for a reconciliation, and run `kubectl get ingress -n podinfo`. You should see an ingress created matching the host defined above, and the ADDRESS value should match the service address of the nginx-ingress-controller service. 
+Commit your changes, wait for a reconciliation, and run `kubectl get ingress -n podinfo`. You should see an ingress created matching the host defined above, and the ADDRESS value should match the service address of the traefik service. 
 
 ```
 root@cn1:~# kubectl get ingress -A
@@ -235,7 +233,7 @@ Commit your changes, wait for the reconciliation, and the next time you point yo
 
 ### Troubleshooting
 
-Are things not working as expected? Watch the nginx-ingress-controller's logs with ```kubectl logs -n nginx-ingress-controller -l app.kubernetes.io/name=nginx-ingress-controller -f```.
+Are things not working as expected? Watch the traefik's logs with ```kubectl logs -n traefik -l app.kubernetes.io/name=traefik -f```.
 
 --8<-- "recipe-footer.md"
 

@@ -179,7 +179,9 @@ nav:
             - Secret Replicator: kubernetes/ssl-certificates/secret-replicator.md
           - Ingress:
             - kubernetes/ingress/index.md
-            - Traefik: kubernetes/ingress/traefik.md
+            - Traefik: 
+              - kubernetes/ingress/traefik/index.md
+              # - Dashboard: kubernetes/ingress/traefik/dashboard.md
             - Nginx: kubernetes/ingress/nginx.md          
       #   - Backup: 
       #     - kubernetes/backup/index.md

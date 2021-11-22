@@ -7,7 +7,7 @@ To interact with your cluster externally, you'll almost certainly be using a web
 
 Cert Manager adds certificates and certificate issuers as resource types in Kubernetes clusters, and simplifies the process of obtaining, renewing and using those certificates.
 
-![Sealed Secrets illustration](../../../images/cert-manager.svg)
+![Sealed Secrets illustration](../../../../images/cert-manager.svg)
 
 It can issue certificates from a variety of supported sources, including Let’s Encrypt, HashiCorp Vault, and Venafi as well as private PKI.
 
