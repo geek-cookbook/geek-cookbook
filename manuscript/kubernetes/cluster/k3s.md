@@ -13,7 +13,7 @@ If you're wanting to self-host your cluster, the simplest and most widely-suppor
 
     * [ ] Additional hosts to serve as cluster agents (*assuming that not everybody gets to be a master!*)
 
-## Preparation 
+## Preparation
 
 Ensure you have sudo access to your nodes, and that each node meets the [installation requirements](https://rancher.com/docs/k3s/latest/en/installation/installation-requirements/).
 

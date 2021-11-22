@@ -182,15 +182,18 @@ nav:
             - Traefik: 
               - kubernetes/ingress/traefik/index.md
               # - Dashboard: kubernetes/ingress/traefik/dashboard.md
-            - Nginx: kubernetes/ingress/nginx.md          
+            - Nginx: kubernetes/ingress/nginx.md
+          - Persistence:
+            - kubernetes/persistence/index.md
+            - Local Path Provisioner: kubernetes/persistence/local-path-provisioner.md
+            - TopoLVM: kubernetes/persistence/topolvm.md
+            # - Rook Ceph: kubernetes/persistence/rook-ceph.md
+            # - OpenEBS: kubernetes/persistence/openebs.md
+            # - LongHorn: kubernetes/persistence/longhorn.md    
       #   - Backup: 
       #     - kubernetes/backup/index.md
       #     - kubernetes/wip.md
-      #   - Persistence:
-      #     - kubernetes/wip.md
-      #     - TopoLVM: kubernetes/wip.md
-      #     - Rook Ceph: kubernetes/wip.md
-      #     - OpenEBS: kubernetes/wip.md
+
 
       #   - Monitoring:
       #     - kubernetes/monitoring/index.md
@@ -199,7 +202,6 @@ nav:
       #     - AlertManager: kubernetes/wip.md
       #     - Goldilocks: kubernetes/wip.md
       #   - Reloader: kubernetes/wip.md
-      #   - Secret Replicator: kubernetes/wip.md
       #   - Dashboard: kubernetes/wip.md
       #   - Kured: kubernetes/wip.md
       #   - KeyCloak: kubernetes/wip.md

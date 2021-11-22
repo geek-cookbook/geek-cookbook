@@ -13,4 +13,4 @@ One of the advantages [Traefik](/kubernetes/ingress/traefik/) offers over [Nginx
 
 --8<-- "recipe-footer.md"
 
-[^1]: The beauty of this design is that the same process will now work for any other application you deploy, without any additional manual effort for DNS or SSL setup! 
+[^1]: The beauty of this design is that the same process will now work for any other application you deploy, without any additional manual effort for DNS or SSL setup!
