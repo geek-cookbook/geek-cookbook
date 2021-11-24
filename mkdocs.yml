@@ -226,11 +226,10 @@ nav:
       #   - Webook Receiver: kubernetes/wip.md
     - 🚀 Get Premix!:
       - premix/index.md
-      - Ansible: 
-        - Operation: premix/ansible/operation.md        
-        - Design: premix/ansible/design.md
-      - Swarm: premix/swarm.md
-      - Kubernetes: premix/kubernetes.md      
+      - Operation: premix/ansible/operation.md        
+      - Design: premix/ansible/design.md
+      # - Swarm: premix/swarm.md
+      # - Kubernetes: premix/kubernetes.md      
     - CHANGELOG: CHANGELOG.md
     - Support: support.md      
     - Contribute: community/contribute.md
