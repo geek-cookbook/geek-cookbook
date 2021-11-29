@@ -117,7 +117,7 @@ Now we're into the metallb-specific YAMLs. First, we create a ConfigMap, contain
         ## E.g.
         ## imagePullSecrets:
         ##   - myRegistryKeySecretName
-        <snip>
+
         prometheus:
             ## Prometheus Operator service monitors
             ##
@@ -141,7 +141,7 @@ Now we're into the metallb-specific YAMLs. First, we create a ConfigMap, contain
 
 --8<-- "kubernetes-why-full-values-in-configmap.md"
 
-Then work your way through the values you pasted, and change any which are specific to your configuration. I'd recommend changing the following:
+Then work your way through the values you pasted, and change any which are specific to your configuration. I'd recommend adding the following to the values.yaml section:
 
 * `existingConfigMap: metallb-config`: I prefer to set my MetalLB config independently of the chart config, so I set this to `metallb-config`, which I then define below.
 * `commonAnnotations`: Anticipating the future use of Reloader to bounce applications when their config changes, I add the `configmap.reloader.stakater.com/reload: "metallb-config"` annotation to all deployed objects, which will instruct Reloader to bounce the daemonset if the ConfigMap changes.
