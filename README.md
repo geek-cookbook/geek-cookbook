@@ -92,7 +92,7 @@ Impulsively **[click here (NOW quick do it!)][github_sponsor]** to [sponsor me][
 
 ### Work with me 🤝
 
-Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS Certified Solution Architect (Professional)][aws_cert], a [CNCF-Certified Kubernetes Administrator](https://www.youracclaim.com/badges/cd307d51-544b-4bc6-97b0-9015e40df40d/public_url) and [Application Developer](https://www.youracclaim.com/badges/9ed9280a-fb92-46ca-b307-8f74a2cccf1d/public_url) - this stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch][contact], and let's talk business!
+Need some Cloud / Microservices / DevOps / Infrastructure design work done? I'm a full-time [AWS Certified Solution Architect (Professional)][aws_cert], a [CNCF-Certified Kubernetes Administrator](https://www.youracclaim.com/badges/cd307d51-544b-4bc6-97b0-9015e40df40d/public_url), [Application Developer](https://www.youracclaim.com/badges/9ed9280a-fb92-46ca-b307-8f74a2cccf1d/public_url) and [Security Specialist](https://www.credly.com/badges/93fa53da-1f38-47a9-b6ee-dce6a8fad9fc/public_url) - this stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch][contact], and let's talk business!
 
 [plex]:             https://www.plex.tv/
 [nextcloud]:        https://nextcloud.com/

@@ -193,6 +193,8 @@ nav:
       #   - Backup: 
       #     - kubernetes/backup/index.md
       #     - kubernetes/wip.md
+      #   - Logging:
+      #     - fluent-bit, graylog, etc.
 
 
       #   - Monitoring:
@@ -235,6 +237,7 @@ nav:
     - Contribute: community/contribute.md
     - Community: 
       - Discord: community/discord.md 
+      - Reddit: community/reddit.md 
       - Support: support.md      
       - Contribute: community/contribute.md
       - Code of Conduct: community/code-of-conduct.md 
