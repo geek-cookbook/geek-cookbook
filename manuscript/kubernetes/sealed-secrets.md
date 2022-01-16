@@ -114,10 +114,11 @@ Now we're into the sealed-secrets-specific YAMLs. First, we create a ConfigMap, 
     apiVersion: v1
     kind: ConfigMap
     metadata:
-    creationTimestamp: null
-    name: sealed-secrets-helm-chart-value-overrides
-    namespace: sealed-secrets
-    values.yaml: |-
+      creationTimestamp: null
+      name: sealed-secrets-helm-chart-value-overrides
+      namespace: sealed-secrets
+    data:
+      values.yaml: |-
         image:
         repository: quay.io/bitnami/sealed-secrets-controller
         tag: v0.17.0
