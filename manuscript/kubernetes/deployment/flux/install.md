@@ -61,7 +61,7 @@ This section is a [direct copy of the official docs](https://fluxcd.io/docs/inst
 
 ### Create GitHub Token
 
-Create a GitHub [personal access token](https://github.com/settings/tokens) that can create repositories by checking all permissions under repo. (*we'll use the token in the bootstrapping step below*)
+Create a GitHub [personal access token](https://github.com/settings/tokens) that can create repositories by checking all permissions under repo, as well as all options under `admin:public_key `. (*we'll use the token in the bootstrapping step below*)
 
 ### Create GitHub Repo
 
