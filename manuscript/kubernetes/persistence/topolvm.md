@@ -34,7 +34,7 @@ vgcreate VG-topolvm /dev/sdb
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/namespaces/namespace-topolvm.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/namespaces/namespace-topolvm.yaml`:
 
 ??? example "Example NameSpace (click to expand)"
     ```yaml
@@ -46,7 +46,7 @@ We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Pe
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the official [TopoLVM helm chart](https://github.com/topolvm/topolvm/tree/main/charts/topolvm), so per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/helmrepositories/helmrepository-topolvm.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the official [TopoLVM helm chart](https://github.com/topolvm/topolvm/tree/main/charts/topolvm), so per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/helmrepositories/helmrepository-topolvm.yaml`:
 
 ??? example "Example HelmRepository (click to expand)"
     ```yaml
@@ -62,7 +62,7 @@ Next, we need to define a HelmRepository (*a repository of helm charts*), to whi
 
 ### Kustomization
 
-Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/topolvm`. I create this Kustomization in my flux repo at `flux-system/kustomizations/kustomization-topolvm.yaml`:
+Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/topolvm`. I create this Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-topolvm.yaml`:
 
 ??? example "Example Kustomization (click to expand)"
     ```yaml

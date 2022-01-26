@@ -40,7 +40,7 @@ Identify your target helm chart. Let's take podinfo as an example. Here's the [o
 ### Create HelmRepository
 
 The README instructs users to add the repo "podinfo" with the URL `ttps://stefanprodan.github.io/podinfo`, so
-create a suitable HelmRepository YAML in `flux-system/helmrepositories/helmrepository-podinfo.yaml`. Here's [my example](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/helmrepositories/helmrepository-podinfo.yaml).
+create a suitable HelmRepository YAML in `bootstrap/helmrepositories/helmrepository-podinfo.yaml`. Here's [my example](https://github.com/geek-cookbook/template-flux/blob/main/bootstrap/helmrepositories/helmrepository-podinfo.yaml).
 
 !!! question "Why such obtuse file names?"
     > Why not just call the HelmRepository YAML `podinfo.yaml`? Why prefix the filename with the API object `helmrepository-`?
@@ -49,7 +49,7 @@ create a suitable HelmRepository YAML in `flux-system/helmrepositories/helmrepos
 
 ### Create Namespace
 
-Create a namespace for the chart. Typically you'd name this the same as your chart name. Here's [my namespace-podinfo.yaml](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/namespaces/namespace-podinfo.yaml).
+Create a namespace for the chart. Typically you'd name this the same as your chart name. Here's [my namespace-podinfo.yaml](https://github.com/geek-cookbook/template-flux/blob/main/bootstrap/namespaces/namespace-podinfo.yaml).
 
 ??? example "Here's an example Namespace..."
 
@@ -62,7 +62,7 @@ Create a namespace for the chart. Typically you'd name this the same as your cha
 
 ### Create Kustomization
 
-Create a kustomization for the chart, pointing flux to a path in the repo where the chart-specific YAMLs will be found. Here's my [kustomization-podinfo.yaml](https://github.com/geek-cookbook/template-flux/blob/main/flux-system/kustomizations/kustomization-podinfo.yaml).
+Create a kustomization for the chart, pointing flux to a path in the repo where the chart-specific YAMLs will be found. Here's my [kustomization-podinfo.yaml](https://github.com/geek-cookbook/template-flux/blob/main/bootstrap/kustomizations/kustomization-podinfo.yaml).
 
 ??? example "Here's an example Kustomization..."
 
