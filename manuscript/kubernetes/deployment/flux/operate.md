@@ -12,7 +12,8 @@ We'll need 5 files per-app, to deploy and manage our apps using flux. The exampl
 
 ```hl_lines="4 6 8 10 11"
 ├── README.md
-├── flux-system
+├── bootstrap
+│   ├── flux-system
 │   ├── helmrepositories
 │   │   └── helmrepository-podinfo.yaml
 │   ├── kustomizations
