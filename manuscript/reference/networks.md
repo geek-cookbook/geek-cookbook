@@ -12,10 +12,8 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [NightScout](https://geek-cookbook.funkypenguin.co.nz/recipes/nightscout/)                                            | 172.16.4.0/24  |
 | [Tiny Tiny RSS](https://geek-cookbook.funkypenguin.co.nz/recipes/tiny-tiny-rss/)                                      | 172.16.5.0/24  |
 | [Huginn](https://geek-cookbook.funkypenguin.co.nz/recipes/huginn/)                                                    | 172.16.6.0/24  |
-| [Gollum](https://geek-cookbook.funkypenguin.co.nz/recipes/gollum/)                                                    | 
-172.16.7.0/24  |
-| [Polr](https://geek-cookbook.funkypenguin.co.nz/recipes/polr/)                                                        | 
-172.16.9.0/24  |
+| [Gollum](https://geek-cookbook.funkypenguin.co.nz/recipes/gollum/)                                                    | 172.16.7.0/24  |
+| [Polr](https://geek-cookbook.funkypenguin.co.nz/recipes/polr/)                                                        | 172.16.9.0/24  |
 | [Duplicity](https://geek-cookbook.funkypenguin.co.nz/recipes/duplicity/)                                              | 172.16.10.0/24 |
 | [Autopirate](https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/)                                            | 172.16.11.0/24 |
 | [Nextcloud](https://geek-cookbook.funkypenguin.co.nz/recipes/nextcloud/)                                              | 172.16.12.0/24 |
