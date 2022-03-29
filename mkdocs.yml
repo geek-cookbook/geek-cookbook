@@ -175,7 +175,7 @@ nav:
             - kubernetes/ssl-certificates/index.md
             - Cert-Manager: kubernetes/ssl-certificates/cert-manager.md
             - LetsEncrypt Issuers: kubernetes/ssl-certificates/letsencrypt-issuers.md
-            - Wildcard Certificate: kubernetes/ssl-certificates/letsencrypt-wildcard.md
+            - Wildcard Certificate: kubernetes/ssl-certificates/wildcard-certificate.md
             - Secret Replicator: kubernetes/ssl-certificates/secret-replicator.md
           - Ingress:
             - kubernetes/ingress/index.md
@@ -207,10 +207,10 @@ nav:
       #   - Dashboard: kubernetes/wip.md
       #   - Kured: kubernetes/wip.md
       #   - KeyCloak: kubernetes/wip.md
-      - Recipes:
-        - Harbor:
-          - recipes/kubernetes/harbor/index.md
-          Istio: recipes/kubernetes/harbor/istio.md
+      # - Recipes:
+      #   - Harbor:
+      #     - recipes/kubernetes/harbor/index.md
+      #     Istio: recipes/kubernetes/harbor/istio.md
         # - GitHub Actions Runners: kubernetes/wip.md
       #   - Cilium: kubernetes/wip.md
       #   - Concourse: kubernetes/wip.md
