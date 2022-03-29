@@ -92,7 +92,7 @@ Now that the "global" elements of this deployment (*Namespace and HelmRepository
 
 ### ConfigMap (for HelmRelease)
 
-Now we're into the metallb-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami/charts/blob/master/bitnami/metallb/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this in my flux repo at `metallb/configmap-metallb-helm-chart-value-overrides.yaml`:
+Now we're into the metallb-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami/charts/blob/master/bitnami/metallb/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this in my flux repo at `metallb-system/configmap-metallb-helm-chart-value-overrides.yaml`:
 
 ??? example "Example ConfigMap (click to expand)"
     ```yaml
@@ -148,7 +148,7 @@ Then work your way through the values you pasted, and change any which are speci
 
 ### ConfigMap (for MetalLB)
 
-Finally, it's time to actually configure MetalLB! As discussed above, I prefer to configure the helm chart to apply config from an existing ConfigMap, so that I isolate my application configuration from my chart configuration (*and make tracking changes easier*). In my setup, I'm using BGP against a pair of pfsense[^1] firewalls, so per the [official docs](https://metallb.universe.tf/configuration/), I use the following configuration, saved in my flux repo as `flux-system/configmap-metallb-config.yaml`:
+Finally, it's time to actually configure MetalLB! As discussed above, I prefer to configure the helm chart to apply config from an existing ConfigMap, so that I isolate my application configuration from my chart configuration (*and make tracking changes easier*). In my setup, I'm using BGP against a pair of pfsense[^1] firewalls, so per the [official docs](https://metallb.universe.tf/configuration/), I use the following configuration, saved in my flux repo as `metallb-system/configmap-metallb-config.yaml`:
 
 ??? example "Example ConfigMap (click to expand)"
     ```yaml
@@ -191,14 +191,14 @@ Finally, it's time to actually configure MetalLB! As discussed above, I prefer t
       config: |
         address-pools:
         - name: default
-        protocol: layer2
-        addresses:
-        - 192.168.1.240-192.168.1.250
+          protocol: layer2
+          addresses:
+          - 192.168.1.240-192.168.1.250
     ```
 
 ### HelmRelease
 
-Lastly, having set the scene above, we define the HelmRelease which will actually deploy MetalLB into the cluster, with the config and extra ConfigMap we defined above. I save this in my flux repo as `metallb/helmrelease-metallb.yaml`:
+Lastly, having set the scene above, we define the HelmRelease which will actually deploy MetalLB into the cluster, with the config and extra ConfigMap we defined above. I save this in my flux repo as `metallb-system/helmrelease-metallb.yaml`:
 
 ??? example "Example HelmRelease (click to expand)"
     ```yaml
