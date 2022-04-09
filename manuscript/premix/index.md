@@ -32,7 +32,7 @@ To get invited to the premix repo, follow these steps:
 
 1. Become a **public** [sponsor](https://github.com/sponsors/funkypenguin) on GitHub
 2. Join us in the [Discord server](http://chat.funkypenguin.co.nz)
-3. Link your accounts at [PenguinPatrol](penguinpatrol.funkypenguin.co.nz)
+3. Link your accounts at [PenguinPatrol](https://penguinpatrol.funkypenguin.co.nz)
 4. Say something in any of the discord channels (*this triggers the bot*)
 
 You'll receive an invite to premix to the email address associated with your GitHub account, and a fancy VIP role in the Discord server! 💪
