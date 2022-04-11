@@ -130,9 +130,10 @@ services:
       - /var/data/paperless/database-dump:/dump
       - /etc/localtime:/etc/localtime:ro
     environment:
-      POSTGRES_DB: paperless
-      POSTGRES_USER: paperless
-      POSTGRES_PASSWORD: paperless
+      PGHOST: db
+      PGDATABASE: paperless
+      PGUSER: paperless
+      PGPASSWORD: paperless
       BACKUP_NUM_KEEP: 7
       BACKUP_FREQUENCY: 1d
     entrypoint: |

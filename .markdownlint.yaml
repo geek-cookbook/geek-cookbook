@@ -13,5 +13,6 @@
 
 # We use fenced code blocks, but this test conflicts with the admonitions plugin we use, which relies 
 # on indentation (which is then falsely detected as a code block)
+"MD038": false
 "MD046": false
 

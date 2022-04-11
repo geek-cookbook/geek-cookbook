@@ -142,31 +142,105 @@ nav:
         - Networks: reference/networks.md
         - OpenVPN : reference/openvpn.md
         - Troubleshooting: reference/troubleshooting.md         
-    - Kubernetes:
+    - ⛴ Kubernetes:
       - Preparation:
         - kubernetes/index.md
-        - Design: kubernetes/design.md
-        - Cluster: kubernetes/cluster.md
-        - DIY Cluster: kubernetes/diycluster.md
-        - Load Balancer: kubernetes/loadbalancer.md
-        - Snapshots: kubernetes/snapshots.md
-        - Helm: kubernetes/helm.md
-        - Traefik: kubernetes/traefik.md      
-      # - Chef's Favorites:
-      #   - Istio: recipes/kubernetes/istio.md
+        - Introduction: kubernetes/index.md
+        - Cluster: 
+          - kubernetes/cluster/index.md
+          - Digital Ocean: kubernetes/cluster/digitalocean.md
+      #     - Bare Metal: kubernetes/cluster/baremetal.md
+      #     - Home Lab: kubernetes/cluster/baremetal.md
+          - k3s: kubernetes/cluster/k3s.md
+      #     - The Hard Way: kubernetes/cluster/the-hard-way.md
+        - Deployment:
+          - kubernetes/deployment/index.md
+      #     - YAML: kubernetes/wip.md
+      #     - Helm: kubernetes/wip.md
+      #     - GitHub Actions: kubernetes/wip.md
+          - Flux: 
+            - Install: kubernetes/deployment/flux/install.md
+            - Design: kubernetes/deployment/flux/design.md
+            - Operate: kubernetes/deployment/flux/operate.md
+        - Essentials:
+          - Load Balancer: 
+            - kubernetes/loadbalancer/index.md
+            - k3s: kubernetes/loadbalancer/k3s.md
+            - MetalLB: 
+              - kubernetes/loadbalancer/metallb/index.md
+              - pfSense: kubernetes/loadbalancer/metallb/pfsense.md
+          - Sealed Secrets: kubernetes/sealed-secrets.md
+          - External DNS: kubernetes/external-dns.md
+          - SSL Certificates:
+            - kubernetes/ssl-certificates/index.md
+            - Cert-Manager: kubernetes/ssl-certificates/cert-manager.md
+            - LetsEncrypt Issuers: kubernetes/ssl-certificates/letsencrypt-issuers.md
+            - Wildcard Certificate: kubernetes/ssl-certificates/wildcard-certificate.md
+            - Secret Replicator: kubernetes/ssl-certificates/secret-replicator.md
+          - Ingress:
+            - kubernetes/ingress/index.md
+            - Traefik: 
+              - kubernetes/ingress/traefik/index.md
+              # - Dashboard: kubernetes/ingress/traefik/dashboard.md
+            - Nginx: kubernetes/ingress/nginx.md
+          - Persistence:
+            - kubernetes/persistence/index.md
+            - Local Path Provisioner: kubernetes/persistence/local-path-provisioner.md
+            - TopoLVM: kubernetes/persistence/topolvm.md
+            # - Rook Ceph: kubernetes/persistence/rook-ceph.md
+            # - OpenEBS: kubernetes/persistence/openebs.md
+            # - LongHorn: kubernetes/persistence/longhorn.md    
+      #   - Backup: 
+      #     - kubernetes/backup/index.md
+      #     - kubernetes/wip.md
+      #   - Logging:
+      #     - fluent-bit, graylog, etc.
 
+
+      #   - Monitoring:
+      #     - kubernetes/monitoring/index.md
+      #     - Prometheus: kubernetes/wip.md
+      #     - Grafana: kubernetes/wip.md
+      #     - AlertManager: kubernetes/wip.md
+      #     - Goldilocks: kubernetes/wip.md
+      #   - Reloader: kubernetes/wip.md
+      #   - Dashboard: kubernetes/wip.md
+      #   - Kured: kubernetes/wip.md
+      #   - KeyCloak: kubernetes/wip.md
+      # - Recipes:
+      #   - Harbor:
+      #     - recipes/kubernetes/harbor/index.md
+      #     Istio: recipes/kubernetes/harbor/istio.md
+        # - GitHub Actions Runners: kubernetes/wip.md
+      #   - Cilium: kubernetes/wip.md
+      #   - Concourse: kubernetes/wip.md
+      #   - Flagger: kubernetes/wip.md
+      #   - Flagger: kubernetes/wip.md
+      #   - Flux: recipes/kubernetes/wip.md
+      #   - FoundationDB: kubernetes/wip.md
+      #   - Istio: recipes/kubernetes/wip.md
+      #   - Jaeger: kubernetes/wip.md
+      #   - Kiali: kubernetes/wip.md
+      #   - Minio: kubernetes/wip.md
+      #   - NGINX Ingress: kubernetes/wip.md
+      #   - Polaris: kubernetes/wip.md
+      #   - Portainer: kubernetes/wip.md
+      #   - Prometheus: kubernetes/wip.md
+      #   - Traefik: kubernetes/wip.md
+      #   - Vault: kubernetes/wip.md
+      #   - Webook Receiver: kubernetes/wip.md
     - 🚀 Get Premix!:
       - premix/index.md
-      - Ansible: 
-        - Operation: premix/ansible/operation.md        
-        - Design: premix/ansible/design.md
-      - Swarm: premix/swarm.md
-      - Kubernetes: premix/kubernetes.md      
+      - Operation: premix/ansible/operation.md        
+      - Design: premix/ansible/design.md
+      # - Swarm: premix/swarm.md
+      # - Kubernetes: premix/kubernetes.md      
     - CHANGELOG: CHANGELOG.md
     - Support: support.md      
     - Contribute: community/contribute.md
     - Community: 
       - Discord: community/discord.md 
+      - Reddit: community/reddit.md 
       - Support: support.md      
       - Contribute: community/contribute.md
       - Code of Conduct: community/code-of-conduct.md 
@@ -185,11 +259,11 @@ theme:
       - navigation.tabs.sticky  
       - navigation.instant 
       - navigation.sections
-      - navigation.tracking
       - navigation.indexes
       - navigation.top
       - search.suggest
       - search.share
+      - content.code.annotate      
   icon:
     repo: 'fontawesome/brands/github'
   palette:
@@ -297,7 +371,11 @@ markdown_extensions:
       repo: geek-cookbook  
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde

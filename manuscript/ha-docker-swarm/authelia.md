@@ -40,9 +40,12 @@ Authelia configurations are defined in `/var/data/config/authelia/configuration.
 #                   Authelia configuration                    #
 ###############################################################
 
-host: 0.0.0.0
-port: 9091
-log_level: warn
+server:
+  host: 0.0.0.0
+  port: 9091
+
+log:
+  level: warn
 
 # This secret can also be set using the env variables AUTHELIA_JWT_SECRET_FILE
 # I used this site to generate the secret: https://www.grc.com/passwords.htm
@@ -92,6 +95,7 @@ regulation:
   ban_time: 300
 
 storage:
+  encryption_key: SECRET_GOES_HERE
   local:
     path: /config/db.sqlite3
 
@@ -188,7 +192,7 @@ services:
         - "traefik.http.routers.whoami.rule=Host(`whoami.example.com`)"
         - "traefik.http.routers.whoami.entrypoints=https"
         - "traefik.http.services.whoami.loadbalancer.server.port=80"
-        - "traefik.http.routers.service.middlewares=forward-auth@file"
+        - "traefik.http.routers.whoami.middlewares=forward-auth@file"
 
 
 networks:

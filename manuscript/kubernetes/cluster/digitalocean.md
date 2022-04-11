@@ -1,3 +1,6 @@
+---
+description: Creating a Kubernetes cluster on DigitalOcean
+---
 # Kubernetes on DigitalOcean
 
 IMO, the easiest Kubernetes cloud provider to experiment with is [DigitalOcean](https://m.do.co/c/e33b78ad621b) (_this is a referral link_). I've included instructions below to start a basic cluster.
@@ -39,7 +42,7 @@ DigitalOcean will provide you with a "kubeconfig" file to use to access your clu
 
 ## Release the kubectl!
 
-Save your kubeconfig file somewhere, and test it our by running ```kubectl --kubeconfig=<PATH TO KUBECONFIG> get nodes```
+Save your kubeconfig file somewhere, and test it our by running ```kubectl --kubeconfig=<PATH TO KUBECONFIG> get nodes``` [^1]
 
 Example output:
 
@@ -69,18 +72,6 @@ festive-merkle-8n9e   Ready     <none>    58s       v1.13.1
 
 That's it. You have a beautiful new kubernetes cluster ready for some action!
 
-## Move on..
-
-Still with me? Good. Move on to creating your own external load balancer..
-
-* [Start](/kubernetes/) - Why Kubernetes?
-* [Design](/kubernetes/design/) - How does it fit together?
-* Cluster (this page) - Setup a basic cluster
-* [Load Balancer](/kubernetes/loadbalancer/) - Setup inbound access
-* [Snapshots](/kubernetes/snapshots/) - Automatically backup your persistent data
-* [Helm](/kubernetes/helm/) - Uber-recipes from fellow geeks
-* [Traefik](/kubernetes/traefik/) - Traefik Ingress via Helm
-
-[^1]: Ok, yes, there's not much you can do with your cluster _yet_. But stay tuned, more Kubernetes fun to come!
+[^1]: Do you live in the CLI? Install the kubectl autocompletion for [bash](https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-linux/) or [zsh](https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-zsh/) to make your life much easier!
 
 --8<-- "recipe-footer.md"
