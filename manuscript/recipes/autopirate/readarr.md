@@ -29,7 +29,7 @@ Features include:
 To include Readarr in your [AutoPirate][autopirate] stack, include something like the following in your autopirate.yml stack definition file:
 
 ```yaml
-radarr:
+readarr:
   image: lscr.io/linuxserver/readarr:latest
   env_file : /var/data/config/autopirate/readarr.env
   volumes:
