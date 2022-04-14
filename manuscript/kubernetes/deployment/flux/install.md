@@ -65,7 +65,7 @@ Create a GitHub [personal access token](https://github.com/settings/tokens) that
 
 ### Create GitHub Repo
 
-Now we'll create a repo for flux - it can (*and probably should!*) be private. I've created a [template repo to get you started](https://github.com/geek-cookbook/template-flux/generate), but you could simply start with a blank repo too (although you'll need at least a `bootstrap` directory included or the command below will fail).[^1]
+Now we'll create a repo for flux - it can (*and probably should!*) be private. I've created a [template repo to get you started](https://github.com/geek-cookbook/template-flux/generate), but you could simply start with a blank repo too (*although you'll need at least a `bootstrap` directory included or the command below will fail*).[^1]
 
 ### Bootstrap Flux
 
@@ -86,7 +86,7 @@ GITHUB_TOKEN=<your-token>
 flux bootstrap github \
   --owner=my-github-username \ 
   --repository=my-github-username/my-repository \
-  --personal
+  --personal \
   --path bootstrap
 ```
 
