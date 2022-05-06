@@ -191,9 +191,9 @@ Finally, it's time to actually configure MetalLB! As discussed above, I prefer t
       config: |
         address-pools:
         - name: default
-        protocol: layer2
-        addresses:
-        - 192.168.1.240-192.168.1.250
+          protocol: layer2
+          addresses:
+          - 192.168.1.240-192.168.1.250
     ```
 
 ### HelmRelease
