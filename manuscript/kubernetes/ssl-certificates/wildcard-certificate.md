@@ -22,7 +22,7 @@ To take advantage of the various workarounds available, I find it best to put th
 
 ### Namespace
 
-We need a namespace to deploy our certificates and associated secrets into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/namespaces/namespace-letsencrypt-wildcard-cert.yaml`:
+We need a namespace to deploy our certificates and associated secrets into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/namespaces/namespace-letsencrypt-wildcard-cert.yaml`:
 
 ??? example "Example Namespace (click to expand)"
     ```yaml
@@ -34,7 +34,7 @@ We need a namespace to deploy our certificates and associated secrets into. Per 
 
 ### Kustomization
 
-Now we need a kustomization to tell Flux to install any YAMLs it finds in `/letsencrypt-wildcard-cert`. I create this Kustomization in my flux repo at `flux-system/kustomizations/kustomization-letsencrypt-wildcard-cert.yaml`.
+Now we need a kustomization to tell Flux to install any YAMLs it finds in `/letsencrypt-wildcard-cert`. I create this Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-letsencrypt-wildcard-cert.yaml`.
 
 !!! tip
     Importantly, note that we define a **dependsOn**, to tell Flux not to try to reconcile this kustomization before the cert-manager and sealedsecrets kustomizations are reconciled. Cert-manager creates the CRDs used to define certificates, so prior to Cert Manager being installed, the cluster won't know what to do with the ClusterIssuers/Certificate resources.

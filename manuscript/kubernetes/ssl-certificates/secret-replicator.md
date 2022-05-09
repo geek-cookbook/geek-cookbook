@@ -15,7 +15,7 @@ Kiwigrid's "[Secret Replicator](https://github.com/kiwigrid/secret-replicator)" 
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/namespaces/namespace-secret-replicator.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/namespaces/namespace-secret-replicator.yaml`:
 
 ??? example "Example Namespace (click to expand)"
 
@@ -28,7 +28,7 @@ metadata:
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/helmrepositories/helmrepository-kiwigrid.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/helmrepositories/helmrepository-kiwigrid.yaml`:
 
 ??? example "Example HelmRepository (click to expand)"
     ```yaml
@@ -44,7 +44,7 @@ Next, we need to define a HelmRepository (*a repository of helm charts*), to whi
 
 ### Kustomization
 
-Now that the "global" elements of this deployment have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/secret-replicator`. I create this Kustomization in my flux repo at `flux-system/kustomizations/kustomization-secret-replicator.yaml`:
+Now that the "global" elements of this deployment have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/secret-replicator`. I create this Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-secret-replicator.yaml`:
 
 ??? example "Example Kustomization (click to expand)"
     ```yaml

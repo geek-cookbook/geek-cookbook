@@ -16,4 +16,4 @@ Choose at least one of the above (*there may be valid reasons to use both!* [^1]
   
 --8<-- "recipe-footer.md"
 
-[^1]: One cluster I manage uses traefik Traefik for public services, but Nginx for internal managemnet services such as Prometheus, etc. The idea is that you'd need one type of Ingress to help debug problems with the _other_ type!
+[^1]: One cluster I manage uses traefik Traefik for public services, but Nginx for internal management services such as Prometheus, etc. The idea is that you'd need one type of Ingress to help debug problems with the _other_ type!
