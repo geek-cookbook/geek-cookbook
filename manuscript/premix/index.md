@@ -39,3 +39,7 @@ You'll receive an invite to premix to the email address associated with your Git
 
 !!! question "Why require public sponsorship?"
     Public sponsorship is required for the bot to realize that you're a sponsor, based on what the GitHub API provides
+
+### Without a credit card
+
+Got no credit card / GitHubz? We got you covered, with this nifty [PayPal-based subscription](https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-95D29301K5084144PMKCWFEY)
