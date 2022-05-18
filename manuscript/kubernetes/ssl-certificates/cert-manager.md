@@ -22,7 +22,7 @@ It will ensure certificates are valid and up to date, and attempt to renew certi
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/namespaces/namespace-cert-manager.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/namespaces/namespace-cert-manager.yaml`:
 
 ??? example "Example Namespace (click to expand)"
     ```yaml
@@ -34,7 +34,7 @@ We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Pe
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/helmrepositories/helmrepository-jetstack.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/helmrepositories/helmrepository-jetstack.yaml`:
 
 ??? example "Example HelmRepository (click to expand)"
     ```yaml
@@ -50,7 +50,7 @@ Next, we need to define a HelmRepository (*a repository of helm charts*), to whi
 
 ### Kustomization
 
-Now that the "global" elements of this deployment (*just the HelmRepository in this case*z*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/cert-manager`. I create this Kustomization in my flux repo at `flux-system/kustomizations/kustomization-cert-manager.yaml`:
+Now that the "global" elements of this deployment (*just the HelmRepository in this case*z*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/cert-manager`. I create this Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-cert-manager.yaml`:
 
 ??? example "Example Kustomization (click to expand)"
     ```yaml

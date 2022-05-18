@@ -24,7 +24,7 @@ Nginx Ingress Controller does make for a nice, simple "default" Ingress controll
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/namespaces/namespace-nginx-ingress-controller.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/namespaces/namespace-nginx-ingress-controller.yaml`:
 
 ??? example "Example NameSpace (click to expand)"
     ```yaml
@@ -36,7 +36,7 @@ We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Pe
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the (*prolific*) [bitnami chart repository](https://github.com/bitnami/charts/tree/master/bitnami), so per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `flux-system/helmrepositories/helmrepository-bitnami.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the (*prolific*) [bitnami chart repository](https://github.com/bitnami/charts/tree/master/bitnami), so per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/helmrepositories/helmrepository-bitnami.yaml`:
 
 ??? example "Example HelmRepository (click to expand)"
     ```yaml
@@ -52,7 +52,7 @@ Next, we need to define a HelmRepository (*a repository of helm charts*), to whi
 
 ### Kustomization
 
-Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/nginx-ingress-controller`. I create this Kustomization in my flux repo at `flux-system/kustomizations/kustomization-nginx-ingress-controller.yaml`:
+Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/nginx-ingress-controller`. I create this Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-nginx-ingress-controller.yaml`:
 
 ??? example "Example Kustomization (click to expand)"
     ```yaml
