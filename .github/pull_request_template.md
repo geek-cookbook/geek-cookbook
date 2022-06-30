@@ -32,7 +32,7 @@
 delete these next checks if not adding a new recipe 
 -->
 - [ ] I've added at least one footnote to my recipe (*Chef's Notes*)
-- [ ] I've updated `common_links.md` in the `_snippets` directory and sorted alphabetically
+- [ ] I've updated `common-links.md` in the `_snippets` directory and sorted alphabetically
 - [ ] I've updated the navigation in `mkdocs.yaml` in alphabetical order
 - [ ] I've updated `CHANGELOG.md` in reverse chronological order order
 - [ ] I'm using the [oldest-possible version](https://docs.docker.com/compose/compose-file/compose-versioning/#version-3) of Docker-compose syntax for the feature my recipe needs (*v3.2 unless there's a specific need for a later version*)
