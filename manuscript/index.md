@@ -34,7 +34,7 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
 1. You want to upskill. You want to work with container orchestration, Prometheus and Grafana, Kubernetes
 2. You want to play. You want a safe sandbox to test new tools, keeping the ones you want and tossing the ones you don't.
-3. You want reliability. Once you go from __playing__ with a tool to actually __using__ it, you want it to be available when you need it. Having to "*quickly ssh into the basement server and restart plex*" doesn't cut it when you finally convince your wife to sit down with you to watch sci-fi.
+3. You want reliability. Once you go from __playing__ with a tool to actually __using__ it, you want it to be available when you need it. Having to "*quickly ssh into the basement server and restart plex*" doesn't cut it when you finally convince your wife to sit down with you to watch sci-fi :robot:
 
 !!! quote "...how useful the recipes are for people just getting started with containers..."
 
@@ -45,39 +45,9 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 <div class="grid cards" markdown>
 
 - __Dive into :material-docker:{ .docker .lg .middle } [Docker Swarm](/ha-docker-swarm/design/)__
-
-    ---
-
-    Focus on your content and generate a responsive and searchable static site
-
-    [:octicons-arrow-right-24: Docker Swarm](#)
-
--  __Kick it with :material-kubernetes:{ .kubernetes .lg .middle } [Kubernetes](/kubernetes/)__
-
-    ---
-
-    Install [`mkdocs-material`](#) with [`pip`](#) and get up
-    and running in minutes :octicons-heart-fill:
-
-    [:octicons-arrow-right-24: Kubernetes](#)
-
-
-
--   :material-format-font:{ .lg .middle } __Made to measure__
-
-    ---
-
-    Change the colors, fonts, language, icons, logo and more with a few lines
-
-    [:octicons-arrow-right-24: Customization](#)
-
--   :material-scale-balance:{ .lg .middle } __Open Source, MIT__
-
-    ---
-
-    Material for MkDocs is licensed under MIT and available on [GitHub]
-
-    [:octicons-arrow-right-24: License](#)
+- __Kick it with :material-kubernetes:{ .kubernetes .lg .middle } [Kubernetes](/kubernetes/)__
+- __Geek out in :fontawesome-brands-discord:{ .discord .lg .middle } [Discord](http://chat.funkypenguin.co.nz)__
+- __Fast-track with 🚀 [Premix](/premix)!__
 
 </div>
 
