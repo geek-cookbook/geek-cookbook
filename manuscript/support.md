@@ -57,10 +57,6 @@ The best way to support this work is to become a [Sponsor][11] (_GitHub_) or a [
 
 Impulsively **[click here (NOW quick do it!)][11]** to sponsor me, or instead thoughtfully and analytically review my GitHub profile **[here][12]** and make up your own mind.
 
-### Buy my book 📖
-
-I'm also writing the Geek Cookbook as a formal eBook, on Leanpub (<https://leanpub.com/geeks-cookbook>). Buying it supports me once-off, and you continue to have access to the book as future recipes are added.
-
 ### Buy me a coffee ☕️
 
 A sponsorship is too much commitment, and a book is TL;DR? Hit me up with a [one-time caffine shot](https://www.buymeacoffee.com/funkypenguin)!

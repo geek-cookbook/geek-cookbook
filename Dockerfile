@@ -5,4 +5,5 @@ RUN pip install \
         mkdocs-autolinks-plugin \
         mkdocs-htmlproofer-plugin \
 	mkdocs-git-revision-date-localized-plugin \
-        mkdocs-macros-plugin
+        mkdocs-macros-plugin \
+        mkdocs-git-committers-plugin-2

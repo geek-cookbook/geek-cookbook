@@ -4,14 +4,14 @@ hide:
   # - toc        # Hide table of contents
 ---
 
-# Welcome, fellow geek :wave:
+# Welcome, fellow geek :wave:, start here :point_down:
+
+[Dive into Docker Swarm](/ha-docker-swarm/design/){: .md-button .md-button--primary}
+[Kick it with Kubernetes](/kubernetes/){: .md-button .md-button--primary}
 
 ## What is this?
 
-Funky Penguin's "**[Geek Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](/ha-docker-swarm/design/) or [Kubernetes](/kubernetes/).
-
-[Dive into Docker Swarm](/ha-docker-swarm/design/){: .md-button .md-button--primary}
-[Kick it with Kubernetes](/kubernetes/){: .md-button}
+The "*Geek Cookbook*" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](/ha-docker-swarm/design/) or [Kubernetes](/kubernetes/).
 
 Running such a platform enables you to run self-hosted tools such as [AutoPirate](/recipes/autopirate/) (*Radarr, Sonarr, NZBGet and friends*), [Plex](https://www.plex.tv/), [NextCloud](https://nextcloud.com/), and includes elements such as:
 
@@ -39,6 +39,47 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 !!! quote "...how useful the recipes are for people just getting started with containers..."
 
     "One of the surprising realizations from following Funky Penguins cookbooks for so long is how useful the recipes are for people just getting started with containers and how it gives them real, interesting usecases to attach to their learning" - [DevOps Daniel (@DanielSHouston)](https://twitter.com/DanielSHouston/status/1213419203379773442)
+
+## Where do I start? 
+
+<div class="grid cards" markdown>
+
+- __Dive into :material-docker:{ .docker .lg .middle } [Docker Swarm](/ha-docker-swarm/design/)__
+
+    ---
+
+    Focus on your content and generate a responsive and searchable static site
+
+    [:octicons-arrow-right-24: Docker Swarm](#)
+
+-  __Kick it with :material-kubernetes:{ .kubernetes .lg .middle } [Kubernetes](/kubernetes/)__
+
+    ---
+
+    Install [`mkdocs-material`](#) with [`pip`](#) and get up
+    and running in minutes :octicons-heart-fill:
+
+    [:octicons-arrow-right-24: Kubernetes](#)
+
+
+
+-   :material-format-font:{ .lg .middle } __Made to measure__
+
+    ---
+
+    Change the colors, fonts, language, icons, logo and more with a few lines
+
+    [:octicons-arrow-right-24: Customization](#)
+
+-   :material-scale-balance:{ .lg .middle } __Open Source, MIT__
+
+    ---
+
+    Material for MkDocs is licensed under MIT and available on [GitHub]
+
+    [:octicons-arrow-right-24: License](#)
+
+</div>
 
 ## Who are you?
 
@@ -87,17 +128,13 @@ Impulsively **[click here (NOW quick do it!)](https://github.com/sponsors/funkyp
 
     -- John McDowall, Founder, [kiso.io](https://kiso.io) 
 
-### Buy my book 📖
-
-I'm publishing the Geek Cookbook as a formal eBook (*PDF, mobi, epub*), on Leanpub (<https://leanpub.com/geek-cookbook>). Check it out!
-
 ### Buy me a coffee ☕️
 
 A sponsorship is too much commitment, and a book is TL;DR? Hit me up with a [one-time caffine shot](https://www.buymeacoffee.com/funkypenguin)!
 
 ### Sponsored Projects
 
-I'm supported and motivated by [GitHub Sponsors](https://github.com/sponsors/funkypenguin), [Patreon patrons](https://www.patreon.com/funkypenguin) and [LeanPub readers](https://leanpub.com/geeks-cookbook) who have generously sponsored me.
+I'm supported and motivated by [GitHub Sponsors](https://github.com/sponsors/funkypenguin) and [Patreon patrons](https://www.patreon.com/funkypenguin) who have generously sponsored me.
 
 I regularly donate to / sponsor the following projects. **Join me** in supporting these geeks, and encouraging them to continue building the ingredients for your favourite recipes!
 

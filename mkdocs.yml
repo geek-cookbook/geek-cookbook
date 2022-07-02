@@ -33,6 +33,9 @@ plugins:
     #   504: ['https://www.mkdocs.org/']
     #   404: ['https://github.com/manuzhang/mkdocs-htmlproofer-plugin']
     #   400: ['*']  
+  git-committers:
+      repository: geek-cookbook/geek-cookbook
+      token: !ENV GH_TOKEN
 
 #theme_dir: mkdocs-material
 nav:
@@ -261,24 +264,37 @@ theme:
       - navigation.sections
       - navigation.indexes
       - navigation.top
+      - navigation.pruning
       - search.suggest
       - search.share
       - content.code.annotate      
+      - header.autohide
+      - announce.dismiss
+      - toc.follow
   icon:
     repo: 'fontawesome/brands/github'
   palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
     # Toggle light mode
-    - scheme: default
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       primary: 'black'
-      accent: 'indigo'
+      accent: 'orange'
       toggle:
         icon: material/toggle-switch
         name: Burn my eyes!
 
     # Toggle dark mode
-    - scheme: slate
-      primary: 'grey'
-      accent: 'indigo'
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: 'black'
+      accent: 'orange'
       toggle:
         icon: material/toggle-switch-off-outline
         name: Love my eyes!
@@ -299,8 +315,6 @@ extra:
       link: 'https://www.funkypenguin.co.nz/'
     - icon: 'fontawesome/brands/linkedin'
       link: 'https://www.linkedin.com/in/funkypenguin'
-    - icon: 'material/library'
-      link: 'https://leanpub.com/geeks-cookbook'    
     - icon: 'material/mailbox'
       link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'             
   generator: false  
@@ -336,12 +350,15 @@ extra:
 #            Help us improve this page by
 #            using our <a href="..." target=_blank>feedback form</a>.
 
-# extra_css:
+extra_css:
+  - extras/css/icons.css
 
 extra_javascript:
   - extras/javascript/discord.js
   - extras/javascript/sortable-tables.js
+  - extras/javascript/feedback.js
   - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+  
 
 # Extensions
 markdown_extensions:
@@ -362,8 +379,8 @@ markdown_extensions:
       check_paths: true
       base_path: _snippets
   - pymdownx.emoji:
-      emoji_index: !!python/name:pymdownx.emoji.twemoji
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg    
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.inlinehilite
   - pymdownx.magiclink:
       repo_url_shorthand: true
@@ -381,3 +398,4 @@ markdown_extensions:
   - pymdownx.tilde
   - pymdownx.tabbed  
   - meta
+  - md_in_html

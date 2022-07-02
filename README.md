@@ -28,7 +28,6 @@
   - [What have you done for me lately? (CHANGELOG)](#what-have-you-done-for-me-lately-changelog)
   - [What do you want from me?](#what-do-you-want-from-me)
     - [Get in touch 👋](#get-in-touch-)
-    - [Buy my book 📖](#buy-my-book-)
     - [Sponsor me ❤️](#sponsor--patronizepatreon-me-️)
     - [Work with me 🤝](#work-with-me-)
   
@@ -72,10 +71,6 @@ I want your [support][github_sponsor], either in the [financial][github_sponsor]
 - Come and say hi to me and the friendly geeks in the [Discord][discord] chat or the [Discourse][discourse] forums - say hi, ask a question, or suggest a new recipe!
 - Tweet me up, I'm [@funkypenguin][twitter]! 🐦
 - [Contact me][contact] by a variety of channels
-
-### Buy my book 📖
-
-I'm also publishing the Geek Cookbook as a formal eBook (*PDF, mobi, epub*), on Leanpub (<https://leanpub.com/geek-cookbook>). Buy it for as little as $5 (_which is really just a token gesture of support, since all the content is available online anyway!_) or pay what you think it's worth!
 
 ### [Sponsor][github_sponsor] / [Patronize][patreon] me ❤️
 
