@@ -1,6 +1,6 @@
 ---
-title: Log into traefik forward auth with Google authentication
-description: Traefik forward auth needs an authentication backend, and one of the simplest to setup, allows users to login with their Google account
+title: Secure Traefik with Google Auth
+description: Using Traefik Forward Auth, you can selectively secure your Docker services, using Google as your authentication backend!
 ---
 # Traefik Forward Auth using Google
 

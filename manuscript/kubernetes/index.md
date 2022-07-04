@@ -1,5 +1,7 @@
-# Why Kubernetes?
-
+---
+title: Docker Swarm vs Kubernetes (the winner)
+description: I cut my cloud-teeth on Docker swarm, but since swarm is all-but-abandoned by Docker/Mirantis, I'm a happy convert to Kubernetes. Here's why...
+---
 My first introduction to Kubernetes was a children's story:
 
 <!-- markdownlint-disable MD033 -->
@@ -7,7 +9,7 @@ My first introduction to Kubernetes was a children's story:
 
 ## Why Kubernetes?
 
-Why would you want to Kubernetes for your self-hosted recipes, over simple Docker Swarm? Here's my personal take..
+Why would you want to Kubernetes for your self-hosted recipes, over simple [Docker Swarm](/ha-docker-swarm/)? Here's my personal take..
 
 ### Docker Swarm is dead
 
@@ -39,8 +41,8 @@ So let's get on with learning how to use the tool...
 
 Primarily you need 2 things:
 
-1. A cluster
-2. A way to deploy workloads into the cluster
+1. A [cluster](/kubernetes/cluster/)
+2. A way to [deploy workloads](/kubernetes/deployment/) into the cluster
 
 Practically, you need some extras too, but you can mix-and-match these.
 

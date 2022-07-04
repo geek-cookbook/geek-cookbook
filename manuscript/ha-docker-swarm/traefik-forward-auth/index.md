@@ -1,6 +1,6 @@
 ---
-title: Add oauth2 and oidc SSO to Docker with Traefik Forward Auth
-description: Traefik Forward Auth protects services running in Docker Swarm with an additional layer of authentication, and can be integrated into Google, GitHub, even Active Directory auth!
+title: Add SSO to Traefik with Forward Auth
+description: Traefik Forward Auth protects services running in Docker with an additional layer of authentication, and can be integrated into Keycloak, Google, GitHub, etc.
 ---
 # Traefik Forward Auth
 

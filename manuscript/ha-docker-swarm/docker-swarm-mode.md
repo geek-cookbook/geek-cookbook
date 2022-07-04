@@ -1,3 +1,8 @@
+---
+title: Enable Docker Swarm mode
+description: For truly highly-available services with Docker containers, Docker Swarm is the simplest way to achieve redundancy, such that a single docker host could be turned off, and none of our services will be interrupted.
+---
+
 # Docker Swarm Mode
 
 For truly highly-available services with Docker containers, we need an orchestration system. Docker Swarm (*as defined at 1.13*) is the simplest way to achieve redundancy, such that a single docker host could be turned off, and none of our services will be interrupted.

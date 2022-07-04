@@ -1,3 +1,8 @@
+---
+title: Using Authelia to secure services in Docker
+description: Authelia is an open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.
+---
+
 # Authelia
 
 [Authelia](https://github.com/authelia/authelia) is an open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal. It acts as a companion of reverse proxies like Nginx, Traefik, or HAProxy to let them know whether queries should pass through. Unauthenticated users are redirected to Authelia Sign-in portal instead.

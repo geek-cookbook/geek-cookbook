@@ -1,6 +1,6 @@
 ---
-title: Authenticate traefik forward auth with Keycloak
-description: Traefik forward auth needs an authentication backend, and a perfect match for the self-hosted enthusiast is Keycloak
+title: Secure Traefik using Keycloak
+description: Traefik forward auth can selectively secure your Docker services against an authentication backend, and Keycloak is a perfect, self-hosted match.
 ---
 # Using Traefik Forward Auth with KeyCloak
 

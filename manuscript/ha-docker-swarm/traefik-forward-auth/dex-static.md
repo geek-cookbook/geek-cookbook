@@ -1,6 +1,6 @@
 ---
-title: Using dex for simple, static authentication with traefik-forward-auth
-description: Traefik-forward-auth needs an authentication backend, but if you don't want to use a cloud provider (like Google), you can setup your own simple backend, using Dex
+title: Secure Traefik using Dex
+description: Traefik forward auth needs an authentication backend, but if you don't want to use a cloud provider, you can setup your own simple backend, using Dex.
 ---
 # Using Traefik Forward Auth with Dex (Static)
 

@@ -1,3 +1,7 @@
+---
+title: Why I use Traefik Ingress Controller
+description: Among other advantages, I no longer need to replicate SSL certificate secrets for nginx-ingress-controller to consume, once-per-namespace!
+---
 # Traefik Ingress Controller
 
 Unlike grumpy ol' man [Nginx](/kubernetes/ingress/ngnix/) :older_man:, Traefik, a microservice-friendly reverse proxy, is relatively fresh in the "cloud-native" space, having been "born" :baby_bottle: [in the same year that Kubernetes was launched](https://techcrunch.com/2020/09/23/five-years-after-creating-traefik-application-proxy-open-source-project-hits-2b-downloads/).
