@@ -1,0 +1,4 @@
+# Blank to allow indexers to index anything
+User-agent: * 
+Disallow:
+Sitemap: https://geek-cookbook.funkypenguin.co.nz/robots.txt
