@@ -102,7 +102,7 @@ KEEP_IMAGES=traefik,keepalived,docker-mailserver
 DEBUG=1
 ```
 
-Then create a docker-compose.yml as follows:
+Then create a docker-compose.yml as per the following example:
 
 ```yaml
 version: "3"
@@ -135,7 +135,7 @@ Launch the cleanup stack by running ```docker stack deploy docker-cleanup -c <pa
 
 If your swarm runs for a long time, you might find yourself running older container images, after newer versions have been released. If you're the sort of geek who wants to live on the edge, configure [shepherd](https://github.com/djmaze/shepherd) to auto-update your container images regularly.
 
-Create `/var/data/config/shepherd/shepherd.env` as follows:
+Create `/var/data/config/shepherd/shepherd.env` as per the following example:
 
 ```bash
 # Don't auto-update Plex or Emby (or Jellyfin), I might be watching a movie! (Customize this for the containers you _don't_ want to auto-update)
@@ -144,7 +144,7 @@ BLACKLIST_SERVICES="plex_plex emby_emby jellyfin_jellyfin"
 SLEEP_TIME=86400
 ```
 
-Then create /var/data/config/shepherd/shepherd.yml as follows:
+Then create /var/data/config/shepherd/shepherd.yml as per the following example:
 
 ```yaml
 version: "3"

@@ -99,7 +99,7 @@ metrics:
 
 Since we deployed Traefik using helm, we need to take a slightly different approach, so we'll create a pod with an affinity which ensures it runs on the same host which runs the Traefik container (_more precisely, containers with the label app=traefik_).
 
-Create phone-home.yaml as follows:
+Create phone-home.yaml as per the following example:
 
 ```yaml
 apiVersion: v1

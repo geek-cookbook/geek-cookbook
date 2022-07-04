@@ -53,7 +53,7 @@ LDAP_TLS=false
 
 The Dockerized version of LDAP Account Manager is a little fiddly. In order to maintain a config file which persists across container restarts, we need to present the container with a copy of /var/www/html/config/lam.conf, tweaked for our own requirements.
 
-Create ```/var/data/openldap/lam/config/config.cfg``` as follows:
+Create ```/var/data/openldap/lam/config/config.cfg``` as per the following example:
 
 ???+ note "Much scroll, very text. Click here to collapse it for better readability"
 
@@ -123,7 +123,7 @@ Create ```/var/data/openldap/lam/config/config.cfg``` as follows:
 
 While config.cfg (_above_) defines application-level configuration, <profile\>.cfg is used to configure "domain-specific" configuration. You probably only need a single profile, but LAM could theoretically be used to administer several totally unrelated LDAP servers, ergo the concept of "profiles".
 
-Create yours profile (_you chose a default profile in config.cfg above, remember?_) by creating ```/var/data/openldap/lam/config/<profile>.conf```, as follows:
+Create yours profile (_you chose a default profile in config.cfg above, remember?_) by creating ```/var/data/openldap/lam/config/<profile>.conf```, as per the following example:
 
 ???+ note "Much scroll, very text. Click here to collapse it for better readability"
 

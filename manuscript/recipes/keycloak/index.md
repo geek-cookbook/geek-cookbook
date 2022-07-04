@@ -16,7 +16,7 @@ KeyCloak's OpenID provider can also be used in combination with [Traefik Forward
 
 ### Setup data locations
 
-We'll need several directories to bind-mount into our container for both runtime and backup data, so create them as follows
+We'll need several directories to bind-mount into our container for both runtime and backup data, so create them as per the following example
 
 ```bash
 mkdir -p /var/data/runtime/keycloak/database

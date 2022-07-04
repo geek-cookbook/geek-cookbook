@@ -184,7 +184,7 @@ Having setup your buckets, users, and policies - you can give out your minio ext
 
 I tested the S3 mount using [goofys](https://github.com/kahing/goofys), "a high-performance, POSIX-ish Amazon S3 file system written in Go".
 
-First, I created ~/.aws/credentials, as follows:
+First, I created ~/.aws/credentials, as per the following example:
 
 ```ini
 [default]

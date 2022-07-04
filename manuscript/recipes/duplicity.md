@@ -35,7 +35,7 @@ So what does this mean for our stack? It means we can leverage Duplicity to back
 
 ### Setup data locations
 
-We'll need a folder to store a docker-compose .yml file, and an associated .env file. If you're following my filesystem layout, create `/var/data/config/duplicity` (_for the config_), and `/var/data/duplicity` (_for the metadata_) as follows:
+We'll need a folder to store a docker-compose .yml file, and an associated .env file. If you're following my filesystem layout, create `/var/data/config/duplicity` (_for the config_), and `/var/data/duplicity` (_for the metadata_) as per the following example:
 
 ```bash
 mkdir /var/data/config/duplicity
@@ -72,7 +72,7 @@ See the [data layout reference](/reference/data_layout/) for an explanation of t
 
 ### Run a test backup
 
-Before we launch the automated daily backups, let's run a test backup, as follows:
+Before we launch the automated daily backups, let's run a test backup, as per the following example:
 
 ```bash
 docker run --env-file duplicity.env -it --rm -v \

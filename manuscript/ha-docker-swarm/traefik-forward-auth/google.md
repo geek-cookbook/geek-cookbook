@@ -1,6 +1,10 @@
+---
+title: Log into traefik forward auth with Google authentication
+description: Traefik forward auth needs an authentication backend, and one of the simplest to setup, allows users to login with their Google account
+---
 # Traefik Forward Auth using Google
 
-[Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) is incredibly useful to secure services with an additional layer of authentication, provided by an OIDC-compatible provider. The simplest possible provider is a self-hosted instance of [Dex][dex], configured with a static username and password. This is not much use if you want to provide "normies" access to your services though - a better solution would be to validate their credentials against an existing trusted public source.
+[Traefik Forward Auth][tfa] is incredibly useful to secure services with an additional layer of authentication, provided by an OIDC-compatible provider. The simplest possible provider is a self-hosted instance of [Dex][tfa-dex-static], configured with a static username and password. This is not much use if you want to provide "normies" access to your services though - a better solution would be to validate their credentials against an existing trusted public source.
 
 This recipe will illustrate how to point Traefik Forward Auth to Google, confirming that the requestor has a valid Google account (*and that said account is permitted to access your services!*)
 
@@ -25,7 +29,7 @@ Here's a [screencast I recorded](https://static.funkypenguin.co.nz/2021/screenca
 
 ### Prepare environment
 
-Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.env` as follows:
+Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.env` as per the following example:
 
 ```bash
 PROVIDERS_GOOGLE_CLIENT_ID=<your client id>
@@ -39,7 +43,7 @@ WHITELIST=you@yourdomain.com, me@mydomain.com
 
 ### Prepare the docker service config
 
-Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.yml` as follows:
+Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.yml` as per the following example:
 
 ```yaml
   traefik-forward-auth:

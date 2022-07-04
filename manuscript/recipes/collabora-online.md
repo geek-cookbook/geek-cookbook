@@ -69,7 +69,7 @@ termination=true
 
 ### Create docker-compose.yml
 
-Create ```/var/data/config/collabora/docker-compose.yml``` as follows:
+Create ```/var/data/config/collabora/docker-compose.yml``` as per the following example:
 
 ```yaml
 version: "3.0"
@@ -91,7 +91,7 @@ services:
 
 ### Create nginx.conf
 
-Create ```/var/data/config/collabora/nginx.conf``` as follows, changing the ```server_name``` value to match the environment variable you established above:
+Create ```/var/data/config/collabora/nginx.conf``` as per the following example, changing the ```server_name``` value to match the environment variable you established above:
 
 ```ini
 upstream collabora-upstream {
@@ -155,7 +155,7 @@ Create an empty `/var/data/collabora/loolwsd.xml` by running `touch /var/data/co
 
 ### Setup Docker Swarm
 
-Create `/var/data/config/collabora/collabora.yml` as follows, changing the traefik frontend_rule as necessary:
+Create `/var/data/config/collabora/collabora.yml` as per the following example, changing the traefik frontend_rule as necessary:
 
 --8<-- "premix-cta.md"
 

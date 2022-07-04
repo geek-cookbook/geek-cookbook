@@ -6,7 +6,7 @@ description: A fully-featured recipe to automate finding, downloading, and organ
 
 Once the cutting edge of the "internet" (_pre-world-wide-web and mosiac days_), Usenet is now a murky, geeky alternative to torrents for file-sharing. However, it's **cool** geeky, especially if you're into having a fully automated media platform.
 
-A good starter for the usenet scene is <https://www.reddit.com/r/usenet/>. Because it's so damn complicated, a host of automated tools exist to automate the process of finding, downloading, and managing content. The tools included in this recipe are as follows:
+A good starter for the usenet scene is <https://www.reddit.com/r/usenet/>. Because it's so damn complicated, a host of automated tools exist to automate the process of finding, downloading, and managing content. The tools included in this recipe are as per the following example:
 
 ![Autopirate Screenshot](../../images/autopirate.png)
 

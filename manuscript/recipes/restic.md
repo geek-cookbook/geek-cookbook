@@ -173,7 +173,7 @@ Of note above is =="Repository successfully initialized"== - this indicates that
 
 Repeat after me : "**It's not a backup unless you've tested a restore**"
 
-The simplest way to test your restore is to run the container once, using the variables you're already prepared, with custom arguments, as follows:
+The simplest way to test your restore is to run the container once, using the variables you're already prepared, with custom arguments, as per the following example:
 
 ```bash
 docker run --rm -it --name restic-restore --env-file /var/data/config/restic/restic-backup.env \

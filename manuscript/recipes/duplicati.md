@@ -30,7 +30,7 @@ Similar to the other backup options in the Cookbook, we can use Duplicati to bac
 
 ### Setup data locations
 
-We'll need a folder to store a docker-compose configuration file and an associated environment file. If you're following my filesystem layout, create `/var/data/config/duplicati` (*for the config*), and `/var/data/duplicati` (*for the metadata*) as follows:
+We'll need a folder to store a docker-compose configuration file and an associated environment file. If you're following my filesystem layout, create `/var/data/config/duplicati` (*for the config*), and `/var/data/duplicati` (*for the metadata*) as per the following example:
 
 ```bash
 mkdir /var/data/config/duplicati

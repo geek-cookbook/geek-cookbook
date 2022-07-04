@@ -16,7 +16,7 @@ The registry mirror runs as a swarm stack, using a simple docker-compose.yml. Cu
 
 ## Preparation
 
-Create /var/data/config/registry/registry.yml as follows:
+Create /var/data/config/registry/registry.yml as per the following example:
 
 ```yaml
 version: "3"
@@ -46,7 +46,7 @@ networks:
 !!! note "Unencrypted registry"
 We create this registry without consideration for SSL, which will fail if we attempt to use the registry directly. However, we're going to use the HTTPS-proxied version via Traefik, leveraging Traefik to manage the LetsEncrypt certificates required.
 
-Create /var/data/registry/registry-mirror-config.yml as follows:
+Create /var/data/registry/registry-mirror-config.yml as per the following example:
 
 ```yaml
 version: 0.1

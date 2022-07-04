@@ -1,3 +1,4 @@
+
 [archivebox]:       /recipes/archivebox/
 [authelia]:         /ha-docker-swarm/authelia/
 [autopirate]:       /recipes/autopirate/
@@ -30,8 +31,8 @@
 [photoprism]:       /recipes/photoprism/
 [plex]:             /recipes/plex/
 [portainer]:        /recipes/portainer/
-[radarr]:           /recipes/autopirate/radarr/
 [prowlarr]:         /recipes/autopirate/prowlarr/
+[radarr]:           /recipes/autopirate/radarr/
 [readarr]:          /recipes/autopirate/readarr/
 [rss-bridge]:       /recipes/rss-bridge/
 [rtorrent]:         /recipes/autopirate/rtorrent/

@@ -34,7 +34,7 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 
 While it's possible to configure traefik via docker command arguments, I prefer to create a config file (`traefik.toml`). This allows me to change traefik's behaviour by simply changing the file, and keeps my docker config simple.
 
-Create `/var/data/traefikv2/traefik.toml` as follows:
+Create `/var/data/traefikv2/traefik.toml` as per the following example:
 
 ```bash
 [global]
@@ -85,7 +85,7 @@ Create `/var/data/traefikv2/traefik.toml` as follows:
 !!! tip
     "We'll want an overlay network, independent of our traefik stack, so that we can attach/detach all our other stacks (including traefik) to the overlay network. This way, we can undeploy/redepoly the traefik stack without having to bring down every other stack first!" - voice of hard-won experience
 
-Create `/var/data/config/traefik/traefik.yml` as follows:
+Create `/var/data/config/traefik/traefik.yml` as per the following example:
 
 ```yaml
 version: "3.2"
@@ -126,7 +126,7 @@ AWS_SECRET_ACCESS_KEY=<your-aws-secret>
 # CLOUDFLARE_API_KEY=<your-cloudflare-api-key>
 ```
 
-Create `/var/data/config/traefikv2/traefikv2.yml` as follows:
+Create `/var/data/config/traefikv2/traefikv2.yml` as per the following example:
 
 ```yaml
 version: "3.2"

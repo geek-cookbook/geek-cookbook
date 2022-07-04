@@ -41,7 +41,7 @@ modprobe ip_vs
 
 ### Setup nodes
 
-Assuming your IPs are as follows:
+Assuming your IPs are as per the following example:
 
 - 192.168.4.1 : Primary
 - 192.168.4.2 : Secondary

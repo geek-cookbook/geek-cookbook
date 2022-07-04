@@ -1,3 +1,7 @@
+---
+title: Using dex for simple, static authentication with traefik-forward-auth
+description: Traefik-forward-auth needs an authentication backend, but if you don't want to use a cloud provider (like Google), you can setup your own simple backend, using Dex
+---
 # Using Traefik Forward Auth with Dex (Static)
 
 [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) is incredibly useful to secure services with an additional layer of authentication, provided by an OIDC-compatible provider. The simplest possible provider is a self-hosted instance of [CoreOS's Dex](https://github.com/dexidp/dex), configured with a static username and password. This recipe will "get you started" with Traefik Forward Auth, providing a basic authentication layer. In time, you might want to migrate to a "public" provider, like [Google][tfa-google], or GitHub, or to a [KeyCloak][keycloak] installation.
@@ -47,7 +51,7 @@ staticPasswords:
 
 ### Prepare Traefik Forward Auth environment
 
-Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.env` as follows:
+Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.env` per the following example configuration:
 
 ```bash
 DEFAULT_PROVIDER: oidc
@@ -61,9 +65,7 @@ COOKIE_DOMAIN: example.com                            # This should match your b
 
 ### Setup Docker Stack for Dex
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
-
---8<-- "premix-cta.md"
+Now create a docker swarm config file in docker-compose syntax (v3), per the following example:
 
 ```yaml
 version: '3'
@@ -98,9 +100,11 @@ networks:
     external: true
 ```
 
+--8<-- "premix-cta.md"
+
 ### Setup Docker Stack for Traefik Forward Auth
 
-Now create a docker swarm config file in docker-compose syntax (v3), something like this:
+Now create a docker swarm config file for traefik-forward-auth, in docker-compose syntax (v3), per the following example:
 
 ```yaml
 version: "3.2"
@@ -108,7 +112,7 @@ version: "3.2"
 services:
 
   traefik-forward-auth:
-    image: thomseddon/traefik-forward-auth:2.1.0
+    image: thomseddon/traefik-forward-auth:2.2.0
     env_file: /var/data/config/traefik-forward-auth/traefik-forward-auth.env
     volumes:
     - /var/data/config/traefik-forward-auth/config.ini:/config.ini:ro
@@ -176,11 +180,11 @@ Once you redeploy traefik-forward-auth with the above, it **should** use dex as 
 
 ### Test
 
-Browse to <https://whoami.example.com> (_obviously, customized for your domain and having created a DNS record_), and all going according to plan, you'll be redirected to a CoreOS Dex login. Once successfully logged in, you'll be directed to the basic whoami page :thumbsup:
+Browse to <https://whoami.example.com> (*obviously, customized for your domain and having created a DNS record*), and all going according to plan, you'll be redirected to a CoreOS Dex login. Once successfully logged in, you'll be directed to the basic whoami page :thumbsup:
 
 ### Protect services
 
-To protect any other service, ensure the service itself is exposed by Traefik (_if you were previously using an oauth_proxy for this, you may have to migrate some labels from the oauth_proxy serivce to the service itself_). Add the following label:
+To protect any other service, ensure the service itself is exposed by Traefik. Add the following label:
 
 ```yaml
 - "traefik.http.routers.radarr.middlewares=forward-auth"
