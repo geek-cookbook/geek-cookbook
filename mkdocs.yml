@@ -36,6 +36,7 @@ plugins:
   git-committers:
       repository: geek-cookbook/geek-cookbook
       token: !ENV GH_TOKEN
+  meta-descriptions: # If not provided, auto-generate a description (https://pypi.org/project/mkdocs-meta-descriptions-plugin/)
 
 #theme_dir: mkdocs-material
 nav:

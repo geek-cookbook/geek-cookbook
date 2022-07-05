@@ -171,7 +171,7 @@ mount -a
 ```
 
 ??? note "Additional steps on Debian Buster"
-    The above configuration worked on Ubuntu 18.04 **without** requiring a secret to be defined in `/etc/fstab`. Other users have [reported different results](https://discourse.geek-kitchen.funkypenguin.co.nz/t/shared-storage-ceph-funky-penguins-geek-cookbook/47/108) on Debian Buster, however, so consider trying this variation if you encounter error 22:
+    The above configuration worked on Ubuntu 18.04 **without** requiring a secret to be defined in `/etc/fstab`. Other users have [reported different results](https://forum.funkypenguin.co.nz/t/shared-storage-ceph-funky-penguins-geek-cookbook/47/108) on Debian Buster, however, so consider trying this variation if you encounter error 22:
 
     ```
     apt-get install ceph-common

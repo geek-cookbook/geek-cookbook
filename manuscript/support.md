@@ -71,9 +71,9 @@ A sponsorship is too much commitment, and a book is TL;DR? Hit me up with a [one
 
 [1]: http://chat.funkypenguin.co.nz
 [2]: https://www.youtube.com/watch?v=1qHoSWxVqtE
-[3]: https://discourse.geek-kitchen.funkypenguin.co.nz/
-[4]: https://discourse.geek-kitchen.funkypenguin.co.nz/
-[5]: https://discourse.geek-kitchen.funkypenguin.co.nz/
+[3]: https://forum.funkypenguin.co.nz/
+[4]: https://forum.funkypenguin.co.nz/
+[5]: https://forum.funkypenguin.co.nz/
 [6]: https://github.com/funkypenguin/geek-cookbook/issues
 [7]: https://github.com/sponsors/funkypenguin
 [8]: https://www.patreon.com/funkypenguin

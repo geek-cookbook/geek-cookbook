@@ -8,3 +8,4 @@ mkdocs-git-revision-date-localized-plugin>=0.4.8
 mkdocs-macros-plugin
 mkdocs-material
 mkdocs-git-committers-plugin-2
+mkdocs-meta-descriptions-plugin

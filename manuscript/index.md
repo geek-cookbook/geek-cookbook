@@ -94,7 +94,7 @@ I want your [support](https://github.com/sponsors/funkypenguin), either in the [
 
 #### Get in touch 💬
 
-* Come and say hi to me and the friendly geeks in the [Discord](http://chat.funkypenguin.co.nz) chat or the [Discourse](https://discourse.geek-kitchen.funkypenguin.co.nz/) forums - say hi, ask a question, or suggest a new recipe!
+* Come and say hi to me and the friendly geeks in the [Discord](http://chat.funkypenguin.co.nz) chat or the [Discourse](https://forum.funkypenguin.co.nz/) forums - say hi, ask a question, or suggest a new recipe!
 * Tweet me up, I'm [@funkypenguin](https://twitter.com/funkypenguin)! 🐦
 * [Contact me](https://www.funkypenguin.co.nz/contact/) by a variety of channels
 

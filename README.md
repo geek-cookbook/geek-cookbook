@@ -1,6 +1,6 @@
 
 [cookbookurl]: https://geek-cookbook.funkypenguin.co.nz
-[discourseurl]: https://discourse.geek-kitchen.funkypenguin.co.nz
+[discourseurl]: https://forum.funkypenguin.co.nz
 [discordurl]: http://chat.funkypenguin.co.nz
 [patreonurl]: https://patreon.com/funkypenguin
 [blogurl]: https://www.funkypenguin.co.nz
@@ -14,7 +14,7 @@
 
 [![geek-cookbook](https://raw.githubusercontent.com/geek-cookbook/autopenguin/master/images/readme_header.png)][cookbookurl]
 [![Discord](https://img.shields.io/discord/396055506072109067?color=black&label=Hot%20Sweaty%20Geeks&logo=discord&logoColor=white&style=for-the-badge)][discordurl]
-[![Forums](https://img.shields.io/discourse/topics?color=black&label=Forums&logo=discourse&logoColor=white&server=https%3A%2F%2Fdiscourse.geek-kitchen.funkypenguin.co.nz&style=for-the-badge)][discourseurl]
+[![Forums](https://img.shields.io/discourse/topics?color=black&label=Forums&logo=discourse&logoColor=white&server=https%3A%2F%2Fforum.funkypenguin.co.nz&style=for-the-badge)][discourseurl]
 [![Cookbook](https://img.shields.io/badge/Recipes-44-black?style=for-the-badge&color=black)][cookbookurl]
 [![Twitch Status](https://img.shields.io/twitch/status/funkypenguinnz?style=for-the-badge&label=LiveGeeking&logoColor=white&logo=twitch)][twitchurl]
 
@@ -97,7 +97,7 @@ Impulsively **[click here (NOW quick do it!)][github_sponsor]** to [sponsor me][
 [patreon]:          https://www.patreon.com/bePatron?u=6982506
 [github_sponsor]:   https://github.com/sponsors/funkypenguin
 [github]:           https://github.com/sponsors/funkypenguin
-[discourse]:        https://discourse.geek-kitchen.funkypenguin.co.nz/
+[discourse]:        https://forum.funkypenguin.co.nz/
 [twitter]:          https://twitter.com/funkypenguin
 [contact]:          https://www.funkypenguin.co.nz
 

@@ -23,7 +23,7 @@ Want to know now when this recipe gets updated, or when future recipes are added
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">
-  DiscourseEmbed = { discourseUrl: 'https://discourse.geek-kitchen.funkypenguin.co.nz/',
+  DiscourseEmbed = { discourseUrl: 'https://forum.funkypenguin.co.nz/',
                      discourseEmbedUrl: window.location.protocol + '//' + window.location.hostname + window.location.pathname };
 
   (function() {

@@ -15,5 +15,5 @@ We primarily use GitHub issues to track changes needed to be made to the cookboo
 ---
 
 * Real-time chat: http://chat.funkypenguin.co.nz
-* Discussion forums: https://discourse.geek-kitchen.funkypenguin.co.nz
+* Discussion forums: https://forum.funkypenguin.co.nz
 * Details: https://geek-cookbook.funkypenguin.co.nz/support/
