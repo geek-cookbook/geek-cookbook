@@ -1,8 +1,8 @@
 ---
-title: Secure Traefik using Keycloak
-description: Traefik forward auth can selectively secure your Docker services against an authentication backend, and Keycloak is a perfect, self-hosted match.
+title: SSO with traefik forward auth with Keycloak
+description: Traefik forward auth can selectively SSO your Docker services against an authentication backend, and Keycloak is a perfect, self-hosted match.
 ---
-# Using Traefik Forward Auth with KeyCloak
+# Traefik Forward Auth with KeyCloak for SSO
 
 While the [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/) recipe demonstrated a quick way to protect a set of explicitly-specified URLs using OIDC credentials from a Google account, this recipe will illustrate how to use your own KeyCloak instance to secure **any** URLs within your DNS domain.
 

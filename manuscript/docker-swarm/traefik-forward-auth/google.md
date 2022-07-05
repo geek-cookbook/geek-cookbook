@@ -1,8 +1,8 @@
 ---
-title: Secure Traefik with Google Auth
-description: Using Traefik Forward Auth, you can selectively secure your Docker services, using Google as your authentication backend!
+title: SSO with traefik forward auth with Google Oauth2
+description: Using Traefik Forward Auth, you can selectively apply SSO to your Docker services, using Google Oauth2 as your authentication backend!
 ---
-# Traefik Forward Auth using Google
+# Traefik Forward Auth using Google Oauth2 for SSO
 
 [Traefik Forward Auth][tfa] is incredibly useful to secure services with an additional layer of authentication, provided by an OIDC-compatible provider. The simplest possible provider is a self-hosted instance of [Dex][tfa-dex-static], configured with a static username and password. This is not much use if you want to provide "normies" access to your services though - a better solution would be to validate their credentials against an existing trusted public source.
 

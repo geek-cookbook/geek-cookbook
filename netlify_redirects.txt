@@ -15,3 +15,10 @@ https://geek-cookbook.funkypenguin.co.nz/recipies/* https://geek-cookbook.funkyp
 # Prefer "docker-swarm" to "ha-docker-swarm"
 /ha-docker-swarm/* /docker-swarm/:splat 301!
 
+# Old backlinks which we need to redirect to working URLs
+/kubernetes/start/          /kubernetes/ 301!
+/kubernetes/diycluster/     /kubernetes/cluster/ 301!
+/recipes/autopirate/mylarr/ recipes/autopirate/mylar/ 301!
+
+
+
