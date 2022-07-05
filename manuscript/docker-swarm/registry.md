@@ -4,7 +4,7 @@ Although we now have shared storage for our persistent container data, our docke
 
 When dealing with large container (looking at you, GitLab!), this can result in several gigabytes of wasted bandwidth per-node, and long delays when restarting containers on an alternate node. (_It also wastes disk space on each node, but we'll get to that in the next section_)
 
-The solution is to run an official Docker registry container as a ["pull-through" cache, or "registry mirror"](https://docs.docker.com/registry/recipes/mirror/). By using our persistent storage for the registry cache, we can ensure we have a single copy of all the containers we've pulled at least once. After the first pull, any subsequent pulls from our nodes will use the cached version from our registry mirror. As a result, services are available more quickly when restarting container nodes, and we can be more aggressive about cleaning up unused containers on our nodes (more later)
+The solution is to run an official Docker registry container as a ["pull-through" cache, or "registry mirror"](https://docs.docker.com/registry/recipes/mirror/). By using our persistent storage for the registry cache, we can ensure we have a single copy of all the containers we've pulled at least once. After the first pull, any subsequent pulls from our nodes will use the cached version from our registry mirror. As a result, services are available more quickly when restarting container nodes, and we can be more aggressive about cleaning up unused containers on our nodes (*more later*)
 
 The registry mirror runs as a swarm stack, using a simple docker-compose.yml. Customize **your mirror FQDN** below, so that Traefik will generate the appropriate LetsEncrypt certificates for it, and make it available via HTTPS.
 

@@ -1,3 +1,7 @@
+---
+title: Awesome selfhosted is selfTOASTED? Help is here!
+description: When there's something strange, and it don't look good, who you gonna call? Discord / forum / one-on-on support, that's who!
+---
 # Support
 
 !!! note "Excuse me... waiter, there's a bug in this recipe!"

@@ -13,7 +13,7 @@ Nginx Ingress Controller does make for a nice, simple "default" Ingress controll
 
     * [x] A [Kubernetes cluster](/kubernetes/cluster/) 
     * [x] [Flux deployment process](/kubernetes/deployment/flux/) bootstrapped
-    * [x] A [load-balancer](/kubernetes/load-balancer/) solution (*either [k3s](/kubernetes/load-balancer/k3s/) or [MetalLB](/kubernetes/loadbalancer/metallb/)*)
+    * [x] A [load-balancer](/kubernetes/loadbalancer/) solution (*either [k3s](/kubernetes/loadbalancer/k3s/) or [MetalLB](/kubernetes/loadbalancer/metallb/)*)
 
     Optional:
 

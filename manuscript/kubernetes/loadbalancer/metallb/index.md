@@ -3,7 +3,7 @@ description: MetalLB - Load-balancing for bare-metal Kubernetes clusters
 ---
 # MetalLB
 
-[MetalLB](https://metallb.universe.tf/) offers a network [load balancer](/kubernetes/load-balancer/) implementation which workes on "bare metal" (*as opposed to a cloud provider*).
+[MetalLB](https://metallb.universe.tf/) offers a network [load balancer](/kubernetes/loadbalancer/) implementation which workes on "bare metal" (*as opposed to a cloud provider*).
 
 MetalLB does two jobs:
 
