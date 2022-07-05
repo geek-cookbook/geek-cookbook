@@ -6,17 +6,17 @@ hide:
 
 # Welcome, fellow geek :wave:, start here :point_down:
 
-[Dive into Docker Swarm](/ha-docker-swarm/design/){: .md-button .md-button--primary}
+[Dive into Docker Swarm](/docker-swarm/design/){: .md-button .md-button--primary}
 [Kick it with Kubernetes](/kubernetes/){: .md-button .md-button--primary}
 
 ## What is this?
 
-The "*Geek Cookbook*" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](/ha-docker-swarm/design/) or [Kubernetes](/kubernetes/).
+The "*Geek Cookbook*" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](/docker-swarm/design/) or [Kubernetes](/kubernetes/).
 
 Running such a platform enables you to run self-hosted tools such as [AutoPirate](/recipes/autopirate/) (*Radarr, Sonarr, NZBGet and friends*), [Plex](https://www.plex.tv/), [NextCloud](https://nextcloud.com/), and includes elements such as:
 
-* [Automatic SSL-secured access](/ha-docker-swarm/traefik/) to all services (*with LetsEncrypt*)
-* [SSO / authentication layer](/ha-docker-swarm/traefik-forward-auth/) to protect unsecured / vulnerable services
+* [Automatic SSL-secured access](/docker-swarm/traefik/) to all services (*with LetsEncrypt*)
+* [SSO / authentication layer](/docker-swarm/traefik-forward-auth/) to protect unsecured / vulnerable services
 * [Automated backup](/recipes/elkarbackup/) of configuration and data
 * [Monitoring and metrics](/recipes/swarmprom/) collection, graphing and alerting
 
@@ -44,7 +44,7 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
 <div class="grid cards" markdown>
 
-- __Dive into :material-docker:{ .docker .lg .middle } [Docker Swarm](/ha-docker-swarm/design/)__
+- __Dive into :material-docker:{ .docker .lg .middle } [Docker Swarm](/docker-swarm/design/)__
 - __Kick it with :material-kubernetes:{ .kubernetes .lg .middle } [Kubernetes](/kubernetes/)__
 - __Geek out in :fontawesome-brands-discord:{ .discord .lg .middle } [Discord](http://chat.funkypenguin.co.nz)__
 - __Fast-track with 🚀 [Premix](/premix)!__

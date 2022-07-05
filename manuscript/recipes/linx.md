@@ -87,6 +87,6 @@ networks:
 
 Launch the Linx stack by running ```docker stack deploy linx -c <path -to-docker-compose.yml>```
 
-[^1]: Since the whole purpose of media/file sharing is to share stuff with **strangers**, this recipe doesn't take into account any sort of authentication using [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/).
+[^1]: Since the whole purpose of media/file sharing is to share stuff with **strangers**, this recipe doesn't take into account any sort of authentication using [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/).
 
 --8<-- "recipe-footer.md"

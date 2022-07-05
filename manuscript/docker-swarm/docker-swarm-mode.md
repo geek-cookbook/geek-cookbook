@@ -178,6 +178,6 @@ What have we achieved?
 !!! summary "Summary"
     Created:
 
-    * [X] [Docker swarm cluster](/ha-docker-swarm/design/)
+    * [X] [Docker swarm cluster](/docker-swarm/design/)
 
 --8<-- "recipe-footer.md"

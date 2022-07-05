@@ -13,7 +13,7 @@ Wekan allows to create Boards, on which Cards can be moved around between a numb
 There's a [video](https://www.youtube.com/watch?v=N3iMLwCNOro) of the developer showing off the app, as well as a [functional demo](https://boards.wekan.team/b/D2SzJKZDS4Z48yeQH/wekan-open-source-kanban-board-with-mit-license).
 
 !!! note
-    For added privacy, this design secures wekan behind a [traefik-forward-auth](/ha-docker-swarm/traefik-forward-auth/), so that in order to gain access to the wekan UI at all, authentication must have already occurred.
+    For added privacy, this design secures wekan behind a [traefik-forward-auth](/docker-swarm/traefik-forward-auth/), so that in order to gain access to the wekan UI at all, authentication must have already occurred.
 
 --8<-- "recipe-standard-ingredients.md"
 

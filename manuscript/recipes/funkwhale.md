@@ -132,7 +132,7 @@ Superuser created successfully.
 root@swarm:~#
 ```
 
-[^1]: Since the whole purpose of media sharing is to share **publically**, and Funkwhale includes robust user authentication, this recipe doesn't employ traefik-based authentication using [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/).
+[^1]: Since the whole purpose of media sharing is to share **publically**, and Funkwhale includes robust user authentication, this recipe doesn't employ traefik-based authentication using [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/).
 [^2]: These instructions are an opinionated simplication of the official instructions found at <https://docs.funkwhale.audio/installation/docker.html>
 [^3]: It should be noted that if you import your existing media, the files will be **copied** into Funkwhale's data folder. There doesn't seem to be a way to point Funkwhale at an existing collection and have it just play it from the filesystem. To this end, be prepared for double disk space usage if you plan to import your entire music collection!
 [^5]: No consideration is given at this point to backing up the Funkwhale data. Post a comment below if you'd like to see a backup container added!

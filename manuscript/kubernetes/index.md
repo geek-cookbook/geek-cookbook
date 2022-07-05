@@ -9,7 +9,7 @@ My first introduction to Kubernetes was a children's story:
 
 ## Why Kubernetes?
 
-Why would you want to Kubernetes for your self-hosted recipes, over simple [Docker Swarm](/ha-docker-swarm/)? Here's my personal take..
+Why would you want to Kubernetes for your self-hosted recipes, over simple [Docker Swarm](/docker-swarm/)? Here's my personal take..
 
 ### Docker Swarm is dead
 

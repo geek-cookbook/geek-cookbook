@@ -13,9 +13,9 @@ While a runner isn't strictly required to use GitLab, if you want to do CI, you'
 !!! summary "Ingredients"
 Existing:
 
-    1. [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-    2. [X] [Traefik](/ha-docker-swarm/traefik) configured per design
-    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
+    1. [X] [Docker swarm cluster](/docker-swarm/design/) with [persistent shared storage](/docker-swarm/shared-storage-ceph/)
+    2. [X] [Traefik](/docker-swarm/traefik) configured per design
+    3. [X] DNS entry for the hostname you intend to use, pointed to your [keepalived](/docker-swarm/keepalived/) IP
     4. [X] [GitLab](/recipes/gitlab) installation (see previous recipe)
 
 ## Preparation

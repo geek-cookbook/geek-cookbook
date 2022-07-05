@@ -41,21 +41,22 @@ plugins:
 nav:
     - Home: index.md         
     - Docker Swarm: 
+      - docker-swarm/index.md
       - Preparation:
-        - Design: ha-docker-swarm/design.md
-        - Nodes: ha-docker-swarm/nodes.md
-        - Shared Storage (Ceph): ha-docker-swarm/shared-storage-ceph.md
-        - Shared Storage (GlusterFS): ha-docker-swarm/shared-storage-gluster.md
-        - Keepalived: ha-docker-swarm/keepalived.md
-        - Docker Swarm Mode: ha-docker-swarm/docker-swarm-mode.md
-        - Traefik: ha-docker-swarm/traefik.md
+        - Design: docker-swarm/design.md
+        - Nodes: docker-swarm/nodes.md
+        - Shared Storage (Ceph): docker-swarm/shared-storage-ceph.md
+        - Shared Storage (GlusterFS): docker-swarm/shared-storage-gluster.md
+        - Keepalived: docker-swarm/keepalived.md
+        - Docker Swarm Mode: docker-swarm/docker-swarm-mode.md
+        - Traefik: docker-swarm/traefik.md
         - Traefik Forward Auth: 
-            - ha-docker-swarm/traefik-forward-auth/index.md 
-            - Dex (static): ha-docker-swarm/traefik-forward-auth/dex-static.md    
-            - Google: ha-docker-swarm/traefik-forward-auth/google.md      
-            - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
-        - Authelia: ha-docker-swarm/authelia.md
-        - Registry: ha-docker-swarm/registry.md
+            - docker-swarm/traefik-forward-auth/index.md 
+            - Dex (static): docker-swarm/traefik-forward-auth/dex-static.md    
+            - Google: docker-swarm/traefik-forward-auth/google.md      
+            - KeyCloak: docker-swarm/traefik-forward-auth/keycloak.md
+        - Authelia: docker-swarm/authelia.md
+        - Registry: docker-swarm/registry.md
         - Mail Server: recipes/mail.md
         - Duplicity: recipes/duplicity.md
       - Chef's Favorites:
@@ -130,12 +131,12 @@ nav:
         - Restic: recipes/restic.md
         - RSS Bridge: recipes/rss-bridge.md        
         - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
-        - Traefik: ha-docker-swarm/traefik.md
+        - Traefik: docker-swarm/traefik.md
         - Traefik Forward Auth: 
-            - ha-docker-swarm/traefik-forward-auth/index.md 
-            - Dex (static): ha-docker-swarm/traefik-forward-auth/dex-static.md    
-            - Google: ha-docker-swarm/traefik-forward-auth/google.md      
-            - KeyCloak: ha-docker-swarm/traefik-forward-auth/keycloak.md
+            - docker-swarm/traefik-forward-auth/index.md 
+            - Dex (static): docker-swarm/traefik-forward-auth/dex-static.md    
+            - Google: docker-swarm/traefik-forward-auth/google.md      
+            - KeyCloak: docker-swarm/traefik-forward-auth/keycloak.md
         - Wallabag: recipes/wallabag.md
         - Wekan: recipes/wekan.md
         - Wetty: recipes/wetty.md       
@@ -162,6 +163,7 @@ nav:
       #     - Helm: kubernetes/wip.md
       #     - GitHub Actions: kubernetes/wip.md
           - Flux: 
+            - kubernetes/deployment/flux/index.md
             - Install: kubernetes/deployment/flux/install.md
             - Design: kubernetes/deployment/flux/design.md
             - Operate: kubernetes/deployment/flux/operate.md

@@ -6,7 +6,7 @@
 [blogurl]: https://www.funkypenguin.co.nz
 [twitchurl]: https://www.twitch.tv/funkypenguinz
 [twitterurl]: https://twitter.com/funkypenguin
-[dockerurl]: https://geek-cookbook.funkypenguin.co.nz/ha-docker-swarm/design
+[dockerurl]: https://geek-cookbook.funkypenguin.co.nz/docker-swarm/design
 [k8surl]: https://geek-cookbook.funkypenguin.co.nz/kubernetes/
 
 <!-- markdownlint-disable MD033 MD041 -->
@@ -33,12 +33,12 @@
   
 # What is this?
 
-Funky Penguin's "**[Geek Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](/ha-docker-swarm/design/) or [Kubernetes](/kubernetes/).
+Funky Penguin's "**[Geek Cookbook](https://geek-cookbook.funkypenguin.co.nz)**" is a collection of how-to guides for establishing your own container-based self-hosting platform, using either [Docker Swarm](/docker-swarm/design/) or [Kubernetes](/kubernetes/).
 
 Running such a platform enables you to run self-hosted tools such as [AutoPirate](/recipes/autopirate/) (*Radarr, Sonarr, NZBGet and friends*), [Plex][plex], [NextCloud][nextcloud], and includes elements such as:
 
-- [Automatic SSL-secured access](/ha-docker-swarm/traefik/) to all services (*with LetsEncrypt*)
-- [SSO / authentication layer](/ha-docker-swarm/traefik-forward-auth/) to protect unsecured / vulnerable services
+- [Automatic SSL-secured access](/docker-swarm/traefik/) to all services (*with LetsEncrypt*)
+- [SSO / authentication layer](/docker-swarm/traefik-forward-auth/) to protect unsecured / vulnerable services
 - [Automated backup](/recipes/elkarbackup/) of configuration and data
 - [Monitoring and metrics](/recipes/swarmprom/) collection, graphing and alerting
 

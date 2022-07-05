@@ -1,6 +1,6 @@
 # Design
 
-Like the [Docker Swarm](/ha-docker-swarm/design/) "_private cloud_" design, the Kubernetes design is:
+Like the [Docker Swarm](/docker-swarm/design/) "_private cloud_" design, the Kubernetes design is:
 
 - **Highly-available** (_can tolerate the failure of a single component_)
 - **Scalable** (_can add resource or capacity as required_)
@@ -93,7 +93,7 @@ The phone-home container calls the webhook, and tells HAProxy to listen on port 
 
 ### 2 : The Traefik Ingress
 
-In the "default" namespace, we have a Traefik "Ingress Controller". An Ingress controller is a way to use a single port (_say, 443_) plus some intelligence (_say, a defined mapping of URLs to services_) to route incoming requests to the appropriate containers (_via services_). Basically, the Trafeik ingress does what [Traefik does for us under Docker Swarm](/ha-docker-swarm/traefik/).
+In the "default" namespace, we have a Traefik "Ingress Controller". An Ingress controller is a way to use a single port (_say, 443_) plus some intelligence (_say, a defined mapping of URLs to services_) to route incoming requests to the appropriate containers (_via services_). Basically, the Trafeik ingress does what [Traefik does for us under Docker Swarm](/docker-swarm/traefik/).
 
 What's happening in the diagram is that a phone-home pod is tied to the traefik pod using affinity, so that both containers will be executed on the same host. Again, the phone-home container calls a webhook on the HAProxy VM, auto-configuring HAproxy to send any HTTPs traffic to its calling address and customer NodePort port number.
 

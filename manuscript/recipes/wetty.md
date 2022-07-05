@@ -10,7 +10,7 @@ description: Terminal in a browser, baby!
 
 ## Why would you need SSH in a browser window?
 
-Need shell access to a node with no external access? Deploy Wetty behind an [traefik-forward-auth](/ha-docker-swarm/traefik-forward-auth/) with a SSL-terminating reverse proxy ([traefik](/ha-docker-swarm/traefik/)), and suddenly you have the means to SSH to your private host from any web browser (_protected by your [traefik-forward-auth](/ha-docker-swarm/traefik-forward-auth/) of course._)
+Need shell access to a node with no external access? Deploy Wetty behind an [traefik-forward-auth](/docker-swarm/traefik-forward-auth/) with a SSL-terminating reverse proxy ([traefik](/docker-swarm/traefik/)), and suddenly you have the means to SSH to your private host from any web browser (_protected by your [traefik-forward-auth](/docker-swarm/traefik-forward-auth/) of course._)
 
 Here are some other possible use cases:
 

@@ -187,7 +187,7 @@ Want to use Calendar/Contacts on your iOS device? Want to avoid dictating long, 
 
 Huzzah! NextCloud supports [service discovery for CalDAV/CardDAV](https://tools.ietf.org/html/rfc6764), allowing you to simply tell your device the primary URL of your server (_**nextcloud.batcave.org**, for example_), and have the device figure out the correct WebDAV path to use.
 
-We (_and anyone else using the [NextCloud Docker image](https://hub.docker.com/_/nextcloud/)_) are using an SSL-terminating reverse proxy ([Traefik](/ha-docker-swarm/traefik/)) in front of our NextCloud container. In fact, it's not **possible** to setup SSL **within** the NextCloud container.
+We (_and anyone else using the [NextCloud Docker image](https://hub.docker.com/_/nextcloud/)_) are using an SSL-terminating reverse proxy ([Traefik](/docker-swarm/traefik/)) in front of our NextCloud container. In fact, it's not **possible** to setup SSL **within** the NextCloud container.
 
 When using a reverse proxy, your device requests a URL from your proxy (<https://nextcloud.batcave.com/.well-known/caldav>), and the reverse proxy then passes that request **unencrypted** to the internal URL of the NextCloud instance (i.e., <http://172.16.12.123/.well-known/caldav>)
 

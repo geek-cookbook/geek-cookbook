@@ -26,7 +26,7 @@ One of the key drawcards for Kubernetes is horizonal scaling. You want to be abl
 
 ### Load Balancing
 
-Even if you had enough hardware capacity to handle any unexpected scaling requirements, ensuring that traffic can reliably reach your cluster is a complicated problem. You need to present a "virtual" IP for external traffic to ingress the cluster on. There are popular solutions to provide LoadBalancer services to a self-managed cluster (*i.e., [MetalLB](/kubernetes/load-balancer/metallb/)*), but they do represent extra complexity, and won't necessarily be resilient to outages outside of the cluster (*network devices, power, etc*).
+Even if you had enough hardware capacity to handle any unexpected scaling requirements, ensuring that traffic can reliably reach your cluster is a complicated problem. You need to present a "virtual" IP for external traffic to ingress the cluster on. There are popular solutions to provide LoadBalancer services to a self-managed cluster (*i.e., [MetalLB](/kubernetes/loadbalancer/metallb/)*), but they do represent extra complexity, and won't necessarily be resilient to outages outside of the cluster (*network devices, power, etc*).
 
 ### Storage
 
@@ -34,7 +34,7 @@ Cloud providers make it easy to connect their storage solutions to your cluster,
 
 ### Services
 
-Some things just "work better" in a cloud provider environment. For example, to run a highly available Postgres instance on Kubernetes requires at least 3 nodes, and 3 x storage, plus manual failover/failback in the event of an actual issue. This can represent a huge cost if you simply need a PostgreSQL database to provide (*for example*) a backend to an authentication service like [KeyCloak](/recipes/kubernetes/keycloak/). Cloud providers will have a range of managed database solutions which will cost far less than do-it-yourselfing, and integrate easily and securely into their kubernetes offerings.
+Some things just "work better" in a cloud provider environment. For example, to run a highly available Postgres instance on Kubernetes requires at least 3 nodes, and 3 x storage, plus manual failover/failback in the event of an actual issue. This can represent a huge cost if you simply need a PostgreSQL database to provide (*for example*) a backend to an authentication service like KeyCloak. Cloud providers will have a range of managed database solutions which will cost far less than do-it-yourselfing, and integrate easily and securely into their kubernetes offerings.
 
 ### Summary
 

@@ -1,13 +1,13 @@
 # Secret Replicator
 
-As explained when creating our [LetsEncrypt Wildcard certificates](/kubernetes/ssl-certificates/letsencrypt-wildcard/), it can be problematic that Certificates can't be **shared** between namespaces. One simple solution to this problem is simply to "replicate" secrets from one "source" namespace into all other namespaces.
+As explained when creating our [LetsEncrypt Wildcard certificates](/kubernetes/ssl-certificates/wildcard-certificate/), it can be problematic that Certificates can't be **shared** between namespaces. One simple solution to this problem is simply to "replicate" secrets from one "source" namespace into all other namespaces.
 
 !!! summary "Ingredients"
 
     * [x] A [Kubernetes cluster](/kubernetes/cluster/) 
     * [x] [Flux deployment process](/kubernetes/deployment/flux/) bootstrapped
     * [x] [secret-replicator](/kubernetes/secret-replicator/) deployed to request/renew certificates
-    * [x] [LetsEncrypt Wildcard Certificates](/kubernetes/ssl-certificates/letsencrypt-wildcard/) created in the `letsencrypt-wildcard-cert` namespace
+    * [x] [LetsEncrypt Wildcard Certificates](/kubernetes/ssl-certificates/wildcard-certificate/) created in the `letsencrypt-wildcard-cert` namespace
 
 Kiwigrid's "[Secret Replicator](https://github.com/kiwigrid/secret-replicator)" is a simple controller which replicates secrets from one namespace to another.[^1]
 

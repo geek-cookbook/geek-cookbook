@@ -21,8 +21,8 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 !!! summary "Ingredients"
     Already deployed:
 
-    * [X] [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-    * [X] DNS entry for the hostname you intend to use (*or a wildcard*), pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
+    * [X] [Docker swarm cluster](/docker-swarm/design/) with [persistent shared storage](/docker-swarm/shared-storage-ceph/)
+    * [X] DNS entry for the hostname you intend to use (*or a wildcard*), pointed to your [keepalived](/docker-swarm/keepalived/) IP
 
     New:
     * [ ] Traefik configured per design
@@ -244,6 +244,6 @@ You should now be able to access[^1] your traefik instance on `https://traefik.<
     * [X] Frontend proxy which will dynamically configure itself for new backend containers
     * [X] Automatic SSL support for all proxied resources
 
-[^1]: Did you notice how no authentication was required to view the Traefik dashboard? Eek! We'll tackle that in the next section, regarding [Traefik Forward Authentication](/ha-docker-swarm/traefik-forward-auth/)!
+[^1]: Did you notice how no authentication was required to view the Traefik dashboard? Eek! We'll tackle that in the next section, regarding [Traefik Forward Authentication](/docker-swarm/traefik-forward-auth/)!
 
 --8<-- "recipe-footer.md"

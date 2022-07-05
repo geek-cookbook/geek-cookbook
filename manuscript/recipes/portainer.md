@@ -101,7 +101,7 @@ networks:
 
     * Expose Portainer via Traefik with valid LetsEncrypt SSL certs
     * Optionally protected Portainer's web UI with OIDC auth via Traefik Forward Auth
-    * Use filesystem paths instead of Docker volumes for maximum "swarminess" (*We want an HA swarm, and HA Docker Volumes are a PITA, so we just use our [ceph shared storage](/ha-docker-swarm/shared-storage-ceph/)*)
+    * Use filesystem paths instead of Docker volumes for maximum "swarminess" (*We want an HA swarm, and HA Docker Volumes are a PITA, so we just use our [ceph shared storage](/docker-swarm/shared-storage-ceph/)*)
 
 ## Serving
 

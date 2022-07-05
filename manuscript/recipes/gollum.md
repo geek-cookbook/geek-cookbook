@@ -29,7 +29,7 @@ As you'll note in the (_real world_) screenshot above, my requirements for a per
 Gollum meets all these requirements, and as an added bonus, is extremely fast and lightweight.
 
 !!! note
-    Since Gollum itself offers no user authentication, this design secures gollum behind [traefik-forward-auth](/ha-docker-swarm/traefik-forward-auth/), so that in order to gain access to the Gollum UI at all, authentication must have already occurred.
+    Since Gollum itself offers no user authentication, this design secures gollum behind [traefik-forward-auth](/docker-swarm/traefik-forward-auth/), so that in order to gain access to the Gollum UI at all, authentication must have already occurred.
 
 --8<-- "recipe-standard-ingredients.md"
 

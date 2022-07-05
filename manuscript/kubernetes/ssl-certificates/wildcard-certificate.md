@@ -6,7 +6,7 @@ Now that we have an [Issuer](/kubernetes/ssl-certificates/letsencrypt-issuers/) 
 
     * [x] A [Kubernetes cluster](/kubernetes/cluster/) 
     * [x] [Flux deployment process](/kubernetes/deployment/flux/) bootstrapped
-    * [x] [Cert-Manager](/kubernetes/cert-manager/) deployed to request/renew certificates
+    * [x] [Cert-Manager](/kubernetes/ssl-certificates/cert-manager/) deployed to request/renew certificates
     * [x] [LetsEncrypt ClusterIssuers](/kubernetes/ssl-certificates/letsencrypt-issuers/) created using DNS01 validation solvers
 
 Certificates are Kubernetes secrets, and so are subject to the same limitations / RBAC controls as other secrets. Importantly, they are **namespaced**, so it's not possible to refer to a secret in one namespace, from a pod in **another** namespace. This restriction also applies to Ingress resources (*although there are workarounds*) - An Ingress can only refer to TLS secrets in its own namespace.

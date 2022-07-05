@@ -1,6 +1,6 @@
 
 [archivebox]:       /recipes/archivebox/
-[authelia]:         /ha-docker-swarm/authelia/
+[authelia]:         /docker-swarm/authelia/
 [autopirate]:       /recipes/autopirate/
 [bazarr]:           /recipes/autopirate/bazarr/
 [calibre-web]:      /recipes/calibre-web/
@@ -38,7 +38,7 @@
 [rtorrent]:         /recipes/autopirate/rtorrent/
 [sabnzbd]:          /recipes/autopirate/sabnzbd/
 [sonarr]:           /recipes/autopirate/sonarr/
-[tfa-dex-static]:   /ha-docker-swarm/traefik-forward-auth/dex-static/
-[tfa-google]:       /ha-docker-swarm/traefik-forward-auth/google/
-[tfa-keycloak]:     /ha-docker-swarm/traefik-forward-auth/keycloak/
-[tfa]:              /ha-docker-swarm/traefik-forward-auth/
+[tfa-dex-static]:   /docker-swarm/traefik-forward-auth/dex-static/
+[tfa-google]:       /docker-swarm/traefik-forward-auth/google/
+[tfa-keycloak]:     /docker-swarm/traefik-forward-auth/keycloak/
+[tfa]:              /docker-swarm/traefik-forward-auth/

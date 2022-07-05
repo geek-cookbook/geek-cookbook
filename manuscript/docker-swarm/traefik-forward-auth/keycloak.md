@@ -4,7 +4,7 @@ description: Traefik forward auth can selectively secure your Docker services ag
 ---
 # Using Traefik Forward Auth with KeyCloak
 
-While the [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) recipe demonstrated a quick way to protect a set of explicitly-specified URLs using OIDC credentials from a Google account, this recipe will illustrate how to use your own KeyCloak instance to secure **any** URLs within your DNS domain.
+While the [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/) recipe demonstrated a quick way to protect a set of explicitly-specified URLs using OIDC credentials from a Google account, this recipe will illustrate how to use your own KeyCloak instance to secure **any** URLs within your DNS domain.
 
 !!! tip "Keycloak with Traefik"
     Did you land here from a search, looking for information about using Keycloak with Traefik? All this and more is covered in the [Keycloak][keycloak] recipe!
@@ -28,7 +28,7 @@ COOKIE_DOMAIN=<the root FQDN of your domain>
 
 ### Prepare the docker service config
 
-This is a small container, you can simply add the following content to the existing `traefik-app.yml` deployed in the previous [Traefik](/ha-docker-swarm/traefik/) recipe:
+This is a small container, you can simply add the following content to the existing `traefik-app.yml` deployed in the previous [Traefik](/docker-swarm/traefik/) recipe:
 
 ```bash
  traefik-forward-auth:

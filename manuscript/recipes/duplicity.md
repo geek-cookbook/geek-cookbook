@@ -28,7 +28,7 @@ So what does this mean for our stack? It means we can leverage Duplicity to back
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+1. [Docker swarm cluster](/docker-swarm/design/) with [persistent shared storage](/docker-swarm/shared-storage-ceph/)
 2. Credentials for one of the Duplicity's supported upload destinations
 
 ## Preparation
@@ -90,7 +90,7 @@ Repeat after me: "If you don't verify your backup, **it's not a backup**".
 !!! warning
 Depending on what tier of storage you chose from your provider (_i.e., Google Coldline, or Amazon S3_), you may be charged for downloading data.
 
-Run a variation of the following to confirm a file you expect to be backed up, **is** backed up. (_I used traefik.yml from the [traefik recipie](/ha-docker-swarm/traefik/), since this is likely to exist for every reader_).
+Run a variation of the following to confirm a file you expect to be backed up, **is** backed up. (_I used traefik.yml from the [traefik recipie](/docker-swarm/traefik/), since this is likely to exist for every reader_).
 
 ```yaml
 docker run --env-file duplicity.env -it --rm \

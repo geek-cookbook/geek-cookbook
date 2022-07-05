@@ -13,11 +13,11 @@ Nginx Ingress Controller does make for a nice, simple "default" Ingress controll
 
     * [x] A [Kubernetes cluster](/kubernetes/cluster/) 
     * [x] [Flux deployment process](/kubernetes/deployment/flux/) bootstrapped
-    * [x] A [load-balancer](/kubernetes/load-balancer/) solution (*either [k3s](/kubernetes/load-balancer/k3s/) or [MetalLB](/kubernetes/load-balancer/metallb/)*)
+    * [x] A [load-balancer](/kubernetes/load-balancer/) solution (*either [k3s](/kubernetes/load-balancer/k3s/) or [MetalLB](/kubernetes/loadbalancer/metallb/)*)
 
     Optional:
 
-    * [x] [Cert-Manager](/kubernetes/cert-manager/) deployed to request/renew certificates
+    * [x] [Cert-Manager](/kubernetes/ssl-certificates/cert-manager/) deployed to request/renew certificates
     * [x] [External DNS](/kubernetes/external-dns/) configured to respond to ingresses, or with a wildcard DNS entry
 
 ## Preparation

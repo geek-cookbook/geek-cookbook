@@ -10,7 +10,7 @@ In the design described below, our "private cloud" platform is:
 * **Highly-available** (_can tolerate the failure of a single component_)
 * **Scalable** (_can add resource or capacity as required_)
 * **Portable** (_run it on your garage server today, run it in AWS tomorrow_)
-* **Secure** (_access protected with [LetsEncrypt certificates](/ha-docker-swarm/traefik/) and optional [OIDC with 2FA](/ha-docker-swarm/traefik-forward-auth/)_)
+* **Secure** (_access protected with [LetsEncrypt certificates](/docker-swarm/traefik/) and optional [OIDC with 2FA](/docker-swarm/traefik-forward-auth/)_)
 * **Automated** (_requires minimal care and feeding_)
 
 ## Design Decisions
@@ -20,7 +20,7 @@ In the design described below, our "private cloud" platform is:
 This means that:
 
 * At least 3 docker swarm manager nodes are required, to provide fault-tolerance of a single failure.
-* [Ceph](/ha-docker-swarm/shared-storage-ceph/) is employed for share storage, because it too can be made tolerant of a single failure.
+* [Ceph](/docker-swarm/shared-storage-ceph/) is employed for share storage, because it too can be made tolerant of a single failure.
 
 !!! note
     An exception to the 3-nodes decision is running a single-node configuration. If you only **have** one node, then obviously your swarm is only as resilient as that node. It's still a perfectly valid swarm configuration, ideal for starting your self-hosting journey. In fact, under the single-node configuration, you don't need ceph either, and you can simply use the local volume on your host for storage. You'll be able to migrate to ceph/more nodes if/when you expand.

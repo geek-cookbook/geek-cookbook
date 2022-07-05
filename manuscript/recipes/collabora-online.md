@@ -12,9 +12,9 @@ It's basically the [LibreOffice](https://www.libreoffice.org/) interface in a we
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
-2. [Traefik](/ha-docker-swarm/traefik) configured per design
-3. DNS entry for the hostname (_i.e. "collabora.your-domain.com"_) you intend to use for LDAP Account Manager, pointed to your [keepalived](/ha-docker-swarm/keepalived/) IP
+1. [Docker swarm cluster](/docker-swarm/design/) with [persistent shared storage](/docker-swarm/shared-storage-ceph/)
+2. [Traefik](/docker-swarm/traefik) configured per design
+3. DNS entry for the hostname (_i.e. "collabora.your-domain.com"_) you intend to use for LDAP Account Manager, pointed to your [keepalived](/docker-swarm/keepalived/) IP
 4. [NextCloud](/recipes/nextcloud/) installed and operational
 5. [Docker-compose](https://docs.docker.com/compose/install/) installed on your node(s) - this is a special case which needs to run outside of Docker Swarm
 

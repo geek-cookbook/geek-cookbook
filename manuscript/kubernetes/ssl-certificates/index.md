@@ -15,7 +15,7 @@ I've split this section, conceptually, into 3 separate tasks:
 
 1. Setup [Cert Manager](/kubernetes/ssl-certificates/cert-manager/), a controller whose job it is to request / renew certificates
 2. Setup "[Issuers](/kubernetes/ssl-certificates/letsencrypt-issuers/)" for LetsEncrypt, which Cert Manager will use to request certificates
-3. Setup a [wildcard certificate](/kubernetes/ssl-certificates/letsencrypt-wildcard/) in such a way that it can be used by Ingresses like Traefik or Ngnix
+3. Setup a [wildcard certificate](/kubernetes/ssl-certificates/wildcard-certificate/) in such a way that it can be used by Ingresses like Traefik or Ngnix
 
 --8<-- "recipe-footer.md"
 

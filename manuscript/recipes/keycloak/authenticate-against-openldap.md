@@ -3,7 +3,7 @@
 !!! warning
     This is not a complete recipe - it's an **optional** component of the [Keycloak recipe](/recipes/keycloak/), but has been split into its own page to reduce complexity.
 
-KeyCloak gets really sexy when you integrate it into your [OpenLDAP](/recipes/openldap/) stack (_also, it's great not to have to play with ugly LDAP tree UIs_). Note that OpenLDAP integration is **not necessary** if you want to use KeyCloak with [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) - all you need for that is [local users](/recipes/keycloak/create-user/), and an [OIDC client](http://localhost:8000/recipes/keycloak/setup-oidc-provider/).
+KeyCloak gets really sexy when you integrate it into your [OpenLDAP](/recipes/openldap/) stack (_also, it's great not to have to play with ugly LDAP tree UIs_). Note that OpenLDAP integration is **not necessary** if you want to use KeyCloak with [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/) - all you need for that is [local users](/recipes/keycloak/create-user/), and an [OIDC client](http://localhost:8000/recipes/keycloak/setup-oidc-provider/).
 
 ## Ingredients
 
@@ -57,7 +57,7 @@ For each of the following mappers, click the name, and set the "_Read Only_" fla
 
 ## Summary
 
-We've setup a new realm in KeyCloak, and configured read-write federation to an [OpenLDAP](/recipes/openldap/) backend. We can now manage our LDAP users using either KeyCloak or LDAP directly, and we can protect vulnerable services using [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/).
+We've setup a new realm in KeyCloak, and configured read-write federation to an [OpenLDAP](/recipes/openldap/) backend. We can now manage our LDAP users using either KeyCloak or LDAP directly, and we can protect vulnerable services using [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/).
 
 !!! Summary
     Created:

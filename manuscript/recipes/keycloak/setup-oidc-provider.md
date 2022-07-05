@@ -3,7 +3,7 @@
 !!! warning
     This is not a complete recipe - it's an optional component of the [Keycloak recipe](/recipes/keycloak/), but has been split into its own page to reduce complexity.
 
-Having an authentication provider is not much use until you start authenticating things against it! In order to authenticate against KeyCloak using OpenID Connect (OIDC), which is required for [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/), we'll setup a client in KeyCloak...
+Having an authentication provider is not much use until you start authenticating things against it! In order to authenticate against KeyCloak using OpenID Connect (OIDC), which is required for [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/), we'll setup a client in KeyCloak...
 
 ## Ingredients
 
@@ -14,7 +14,7 @@ Having an authentication provider is not much use until you start authenticating
 
     New:
 
-    * [ ] The URI(s) to protect with the OIDC provider. Refer to the [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/) recipe for more information  
+    * [ ] The URI(s) to protect with the OIDC provider. Refer to the [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/) recipe for more information  
 
 ## Preparation
 
@@ -45,7 +45,7 @@ Now that you've changed the access type, and clicked **Save**, an additional **C
 
 ## Summary
 
-We've setup an OIDC client in KeyCloak, which we can now use to protect vulnerable services using [Traefik Forward Auth](/ha-docker-swarm/traefik-forward-auth/). The OIDC URL provided by KeyCloak in the master realm, is `https://<your-keycloak-url>/realms/master/.well-known/openid-configuration`
+We've setup an OIDC client in KeyCloak, which we can now use to protect vulnerable services using [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/). The OIDC URL provided by KeyCloak in the master realm, is `https://<your-keycloak-url>/realms/master/.well-known/openid-configuration`
 
 !!! Summary
     Created:

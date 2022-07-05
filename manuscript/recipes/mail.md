@@ -16,7 +16,7 @@ docker-mailserver doesn't include a webmail client, and one is not strictly need
 
 ## Ingredients
 
-1. [Docker swarm cluster](/ha-docker-swarm/design/) with [persistent shared storage](/ha-docker-swarm/shared-storage-ceph.md)
+1. [Docker swarm cluster](/docker-swarm/design/) with [persistent shared storage](/docker-swarm/shared-storage-ceph/)
 2. LetsEncrypt authorized email address for domain
 3. Access to manage DNS records for domains
 

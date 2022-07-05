@@ -11,7 +11,7 @@ In order for Cert Manager to request/renew certificates, we have to tell it abou
 
     * [x] A [Kubernetes cluster](/kubernetes/cluster/) 
     * [x] [Flux deployment process](/kubernetes/deployment/flux/) bootstrapped
-    * [x] [Cert-Manager](/kubernetes/cert-manager/) deployed to request/renew certificates
+    * [x] [Cert-Manager](/kubernetes/ssl-certificates/cert-manager/) deployed to request/renew certificates
     * [x] API credentials for a [supported DNS01 provider](https://cert-manager.io/docs/configuration/acme/dns01/) for LetsEncrypt wildcard certs
 
 ## Preparation
@@ -79,7 +79,7 @@ As you'd imagine, the "prod" version of the LetsEncrypt issues is very similar, 
     ```
 
 !!! note
-    You'll note that there are two secrets referred to above - `privateKeySecretRef`, referencing `letsencrypt-prod` is for cert-manager to populate as a result of its ACME schenanigans - you don't have to do anything about this particular secret! The cloudflare-specific secret (*and this will change based on your provider*) is expected to be found in the same namespace as the certificate we'll be issuing, and will be discussed when we create our [wildcard certificate](/kubernetes/ssl-certificates/letsencrypt-wildcard/).
+    You'll note that there are two secrets referred to above - `privateKeySecretRef`, referencing `letsencrypt-prod` is for cert-manager to populate as a result of its ACME schenanigans - you don't have to do anything about this particular secret! The cloudflare-specific secret (*and this will change based on your provider*) is expected to be found in the same namespace as the certificate we'll be issuing, and will be discussed when we create our [wildcard certificate](/kubernetes/ssl-certificates/wildcard-certificate/).
 
 ## Serving
 
@@ -102,7 +102,7 @@ Status:
 Events:                    <none>
 ```
 
-Provided your account is registered, you're ready to proceed with [creating a wildcard certificate](/kubernetes/ssl-certificates/letsencrypt-wildcard/)!
+Provided your account is registered, you're ready to proceed with [creating a wildcard certificate](/kubernetes/ssl-certificates/wildcard-certificate/)!
 
 --8<-- "recipe-footer.md"
 
