@@ -1,4 +1,5 @@
 ---
+title: Setup nightscout in Docker
 description: CGM data with an API, for diabetic quality-of-life improvements
 ---
 

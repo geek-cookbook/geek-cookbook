@@ -1,5 +1,6 @@
 ---
-description: A private imgur/pastebin
+title: Run PrivateBin on Docker
+description: A private imgur/pastebin, running on Docker
 ---
 
 # PrivateBin

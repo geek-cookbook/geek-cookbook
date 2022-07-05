@@ -1,8 +1,9 @@
 ---
+title: Run Plex in Docker
 description: Play back all your media on all your devices
 ---
 
-# Plex
+# Plex in Docker
 
 [Plex](https://www.plex.tv/) is a client-server media player system and software suite comprising two main components (a media server and client applications)
 

@@ -1,5 +1,6 @@
 ---
-description: A tasty tool to manage your meals and shopping list
+title: Mealie recipe manager on Docker
+description: A tasty tool to manage your meals and shopping list, on Docker swarm
 ---
 
 # Mealie
