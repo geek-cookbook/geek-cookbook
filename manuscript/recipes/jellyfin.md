@@ -1,4 +1,5 @@
 ---
+title: Run Jellyfin in Docker with docker compose / swarm
 description: Jellyfin is best described as "like Emby but really FOSS"
 ---
 
@@ -8,7 +9,7 @@ description: Jellyfin is best described as "like Emby but really FOSS"
 
 ![Jellyfin Screenshot](../images/jellyfin.png)
 
-If it looks very similar as Emby, is because it started as a fork of it, but it has evolve since them. For a complete explanation of the why, look [here](https://jellyfin.org/docs/general/about.html).
+If it looks very similar as Emby, is because it started as a fork of it, but it has evolved since them. For a complete explanation of the why, look [here](https://jellyfin.org/docs/general/about.html).
 
 --8<-- "recipe-standard-ingredients.md"
 

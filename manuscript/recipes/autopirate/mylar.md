@@ -1,8 +1,9 @@
 ---
-description: Mylar is a tool for downloading and managing digital comic books.
+title: How to run Mylar3 in Docker
+description: Mylar is a tool for downloading and managing digital comic books, and is a valuable addition to the docker-swarm AutoPirate stack
 ---
 
-# Mylar
+# Mylar3 in Autopirate Docker Swarm stack
 
 !!! warning
     This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
@@ -13,7 +14,7 @@ description: Mylar is a tool for downloading and managing digital comic books.
 
 ## Inclusion into AutoPirate
 
-To include Mylar in your [AutoPirate](/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include Mylar in your [AutoPirate](/recipes/autopirate/) stack, include something like the following example in your `autopirate.yml` docker-compose v3 stack definition file:
 
 ```yaml
 mylar:

@@ -1,7 +1,8 @@
 ---
-description: Jackett works as a proxy server, standardizing your apps' access to torrent indexers
+title: How to setup Jackett in Docker alongside Sonarr / Radarr
+description: Jackett works as a proxy server, standardizing your apps' (Radarr / Sonarr specifically) access to torrent indexers, and is a useful addition to the Autopirate Docker Swarm stack
 ---
-# Jackett
+# Jackett in Autopirate Docker Swarm stack
 
 !!! warning
     This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
@@ -14,7 +15,7 @@ This allows for getting recent uploads (like RSS) and performing searches. Jacke
 
 ## Inclusion into AutoPirate
 
-To include Jackett in your [AutoPirate](/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include Jackett in your [AutoPirate](/recipes/autopirate/) stack, include something like the following example in your `autopirate.yml` docker-compose stack definition file:
 
 ```yaml
 jackett:

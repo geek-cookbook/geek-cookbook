@@ -1,4 +1,5 @@
 ---
+title: Run Emby server with docker compose (using swarm)
 description: Kick-ass media player!
 ---
 

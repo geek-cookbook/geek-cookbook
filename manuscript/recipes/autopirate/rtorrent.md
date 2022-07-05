@@ -1,8 +1,9 @@
 ---
-description: A popular tool for managing BitTorrent downloads
+title: Install rutorrent / rtorrent in Docker
+description: ruTorrent (looks like uTorrent) is a popular web UI frontend to rtorrent, the de-facto ncurses-based CLI torrent client. And it's a handy addition to our Autopirate Docker Swarm stack!
 ---
 
-# RTorrent / ruTorrent
+# RTorrent / ruTorrent in Autopirate Docker Swarm stack
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
@@ -17,7 +18,7 @@ When using a torrent client from behind NAT (_which swarm, by nature, is_), you 
 
 ## Inclusion into AutoPirate
 
-To include ruTorrent in your [AutoPirate][autopirate] stack, include the following in your autopirate.yml stack definition file:
+To include ruTorrent in your [AutoPirate](/recipes/autopirate/) stack, include something like the following example in your `autopirate.yml` docker-compose stack definition file:
 
 ```yaml
 rtorrent:

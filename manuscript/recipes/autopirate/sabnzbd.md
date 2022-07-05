@@ -1,8 +1,9 @@
 ---
-description: SABnzbd downloads and assembles your usenet content
+title: How to download from usenet using SABnzbd in Docker
+description: SABnzbd is a tool for downloading "content" from Usenet providers, and is the (older) workhorse of our Autopirate Docker Swarm stack
 ---
 
-# SABnzbd
+# SABnzbd in Autopirate Docker Swarm stack
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
@@ -15,8 +16,7 @@ SABnzbd is a workhorse of the stack. It takes .nzb files as input (_manually or 
 
 ## Inclusion into AutoPirate
 
-To include SABnzbd in your [AutoPirate](/recipes/autopirate/) stack
-(_The only reason you **wouldn't** use SABnzbd, would be if you were using [NZBGet](/recipes/autopirate/nzbget/) instead_), include the following in your autopirate.yml stack definition file:
+To include SABnzbd in your [AutoPirate](/recipes/autopirate/) stack, include something like the following example in your `autopirate.yml` docker-compose stack definition file:
 
 --8<-- "premix-cta.md"
 

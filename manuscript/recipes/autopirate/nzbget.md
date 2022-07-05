@@ -1,8 +1,9 @@
 ---
-description: NZBGet is a tool for downloading "content" from Usenet providers
+title: How to download from usenet using NZBGet in Docker
+description: NZBGet is a tool for downloading "content" from Usenet providers, and is the workhorse of our Autopirate Docker Swarm stack
 ---
 
-# NZBGet
+# NZBGet in Autopirate Docker Swarm stack
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
@@ -15,8 +16,7 @@ NZBGet performs the same function as [SABnzbd][sabnzbd] (_downloading content fr
 
 ## Inclusion into AutoPirate
 
-To include NZBGet in your [AutoPirate](/recipes/autopirate/) stack
-(_The only reason you **wouldn't** use NZBGet, would be if you were using [SABnzbd](/recipes/autopirate/sabnzbd/) instead_), include the following in your autopirate.yml stack definition file:
+To include NZBGet in your [AutoPirate](/recipes/autopirate/) stack, include something like the following example in your `autopirate.yml` docker-compose stack definition file:
 
 ```yaml
 nzbget:

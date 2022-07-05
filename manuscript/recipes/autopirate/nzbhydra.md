@@ -1,13 +1,14 @@
 ---
-description: NZBHydra is a meta search engine for NZB indexers
+title: Run nzbhydra2 in Docker
+description: NZBHydra is a meta search engine for NZB indexers, and can be used to provide aggregated search results to usenet search tools such as Radarr, Sonarr, etc. Here's how to deploy NZBHydra2 in the Docker Swarm Autopirate stack
 ---
 
-# NZBHydra 2
+# NZBHydra 2 in Autopirate Docker Swarm stack
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
 
-[NZBHydra 2](https://github.com/theotherp/nzbhydra2) is a meta search for NZB indexers. It provides easy access to a number of raw and newznab based indexers. You can search all your indexers from one place and use it as an indexer source for tools like Sonarr, Radarr or CouchPotato.
+[NZBHydra2](https://github.com/theotherp/nzbhydra2) is a meta search for NZB indexers. It provides easy access to a number of raw and newznab based indexers. You can search all your indexers from one place and use it as an indexer source for tools like Sonarr, Radarr or CouchPotato.
 
 ![NZBHydra Screenshot](../../images/nzbhydra2.png)
 
@@ -30,7 +31,7 @@ Features include:
 
 ## Inclusion into AutoPirate
 
-To include NZBHydra2 in your [AutoPirate][autopirate] stack, include the following in your autopirate.yml stack definition file:
+To include NZBHydra2 in your [AutoPirate](/recipes/autopirate/) stack, include something like the following example in your `autopirate.yml` docker-compose stack definition file:
 
 ```yaml
 nzbhydra2:

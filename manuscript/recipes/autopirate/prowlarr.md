@@ -1,8 +1,9 @@
 ---
-description: Prowlarr aggregates nzb/torrent searches. Like NZBHydra, but Arrr.
+title: Install Prowlarr in Docker
+description: Prowlarr aggregates nzb/torrent searches. Imagine NZBHydra and Jackett had a baby, but it came out Arrr. Here's how you install Prowlarr into the Docker Swarm Autopirate stack
 ---
 
-# Radarr
+# Prowlarr in Autopirate Docker Swarm stack
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
@@ -27,7 +28,7 @@ Fancy features include:
 
 ## Inclusion into AutoPirate
 
-To include Prowlarr in your [AutoPirate][autopirate] stack, include the following in your autopirate.yml stack definition file:
+To include Prowlarr in your [AutoPirate](/recipes/autopirate/) stack, include something like the following example in your `autopirate.yml` docker-compose stack definition file:
 
 ```yaml
   prowlarr:
@@ -62,6 +63,15 @@ To include Prowlarr in your [AutoPirate][autopirate] stack, include the followin
 
 --8<-- "premix-cta.md"
 --8<-- "recipe-autopirate-toc.md"
+
+## Prowlarr vs Jackett
+
+Prowlarr and [Jackett][jackett] perform similar roles (*they help you aggregate indexers*), but Prowlarr includes the following advantages over Jackett:
+
+1. Prowlarr can search both Usenet **and** Torrent indexers
+2. Given app API keys, Prowlarr can auto-configuer your Arr apps, adding its indexers. Prowlarr currently auto-configures [Radarr][radarr], [Sonarr][sonarr], [Lidarr][lidarr], [Mylar][mylar], [Readarr][Readarr], and [LazyLibrarian][lazylibrarian]
+3. Prowlarr can integrate with Flaresolverr to make it possible to query indexers behind Cloudflare "are-you-a-robot" protection, which would otherwise not be possible.
+
 --8<-- "recipe-footer.md"
 
 [^1]: Because Prowlarr is so young (*just a little kitten! :cat:*), there is no `:latest` image tag yet, so we're using the `:nightly` tag instead. Don't come crying to me if baby-Prowlarr bites your ass!

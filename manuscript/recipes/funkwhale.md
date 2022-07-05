@@ -1,4 +1,5 @@
 ---
+title: Install funkwhale with docker-compose / swarm
 description: Funkwhale is a decentralized, federated music streaming platform
 ---
 

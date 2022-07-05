@@ -1,7 +1,8 @@
 ---
+title: How to install Lidarr (Music arr tool) in Docker
 description: Lidarr is an automated music downloader for NZB and Torrent
 ---
-# Lidarr
+# Lidarr in Autopirate Docker Swarm stack
 
 !!! warning
     This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
@@ -12,7 +13,7 @@ description: Lidarr is an automated music downloader for NZB and Torrent
 
 ## Inclusion into AutoPirate
 
-To include Lidarr in your [AutoPirate](/recipes/autopirate/) stack, include the following in your autopirate.yml stack definition file:
+To include Lidarr in your [AutoPirate](/recipes/autopirate/) stack, include something like the following example in your `autopirate.yml` docker-compose stack definition file:
 
 ````yaml
   lidarr:
@@ -45,4 +46,13 @@ To include Lidarr in your [AutoPirate](/recipes/autopirate/) stack, include the 
 
 --8<-- "premix-cta.md"
 --8<-- "recipe-autopirate-toc.md"
+
+## Lidarr vs Headphones
+
+Lidarr and [Headphones][headphones] perform the same basic function. The primary difference, from what I can tell, is that Lidarr is build on the Arr stack, and so plays nicely with [Prowlarr][prowlarr].
+
+## Integrate Lidarr with Beets
+
+I've not tried this yet, but it seems that it's possible to [integrate Lidarr with Beets](https://www.reddit.com/r/Lidarr/comments/rahcer/my_lidarrbeets_automation_setup/)
+
 --8<-- "recipe-footer.md"

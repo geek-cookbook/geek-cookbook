@@ -1,8 +1,9 @@
 ---
-description: BookStack is a simple, self-hosted, easy-to-use platform for organising and storing information
+title: Run linuxserver bookstack in Docker
+description: BookStack is a simple, self-hosted, easy-to-use platform for organising and storing information. Here's how to integrate linuxserver's bookstack image into your Docker Swarm stack.
 ---
 
-# BookStack
+# BookStack in Docker
 
 BookStack is a simple, self-hosted, easy-to-use platform for organising and storing information.
 

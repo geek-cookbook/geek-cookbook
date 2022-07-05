@@ -1,5 +1,6 @@
 ---
-description: Be a l33t h@xor with this toolkit from the GHCQ
+title: Run an online a1z26 decoder with cyberchef (among others)
+description: Be a l33t h@xor with this toolkit from the GHCQ. Run your own online instance of cyberchef, and decode / encode those nasty a1z26s!
 ---
 
 # CyberChef

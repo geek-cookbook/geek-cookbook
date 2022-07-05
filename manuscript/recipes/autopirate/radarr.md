@@ -1,8 +1,9 @@
 ---
-description: Radarr is a tool for finding, downloading and managing movies
+title: How to run Radarr in Docker
+description: Radarr is a tool for finding, downloading and managing movies, and is a valuable addition to the docker-swarm AutoPirate stack
 ---
 
-# Radarr
+# Radarr in Autopirate Docker Swarm stack
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
@@ -27,7 +28,7 @@ description: Radarr is a tool for finding, downloading and managing movies
 
 ## Inclusion into AutoPirate
 
-To include Radarr in your [AutoPirate][autopirate] stack, include the following in your autopirate.yml stack definition file:
+To include Radarr in your [AutoPirate](/recipes/autopirate/) stack, include something like the following example in your `autopirate.yml` docker-compose v3 stack definition file:
 
 ```yaml
 radarr:

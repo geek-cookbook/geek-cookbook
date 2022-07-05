@@ -1,9 +1,9 @@
 ---
-description: Readarr is "Sonarr/Radarr for eBooks"
+title: Run Readarr (Sonarr for books / audiobooks) in Docker
+description: Readarr is "Sonarr/Radarr for eBooks and audiobooks, and plays perfectly with the rest of the Autopirate Docker Swarm stack"
 ---
 
-
-# Readarr
+# Readarr in Autopirate Docker Swarm stack
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
@@ -26,7 +26,7 @@ Features include:
 
 ## Inclusion into AutoPirate
 
-To include Readarr in your [AutoPirate][autopirate] stack, include something like the following in your autopirate.yml stack definition file:
+To include Readarr in your [AutoPirate](/recipes/autopirate/) stack, include something like the following example in your `autopirate.yml` docker-compose stack definition file:
 
 ```yaml
 readarr:
