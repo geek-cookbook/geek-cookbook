@@ -8,7 +8,7 @@ Did you receive excellent service? Want to compliment the chef? (_..and support 
 
 ### Employ your chef (engage) 🤝
 
-Is this too much of a geeky PITA? Do you just want results, stat? [I do this for a living](https://www.funkypenguin.co.nz/about/) - I provide consulting and engineering expertise to businesses needing short-term, short-notice support in the cloud-native space, including AWS/Azure/GKE, Kubernetes, CI/CD and automation.
+Is this too much of a geeky PITA? Do you just want results, stat? [I do this for a living](https://www.funkypenguin.co.nz/about/) - I'm a full-time Kubernetes contractor, providing consulting and engineering expertise to businesses needing short-term, short-notice support in the cloud-native space, including AWS/Azure/GKE, Kubernetes, CI/CD and automation.
 
 Learn more about working with me [here](https://www.funkypenguin.co.nz/work-with-me/).
 

@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+<!-- Content -->
+{% block libs %}
+<script>plausible("404",{ props: { path: document.location.pathname } });</script>
+{% endblock %}
+
+{% block content %}
+  <h1 id="404-page-not-found" style="text-align: center">404 / Geeky Recipe Not Found</h1>
+  <p style="text-align: center">
+    Having been erased,<br/>
+    The document you're seeking<br/>
+    Must now be retyped.
+    </p>
+    <p style="text-align: center">    
+    Try navigating using the heading tabs, or just search 👆
+    </p>
+{% endblock %}
