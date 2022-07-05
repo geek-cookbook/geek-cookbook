@@ -25,3 +25,14 @@
 <script src="/js/i-am-groot.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 {% endblock %}
+
+<!-- Add little penguin ascii-art to titles instead of 20-character-long site name -->
+{% block htmltitle %}
+  {% if page.meta and page.meta.title %}
+  <title>{{ page.meta.title }} |・∀・</title>
+  {% elif page.title and not page.is_homepage %}
+  <title>{{ page.title | striptags }} |・∀・</title>
+  {% else %}
+  <title>{{ config.site_name }}</title>
+  {% endif %}
+{% endblock %}

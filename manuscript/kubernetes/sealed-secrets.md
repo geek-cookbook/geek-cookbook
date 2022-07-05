@@ -14,7 +14,7 @@ They're still not very secret though, and you certainly wouldn't want to be stor
 
 An elegant solution to this problem is Bitnami Labs' Sealed Secrets.
 
-![Sealed Secrets illustration](../../images/sealed-secrets.png)
+![Sealed Secrets illustration](/images/sealed-secrets.png)
 
 A "[SealedSecret](https://github.com/bitnami-labs/sealed-secrets)" can only be decrypted (*and turned back into a regular Secret*) by the controller in the target cluster. (*or by a controller in another cluster which has been primed with your own private/public pair)* This means the SealedSecret is safe to store and expose anywhere.
 
