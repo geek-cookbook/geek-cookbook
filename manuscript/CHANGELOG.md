@@ -27,7 +27,7 @@ Recipe                      | Description                                       
 
 ## Subscribe to updates
 
---8<-- "convertkit-subscribe-form.html"
+<div class="rm-area-subscribe-to-recipe"></div>
 
 Also available via:
 

@@ -43,7 +43,7 @@ Welcome, fellow geek :wave: If you're impatient, just start here :point_down:
 
 The "*Geek Cookbook*" is a collection of how-to guides for establishing your own container-based awesome selfhosted platform, using either [Docker Swarm](/docker-swarm/design/) or [Kubernetes](/kubernetes/).
 
-Running such a platform enables you to run selfhosted services such as the [AutoPirate](/recipes/autopirate/) (*Radarr, Sonarr, NZBGet and friends*) stack, [Plex](https://www.plex.tv/), [NextCloud](https://nextcloud.com/)etc, and includes elements such as:
+Running such a platform enables you to run selfhosted services such as the [AutoPirate](/recipes/autopirate/) (*Radarr, Sonarr, NZBGet and friends*) stack, [Plex](https://www.plex.tv/), [NextCloud](https://nextcloud.com/) etc, and includes elements such as:
 
 * [Automatic SSL-secured access](/docker-swarm/traefik/) to all services (*with LetsEncrypt*)
 * [SSO / authentication layer](/docker-swarm/traefik-forward-auth/) to protect unsecured / vulnerable services
