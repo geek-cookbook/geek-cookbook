@@ -10,7 +10,10 @@ RUN pip install \
         mkdocs-macros-plugin \
         mkdocs-git-committers-plugin-2 \
         mkdocs-meta-descriptions-plugin \
-        mkdocs-with-pdf
+        mkdocs-with-pdf \
+        mkdocs-extra-sass-plugin \
+        qrcode \
+        livereload
 
 # Theoretically this could add support for headless chrome
 RUN apk add --no-cache \
@@ -21,4 +24,10 @@ RUN apk add --no-cache \
       ca-certificates \
       ttf-freefont \
       nodejs \
-      yarn
+      yarn ttf-ubuntu-font-family
+
+ # Additional font 
+#  COPY fonts /usr/share/fonts/Additional 
+ RUN apk --update --upgrade --no-cache add fontconfig ttf-freefont font-noto terminus-font \ 
+     && fc-cache -f \ 
+     && fc-list | sort 
