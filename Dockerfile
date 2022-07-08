@@ -24,7 +24,10 @@ RUN apk add --no-cache \
       ca-certificates \
       ttf-freefont \
       nodejs \
-      yarn ttf-ubuntu-font-family
+      yarn ttf-ubuntu-font-family dbus yarn
+
+
+RUN   git config --global --add safe.directory /docs
 
  # Additional font 
 #  COPY fonts /usr/share/fonts/Additional 
