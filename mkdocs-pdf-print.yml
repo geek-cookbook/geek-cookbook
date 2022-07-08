@@ -1,23 +1,26 @@
 # Used to trigger a PDF build of the site
 INHERIT: mkdocs.yml
+
+# Slimmed down version of recipes
+docs_dir: 'docs_to_pdf'
+
 plugins:
+  extra-sass:
   with-pdf:
-    author: David Young
-    copyright: ANY TEXT
-    
-    cover: false
+    #author: David Young
+    #copyright: ANY TEXT
+    cover: true
     back_cover: true
-    cover_title: TITLE TEXT
-    cover_subtitle: SUBTITLE TEXT
-    custom_template_path: TEMPLATES PATH
-    toc_title: TOC TITLE TEXT
-    heading_shift: false
+    #cover_title: TITLE TEXT
+    #cover_subtitle: SUBTITLE TEXT
+    #custom_template_path: TEMPLATES PATH
+    #toc_title: TOC TITLE TEXT
+    #heading_shift: true
     toc_level: 3
-    ordered_chapter_level: 2
+    ordered_chapter_level: 4
     excludes_children:
         - 'release-notes/:upgrading'
         - 'release-notes/:changelog'
-    
     exclude_pages:
         - 'bugs/'
         - 'appendix/contribute/'
@@ -26,14 +29,11 @@ plugins:
           img: POSTER IMAGE URL
           text: ALTERNATE TEXT
         - src: ...
-    two_columns_level: 3
-    
+#    two_columns_level: 3
     render_js: true
-    headless_chrome_path: headless-chromium
+#    headless_chrome_path: headless-chromium
     
-    output_path: any-place/document.pdf
-    enabled_if_env: ENABLE_PDF_EXPORT
-    
+    output_path: funky-penguins-geek-cookbook.pdf
     debug_html: true
     show_anchors: true
     verbose: true  
