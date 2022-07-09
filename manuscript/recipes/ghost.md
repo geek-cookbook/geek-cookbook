@@ -6,7 +6,7 @@ description: Ghost - Beautiful online publicatio (who you gonna call?)
 
 [Ghost](https://ghost.org) is "a fully open source, hackable platform for building and running a modern online publication."
 
-![Ghost screenshot](/images/ghost.png)
+![Ghost screenshot](/images/ghost.png){ loading=lazy }
 
 --8<-- "recipe-standard-ingredients.md"
 

@@ -16,7 +16,7 @@ description: LazyLibrarian is a tool to follow authors and manage your ebook / a
 * AutoAdd feature for book management tools like Calibre which must have books in flattened directory structure, or use calibre to import your books into an existing calibre library
 * LazyLibrarian can also be used to search for and download magazines, and monitor for new issues
 
-![Lazy Librarian Screenshot](../../images/lazylibrarian.png)
+![Lazy Librarian Screenshot](../../images/lazylibrarian.png){ loading=lazy }
 
 ## Inclusion into AutoPirate
 

@@ -22,11 +22,11 @@ Having an authentication provider is not much use until you start authenticating
 
 Within the "Master" realm (*no need for more realms yet*), navigate to **Clients**, and then click **Create** at the top right:
 
-![Navigating to the add user interface in Keycloak](/images/keycloak-add-client-1.png)
+![Navigating to the add user interface in Keycloak](/images/keycloak-add-client-1.png){ loading=lazy }
 
 Enter a name for your client (*remember, we're authenticating **applications** now, not users, so use an application-specific name*):
 
-![Adding a client in KeyCloak](/images/keycloak-add-client-2.png)
+![Adding a client in KeyCloak](/images/keycloak-add-client-2.png){ loading=lazy }
 
 ### Configure Client
 
@@ -35,13 +35,13 @@ Once your client is created, set at **least** the following, and click **Save**
 * **Access Type** : Confidential
 * **Valid Redirect URIs** : <The URIs you want to protect\>
 
-![Set KeyCloak client to confidential access type, add redirect URIs](/images/keycloak-add-client-3.png)
+![Set KeyCloak client to confidential access type, add redirect URIs](/images/keycloak-add-client-3.png){ loading=lazy }
 
 ### Retrieve Client Secret
 
 Now that you've changed the access type, and clicked **Save**, an additional **Credentials** tab appears at the top of the window. Click on the tab, and capture the KeyCloak-generated secret. This secret, plus your client name, is required to authenticate against KeyCloak via OIDC.
 
-![Capture client secret from KeyCloak](/images/keycloak-add-client-4.png)
+![Capture client secret from KeyCloak](/images/keycloak-add-client-4.png){ loading=lazy }
 
 ## Summary
 

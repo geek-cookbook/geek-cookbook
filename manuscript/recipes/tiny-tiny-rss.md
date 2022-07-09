@@ -10,7 +10,7 @@ description: Geeky RSS reader
 * Filtering (discard all articles with title matching "trump")
 * Sharing articles via a unique public URL/feed
 
-![Tiny Tiny RSS Screenshot](../images/tiny-tiny-rss.png)
+![Tiny Tiny RSS Screenshot](../images/tiny-tiny-rss.png){ loading=lazy }
 
 --8<-- "recipe-standard-ingredients.md"
 

@@ -5,7 +5,7 @@ description: A self-hosted internet archiving solution
 
 [ArchiveBox](https://github.com/ArchiveBox/ArchiveBox) is a self-hosted internet archiving solution to collect and save sites you wish to view offline.
 
-![Archivebox Screenshot](../images/archivebox.png)
+![Archivebox Screenshot](../images/archivebox.png){ loading=lazy }
 
 Features include:
 

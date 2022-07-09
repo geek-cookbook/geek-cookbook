@@ -18,27 +18,27 @@ IMO, the easiest Kubernetes cloud provider to experiment with is [DigitalOcean](
 
 Create a project, and then from your project page, click **Manage** -> **Kubernetes (LTD)** in the left-hand panel:
 
-![Kubernetes on Digital Ocean Screenshot #1](/images/kubernetes-on-digitalocean-screenshot-1.png)
+![Kubernetes on Digital Ocean Screenshot #1](/images/kubernetes-on-digitalocean-screenshot-1.png){ loading=lazy }
 
 Until DigitalOcean considers their Kubernetes offering to be "production ready", you'll need the additional step of clicking on **Enable Limited Access**:
 
-![Kubernetes on Digital Ocean Screenshot #2](/images/kubernetes-on-digitalocean-screenshot-2.png)
+![Kubernetes on Digital Ocean Screenshot #2](/images/kubernetes-on-digitalocean-screenshot-2.png){ loading=lazy }
 
 The _Enable Limited Access_ button changes to read _Create a Kubernetes Cluster_ . Cleeeek it:
 
-![Kubernetes on Digital Ocean Screenshot #3](/images/kubernetes-on-digitalocean-screenshot-3.png)
+![Kubernetes on Digital Ocean Screenshot #3](/images/kubernetes-on-digitalocean-screenshot-3.png){ loading=lazy }
 
 When prompted, choose some defaults for your first node pool (_your pool of "compute" resources for your cluster_), and give it a name. In more complex deployments, you can use this concept of "node pools" to run certain applications (_like an inconsequential nightly batch job_) on a particular class of compute instance (_such as cheap, preemptible instances_)
 
-![Kubernetes on Digital Ocean Screenshot #4](/images/kubernetes-on-digitalocean-screenshot-4.png)
+![Kubernetes on Digital Ocean Screenshot #4](/images/kubernetes-on-digitalocean-screenshot-4.png){ loading=lazy }
 
 That's it! Have a sip of your 🍷, a bite of your :cheese:, and wait for your cluster to build. While you wait, follow the instructions to setup kubectl (if you don't already have it)
 
-![Kubernetes on Digital Ocean Screenshot #5](/images/kubernetes-on-digitalocean-screenshot-5.png)
+![Kubernetes on Digital Ocean Screenshot #5](/images/kubernetes-on-digitalocean-screenshot-5.png){ loading=lazy }
 
 DigitalOcean will provide you with a "kubeconfig" file to use to access your cluster. It's at the bottom of the page (_illustrated below_), and easy to miss (_in my experience_).
 
-![Kubernetes on Digital Ocean Screenshot #6](/images/kubernetes-on-digitalocean-screenshot-6.png)
+![Kubernetes on Digital Ocean Screenshot #6](/images/kubernetes-on-digitalocean-screenshot-6.png){ loading=lazy }
 
 ## Release the kubectl!
 

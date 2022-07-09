@@ -2,7 +2,7 @@
 
 [Helm](https://github.com/helm/helm) is a tool for managing Kubernetes "charts" (_think of it as an uber-polished collection of recipes_). Using one simple command, and by tweaking one simple config file (values.yaml), you can launch a complex stack. There are many publicly available helm charts for popular packages like [elasticsearch](https://github.com/helm/charts/tree/master/stable/elasticsearch), [ghost](https://github.com/helm/charts/tree/master/stable/ghost), [grafana](https://github.com/helm/charts/tree/master/stable/grafana), [mediawiki](https://github.com/helm/charts/tree/master/stable/mediawiki), etc.
 
-![Kubernetes Snapshots](/images/kubernetes-helm.png)
+![Kubernetes Snapshots](/images/kubernetes-helm.png){ loading=lazy }
 
 ## Ingredients
 

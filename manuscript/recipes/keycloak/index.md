@@ -8,7 +8,7 @@ description: Kick-ass OIDC and identity management
 
 KeyCloak's OpenID provider can also be used in combination with [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/), to protect [vulnerable services](/recipes/autopirate/nzbget/) with an extra layer of authentication.
 
-![KeyCloak Screenshot](../../images/keycloak.png)
+![KeyCloak Screenshot](../../images/keycloak.png){ loading=lazy }
 
 --8<-- "recipe-standard-ingredients.md"
 

@@ -19,7 +19,7 @@ Features include:
 * Free, open source and self-hosted
 * Super simple installation
 
-![Kanboard screenshot](/images/kanboard.png)
+![Kanboard screenshot](/images/kanboard.png){ loading=lazy }
 
 --8<-- "recipe-standard-ingredients.md"
 

@@ -19,6 +19,7 @@ copyright: 'Copyright &copy; 2016 - 2021 David Young, Funky Penguin Limited'
 
 # Plugins
 plugins:
+  # privacy:
   search:
   minify:
     minify_html: true

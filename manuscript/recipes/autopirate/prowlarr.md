@@ -12,7 +12,7 @@ description: Prowlarr aggregates nzb/torrent searches. Imagine NZBHydra and Jack
 
 Prowlarr supports management of both Torrent Trackers and Usenet Indexers. It integrates seamlessly with [Lidarr][lidarr], [Mylar3][mylar], [Radarr][radarr], [Readarr][readarr], and [Sonarr][sonarr] offering complete management of your indexers with no per app Indexer setup required!
 
-![Prowlarr Screenshot](../../images/prowlarr.png)
+![Prowlarr Screenshot](../../images/prowlarr.png){ loading=lazy }
 
 Fancy features include:
 

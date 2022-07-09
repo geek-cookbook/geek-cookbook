@@ -2,7 +2,7 @@
 
 "Premix" is a private repository shared with [GitHub sponsors](https://github.com/sponsors/funkypenguin), which contains the necessary files and automation to quickly deploy any recipe, or even an entire [swarm](/docker/) / [cluster](/kubernetes/)! :muscle:
 
-![Screenshot of premix repo](/images/premix.png)
+![Screenshot of premix repo](/images/premix.png){ loading=lazy }
 
 ## Benefits
 

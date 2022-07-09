@@ -8,7 +8,7 @@ description: Automate your fake Instagram life with automated fakery!
 
 What's an Instagram bot? Basically, you feed the bot your Instagram user/password, and it executes follows/unfollows/likes/comments on your behalf based on rules you set. (_I set my bot to like one photo tagged with "[#penguin](https://www.instagram.com/explore/tags/penguin/?hl=en)" per-run_)
 
-![InstaPy Screenshot](../images/instapy.png)
+![InstaPy Screenshot](../images/instapy.png){ loading=lazy }
 
 Great power, right? A client (_yes, you can [hire](https://www.funkypenguin.co.nz/) me!_) asked me to integrate InstaPy into their swarm, and this recipe is the result.
 

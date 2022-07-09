@@ -7,7 +7,7 @@ description: Authelia is an open-source authentication and authorization server 
 
 [Authelia](https://github.com/authelia/authelia) is an open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal. It acts as a companion of reverse proxies like Nginx, Traefik, or HAProxy to let them know whether queries should pass through. Unauthenticated users are redirected to Authelia Sign-in portal instead.
 
-![Authelia Screenshot](../images/authelia.png)
+![Authelia Screenshot](../images/authelia.png){ loading=lazy }
 
 Features include
 
@@ -245,7 +245,7 @@ Launch the Authelia stack by running ```docker stack deploy authelia -c <path -t
 
 To test the service works successfully. Try to access a service that you had added the middleware label to. If it works successfully you will be presented with a login screen
 
-![Authelia Screenshot](../images/authelia_login.png)
+![Authelia Screenshot](../images/authelia_login.png){ loading=lazy }
 
 [^1]: The inclusion of Authelia was due to the efforts of @bencey in Discord (Thanks Ben!)
 

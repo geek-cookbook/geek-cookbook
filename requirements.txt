@@ -1,11 +1,22 @@
-mkdocs>=1.0.4
-pymdown-extensions>=6.0
-Markdown>=3.0.1
-mkdocs-minify-plugin>=0.2
-mkdocs-autolinks-plugin>=0.2.0
-# mkdocs-htmlproofer-plugin>=0.0.3
-mkdocs-git-revision-date-localized-plugin>=0.4.8
-mkdocs-macros-plugin
-mkdocs-material
+#mkdocs>=1.0.4
+#pymdown-extensions>=6.0
+#Markdown>=3.0.1
+#mkdocs-minify-plugin>=0.2
+#mkdocs-autolinks-plugin>=0.2.0
+## mkdocs-htmlproofer-plugin>=0.0.3
+#mkdocs-git-revision-date-localized-plugin>=0.4.8
+#mkdocs-macros-plugin
+#mkdocs-material
+
+
+# Direct dependencies
+jinja2>=3.0.2
+markdown>=3.2
+mkdocs>=1.3.0
+mkdocs-material-extensions>=1.0.3
+pygments>=2.12
+pymdown-extensions>=9.4
+
+# My own dependencies
 mkdocs-git-committers-plugin-2
 mkdocs-meta-descriptions-plugin

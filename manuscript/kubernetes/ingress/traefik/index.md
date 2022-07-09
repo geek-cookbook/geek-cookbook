@@ -12,7 +12,7 @@ Traefik natively includes some features which Nginx lacks:
 * [x] An elegant "middleware" implementation allowing certain requests to pass through additional layers of authentication
 * [x] A beautiful dashboard
 
-![Traefik Screenshot](../../../images/traefik.png)
+![Traefik Screenshot](../../../images/traefik.png){ loading=lazy }
 
 !!! summary "Ingredients"
 

@@ -6,7 +6,7 @@ description: Stalk your ex on Facebook in your feedreader!
 
 Do you hate having to access multiple sites to view specific content? [RSS-Bridge](https://github.com/RSS-Bridge/rss-bridge) can convert content from a wide variety of websites (*such as Reddit, Facebook, Twitter*) so that it can be viewed in a structured and consistent way, all from one place (Your feed reader)
 
-![RSS-Bridge Screenshot](../images/rssbridge.png)
+![RSS-Bridge Screenshot](../images/rssbridge.png){ loading=lazy }
 
 --8<-- "recipe-standard-ingredients.md"
 

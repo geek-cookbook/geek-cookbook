@@ -11,7 +11,7 @@ Don't be like [Cameron](http://haltandcatchfire.wikia.com/wiki/Cameron_Howe). Ba
 
 ElkarBackup is a free open-source backup solution based on RSync/RSnapshot. It's basically a web wrapper around rsync/rsnapshot, which means that your backups are just files on a filesystem, utilising hardlinks for tracking incremental changes. I find this result more reassuring than a blob of compressed, (encrypted?) data that [more sophisticated backup solutions](/recipes/duplicity/) would produce for you.
 
-![ElkarBackup Screenshot](../images/elkarbackup.png)
+![ElkarBackup Screenshot](../images/elkarbackup.png){ loading=lazy }
 
 ## Details
 
@@ -153,11 +153,11 @@ Launch the ElkarBackup stack by running ```docker stack deploy elkarbackup -c <p
 
 Log into your new instance at https://**YOUR-FQDN**, with user "root" and the password default password "root":
 
-![ElkarBackup Login Screen](/images/elkarbackup-setup-1.png)
+![ElkarBackup Login Screen](/images/elkarbackup-setup-1.png){ loading=lazy }
 
 First thing you do, change your password, using the gear icon, and "Change Password" link:
 
-![ElkarBackup Login Screen](/images/elkarbackup-setup-2.png)
+![ElkarBackup Login Screen](/images/elkarbackup-setup-2.png){ loading=lazy }
 
 Have a read of the [Elkarbackup Docs](https://docs.elkarbackup.org/docs/introduction.html) - they introduce the concept of **clients** (_hosts containing data to be backed up_), **jobs** (_what data gets backed up_), **policies** (_when is data backed up and how long is it kept_).
 
@@ -216,7 +216,7 @@ Repeat after me : "**It's not a backup unless you've tested a restore**"
 
 To restore files form a job, click on the "Restore" button in the WebUI, while on the **Jobs** tab:
 
-![ElkarBackup Login Screen](/images/elkarbackup-setup-3.png)
+![ElkarBackup Login Screen](/images/elkarbackup-setup-3.png){ loading=lazy }
 
 This takes you to a list of backup names and file paths. You can choose to download the entire contents of the backup from your browser as a .tar.gz, or to restore the backup to the client. If you click on the **name** of the backup, you can also drill down into the file structure, choosing to restore a single file or directory.
 

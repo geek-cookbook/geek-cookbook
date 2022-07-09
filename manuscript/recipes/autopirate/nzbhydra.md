@@ -10,7 +10,7 @@ description: NZBHydra is a meta search engine for NZB indexers, and can be used 
 
 [NZBHydra2](https://github.com/theotherp/nzbhydra2) is a meta search for NZB indexers. It provides easy access to a number of raw and newznab based indexers. You can search all your indexers from one place and use it as an indexer source for tools like Sonarr, Radarr or CouchPotato.
 
-![NZBHydra Screenshot](../../images/nzbhydra2.png)
+![NZBHydra Screenshot](../../images/nzbhydra2.png){ loading=lazy }
 
 Features include:
 

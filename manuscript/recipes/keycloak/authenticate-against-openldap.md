@@ -24,11 +24,11 @@ You start in the "Master" realm - but mouseover the realm name, to a dropdown bo
 
 ### Create Realm
 
-![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-1.png)
+![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-1.png){ loading=lazy }
 
 Enter a name for your new realm, and click "_Create_":
 
-![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-2.png)
+![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-2.png){ loading=lazy }
 
 ### Setup User Federation
 
@@ -44,7 +44,7 @@ Once in the desired realm, click on **User Federation**, and click **Add Provide
 
 Save your changes, and then navigate back to "User Federation" > Your LDAP name > Mappers:
 
-![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-3.png)
+![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-3.png){ loading=lazy }
 
 For each of the following mappers, click the name, and set the "_Read Only_" flag to "_Off_" (_this enables 2-way sync between KeyCloak and OpenLDAP_)
 
@@ -53,7 +53,7 @@ For each of the following mappers, click the name, and set the "_Read Only_" fla
 * email
 * first name
 
-![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-4.png)
+![KeyCloak Add Realm Screenshot](/images/sso-stack-keycloak-4.png){ loading=lazy }
 
 ## Summary
 

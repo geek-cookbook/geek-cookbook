@@ -6,7 +6,7 @@ description: Terminal in a browser, baby!
 
 [Wetty](https://github.com/krishnasrinivas/wetty) is a responsive, modern terminal, in your web browser. Yes, your browser. When combined with secure authentication and SSL encryption, it becomes a useful tool for quick and easy remote access.
 
-![Wetty Screenshot](../images/wetty.png)
+![Wetty Screenshot](../images/wetty.png){ loading=lazy }
 
 ## Why would you need SSH in a browser window?
 

@@ -8,7 +8,7 @@ Wallabag is a self-hosted webapp which allows you to save URLs to "read later", 
 
 All saved data (_pages, annotations, images, tags, etc_) are stored on your own server, and can be shared/exported in a variety of formats, including ePub and PDF.
 
-![Wallabag Screenshot](../images/wallabag.png)
+![Wallabag Screenshot](../images/wallabag.png){ loading=lazy }
 
 There are plugins for [Chrome](https://chrome.google.com/webstore/detail/wallabagger/gbmgphmejlcoihgedabhgjdkcahacjlj) and [Firefox](https://addons.mozilla.org/firefox/addon/wallabagger/), as well as apps for [iOS](https://appsto.re/fr/YeqYfb.i), [Android](https://play.google.com/store/apps/details?id=fr.gaulupeau.apps.InThePoche), etc. Wallabag will also integrate nicely with my favorite RSS reader,  [Miniflux](https://miniflux.net/) (_for which there is an [existing recipe](/recipes/miniflux)_).
 
@@ -174,7 +174,7 @@ You'll have noticed redis, plus the pocket/instapaper-importing containers inclu
 
 Even with all these elements in place, you still need to enable Redis under Internal Settings -> Import, via the **admin** user in the webUI. Here's a screenshot to help you find it:
 
-![Wallabag Imports](../images/wallabag_imports.png)
+![Wallabag Imports](../images/wallabag_imports.png){ loading=lazy }
 
 [^1]: If you wanted to expose the Wekan UI directly, you could remove the traefik-forward-auth from the design. I found the iOS app to be unreliable and clunky, so elected to leave my traefik-forward-auth enabled, and to simply use the webUI on my mobile devices instead. YMMMV.
 

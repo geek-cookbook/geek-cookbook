@@ -8,7 +8,7 @@ description: Share docs. Backup files. Share stuff.
 
 - <https://en.wikipedia.org/wiki/Nextcloud>
 
-![NextCloud Screenshot](../images/nextcloud.png)
+![NextCloud Screenshot](../images/nextcloud.png){ loading=lazy }
 
 This recipe is based on the official NextCloud docker image, but includes seprate containers ofor the database (_MariaDB_), Redis (_for transactional locking_), Apache Solr (_for full-text searching_), automated database backup, (_you *do* backup the stuff you care about, right?_) and a separate cron container for running NextCloud's 15-min crons.
 

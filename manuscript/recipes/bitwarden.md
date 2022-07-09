@@ -13,7 +13,7 @@ Heard about the [latest password breach](https://www.databreaches.net) (*since l
 
 Enter Bitwarden..
 
-![BitWarden Screenshot](../images/bitwarden.png)
+![BitWarden Screenshot](../images/bitwarden.png){ loading=lazy }
 
 Bitwarden is a free and open source password management solution for individuals, teams, and business organizations. While Bitwarden does offer a paid / hosted version, the free version comes with the following (*better than any other free password manager!*):
 

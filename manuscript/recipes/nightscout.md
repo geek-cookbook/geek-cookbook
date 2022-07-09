@@ -12,7 +12,7 @@ Nightscout is "*...an open source, DIY project that allows real time access to a
 
     NightScout frees you from the CGM's supplier's limited and proprietary app, and unlocks advanced charting, alarming, and sharing features :muscle:
 
-![Nightscout Screenshot](../images/nightscout.png)
+![Nightscout Screenshot](../images/nightscout.png){ loading=lazy }
 
 [Nightscout](https://nightscout.github.io/) is _the_ standard for open-source CGM data collection, used by diabetics and those who love them, to store, share, and retrieve blood-glocuse data, in order to live healthier and happier lives. It's used as the data sharing/syncing backend for all the popular smartphone apps, including [xDrip+](https://github.com/NightscoutFoundation/xDrip) (*Android*) and [Spike App](https://spike-app.com/) (*iOS*).
 

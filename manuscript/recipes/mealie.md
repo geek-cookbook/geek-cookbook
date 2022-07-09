@@ -9,7 +9,7 @@ description: A tasty tool to manage your meals and shopping list, on Docker swar
 
 Easily add recipes into your database by providing the url[^penguinfood], and mealie will automatically import the relevant data or add a family recipe with the UI editor.
 
-![Mealie Screenshot](../images/mealie.png)
+![Mealie Screenshot](../images/mealie.png){ loading=lazy }
 
 Mealie also provides a secure API for interactions from 3rd party applications.
 
@@ -88,7 +88,7 @@ networks:
 
 Launch the mealie stack by running ```docker stack deploy mealie -c <path -to-docker-compose.yml>```. The first time you access Mealie at https://**YOUR FQDN**, you might think there's something wrong. There are **no** recipes, and no instructions. Hover over the little plus sign at the bottom right, and within a second, two icons appear. Click the "link" icon to import a recipe from a URL:
 
-![Mealie Screenshot](../images/mealie-import-recipe.png)
+![Mealie Screenshot](../images/mealie-import-recipe.png){ loading=lazy }
 
 [^penguinfood]: I scraped all these recipes from <https://www.food.com/search/penguin>
 [^1]: If you plan to use Mealie for fancy things like an early-morning alarm to defrost the chicken, you may need to customize the [Traefik Forward Auth][tfa] rules, or even remove them entirely, for unauthenticated API access.

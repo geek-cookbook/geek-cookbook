@@ -16,17 +16,17 @@ Existing:
 
 Within the "Master" realm (_no need for more realms yet_), navigate to **Manage** -> **Users**, and then click **Add User** at the top right:
 
-![Navigating to the add user interface in Keycloak](/images/keycloak-add-user-1.png)
+![Navigating to the add user interface in Keycloak](/images/keycloak-add-user-1.png){ loading=lazy }
 
 Populate your new user's username (it's the only mandatory field)
 
-![Populating a username in the add user interface in Keycloak](/images/keycloak-add-user-2.png)
+![Populating a username in the add user interface in Keycloak](/images/keycloak-add-user-2.png){ loading=lazy }
 
 ### Set User Credentials
 
 Once your user is created, to set their password, click on the "**Credentials**" tab, and procede to reset it. Set the password to non-temporary, unless you like extra work!
 
-![Resetting a user's password in Keycloak](/images/keycloak-add-user-3.png)
+![Resetting a user's password in Keycloak](/images/keycloak-add-user-3.png){ loading=lazy }
 
 ## Summary
 

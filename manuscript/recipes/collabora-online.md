@@ -8,7 +8,7 @@ Collabora Online Development Edition (or "[CODE](https://www.collaboraoffice.com
 
 It's basically the [LibreOffice](https://www.libreoffice.org/) interface in a web-browser. CODE is not a standalone app, it's a backend intended to be accessed via "WOPI" from an existing interface (_in our case, [NextCloud](/recipes/nextcloud/)_)
 
-![CODE Screenshot](../images/collabora-online.png)
+![CODE Screenshot](../images/collabora-online.png){ loading=lazy }
 
 ## Ingredients
 
@@ -36,7 +36,7 @@ What if we're running multiple nodes in our swarm, and nginx ends up on a differ
 
 Here's a (_highly technical_) diagram to illustrate:
 
-![CODE traffic flow](../images/collabora-traffic-flow.png)
+![CODE traffic flow](../images/collabora-traffic-flow.png){ loading=lazy }
 
 ### Setup data locations
 
@@ -301,7 +301,7 @@ Visit `https://collabora.<yourdomain\>/l/loleaflet/dist/admin/admin.html` and co
 
 In NextCloud, Install the **Collabora Online** app (<https://apps.nextcloud.com/apps/richdocuments>), and then under **Settings -> Collabora Online**, set your Collabora Online Server to ```https://collabora.<your domain>```
 
-![CODE Screenshot](../images/collabora-online-in-nextcloud.png)
+![CODE Screenshot](../images/collabora-online-in-nextcloud.png){ loading=lazy }
 
 Now browse your NextCloud files. Click the plus (+) sign to create a new document, and create either a new document, spreadsheet, or presentation. Name your document and then click on it. If Collabora is setup correctly, you'll shortly enter into the rich editing interface provided by Collabora :)
 

@@ -9,7 +9,7 @@ description: Lidarr is an automated music downloader for NZB and Torrent
 
 [Lidarr](https://lidarr.audio/) is an automated music downloader for NZB and Torrent. It performs the same function as [Headphones](/recipes/autopirate/headphones), but is written using the same(ish) codebase as [Radarr][radarr] and [Sonarr][sonarr]. It's blazingly fast, and includes beautiful album/artist art. Lidarr supports [SABnzbd][sabnzbd], [NZBGet][nzbget], Transmission, µTorrent, Deluge and Blackhole (_just like Sonarr / Radarr_)
 
-![Lidarr Screenshot](../../images/lidarr.png)
+![Lidarr Screenshot](../../images/lidarr.png){ loading=lazy }
 
 ## Inclusion into AutoPirate
 

@@ -6,7 +6,7 @@
 
 The intention of this recipe is to provide a local IPFS cluster for the purpose of providing persistent storage for the various components of the recipes
 
-![IPFS Screenshot](../images/ipfs.png)
+![IPFS Screenshot](../images/ipfs.png){ loading=lazy }
 
 Description. IPFS is a peer-to-peer distributed file system that seeks to connect all computing devices with the same system of files. In some ways, IPFS is similar to the World Wide Web, but IPFS could be seen as a single BitTorrent swarm, exchanging objects within one Git repository.
 

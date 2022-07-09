@@ -6,7 +6,7 @@ description: Is that IP address in use?
 
 phpIPAM is an open-source web IP address management application (_IPAM_). Its goal is to provide light, modern and useful IP address management. It is php-based application with MySQL database backend, using jQuery libraries, ajax and HTML5/CSS3 features.
 
-![phpIPAM Screenshot](../images/phpipam.png)
+![phpIPAM Screenshot](../images/phpipam.png){ loading=lazy }
 
 phpIPAM fulfils a non-sexy, but important role - It helps you manage your IP address allocation.
 

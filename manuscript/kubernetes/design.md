@@ -69,7 +69,7 @@ We use a phone-home container, which calls a simple webhook on our haproxy VM, a
 
 Here's a high-level diagram:
 
-![Kubernetes Design](/images/kubernetes-cluster-design.png)
+![Kubernetes Design](/images/kubernetes-cluster-design.png){ loading=lazy }
 
 ## Overview
 

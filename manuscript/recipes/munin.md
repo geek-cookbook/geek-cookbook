@@ -7,7 +7,7 @@ description: Network resource monitoring tool for quick analysis
 
 Munin is a networked resource monitoring tool that can help analyze resource trends and "what just happened to kill our performance?" problems. It is designed to be very plug and play. A default installation provides a lot of graphs with almost no work.
 
-![Munin Screenshot](../images/munin.png)
+![Munin Screenshot](../images/munin.png){ loading=lazy }
 
 Using Munin you can easily monitor the performance of your computers, networks, SANs, applications, weather measurements and whatever comes to mind. It makes it easy to determine "what's different today" when a performance problem crops up. It makes it easy to see how you're doing capacity-wise on any resources.
 

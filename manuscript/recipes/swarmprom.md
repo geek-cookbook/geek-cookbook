@@ -6,7 +6,7 @@ description: Data is beautiful
 
 [Swarmprom](https://github.com/stefanprodan/swarmprom) is a starter kit for Docker Swarm monitoring with [Prometheus](https://prometheus.io/), [Grafana](http://grafana.org/), [cAdvisor](https://github.com/google/cadvisor), [Node Exporter](https://github.com/prometheus/node_exporter), [Alert Manager](https://github.com/prometheus/alertmanager) and [Unsee](https://github.com/cloudflare/unsee). And it's **damn** sexy. See for yourself:
 
-![Swarmprom Screenshot](../images/swarmprom.png)
+![Swarmprom Screenshot](../images/swarmprom.png){ loading=lazy }
 
 So what do all these components do?
 

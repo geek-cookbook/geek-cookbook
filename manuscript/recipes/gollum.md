@@ -16,7 +16,7 @@ Gollum pages:
 * Can be edited with your favourite system editor or IDE (_changes will be visible after committing_) or with the built-in web interface.
 * Can be displayed in all versions (_commits_).
 
-![Gollum Screenshot](../images/gollum.png)
+![Gollum Screenshot](../images/gollum.png){ loading=lazy }
 
 As you'll note in the (_real world_) screenshot above, my requirements for a personal wiki are:
 

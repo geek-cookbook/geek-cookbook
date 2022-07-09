@@ -9,7 +9,7 @@ The [AutoPirate](/recipes/autopirate/) recipe includes [Lazy Librarian](https://
 
 [Calibre-Web](https://github.com/janeczku/calibre-web) could be described as "_[Plex](/recipes/plex/) (or [Emby](/recipes/emby/)) for eBooks_" - it's a web-based interface to manage your eBook library, screenshot below:
 
-![Calibre-Web Screenshot](../images/calibre-web.png)
+![Calibre-Web Screenshot](../images/calibre-web.png){ loading=lazy }
 
 Of course, you probably already manage your eBooks using the excellent [Calibre](https://calibre-ebook.com/), but this is primarily a (_powerful_) desktop application. Calibre-Web is an alternative way to manage / view your existing Calibre database, meaning you can continue to use Calibre on your desktop if you wish.
 

@@ -7,7 +7,7 @@ description: Jellyfin is best described as "like Emby but really FOSS"
 
 [Jellyfin](https://jellyfin.org/) is best described as "_like [Emby](/recipes/emby) but really [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software)_".
 
-![Jellyfin Screenshot](../images/jellyfin.png)
+![Jellyfin Screenshot](../images/jellyfin.png){ loading=lazy }
 
 If it looks very similar as Emby, is because it started as a fork of it, but it has evolved since them. For a complete explanation of the why, look [here](https://jellyfin.org/docs/general/about.html).
 

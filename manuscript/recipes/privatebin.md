@@ -7,7 +7,7 @@ description: A private imgur/pastebin, running on Docker
 
 PrivateBin is a minimalist, open source online pastebin where the server (can) has zero knowledge of pasted data. We all need to paste data / log files somewhere when it doesn't make sense to paste it inline. With PrivateBin, you can own the hosting, access, and eventual deletion of this data.
 
-![PrivateBin Screenshot](../images/privatebin.png)
+![PrivateBin Screenshot](../images/privatebin.png){ loading=lazy }
 
 --8<-- "recipe-standard-ingredients.md"
 

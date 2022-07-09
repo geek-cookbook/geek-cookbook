@@ -11,7 +11,7 @@ description: Jackett works as a proxy server, standardizing your apps' (Radarr /
 
 This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.
 
-![Jackett Screenshot](../../images/jackett.png)
+![Jackett Screenshot](../../images/jackett.png){ loading=lazy }
 
 ## Inclusion into AutoPirate
 

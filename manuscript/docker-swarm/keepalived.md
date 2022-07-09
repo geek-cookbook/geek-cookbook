@@ -13,7 +13,7 @@ Normally this is done using a HA loadbalancer, but since Docker Swarm aready pro
 
 This is accomplished with the use of keepalived on at least two nodes.
 
-![Ceph Screenshot](../images/keepalived.png)
+![Ceph Screenshot](../images/keepalived.png){ loading=lazy }
 
 ## Ingredients
 

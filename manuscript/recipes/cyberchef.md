@@ -9,7 +9,7 @@ Are you a [l33t h@x0r](https://en.wikipedia.org/wiki/Hackers_(film))? Do you nee
 
 [^1]: [Government Communications Headquarters](https://en.wikipedia.org/wiki/GCHQ), commonly known as GCHQ, is an intelligence and security organisation responsible for providing signals intelligence and information assurance to the government and armed forces of the United Kingdom
 
-![CyberChef Screenshot](../images/cyberchef.png)
+![CyberChef Screenshot](../images/cyberchef.png){ loading=lazy }
 
 [CyberChef](https://github.com/gchq/CyberChef) is a simple, intuitive web app for carrying out all manner of "cyber" operations within a web browser. These operations include simple encoding like XOR or Base64, more complex encryption like AES, DES and Blowfish, creating binary and hexdumps, compression and decompression of data, calculating hashes and checksums, IPv6 and X.509 parsing, changing character encodings, and much more.
 

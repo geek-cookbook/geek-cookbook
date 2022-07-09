@@ -11,7 +11,7 @@ description: A UI to make Docker less geeky
 
 Portainer attempts to take the "geekiness" out of containers, by wrapping all the jargon and complexity in a shiny UI and some simple abstractions. It's a great addition to any stack, especially if you're just starting your containerization journey!
 
-![Portainer Screenshot](../images/portainer.png)
+![Portainer Screenshot](../images/portainer.png){ loading=lazy }
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -111,7 +111,7 @@ Launch the Portainer stack by running ```docker stack deploy portainer -c <path 
 
 Log into your new instance at https://**YOUR-FQDN**. You'll be prompted to set your admin user/password on first login. Start at "Home", and click on "Primary" to manage your swarm (*you can manage multiple swarms via one Portainer instance using the agent*):
 
-![Portainer Home](../images/portainer-home.png)
+![Portainer Home](../images/portainer-home.png){ loading=lazy }
 
 [^1]: There are [some schenanigans](https://www.reddit.com/r/docker/comments/au9wnu/linuxserverio_templates_for_portainer/) you can do to install LinuxServer.io templates in Portainer. Don't go crying to them for support though! :crying_cat_face:
 

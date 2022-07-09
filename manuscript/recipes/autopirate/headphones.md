@@ -5,7 +5,7 @@
 
 [Headphones](https://github.com/rembo10/headphones) is an automated music downloader for NZB and Torrent, written in Python. It supports [SABnzbd][sabnzbd], [NZBget][nzbget], Transmission, µTorrent, Deluge and Blackhole.
 
-![Headphones Screenshot](../../images/headphones.png)
+![Headphones Screenshot](../../images/headphones.png){ loading=lazy }
 
 ## Inclusion into AutoPirate
 

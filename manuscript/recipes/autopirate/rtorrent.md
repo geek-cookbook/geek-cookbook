@@ -10,7 +10,7 @@ description: ruTorrent (looks like uTorrent) is a popular web UI frontend to rto
 
 [RTorrent](http://rakshasa.github.io/rtorrent) is a popular CLI-based bittorrent client, and [ruTorrent](https://github.com/Novik/ruTorrent) is a powerful web interface for rtorrent.
 
-![Rtorrent Screenshot](../../images/rtorrent.png)
+![Rtorrent Screenshot](../../images/rtorrent.png){ loading=lazy }
 
 ## Choose incoming port
 

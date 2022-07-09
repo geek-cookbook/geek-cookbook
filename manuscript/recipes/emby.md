@@ -7,7 +7,7 @@ description: Kick-ass media player!
 
 [Emby](https://emby.media/) (_think "M.B." or "Media Browser"_) is best described as "_like [Plex](/recipes/plex/) but different_" 😁 - It's a bit geekier and less polished than Plex, but it allows for more flexibility and customization.
 
-![Emby Screenshot](../images/emby.png)
+![Emby Screenshot](../images/emby.png){ loading=lazy }
 
 I've started experimenting with Emby as an alternative to Plex, because of the advanced [parental controls](https://github.com/MediaBrowser/Wiki/wiki/Parental-Controls) it offers. Based on my experimentation thus far, I have a "**kid-safe**" profile which automatically logs in, and only displays kid-safe content, based on ratings.
 

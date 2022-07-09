@@ -6,7 +6,7 @@ description: Easily index, search, and view archive all of your scanned dead-tre
 
 Paper is a nightmare. Environmental issues aside, there’s no excuse for it in the 21st century. It takes up space, collects dust, doesn’t support any form of a search feature, indexing is tedious, it’s heavy and prone to damage & loss. [^1] Paperless NG will OCR, index, and store data about your documents so they are easy to search and view, unlike that hulking metal file cabinet you have in your office.
 
-![Paperless Screenshot](../images/paperless-screenshot.png)
+![Paperless Screenshot](../images/paperless-screenshot.png){ loading=lazy }
 
 --8<-- "recipe-standard-ingredients.md"
 

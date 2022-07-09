@@ -11,7 +11,7 @@ However, at its simplest, Minio allows you to expose a local filestructure via t
 
 Under a more advanced configuration, Minio runs in distributed mode, with [features](https://docs.min.io/minio/baremetal/concepts/feature-overview.html) including high-availability, mirroring, erasure-coding, and "bitrot detection".
 
-![Minio Screenshot](../images/minio.png)
+![Minio Screenshot](../images/minio.png){ loading=lazy }
 
 Possible use-cases:
 

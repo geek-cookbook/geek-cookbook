@@ -10,7 +10,7 @@ description: Sonarr is a tool for finding, downloading and managing TV series*, 
 
 [Sonarr](https://sonarr.tv/) is a tool for finding, downloading and managing your TV series.
 
-![Sonarr Screenshot](../../images/sonarr.png)
+![Sonarr Screenshot](../../images/sonarr.png){ loading=lazy }
 
 ## Inclusion into AutoPirate
 

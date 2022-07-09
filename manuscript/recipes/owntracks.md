@@ -6,7 +6,7 @@ description: Spy on yourself.
 
 [OwnTracks](https://owntracks.org/) allows you to keep track of your own location. You can build your private location diary or share it with your family and friends. OwnTracks is open-source and uses open protocols for communication so you can be sure your data stays secure and private.
 
-![OwnTracks Screenshot](../images/owntracks.png)
+![OwnTracks Screenshot](../images/owntracks.png){ loading=lazy }
 
 Using a smartphone app, OwnTracks allows you to collect and analyse your own location data **without** sharing this data with a cloud provider (_i.e. Apple, Google_). Potential use cases are:
 

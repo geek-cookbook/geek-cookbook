@@ -4,7 +4,7 @@ description: Neat one-sentence description of recipe for social media previews
 
 # <///RECIPE NAME>
 
-![Linx Screenshot](../images/linx.png)
+![Linx Screenshot](../images/linx.png){ loading=lazy }
 
 [Linx](https://github.com/andreimarcu/linx-server) is self-hosted file/media-sharing service, which features:
 

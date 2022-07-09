@@ -113,7 +113,7 @@ storage: 1Gi
 
 And here's what my snapshot list looks like after a few days:
 
-![Kubernetes Snapshots](/images/kubernetes-snapshots.png)
+![Kubernetes Snapshots](/images/kubernetes-snapshots.png){ loading=lazy }
 
 ### Snapshot a non-Kubernetes volume (optional)
 

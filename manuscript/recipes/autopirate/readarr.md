@@ -10,7 +10,7 @@ description: Readarr is "Sonarr/Radarr for eBooks and audiobooks, and plays perf
 
 [Readarr](https://github.com/Readarr/Readarr), in the fine tradition of [Radarr][radarr] and [Sonarr][sonarr], is a tool for "sourcing" eBooks, using usenet or bittorrent indexers.
 
-![Readarr Screenshot](../../images/readarr.png)
+![Readarr Screenshot](../../images/readarr.png){ loading=lazy }
 
 Features include:
 

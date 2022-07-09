@@ -12,7 +12,7 @@ description: SABnzbd is a tool for downloading "content" from Usenet providers, 
 
 SABnzbd is a workhorse of the stack. It takes .nzb files as input (_manually or from other [autopirate](/recipes/autopirate/) stack tools_), then connects to your chosen Usenet provider, downloads all the individual binaries referenced by the .nzb, and then tests/repairs/combines/uncompresses them all into the final result - media files.
 
-![SABNZBD Screenshot](../../images/sabnzbd.png)
+![SABNZBD Screenshot](../../images/sabnzbd.png){ loading=lazy }
 
 ## Inclusion into AutoPirate
 

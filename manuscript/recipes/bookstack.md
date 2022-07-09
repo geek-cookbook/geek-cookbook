@@ -9,7 +9,7 @@ BookStack is a simple, self-hosted, easy-to-use platform for organising and stor
 
 A friendly middle ground between heavyweights like MediaWiki or Confluence and [Gollum](/recipes/gollum/), BookStack relies on a database backend (so searching and versioning is easy), but limits itself to a pre-defined, 3-tier structure (book, chapter, page). The result is a lightweight, approachable personal documentation stack, which includes search and Markdown editing.
 
-![BookStack Screenshot](../images/bookstack.png)
+![BookStack Screenshot](../images/bookstack.png){ loading=lazy }
 
 I like to protect my public-facing web UIs with an [oauth_proxy](/reference/oauth_proxy), ensuring that if an application bug (or a user misconfiguration) exposes the app to unplanned public scrutiny, I have a second layer of defense.
 

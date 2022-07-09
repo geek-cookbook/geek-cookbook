@@ -15,6 +15,6 @@ With the goal of creating a safe and inclusive community, we've adopted the [Con
 
 To report a violation of our code of conduct in our subreddit, use the "Report" button as illustrated below:
 
-![](/images/reddit-report.png)
+![](/images/reddit-report.png){ loading=lazy }
 
 The reported message will be highlighted to moderators, who will address the issue as detailed in the [enforcement guidelines](/community/code-of-conduct/#enforcement-guidelines).

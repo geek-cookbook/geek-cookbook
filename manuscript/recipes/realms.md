@@ -6,7 +6,7 @@ description: A git-based wiki with auth and registration
 
 Realms is a git-based wiki (_like [Gollum](/recipes/gollum/), but with basic authentication and registration_)
 
-![Realms Screenshot](../images/realms.png)
+![Realms Screenshot](../images/realms.png){ loading=lazy }
 
 Features include:
 
