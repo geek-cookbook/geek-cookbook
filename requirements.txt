@@ -1,11 +1,4 @@
-#mkdocs>=1.0.4
-#pymdown-extensions>=6.0
-#Markdown>=3.0.1
-#mkdocs-minify-plugin>=0.2
-#mkdocs-autolinks-plugin>=0.2.0
 ## mkdocs-htmlproofer-plugin>=0.0.3
-#mkdocs-git-revision-date-localized-plugin>=0.4.8
-#mkdocs-macros-plugin
 #mkdocs-material
 
 
@@ -20,3 +13,7 @@ pymdown-extensions>=9.4
 # My own dependencies
 mkdocs-git-committers-plugin-2
 mkdocs-meta-descriptions-plugin
+mkdocs-minify-plugin>=0.2
+mkdocs-autolinks-plugin>=0.2.0
+mkdocs-git-revision-date-localized-plugin>=0.4.8
+mkdocs-macros-plugin
