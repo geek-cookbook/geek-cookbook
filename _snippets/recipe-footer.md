@@ -16,7 +16,7 @@ Learn more about working with me [here](https://www.funkypenguin.co.nz/work-with
 
 Want to know now when this recipe gets updated, or when future recipes are added? Subscribe to the [RSS feed](https://mastodon.social/@geekcookbook_changes.rss), or leave your email address below, and we'll keep you updated.
 
---8<-- "convertkit-subscribe-form.html"
+<div class="rm-area-subscribe-to-recipe"></div>
 
 ## Your comments? 💬
 
