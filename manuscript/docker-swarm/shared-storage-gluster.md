@@ -9,7 +9,7 @@ While Docker Swarm is great for keeping containers running (_and restarting thos
 
 ### Why GlusterFS?
 
-This GlusterFS recipe was my original design for shared storage, but I [found it to be flawed](shared-storage-ceph/#why-not-glusterfs), and I replaced it with a [design which employs Ceph instead](shared-storage-ceph/#why-ceph). This recipe is an alternate to the Ceph design, if you happen to prefer GlusterFS.
+This GlusterFS recipe was my original design for shared storage, but I [found it to be flawed](/docker-swarm/shared-storage-ceph/#why-not-glusterfs), and I replaced it with a [design which employs Ceph instead](/docker-swarm/shared-storage-ceph/#why-ceph). This recipe is an alternate to the Ceph design, if you happen to prefer GlusterFS.
 
 ## Ingredients
 

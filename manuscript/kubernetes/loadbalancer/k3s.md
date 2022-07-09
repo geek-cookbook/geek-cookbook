@@ -10,7 +10,7 @@ If you want more than one node in your cluster[^1] (*either now or in future*), 
 
 ## How does it work?
 
-When **not** deployed with `--disable servicelb`, every time you create a service of type `LoadBalancer`, k3s will deploy a daemonset (*a collection of pods which run on every host in the cluster*), listening on that given port on the host. So deploying a LoadBalancer service for nginx on ports 80 and 443, for example, would result in **every** cluster host listening on ports 80 and 443, and sending any incoming traffic to the ngnix service.
+When **not** deployed with `--disable servicelb`, every time you create a service of type `LoadBalancer`, k3s will deploy a daemonset (*a collection of pods which run on every host in the cluster*), listening on that given port on the host. So deploying a LoadBalancer service for nginx on ports 80 and 443, for example, would result in **every** cluster host listening on ports 80 and 443, and sending any incoming traffic to the nginx service.
 
 ## Well that's great, isn't it?
 

@@ -5,7 +5,7 @@ description: Nginx Ingress Controller
 
 The [Nginx Ingress Controller](https://kubernetes.github.io/ingress-nginx/) is the grandpappy of Ingress Controllers, with releases dating back ot at least 2016. Of course, Nginx itself is a battle-tested rock, [released in 2004](https://en.wikipedia.org/wiki/Nginx) and has been constantly updated / improved ever since.
 
-Having such a pedigree though can make it a little awkward for the unfamiliar to configure Ngnix, whereas something like [Traefik](/kubernetes/ingress/traefik/), being newer-on-the-scene, is more user-friendly, and offers (*among other features*) a free **dashboard**. (*Nginx's dashboard is only available in the commercial Nginx+ package, which is a [monumental PITA](https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/) to run*)
+Having such a pedigree though can make it a little awkward for the unfamiliar to configure Nginx, whereas something like [Traefik](/kubernetes/ingress/traefik/), being newer-on-the-scene, is more user-friendly, and offers (*among other features*) a free **dashboard**. (*Nginx's dashboard is only available in the commercial Nginx+ package, which is a [monumental PITA](https://www.nginx.com/blog/deploying-nginx-nginx-plus-docker/) to run*)
 
 Nginx Ingress Controller does make for a nice, simple "default" Ingress controller, if you don't want to do anything fancy.
 

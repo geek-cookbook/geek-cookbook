@@ -6,7 +6,7 @@ As explained when creating our [LetsEncrypt Wildcard certificates](/kubernetes/s
 
     * [x] A [Kubernetes cluster](/kubernetes/cluster/) 
     * [x] [Flux deployment process](/kubernetes/deployment/flux/) bootstrapped
-    * [x] [secret-replicator](/kubernetes/secret-replicator/) deployed to request/renew certificates
+    * [x] [secret-replicator](kubernetes/ssl-certificates/secret-replicator/) deployed to request/renew certificates
     * [x] [LetsEncrypt Wildcard Certificates](/kubernetes/ssl-certificates/wildcard-certificate/) created in the `letsencrypt-wildcard-cert` namespace
 
 Kiwigrid's "[Secret Replicator](https://github.com/kiwigrid/secret-replicator)" is a simple controller which replicates secrets from one namespace to another.[^1]
