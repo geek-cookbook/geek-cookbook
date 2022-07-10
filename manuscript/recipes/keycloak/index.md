@@ -1,4 +1,5 @@
 ---
+title: How to setup OIDC server in Docker with KeyCloak
 description: Kick-ass OIDC and identity management
 ---
 

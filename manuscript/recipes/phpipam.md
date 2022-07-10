@@ -1,5 +1,6 @@
 ---
-description: Is that IP address in use?
+title: Run phpIPAM under Docker
+description: Is that IP address in use? Do some DHP / Discovery with phpIPAM under Docker
 ---
 
 # phpIPAM

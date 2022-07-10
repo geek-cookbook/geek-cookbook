@@ -1,5 +1,6 @@
 ---
-description: Ghost - Beautiful online publicatio (who you gonna call?)
+title: Blog with Ghost in Docker
+description: How to run the beautiful, publication-focused blogging engine "Ghost" using Docker
 ---
 
 # Ghost

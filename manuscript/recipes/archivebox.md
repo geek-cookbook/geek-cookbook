@@ -1,5 +1,5 @@
 ---
-description: A self-hosted internet archiving solution
+title: Archivebox - bookmark manager for your self-hosted stack
 ---
 # Archivebox
 

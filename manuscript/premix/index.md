@@ -1,3 +1,6 @@
+---
+title: Pre-made ansible playbooks to deploy our self-hosted recipes
+---
 # Premix Repository
 
 "Premix" is a private repository shared with [GitHub sponsors](https://github.com/sponsors/funkypenguin), which contains the necessary files and automation to quickly deploy any recipe, or even an entire [swarm](/docker-swarm/) / [cluster](/kubernetes/)! :muscle:

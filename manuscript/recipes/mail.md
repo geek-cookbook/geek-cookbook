@@ -1,5 +1,6 @@
 ---
-description: A self-contained mailserver with spam-fighting friends
+title: Run postfix / dovecot with docker-mailserver
+description: A self-contained mailserver (postfix, dovecot) in Docker with spam-fighting friends (spamassassin, clamav)
 ---
 
 # Mail Server

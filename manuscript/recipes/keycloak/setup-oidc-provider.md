@@ -1,3 +1,7 @@
+---
+title: How to setup OIDC provider in KeyCloak
+description: Having an authentication provider is not much use until you start authenticating things against it! In order to authenticate against KeyCloak using OpenID Connect (OIDC), which is required for Traefik Forward Auth, we'll setup a client in KeyCloak...
+---
 # Add OIDC Provider to KeyCloak
 
 !!! warning

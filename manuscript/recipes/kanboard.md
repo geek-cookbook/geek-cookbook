@@ -1,5 +1,6 @@
 ---
-description: Get your personal kanban on!
+title: How to run Kanboard using Docker
+description: Run Kanboard with Docker to get your personal kanban on!
 ---
 
 # Kanboard

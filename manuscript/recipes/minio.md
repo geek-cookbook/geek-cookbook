@@ -1,5 +1,6 @@
 ---
-description: Self-hosted S3-compatible object storage
+title: Run Minio on Docker (using compose format in swarm)
+description: How to run Minio's self-hosted S3-compatible object storage under Docker Swarm, using docker-compose v3 syntax
 ---
 
 # Minio

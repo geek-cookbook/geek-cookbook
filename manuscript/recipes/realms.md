@@ -1,4 +1,5 @@
 ---
+title: Realms is a git-based wiki, and it runs under Docker!
 description: A git-based wiki with auth and registration
 ---
 

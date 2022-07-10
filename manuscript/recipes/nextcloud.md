@@ -1,5 +1,6 @@
 ---
-description: Share docs. Backup files. Share stuff.
+title: How to run Nextcloud in Docker (behind Traefik)
+description: We can now run Nextcloud in our Docker Swarm, with LetsEncrypt SSL termination handled by Traefik
 ---
 
 # NextCloud

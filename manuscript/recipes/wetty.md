@@ -1,5 +1,6 @@
 ---
-description: Terminal in a browser, baby!
+title: Use wetty under Docker for SSH in the browser
+description: Use weTTY to run a terminal in a browser, baby!
 ---
 
 # Wetty

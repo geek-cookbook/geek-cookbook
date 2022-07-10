@@ -1,5 +1,6 @@
 ---
-description: A UI to make Docker less geeky
+title: Run Portainer in Docker Swarm (now with Dark Mode!)
+description: Portainer is a UI to make Docker less geeky, runs under Docker Swarm (and Kubernetes!) and most importantly, now supports dark mode!
 ---
 
 # Portainer

@@ -1,5 +1,6 @@
 ---
-description: Bazinga! Comic book management FTW!
+title: How to run Komga with Docker
+description: Run Komga under Docker Swarm in docker-compose syntax
 ---
 
 # Komga

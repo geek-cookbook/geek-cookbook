@@ -1,5 +1,6 @@
 ---
-description: Real heroes backup their shizz!
+title: Use elkarbackup in Docker to backup to backblaze / b2 and friends
+description: ElkarBackup is a free open-source backup solution based on RSync/RSnapshot. It's basically a web wrapper around rsync/rsnapshot, which means that your backups are just files on a filesystem, utilising hardlinks for tracking incremental changes.
 ---
 
 # Elkar Backup

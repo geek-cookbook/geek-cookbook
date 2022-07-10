@@ -13,7 +13,7 @@ plugins:
     back_cover: true
     #cover_title: TITLE TEXT
     #cover_subtitle: SUBTITLE TEXT
-    #custom_template_path: TEMPLATES PATH
+    # custom_template_path: pdf_templates
     #toc_title: TOC TITLE TEXT
     #heading_shift: true
     toc_level: 3
@@ -30,10 +30,16 @@ plugins:
           text: ALTERNATE TEXT
         - src: ...
 #    two_columns_level: 3
-    render_js: true
-#    headless_chrome_path: headless-chromium
+    render_js: false
+    headless_chrome_path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
     
     output_path: funky-penguins-geek-cookbook.pdf
     debug_html: true
     show_anchors: true
     verbose: true  
+
+extra_css: []
+extra_javascript: []
+
+theme:
+  font: false

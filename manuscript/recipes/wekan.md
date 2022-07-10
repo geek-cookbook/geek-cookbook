@@ -1,5 +1,5 @@
 ---
-description: A self-hosted Trello
+title: Run Wekan under Docker
 ---
 
 # Wekan

@@ -1,5 +1,6 @@
 ---
-description: Authenticate like it's 1990!
+title: Run OpenLDAP in Docker
+description: How to run an OpenLDAP server in Docker Swarm, with LDAP Account Manager. Authenticate like it's 1990!
 ---
 
 # OpenLDAP

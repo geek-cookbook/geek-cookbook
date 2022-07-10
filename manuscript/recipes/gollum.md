@@ -1,5 +1,5 @@
 ---
-description: Gollum - A recipe for your own git-based wiki. My preciousssss
+title: Run Gollum in Docker
 ---
 
 # Gollum

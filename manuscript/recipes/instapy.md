@@ -1,5 +1,6 @@
 ---
-description: Automate your fake Instagram life with automated fakery!
+title: How to run InstaPy in Docker
+description: Automate your fake Instagram life with automated fakery using InstaPy in Docker
 ---
 
 # InstaPy

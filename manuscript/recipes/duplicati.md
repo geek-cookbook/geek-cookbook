@@ -1,5 +1,6 @@
 ---
-description: Duplicati - Yet another option to backup your exciting stuff. It's good to have options.
+title: Use Duplicati in Docker to backup to backblaze / b2 and friends
+description: Duplicati - Yet another boring option to backup your exciting stuff, especially to Backblaze / B2 - It's good to have options.
 ---
 
 # Duplicati

@@ -1,3 +1,7 @@
+---
+title: Integrate LDAP server with Keycloak for user federation
+description: Here's how we'll add an LDAP provider to our KeyCloak server for user federation.
+---
 # Authenticate KeyCloak against OpenLDAP
 
 !!! warning

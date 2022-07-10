@@ -1,5 +1,5 @@
 ---
-description: A lightweight minimalist RSS reader
+title: Read RSS in peace with miniflux on Docker
 ---
 
 # Miniflux

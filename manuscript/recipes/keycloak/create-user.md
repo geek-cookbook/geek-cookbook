@@ -1,4 +1,8 @@
-# Create KeyCloak Users
+---
+title: Create users in Keycloak
+description: Unless you plan to authenticate against an outside provider (OpenLDAP, below, for example_), you'll want to create some local users..
+---
+# Create Keycloak Users
 
 !!! warning
 This is not a complete recipe - it's an optional component of the [Keycloak recipe](/recipes/keycloak/), but has been split into its own page to reduce complexity.

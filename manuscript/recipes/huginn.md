@@ -1,5 +1,5 @@
 ---
-description: A self-hosted, hackable version of IFFTT / Zapier
+title: Run Huggin in Docker
 ---
 
 # Huginn

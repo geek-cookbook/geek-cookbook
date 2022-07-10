@@ -1,5 +1,5 @@
 ---
-description: Gitlab Runner - A gopher for GitLab
+title: How to run Gitlab Runner in Docker
 ---
 
 # Gitlab Runner

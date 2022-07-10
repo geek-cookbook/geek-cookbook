@@ -1,3 +1,6 @@
+---
+title: How to run Gitlab in Docker
+---
 # GitLab
 
 GitLab is a self-hosted [alternative to GitHub](https://about.gitlab.com/pricing/self-managed/feature-comparison/). The most common use case is (a set of) developers with the desire for the rich feature-set of GitHub, but with unlimited private repositories.
