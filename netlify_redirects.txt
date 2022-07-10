@@ -2,21 +2,21 @@
 https://geeks-cookbook.funkypenguin.co.nz/* https://geek-cookbook.funkypenguin.co.nz/:splat 301!
 
 # Because it took me about a year to realize I was spelling "Recipes" wrong!
-https://geek-cookbook.funkypenguin.co.nz/recipies/* https://geek-cookbook.funkypenguin.co.nz/recipes/:splat 301!
+/recipies/*             /recipes/:splat 301!
+
+# Recipes is plural
+/recipe/*                   /recipes/:splat 301!
 
 # Proxy plausible analytics per https://plausible.io/docs/proxy/guides/netlify
-/js/i-am-groot.js https://plausible.io/js/plausible.outbound-links.js 200
-/api/event https://plausible.io/api/event 202
+/js/i-am-groot.js       https://plausible.io/js/plausible.outbound-links.js 200
+/api/event              https://plausible.io/api/event 202
 
-# Now we have indexs on subfolders, we can use a better URL for docker-swarm
-/docker-swarm/design /docker/swarm 301!
+# Now we have indexes on subfolders, we can use a better URL for docker-swarm
+/docker-swarm/design    /docker-swarm 301!
 /ha-docker-swarm/design /docker-swarm 301!
 
 # Prefer "docker-swarm" to "ha-docker-swarm"
 /ha-docker-swarm/* /docker-swarm/:splat 301!
-
-# Recipes is plural now
-/recipe/*                   /recipes/:splat 301!
 
 # Old backlinks which we need to redirect to working URLs
 /kubernetes/start/          /kubernetes/ 301!
