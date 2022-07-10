@@ -1,13 +1,16 @@
 ---
 title: Run paperless-ngx under Docker
-description: Easily index, search, and view archive all of your scanned dead-tree documents with Paperless NGX, under Docker
+description: Easily index, search, and view archive all of your scanned dead-tree documents with Paperless NGX, under Docker, now using the linuxserver image since the fork from from paperless-ng to paperless-ngx!
 ---
 
 # Paperless NGX
 
-Paper is a nightmare. Environmental issues aside, there’s no excuse for it in the 21st century. It takes up space, collects dust, doesn’t support any form of a search feature, indexing is tedious, it’s heavy and prone to damage & loss. [^1] Paperless NG will OCR, index, and store data about your documents so they are easy to search and view, unlike that hulking metal file cabinet you have in your office.
+Paper is a nightmare. Environmental issues aside, there’s no excuse for it in the 21st century. It takes up space, collects dust, doesn’t support any form of a search feature, indexing is tedious, it’s heavy and prone to damage & loss. [^1] Paperless NGX will OCR, index, and store data about your documents so they are easy to search and view, unlike that hulking metal file cabinet you have in your office.
 
-![Paperless Screenshot](../images/paperless-screenshot.png){ loading=lazy }
+![Paperless-ngx Screenshot](../images/paperless-ngx.png){ loading=lazy }
+
+!!! question "What's this fork 🍴 thing about, and is it Paperless, Paperless-NG, or Paperless-NGX?"
+    It's now.. Paperless-NGX. Paperless-ngx is a fork of paperless-ng, which itself was a fork of paperless. As I understand it, the original "forker" of paperless to paperless-ng has "gone dark", and [stopped communicating](https://github.com/jonaswinkler/paperless-ng/issues/1599), so while all are hopeful that he's OK and just busy/distracted, the [community formed paperless-ngx](https://github.com/jonaswinkler/paperless-ng/issues/1632) to carry on development work under a shared responsibility model. To save some typing though, we'll just call it "Paperless", although you'll note belowe that we're using the linuxserver paperless-ngx image. (Also, if you use the automated tooling in the Premix Repo, Ansible *really* doesn't like the hypen!)
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -28,12 +31,9 @@ mkdir /var/data/runtime/paperless/pgdata
 mkdir /var/data/paperless/database-dump
 ```
 
-!!! question "Which is it, Paperless or Paperless-NG?"
-    Technically the name of the application is `paperless-ng`. However, the [original     Paperless project](https://github.com/the-paperless-project/paperless) has been archived and the author recommends Paperless NG. So, to save some typing, we'll just   call it "Paperless". Additionally, if you use the automated tooling in the Premix Repo, Ansible *really* doesn't like the hypen.
-
 ### Create environment
 
-To stay consistent with the other recipes, we'll create a file to store environemnt variables in. There's more than 1 service in this stack, but we'll only create one one environment file that will be used by the web server (more on this later).
+To stay consistent with the other recipes, we'll create a file to store environment variables in. There's more than 1 service in this stack, but we'll only create one one environment file that will be used by the web server (more on this later).
 
 ```bash
 cat << EOF > /var/data/config/paperless/paperless.env
@@ -58,7 +58,7 @@ You'll need to replace some of the text in the snippet above:
 
 ### Setup Docker Swarm
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the following example:
 
 --8<-- "premix-cta.md"
 
@@ -72,7 +72,7 @@ services:
       - internal
 
   webserver:
-    image: jonaswinkler/paperless-ng:latest
+    image: linuxserver/paperless-ngx
     env_file: paperless.env
     volumes:
       - /var/data/paperless/data:/usr/src/paperless/data
