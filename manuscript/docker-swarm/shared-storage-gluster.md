@@ -1,3 +1,7 @@
+---
+title: GlusterFS vs Ceph (the winner)
+description: Here's why Ceph was the obvious winner in the ceph vs glusterfs comparison for our docker-swarm cluster.
+---
 # Shared Storage (GlusterFS)
 
 While Docker Swarm is great for keeping containers running (_and restarting those that fail_), it does nothing for persistent storage. This means if you actually want your containers to keep any data persistent across restarts (_hint: you do!_), you need to provide shared storage to every docker node.

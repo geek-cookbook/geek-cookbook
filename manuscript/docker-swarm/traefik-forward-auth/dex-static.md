@@ -1,6 +1,6 @@
 ---
 title: SSO with traefik forward auth and Dex
-description: Traefik forward auth needs an authentication backend, but if you don't want to use a cloud provider, you can setup your own simple backend, using Dex.
+description: Traefik forward auth needs an authentication backend, but if you don't want to use a cloud provider, you can setup your own simple OIDC backend, using Dex.
 ---
 # Traefik Forward Auth for SSO with Dex (Static)
 

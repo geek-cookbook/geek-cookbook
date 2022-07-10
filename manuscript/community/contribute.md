@@ -1,3 +1,7 @@
+---
+title: How to contribute to Geek Cookbook
+description: Loving the geeky recipes, and looking for a way to give back / get involved. It's not all coding - here are some ideas re various ways you can be involved!
+---
 # Contribute
 
 ## Spread the word ❤️

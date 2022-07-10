@@ -1,6 +1,6 @@
 ---
 title: SSO with traefik forward auth with Google Oauth2
-description: Using Traefik Forward Auth, you can selectively apply SSO to your Docker services, using Google Oauth2 as your authentication backend!
+description: Using Traefik Forward Auth, you can selectively apply SSO to your Docker services, using Google Oauth2 / OIDC as your authentication backend!
 ---
 # Traefik Forward Auth using Google Oauth2 for SSO
 

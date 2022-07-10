@@ -1,3 +1,7 @@
+---
+title: Setup nodes for docker-swarm
+description: Let's start building our cluster. You can use either bare-metal machines or virtual machines - the configuration would be the same. To avoid confusion, I'll be referring to these as "nodes" from now on.
+---
 # Nodes
 
 Let's start building our cluster. You can use either bare-metal machines or virtual machines - the configuration would be the same. To avoid confusion, I'll be referring to these as "nodes" from now on.

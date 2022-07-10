@@ -1,6 +1,6 @@
 ---
 title: SSO with traefik forward auth with Keycloak
-description: Traefik forward auth can selectively SSO your Docker services against an authentication backend, and Keycloak is a perfect, self-hosted match.
+description: Traefik forward auth can selectively SSO your Docker services against an authentication backend using OIDC, and Keycloak is a perfect, self-hosted match.
 ---
 # Traefik Forward Auth with KeyCloak for SSO
 

@@ -1,3 +1,7 @@
+---
+title: Funky Penguin's Discord Community
+description: The most realtime and exciting way engage with our geeky community is in our Discord server!
+---
 # Discord
 
 The most realtime and exciting way engage with our geeky community is in our [Discord server](http://chat.funkypenguin.co.nz)

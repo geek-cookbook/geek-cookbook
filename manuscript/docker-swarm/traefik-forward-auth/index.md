@@ -1,6 +1,6 @@
 ---
 title: Add SSO to Traefik with Forward Auth
-description: Traefik Forward Auth protects services running in Docker with an additional layer of authentication, and can be integrated into Keycloak, Google, GitHub, etc.
+description: Traefik Forward Auth protects services running in Docker with an additional layer of authentication, and can be integrated into Keycloak, Google, GitHub, etc using OIDC.
 ---
 # Traefik Forward Auth
 
