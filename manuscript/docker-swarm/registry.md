@@ -11,7 +11,7 @@ The registry mirror runs as a swarm stack, using a simple docker-compose.yml. Cu
 ## Ingredients
 
 1. [Docker swarm cluster](/docker-swarm/design/) with [persistent shared storage](/docker-swarm/shared-storage-ceph/)
-2. [Traefik](/docker-swarm/traefik) configured per design
+2. [Traefik](/docker-swarm/traefik/) configured per design
 3. DNS entry for the hostname you intend to use, pointed to your [keepalived](/docker-swarm/keepalived/) IP
 
 ## Preparation

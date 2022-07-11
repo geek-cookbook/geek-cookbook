@@ -30,7 +30,7 @@ Welcome, fellow geek :wave: If you're impatient, just start here :point_down:
 
     Join the fun, chat with fellow geeks in realtime!
 
--   __Fast-track with 🚀 [Premix](/premix)!__
+-   __Fast-track with 🚀 [Premix](/premix/)!__
 
     ---
 

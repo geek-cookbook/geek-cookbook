@@ -11,7 +11,7 @@ A friendly middle ground between heavyweights like MediaWiki or Confluence and [
 
 ![BookStack Screenshot](../images/bookstack.png){ loading=lazy }
 
-I like to protect my public-facing web UIs with an [oauth_proxy](/reference/oauth_proxy), ensuring that if an application bug (or a user misconfiguration) exposes the app to unplanned public scrutiny, I have a second layer of defense.
+I like to protect my public-facing web UIs with an [oauth_proxy](/reference/oauth_proxy/), ensuring that if an application bug (or a user misconfiguration) exposes the app to unplanned public scrutiny, I have a second layer of defense.
 
 --8<-- "recipe-standard-ingredients.md"
 

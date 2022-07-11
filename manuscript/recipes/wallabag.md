@@ -10,7 +10,7 @@ All saved data (_pages, annotations, images, tags, etc_) are stored on your own 
 
 ![Wallabag Screenshot](../images/wallabag.png){ loading=lazy }
 
-There are plugins for [Chrome](https://chrome.google.com/webstore/detail/wallabagger/gbmgphmejlcoihgedabhgjdkcahacjlj) and [Firefox](https://addons.mozilla.org/firefox/addon/wallabagger/), as well as apps for [iOS](https://appsto.re/fr/YeqYfb.i), [Android](https://play.google.com/store/apps/details?id=fr.gaulupeau.apps.InThePoche), etc. Wallabag will also integrate nicely with my favorite RSS reader,  [Miniflux](https://miniflux.net/) (_for which there is an [existing recipe](/recipes/miniflux)_).
+There are plugins for [Chrome](https://chrome.google.com/webstore/detail/wallabagger/gbmgphmejlcoihgedabhgjdkcahacjlj) and [Firefox](https://addons.mozilla.org/firefox/addon/wallabagger/), as well as apps for [iOS](https://appsto.re/fr/YeqYfb.i), [Android](https://play.google.com/store/apps/details?id=fr.gaulupeau.apps.InThePoche), etc. Wallabag will also integrate nicely with my favorite RSS reader,  [Miniflux](https://miniflux.net/) (_for which there is an [existing recipe][miniflux]_).
 
 [Here's a video](https://player.vimeo.com/video/167435064) which shows off the UI a bit more.
 
