@@ -242,7 +242,7 @@ nav:
       - Design: premix/ansible/design.md
       # - Swarm: premix/swarm.md
       # - Kubernetes: premix/kubernetes.md      
-    - CHANGELOG: CHANGELOG.md
+    - CHANGELOG: changelog.md
     - Support: support.md      
     - Contribute: community/contribute.md
     - Community: 
@@ -358,12 +358,13 @@ extra_css:
   - extras/css/icons.css
 
 extra_javascript:
-  - extras/javascript/discord.js
-  - extras/javascript/sortable-tables.js
-  - extras/javascript/feedback.js
-  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+  - extras/javascript/plausible.js
+  # - extras/javascript/widgetbot.js # uncommented for dev
+  # - extras/javascript/rightmessage.js
+  # - extras/javascript/feedback.js
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - extras/javascript/tablesort.js
   
-
 # Extensions
 markdown_extensions:
   - attr_list

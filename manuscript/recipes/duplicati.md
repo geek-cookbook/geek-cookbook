@@ -18,7 +18,7 @@ Similar to the other backup options in the Cookbook, we can use Duplicati to bac
 - Cloud services (OneDrive, Google Drive, etc)
 
 !!! note
-    Since Duplicati itself offers no user authentication, this design secures Duplicati behind [Traefik Forward Auth](/docker-swarm/traefik-forward-auth), so that in order to gain access to the Duplicati UI at all,  authentication through the mechanism configured in traefik-forward-auth (_to GitHub, GitLab, Google, etc_) must have already occurred.
+    Since Duplicati itself offers no user authentication, this design secures Duplicati behind [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/), so that in order to gain access to the Duplicati UI at all,  authentication through the mechanism configured in traefik-forward-auth (_to GitHub, GitLab, Google, etc_) must have already occurred.
 
 ## Ingredients
 

@@ -1,4 +1,5 @@
 ---
+title: How to share screenshots with linx under Docker
 description: Quickly share self-destructing screenshots, text, etc
 ---
 

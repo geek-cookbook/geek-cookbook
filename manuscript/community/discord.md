@@ -6,21 +6,21 @@ description: The most realtime and exciting way engage with our geeky community 
 
 The most realtime and exciting way engage with our geeky community is in our [Discord server](http://chat.funkypenguin.co.nz)
 
+<!-- markdownlint-disable MD033 -->
+<iframe src="https://e.widgetbot.io/channels/396055506072109067/456689991326760973" height="600" width="800"></iframe>
+
 !!! question "Eh? What's a Discord? Get off my lawn, young whippersnappers!!"
+    Yeah, I know. I also thought Discord was just for the gamer kids, but it turns out it's great for a geeky community. Why? [Let me elucidate ya.](https://www.youtube.com/watch?v=1qHoSWxVqtE)..
 
-Yeah, I know. I also thought Discord was just for the gamer kids, but it turns out it's great for a geeky community. Why? [Let me elucidate ya.](https://www.youtube.com/watch?v=1qHoSWxVqtE)..
-
-1. Native markdown for code blocks
-2. Drag-drop screenshots
-3. Costs nothing, no ads
-4. Mobile notifications are reliable, individual channels mutable, etc
+    1. Native markdown for code blocks
+    2. Drag-drop screenshots
+    3. Costs nothing, no ads
+    4. Mobile notifications are reliable, individual channels mutable, etc
 
 ## How do I join the Discord server?
 
 1. Create [an account](https://discordapp.com)
 2. [Join the geek party](http://chat.funkypenguin.co.nz)!
-<!-- markdownlint-disable MD033 -->
-<iframe src="https://discordapp.com/widget?id=396055506072109067&theme=dark" width="350" height="400" allowtransparency="true" frameborder="0"></iframe>
 
 ## Code of Conduct
 

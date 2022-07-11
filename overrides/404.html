@@ -1,6 +1,6 @@
 {% extends "main.html" %}
 
-<!-- Content -->
+<!-- For 404 tracking using Plausible -->
 {% block libs %}
 <script>plausible("404",{ props: { path: document.location.pathname } });</script>
 {% endblock %}

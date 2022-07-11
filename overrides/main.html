@@ -21,7 +21,6 @@
 {% endblock %}
 
 {% block analytics %}
-<!-- <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer></script> -->
 <script src="/js/i-am-groot.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 <!-- RightMessage -->
@@ -45,4 +44,26 @@
   {% else %}
   <title>{{ config.site_name }}</title>
   {% endif %}
+{% endblock %}
+
+{% block extrahead %}
+
+
+<!-- For widgetbot -->
+<!-- <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
+  const button = new Crate({
+      server: '396055506072109067', // Funky Penguin
+      channel: '456689991326760973', // Cookbook channel
+      // username: 'Website Reader',
+      // color: '#000',
+      notifications: true,
+      indicator: true // most recent change
+  })
+  button.notify({
+      content: 'Need a 🤚? Hot, sweaty geeks are waiting to chat to you! Click 👇',
+      timeout: 100000
+    })
+</script> -->
+
+
 {% endblock %}
