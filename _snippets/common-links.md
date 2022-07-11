@@ -1,14 +1,20 @@
-
 [archivebox]:       /recipes/archivebox/
 [authelia]:         /docker-swarm/authelia/
 [autopirate]:       /recipes/autopirate/
 [bazarr]:           /recipes/autopirate/bazarr/
 [calibre-web]:      /recipes/calibre-web/
+[cert_aws]:         https://www.credly.com/badges/a0c4a196-55ab-4472-b46b-b610b44dc00f
+[cert_cka]:         https://www.credly.com/badges/cd307d51-544b-4bc6-97b0-9015e40df40d
+[cert_ckad]:        https://www.credly.com/badges/9ed9280a-fb92-46ca-b307-8f74a2cccf1d
+[cert_cks]:         https://www.credly.com/badges/93fa53da-1f38-47a9-b6ee-dce6a8fad9fc
+[contact]:          https://www.funkypenguin.co.nz/contact
 [cyberchef]:        /recipes/cyberchef/
+[duplicity]:        /recipes/autopirate/duplicity/
 [emby]:             /recipes/emby/
 [funkwhale]:        /recipes/autopirate/funkwhale/
 [github_sponsor]:   https://github.com/sponsors/funkypenguin
 [headphones]:       /recipes/autopirate/headphones/
+[homeassistant]:    /recipes/homeassistant/
 [jackett]:          /recipes/autopirate/jackett/
 [jellyfin]:         /recipes/jellyfin/
 [keycloak]:         /recipes/keycloak/
@@ -42,9 +48,3 @@
 [tfa-google]:       /docker-swarm/traefik-forward-auth/google/
 [tfa-keycloak]:     /docker-swarm/traefik-forward-auth/keycloak/
 [tfa]:              /docker-swarm/traefik-forward-auth/
-
-[cert_aws]:         https://www.credly.com/badges/a0c4a196-55ab-4472-b46b-b610b44dc00f
-[cert_cka]:         https://www.credly.com/badges/cd307d51-544b-4bc6-97b0-9015e40df40d
-[cert_ckad]:        https://www.credly.com/badges/9ed9280a-fb92-46ca-b307-8f74a2cccf1d
-[cert_cks]:         https://www.credly.com/badges/93fa53da-1f38-47a9-b6ee-dce6a8fad9fc
-[contact]:          https://www.funkypenguin.co.nz/contact

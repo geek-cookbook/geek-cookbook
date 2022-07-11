@@ -13,7 +13,7 @@ phpIPAM fulfils a non-sexy, but important role - It helps you manage your IP add
 
 ## Why should you care about this?
 
-You probably have a home network, with 20-30 IP addresses, for your family devices, your [IoT devices](/recipes/homeassistant), your smart TV, etc. If you want to (a) monitor them, and (b) audit who does what, you care about what IPs they're assigned by your DHCP server.
+You probably have a home network, with 20-30 IP addresses, for your family devices, your [IoT devices][homeassistant], your smart TV, etc. If you want to (a) monitor them, and (b) audit who does what, you care about what IPs they're assigned by your DHCP server.
 
 You could simple keep track of all devices with leases in your DHCP server, but what happens if your (_hypothetical?_) Ubiquity Edge Router X crashes and burns due to lack of disk space, and you loose track of all your leases? Well, you have to start from scratch, is what!
 

@@ -16,7 +16,7 @@ This recipe presents a method to combine these tools into a single swarm deploym
 
 Tools included in the AutoPirate stack are:
 
-* [SABnzbd][sabnzbd] is the workhorse. It takes `.nzb` files as input (_manually or from [Sonarr](/recipes/autopirate/sonarr/), [Radarr](/recipes/autopirate/radarr/), etc_), then connects to your chosen Usenet provider, downloads all the individual binaries referenced by the .nzb, and then tests/repairs/combines/uncompresses them all into the final result - media files, to be consumed by [Plex](/recipes/plex), [Emby](/recipes/emby/), [Komga](/recipes/komga/), [Calibre-Web](/recipes/calibre-web/), etc.
+* [SABnzbd][sabnzbd] is the workhorse. It takes `.nzb` files as input (_manually or from [Sonarr][sonarr], [Radarr][radarr], etc_), then connects to your chosen Usenet provider, downloads all the individual binaries referenced by the .nzb, and then tests/repairs/combines/uncompresses them all into the final result - media files, to be consumed by [Plex][plex], [Emby][emby], [Komga][komga], [Calibre-Web][calibre-web]), etc.
   
 * [NZBGet][nzbget] downloads data from usenet servers based on .nzb definitions. Like [SABnzbd][sabnzbd], but written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources (_this is a popular alternative to SABnzbd_)
   
@@ -30,7 +30,7 @@ Tools included in the AutoPirate stack are:
 
 * [Readarr][readarr] finds, downloads, and manages eBooks
 
-* [Lidarr][lidarr] is an automated music downloader for NZB and Torrent. It performs the same function as [Headphones][headphones], but is written using the same(ish) codebase as [Radarr][radarr] and [Sonarr](/recipes/autopirate/sonarr). It's blazingly fast, and includes beautiful album/artist art. Lidarr supports [SABnzbd](/recipes/autopirate/sabnzbd/), [NZBGet](/recipes/autopirate/nzbget/), Transmission, µTorrent, Deluge and Blackhole (_just like Sonarr / Radarr_)
+* [Lidarr][lidarr] is an automated music downloader for NZB and Torrent. It performs the same function as [Headphones][headphones], but is written using the same(ish) codebase as [Radarr][radarr] and [Sonarr][sonarr]. It's blazingly fast, and includes beautiful album/artist art. Lidarr supports [SABnzbd][sabnzbd], [NZBGet][nzbget], Transmission, µTorrent, Deluge and Blackhole (_just like Sonarr / Radarr_)
 
 * [Mylar][mylar] is a tool for downloading and managing digital comic books / "graphic novels"
 
