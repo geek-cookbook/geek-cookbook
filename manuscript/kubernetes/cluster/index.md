@@ -34,7 +34,7 @@ Cloud providers make it easy to connect their storage solutions to your cluster,
 
 ### Services
 
-Some things just "work better" in a cloud provider environment. For example, to run a highly available Postgres instance on Kubernetes requires at least 3 nodes, and 3 x storage, plus manual failover/failback in the event of an actual issue. This can represent a huge cost if you simply need a PostgreSQL database to provide (*for example*) a backend to an authentication service like KeyCloak. Cloud providers will have a range of managed database solutions which will cost far less than do-it-yourselfing, and integrate easily and securely into their kubernetes offerings.
+Some things just "work better" in a cloud provider environment. For example, to run a highly available Postgres instance on Kubernetes requires at least 3 nodes, and 3 x storage, plus manual failover/failback in the event of an actual issue. This can represent a huge cost if you simply need a PostgreSQL database to provide (*for example*) a backend to an authentication service like Keycloak. Cloud providers will have a range of managed database solutions which will cost far less than do-it-yourselfing, and integrate easily and securely into their kubernetes offerings.
 
 ### Summary
 

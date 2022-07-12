@@ -4,7 +4,7 @@ description: Traefik forward auth needs an authentication backend, but if you do
 ---
 # Traefik Forward Auth for SSO with Dex (Static)
 
-[Traefik Forward Auth](/docker-swarm/traefik-forward-auth/) is incredibly useful to secure services with an additional layer of authentication, provided by an OIDC-compatible provider. The simplest possible provider is a self-hosted instance of [CoreOS's Dex](https://github.com/dexidp/dex), configured with a static username and password. This recipe will "get you started" with Traefik Forward Auth, providing a basic authentication layer. In time, you might want to migrate to a "public" provider, like [Google][tfa-google], or GitHub, or to a [KeyCloak][keycloak] installation.
+[Traefik Forward Auth](/docker-swarm/traefik-forward-auth/) is incredibly useful to secure services with an additional layer of authentication, provided by an OIDC-compatible provider. The simplest possible provider is a self-hosted instance of [CoreOS's Dex](https://github.com/dexidp/dex), configured with a static username and password. This recipe will "get you started" with Traefik Forward Auth, providing a basic authentication layer. In time, you might want to migrate to a "public" provider, like [Google][tfa-google], or GitHub, or to a [Keycloak][keycloak] installation.
 
 --8<-- "recipe-tfa-ingredients.md"
 

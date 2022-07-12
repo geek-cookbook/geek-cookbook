@@ -1,4 +1,4 @@
-## Ingredients
+## Requirements
 
 !!! summary "Ingredients"
     Already deployed:

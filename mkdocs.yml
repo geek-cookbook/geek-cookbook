@@ -56,7 +56,7 @@ nav:
             - docker-swarm/traefik-forward-auth/index.md 
             - Dex (static): docker-swarm/traefik-forward-auth/dex-static.md    
             - Google: docker-swarm/traefik-forward-auth/google.md      
-            - KeyCloak: docker-swarm/traefik-forward-auth/keycloak.md
+            - Keycloak: docker-swarm/traefik-forward-auth/keycloak.md
         - Authelia: docker-swarm/authelia.md
         - Registry: docker-swarm/registry.md
         - Mail Server: recipes/mail.md
@@ -85,9 +85,8 @@ nav:
         - Huginn: recipes/huginn.md
         - Jellyfin: recipes/jellyfin.md
         - Kanboard: recipes/kanboard.md
-        - KeyCloak: 
+        - Keycloak: 
           - recipes/keycloak/index.md   
-          - Users: recipes/keycloak/create-user.md
           - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
           - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md
         - Miniflux: recipes/miniflux.md
@@ -114,7 +113,7 @@ nav:
         - GitLab Runner: recipes/gitlab-runner.md
         - Gollum: recipes/gollum.md
         - InstaPy: recipes/instapy.md
-        - KeyCloak: 
+        - Keycloak: 
           - recipes/keycloak/index.md      
           - Users: recipes/keycloak/create-user.md
           - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
@@ -138,7 +137,7 @@ nav:
             - docker-swarm/traefik-forward-auth/index.md 
             - Dex (static): docker-swarm/traefik-forward-auth/dex-static.md    
             - Google: docker-swarm/traefik-forward-auth/google.md      
-            - KeyCloak: docker-swarm/traefik-forward-auth/keycloak.md
+            - Keycloak: docker-swarm/traefik-forward-auth/keycloak.md
         - Wallabag: recipes/wallabag.md
         - Wekan: recipes/wekan.md
         - Wetty: recipes/wetty.md       
@@ -213,7 +212,7 @@ nav:
       #   - Reloader: kubernetes/wip.md
       #   - Dashboard: kubernetes/wip.md
       #   - Kured: kubernetes/wip.md
-      #   - KeyCloak: kubernetes/wip.md
+      #   - Keycloak: kubernetes/wip.md
       # - Recipes:
       #   - Harbor:
       #     - recipes/kubernetes/harbor/index.md

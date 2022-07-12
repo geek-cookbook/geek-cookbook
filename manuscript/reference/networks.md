@@ -33,7 +33,7 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [PrivateBin](/recipes/privatebin/)                                            | 172.16.41.0/24 |
 | [Wetty](/recipes/wetty/)                                                      | 172.16.45.0/24 |
 | [phpIPAM](/recipes/phpipam/)                                                  | 172.16.47.0/24 |
-| [KeyCloak](/recipes/keycloak/)                                                | 172.16.49.0/24 |
+| [Keycloak](/recipes/keycloak/)                                                | 172.16.49.0/24 |
 | [Duplicati](/recipes/duplicati/)                                              | 172.16.55.0/24 |
 | [Restic](/recipes/restic/)                                                    | 172.16.56.0/24 |
 | [Paperless NG](/recipes/paperless-ng/)                                        | 172.16.58.0/24 |

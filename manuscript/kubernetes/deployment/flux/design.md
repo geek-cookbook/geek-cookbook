@@ -53,7 +53,7 @@ And here's what it all means, starting from the top...
 
     Several reasons:
 
-    * We need to be able to deploy multiple copies of the same helm chart into different namespaces. Imagine if you wanted to deploy a "postgres" helm chart into a namespace for KeyCloak, plus another one for NextCloud. Putting each HelmRelease resource into its own namespace allows us to do this, while sourcing them all from a common HelmRepository
+    * We need to be able to deploy multiple copies of the same helm chart into different namespaces. Imagine if you wanted to deploy a "postgres" helm chart into a namespace for Keycloak, plus another one for NextCloud. Putting each HelmRelease resource into its own namespace allows us to do this, while sourcing them all from a common HelmRepository
     * As your cluster grows in complexity, you end up with dependency issues, and sometimes you need one chart deployed first, in order to create CRDs which are depended upon by a second chart (*like Prometheus' ServiceMonitor*). Isolating apps to a kustomization-per-app means you can implement dependencies and health checks to allow a complex cluster design without chicken vs egg problems! 
 
 ## Got it?

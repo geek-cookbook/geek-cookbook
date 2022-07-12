@@ -46,12 +46,12 @@ This clever workaround only works under 2 conditions:
 
 ## Authentication Providers
 
-Traefik Forward Auth needs to authenticate an incoming user against a provider. A provider can be something as simple as a self-hosted [dex][tfa-dex-static] instance with a single static username/password, or as complex as a [KeyCloak][keycloak] instance backed by [OpenLDAP][openldap]. Here are some options, in increasing order of complexity...
+Traefik Forward Auth needs to authenticate an incoming user against a provider. A provider can be something as simple as a self-hosted [dex][tfa-dex-static] instance with a single static username/password, or as complex as a [Keycloak][keycloak] instance backed by [OpenLDAP][openldap]. Here are some options, in increasing order of complexity...
 
 * [Authenticate Traefik Forward Auth against a self-hosted Dex instance with static usernames and passwords][tfa-dex-static]
 * [Authenticate Traefik Forward Auth against a whitelist of Google accounts][tfa-google]
-* [Authenticate Traefik Forward Auth against a self-hosted KeyCloak instance][tfa-keycloak] with an optional [OpenLDAP backend][openldap]
+* [Authenticate Traefik Forward Auth against a self-hosted Keycloak instance][tfa-keycloak] with an optional [OpenLDAP backend][openldap]
 
 --8<-- "recipe-footer.md"
 
-[^1]: Authhost mode is specifically handy for Google authentication, since Google doesn't permit wildcard redirect_uris, like [KeyCloak][keycloak] does.
+[^1]: Authhost mode is specifically handy for Google authentication, since Google doesn't permit wildcard redirect_uris, like [Keycloak][keycloak] does.

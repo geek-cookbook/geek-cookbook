@@ -2,9 +2,9 @@
 title: SSO with traefik forward auth with Keycloak
 description: Traefik forward auth can selectively SSO your Docker services against an authentication backend using OIDC, and Keycloak is a perfect, self-hosted match.
 ---
-# Traefik Forward Auth with KeyCloak for SSO
+# Traefik Forward Auth with Keycloak for SSO
 
-While the [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/) recipe demonstrated a quick way to protect a set of explicitly-specified URLs using OIDC credentials from a Google account, this recipe will illustrate how to use your own KeyCloak instance to secure **any** URLs within your DNS domain.
+While the [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/) recipe demonstrated a quick way to protect a set of explicitly-specified URLs using OIDC credentials from a Google account, this recipe will illustrate how to use your own Keycloak instance to secure **any** URLs within your DNS domain.
 
 !!! tip "Keycloak with Traefik"
     Did you land here from a search, looking for information about using Keycloak with Traefik? All this and more is covered in the [Keycloak][keycloak] recipe!
@@ -71,7 +71,7 @@ Redeploy traefik with `docker stack deploy traefik-app -c /var/data/traefik/trae
 
 ### Test
 
-Browse to <https://whoami.example.com> (_obviously, customized for your domain and having created a DNS record_), and all going according to plan, you'll be redirected to a KeyCloak login. Once successfully logged in, you'll be directed to the basic whoami page.
+Browse to <https://whoami.example.com> (_obviously, customized for your domain and having created a DNS record_), and all going according to plan, you'll be redirected to a Keycloak login. Once successfully logged in, you'll be directed to the basic whoami page.
 
 ### Protect services
 
@@ -87,13 +87,13 @@ And re-deploy your services :)
 
 ## Summary
 
-What have we achieved? By adding an additional three simple labels to any service, we can secure any service behind our KeyCloak OIDC provider, with minimal processing / handling overhead.
+What have we achieved? By adding an additional three simple labels to any service, we can secure any service behind our Keycloak OIDC provider, with minimal processing / handling overhead.
 
 !!! summary "Summary"
     Created:
 
-    * [X] Traefik-forward-auth configured to authenticate against KeyCloak
+    * [X] Traefik-forward-auth configured to authenticate against Keycloak
 
-[^1]: KeyCloak is very powerful. You can add 2FA and all other clever things outside of the scope of this simple recipe ;)
+[^1]: Keycloak is very powerful. You can add 2FA and all other clever things outside of the scope of this simple recipe ;)
 
 --8<-- "recipe-footer.md"

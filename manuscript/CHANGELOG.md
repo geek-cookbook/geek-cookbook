@@ -21,7 +21,7 @@ Recipe                   | Description                                          
 Recipe                      | Description                                                                     | Date
 ----------------------------|---------------------------------------------------------------------------------|--------------
 [Minio][minio] | Major update to Minio recipe, for new Console UI and Traefik v2      | _22 Oct 2021_
-[Traefik Forward Auth][tfa] | Major update for Traefik v2, included instructions for Dex, Google, KeyCloak    | _29 Jan 2021_
+[Traefik Forward Auth][tfa] | Major update for Traefik v2, included instructions for Dex, Google, Keycloak    | _29 Jan 2021_
 [Autopirate][autopirate]    | Updated all components for Traefik v2 labels                                    | _29 Jan 2021_
 [Portainer][portainer]      | Bump to version 2, bringing "expert simplicity" to your Docker stack management | _25 Jan 2021_
 
