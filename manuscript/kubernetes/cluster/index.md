@@ -1,5 +1,6 @@
 ---
-description: Choosing HOW to deploy Kubernetes
+title: How to choose a managed Kubernetes cluster vs build your own
+description: So you want to play with Kubernetes? The first decision you need to make is how your cluster will run. Do you choose (and pay a premium for) a managed Kubernetes cloud provider, or do you "roll your own" with kubeadm on bare-metal, VMs, or k3s?
 ---
 # Kubernetes Cluster
 

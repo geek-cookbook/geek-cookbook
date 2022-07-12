@@ -50,7 +50,7 @@ Running such a platform enables you to run selfhosted services such as the [Auto
 * [Automated backup](/recipes/elkarbackup/) of configuration and data
 * [Monitoring and metrics](/recipes/swarmprom/) collection, graphing and alerting
 
-Recent updates and additions are posted on the [CHANGELOG](/changelog/), and there's a friendly community of like-minded geeks in the [Discord server](http://chat.funkypenguin.co.nz).
+Recent updates and additions are posted on the [CHANGELOG](/recent-changes/), and there's a friendly community of like-minded geeks in the [Discord server](http://chat.funkypenguin.co.nz).
 
 ## How will this benefit me?
 
