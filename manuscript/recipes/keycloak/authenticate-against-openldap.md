@@ -7,7 +7,7 @@ description: Here's how we'll add an LDAP provider to our Keycloak server for us
 !!! warning
     This is not a complete recipe - it's an **optional** component of the [Keycloak recipe](/recipes/keycloak/), but has been split into its own page to reduce complexity.
 
-Keycloak gets really sexy when you integrate it into your [OpenLDAP](/recipes/openldap/) stack (_also, it's great not to have to play with ugly LDAP tree UIs_). Note that OpenLDAP integration is **not necessary** if you want to use Keycloak with [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/) - all you need for that is [local users](/recipes/keycloak/create-user/), and an [OIDC client](http://localhost:8000/recipes/keycloak/setup-oidc-provider/).
+Keycloak gets really sexy when you integrate it into your [OpenLDAP](/recipes/openldap/) stack (_also, it's great not to have to play with ugly LDAP tree UIs_). Note that OpenLDAP integration is **not necessary** if you want to use Keycloak with [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/) - all you need for that is [local users][keycloak], and an [OIDC client](/recipes/keycloak/setup-oidc-provider/).
 
 ## Ingredients
 

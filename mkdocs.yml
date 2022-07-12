@@ -115,7 +115,6 @@ nav:
         - InstaPy: recipes/instapy.md
         - Keycloak: 
           - recipes/keycloak/index.md      
-          - Users: recipes/keycloak/create-user.md
           - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
           - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md      
         - Komga: recipes/komga.md
