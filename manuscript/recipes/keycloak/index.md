@@ -14,7 +14,7 @@ Keycloak's OpenID provider can also be used in combination with [Traefik Forward
 
 ## Setup
 
-### Filesystem paths
+### Keycloak filesystem paths
 
 We'll need several directories to bind-mount into our container for both runtime and backup data, so create them as per the following example:
 
@@ -23,7 +23,7 @@ mkdir -p /var/data/runtime/keycloak/database
 mkdir -p /var/data/keycloak/database-dump
 ```
 
-### Environment vars
+### Keycloak environment vars
 
 Create `/var/data/config/keycloak/keycloak.env`, and populate with the following example variables, customized for your own domain structure.
 
@@ -60,7 +60,7 @@ BACKUP_FREQUENCY=1d
 
 ## Docker compose example
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this example:
+Create a Keycloak docker-compose (v3) stack config file, something like this example:
 
 --8<-- "premix-cta.md"
 
@@ -131,15 +131,15 @@ networks:
 
 --8<-- "reference-networks.md"
 
-## Running
+## Run Keycloak
 
-### Launch Keycloak stack
+### Launch Keycloak docker-swarm stack
 
 Launch the Keycloak stack by running `docker stack deploy keycloak -c <path -to-docker-compose.yml>`
 
 Log into your new instance at `https://YOUR-FQDN`, and login with the user/password you defined in `keycloak.env`.
 
-### Create User
+### Create Keycloak user
 
 !!! question "Why are we adding a user when I have an admin user already?"
     Do you keep a spare set of house keys somewhere _other_ than your house? Do you login as `root` onto all your systems? Think of this as the same prinicple - lock the literal `admin` account away somewhere as a "password of last resort", and create a new user for your day-to-day interaction with Keycloak.
@@ -152,7 +152,7 @@ Populate your new user's username (it's the only mandatory field)
 
 ![Populating a username in the add user interface in Keycloak](/images/keycloak-add-user-2.png){ loading=lazy }
 
-#### Set User Credentials
+#### Set Keycloak user credentials
 
 Once your user is created, to set their password, click on the "**Credentials**" tab, and procede to reset it. Set the password to non-temporary, unless you like extra work!
 
@@ -160,7 +160,7 @@ Once your user is created, to set their password, click on the "**Credentials**"
 
 ## Tips
 
-### Traefik
+### Keycloak with Traefik
 
 Keycloak can be used with Traefik in two ways..
 
@@ -172,7 +172,7 @@ You'll notice that the docker compose example above includes labels for both Tra
 
 Irrespective of whether Keycloak itself is behind Traefik, you can secure access to **other** services [behind Traefik using Keycloak][tfa-keycloak], using the [Traefik Forward Auth][tfa] middleware. Other similar middleware solutions are traefik-gatekeeper, and oauth2-proxy.
 
-### Troubleshooting
+### Keycloak Troubleshooting
 
 Something didn't work? Try the following:
 
