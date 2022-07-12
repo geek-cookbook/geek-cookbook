@@ -240,7 +240,7 @@ nav:
       - Design: premix/ansible/design.md
       # - Swarm: premix/swarm.md
       # - Kubernetes: premix/kubernetes.md      
-    - CHANGELOG: changelog.md
+    - CHANGELOG: recent-changes.md
     - Support: support.md      
     - Contribute: community/contribute.md
     - Community: 

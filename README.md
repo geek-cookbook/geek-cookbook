@@ -60,7 +60,7 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
 ## What have you done for me lately? (CHANGELOG)
 
-Check out recent change at [CHANGELOG](/changelog/)
+Check out recent change at [CHANGELOG](/recent-changes/)
 
 ## What do you want from me?
 
