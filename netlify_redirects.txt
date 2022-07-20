@@ -12,7 +12,7 @@ https://geeks-cookbook.funkypenguin.co.nz/* https://geek-cookbook.funkypenguin.c
 /api/event              https://plausible.io/api/event 202
 
 # Now we have indexes on subfolders, we can use a better URL for docker-swarm
-/docker-swarm/design    /docker-swarm 301!
+# /docker-swarm/design    /docker-swarm 301!
 /ha-docker-swarm/design /docker-swarm 301!
 
 # Prefer "docker-swarm" to "ha-docker-swarm"
