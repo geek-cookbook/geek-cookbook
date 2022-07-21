@@ -1,6 +1,6 @@
 ---
-title: Launch your secure, scalable Docker Swarm
-description: Using Docker Swarm to build your own container-hosting platform which is highly-available, scalable, portable, secure and automated! 💪
+title: Design a secure, scalable Docker Swarm
+description: Presenting a Docker Swarm design to create your own container-hosting platform, which is highly-available, scalable, portable, secure and automated! 💪
 ---
 
 # Highly Available Docker Swarm Design

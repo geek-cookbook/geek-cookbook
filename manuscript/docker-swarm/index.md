@@ -1,97 +1,29 @@
 ---
-title: Launch your secure, scalable Docker Swarm
+title: Why use Docker Swarm?
 description: Using Docker Swarm to build your own container-hosting platform which is highly-available, scalable, portable, secure and automated! 💪
 ---
 
-# Highly Available Docker Swarm Design
+# Why Docker Swarm?
 
-In the design described below, our "private cloud" platform is:
+Pop quiz, hotshot.. There's a server with containers on it. Once you run enough containers, you start to loose track of compose files / data. If the host fails, all your services are unavailable. What do you do? **WHAT DO YOU DO**?[^1]
 
-* **Highly-available** (_can tolerate the failure of a single component_)
-* **Scalable** (_can add resource or capacity as required_)
-* **Portable** (_run it on your garage server today, run it in AWS tomorrow_)
-* **Secure** (_access protected with [LetsEncrypt certificates](/docker-swarm/traefik/) and optional [OIDC with 2FA](/docker-swarm/traefik-forward-auth/)_)
-* **Automated** (_requires minimal care and feeding_)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ug2hLQv6WeY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Design Decisions
+You too, action-geek, can save the day, by...
 
-### Where possible, services will be highly available.**
+1. Enable [Docker Swarm mode](/site/docker-swarm/docker-swarm-mode/) (*even just on one node*)[^2]
+2. Store your swarm configuration and application data in an [orderly and consistent structure](/reference/data_layout)
+3. Expose all your services consistently using [Traefik](/docker-swarm/traefik/) with optional [additional per-service authentication][tfa]
 
-This means that:
+Then you can really level-up your geek-fu, by:
 
-* At least 3 docker swarm manager nodes are required, to provide fault-tolerance of a single failure.
-* [Ceph](/docker-swarm/shared-storage-ceph/) is employed for share storage, because it too can be made tolerant of a single failure.
+4. Making your Docker Swarm highly with [keepalived](/docker-swarm/keepalived/)
+5. Setup [shared storage](/docker-swarm/shared-storage-ceph/) to eliminate SPOFs
+6. [Backup](/recipes/duplicity/) your stuff automatically
 
-!!! note
-    An exception to the 3-nodes decision is running a single-node configuration. If you only **have** one node, then obviously your swarm is only as resilient as that node. It's still a perfectly valid swarm configuration, ideal for starting your self-hosting journey. In fact, under the single-node configuration, you don't need ceph either, and you can simply use the local volume on your host for storage. You'll be able to migrate to ceph/more nodes if/when you expand.
-
-**Where multiple solutions to a requirement exist, preference will be given to the most portable solution.**
-
-This means that:
-
-* Services are defined using docker-compose v3 YAML syntax
-* Services are portable, meaning a particular stack could be shut down and moved to a new provider with minimal effort.
-
-## Security
-
-Under this design, the only inbound connections we're permitting to our docker swarm in a **minimal** configuration (*you may add custom services later, like UniFi Controller*) are:
-
-### Network Flows
-
-* **HTTP (TCP 80)** : Redirects to https
-* **HTTPS (TCP 443)** : Serves individual docker containers via SSL-encrypted reverse proxy
-
-### Authentication
-
-* Where the hosted application provides a trusted level of authentication (*i.e., [NextCloud](/recipes/nextcloud/)*), or where the application requires public exposure (*i.e. [Privatebin](/recipes/privatebin/)*), no additional layer of authentication will be required.
-* Where the hosted application provides inadequate (*i.e. [NZBGet](/recipes/autopirate/nzbget/)*) or no authentication (*i.e. [Gollum](/recipes/gollum/)*), a further authentication against an OAuth provider will be required.
-
-## High availability
-
-### Normal function
-
-Assuming a 3-node configuration, under normal circumstances the following is illustrated:
-
-* All 3 nodes provide shared storage via Ceph, which is provided by a docker container on each node.
-* All 3 nodes participate in the Docker Swarm as managers.
-* The various containers belonging to the application "stacks" deployed within Docker Swarm are automatically distributed amongst the swarm nodes.
-* Persistent storage for the containers is provide via cephfs mount.
-* The **traefik** service (*in swarm mode*) receives incoming requests (*on HTTP and HTTPS*), and forwards them to individual containers. Traefik knows the containers names because it's able to read the docker socket.
-* All 3 nodes run keepalived, at varying priorities. Since traefik is running as a swarm service and listening on TCP 80/443, requests made to the keepalived VIP and arriving at **any** of the swarm nodes will be forwarded to the traefik container (*no matter which node it's on*), and then onto the target backend.
-
-![HA function](../images/docker-swarm-ha-function.png){ loading=lazy }
-
-### Node failure
-
-In the case of a failure (or scheduled maintenance) of one of the nodes, the following is illustrated:
-
-* The failed node no longer participates in Ceph, but the remaining nodes provide enough fault-tolerance for the cluster to operate.
-* The remaining two nodes in Docker Swarm achieve a quorum and agree that the failed node is to be removed.
-* The (*possibly new*) leader manager node reschedules the containers known to be running on the failed node, onto other nodes.
-* The **traefik** service is either restarted or unaffected, and as the backend containers stop/start and change IP, traefik is aware and updates accordingly.
-* The keepalived VIP continues to function on the remaining nodes, and docker swarm continues to forward any traffic received on TCP 80/443 to the appropriate node.
-
-![HA function](../images/docker-swarm-node-failure.png){ loading=lazy }
-
-### Node restore
-
-When the failed (*or upgraded*) host is restored to service, the following is illustrated:
-
-* Ceph regains full redundancy
-* Docker Swarm managers become aware of the recovered node, and will use it for scheduling **new** containers
-* Existing containers which were migrated off the node are not migrated backend
-* Keepalived VIP regains full redundancy
-
-![HA function](../images/docker-swarm-node-restore.png){ loading=lazy }
-
-### Total cluster failure
-
-A day after writing this, my environment suffered a fault whereby all 3 VMs were unexpectedly and simultaneously powered off.
-
-Upon restore, docker failed to start on one of the VMs due to local disk space issue[^1]. However, the other two VMs started, established the swarm, mounted their shared storage, and started up all the containers (services) which were managed by the swarm.
-
-In summary, although I suffered an **unplanned power outage to all of my infrastructure**, followed by a **failure of a third of my hosts**... ==all my platforms are 100% available[^1] with **absolutely no manual intervention**==.
-
-[^1]: Since there's no impact to availability, I can fix (or just reinstall) the failed node whenever convenient.
+Ready to enter the matrix? Jump in on one of the links above, or start reading the [design](/docker-swarm/design/)
 
 --8<-- "recipe-footer.md"
+
+[^1]: This was an [iconic movie](https://www.imdb.com/title/tt0111257/). It even won 2 Oscars! (*but not for the acting*)
+[^2]: There are significant advantages to using Docker Swarm, even on just a single node.
