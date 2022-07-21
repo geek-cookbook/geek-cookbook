@@ -11,8 +11,8 @@ Pop quiz, hotshot.. There's a server with containers on it. Once you run enough 
 
 You too, action-geek, can save the day, by...
 
-1. Enable [Docker Swarm mode](/site/docker-swarm/docker-swarm-mode/) (*even just on one node*)[^2]
-2. Store your swarm configuration and application data in an [orderly and consistent structure](/reference/data_layout)
+1. Enable [Docker Swarm mode](/docker-swarm/docker-swarm-mode/) (*even just on one node*)[^2]
+2. Store your swarm configuration and application data in an [orderly and consistent structure](/reference/data_layout/)
 3. Expose all your services consistently using [Traefik](/docker-swarm/traefik/) with optional [additional per-service authentication][tfa]
 
 Then you can really level-up your geek-fu, by:
