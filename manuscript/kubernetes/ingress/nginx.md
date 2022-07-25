@@ -1,7 +1,8 @@
 ---
+title: Install nginx ingress controller into Kuberntes with Flux
 description: Nginx Ingress Controller
 ---
-# Nginx Ingress Controller
+# Nginx Ingress Controller for Kubernetes - the "flux way"
 
 The [Nginx Ingress Controller](https://kubernetes.github.io/ingress-nginx/) is the grandpappy of Ingress Controllers, with releases dating back ot at least 2016. Of course, Nginx itself is a battle-tested rock, [released in 2004](https://en.wikipedia.org/wiki/Nginx) and has been constantly updated / improved ever since.
 
@@ -24,7 +25,7 @@ Nginx Ingress Controller does make for a nice, simple "default" Ingress controll
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/namespaces/namespace-nginx-ingress-controller.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/namespaces/namespace-nginx-ingress-controller.yaml`:
 
 ??? example "Example NameSpace (click to expand)"
     ```yaml
@@ -36,7 +37,7 @@ We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Pe
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the (*prolific*) [bitnami chart repository](https://github.com/bitnami/charts/tree/master/bitnami), so per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/helmrepositories/helmrepository-bitnami.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the (*prolific*) [bitnami chart repository](https://github.com/bitnami/charts/tree/master/bitnami), so per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/helmrepositories/helmrepository-bitnami.yaml`:
 
 ??? example "Example HelmRepository (click to expand)"
     ```yaml
@@ -52,7 +53,7 @@ Next, we need to define a HelmRepository (*a repository of helm charts*), to whi
 
 ### Kustomization
 
-Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/nginx-ingress-controller`. I create this Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-nginx-ingress-controller.yaml`:
+Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/nginx-ingress-controller`. I create this example Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-nginx-ingress-controller.yaml`:
 
 ??? example "Example Kustomization (click to expand)"
     ```yaml
@@ -80,7 +81,7 @@ Now that the "global" elements of this deployment (*Namespace and HelmRepository
 
 ### ConfigMap
 
-Now we're into the nginx-ingress-controller-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this in my flux repo at `nginx-ingress-controller/configmap-nginx-ingress-controller-helm-chart-value-overrides.yaml`:
+Now we're into the nginx-ingress-controller-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `nginx-ingress-controller/configmap-nginx-ingress-controller-helm-chart-value-overrides.yaml`:
 
 ??? example "Example ConfigMap (click to expand)"
     ```yaml

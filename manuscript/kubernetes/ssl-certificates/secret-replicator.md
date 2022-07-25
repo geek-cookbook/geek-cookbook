@@ -15,7 +15,7 @@ Kiwigrid's "[Secret Replicator](https://github.com/kiwigrid/secret-replicator)" 
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/namespaces/namespace-secret-replicator.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/namespaces/namespace-secret-replicator.yaml`:
 
 ??? example "Example Namespace (click to expand)"
 
@@ -28,7 +28,7 @@ metadata:
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/helmrepositories/helmrepository-kiwigrid.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/helmrepositories/helmrepository-kiwigrid.yaml`:
 
 ??? example "Example HelmRepository (click to expand)"
     ```yaml
@@ -44,7 +44,7 @@ Next, we need to define a HelmRepository (*a repository of helm charts*), to whi
 
 ### Kustomization
 
-Now that the "global" elements of this deployment have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/secret-replicator`. I create this Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-secret-replicator.yaml`:
+Now that the "global" elements of this deployment have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/secret-replicator`. I create this example Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-secret-replicator.yaml`:
 
 ??? example "Example Kustomization (click to expand)"
     ```yaml
@@ -71,7 +71,7 @@ Now that the "global" elements of this deployment have been defined, we do some 
 
 ### ConfigMap
 
-Now we're into the secret-replicator-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/kiwigrid/helm-charts/blob/master/charts/secret-replicator/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this in my flux repo at `secret-replicator/configmap-secret-replicator-helm-chart-value-overrides.yaml`:
+Now we're into the secret-replicator-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/kiwigrid/helm-charts/blob/master/charts/secret-replicator/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `secret-replicator/configmap-secret-replicator-helm-chart-value-overrides.yaml`:
 
 ??? example "Example ConfigMap (click to expand)"
     ```yaml  hl_lines="21 27"

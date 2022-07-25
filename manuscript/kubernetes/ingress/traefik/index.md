@@ -29,7 +29,7 @@ Traefik natively includes some features which Nginx lacks:
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/namespaces/namespace-traefik.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/namespaces/namespace-traefik.yaml`:
 
 ??? example "Example NameSpace (click to expand)"
     ```yaml
@@ -41,7 +41,7 @@ We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Pe
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the official [Traefik helm chart](https://github.com/traefik/traefik-helm-chart), so per the [flux design](/kubernetes/deployment/flux/), I create this in my flux repo at `bootstrap/helmrepositories/helmrepository-traefik.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the official [Traefik helm chart](https://github.com/traefik/traefik-helm-chart), so per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/helmrepositories/helmrepository-traefik.yaml`:
 
 ??? example "Example HelmRepository (click to expand)"
     ```yaml
@@ -57,7 +57,7 @@ Next, we need to define a HelmRepository (*a repository of helm charts*), to whi
 
 ### Kustomization
 
-Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/traefik`. I create this Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-traefik.yaml`:
+Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/traefik`. I create this example Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-traefik.yaml`:
 
 ??? example "Example Kustomization (click to expand)"
     ```yaml
@@ -85,7 +85,7 @@ Now that the "global" elements of this deployment (*Namespace and HelmRepository
 
 ### ConfigMap
 
-Now we're into the traefik-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/traefik/traefik-helm-chart/blob/master/traefik/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this in my flux repo at `traefik/configmap-traefik-helm-chart-value-overrides.yaml`:
+Now we're into the traefik-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/traefik/traefik-helm-chart/blob/master/traefik/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `traefik/configmap-traefik-helm-chart-value-overrides.yaml`:
 
 ??? example "Example ConfigMap (click to expand)"
     ```yaml
