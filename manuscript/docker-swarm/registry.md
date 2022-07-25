@@ -1,4 +1,8 @@
-# Create registry mirror
+---
+title: Setup pull through Docker registry / cache
+description: You may not _want_ your cluster to be pulling multiple copies of images from public registries, especially if rate-limits (hello, Docker Hub!) are a concern. Here's how you setup your own "pull through cache" registry.
+---
+# Create Docker "pull through" registry cache
 
 Although we now have shared storage for our persistent container data, our docker nodes don't share any other docker data, such as container images. This results in an inefficiency - every node which participates in the swarm will, at some point, need the docker image for every container deployed in the swarm.
 
@@ -8,15 +12,17 @@ The solution is to run an official Docker registry container as a ["pull-through
 
 The registry mirror runs as a swarm stack, using a simple docker-compose.yml. Customize **your mirror FQDN** below, so that Traefik will generate the appropriate LetsEncrypt certificates for it, and make it available via HTTPS.
 
-## Ingredients
+## Requirements
 
-1. [Docker swarm cluster](/docker-swarm/design/) with [persistent shared storage](/docker-swarm/shared-storage-ceph/)
-2. [Traefik](/docker-swarm/traefik/) configured per design
-3. DNS entry for the hostname you intend to use, pointed to your [keepalived](/docker-swarm/keepalived/) IP
+!!! summary "Ingredients"
 
-## Preparation
+    * [ ] [Docker swarm cluster](/docker-swarm/design/) with [persistent shared storage](/docker-swarm/shared-storage-ceph/)
+    * [ ] [Traefik](/docker-swarm/traefik/) configured per design
+    * [ ] DNS entry for the hostname you intend to use, pointed to your [keepalived](/docker-swarm/keepalived/) IP
 
-Create /var/data/config/registry/registry.yml as per the following example:
+## Configuration
+
+Create `/var/data/config/registry/registry.yml` as per the following docker-compose example:
 
 ```yaml
 version: "3"
@@ -44,9 +50,9 @@ networks:
 ```
 
 !!! note "Unencrypted registry"
-We create this registry without consideration for SSL, which will fail if we attempt to use the registry directly. However, we're going to use the HTTPS-proxied version via Traefik, leveraging Traefik to manage the LetsEncrypt certificates required.
+We create this registry without consideration for SSL, which will fail if we attempt to use the registry directly. However, we're going to use the HTTPS-proxied version via [Traefik][traefik], leveraging Traefik to manage the LetsEncrypt certificates required.
 
-Create /var/data/registry/registry-mirror-config.yml as per the following example:
+Create the configuration for the actual registry in `/var/data/registry/registry-mirror-config.yml` as per the following example:
 
 ```yaml
 version: 0.1
@@ -73,15 +79,15 @@ proxy:
   remoteurl: https://registry-1.docker.io
 ```
 
-## Serving
+## Running
 
-### Launch registry stack
+### Launch Docker registry stack
 
 Launch the registry stack by running `docker stack deploy registry -c <path-to-docker-compose.yml>`
 
-### Enable registry mirror and experimental features
+### Enable Docker registry mirror
 
-To tell docker to use the registry mirror, and (_while we're here_) in order to be able to watch the logs of any service from any manager node (_an experimental feature in the current Atomic docker build_), edit **/etc/docker-latest/daemon.json** on each node, and change from:
+To tell docker to use the registry mirror, edit `/etc/docker-latest/daemon.json` [^1] on each node, and change from:
 
 ```json
 {
@@ -96,18 +102,12 @@ To:
 {
     "log-driver": "journald",
     "signature-verification": false,
-    "experimental": true,
     "registry-mirrors": ["https://<your registry mirror FQDN>"]
 }
 ```
 
-Then restart docker by running:
+Then restart docker itself, by running `systemctl restart docker`
 
-```bash
-systemctl restart docker-latest
-```
-
-!!! tip ""
-Note the extra comma required after "false" above
+[^1]: Note the extra comma required after "false" above
 
 --8<-- "recipe-footer.md"
