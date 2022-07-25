@@ -1,8 +1,9 @@
 ---
-description: Kubernetes Flux deployment strategy - Operation
+title: Using fluxcd/fluxv2 to "GitOps" multiple helm charts from a single repository
+description: Having described a installation and design pattern for fluxcd/fluxv2, this page describes how to _use_ and extend the design to manage multilpe helm releases in your cluster, from a single repository.
 ---
 
-# Operation
+# Operate fluxcd/fluxv2 from a single repository
 
 Having described [how to install flux](/kubernetes/deployment/flux/install/), and [how our flux deployment design works](/kubernetes/deployment/flux/design/), let's finish by exploring how to **use** flux to deploy helm charts into a cluster!
 

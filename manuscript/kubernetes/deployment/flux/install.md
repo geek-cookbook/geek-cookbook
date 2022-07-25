@@ -1,8 +1,9 @@
 ---
-description: Kubernetes Flux deployment strategy - Installation
+title: Install fluxcd/fluxv2 with custom layout for future flexibility
+description: Installing fluxcd/fluxv2 is a trivial operation, but sometimes the defaults are not conducive to future flexibility. This pages details a few tricks to ensure Flux can be easily managed / extended over time.
 ---
 
-# Flux Installation
+# Install fluxcd/fluxv2
 
 [Flux](https://fluxcd.io/) is a set of continuous and progressive delivery solutions for Kubernetes that are open and extensible.
 
@@ -18,7 +19,7 @@ Using flux to manage deployments into the cluster means:
     * [x] Create a GitHub [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) that can create repositories by checking all permissions under repo.
     * [x] Create a private GitHub repository dedicated to your flux deployments
 
-## Basics
+## Fluxv2 components
 
 Here's a simplified way to think about the various flux components..
 
