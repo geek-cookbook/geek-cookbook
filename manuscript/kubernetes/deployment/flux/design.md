@@ -1,14 +1,15 @@
 ---
-description: Kubernetes Flux deployment strategy - Design
+title: Using fluxcd/fluxv2 to deploy from helm with GitOps
+description: This page details a deployment design pattern which facilitates the use of fluxcd/fluxv2 to provided a tiered structure of helm releases, so that you can manage your cluster services via GitOps using a single repository.
 ---
-# Design
+# Using helm with GitOps via fluxv2/fluxv2
 
 !!! question "Shouldn't a design **precede** installation instructions?"
     In this case, I felt that an [installation](/kubernetes/deployment/flux/install/) and a practical demonstration upfront, would help readers to understand the flux design, and make it simpler to then explain how to [operate](/kubernetes/deployment/flux/operate/) flux themselves! 💪
 
 Flux is power and flexible enough to fit many use-cases. After some experience and dead-ends, I've worked out a way to deploy Flux with enough flexibility but structure to make it an almost-invisible part of how my cluster "just works" on an ongoing basis..
 
-## Diagram
+## Illustration
 
 Consider this entity relationship diagram:
 
@@ -33,7 +34,7 @@ Consider this entity relationship diagram:
           app-containers }|..|o app-sealed-secrets : references
 ```
 
-## Explanation
+## Description
 
 And here's what it all means, starting from the top...
 
