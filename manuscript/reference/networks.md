@@ -1,3 +1,6 @@
+---
+title: Docker Swarm Network allocations
+---
 # Networks
 
 In order to avoid IP addressing conflicts as we bring swarm networks up/down, we will statically address each docker overlay network, and record the details below:

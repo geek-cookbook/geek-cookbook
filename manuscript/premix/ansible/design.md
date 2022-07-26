@@ -1,4 +1,9 @@
-# Premix via Ansible
+---
+title: Deploy Premix Docker Swarm stacks with Ansible
+description: Here's how we leverage Ansible to deploy Docker Swarm stacks for all Geek Cookbook recipes in Premix!
+---
+
+# Deploy Premix Docker Swarm stacks with Ansible
 
 !!! warning "This section is under construction :hammer:"
     This section is a serious work-in-progress, and reflects the current development on the [sponsors](https://github.com/sponsors/funkypenguin)'s "premix" repository

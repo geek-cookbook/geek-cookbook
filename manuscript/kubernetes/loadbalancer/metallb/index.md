@@ -1,7 +1,8 @@
 ---
-description: MetalLB - Load-balancing for bare-metal Kubernetes clusters
+title: MetalLB - Kubernetes Bare-Metal Loadbalancing
+description: MetalLB - Load-balancing for bare-metal Kubernetes clusters, deployed with Helm via flux
 ---
-# MetalLB
+# MetalLB on Kubernetes, via Helm
 
 [MetalLB](https://metallb.universe.tf/) offers a network [load balancer](/kubernetes/loadbalancer/) implementation which workes on "bare metal" (*as opposed to a cloud provider*).
 
@@ -20,7 +21,7 @@ MetalLB does two jobs:
 
     * [ ] Network firewall/router supporting BGP (*ideal but not required*)
 
-## Preparation
+## MetalLB Requirements
 
 ### Allocations
 

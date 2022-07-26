@@ -1,3 +1,6 @@
+---
+title: OpenVPN on Docker Swarm
+---
 # OpenVPN
 
 Sometimes you need an OpenVPN tunnel between your docker hosts and some other environment. I needed this to provide connectivity between swarm-deployed services like Home Assistant, and my IOT devices within my home LAN.

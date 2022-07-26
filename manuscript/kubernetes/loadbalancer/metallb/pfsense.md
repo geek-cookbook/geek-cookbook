@@ -1,7 +1,8 @@
 ---
+title: MetalLB BGP config for pfSense - Kubernetes load balancing
 description: Using MetalLB with pfsense and BGP
 ---
-# MetalLB with pfSense
+# MetalLB on Kubernetes with pfSense
 
 This is an addendum to the MetalLB recipe, explaining how to configure MetalLB to perform BGP peering with a pfSense firewall.
 

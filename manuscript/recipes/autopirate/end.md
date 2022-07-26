@@ -1,3 +1,7 @@
+---
+title: Launch the Autopirate Docker Swarm stack!
+description: We're done. Launch your stack and enjoy watching the various apps interact with each other!
+---
 # Launch Autopirate stack
 
 !!! warning

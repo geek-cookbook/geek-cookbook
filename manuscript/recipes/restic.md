@@ -1,4 +1,5 @@
 ---
+title: Backup with restic in Docker Swarm
 description: Don't be like Cameron. Back up your shizz.
 ---
 
