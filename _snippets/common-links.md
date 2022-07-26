@@ -17,6 +17,7 @@
 [homeassistant]:    /recipes/homeassistant/
 [jackett]:          /recipes/autopirate/jackett/
 [jellyfin]:         /recipes/jellyfin/
+[kavita]:           /recipes/kavita/
 [keycloak]:         /recipes/keycloak/
 [komga]:            /recipes/komga/
 [lazylibrarian]:    /recipes/autopirate/lazylibrarian/

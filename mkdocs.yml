@@ -118,6 +118,7 @@ nav:
           - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
           - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md      
         - Komga: recipes/komga.md
+        - Kavita: recipes/kavita.md
         - Linx: recipes/linx.md
         - Mealie: recipes/mealie.md
         - Minio: recipes/minio.md
