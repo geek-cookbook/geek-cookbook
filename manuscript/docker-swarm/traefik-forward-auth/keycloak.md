@@ -96,4 +96,9 @@ What have we achieved? By adding an additional three simple labels to any servic
 
 [^1]: Keycloak is very powerful. You can add 2FA and all other clever things outside of the scope of this simple recipe ;)
 
+### Keycloak vs Authelia
+
+[KeyCloak][keycloak] is the "big daddy" of self-hosted authentication platforms - it has a beautiful GUI, and a very advanced and mature featureset. Like Authelia, KeyCloak can [use an LDAP server](/recipes/keycloak/authenticate-against-openldap/) as a backend, but _unlike_ Authelia, KeyCloak allows for 2-way sync between that LDAP backend, meaning KeyCloak can be used to _create_ and _update_ the LDAP entries (*Authelia's is just a one-way LDAP lookup - you'll need another tool to actually administer your LDAP database*).
+
+
 --8<-- "recipe-footer.md"
