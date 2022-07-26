@@ -1,8 +1,9 @@
 ---
-description: k3s' lightweight loadbalancer
+title: klipper loadbalancer with k3s
+description: klipper - k3s' lightweight loadbalancer
 ---
 
-# K3s Load Balancing
+# K3s Load Balancing with Klipper
 
 If your cluster is using K3s, and you have only one node, then you could be adequately served by the [built in "klipper" loadbalbancer provided with k3s](https://rancher.com/docs/k3s/latest/en/networking/#service-load-balancer).
 
