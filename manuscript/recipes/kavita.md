@@ -81,6 +81,8 @@ Launch the Kavita stack by running ```docker stack deploy kavita -c <path -to-do
 
 Log into your new instance at https://**YOUR-FQDN**. Since it's a fresh installation, Kavita will prompt you to setup a username and password, after which you'll be able to setup your library, and tweak all teh butt0ns!
 
-[^1]: Since Kavita doesn't need to communicate with any other services, we don't need a separate overlay network for it. Provided Traefik can reach kavita via the `traefik_public` overlay network, we've got all we need.
+[^1]: Since Kavita doesn't need to communicate with any other local docker services, we don't need a separate overlay network for it. Provided Traefik can reach kavita via the `traefik_public` overlay network, we've got all we need.
+
+[^2]: There's an [active subreddit](https://www.reddit.com/r/KavitaManga/) for Kavita
 
 --8<-- "recipe-footer.md"
