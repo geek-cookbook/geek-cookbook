@@ -15,7 +15,7 @@ repo_url: 'https://github.com/geek-cookbook/geek-cookbook'
 docs_dir: 'manuscript'
 
 # Copyright
-copyright: 'Copyright &copy; 2016 - 2021 David Young, Funky Penguin Limited'
+copyright: 'Copyright &copy; 2016 - 2022 David Young, Funky Penguin Limited'
 
 # Plugins
 plugins:
