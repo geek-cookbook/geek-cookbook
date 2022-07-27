@@ -3,4 +3,7 @@
 INHERIT: mkdocs.yml
 # disabled for now, since I'm not convinced social cards are better than default thumbnails
 plugins:
-  social: {}
+  social:
+    cards_color:
+      fill: "#333333" 
+      text: "#FFFFFF"  
