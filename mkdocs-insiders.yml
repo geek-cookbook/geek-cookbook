@@ -2,5 +2,5 @@
 # that don't degrade for the open-source version
 INHERIT: mkdocs.yml
 # disabled for now, since I'm not convinced social cards are better than default thumbnails
-# plugins:
-#   social: {}
+plugins:
+  social: {}
