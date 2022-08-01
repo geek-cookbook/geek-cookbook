@@ -245,8 +245,11 @@ nav:
     - Support: support.md      
     - Contribute: community/contribute.md
     - Community: 
+      - community/index.md
       - Discord: community/discord.md 
       - Reddit: community/reddit.md 
+      - Mastodon: community/mastodon.md 
+      # - Forums: community/discourse.md 
       - Support: support.md      
       - Contribute: community/contribute.md
       - Code of Conduct: community/code-of-conduct.md 
@@ -280,9 +283,10 @@ theme:
 
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
+      scheme: default
       toggle:
         icon: material/brightness-auto
-        name: Switch to light mode
+        name: Follow system preferences
 
     # Toggle light mode
     - media: "(prefers-color-scheme: light)"

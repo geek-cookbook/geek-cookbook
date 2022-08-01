@@ -9,6 +9,7 @@
 [cert_cks]:         https://www.credly.com/badges/93fa53da-1f38-47a9-b6ee-dce6a8fad9fc
 [contact]:          https://www.funkypenguin.co.nz/contact
 [cyberchef]:        /recipes/cyberchef/
+[discord]:          https://chat.funkypenguin.co.nz
 [duplicity]:        /recipes/autopirate/duplicity/
 [emby]:             /recipes/emby/
 [funkwhale]:        /recipes/autopirate/funkwhale/
