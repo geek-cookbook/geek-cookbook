@@ -24,8 +24,6 @@ I'm personally excited about Immich because I've recently been debating how to m
 
 Immich is a bit of an outlier in the self-hosted application space in terms of its maturity.. the [repository](https://github.com/immich-app/immich) currently states that it's **not** production-ready, but it's already got both an Android and iOS app available in the respective app stores.
 
-![Immich Screenshot](/images/reviews/immich-mobile.gif){ align=right loading=lazy }
-
 Two things stand out to me here - first off, the developer actively tries to discourage users from relying on the app for anything other than testing, and secondly, by investing in the mobile apps / app stores (*which come with a cost*), they're clearly thinking long-term and are committed to the project.
 
 ## Immich Features
