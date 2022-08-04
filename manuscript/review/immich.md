@@ -16,7 +16,7 @@ review_latest_change: Initial review!
 Immich is a promising self-hosted alternative to Google Photos. Its UI and features are clearly heavily inspired by Google Photos, and like [Photoprism][photoprism], Immich uses tensorflow-based machine learning to auto-tag your photos!
 
 !!! warning "Pre-production warning"
-    The developer makes it abundantly clear that Immich is under heavy development (*although it's covered by "wife-insurance"[^1]*), and features and APIs may change, and all your photos may be lost, or (worse) auto-shared with to your :dragon_face: mother-in-law!  Take due care :wink:
+    The developer makes it abundantly clear that Immich is under heavy development (*although it's covered by "wife-insurance"[^1]*), features and APIs may change, and all your photos may be lost, or (worse) auto-shared with your :dragon_face: mother-in-law! Take due care :wink:
 
 I'm personally excited about Immich because I've recently been debating how to migrate from Google Photos, in which I'm hitting my 15GB storage limit.
 
