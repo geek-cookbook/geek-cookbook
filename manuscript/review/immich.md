@@ -125,11 +125,11 @@ Given my goal of having a non-Apple secondary backup of my family photos, let's 
   <figcaption>Immich vs Photoprism</figcaption>
 </figure>
 
-Conclusion: For my secondary-backup use-case, Immich (*even in its current pre-production buggy state*) is perfectly fine. The mobile app is beautiful (*if a little buggy*), and I do appreciate the cheeky "google photos" theming / styling. I think it'll appeal to a lot of Google Photos refugees for this reason alone.
+Conclusion: For my secondary-backup use-case, Immich (*even in its current pre-production buggy state*) is perfectly fine. The mobile app is beautiful (*if a little buggy*), and I do appreciate the cheeky "Google Photos" theming / styling. I think it'll appeal to a lot of Google Photos refugees for this reason alone.
 
 ### Google Photos
 
-OK, obviously one is self-hosted, and the other is not. This massive differenec aside, again for my use-case, the other feature differences are:
+OK, obviously one is self-hosted, and the other is not. This massive difference aside, again for my use-case, the other feature differences are:
 
 <figure markdown>
 | Feature | Immich      | Google Photos |
@@ -156,7 +156,7 @@ Based on how the pre-production development has progressed, and the massive hung
 
 Please [join me](/#sponsored-projects) in sponsoring [@alextran1502](https://github.com/sponsors/alextran1502), to support this exceptional product!
 
-### Setup Immiche via premix
+### Setup Immich via premix
 
 I'll have a recipe up for Immich in due course, but if you're wanting to use the pre-prod, development, dont-blame-me version, there's an ansible role in the [Premix](/premix/) playbook which will set it up in under 60s (*see below*):
 <iframe width="560" height="315" src="https://www.youtube.com/embed/s-NZjYrNOPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
