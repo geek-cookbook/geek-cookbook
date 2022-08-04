@@ -162,3 +162,5 @@ I'll have a recipe up for Immich in due course, but if you're wanting to use the
 <iframe width="560" height="315" src="https://www.youtube.com/embed/s-NZjYrNOPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 --8<-- "review-footer.md"
+
+[^1]: There's a [friendly Discord server](https://discord.com/invite/D8JsnBEuKb) for Immich too!
