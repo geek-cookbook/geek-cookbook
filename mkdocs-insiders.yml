@@ -5,5 +5,5 @@ INHERIT: mkdocs.yml
 plugins:
   social:
     cards_color:
-      fill: "#2F303E" 
-      text: "#FFFFFF"  
+      fill: "#FFFFFF" 
+      text: "#000000"  
