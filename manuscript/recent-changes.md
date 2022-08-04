@@ -25,6 +25,11 @@ Recipe                      | Description                                       
 [Traefik Forward Auth][tfa] | Major update for Traefik v2, included instructions for Dex, Google, Keycloak    | _29 Jan 2021_
 [Autopirate][autopirate]    | Updated all components for Traefik v2 labels                                    | _29 Jan 2021_
 
+## Recent reviews
+
+Recipe                      | Description                                                                     | Date
+----------------------------|---------------------------------------------------------------------------------|--------------
+[Immich][review/immich] | First review      | _3 Aug 2022_
 
 ## Subscribe to updates
 
