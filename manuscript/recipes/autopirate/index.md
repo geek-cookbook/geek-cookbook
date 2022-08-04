@@ -8,7 +8,7 @@ Once the cutting edge of the "internet" (_pre-world-wide-web and mosiac days_), 
 
 A good starter for the usenet scene is <https://www.reddit.com/r/usenet/>. Because it's so damn complicated, a host of automated tools exist to automate the process of finding, downloading, and managing content. The tools included in this recipe are as per the following example:
 
-![Autopirate Screenshot](../../images/autopirate.png){ loading=lazy }
+![Autopirate Screenshot](/images/autopirate.png){ loading=lazy }
 
 This recipe presents a method to combine these tools into a single swarm deployment, and make them available securely.
 

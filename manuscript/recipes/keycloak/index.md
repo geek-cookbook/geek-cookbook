@@ -8,7 +8,7 @@ title: Run Keycloak behind traefik in Docker
 
 Keycloak's OpenID provider can also be used in combination with [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/), to protect [vulnerable services](/recipes/autopirate/nzbget/) with an extra layer of authentication.
 
-![Keycloak Screenshot](../../images/keycloak.png){ loading=lazy }
+![Keycloak Screenshot](/images/keycloak.png){ loading=lazy }
 
 --8<-- "recipe-standard-ingredients.md"
 

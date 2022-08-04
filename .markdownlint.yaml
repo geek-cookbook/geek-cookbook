@@ -8,6 +8,10 @@
 "MD024":
     "siblings_only": true
 
+# We use different page yaml titles to markdown TOC level #1 heading, on purpose, for SEO
+"MD025":
+    "front_matter_title": ""
+
 # Allow trailing punctuation in headings
 "MD026": false
 
@@ -16,3 +20,5 @@
 "MD038": false
 "MD046": false
 
+# We need inline HTML to embed YouTube videos
+"MD033": false

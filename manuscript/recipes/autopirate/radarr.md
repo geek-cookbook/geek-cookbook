@@ -24,7 +24,7 @@ description: Radarr is a tool for finding, downloading and managing movies, and 
 * And a beautiful UI
 * Importing Metadata such as trailers or subtitles
 
-![Radarr Screenshot](../../images/radarr.png){ loading=lazy }
+![Radarr Screenshot](/images/radarr.png){ loading=lazy }
 
 ## Inclusion into AutoPirate
 

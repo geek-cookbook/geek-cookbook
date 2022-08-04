@@ -16,6 +16,7 @@
 [github_sponsor]:   https://github.com/sponsors/funkypenguin
 [headphones]:       /recipes/autopirate/headphones/
 [homeassistant]:    /recipes/homeassistant/
+[immich]:           /recipes/immich/
 [jackett]:          /recipes/autopirate/jackett/
 [jellyfin]:         /recipes/jellyfin/
 [kavita]:           /recipes/kavita/
@@ -42,6 +43,7 @@
 [prowlarr]:         /recipes/autopirate/prowlarr/
 [radarr]:           /recipes/autopirate/radarr/
 [readarr]:          /recipes/autopirate/readarr/
+[review/immich]:    /review/immich/
 [rss-bridge]:       /recipes/rss-bridge/
 [rtorrent]:         /recipes/autopirate/rtorrent/
 [sabnzbd]:          /recipes/autopirate/sabnzbd/

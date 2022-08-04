@@ -10,7 +10,7 @@ description: Mylar is a tool for downloading and managing digital comic books, a
 
 [Mylar](https://github.com/mylar3/mylar3) is a tool for downloading and managing digital comic books.
 
-![Mylar Screenshot](../../images/mylar.jpg)
+![Mylar Screenshot](/images/mylar.jpg)
 
 ## Inclusion into AutoPirate
 

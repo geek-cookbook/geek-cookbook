@@ -18,7 +18,7 @@ User management system (_supports plex.tv, Emby and local accounts_)
 * Will show if the request is already on plex or even if it's already monitored.
 * Automatically updates the status of requests when they are available on Plex/Emby/Jellyfin
 
-![Ombi Screenshot](../../images/ombi.png){ loading=lazy }
+![Ombi Screenshot](/images/ombi.png){ loading=lazy }
 
 ## Inclusion into AutoPirate
 

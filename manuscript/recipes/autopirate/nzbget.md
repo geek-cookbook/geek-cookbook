@@ -12,7 +12,7 @@ description: NZBGet is a tool for downloading "content" from Usenet providers, a
 
 NZBGet performs the same function as [SABnzbd][sabnzbd] (_downloading content from Usenet servers_), but it's lightweight and fast(er), written in C++ (_as opposed to Python_).
 
-![NZBGet Screenshot](../../images/nzbget.jpg)
+![NZBGet Screenshot](/images/nzbget.jpg)
 
 ## Inclusion into AutoPirate
 

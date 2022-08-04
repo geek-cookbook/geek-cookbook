@@ -42,7 +42,7 @@ plugins:
 #theme_dir: mkdocs-material
 nav:
     - Home: index.md         
-    - Docker Swarm: 
+    - 🐳 Docker Swarm: 
       - docker-swarm/index.md
       - Preparation:
         - Design: docker-swarm/design.md
@@ -240,7 +240,10 @@ nav:
       - Operation: premix/ansible/operation.md        
       - Design: premix/ansible/design.md
       # - Swarm: premix/swarm.md
-      # - Kubernetes: premix/kubernetes.md      
+      # - Kubernetes: premix/kubernetes.md  
+    - ✅ Reviews:
+      - review/index.md
+      - Immich: review/immich.md    
     - CHANGELOG: recent-changes.md
     - Support: support.md      
     - Contribute: community/contribute.md
