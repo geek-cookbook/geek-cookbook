@@ -325,6 +325,8 @@ extra:
       link: 'https://www.funkypenguin.co.nz/'
     - icon: 'fontawesome/brands/linkedin'
       link: 'https://www.linkedin.com/in/funkypenguin'
+    - icon: 'fontawesome/brands/facebook'
+      link: 'https://www.facebook.com/funkypenguinnz'      
     - icon: 'material/mailbox'
       link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'             
   generator: false  

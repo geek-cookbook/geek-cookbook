@@ -14,3 +14,4 @@ Find details about our communities below:
 * [Mastodon](/community/mastodon/) - Federated, open-source microblogging platform
 * [Discourse](https://forum.funkypenguin.co.nz) - Forums - asyncronous communition
 * [GitHub](https://github.com/funkypenguin/) - Issues and PRs
+* [Facebook](https://www.facebook.com/funkypenguinnz/) - Social networking for old-timers!
