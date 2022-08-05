@@ -7,6 +7,7 @@
 [cert_cka]:         https://www.credly.com/badges/cd307d51-544b-4bc6-97b0-9015e40df40d
 [cert_ckad]:        https://www.credly.com/badges/9ed9280a-fb92-46ca-b307-8f74a2cccf1d
 [cert_cks]:         https://www.credly.com/badges/93fa53da-1f38-47a9-b6ee-dce6a8fad9fc
+[community/mastodon]: /community/mastodon/
 [contact]:          https://www.funkypenguin.co.nz/contact
 [cyberchef]:        /recipes/cyberchef/
 [discord]:          https://chat.funkypenguin.co.nz
@@ -25,6 +26,7 @@
 [lazylibrarian]:    /recipes/autopirate/lazylibrarian/
 [lidarr]:           /recipes/autopirate/lidarr/
 [linx]:             /recipes/linx/
+[mastodon]:         /recipes/mastodon/
 [mealie]:           /recipes/mealie/
 [miniflux]:         /recipes/miniflux/
 [minio]:            /recipes/minio/

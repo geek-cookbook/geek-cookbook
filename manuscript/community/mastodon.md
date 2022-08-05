@@ -7,11 +7,11 @@ icon: material/mastodon
 
 Mastondon is a self-hosted / open-source microblogging platform (*heavily inspired by Twitter*), which supports federation, rather than centralization. Like email, any user on any Mastodon instance can follow, "toot" (*not tweet!*), and reply to any user on any _other_ instance.
 
-Our community Mastodon server is sooo [FKNY](https://so.fnky.nz/web/directory), but if you're already using Mastdon on another server, you can seamlessly interact with us from there too, thanks to the magic of federation!
+Our community Mastodon server is sooo [FKNY](https://so.fnky.nz/web/directory), but if you're already using Mastodon on another server (*or your [own instance][mastodon]*), you can seamlessly interact with us from there too, thanks to the magic of federation!
 
 !!! question "This is dumb, there's nobody here"
     * Give it time. The first time you get a federated reply from someone on another instance, it just "clicks" (*at least, it did for me*)
-    * Follow some folks (I'm [@funkypenguin](https://so.fnky.nz/@funkypenguin))
+    * Follow some folks (I'm [funkypenguin@so.fnky.nz](https://so.fnky.nz/@funkypenguin))
     * Install [mobile client](https://joinmastodon.org/apps)
 
 ## How do I Mastodon?

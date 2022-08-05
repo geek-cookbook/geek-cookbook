@@ -8,13 +8,13 @@ hide:
 
 Recipe                   | Description                                                                                                      | Date
 -------------------------|------------------------------------------------------------------------------------------------------------------|--------------
+[Mastodon][mastodon] | Federated social network. Think "*twitter but like email*"      | _5 Aug 2022_
 [Kavita][kavita] | "Rocket-fueled" reader for manga/comics/ebooks, able to save reading position across devices/sessions      | _27 Jul 2022_
 [Authelia][authelia] | Authentication and two factor authorization server with Authelia      | _1 Nov 2021_
 [Prowlarr][prowlarr]     | An indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with the [AutoPirate][autopirate] friends | _27 Oct 2021_
 [Archivebox][archivebox] | Website Archiving service to save websites to view offline      | _19 Oct 2021_
 [Readarr][readarr] | [Autopirate][autopirate] component to grab and manage eBooks (*think "Sonarr/Radarr for books*")                     | _18 Oct 2021_
-[Paperless-NG][paperless-ng] | Organize, index, search, and view all your documents                         | _14 Oct 2021_
-[RSS-Bridge][rss-bridge] | Consume content from non-open platforms (*Facebook, Instagram, etc*) in your feed reader                         | _1 Oct 2021_
+
 
 ## Recent updates
 

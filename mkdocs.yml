@@ -51,6 +51,7 @@ nav:
         - Shared Storage (GlusterFS): docker-swarm/shared-storage-gluster.md
         - Keepalived: docker-swarm/keepalived.md
         - Docker Swarm Mode: docker-swarm/docker-swarm-mode.md
+      - Essentials:
         - Traefik: docker-swarm/traefik.md
         - Traefik Forward Auth: 
             - docker-swarm/traefik-forward-auth/index.md 
@@ -61,7 +62,7 @@ nav:
         - Registry: docker-swarm/registry.md
         - Mail Server: recipes/mail.md
         - Duplicity: recipes/duplicity.md
-      - Chef's Favorites:
+      - Recipes:
         - Auto Pirate:
           - recipes/autopirate/index.md
           - Headphones: recipes/autopirate/headphones.md
@@ -79,26 +80,7 @@ nav:
           - Rtorrent: recipes/autopirate/rtorrent.md
           - SABnzbd: recipes/autopirate/sabnzbd.md
           - Sonarr: recipes/autopirate/sonarr.md
-          - End: recipes/autopirate/end.md
-        - Emby: recipes/emby.md
-        - Home Assistant: recipes/homeassistant.md
-        - Huginn: recipes/huginn.md
-        - Jellyfin: recipes/jellyfin.md
-        - Kanboard: recipes/kanboard.md
-        - Keycloak: 
-          - recipes/keycloak/index.md   
-          - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
-          - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md
-        - Miniflux: recipes/miniflux.md
-        - Munin: recipes/munin.md
-        - NextCloud: recipes/nextcloud.md
-        - phpIPAM: recipes/phpipam.md
-        - Plex: recipes/plex.md
-        - Portainer: recipes/portainer.md        
-        - PrivateBin: recipes/privatebin.md
-        - Restic: recipes/restic.md          
-        - Swarmprom: recipes/swarmprom.md    
-      - Recipes:
+          - End: recipes/autopirate/end.md      
         - Archive Box: recipes/archivebox.md
         - Bitwarden: recipes/bitwarden.md
         - Bookstack: recipes/bookstack.md
@@ -107,30 +89,47 @@ nav:
         - CyberChef: recipes/cyberchef.md
         - Duplicati: recipes/duplicati.md
         - ElkarBackup: recipes/elkarbackup.md
+        - Emby: recipes/emby.md
+        - Home Assistant: recipes/homeassistant.md
+        - Huginn: recipes/huginn.md        
         - Funkwhale: recipes/funkwhale.md
         - Ghost: recipes/ghost.md
         - GitLab: recipes/gitlab.md
         - GitLab Runner: recipes/gitlab-runner.md
         - Gollum: recipes/gollum.md
         - InstaPy: recipes/instapy.md
+        - Jellyfin: recipes/jellyfin.md
         - Keycloak: 
           - recipes/keycloak/index.md      
           - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
-          - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md      
-        - Komga: recipes/komga.md
+          - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md 
+        - Kanboard: recipes/kanboard.md
         - Kavita: recipes/kavita.md
+        - Keycloak: 
+          - recipes/keycloak/index.md   
+          - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
+          - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md
+        - Komga: recipes/komga.md
         - Linx: recipes/linx.md
+        - Mastodon: recipes/mastodon.md
         - Mealie: recipes/mealie.md
+        - Miniflux: recipes/miniflux.md        
         - Minio: recipes/minio.md
+        - Munin: recipes/munin.md        
+        - NextCloud: recipes/nextcloud.md        
         - NightScout: recipes/nightscout.md
         - OpenLDAP: recipes/openldap.md
         - OwnTracks: recipes/owntracks.md
-        - Photoprism: recipes/photoprism.md
         - Paperless NG: recipes/paperless-ng.md
-        - Portainer: recipes/portainer.md        
+        - Photoprism: recipes/photoprism.md
+        - Plex: recipes/plex.md        
+        - phpIPAM: recipes/phpipam.md        
+        - Portainer: recipes/portainer.md  
+        - PrivateBin: recipes/privatebin.md
         - Realms: recipes/realms.md
         - Restic: recipes/restic.md
-        - RSS Bridge: recipes/rss-bridge.md        
+        - RSS Bridge: recipes/rss-bridge.md   
+        - Swarmprom: recipes/swarmprom.md              
         - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
         - Traefik: docker-swarm/traefik.md
         - Traefik Forward Auth: 
@@ -227,7 +226,7 @@ nav:
       #   - Istio: recipes/kubernetes/wip.md
       #   - Jaeger: kubernetes/wip.md
       #   - Kiali: kubernetes/wip.md
-      #   - Minio: kubernetes/wip.md
+        # - Mastodon: recipes/kubernetes/mastodon.md
       #   - NGINX Ingress: kubernetes/wip.md
       #   - Polaris: kubernetes/wip.md
       #   - Portainer: kubernetes/wip.md
@@ -315,6 +314,8 @@ theme:
 
 extra:
   social:
+    - icon: 'fontawesome/brands/mastodon'
+      link: 'https://so.funkypenguin.co.nz/'
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/funkypenguin'
     - icon: 'fontawesome/brands/twitter'
