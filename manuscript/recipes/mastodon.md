@@ -333,7 +333,7 @@ docker-compose -f mastodon.yml run --rm web bin/tootctl accounts \
 create <username> --email <email address> --confirmed --role admin
 ``` 
 
-The password will be output on completion:
+The password will be output on completion[^1]:
 
 ```bash
 root@raphael:/var/data/config/mastodon# docker-compose -f mastodon.yml run --rm web bin/tootctl accounts create batman --email batman@batcave.org --confirmed --role admin
@@ -393,5 +393,6 @@ What have we achieved? Even though we had to jump through some extra hoops to se
 
     * [X] Mastodon configured, running, and ready to toot!
 
-
 --8<-- "recipe-footer.md"
+
+[^1]: Or, you can just reset your password from the UI, assuming you have SMTP working
