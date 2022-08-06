@@ -7,4 +7,7 @@ cp -rf manuscript docs_to_pdf
 find docs_to_pdf -type f -exec gsed -i -e 's/recipe-footer.md/common-links.md/g' {} \;
 
 # Build PDF from slimmed recipes
-docker run --rm --name mkdocs-material -e ENABLE_PDF_EXPORT=1 -v ${PWD}/docs_to_pdf:/docs funkypenguin/mkdocs-material build -f mkdocs-pdf-print.yml
+docker run --rm --name mkdocs-material-build-pdf -e ENABLE_PDF_EXPORT=1\
+ -v ${PWD}/docs_to_pdf:/docs\
+ -v ${PWD}/mkdocs-pdf-print.yml:/mkdocs-pdf-print.yml\
+ funkypenguin/mkdocs-material build -f mkdocs-pdf-print.yml

@@ -19,7 +19,7 @@ In order for Cert Manager to request/renew certificates, we have to tell it abou
 ### LetsEncrypt Staging
 
 The ClusterIssuer resource below represents a certificate authority which is able to request certificates for any namespace within the cluster.
-I save this in my flux repo as `cert-manager/cluster-issuer-letsencrypt-staging.yaml`. I've highlighted the areas you'll need to pay attention to:
+I save this in my flux repo as `letsencrypt-wildcard-cert/cluster-issuer-letsencrypt-staging.yaml`. I've highlighted the areas you'll need to pay attention to:
 
 ???+ example "ClusterIssuer for LetsEncrypt Staging"
     ```yaml hl_lines="8 15 17-21"
@@ -52,7 +52,7 @@ Deploying this issuer YAML into the cluster would provide Cert Manager with the 
 
 ### LetsEncrypt Prod
 
-As you'd imagine, the "prod" version of the LetsEncrypt issues is very similar, and I save this in my flux repo as `cert-manager/cluster-issuer-letsencrypt-prod.yaml`
+As you'd imagine, the "prod" version of the LetsEncrypt issues is very similar, and I save this in my flux repo as `letsencrypt-wildcard-cert/cluster-issuer-letsencrypt-prod.yaml`
 
 ???+ example "ClusterIssuer for LetsEncrypt Prod"
     ```yaml hl_lines="8 15 17-21"
@@ -85,7 +85,7 @@ As you'd imagine, the "prod" version of the LetsEncrypt issues is very similar, 
 
 ### How do we know it works?
 
-We're not quite ready to issue certificates yet, but we can now test whether the Issuers are configured correctly for LetsEncrypt. To check their status, **describe** the ClusterIssuers (i.e., `kubectl describe clusterissuer -n cert-manager letsencrypt-prod`), which (*truncated*) shows something like this:
+We're not quite ready to issue certificates yet, but we can now test whether the Issuers are configured correctly for LetsEncrypt. To check their status, **describe** the ClusterIssuers (i.e., `kubectl describe clusterissuer letsencrypt-prod`), which (*truncated*) shows something like this:
 
 ```yaml
 Status:

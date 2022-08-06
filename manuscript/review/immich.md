@@ -20,7 +20,7 @@ Immich is a promising self-hosted alternative to Google Photos. Its UI and featu
 
 I'm personally excited about Immich because I've recently been debating how to migrate from Google Photos, in which I'm hitting my 15GB storage limit.
 
-![Immich Screenshot](/images/reviews/immich-web.jpg){ loading=lazy }
+![Immich Screenshot](/images/immich.jpg){ loading=lazy }
 
 Immich is a bit of an outlier in the self-hosted application space in terms of its maturity.. the [repository](https://github.com/immich-app/immich) currently states that it's **not** production-ready, but it's already got both an Android and iOS app available in the respective app stores.
 
@@ -57,7 +57,7 @@ So what I'm looking for is a solution to replace Google Photos - a way for each 
 
 ### Install
 
-Installation was... tricky, but that's because I wanted to install Immich using Docker Swarm, rather than the example docker-compose included with the repo. I'm working on a recipe, and will update this review when done.
+I've written a recipe to [install Immich in Docker Swarm][immich]. Immich can also be "automatically" installed using the ansible playbook in [Premix](/premix/) 🚀.
 
 ### Web UI
 
@@ -155,11 +155,6 @@ I'm in (*for a secondary backup to my iCloud Photo Library*)
 Based on how the pre-production development has progressed, and the massive hunger in the self-hosted community for an alternative to Google Photos, I suspect that Immich will quickly gain traction and continue its rapid pace of development.
 
 Please [join me](/#sponsored-projects) in sponsoring [@alextran1502](https://github.com/sponsors/alextran1502), to support this exceptional product!
-
-### Setup Immich via premix
-
-I'll have a recipe up for Immich in due course, but if you're wanting to use the pre-prod, development, dont-blame-me version, there's an ansible role in the [Premix](/premix/) playbook which will set it up in under 60s (*see below*):
-<iframe width="560" height="315" src="https://www.youtube.com/embed/s-NZjYrNOPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 --8<-- "review-footer.md"
 

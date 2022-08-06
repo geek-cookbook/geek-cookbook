@@ -97,6 +97,7 @@ nav:
         - GitLab: recipes/gitlab.md
         - GitLab Runner: recipes/gitlab-runner.md
         - Gollum: recipes/gollum.md
+        - Immich: recipes/immich.md
         - InstaPy: recipes/instapy.md
         - Jellyfin: recipes/jellyfin.md
         - Keycloak: 
@@ -240,7 +241,7 @@ nav:
       - Design: premix/ansible/design.md
       # - Swarm: premix/swarm.md
       # - Kubernetes: premix/kubernetes.md  
-    - ✅ Reviews:
+    - ☑️ Reviews:
       - review/index.md
       - Immich: review/immich.md    
     - CHANGELOG: recent-changes.md
