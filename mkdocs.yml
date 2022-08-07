@@ -213,7 +213,7 @@ nav:
       #   - Dashboard: kubernetes/wip.md
       #   - Kured: kubernetes/wip.md
       #   - Keycloak: kubernetes/wip.md
-      # - Recipes:
+      - Recipes:
       #   - Harbor:
       #     - recipes/kubernetes/harbor/index.md
       #     Istio: recipes/kubernetes/harbor/istio.md
@@ -227,7 +227,7 @@ nav:
       #   - Istio: recipes/kubernetes/wip.md
       #   - Jaeger: kubernetes/wip.md
       #   - Kiali: kubernetes/wip.md
-        # - Mastodon: recipes/kubernetes/mastodon.md
+        - Mastodon: recipes/kubernetes/mastodon.md
       #   - NGINX Ingress: kubernetes/wip.md
       #   - Polaris: kubernetes/wip.md
       #   - Portainer: kubernetes/wip.md

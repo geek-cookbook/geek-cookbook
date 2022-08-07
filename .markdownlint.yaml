@@ -12,6 +12,10 @@
 "MD025":
     "front_matter_title": ""
 
+# Permit hard tabs in code blocks, since we are likely re-pasting console output
+"MD010":
+    "code_blocks": false
+
 # Allow trailing punctuation in headings
 "MD026": false
 

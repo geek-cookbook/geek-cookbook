@@ -18,8 +18,6 @@ ExternalDNS is a controller for Kubernetes which watches the objects you create 
 
 We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/namespaces/namespace-external-dns.yaml`:
 
-??? example "Example Namespace (click to expand)"
-
 ```yaml
 apiVersion: v1
 kind: Namespace

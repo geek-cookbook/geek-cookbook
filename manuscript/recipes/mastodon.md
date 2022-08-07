@@ -21,7 +21,7 @@ description: How to install your own Mastodon instance using Docker Swarm
 !!! summary "Ingredients"
     Already deployed:
 
-    * [X] [Docker swarm cluster](/docker-swarm/design/) with [persistent shared storage](/docker-swarm/shared-storage-ceph/)
+    * [X] [Docker swarm cluster](/docker-swarm/design/) with [persistent shared storage](/docker-swarm/shared-storage-ceph/) (*Alternatively, see the [Kubernetes recipe here][k8s/mastodon]*)
     * [X] [Traefik](/docker-swarm/traefik/) configured per design
 
     New:

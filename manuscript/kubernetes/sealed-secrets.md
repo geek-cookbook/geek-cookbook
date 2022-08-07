@@ -52,15 +52,14 @@ A "[SealedSecret](https://github.com/bitnami-labs/sealed-secrets)" can only be d
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/namespaces/namespace-sealed-secrets.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
 
-??? example "Example Namespace (click to expand)"
-    ```yaml
-    apiVersion: v1
-    kind: Namespace
-    metadata:
-      name: sealed-secrets
-    ```
+```yaml title="/bootstrap/namespaces/namespace-sealed-secrets.yaml"
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sealed-secrets
+```
 
 ### HelmRepository
 

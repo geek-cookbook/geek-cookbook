@@ -20,6 +20,7 @@
 [immich]:           /recipes/immich/
 [jackett]:          /recipes/autopirate/jackett/
 [jellyfin]:         /recipes/jellyfin/
+[k8s/mastodon]:     /recipes/kubernetes/mastodon/
 [kavita]:           /recipes/kavita/
 [keycloak]:         /recipes/keycloak/
 [komga]:            /recipes/komga/
