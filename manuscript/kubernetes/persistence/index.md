@@ -7,5 +7,5 @@ Here are some popular options, ranked in difficulty/complexity, in vaguely ascen
 * [Local Path Provisioner](/kubernetes/persistence/local-path-provisioner/) (on k3s)
 * [TopoLVM](/kubernetes/persistence/topolvm/)
 * OpenEBS (coming soon)
-* Rook Ceph (coming soon)
+* [Rook Ceph](/kubernetes/persistence/rook-ceph/)
 * Longhorn (coming soon)

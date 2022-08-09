@@ -260,6 +260,9 @@ Now hit the URL you defined in your config, and you should see your beautiful ne
 
 Once you're done, "toot" me up by mentioning [funkypenguin@so.fnky.nz](https://so.fnky.nz/@funkypenguin) in a toot! :wave:
 
+!!! tip
+    If your instance feels lonely, try using some [relays](https://github.com/brodi1/activitypub-relays) to bring in the federated firehose!
+
 ## Summary
 
 What have we achieved? We now have a fully-swarmed Mastodon instance, ready to federate with the world! :material-mastodon:

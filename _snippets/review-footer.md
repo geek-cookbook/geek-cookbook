@@ -2,11 +2,11 @@
 
 ///Footnotes Go Here///
 
-### Tip your waiter (sponsor) 👏
+### Tip your reviewer (sponsor) 👏
 
 Did you receive excellent service? Want to compliment the chef? (_..and support development of current and future recipes!_) Sponsor me on [Github][github_sponsor] / [Patreon][patreon], or see the [contribute](/community/contribute/) page for more (_free or paid)_ ways to say thank you! 👏
 
-### Employ your chef (engage) 🤝
+### Work with me (engage) 🤝
 
 Is this too much of a geeky PITA? Do you just want results, stat? [I do this for a living](https://www.funkypenguin.co.nz/about/) - I'm a full-time Kubernetes contractor, providing consulting and engineering expertise to businesses needing short-term, short-notice support in the cloud-native space, including AWS/Azure/GKE, Kubernetes, CI/CD and automation.
 
