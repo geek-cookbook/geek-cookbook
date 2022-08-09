@@ -47,6 +47,7 @@
 [radarr]:           /recipes/autopirate/radarr/
 [readarr]:          /recipes/autopirate/readarr/
 [review/immich]:    /review/immich/
+[review/immich]:    /review/mastodon/
 [rss-bridge]:       /recipes/rss-bridge/
 [rtorrent]:         /recipes/autopirate/rtorrent/
 [sabnzbd]:          /recipes/autopirate/sabnzbd/
