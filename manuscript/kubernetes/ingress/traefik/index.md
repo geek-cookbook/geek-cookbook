@@ -29,76 +29,74 @@ Traefik natively includes some features which Nginx lacks:
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/namespaces/namespace-traefik.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
 
-??? example "Example NameSpace (click to expand)"
-    ```yaml
-    apiVersion: v1
-    kind: Namespace
-    metadata:
-      name: traefik
-    ```
+```yaml title="/bootstrap/namespaces/namespace-traefik.yaml"
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: traefik
+```
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the official [Traefik helm chart](https://github.com/traefik/traefik-helm-chart), so per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/helmrepositories/helmrepository-traefik.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the official [Traefik helm chart](https://github.com/traefik/traefik-helm-chart), so per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
 
-??? example "Example HelmRepository (click to expand)"
-    ```yaml
-    apiVersion: source.toolkit.fluxcd.io/v1beta1
-    kind: HelmRepository
-    metadata:
-      name: traefik
-      namespace: flux-system
-    spec:
-      interval: 15m
-      url: https://helm.traefik.io/traefik
-    ```
+```yaml title="/bootstrap/helmrepositories/helmrepository-traefik.yaml"
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: traefik
+  namespace: flux-system
+spec:
+  interval: 15m
+  url: https://helm.traefik.io/traefik
+```
 
 ### Kustomization
 
-Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/traefik`. I create this example Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-traefik.yaml`:
+Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/traefik`. I create this example Kustomization in my flux repo:
 
-??? example "Example Kustomization (click to expand)"
-    ```yaml
-    apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-    kind: Kustomization
-    metadata:
+```yaml title="/bootstrap/kustomizations/kustomization-traefik.yaml"
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: traefik
+  namespace: flux-system
+spec:
+  interval: 15m
+  path: ./traefik
+  prune: true # remove any elements later removed from the above path
+  timeout: 2m # if not set, this defaults to interval duration, which is 1h
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  validation: server
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
       name: traefik
-      namespace: flux-system
-    spec:
-      interval: 15m
-      path: ./traefik
-      prune: true # remove any elements later removed from the above path
-      timeout: 2m # if not set, this defaults to interval duration, which is 1h
-      sourceRef:
-        kind: GitRepository
-        name: flux-system
-      validation: server
-      healthChecks:
-        - apiVersion: apps/v1
-          kind: Deployment
-          name: traefik
-          namespace: traefik
+      namespace: traefik
 
-    ```
+```
 
 ### ConfigMap
 
-Now we're into the traefik-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/traefik/traefik-helm-chart/blob/master/traefik/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `traefik/configmap-traefik-helm-chart-value-overrides.yaml`:
+Now we're into the traefik-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/traefik/traefik-helm-chart/blob/master/traefik/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo:
 
-??? example "Example ConfigMap (click to expand)"
-    ```yaml
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      creationTimestamp: null
-      name: traefik-helm-chart-value-overrides
-      namespace: traefik
-    data:
-      values.yaml: |-
-        # paste chart values.yaml (indented) here and alter as required>
-    ```
+```yaml title="/traefik/configmap-traefik-helm-chart-value-overrides.yaml"
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: traefik-helm-chart-value-overrides
+  namespace: traefik
+data:
+  values.yaml: |-  # (1)!
+    # <upstream values go here>
+```
+
+1. Paste in the contents of the upstream `values.yaml` here, intended 4 spaces, and then change the values you need as illustrated below.
 
 --8<-- "kubernetes-why-full-values-in-configmap.md"
 
@@ -108,30 +106,31 @@ Then work your way through the values you pasted, and change any which are speci
 
 Lastly, having set the scene above, we define the HelmRelease which will actually deploy traefik into the cluster, with the config and extra ConfigMap we defined above. I save this in my flux repo as `traefik/helmrelease-traefik.yaml`:
 
-??? example "Example HelmRelease (click to expand)"
-    ```yaml
-    apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    metadata:
-      name: traefik
-      namespace: traefik
+```yaml
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: traefik
+  namespace: traefik
+spec:
+  chart:
     spec:
-      chart:
-        spec:
-          chart: traefik
-          version: 9.x
-          sourceRef:
-            kind: HelmRepository
-            name: bitnami
-            namespace: flux-system
-      interval: 15m
-      timeout: 5m
-      releaseName: traefik
-      valuesFrom:
-      - kind: ConfigMap
-        name: traefik-helm-chart-value-overrides
-        valuesKey: values.yaml # This is the default, but best to be explicit for clarity
-    ```
+      chart: traefik
+      version: 10.x # (1)!
+      sourceRef:
+        kind: HelmRepository
+        name: traefik
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: traefik
+  valuesFrom:
+  - kind: ConfigMap
+    name: traefik-helm-chart-value-overrides
+    valuesKey: values.yaml # This is the default, but best to be explicit for clarity
+```
+
+1. Use `9.x` for Kubernetes versions older than 1.22, as described [here](https://github.com/traefik/traefik-helm-chart/tree/master/traefik#kubernetes-version-support).
 
 --8<-- "kubernetes-why-not-config-in-helmrelease.md"
 
