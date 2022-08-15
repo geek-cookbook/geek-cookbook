@@ -82,7 +82,7 @@ Here are some other differences...
 <figure markdown>
 | Feature | :material-twitter: Twitter      | :material-mastodon: Mastodon | Notes
 | ----- | ----------- | ------------------------------------ | ----- |
-| :octicons-comment-16: A post is.. | a "tweet" | a "toot" :material-thought-bubble-outline: | yes, really! |
+| :octicons-comment-16: A post is.. | a "tweet" | a "toot[^4]/post" :material-thought-bubble-outline: | yes, really! |
 | :material-comment-multiple-outline: Sharing a post.. | retweeting | boosting | no, not "retooting"! |
 | :material-link: Links count as | 9 chars | 23 chars | Regardless of length of URL |
 | :material-counter: Character limit | 280 | 500 | |
@@ -128,3 +128,4 @@ Whichever path you take into the "fediverse", [toot me up](https://so.fnky.nz/@f
 [^1]: https://blog.joinmastodon.org/2019/07/statement-on-gabs-fork-of-mastodon/
 [^2]: https://blog.joinmastodon.org/2021/10/trumps-new-social-media-platform-found-using-mastodon-code/
 [^3]: I'll continue to cross-post from Mastodon to Twitter though, for visibility and engagement
+[^4]: In a [highly controversial PR](https://github.com/mastodon/mastodon/pull/16080), "toots" were renamed to "posts", although my instance [apparently still uses "Toot!"](https://static.funkypenguin.co.nz/2022/FNKY_2022-08-15_19-50-49.png) by default...
