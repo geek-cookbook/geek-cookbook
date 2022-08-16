@@ -12,6 +12,6 @@ What you'll find here are opinions and notes about various self-hosted applicati
 App | Description | Date
 ---------|----------| ---------
  [Immich][review/immich] | Google Photos replacement | 3 Aug 2022
-
+ [Mastodon][review/mastodon] | Federated microblogging social network | 9 Aug 2022
 
  --8<-- "common-links.md"

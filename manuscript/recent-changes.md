@@ -30,6 +30,7 @@ Recipe                      | Description                                       
 
 Recipe                  | Description  | Date
 ------------------------|--------------|-------------
+[Mastodon][review/mastodon] | First review | _9 Aug 2022_
 [Immich][review/immich] | First review | _3 Aug 2022_
 
 ## Subscribe to updates

@@ -15,7 +15,7 @@ There are some gaps to this approach though:
 
 To deal with these gaps, we need a front-end load-balancer, and in this design, that role is provided by [Traefik](https://traefik.io/).
 
-![Traefik Screenshot](../images/traefik.png){ loading=lazy }
+![Traefik Screenshot](/images/traefik.png){ loading=lazy }
 
 !!! tip
     In 2021, this recipe was updated for Traefik v2. There's really no reason to be using Traefikv1 anymore ;)

@@ -193,8 +193,8 @@ nav:
             - kubernetes/persistence/index.md
             - Local Path Provisioner: kubernetes/persistence/local-path-provisioner.md
             - TopoLVM: kubernetes/persistence/topolvm.md
-            # - Rook Ceph: kubernetes/persistence/rook-ceph.md
             # - OpenEBS: kubernetes/persistence/openebs.md
+            # - Rook Ceph: kubernetes/persistence/rook-ceph.md
             # - LongHorn: kubernetes/persistence/longhorn.md    
       #   - Backup: 
       #     - kubernetes/backup/index.md
@@ -243,7 +243,8 @@ nav:
       # - Kubernetes: premix/kubernetes.md  
     - ☑️ Reviews:
       - review/index.md
-      - Immich: review/immich.md    
+      - Immich: review/immich.md  
+      - Mastodon: review/mastodon.md          
     - CHANGELOG: recent-changes.md
     - Support: support.md      
     - Contribute: community/contribute.md

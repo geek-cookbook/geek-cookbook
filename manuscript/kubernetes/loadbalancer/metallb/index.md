@@ -186,8 +186,8 @@ Finally, it's time to actually configure MetalLB! As discussed above, I prefer t
     apiVersion: v1
     kind: ConfigMap
     metadata:
-    namespace: metallb-system
-    name: metallb-config
+      namespace: metallb-system
+      name: metallb-config
     data:
       config: |
         address-pools:
