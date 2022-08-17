@@ -194,7 +194,10 @@ nav:
             - Local Path Provisioner: kubernetes/persistence/local-path-provisioner.md
             - TopoLVM: kubernetes/persistence/topolvm.md
             # - OpenEBS: kubernetes/persistence/openebs.md
-            # - Rook Ceph: kubernetes/persistence/rook-ceph.md
+            - Rook Ceph: 
+              - kubernetes/persistence/rook-ceph/index.md
+              - Operator: kubernetes/persistence/rook-ceph/operator.md
+              - Cluster: kubernetes/persistence/rook-ceph/cluster.md
             # - LongHorn: kubernetes/persistence/longhorn.md    
       #   - Backup: 
       #     - kubernetes/backup/index.md
@@ -317,7 +320,7 @@ theme:
 extra:
   social:
     - icon: 'fontawesome/brands/mastodon'
-      link: 'https://so.funkypenguin.co.nz/'
+      link: 'https://so.fnky.nz/'
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/funkypenguin'
     - icon: 'fontawesome/brands/twitter'
