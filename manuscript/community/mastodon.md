@@ -1,6 +1,6 @@
 ---
 title: Join our geeky, Docker/Kubernetes-flavored Mastdon instance
-description: The most realtime and exciting way engage with our geeky community is in our Discord server!
+description: Looking for your geeky niche in the "fediverse"? Join our Mastodon instance!
 icon: material/mastodon
 ---
 # Toot me up, buttercup!

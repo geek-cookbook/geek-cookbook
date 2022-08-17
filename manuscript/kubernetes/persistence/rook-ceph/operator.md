@@ -1,6 +1,6 @@
 ---
-title: How to use Rook Ceph for Persistent Storage in Kubernetes
-description: How to deploy Rook Ceph into your Kubernetes cluster for persistent storage
+title: Deploy Rook Ceph Operator for Persistent Storage in Kubernetes
+description: Start your Rook Ceph deployment by installing the operator into your Kubernetes cluster
 ---
 
 # Persistent storage in Kubernetes with Rook Ceph / CephFS
