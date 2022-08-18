@@ -1001,27 +1001,27 @@ Lastly, having set the scene above, we define the HelmRelease which will actuall
 
 ??? example "Example HelmRelease (click to expand)"
     ```yaml
-    apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    metadata:
-    name: external-dns
-    namespace: external-dns
-    spec:
-    chart:
-        spec:
-        chart: external-dns
-        version: 4.x
-        sourceRef:
-            kind: HelmRepository
-            name: bitnami
-            namespace: flux-system
-    interval: 15m
-    timeout: 5m
-    releaseName: external-dns
-    valuesFrom:
-    - kind: ConfigMap
-        name: external-dns-helm-chart-value-overrides
-        valuesKey: values.yaml # This is the default, but best to be explicit for clarity
+      apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      metadata:
+        name: external-dns
+        namespace: external-dns
+      spec:
+        chart:
+          spec:
+            chart: external-dns
+            version: 4.x
+            sourceRef:
+              kind: HelmRepository
+              name: bitnami
+              namespace: flux-system
+        interval: 15m
+        timeout: 5m
+        releaseName: external-dns
+        valuesFrom:
+        - kind: ConfigMap
+          name: external-dns-helm-chart-value-overrides
+          valuesKey: values.yaml # This is the default, but best to be explicit for clarity
     ```
 
 --8<-- "kubernetes-why-not-config-in-helmrelease.md"
