@@ -3,14 +3,13 @@ title: Deploy Rook Ceph Operator for Persistent Storage in Kubernetes
 description: Start your Rook Ceph deployment by installing the operator into your Kubernetes cluster
 ---
 
-# Persistent storage in Kubernetes with Rook Ceph / CephFS
+# Persistent storage in Kubernetes with Rook Ceph / CephFS - Operator
 
 [Ceph](https://docs.ceph.com/en/quincy/) is a highly-reliable, scalable network storage platform which uses individual disks across participating nodes to provide fault-tolerant storage.
 
-![Ceph Screenshot](/images/ceph.png){ loading=lazy }
-
 [Rook](https://rook.io) provides an operator for Ceph, decomposing the [10-year-old](https://en.wikipedia.org/wiki/Ceph_(software)#Release_history), at-time-arcane, platform into cloud-native components, created declaratively, whose lifecycle is managed by an operator.
 
+To start off with, we need to deploy the ceph operator into the cluster, after which, we'll be able to actually deploy our [ceph cluster itself](/kubernetes/persistence/rook-ceph/cluster/).
 
 ## Rook Ceph requirements
 
@@ -27,7 +26,7 @@ description: Start your Rook Ceph deployment by installing the operator into you
 
 We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `/bootstrap/namespaces/namespace-rook-system.yaml`:
 
-```yaml title="/bootstrap/namespaces/namespace-mastodon.yaml"
+```yaml title="/bootstrap/namespaces/namespace-rook-ceph.yaml"
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -177,7 +176,8 @@ What have we achieved? We're half-way to getting a ceph cluster, having deployed
 
     * [X] Rook ceph operator running and ready to deploy a cluster!
 
+    Next:
+
+    * [ ] Deploy the ceph [cluster](/kubernetes/persistence/rook-ceph/cluster/) using a CR
+
 --8<-- "recipe-footer.md"
-
-
-
