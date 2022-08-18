@@ -100,7 +100,6 @@ pspEnable: false # (1)!
 
 1. PSPs are deprecated, and will eventually be removed in Kubernetes 1.25, at which point this will cause breakage.
 
-
 ### HelmRelease
 
 Finally, having set the scene above, we define the HelmRelease which will actually deploy the rook-ceph operator into the cluster. I save this in my flux repo:

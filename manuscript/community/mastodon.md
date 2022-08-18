@@ -5,11 +5,12 @@ icon: material/mastodon
 ---
 # Toot me up, buttercup!
 
-Mastondon is a self-hosted / open-source microblogging platform (*heavily inspired by Twitter*), which supports federation, rather than centralization. Like email, any user on any Mastodon instance can follow, "toot" (*not tweet!*), and reply to any user on any _other_ instance.
+Mastondon is a self-hosted / open-source microblogging platform (*heavily inspired by Twitter*), which supports federation, rather than centralization. Like email, any user on any Mastodon instance can follow, "toot" (*not tweet!*), and reply to any user on any *other* instance.
 
 Our community Mastodon server is sooo [FKNY](https://so.fnky.nz/web/directory), but if you're already using Mastodon on another server (*or your [own instance][mastodon]*), you can seamlessly interact with us from there too, thanks to the magic of federation!
 
 !!! question "This is dumb, there's nobody here"
+
     * Give it time. The first time you get a federated reply from someone on another instance, it just "clicks" (*at least, it did for me*)
     * Follow some folks (I'm [funkypenguin@so.fnky.nz](https://so.fnky.nz/@funkypenguin))
     * Install [mobile client](https://joinmastodon.org/apps)
@@ -17,7 +18,7 @@ Our community Mastodon server is sooo [FKNY](https://so.fnky.nz/web/directory), 
 ## How do I Mastodon?
 
 1. If you're a [sponsor][github_sponsor], check the special `#mastodon` channel in [Discord][discord]. You'll find a super-sekrit invite URL which will get you setup *instantly*
-2. If you're *not* a sponsor, go to https://so.fnky.nz, and request an invite (*invites must be approved to prevent abuse*) - mention your [Discord][discord] username in the "Why do you want to join?" question.
+2. If you're *not* a sponsor, go to [FNKY](https://so.fnky.nz), and request an invite (*invites must be approved to prevent abuse*) - mention your [Discord][discord] username in the "Why do you want to join?" question.
 3. Start tootin'!
 
 ## So who do I follow?
@@ -39,7 +40,7 @@ With the goal of creating a safe and inclusive community, we've adopted the [Con
 
 To report a violation of our code of conduct in our Mastodon server, type use Mastodon's "report" function to report a violation, as illustrated below:
 
-![](/images/mastodon-report-user.png){ loading=lazy }
+![Reporting abuse in Mastodon](/images/mastodon-report-user.png){ loading=lazy }
 
 Moderators will be alerted to your report, who will address the issue as detailed in the [enforcement guidelines](/community/code-of-conduct/#enforcement-guidelines).
 

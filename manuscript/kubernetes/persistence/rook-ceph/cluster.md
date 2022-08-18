@@ -13,7 +13,6 @@ In the [previous recipe](/kubernetes/persistence/rook-ceph/operator/), we deploy
 
 We'll end up with multilpe storageClasses which we can use to allocate storage to pods from either Ceph RBD (*block storage*), or CephFS (*a mounted filesystem*). In many cases, CephFS is a useful choice, because it can be mounted from more than one pod **at the same time**, which makes it suitable for apps which need to share access to the same data ([NZBGet][nzbget], [Sonarr][sonarr], and [Plex][plex], for example)
 
-
 ## Rook Ceph Cluster requirements
 
 !!! summary "Ingredients"
