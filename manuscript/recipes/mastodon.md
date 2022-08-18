@@ -11,7 +11,7 @@ description: How to install your own Mastodon instance using Docker Swarm
 
 !!! question "Why would I run my own instance?"
     That's a good question. After all, there are all sorts of public instances available, with a [range of themes and communities](https://joinmastodon.org/communities). You may want to run your own instance because you like the tech, because you just think it's cool :material-emoticon-cool-outline:
-    
+
     You may also have realized that since Mastodon is **federated**, users on your instance can follow, toot, and interact with users on any other instance!
 
     If you're **not** into that much effort / pain, you're welcome to [join our instance][community/mastodon] :material-mastodon:
@@ -49,8 +49,6 @@ mkdir -p /var/data/runtime/mastodon/postgres
 
 !!! question "Why `/var/data/runtime/mastodon` and not just `/var/data/mastodon`?"
     The data won't be able to be backed up by a regular filesystem backup, because it'll be in use. We still need to store it **somewhere** though, so we use `/var/data/runtime`, which is excluded from automated backups. See [Data Layout](/reference/data_layout/) for details.
-
-
 
 ### Setup Mastodon enviroment
 
@@ -331,7 +329,7 @@ Next, decide on your chosen username, and create your admin user:
 cd /var/data/config/mastodon
 docker-compose -f mastodon.yml run --rm web bin/tootctl accounts \
 create <username> --email <email address> --confirmed --role admin
-``` 
+```
 
 The password will be output on completion[^1]:
 
@@ -353,7 +351,7 @@ docker-compose -f mastodon.yml down
 
 The output should look like this:
 
-```
+```bash
 root@raphael:/var/data/config/mastodon# docker-compose -f mastodon.yml down
 WARNING: Some services (streaming, web) use the 'deploy' key, which will be ignored. Compose does not support 'deploy' configuration - use `docker stack deploy` to deploy to a swarm.
 Stopping mastodon_streaming_1 ... done
@@ -373,7 +371,7 @@ root@raphael:/var/data/config/mastodon#
 
 ## :material-mastodon: Launch Mastodon!
 
-Launch the Mastodon stack by running 
+Launch the Mastodon stack by running:
 
 ```bash
 docker stack deploy mastodon -c /var/data/config/mastodon/mastodon.yml
@@ -386,8 +384,7 @@ Once you're done, "toot" me by mentioning [funkypenguin@so.fnky.nz](https://so.f
 !!! tip
     If your instance feels lonely, try using some [relays](https://github.com/brodi1/activitypub-relays) to bring in the federated firehose!
 
-
-## Summary 
+## Summary
 
 What have we achieved? Even though we had to jump through some extra hoops to setup database and users, we now have a fully-swarmed Mastodon instance, ready to federate with the world! :material-mastodon:
 

@@ -1,5 +1,6 @@
 ---
-description: Kubernetes Loadbalancer options
+title: What loadbalancer to use in self-hosted Kubernetes?
+description: Here's a simply way to work out which load balancer you'll need for your self-hosted Kubernetes cluster
 ---
 # Loadbalancing Services
 

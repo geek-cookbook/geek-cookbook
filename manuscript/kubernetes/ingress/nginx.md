@@ -1,6 +1,5 @@
 ---
-title: Install nginx ingress controller into Kuberntes with Flux
-description: Nginx Ingress Controller
+title: Install nginx ingress controller into Kubernetes with Flux
 ---
 # Nginx Ingress Controller for Kubernetes - the "flux way"
 

@@ -1,6 +1,6 @@
 ---
-title: Install Mastodon in Docker Swarm
-description: How to install your own Mastodon instance using Docker Swarm
+title: Install Mastodon in Kubernetes
+description: How to install your own Mastodon instance using Kubernetes
 ---
 
 # Install Mastodon in Kubernetes
@@ -26,7 +26,7 @@ description: How to install your own Mastodon instance using Docker Swarm
     * [x] [Flux deployment process](/kubernetes/deployment/flux/) bootstrapped
     * [x] An [Ingress](/kubernetes/ingress/) to route incoming traffic to services
     * [x] [Persistent storage](/kubernetes/persistence/) to store persistent stuff
-    * [x] [mastodon](/kubernetes/mastodon/) to create an DNS entry
+    * [x] [External DNS](/kubernetes/external-dns/) to create an DNS entry
 
     New:
 
