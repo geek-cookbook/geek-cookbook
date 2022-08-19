@@ -18,4 +18,6 @@ mkdocs-autolinks-plugin>=0.2.0
 mkdocs-git-revision-date-localized-plugin>=0.4.8
 mkdocs-macros-plugin
 mkdocs-extra-sass-plugin
+mkdocs-with-pdf
 livereload
+qrcode
