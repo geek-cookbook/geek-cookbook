@@ -31,7 +31,7 @@ We need a namespace to deploy our certificates and associated secrets into. Per 
     apiVersion: v1
     kind: Namespace
     metadata:
-    name: letsencrypt-wildcard-cert
+      name: letsencrypt-wildcard-cert
     ```
 
 ### Kustomization
@@ -93,14 +93,14 @@ Finally, we create our certificates! Here's an example certificate resource whic
       name: letsencrypt-wildcard-cert-example.com-staging
       namespace: letsencrypt-wildcard-cert
     spec:
-    # secretName doesn't have to match the certificate name, but it may as well, for simplicity!
-    secretName: letsencrypt-wildcard-cert-example.com-staging 
-    issuerRef:
-      name: letsencrypt-staging
-      kind: ClusterIssuer
-    dnsNames:
-      - "example.com"
-      - "*.example.com"
+      # secretName doesn't have to match the certificate name, but it may as well, for simplicity!
+      secretName: letsencrypt-wildcard-cert-example.com-staging 
+      issuerRef:
+        name: letsencrypt-staging
+        kind: ClusterIssuer
+      dnsNames:
+        - "example.com"
+        - "*.example.com"
     ```
 
 ## Serving
