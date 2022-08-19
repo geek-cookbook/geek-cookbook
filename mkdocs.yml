@@ -49,8 +49,10 @@ plugins:
     toc_level: 3
     ordered_chapter_level: 4
     excludes_children:
-        - 'release-notes/:upgrading'
-        - 'release-notes/:changelog'
+        - '*/:discourse-comments'
+        - '*/:employ-your-chef-engage'
+        - '*/:flirt-with-waiter-subscribe'
+        - '*/:fn:1'
     exclude_pages:
         - 'reference/oauth_proxy/'
         - 'appendix/contribute/'
