@@ -43,6 +43,7 @@ plugins:
     back_cover: true
     #cover_title: TITLE TEXT
     #cover_subtitle: SUBTITLE TEXT
+    cover_logo: images/cover_logo.png
     custom_template_path: with_pdf_template
     #toc_title: TOC TITLE TEXT
     #heading_shift: true
