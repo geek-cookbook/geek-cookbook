@@ -77,7 +77,7 @@ Now that the "global" elements of this deployment (*just the HelmRepository in t
 
 ### ConfigMap
 
-Now we're into the cert-manager-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami-labs/cert-manager/blob/main/helm/cert-manager/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `cert-manager/configmap-cert-manager-helm-chart-value-overrides.yaml`:
+Now we're into the cert-manager-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami/charts/blob/master/bitnami/cert-manager/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `cert-manager/configmap-cert-manager-helm-chart-value-overrides.yaml`:
 
 ??? example "Example ConfigMap (click to expand)"
     ```yaml
@@ -100,27 +100,27 @@ Lastly, having set the scene above, we define the HelmRelease which will actuall
 
 ??? example "Example HelmRelease (click to expand)"
     ```yaml
-    apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    metadata:
-    name: cert-manager
-    namespace: cert-manager
-    spec:
-    chart:
-        spec:
-        chart: cert-manager
-        version: 1.6.x
-        sourceRef:
-            kind: HelmRepository
-            name: jetstack
-            namespace: flux-system
-    interval: 15m
-    timeout: 5m
-    releaseName: cert-manager
-    valuesFrom:
-    - kind: ConfigMap
-        name: cert-manager-helm-chart-value-overrides
-        valuesKey: values.yaml # This is the default, but best to be explicit for clarity
+      apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      metadata:
+        name: cert-manager
+        namespace: cert-manager
+      spec:
+        chart:
+          spec:
+            chart: cert-manager
+            version: v1.6.x
+            sourceRef:
+              kind: HelmRepository
+              name: jetstack
+              namespace: flux-system
+        interval: 15m
+        timeout: 5m
+        releaseName: cert-manager
+        valuesFrom:
+        - kind: ConfigMap
+          name: cert-manager-helm-chart-value-overrides
+          valuesKey: values.yaml # This is the default, but best to be explicit for clarity
     ```
 
 --8<-- "kubernetes-why-not-config-in-helmrelease.md"
