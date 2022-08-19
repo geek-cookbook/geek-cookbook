@@ -7,16 +7,18 @@ git fetch --unshallow
 # Run python build script to check for errors
 python3 scripts/build.py mkdocs.yml
 
+ENABLE_PDF_EXPORT=1
+
 # install mkdocs (or insiders version, if we're passed a GH_TOKEN var)
 if [ -z "$GH_TOKEN" ]
 then
   pip install mkdocs-material
-  ENABLE_PDF_EXPORT=true mkdocs build -f mkdocs.yml
+  mkdocs build -f mkdocs.yml
 else
   # Bypass search issue described at https://github.com/squidfunk/mkdocs-material/issues/3053
   git clone --depth 1 https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
   pip install -e mkdocs-material-insiders  
-  ENABLE_PDF_EXPORT=true mkdocs build -f mkdocs-insiders.yml
+  mkdocs build -f mkdocs-insiders.yml
 fi
 
 # Setup any necessary netlify redirects
