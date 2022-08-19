@@ -60,7 +60,7 @@ plugins:
           text: ALTERNATE TEXT
         - src: ...
 #    two_columns_level: 3
-    render_js: true
+    render_js: false
     # headless_chrome_path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
     
     output_path: funky-penguins-geek-cookbook.pdf
