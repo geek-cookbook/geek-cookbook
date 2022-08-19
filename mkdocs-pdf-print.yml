@@ -22,7 +22,7 @@ plugins:
         - 'release-notes/:upgrading'
         - 'release-notes/:changelog'
     exclude_pages:
-        - 'bugs/'
+        - 'reference/oauth_proxy/'
         - 'appendix/contribute/'
     convert_iframe:
         - src: IFRAME SRC
@@ -30,16 +30,13 @@ plugins:
           text: ALTERNATE TEXT
         - src: ...
 #    two_columns_level: 3
-    render_js: false
-    headless_chrome_path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+    render_js: true
+    # headless_chrome_path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
     
     output_path: funky-penguins-geek-cookbook.pdf
-    debug_html: true
+    debug_html: false
     show_anchors: true
-    verbose: true  
+    verbose: false  
 
 extra_css: []
 extra_javascript: []
-
-theme:
-  font: false

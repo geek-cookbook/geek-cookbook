@@ -11,12 +11,12 @@ python3 scripts/build.py mkdocs.yml
 if [ -z "$GH_TOKEN" ]
 then
   pip install mkdocs-material
-  mkdocs build -f mkdocs.yml
+  ENABLE_PDF_EXPORT=true mkdocs build -f mkdocs.yml
 else
   # Bypass search issue described at https://github.com/squidfunk/mkdocs-material/issues/3053
   git clone --depth 1 https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
   pip install -e mkdocs-material-insiders  
-  mkdocs build -f mkdocs-insiders.yml
+  ENABLE_PDF_EXPORT=true mkdocs build -f mkdocs-insiders.yml
 fi
 
 # Setup any necessary netlify redirects

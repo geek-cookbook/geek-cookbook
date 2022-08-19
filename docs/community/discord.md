@@ -1,5 +1,5 @@
 ---
-title: Funky Penguin's Discord Community
+title: Geek out with Funky Penguin's Discord Server
 description: The most realtime and exciting way engage with our geeky community is in our Discord server!
 icon: material/discord
 ---

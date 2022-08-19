@@ -1,3 +1,51 @@
+// per https://github.com/orzih/mkdocs-with-pdf/issues/117
 * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-family: Ubuntu !important;
 }
+
+// do we need this?
+@media print {
+    html {
+      font-size: 95%;
+      font-family: 'Ubuntu';
+    }
+  
+    body {
+      font-size: 11.5pt;
+      font-family: 'Ubuntu';
+    }
+  
+    article {
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+  
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    label {
+      font-family: 'Gentium Book Basic', 'Helvetica Neue', Helvetica, Arial, 'Noto Sans JP', 'Roboto', sans-serif;
+    }
+  
+    pre,
+    code,
+    var,
+    samp,
+    kbd,
+    tt {
+      font-family: 'Noto Sans Mono CJK JP', 'Courier New', monospace, serif;
+      font-size: 0.8em;
+    }
+  
+    pre code,
+    pre var,
+    pre samp,
+    pre kbd,
+    pre tt {
+      font-size: 100%;
+    }
+  }
+  

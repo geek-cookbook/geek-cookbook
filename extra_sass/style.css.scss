@@ -58,23 +58,6 @@
     vertical-align: middle;
   }
 
-  .md-typeset .tx-insiders-container,
-  .md-typeset .mdx-insiders-container {
-    display: block;
-    clear: both;
-
-    & .tx-insiders-list,
-    & .mdx-insiders-list {
-      display: flex;
-      flex-wrap: wrap;
-
-      & .tx-insiders-list__item,
-      & .mdx-insiders-list__item {
-        float: none;
-      }
-    }
-  }
-
   section.md-typeset[data-url="/changelog/"] {
     & h4+ul {
       margin: 0;
@@ -95,4 +78,28 @@
     page-break-before: auto !important;
     page-break-inside: auto !important;
   }
+
+  // admonition overrides per https://github.com/orzih/mkdocs-with-pdf/issues/89
+
+  // admonition icon
+  .md-typeset :is(.admonition-title,summary):before {
+    top: 0.6rem;
+    left: 0.6rem;
+  }
+
+  // left border
+  .md-typeset :is(.admonition,details) {
+    border-left-width: 0.1rem;
+    padding: 0rem 0rem 0rem 0rem;
+    margin-left: 1rem;
+  }
+
+  [dir=ltr] .md-typeset :is(.admonition,details) {
+    margin-left: 1rem;
+  }
+
+  html .md-typeset :is(.admonition,details)>:last-child {
+    margin-left: 0.6rem;
+  }
+
 }
