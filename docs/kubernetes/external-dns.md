@@ -70,7 +70,7 @@ Now that the "global" elements of this deployment (*just the HelmRepository in t
 
 ### ConfigMap
 
-Now we're into the external-dns-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami-labs/external-dns/blob/main/helm/external-dns/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `external-dns/configmap-external-dns-helm-chart-value-overrides.yaml`:
+Now we're into the external-dns-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami/charts/blob/master/bitnami/external-dns/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `external-dns/configmap-external-dns-helm-chart-value-overrides.yaml`:
 
 ??? example "Example ConfigMap (click to expand)"
     ```yaml
@@ -1001,27 +1001,27 @@ Lastly, having set the scene above, we define the HelmRelease which will actuall
 
 ??? example "Example HelmRelease (click to expand)"
     ```yaml
-    apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    metadata:
-    name: external-dns
-    namespace: external-dns
-    spec:
-    chart:
-        spec:
-        chart: external-dns
-        version: 4.x
-        sourceRef:
-            kind: HelmRepository
-            name: bitnami
-            namespace: flux-system
-    interval: 15m
-    timeout: 5m
-    releaseName: external-dns
-    valuesFrom:
-    - kind: ConfigMap
-        name: external-dns-helm-chart-value-overrides
-        valuesKey: values.yaml # This is the default, but best to be explicit for clarity
+      apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      metadata:
+        name: external-dns
+        namespace: external-dns
+      spec:
+        chart:
+          spec:
+            chart: external-dns
+            version: 4.x
+            sourceRef:
+              kind: HelmRepository
+              name: bitnami
+              namespace: flux-system
+        interval: 15m
+        timeout: 5m
+        releaseName: external-dns
+        valuesFrom:
+        - kind: ConfigMap
+          name: external-dns-helm-chart-value-overrides
+          valuesKey: values.yaml # This is the default, but best to be explicit for clarity
     ```
 
 --8<-- "kubernetes-why-not-config-in-helmrelease.md"
