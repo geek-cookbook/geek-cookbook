@@ -16,7 +16,7 @@ then
   mkdocs build -f mkdocs.yml
 else
   # Bypass search issue described at https://github.com/squidfunk/mkdocs-material/issues/3053
-  git clone --depth 1 https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
+  # git clone --depth 1 https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
   pip install -e mkdocs-material-insiders  
   mkdocs build -f mkdocs-insiders.yml
 fi
