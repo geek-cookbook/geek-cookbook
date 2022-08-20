@@ -142,11 +142,11 @@ Once you know you can happily deploy a staging certificate, it's safe enough to 
       namespace: letsencrypt-wildcard-cert
     spec:
     # secretName doesn't have to match the certificate name, but it may as well, for simplicity!
-    secretName: letsencrypt-wildcard-cert-example.com 
-    issuerRef:
-      name: letsencrypt-prod
-      kind: ClusterIssuer
-    dnsNames:
+      secretName: letsencrypt-wildcard-cert-example.com 
+      issuerRef:
+        name: letsencrypt-prod
+        kind: ClusterIssuer
+      dnsNames:
       - "example.com"
       - "*.example.com"
     ```
