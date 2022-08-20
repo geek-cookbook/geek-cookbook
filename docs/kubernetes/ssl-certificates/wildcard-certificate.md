@@ -72,7 +72,7 @@ Thanks to [Sealed Secrets](/kubernetes/sealed-secrets/), we have a safe way of c
 
 ```bash
   kubectl create secret generic cloudflare-api-token-secret \
-  --namespace letsencrypt-wildcard-cert \
+  --namespace cert-manager \
   --dry-run=client \
   --from-literal=api-token=gobbledegook -o json \
   | kubeseal --cert <path to public cert> \
