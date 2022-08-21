@@ -66,7 +66,7 @@ plugins:
     render_js: false
     # headless_chrome_path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
     
-    output_path: !ENV PDF_PATH
+    output_path: funky-penguins-geek-cookbook.pdf
     debug_html: false
     show_anchors: true
     verbose: false  

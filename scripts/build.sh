@@ -21,3 +21,5 @@ fi
 
 # Setup any necessary netlify redirects
 cp netlify_redirects.txt site/_redirects
+mkdir -p site/${PDF_PATH}
+mv site/funkypenguins-geek-cookbook.pdf site/${PDF_PATH}/
