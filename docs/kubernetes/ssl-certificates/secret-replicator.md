@@ -15,11 +15,9 @@ Kiwigrid's "[Secret Replicator](https://github.com/kiwigrid/secret-replicator)" 
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/namespaces/namespace-secret-replicator.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
 
-??? example "Example Namespace (click to expand)"
-
-```yaml
+```yaml title="/bootstrap/namespaces/namespace-secret-replicator.yaml"
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -28,133 +26,130 @@ metadata:
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/helmrepositories/helmrepository-kiwigrid.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
 
-??? example "Example HelmRepository (click to expand)"
-    ```yaml
-    apiVersion: source.toolkit.fluxcd.io/v1beta1
-    kind: HelmRepository
-    metadata:
-      name: kiwigrid
-      namespace: flux-system
-    spec:
-      interval: 15m
-      url: https://kiwigrid.github.io
-    ```
+```yaml title="/bootstrap/helmrepositories/helmrepository-kiwigrid.yaml"
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: kiwigrid
+  namespace: flux-system
+spec:
+  interval: 15m
+  url: https://kiwigrid.github.io
+```
 
 ### Kustomization
 
-Now that the "global" elements of this deployment have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/secret-replicator`. I create this example Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-secret-replicator.yaml`:
+Now that the "global" elements of this deployment have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/secret-replicator`. I create this example Kustomization in my flux repo:
 
-??? example "Example Kustomization (click to expand)"
-    ```yaml
-    apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-    kind: Kustomization
-    metadata:
+```yaml title="/bootstrap/kustomizations/kustomization-secret-replicator.yaml"
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: secret-replicator
+  namespace: flux-system
+spec:
+  interval: 15m
+  path: ./secret-replicator
+  prune: true # remove any elements later removed from the above path
+  timeout: 2m # if not set, this defaults to interval duration, which is 1h
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  validation: server
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
       name: secret-replicator
-      namespace: flux-system
-    spec:
-      interval: 15m
-      path: ./secret-replicator
-      prune: true # remove any elements later removed from the above path
-      timeout: 2m # if not set, this defaults to interval duration, which is 1h
-      sourceRef:
-        kind: GitRepository
-        name: flux-system
-      validation: server
-      healthChecks:
-        - apiVersion: apps/v1
-          kind: Deployment
-          name: secret-replicator
-          namespace: secret-replicator
-    ```
+      namespace: secret-replicator
+```
 
 ### ConfigMap
 
-Now we're into the secret-replicator-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/kiwigrid/helm-charts/blob/master/charts/secret-replicator/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `secret-replicator/configmap-secret-replicator-helm-chart-value-overrides.yaml`:
+Now we're into the secret-replicator-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/kiwigrid/helm-charts/blob/master/charts/secret-replicator/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo:
 
-??? example "Example ConfigMap (click to expand)"
-    ```yaml  hl_lines="21 27"
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      name: secret-replicator-helm-chart-value-overrides
-      namespace: secret-replicator
-    data:
-      values.yaml: |-
-        # Default values for secret-replicator.
-        # This is a YAML-formatted file.
-        # Declare variables to be passed into your templates.
+```yaml  hl_lines="21 27" title="/secret-replicator/configmap-secret-replicator-helm-chart-value-overrides.yaml"
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: secret-replicator-helm-chart-value-overrides
+  namespace: secret-replicator
+data:
+  values.yaml: |-
+    # Default values for secret-replicator.
+    # This is a YAML-formatted file.
+    # Declare variables to be passed into your templates.
 
-        image:
-        repository: kiwigrid/secret-replicator
-        tag: 0.2.0
-        pullPolicy: IfNotPresent
-        ## Specify ImagePullSecrets for Pods
-        ## ref: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
-        # pullSecrets: myregistrykey
+    image:
+    repository: kiwigrid/secret-replicator
+    tag: 0.2.0
+    pullPolicy: IfNotPresent
+    ## Specify ImagePullSecrets for Pods
+    ## ref: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
+    # pullSecrets: myregistrykey
 
-        # csv list of secrets
-        secretList: "letsencrypt-wildcard-cert"
-        # secretList: "secret1,secret2
+    # csv list of secrets
+    secretList: "letsencrypt-wildcard-cert"
+    # secretList: "secret1,secret2
 
-        ignoreNamespaces: "kube-system,kube-public"
+    ignoreNamespaces: "kube-system,kube-public"
 
-        # If defined, allow secret-replicator to watch for secrets in _another_ namespace
-        secretNamespace: letsencrypt-wildcard-cert"
+    # If defined, allow secret-replicator to watch for secrets in _another_ namespace
+    secretNamespace: letsencrypt-wildcard-cert"
 
-        rbac:
-        enabled: true
+    rbac:
+    enabled: true
 
-        resources: {}
-        # limits:
-        #   cpu: 50m
-        #   memory: 20Mi
-        # requests:
-        #   cpu: 20m
-        #   memory: 20Mi
+    resources: {}
+    # limits:
+    #   cpu: 50m
+    #   memory: 20Mi
+    # requests:
+    #   cpu: 20m
+    #   memory: 20Mi
 
-        nodeSelector: {}
+    nodeSelector: {}
 
-        tolerations: []
+    tolerations: []
 
-        affinity: {}
-    ```
+    affinity: {}
+```
+
 --8<-- "kubernetes-why-full-values-in-configmap.md"
 
 Note that the following values changed from default, above:
 
-* `secretList`: `letsencrypt-wildcard-cert`
-* `secretNamespace`: `letsencrypt-wildcard-cert`
+- `secretList`: `letsencrypt-wildcard-cert`
+- `secretNamespace`: `letsencrypt-wildcard-cert`
 
 ### HelmRelease
 
-Lastly, having set the scene above, we define the HelmRelease which will actually deploy the secret-replicator controller into the cluster, with the config we defined above. I save this in my flux repo as `secret-replicator/helmrelease-secret-replicator.yaml`:
+Lastly, having set the scene above, we define the HelmRelease which will actually deploy the secret-replicator controller into the cluster, with the config we defined above. I save this in my flux repo:
 
-??? example "Example HelmRelease (click to expand)"
-    ```yaml
-    apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    metadata:
-    name: secret-replicator
-    namespace: secret-replicator
+```yaml title="/secret-replicator/helmrelease-secret-replicator.yaml"
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+name: secret-replicator
+namespace: secret-replicator
+spec:
+chart:
     spec:
-    chart:
-        spec:
-        chart: secret-replicator
-        version: 0.6.x
-        sourceRef:
-            kind: HelmRepository
-            name: kiwigrid
-            namespace: flux-system
-    interval: 15m
-    timeout: 5m
-    releaseName: secret-replicator
-    valuesFrom:
-    - kind: ConfigMap
-        name: secret-replicator-helm-chart-value-overrides
-        valuesKey: values.yaml # This is the default, but best to be explicit for clarity
-    ```
+    chart: secret-replicator
+    version: 0.6.x
+    sourceRef:
+        kind: HelmRepository
+        name: kiwigrid
+        namespace: flux-system
+interval: 15m
+timeout: 5m
+releaseName: secret-replicator
+valuesFrom:
+- kind: ConfigMap
+    name: secret-replicator-helm-chart-value-overrides
+    valuesKey: values.yaml # This is the default, but best to be explicit for clarity
+```
 
 --8<-- "kubernetes-why-not-config-in-helmrelease.md"
 

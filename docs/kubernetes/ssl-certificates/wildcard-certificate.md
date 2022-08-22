@@ -22,86 +22,44 @@ To take advantage of the various workarounds available, I find it best to put th
 
 ## Preparation
 
-### Namespace
-
-We need a namespace to deploy our certificates and associated secrets into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/namespaces/namespace-letsencrypt-wildcard-cert.yaml`:
-
-??? example "Example Namespace (click to expand)"
-    ```yaml
-    apiVersion: v1
-    kind: Namespace
-    metadata:
-    name: letsencrypt-wildcard-cert
-    ```
-
-### Kustomization
-
-Now we need a kustomization to tell Flux to install any YAMLs it finds in `/letsencrypt-wildcard-cert`. I create this example Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-letsencrypt-wildcard-cert.yaml`.
-
-!!! tip
-    Importantly, note that we define a **dependsOn**, to tell Flux not to try to reconcile this kustomization before the cert-manager and sealedsecrets kustomizations are reconciled. Cert-manager creates the CRDs used to define certificates, so prior to Cert Manager being installed, the cluster won't know what to do with the ClusterIssuers/Certificate resources.
-
-??? example "Example Kustomization (click to expand)"
-    ```yaml
-    apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-    kind: Kustomization
-    metadata:
-      name: letsencrypt-wildcard-cert
-      namespace: flux-system
-    spec:
-      interval: 15m
-      path: ./letsencrypt-wildcard-cert
-      dependsOn:
-      - name: "cert-manager"
-      - name: "sealed-secrets"
-      prune: true # remove any elements later removed from the above path
-      timeout: 2m # if not set, this defaults to interval duration, which is 1h
-      sourceRef:
-        kind: GitRepository
-        name: flux-system
-      validation: server
-    ```
-
 ### DNS01 Validation Secret
 
 The simplest way to validate ownership of a domain to LetsEncrypt is to use DNS-01 validation. In this mode, we "prove" our ownership of a domain name by creating a special TXT record, which LetsEncrypt will check and confirm for validity, before issuing us any certificates for that domain name.
 
-The [ClusterIssuers we created earlier](/kubernetes/ssl-certificates/letsencrypt-issuers/) included a field `solvers.dns01.cloudflare.apiTokenSecretRef.name`. This value points to a secret (*in the same namespace as the certificate[^1]*) containing credentials necessary to create DNS records automatically. (*again, my examples are for cloudflare, but the [other supported providers](https://cert-manager.io/docs/configuration/acme/dns01/) will have similar secret requirements*)
+The [ClusterIssuers we created earlier](/kubernetes/ssl-certificates/letsencrypt-issuers/) included a field `solvers.dns01.cloudflare.apiTokenSecretRef.name`. This value points to a secret (*in the same namespace as cert-manager*) containing credentials necessary to create DNS records automatically. (*again, my examples are for cloudflare, but the [other supported providers](https://cert-manager.io/docs/configuration/acme/dns01/) will have similar secret requirements*)
 
 Thanks to [Sealed Secrets](/kubernetes/sealed-secrets/), we have a safe way of committing secrets into our repository, so to create necessary secret, you'd run something like this:
 
 ```bash
   kubectl create secret generic cloudflare-api-token-secret \
-  --namespace letsencrypt-wildcard-cert \
+  --namespace cert-manager \
   --dry-run=client \
   --from-literal=api-token=gobbledegook -o json \
   | kubeseal --cert <path to public cert> \
   | kubectl create -f - \
-  > <path to repo>/letsencrypt-wildcard-cert/sealedsecret-cloudflare-api-token-secret.yaml
+  > <path to repo>/cert-manager/sealedsecret-cloudflare-api-token-secret.yaml
 ```
 
 ### Staging Certificate
 
-Finally, we create our certificates! Here's an example certificate resource which uses the letsencrypt-staging issuer (*to avoid being rate-limited while learning!*). I save this in my flux repo as `/letsencrypt-wildcard-cert/certificate-wildcard-cert-letsencrypt-staging.yaml`
+Finally, we create our certificates! Here's an example certificate resource which uses the letsencrypt-staging issuer (*to avoid being rate-limited while learning!*). I save this in my flux repo:
 
-???+ example "Example certificate requested from LetsEncrypt staging"
-
-    ```yaml
-    apiVersion: cert-manager.io/v1
-    kind: Certificate
-    metadata:
-      name: letsencrypt-wildcard-cert-example.com-staging
-      namespace: letsencrypt-wildcard-cert
-    spec:
-    # secretName doesn't have to match the certificate name, but it may as well, for simplicity!
-    secretName: letsencrypt-wildcard-cert-example.com-staging 
-    issuerRef:
-      name: letsencrypt-staging
-      kind: ClusterIssuer
-    dnsNames:
-      - "example.com"
-      - "*.example.com"
-    ```
+```yaml title="/letsencrypt-wildcard-cert/certificate-wildcard-cert-letsencrypt-staging.yaml"
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: letsencrypt-wildcard-cert-example.com-staging
+  namespace: letsencrypt-wildcard-cert
+spec:
+# secretName doesn't have to match the certificate name, but it may as well, for simplicity!
+secretName: letsencrypt-wildcard-cert-example.com-staging 
+issuerRef:
+  name: letsencrypt-staging
+  kind: ClusterIssuer
+dnsNames:
+  - "example.com"
+  - "*.example.com"
+```
 
 ## Serving
 
@@ -130,26 +88,24 @@ If your certificate does not become `Ready` within a few minutes [^1], try watch
 
 ### Production Certificate
 
-Once you know you can happily deploy a staging certificate, it's safe enough to attempt your "prod" certificate. I save this in my flux repo as `/letsencrypt-wildcard-cert/certificate-wildcard-cert-letsencrypt-prod.yaml`
+Once you know you can happily deploy a staging certificate, it's safe enough to attempt your "prod" certificate. I save this in my flux repo:
 
-???+ example "Example certificate requested from LetsEncrypt prod"
-
-    ```yaml
-    apiVersion: cert-manager.io/v1
-    kind: Certificate
-    metadata:
-      name: letsencrypt-wildcard-cert-example.com
-      namespace: letsencrypt-wildcard-cert
-    spec:
-    # secretName doesn't have to match the certificate name, but it may as well, for simplicity!
-    secretName: letsencrypt-wildcard-cert-example.com 
-    issuerRef:
-      name: letsencrypt-prod
-      kind: ClusterIssuer
-    dnsNames:
-      - "example.com"
-      - "*.example.com"
-    ```
+```yaml title="/letsencrypt-wildcard-cert/certificate-wildcard-cert-letsencrypt-prod.yaml"
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: letsencrypt-wildcard-cert-example.com
+  namespace: letsencrypt-wildcard-cert
+spec:
+# secretName doesn't have to match the certificate name, but it may as well, for simplicity!
+secretName: letsencrypt-wildcard-cert-example.com 
+issuerRef:
+  name: letsencrypt-prod
+  kind: ClusterIssuer
+dnsNames:
+  - "example.com"
+  - "*.example.com"
+```
 
 Commit the certificate and follow the steps above to confirm that your prod certificate has been issued.
 
