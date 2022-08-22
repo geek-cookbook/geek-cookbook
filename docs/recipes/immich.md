@@ -1,6 +1,7 @@
 ---
 title: Run Immich in Docker Swarm
 description: How to install your own immich instance using Docker Swarm
+status: new
 ---
 
 # Immich in Docker Swarm
@@ -229,7 +230,7 @@ networks:
 
 ## Launch Immich!
 
-Launch the Immich stack by running 
+Launch the Immich stack by running
 
 ```bash
 docker stack deploy immich -c /var/data/config/immich/immich.yml
@@ -237,7 +238,7 @@ docker stack deploy immich -c /var/data/config/immich/immich.yml
 
 Now hit the URL you defined in your config, and you should be prompted to create your first (admin) account, after which you can login (*with the details you just created*), and start admin-ing. Install a mobile app, connect using the same credentials, and start backing up all your photos!
 
-## Summary 
+## Summary
 
 What have we achieved? We have an HTTPS-protected endpoint to target with the native mobile apps, allowing us to backup photos from mobile devices and have them become searchable, shareable, and browseable via a beautiful, Google Photos-esque interface!
 

@@ -1,6 +1,7 @@
 ---
 title: Install Mastodon in Kubernetes
 description: How to install your own Mastodon instance using Kubernetes
+status: new
 ---
 
 # Install Mastodon in Kubernetes

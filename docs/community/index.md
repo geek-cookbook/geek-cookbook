@@ -12,6 +12,6 @@ Find details about our communities below:
 * [Discord](/community/discord/) - Realtime chat, multiple channels
 * [Reddit](/community/reddit/) - Geek out old-skool
 * [Mastodon](/community/mastodon/) - Federated, open-source microblogging platform
-* [Discourse](https://forum.funkypenguin.co.nz) - Forums - asyncronous communition
+* [Discourse](/community/discourse/) - Forums - asyncronous communition
 * [GitHub](https://github.com/funkypenguin/) - Issues and PRs
 * [Facebook](https://www.facebook.com/funkypenguinnz/) - Social networking for old-timers!

@@ -32,9 +32,9 @@ plugins:
     #   504: ['https://www.mkdocs.org/']
     #   404: ['https://github.com/manuzhang/mkdocs-htmlproofer-plugin']
     #   400: ['*']  
-  git-committers:
-      repository: geek-cookbook/geek-cookbook
-      token: !ENV GH_TOKEN
+  # git-committers: # This seems to create double-ups
+  #     repository: geek-cookbook/geek-cookbook
+  #     token: !ENV GH_TOKEN
   meta-descriptions: # If not provided, auto-generate a description (https://pypi.org/project/mkdocs-meta-descriptions-plugin/)
   with-pdf:
     #author: David Young
@@ -289,7 +289,7 @@ nav:
       - Discord: community/discord.md 
       - Reddit: community/reddit.md 
       - Mastodon: community/mastodon.md 
-      # - Forums: community/discourse.md 
+      - Forum: community/discourse.md 
       - Support: support.md      
       - Contribute: community/contribute.md
       - Code of Conduct: community/code-of-conduct.md 
@@ -351,6 +351,9 @@ theme:
     code: 'Ubuntu Mono'
 
 extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
   social:
     - icon: 'fontawesome/brands/mastodon'
       link: 'https://so.fnky.nz/'

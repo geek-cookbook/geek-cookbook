@@ -16,8 +16,8 @@ This behaviour can be prohibitive, because (a) we don't want to have to request/
 To take advantage of the various workarounds available, I find it best to put the certificates into a dedicated namespace, which I name.. `letsencrypt-wildcard-cert`.
 
 !!! question "Why not the cert-manager namespace?"
-    Because cert-manager is a _controller_, whose job it is to act on resources. I should be able to remove cert-manager entirely (even its namespace) from my cluster, and re-add it, without impacting the resources it acts upon. If the certificates lived in the `cert-manager` namespace, then I wouldn't be able to remove the namespace without also destroying the certificates. 
-    
+    Because cert-manager is a _controller_, whose job it is to act on resources. I should be able to remove cert-manager entirely (even its namespace) from my cluster, and re-add it, without impacting the resources it acts upon. If the certificates lived in the `cert-manager` namespace, then I wouldn't be able to remove the namespace without also destroying the certificates.
+
     Furthermore, we can't deploy ClusterIssuers (a CRD) in the same kustomization which deploys the helmrelease which creates those CRDs in the first place. Flux won't be able to apply the ClusterIssuers until the CRD is created, and so will fail to reconcile.
 
 ## Preparation

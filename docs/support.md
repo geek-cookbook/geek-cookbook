@@ -83,5 +83,4 @@ A sponsorship is too much commitment, and a book is TL;DR? Hit me up with a [one
 [13]: https://www.youracclaim.com/badges/a0c4a196-55ab-4472-b46b-b610b44dc00f/public_url
 [14]: https://www.funkypenguin.co.nz
 
-
 --8<-- "common-links.md"

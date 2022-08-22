@@ -35,7 +35,6 @@ Some of the "let's-just-get-started" advantages to k3s are:
 
     Strictly, it doesn't matter. I prefer the latest Ubuntu LTS server version, but that's because I like to standardize my toolset across different clusters / platforms - I find this makes it easier to manage the "cattle" :cow: over time! 
 
-
 ## k3s single node setup
 
 If you only want a single-node k3s cluster, then simply run the following to do the deployment:
@@ -156,6 +155,5 @@ Cuddle your beautiful new cluster by running `kubectl cluster-info` [^1] - if th
 [^1]: Do you live in the CLI? Install the kubectl autocompletion for [bash](https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-linux/) or [zsh](https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-zsh/) to make your life much easier!
 [^2]: Looking for your k3s logs? Under Ubuntu LTS, run `journalctl -u k3s` to show your logs
 [^3]: k3s is not the only "lightweight kubernetes" game in town. Minikube (*virtualization-based*) and mikrok8s (*possibly better for Ubuntu users since it's installed in a "snap" - haha*) are also popular options. One day I'll write a "mikrok8s vs k3s" review, but it doesn't really matter for our cluster operations - as I understand it, microk8s makes HA clustering slightly easire than k3s, but you get slightly less "out-of-the-box" in return, so mikrok8s may be more suitable for experience users / production edge deployments.
-
 
 --8<-- "recipe-footer.md"

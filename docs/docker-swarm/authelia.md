@@ -242,8 +242,6 @@ services:
 1. Optionally used to test 1FA authentication
 2. Optionally used to test 2FA authentication
 
-
-
 !!! question "Why not just use Traefik Forward Auth?"
     While [Traefik Forward Auth][tfa] is a very lightweight, minimal authentication layer, which provides OIDC-based authentication, Authelia provides more features such as multiple methods of authentication (*Hardware, OTP, Email*), advanced rules, and push notifications.
 
@@ -253,15 +251,15 @@ Launch the Authelia stack by running ```docker stack deploy authelia -c <path -t
 
 ### Test Authelia
 
-To test the service works successfully, try logging into Authelia itself first, as a user whose password you've setup in `/var/data/config/authelia/users_database.yml`. 
+To test the service works successfully, try logging into Authelia itself first, as a user whose password you've setup in `/var/data/config/authelia/users_database.yml`.
 
 You'll notice that upon successful login, you're requested to setup 2FA. If (*like me!*) you didn't configure an SMTP server, you can still setup 2FA (*TOTP or webauthn*), and the setup link email instructions should be found in `/var/data/config/authelia/notifications.txt`
 
 Now you're ready to test 1FA and 2FA auth, against the two "whoami" services defined in the docker-compose file.
 
-Try to access each in turn, and confirm that you're _not_ prompted for 2FA on whoami-authelia-1fa, but you _are_ prompted for 2FA on whoami-authelia-2fa! :thumbsup:
+Try to access each in turn, and confirm that you're *not* prompted for 2FA on whoami-authelia-1fa, but you *are* prompted for 2FA on whoami-authelia-2fa! :thumbsup:
 
-## Summary 
+## Summary
 
 What have we achieved? By adding a simple label to any service, we can secure any service behind our Authelia, with minimal processing / handling overhead, and benefit from the 1FA/2FA multi-layered features provided by Autheila.
 
@@ -272,8 +270,7 @@ What have we achieved? By adding a simple label to any service, we can secure an
 
 ### Authelia vs Keycloak
 
-[KeyCloak][keycloak] is the "big daddy" of self-hosted authentication platforms - it has a beautiful GUI, and a very advanced and mature featureset. Like Authelia, KeyCloak can [use an LDAP server](/recipes/keycloak/authenticate-against-openldap/) as a backend, but _unlike_ Authelia, KeyCloak allows for 2-way sync between that LDAP backend, meaning KeyCloak can be used to _create_ and _update_ the LDAP entries (*Authelia's is just a one-way LDAP lookup - you'll need another tool to actually administer your LDAP database*).
-
+[KeyCloak][keycloak] is the "big daddy" of self-hosted authentication platforms - it has a beautiful GUI, and a very advanced and mature featureset. Like Authelia, KeyCloak can [use an LDAP server](/recipes/keycloak/authenticate-against-openldap/) as a backend, but *unlike* Authelia, KeyCloak allows for 2-way sync between that LDAP backend, meaning KeyCloak can be used to *create* and *update* the LDAP entries (*Authelia's is just a one-way LDAP lookup - you'll need another tool to actually administer your LDAP database*).
 
 [^1]: The initial inclusion of Authelia was due to the efforts of @bencey in Discord (Thanks Ben!)
 

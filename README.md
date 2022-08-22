@@ -100,4 +100,3 @@ Impulsively **[click here (NOW quick do it!)][github_sponsor]** to [sponsor me][
 [discourse]:        https://forum.funkypenguin.co.nz/
 [twitter]:          https://twitter.com/funkypenguin
 [contact]:          https://www.funkypenguin.co.nz
-

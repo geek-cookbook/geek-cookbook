@@ -74,7 +74,6 @@ The Mobile app seems very polished, and based on my testing, works better than t
   <figcaption>Apparently this was 4000+ photos!</figcaption>
 </figure>
 
-
 ### Other
 
 Here's what the filesystem where photos are stored looks like:
@@ -100,7 +99,7 @@ Here's what the filesystem where photos are stored looks like:
 /var/data/immich/upload/cae22784-474c-4527-825c-46d7f324e8e8/thumb/WEB/2245d33b-fbc5-40ee-a50b-2a234f73e3d9.jpeg
 ```
 
-As you'll note, while it's true that files are stored locally, there's no filesystem-level metadata easily parsable, like yearly or album-based folders. While the files are stored locally, and *technically* you could move them elsewhere, it certainly wouldn't be easy. 
+As you'll note, while it's true that files are stored locally, there's no filesystem-level metadata easily parsable, like yearly or album-based folders. While the files are stored locally, and *technically* you could move them elsewhere, it certainly wouldn't be easy.
 
 It's also not easy to access the files via any sort of sharing (*NFS, SMB, etc*), other than using the Immich UI. Par for the course though, I expect, if we want to be able to rely on the database for metadata without requiring intensive filesystem interaction.
 
