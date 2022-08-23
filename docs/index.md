@@ -12,25 +12,25 @@ Welcome, fellow geek :wave: If you're impatient, just start here :point_down:
 
 <div class="grid cards" markdown>
 
--   __Dive into :material-docker:{ .docker .lg .middle } [Docker Swarm](/docker-swarm/design/)__
+- **Dive into :material-docker:{ .docker .lg .middle } [Docker Swarm](/docker-swarm/design/)**
 
     ---
 
     The quickest way to get started, and to get your head around the basics.
 
--   __Kick it with :material-kubernetes:{ .kubernetes .lg .middle } [Kubernetes](/kubernetes/)__
+- **Kick it with :material-kubernetes:{ .kubernetes .lg .middle } [Kubernetes](/kubernetes/)**
 
     ---
 
     Been around for a while? Got a high pain threshold? Jump in!
 
--  __Geek out in :fontawesome-brands-discord:{ .discord .lg .middle } [Discord](http://chat.funkypenguin.co.nz)__
+- **Geek out in :fontawesome-brands-discord:{ .discord .lg .middle } [Discord](http://chat.funkypenguin.co.nz)**
 
     ---
 
     Join the fun, chat with fellow geeks in realtime!
 
--   __Fast-track with 🚀 [Premix](/premix/)!__
+- **Fast-track with 🚀 [Premix](/premix/)!**
 
     ---
 
@@ -38,17 +38,16 @@ Welcome, fellow geek :wave: If you're impatient, just start here :point_down:
 
 </div>
 
-
 ## What to expect
 
 The "*Geek Cookbook*" is a collection of how-to guides for establishing your own container-based awesome selfhosted platform, using either [Docker Swarm](/docker-swarm/design/) or [Kubernetes](/kubernetes/).
 
 Running such a platform enables you to run selfhosted services such as the [AutoPirate](/recipes/autopirate/) (*Radarr, Sonarr, NZBGet and friends*) stack, [Plex](https://www.plex.tv/), [NextCloud](https://nextcloud.com/) etc, and includes elements such as:
 
-* [Automatic SSL-secured access](/docker-swarm/traefik/) to all services (*with LetsEncrypt*)
-* [SSO / authentication layer](/docker-swarm/traefik-forward-auth/) to protect unsecured / vulnerable services
-* [Automated backup](/recipes/elkarbackup/) of configuration and data
-* [Monitoring and metrics](/recipes/swarmprom/) collection, graphing and alerting
+- [Automatic SSL-secured access](/docker-swarm/traefik/) to all services (*with LetsEncrypt*)
+- [SSO / authentication layer](/docker-swarm/traefik-forward-auth/) to protect unsecured / vulnerable services
+- [Automated backup](/recipes/elkarbackup/) of configuration and data
+- [Monitoring and metrics](/recipes/swarmprom/) collection, graphing and alerting
 
 Recent updates and additions are posted on the [CHANGELOG](/recent-changes/), and there's a friendly community of like-minded geeks in the [Discord server](http://chat.funkypenguin.co.nz).
 
@@ -62,7 +61,7 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
 1. You want to upskill. You want to work with container orchestration, Prometheus and Grafana, Kubernetes
 2. You want to play. You want a safe sandbox to test new tools, keeping the ones you want and tossing the ones you don't.
-3. You want reliability. Once you go from __playing__ with a tool to actually __using__ it, you want it to be available when you need it. Having to "*quickly ssh into the basement server and restart plex*" doesn't cut it when you finally convince your wife to sit down with you to watch sci-fi :robot:
+3. You want reliability. Once you go from **playing** with a tool to actually **using** it, you want it to be available when you need it. Having to "*quickly ssh into the basement server and restart plex*" doesn't cut it when you finally convince your wife to sit down with you to watch sci-fi :robot:
 
 ## Testimonials
 
@@ -94,18 +93,18 @@ I want your [support](https://github.com/sponsors/funkypenguin), either in the [
 
 #### Get in touch 💬
 
-* Come and say hi to me and the friendly geeks in the [Discord](http://chat.funkypenguin.co.nz) chat or the [Discourse](https://forum.funkypenguin.co.nz/) forums - say hi, ask a question, or suggest a new recipe!
-* Tweet me up, I'm [@funkypenguin](https://twitter.com/funkypenguin)! 🐦
-* [Contact me](https://www.funkypenguin.co.nz/contact/) by a variety of channels
+- Come and say hi to me and the friendly geeks in the [Discord](http://chat.funkypenguin.co.nz) chat or the [Discourse](https://forum.funkypenguin.co.nz/) forums - say hi, ask a question, or suggest a new recipe!
+- Tweet me up, I'm [@funkypenguin](https://twitter.com/funkypenguin)! 🐦
+- [Contact me](https://www.funkypenguin.co.nz/contact/) by a variety of channels
 
 #### [Sponsor](https://github.com/sponsors/funkypenguin) me ❤️
 
 The best way to support this work is to become a [GitHub Sponsor](https://github.com/sponsors/funkypenguin) / [Patreon patron](https://www.patreon.com/bePatron?u=6982506). You get:
 
-* warm fuzzies,
-* access to the pre-mix repo,
-* an anonymous plug you can pull at any time,
-* and a bunch more loot based on tier
+- warm fuzzies,
+- access to the pre-mix repo,
+- an anonymous plug you can pull at any time,
+- and a bunch more loot based on tier
 
 .. and I get some pocket money every month to buy wine, cheese, and cryptocurrency! 🍷 💰
 
@@ -114,8 +113,6 @@ Impulsively **[click here (NOW quick do it!)](https://github.com/sponsors/funkyp
 #### Work with me 🤝
 
 Need some Cloud / Microservices / DevOps / Infrastructure design work done? This stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch][contact], and let's talk!
-
-
 
 #### Buy me a coffee ☕️
 

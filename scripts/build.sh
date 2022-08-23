@@ -11,13 +11,17 @@
 if [ -z "$GH_TOKEN" ]
 then
   pip install mkdocs-material
-  ENABLE_PDF_EXPORT=1 mkdocs build -f mkdocs.yml
+  ENABLE_PDF_EXPORT=0 mkdocs build -f mkdocs.yml
 else
   # Bypass search issue described at https://github.com/squidfunk/mkdocs-material/issues/3053
   # git clone --depth 1 https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
   pip install -e mkdocs-material-insiders  
-  ENABLE_PDF_EXPORT=1 mkdocs build -f mkdocs-insiders.yml
+  ENABLE_PDF_EXPORT=0 mkdocs build -f mkdocs-insiders.yml
 fi
 
 # Setup any necessary netlify redirects
 cp netlify_redirects.txt site/_redirects
+
+# Put the PDF into secret location
+# mkdir -p site/${PDF_PATH}
+# mv site/funkypenguins-geek-cookbook.pdf site/${PDF_PATH}/

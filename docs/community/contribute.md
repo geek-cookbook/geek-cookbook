@@ -1,8 +1,10 @@
 ---
 title: How to contribute to Geek Cookbook
 description: Loving the geeky recipes, and looking for a way to give back / get involved. It's not all coding - here are some ideas re various ways you can be involved!
+icon: material/gift
 ---
-# Contribute
+
+# Get started with your Open Source contribution
 
 ## Spread the word ❤️
 
@@ -29,7 +31,7 @@ Here's a [113-second video](https://static.funkypenguin.co.nz/how-to-contribute-
 
 Want to contributing an entirely new recipe? Awesome!
 
-For the best experience, start by [creating an issue](https://github.com/geek-cookbook/geek-cookbook/issues/) in the repo (*check whether an existing issue for this recipe exists too!*). Populating the issue template will flesh out the requirements for the recipe, and having the new recipe pre-approved will avoid wasted effort if the recipe _doesn't_ meet requirements for addition, for some reason (*i.e., if it's been superceded by an existing recipe*)
+For the best experience, start by [creating an issue](https://github.com/geek-cookbook/geek-cookbook/issues/new/choose) in the repo (*check whether an existing issue for this recipe exists too!*). Populating the issue template will flesh out the requirements for the recipe, and having the new recipe pre-approved will avoid wasted effort if the recipe *doesn't* meet requirements for addition, for some reason (*i.e., if it's been superceded by an existing recipe*)
 
 Once your issue has been reviewed and approved, start working on a PR using either GitHub Codespaces or local dev (below). As soon as you're ready to share your work, create a WIP PR, so that a preview URL will be generated. Iterate on your PR, marking it as ready for review when it's ... ready :grin:
 
@@ -39,7 +41,7 @@ GitPod  (free up to 50h/month) is by far the smoothest and most slick way to edi
 
 ### 🥈 GitHub Codespaces
 
-[GitHub Codespaces](https://github.com/features/codespaces) (_no longer free now that it's out of beta_) provides a browser-based VSCode interface, pre-configured for your development environment. For no-hassle contributions to the cookbook with realtime previews, visit the [repo](https://github.com/geek-cookbook/geek-cookbook), and when clicking the download button (*where you're usually get the URL to clone a repo*), click on "**Open with CodeSpaces**" instead:
+[GitHub Codespaces](https://github.com/features/codespaces) (*no longer free now that it's out of beta*) provides a browser-based VSCode interface, pre-configured for your development environment. For no-hassle contributions to the cookbook with realtime previews, visit the [repo](https://github.com/geek-cookbook/geek-cookbook), and when clicking the download button (*where you're usually get the URL to clone a repo*), click on "**Open with CodeSpaces**" instead:
 
 ![How to use GitHub Codespaces](https://static.funkypenguin.co.nz/2021/geek-cookbookgeek-cookbook_The_Geeks_Cookbook_is_a_collection_of_guides_for_establishing_your_own_highly-available_privat_2021-01-07_11-41-25.png){ loading=lazy }
 
@@ -67,4 +69,4 @@ The process is basically:
 
 ## Contributing skillz 💪
 
-Got mad skillz, but neither the time nor inclination for recipe-cooking? [Scan the GitHub contributions page](https://github.com/geek-cookbook/geek-cookbook/contribute), [Discussions](https://github.com/geek-cookbook/geek-cookbook/discussions), or jump into [Discord](/community/discord/) or [Discourse](/community/discourse/), and help your fellow geeks with their questions, or just hang out bump up our member count!
+Got mad skillz, but neither the time nor inclination for recipe-cooking? [Scan the GitHub contributions page](https://github.com/geek-cookbook/geek-cookbook/contribute), jump into [Discord](/community/discord/) or [Discourse](/community/discourse/), and help your fellow geeks with their questions, or just hang out bump up our member count!

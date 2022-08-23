@@ -1,11 +1,15 @@
 ---
 title: Join our geeky, Docker/Kubernetes-flavored Mastdon instance
 description: Looking for your geeky niche in the "fediverse"? Join our Mastodon instance!
-icon: material/mastodon
+icon: fontawesome/brands/mastodon
+status: new
 ---
-# Toot me up, buttercup!
+
+# Join geeky / selfhosted Mastodon
 
 Mastondon is a self-hosted / open-source microblogging platform (*heavily inspired by Twitter*), which supports federation, rather than centralization. Like email, any user on any Mastodon instance can follow, "toot" (*not tweet!*), and reply to any user on any *other* instance.
+
+![Mastodon Screenshot](/images/mastodon.png){ loading=lazy }
 
 Our community Mastodon server is sooo [FKNY](https://so.fnky.nz/web/directory), but if you're already using Mastodon on another server (*or your [own instance][mastodon]*), you can seamlessly interact with us from there too, thanks to the magic of federation!
 

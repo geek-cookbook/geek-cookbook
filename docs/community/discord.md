@@ -1,9 +1,10 @@
 ---
 title: Geek out with Funky Penguin's Discord Server
 description: The most realtime and exciting way engage with our geeky community is in our Discord server!
-icon: material/discord
+icon: fontawesome/brands/discord
 ---
-# Discord
+
+# How to geek out in Discord
 
 The most realtime and exciting way engage with our geeky community is in our [Discord server](http://chat.funkypenguin.co.nz)
 

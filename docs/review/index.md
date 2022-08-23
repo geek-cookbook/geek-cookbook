@@ -8,7 +8,6 @@ Unlike the [Docker Swarm](/docker-swarm/) or [Kubernetes](/kubernetes/) sections
 
 What you'll find here are opinions and notes about various self-hosted applications, which will be updated from time-to-time to keep them "fresh" :leafy_green:
 
-
 App | Description | Date
 ---------|----------| ---------
  [Immich][review/immich] | Google Photos replacement | 3 Aug 2022

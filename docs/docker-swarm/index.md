@@ -15,7 +15,7 @@ You too, action-geek, can save the day, by...
 2. Store your swarm configuration and application data in an [orderly and consistent structure](/reference/data_layout/)
 3. Expose all your services consistently using [Traefik](/docker-swarm/traefik/) with optional [additional per-service authentication][tfa]
 
-Then you can really level-up your geek-fu, by:
+    Then you can really level-up your geek-fu, by:
 
 4. Making your Docker Swarm highly with [keepalived](/docker-swarm/keepalived/)
 5. Setup [shared storage](/docker-swarm/shared-storage-ceph/) to eliminate SPOFs

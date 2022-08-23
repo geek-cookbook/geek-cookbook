@@ -15,9 +15,9 @@ Recipes are usually "baked" in premix first, before they are published on the we
 
 ### ⛳️ Eliminate toil
 
-Building hosts, installing OS and deploying tooling is all "prep" for the really fun stuff - deploying and using recipes! 
+Building hosts, installing OS and deploying tooling is all "prep" for the really fun stuff - deploying and using recipes!
 
-Premix [eliminates  TOIL](https://sre.google/sre-book/eliminating-toil/) with an ansible playbook to deploy a fresh cluster automatically, or apply individual recipes to an existing cluster. 
+Premix [eliminates  TOIL](https://sre.google/sre-book/eliminating-toil/) with an ansible playbook to deploy a fresh cluster automatically, or apply individual recipes to an existing cluster.
 
 (*You still have to "feed" the playbook your configuration, but it's centralized, repeatable, and versionable*.)
 

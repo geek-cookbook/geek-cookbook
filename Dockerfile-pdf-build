@@ -16,22 +16,22 @@ RUN pip install \
         qrcode \
         livereload
 
-# # Theoretically this could add support for headless chrome
-# RUN apk add --no-cache \
-#       chromium \
-#       nss \
-#       freetype \
-#       harfbuzz \
-#       ca-certificates \
-#       ttf-freefont \
-#       nodejs \
-#       yarn ttf-ubuntu-font-family dbus yarn
+# Theoretically this could add support for headless chrome
+RUN apk add --no-cache \
+      chromium \
+      nss \
+      freetype \
+      harfbuzz \
+      ca-certificates \
+      ttf-freefont \
+      nodejs \
+      yarn ttf-ubuntu-font-family dbus yarn
 
 
 RUN   git config --global --add safe.directory /docs
 
  # Additional font 
 #  COPY fonts /usr/share/fonts/Additional 
-#  RUN apk --update --upgrade --no-cache add fontconfig ttf-freefont font-noto terminus-font \ 
-#      && fc-cache -f \ 
-#      && fc-list | sort 
+ RUN apk --update --upgrade --no-cache add fontconfig ttf-freefont font-noto terminus-font \ 
+     && fc-cache -f \ 
+     && fc-list | sort 

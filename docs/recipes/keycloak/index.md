@@ -164,7 +164,7 @@ Once your user is created, to set their password, click on the "**Credentials**"
 
 Keycloak can be used with Traefik in two ways..
 
-#### Keycloak behind Traefik 
+#### Keycloak behind Traefik
 
 You'll notice that the docker compose example above includes labels for both Traefik v2 and Traefik v2. You obviously don't need both (*although it wont't hurt*), but make sure you update the example domain in the Traefik labels. Keycloak should work behind Traefik without any further customization.
 

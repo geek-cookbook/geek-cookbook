@@ -14,7 +14,7 @@ So you've just watched a bunch of superhero movies, and you're suddenly inspired
 There's a [public demo available](https://www.kavitareader.com/#demo) too!
 
 --8<-- "recipe-standard-ingredients.md"
-    * [X] [AutoPirate](/recipes/autopirate/) components (*specifically [Mylar](/recipes/autopirate/mylar/)*), for searching for, downloading, and managing comic books
+    *[X] [AutoPirate](/recipes/autopirate/) components (*specifically [Mylar](/recipes/autopirate/mylar/)*), for searching for, downloading, and managing comic books
 
 ## Preparation
 

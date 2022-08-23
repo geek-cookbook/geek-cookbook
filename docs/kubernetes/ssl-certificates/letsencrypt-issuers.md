@@ -16,34 +16,71 @@ In order for Cert Manager to request/renew certificates, we have to tell it abou
 
 ## Preparation
 
+### Namespace
+
+We need a namespace to deploy our certificates into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
+
+```yaml title="/bootstrap/namespaces/namespace-letsencrypt-wildcard-cert.yaml"
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: letsencrypt-wildcard-cert
+```
+
+### Kustomization
+
+Now we need a kustomization to tell Flux to install any YAMLs it finds in `/letsencrypt-wildcard-cert`. I create this example Kustomization in my flux repo:
+
+```yaml title="/bootstrap/kustomizations/kustomization-letsencrypt-wildcard-cert.yaml"
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: letsencrypt-wildcard-cert
+  namespace: flux-system
+spec:
+  interval: 15m
+  path: ./letsencrypt-wildcard-cert
+  dependsOn:
+  - name: "cert-manager"
+  - name: "sealed-secrets"
+  prune: true # remove any elements later removed from the above path
+  timeout: 2m # if not set, this defaults to interval duration, which is 1h
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  validation: server
+```
+
+!!! tip
+    Importantly, note that we define a **dependsOn**, to tell Flux not to try to reconcile this kustomization before the cert-manager and sealedsecrets kustomizations are reconciled. Cert-manager creates the CRDs used to define certificates, so prior to Cert Manager being installed, the cluster won't know what to do with the ClusterIssuers/Certificate resources.
+
 ### LetsEncrypt Staging
 
 The ClusterIssuer resource below represents a certificate authority which is able to request certificates for any namespace within the cluster.
-I save this in my flux repo as `letsencrypt-wildcard-cert/cluster-issuer-letsencrypt-staging.yaml`. I've highlighted the areas you'll need to pay attention to:
+I save this in my flux repo as illustrated below. I've highlighted the areas you'll need to pay attention to:
 
-???+ example "ClusterIssuer for LetsEncrypt Staging"
-    ```yaml hl_lines="8 15 17-21"
-    apiVersion: cert-manager.io/v1
-    kind: ClusterIssuer
-    metadata:
+```yaml hl_lines="8 15 17-21" title="/letsencrypt-wildcard-cert/cluster-issuer-letsencrypt-staging.yaml"
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    email: batman@example.com
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
       name: letsencrypt-staging
-    spec:
-      acme:
-        email: batman@example.com
-        server: https://acme-staging-v02.api.letsencrypt.org/directory
-        privateKeySecretRef:
-          name: letsencrypt-staging
-        solvers:
-        - selector:
-            dnsZones:
-              - "example.com"
-          dns01:
-            cloudflare:
-              email: batman@example.com
-              apiTokenSecretRef:
-                name: cloudflare-api-token-secret
-                key: api-token
-    ```
+    solvers:
+    - selector:
+        dnsZones:
+          - "example.com"
+      dns01:
+        cloudflare:
+          email: batman@example.com
+          apiTokenSecretRef:
+            name: cloudflare-api-token-secret
+            key: api-token
+```
 
 Deploying this issuer YAML into the cluster would provide Cert Manager with the details necessary to start issuing certificates from the LetsEncrypt staging server (*always good to test in staging first!*)
 
@@ -52,34 +89,33 @@ Deploying this issuer YAML into the cluster would provide Cert Manager with the 
 
 ### LetsEncrypt Prod
 
-As you'd imagine, the "prod" version of the LetsEncrypt issues is very similar, and I save this in my flux repo as `letsencrypt-wildcard-cert/cluster-issuer-letsencrypt-prod.yaml`
+As you'd imagine, the "prod" version of the LetsEncrypt issues is very similar, and I save this in my flux repo:
 
-???+ example "ClusterIssuer for LetsEncrypt Prod"
-    ```yaml hl_lines="8 15 17-21"
-    apiVersion: cert-manager.io/v1
-    kind: ClusterIssuer
-    metadata:
+```yaml hl_lines="8 15 17-21" title="/letsencrypt-wildcard-cert/cluster-issuer-letsencrypt-prod.yaml"
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    email: batman@example.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
       name: letsencrypt-prod
-    spec:
-      acme:
-        email: batman@example.com
-        server: https://acme-v02.api.letsencrypt.org/directory
-        privateKeySecretRef:
-          name: letsencrypt-prod
-        solvers:
-        - selector:
-            dnsZones:
-              - "example.com"
-          dns01:
-            cloudflare:
-              email: batman@example.com
-              apiTokenSecretRef:
-                name: cloudflare-api-token-secret
-                key: api-token
-    ```
+    solvers:
+    - selector:
+        dnsZones:
+          - "example.com"
+      dns01:
+        cloudflare:
+          email: batman@example.com
+          apiTokenSecretRef:
+            name: cloudflare-api-token-secret
+            key: api-token
+```
 
 !!! note
-    You'll note that there are two secrets referred to above - `privateKeySecretRef`, referencing `letsencrypt-prod` is for cert-manager to populate as a result of its ACME schenanigans - you don't have to do anything about this particular secret! The cloudflare-specific secret (*and this will change based on your provider*) is expected to be found in the same namespace as the certificate we'll be issuing, and will be discussed when we create our [wildcard certificate](/kubernetes/ssl-certificates/wildcard-certificate/).
+    You'll note that there are two secrets referred to above - `privateKeySecretRef`, referencing `letsencrypt-prod` is for cert-manager to populate as a result of its ACME schenanigans - you don't have to do anything about this particular secret! The cloudflare-specific secret (*and this will change based on your provider*) is expected to be found in the same namespace as the cert-manager itself, and will be discussed when we create our [wildcard certificate](/kubernetes/ssl-certificates/wildcard-certificate/).
 
 ## Serving
 
@@ -106,4 +142,4 @@ Provided your account is registered, you're ready to proceed with [creating a wi
 
 --8<-- "recipe-footer.md"
 
-[^1]: Since a ClusterIssuer is not a namespaced resource, it doesn't exist in any specific namespace. Therefore, my assumption is that the `apiTokenSecretRef` secret is only "looked for" when a certificate (*which __is__ namespaced*) requires validation.
+[^1]: Since a ClusterIssuer is not a namespaced resource, it doesn't exist in any specific namespace. Therefore, my assumption is that the `apiTokenSecretRef` secret is only "looked for" when a certificate (*which **is** namespaced*) requires validation.

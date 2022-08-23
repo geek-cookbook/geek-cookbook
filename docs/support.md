@@ -1,6 +1,7 @@
 ---
 title: Awesome selfhosted is selfTOASTED? Help is here!
 description: When there's something strange, and it don't look good, who you gonna call? Discord / forum / one-on-on support, that's who!
+icon: material/lifebuoy
 ---
 # Support
 
@@ -29,11 +30,11 @@ For community support and engagement, we have a [Discourse forum][3]. Using this
 
 Every recipe includes a section at the end for comments.
 
-If you have a comment / question about a specific recipe, navigate to the recipe, scroll to the bottom, and add your comment. You'll be sent to the [kitchen][4] to post the actual comment, but it'll be visible beneath the recipe _and_ at the kitchen. (_To post, you'll need to sign in using OAuth from Discord, github, google, etc, or create a new account_)
+If you have a comment / question about a specific recipe, navigate to the recipe, scroll to the bottom, and add your comment. You'll be sent to Discourse to post the actual comment, but it'll be visible beneath the recipe _and_ at Discourse. (_To post, you'll need to sign in using OAuth from Discord, github, google, etc, or create a new account_)
 
 ## Request a recipe
 
-I'd love to hear your ideas for more recipes. To request/suggest a recipe, create a new post in the [kitchen][5] with the details.
+I'd love to hear your ideas for more recipes. To request/suggest a recipe, create a new issue in [GitHub](/community/github)
 
 ## Contribute a recipe
 
@@ -72,7 +73,6 @@ A sponsorship is too much commitment, and a book is TL;DR? Hit me up with a [one
 [1]: http://chat.funkypenguin.co.nz
 [2]: https://www.youtube.com/watch?v=1qHoSWxVqtE
 [3]: https://forum.funkypenguin.co.nz/
-[4]: https://forum.funkypenguin.co.nz/
 [5]: https://forum.funkypenguin.co.nz/
 [6]: https://github.com/funkypenguin/geek-cookbook/issues
 [7]: https://github.com/sponsors/funkypenguin
@@ -82,6 +82,5 @@ A sponsorship is too much commitment, and a book is TL;DR? Hit me up with a [one
 [12]: https://github.com/funkypenguin
 [13]: https://www.youracclaim.com/badges/a0c4a196-55ab-4472-b46b-b610b44dc00f/public_url
 [14]: https://www.funkypenguin.co.nz
-
 
 --8<-- "common-links.md"
