@@ -20,6 +20,9 @@ jobs:
     - name: Install requirements
       run: python3 -m pip install -r requirements.txt
 
+    - name: Install mkdocs-material
+      run: python3 pip install mkdocs-material
+
     - name: Test mkdocs builds
       run: python3 -m mkdocs build
 

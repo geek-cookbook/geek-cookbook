@@ -79,19 +79,17 @@ services:
       - traefik_public
     deploy:
       labels:
-          # traefik common
-          - traefik.enable=true
-          - traefik.docker.network=traefik_public
+      # traefik common
+      - traefik.docker.network=traefik_public
 
-          # traefikv1
-          - traefik.frontend.rule=Host:nextcloud.example.com
-          - traefik.port=80     
+      # traefikv1
+      - traefik.frontend.rule=Host:nextcloud.example.com
+      - traefik.port=80     
 
-          # traefikv2
-          - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.example.com`)"
-          - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
-          - "traefik.enable=true"
-
+      # traefikv2
+      - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.example.com`)"
+      - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
+      - "traefik.enable=true"
     volumes:
     - /var/data/nextcloud/html:/var/www/html
     - /var/data/nextcloud/apps:/var/www/html/custom_apps
@@ -135,7 +133,10 @@ services:
   cron:
     image: nextcloud
     volumes:
-      - /var/data/nextcloud/:/var/www/html
+    - /var/data/nextcloud/html:/var/www/html
+    - /var/data/nextcloud/apps:/var/www/html/custom_apps
+    - /var/data/nextcloud/config:/var/www/html/config
+    - /var/data/nextcloud/data:/var/www/html/data
     user: www-data
     networks:
       - internal
