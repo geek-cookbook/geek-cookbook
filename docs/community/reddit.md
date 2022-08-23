@@ -4,7 +4,7 @@ description: If you're a redditor, jump on over to our subreddit at https://www.
 icon: fontawesome/brands/reddit
 ---
 
-# Reddit
+# Join friendly subreddit for selfhosted Kubernetes / Docker
 
 If you're a redditor, jump on over to our subreddit ([r/funkypenguin](https://www.reddit.com/r/funkypenguin/)), to engage / share the latest!
 

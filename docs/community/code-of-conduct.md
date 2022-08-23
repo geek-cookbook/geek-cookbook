@@ -1,6 +1,7 @@
 ---
-title: Community Code of Conduct
-description: We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
+title: Funky Penguin's Community Code of Conduct
+description: Inspired by the leadership of other great open source projects, we've adopted the Contributor Covenant Code of Conduct
+icon: material/police-badge-outline
 ---
 # Code of Conduct
 

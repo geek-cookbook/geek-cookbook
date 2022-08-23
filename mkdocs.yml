@@ -286,16 +286,14 @@ nav:
     - Contribute: community/contribute.md
     - Community: 
       - community/index.md
-      - Discord: community/discord.md 
-      - Reddit: community/reddit.md 
-      - Mastodon: community/mastodon.md 
-      - Forum: community/discourse.md 
       - Support: support.md      
       - Contribute: community/contribute.md
       - Code of Conduct: community/code-of-conduct.md 
- 
-    #   # - Discourse: community/discourse.md
-    #   # - GitHub: community/github.md    
+      - Discord: community/discord.md 
+      - Reddit: community/reddit.md 
+      - Mastodon: community/mastodon.md 
+      - Forum: community/discourse.md       
+      - GitHub: community/github.md    
 
 theme:
   name: 'material'
