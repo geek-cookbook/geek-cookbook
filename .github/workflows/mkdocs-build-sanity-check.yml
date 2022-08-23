@@ -7,6 +7,7 @@ jobs:
   mkdocs-sanity-check:
     name: Check mkdocs builds successfully
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - name: Check out code
       uses: actions/checkout@v2
