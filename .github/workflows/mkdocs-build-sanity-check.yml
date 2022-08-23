@@ -26,9 +26,18 @@ jobs:
     - name: Test mkdocs builds
       run: python3 -m mkdocs build
 
-    # - name: Check for broken links
-    #   uses: lycheeverse/lychee-action@v1.0.9
-    #   with:
-    #     args: --verbose --no-progress site/**/*.html
-    #   env:
-    #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - name: Link Checker
+      id: lychee
+      uses: lycheeverse/lychee-action@v1
+      with:
+        args: --verbose --no-progress site/**/*.html      
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        
+    - name: Create Issue From File
+      if: steps.lychee.outputs.exit_code != 0
+      uses: peter-evans/create-issue-from-file@v4
+      with:
+        title: Link Checker Report
+        content-filepath: ./lychee/out.md
+        labels: report, automated issue
