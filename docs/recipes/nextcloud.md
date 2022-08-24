@@ -3,13 +3,15 @@ title: How to run Nextcloud in Docker (behind Traefik)
 description: We can now run Nextcloud in our Docker Swarm, with LetsEncrypt SSL termination handled by Traefik
 ---
 
-# NextCloud
+# NextCloud Docker Compose / Swarm Install
 
-[NextCloud Hub](https://nextcloud.com/) as grown from a humble [fork of OwnCloud](https://owncloud.com/owncloud-vs-nextcloud/) in [2016](https://www.zdnet.com/article/owncloud-founder-forks-popular-open-source-cloud/), to an industry-leading, on-premises content collaboration platform.
+[NextCloud](https://nextcloud.com/) (*now called "[Nextcloud Hub II](https://nextcloud.com/blog/nextcloud-hub-2-brings-major-overhaul-introducing-nextcloud-office-p2p-backup-and-more/)"*) has as grown from a humble [fork of OwnCloud](https://owncloud.com/owncloud-vs-nextcloud/) in [2016](https://www.zdnet.com/article/owncloud-founder-forks-popular-open-source-cloud/), to an industry-leading, on-premises content collaboration platform. NextCloud still does the traditional file-collaboration, but is now beefed-up with an [app store](https://apps.nextcloud.com/featured) supporting more than 100 apps, including [text and video chats](https://apps.nextcloud.com/apps/spreed), [calendaring](https://apps.nextcloud.com/apps/calendar), a [mail client](https://apps.nextcloud.com/apps/mail), and even an [office editing suite](https://apps.nextcloud.com/apps/richdocuments).
+
+It also now supports a sweet, customizable dashboard:
 
 ![NextCloud Screenshot](/images/nextcloud.png){ loading=lazy }
 
-This recipe is based on the official NextCloud docker image, and includes seprate containers ofor the database (_MariaDB_), Redis (_for transactional locking_), automated database backup, (_you *do* backup the stuff you care about, right?_) and a separate cron container for running NextCloud's 15-min crons.
+This recipe uses the official NextCloud docker hub image, and includes separate docker containers for the database (*MariaDB*), Redis (*for transactional locking*), automated database backup, (*you backup the stuff you care about, right?*) and a separate cron container for running NextCloud's 15-min background tasks.
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -33,13 +35,11 @@ cd /var/data/runtime/nextcloud
 mkdir -p {db,redis}
 ```
 
-### Prepare environment
+### Nextcloud environment variables
 
 Create `nextcloud.env`, and populate with the following variables
 
 ```bash title="/var/data/config/nextcloud/nextcloud.env"
-NEXTCLOUD_ADMIN_USER=admin
-NEXTCLOUD_ADMIN_PASSWORD=changemesucker
 MYSQL_HOST=db
 OVERWRITEPROTOCOL=https
 REDIS_HOST=redis # (1)!
@@ -51,7 +51,7 @@ MYSQL_USER=nextcloud
 MYSQL_PASSWORD=haxmebaby
 ```
 
-1. Necessary to enable Redis support
+1. Necessary to add Redis support
 
 Now create a **separate** `nextcloud-db-backup.env` file, to capture the environment variables necessary to perform the backup. (_If the same variables are shared with the mariadb container, they [cause issues](https://forum.funkypenguin.co.nz/t/nextcloud-funky-penguins-geek-cookbook/254/3?u=funkypenguin) with database access_)
 
@@ -63,7 +63,7 @@ BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
 ````
 
-### Setup Docker Swarm
+### Nextcloud Docker Compose
 
 Create a docker swarm config file in docker-compose syntax (v3), something like the following example:
 
@@ -178,11 +178,11 @@ networks:
 
 ## Serving
 
-### Launch NextCloud stack
+### Launch NextCloud Docker stack and setup
 
 Launch the NextCloud stack by running ```docker stack deploy nextcloud -c <path -to-docker-compose.yml>```
 
-Log into your new instance at https://**YOUR-FQDN**, with user "admin" and the password you specified in nextcloud.env.
+Log into your new instance at https://**YOUR-FQDN**, and setup your admin username and password.
 
 [^1]: Since many of my other recipes use PostgreSQL, I'd have preferred to use Postgres over MariaDB, but MariaDB seems to be the [preferred database type](https://github.com/nextcloud/server/issues/5912).
 [^2]: If you want better performance when using Photos in Nextcloud, have a look at [this detailed write-up](https://rayagainstthemachine.net/linux%20administration/nextcloud-photos/)!
