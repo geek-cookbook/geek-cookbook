@@ -9,4 +9,4 @@
 
     Related:
 
-    * [X] [Traefik Forward Auth][tfa] or [Authelia][authelia] to secure your Traefik-exposed services with an additional layer of authentication\
+    * [X] [Traefik Forward Auth][tfa] or [Authelia][authelia] to secure your Traefik-exposed services with an additional layer of authentication

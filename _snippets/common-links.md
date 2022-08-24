@@ -36,6 +36,7 @@
 [minio]:                /recipes/minio/
 [mylar]:                /recipes/autopirate/mylar/
 [nightscout]:           /recipes/nightscout/
+[nextcloud]:            /recipes/nextcloud/
 [nzbget]:               /recipes/autopirate/nzbget/
 [nzbhydra]:             /recipes/autopirate/nzbhydra/
 [ombi]:                 /recipes/autopirate/ombi/
