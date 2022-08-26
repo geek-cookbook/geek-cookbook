@@ -280,7 +280,8 @@ nav:
     - ☑️ Reviews:
       - review/index.md
       - Immich: review/immich.md  
-      - Mastodon: review/mastodon.md          
+      - Mastodon: review/mastodon.md
+      - Nextcloud: review/nextcloud.md          
     - CHANGELOG: recent-changes.md
     - Support: support.md      
     - Contribute: community/contribute.md

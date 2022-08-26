@@ -39,8 +39,8 @@ Recipe                  | Description  | Date
 
 Also available via:
 
-* Mastodon: <https://mastodon.social/@geekcookbook*changes>
-* RSS: <https://mastodon.social/@geekcookbook*changes.rss>
+* Mastodon: <https://so.fnky.nz/@geek_cookbook_changelog>
+* RSS: <https://so.fnky.nz/@geek_cookbook_changelog.rss>
 * The #changelog channel in our [Discord server](http://chat.funkypenguin.co.nz)
 
 --8<-- "common-links.md"

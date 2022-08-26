@@ -52,6 +52,7 @@
 [readarr]:              /recipes/autopirate/readarr/
 [review/immich]:        /review/immich/
 [review/mastodon]:      /review/mastodon/
+[review/nextcloud]:     /review/nextcloud/
 [rss-bridge]:           /recipes/rss-bridge/
 [rtorrent]:             /recipes/autopirate/rtorrent/
 [sabnzbd]:              /recipes/autopirate/sabnzbd/
