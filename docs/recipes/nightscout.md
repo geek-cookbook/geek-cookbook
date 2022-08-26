@@ -1,9 +1,13 @@
 ---
-title: Setup nightscout in Docker
+title: How to run your own Nightscout instance using Docker
 description: CGM data with an API, for diabetic quality-of-life improvements
 ---
 
-# Nightscout
+# Nightscout Setup with Docker
+
+!!! tip "Are you a Heroku refugee?"
+    Greetings, refugees from Heroku! If you're looking for help running your own Nightscout instance after the deprecation of free Heroku instances, hit me up in [Discord][discord], and I'd be happy to assist!
+    - David
 
 Nightscout is "*...an open source, DIY project that allows real time access to a CGM data via personal website, smartwatch viewers, or apps and widgets available for smartphones*"
 
