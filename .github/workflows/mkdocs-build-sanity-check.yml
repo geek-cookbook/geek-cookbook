@@ -7,6 +7,7 @@ jobs:
   mkdocs-sanity-check:
     name: Check mkdocs builds successfully
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - name: Check out code
       uses: actions/checkout@v2
@@ -20,12 +21,8 @@ jobs:
     - name: Install requirements
       run: python3 -m pip install -r requirements.txt
 
+    - name: Install mkdocs-material
+      run: python3 -m pip install mkdocs-material
+
     - name: Test mkdocs builds
       run: python3 -m mkdocs build
-
-    # - name: Check for broken links
-    #   uses: lycheeverse/lychee-action@v1.0.9
-    #   with:
-    #     args: --verbose --no-progress site/**/*.html
-    #   env:
-    #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
