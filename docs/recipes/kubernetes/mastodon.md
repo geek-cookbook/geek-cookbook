@@ -104,7 +104,7 @@ spec:
 
 ### ConfigMap
 
-Now we're into the mastodon-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami-labs/mastodon/blob/main/helm/mastodon/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo:
+Now we're into the mastodon-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami-labs/mastodon/blob/main/helm/mastodon/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo:
 
 ```yaml title="mastodon/configmap-mastodon-helm-chart-value-overrides.yaml"
 apiVersion: v1

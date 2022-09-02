@@ -273,10 +273,18 @@ nav:
       #   - Webook Receiver: kubernetes/wip.md
     - 🚀 Get Premix!:
       - premix/index.md
-      - Operation: premix/ansible/operation.md        
-      - Design: premix/ansible/design.md
-      # - Swarm: premix/swarm.md
-      # - Kubernetes: premix/kubernetes.md  
+      - Get Started: 
+        - Setup: premix/ansible/operation.md
+        - Deploy!:
+          - Swarm: premix/swarm.md
+          - Kubernetes: premix/kubernetes.md  
+      - Contribute:
+        - Ansiblizing:
+          - premix/ansiblizing/index.md
+          - Swarm: premix/ansiblizing/swarm.md
+          - Kubernetes: premix/ansiblizing/kubernetes.md  
+      - Reference:        
+        - Design: premix/ansible/design.md
     - ☑️ Reviews:
       - review/index.md
       - Immich: review/immich.md  

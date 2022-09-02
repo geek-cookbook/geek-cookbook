@@ -107,7 +107,7 @@ Now that the "global" elements of this deployment (*just the HelmRepository in t
 ### ConfigMap
 
 {% raw %}
-Now we're into the sealed-secrets-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami-labs/sealed-secrets/blob/main/helm/sealed-secrets/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `sealed-secrets/configmap-sealed-secrets-helm-chart-value-overrides.yaml`:
+Now we're into the sealed-secrets-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami-labs/sealed-secrets/blob/main/helm/sealed-secrets/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `sealed-secrets/configmap-sealed-secrets-helm-chart-value-overrides.yaml`:
 
 ??? example "Example ConfigMap (click to expand)"
     ```yaml
