@@ -67,7 +67,7 @@ spec:
 
 ### ConfigMap
 
-Now we're into the secret-replicator-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/kiwigrid/helm-charts/blob/master/charts/secret-replicator/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo:
+Now we're into the secret-replicator-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/kiwigrid/helm-charts/blob/master/charts/secret-replicator/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo:
 
 ```yaml  hl_lines="21 27" title="/secret-replicator/configmap-secret-replicator-helm-chart-value-overrides.yaml"
 apiVersion: v1

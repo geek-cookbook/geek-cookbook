@@ -2,7 +2,7 @@ site_name: Funky Penguin's Geek Cookbook
 site_description: 'The Geek Cookbook is a collection of guides for establishing your own highly-available docker container cluster (swarm). This swarm enables you to run self-hosted services such as GitLab, Plex, NextCloud, etc.'
 site_author: 'David Young'
 site_url: 'https://geek-cookbook.funkypenguin.co.nz'
-edit_uri: 'edit/master/manuscript/'
+edit_uri: 'edit/main/docs/'
 
 # Fail to build if we have broken links
 # strict: true
@@ -273,14 +273,23 @@ nav:
       #   - Webook Receiver: kubernetes/wip.md
     - 🚀 Get Premix!:
       - premix/index.md
-      - Operation: premix/ansible/operation.md        
-      - Design: premix/ansible/design.md
-      # - Swarm: premix/swarm.md
-      # - Kubernetes: premix/kubernetes.md  
+      - Get Started: 
+        - Setup: premix/ansible/operation.md
+        - Deploy!:
+          - Swarm: premix/swarm.md
+          - Kubernetes: premix/kubernetes.md  
+      - Contribute:
+        - Ansiblizing:
+          - premix/ansiblizing/index.md
+          - Swarm: premix/ansiblizing/swarm.md
+          - Kubernetes: premix/ansiblizing/kubernetes.md  
+      - Reference:        
+        - Design: premix/ansible/design.md
     - ☑️ Reviews:
       - review/index.md
       - Immich: review/immich.md  
-      - Mastodon: review/mastodon.md          
+      - Mastodon: review/mastodon.md
+      - Nextcloud: review/nextcloud.md          
     - CHANGELOG: recent-changes.md
     - Support: support.md      
     - Contribute: community/contribute.md

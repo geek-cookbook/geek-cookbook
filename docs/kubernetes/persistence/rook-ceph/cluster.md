@@ -65,7 +65,7 @@ spec:
 
 ### ConfigMap
 
-Now we're into the app-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/rook/rook/blob/master/deploy/charts/rook-ceph/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo:
+Now we're into the app-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/rook/rook/blob/master/deploy/charts/rook-ceph/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo:
 
 ```yaml title="/rook-ceph-cluster/configmap-rook-ceph-cluster-helm-chart-value-overrides.yaml"
 apiVersion: v1

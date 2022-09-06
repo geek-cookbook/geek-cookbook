@@ -20,6 +20,7 @@ Recipe                   | Description                                          
 
 Recipe                      | Description                                                                  | Date
 ----------------------------|------------------------------------------------------------------------------|--------------
+[Nextcloud][nextcloud]      | Updated for version 24, improve Redis / cron support                                   | *24 Aug 2022*
 [Authelia][authelia]        | Updated with test services, fixed errors                                     | *27 Jul 2022*
 [Minio][minio]              | Major update to Minio recipe, for new Console UI and Traefik v2              | *22 Oct 2021*
 [Traefik Forward Auth][tfa] | Major update for Traefik v2, included instructions for Dex, Google, Keycloak | *29 Jan 2021*
@@ -38,8 +39,8 @@ Recipe                  | Description  | Date
 
 Also available via:
 
-* Mastodon: <https://mastodon.social/@geekcookbook*changes>
-* RSS: <https://mastodon.social/@geekcookbook*changes.rss>
+* Mastodon: <https://so.fnky.nz/@geek_cookbook_changelog>
+* RSS: <https://so.fnky.nz/@geek_cookbook_changelog.rss>
 * The #changelog channel in our [Discord server](http://chat.funkypenguin.co.nz)
 
 --8<-- "common-links.md"

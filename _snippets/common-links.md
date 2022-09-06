@@ -36,6 +36,7 @@
 [minio]:                /recipes/minio/
 [mylar]:                /recipes/autopirate/mylar/
 [nightscout]:           /recipes/nightscout/
+[nextcloud]:            /recipes/nextcloud/
 [nzbget]:               /recipes/autopirate/nzbget/
 [nzbhydra]:             /recipes/autopirate/nzbhydra/
 [ombi]:                 /recipes/autopirate/ombi/
@@ -51,6 +52,7 @@
 [readarr]:              /recipes/autopirate/readarr/
 [review/immich]:        /review/immich/
 [review/mastodon]:      /review/mastodon/
+[review/nextcloud]:     /review/nextcloud/
 [rss-bridge]:           /recipes/rss-bridge/
 [rtorrent]:             /recipes/autopirate/rtorrent/
 [sabnzbd]:              /recipes/autopirate/sabnzbd/
