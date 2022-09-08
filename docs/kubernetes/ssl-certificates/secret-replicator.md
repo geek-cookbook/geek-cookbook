@@ -127,29 +127,29 @@ Note that the following values changed from default, above:
 
 Lastly, having set the scene above, we define the HelmRelease which will actually deploy the secret-replicator controller into the cluster, with the config we defined above. I save this in my flux repo:
 
-    ```yaml title="/secret-replicator/helmrelease-secret-replicator.yaml"
-      apiVersion: helm.toolkit.fluxcd.io/v2beta1
-      kind: HelmRelease
-      metadata:
-        name: secret-replicator
-        namespace: secret-replicator
-      spec:
-        chart:
-          spec:
-            chart: secret-replicator
-            version: 0.6.x
-            sourceRef:
-              kind: HelmRepository
-              name: kiwigrid
-              namespace: flux-system
-        interval: 15m
-        timeout: 5m
-        releaseName: secret-replicator
-        valuesFrom:
-        - kind: ConfigMap
-          name: secret-replicator-helm-chart-value-overrides
-          valuesKey: values.yaml # This is the default, but best to be explicit for clarity
-    ```
+ ```yaml title="/secret-replicator/helmrelease-secret-replicator.yaml"
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: secret-replicator
+  namespace: secret-replicator
+spec:
+  chart:
+    spec:
+      chart: secret-replicator
+      version: 0.6.x
+      sourceRef:
+        kind: HelmRepository
+        name: kiwigrid
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: secret-replicator
+  valuesFrom:
+  - kind: ConfigMap
+    name: secret-replicator-helm-chart-value-overrides
+    valuesKey: values.yaml # This is the default, but best to be explicit for clarity
+ ```
 
 --8<-- "kubernetes-why-not-config-in-helmrelease.md"
 
