@@ -8,7 +8,7 @@
 # python3 scripts/build.py mkdocs.yml
 
 # install mkdocs (or insiders version, if we're passed a GH_TOKEN var)
-if [ -z "$GH_TOKEN" ]
+if [ "$GH_TOKEN" -eq "" ]
 then
   echo "No GH_TOKEN passed, doing a normal build.."
   pip install mkdocs-material

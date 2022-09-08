@@ -109,7 +109,7 @@ Now that the "global" elements of this deployment (*Namespace and HelmRepository
 
 ### ConfigMap
 
-Now we're into the topolvm-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/topolvm/topolvm/blob/main/charts/topolvm/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `topolvm/configmap-topolvm-helm-chart-value-overrides.yaml`:
+Now we're into the topolvm-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/topolvm/topolvm/blob/main/charts/topolvm/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `topolvm/configmap-topolvm-helm-chart-value-overrides.yaml`:
 
 ??? example "Example ConfigMap (click to expand)"
     ```yaml
