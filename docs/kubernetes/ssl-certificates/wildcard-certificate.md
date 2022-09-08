@@ -45,22 +45,22 @@ Thanks to [Sealed Secrets](/kubernetes/sealed-secrets/), we have a safe way of c
 Finally, we create our certificates! Here's an example certificate resource which uses the letsencrypt-staging issuer (*to avoid being rate-limited while learning!*). I save this in my flux repo as `/letsencrypt-wildcard-cert/certificate-wildcard-cert-letsencrypt-staging.yaml`
 
 
-    ```yaml title="/letsencrypt-wildcard-cert/certificate-wildcard-cert-letsencrypt-staging.yaml"
-    apiVersion: cert-manager.io/v1
-    kind: Certificate
-    metadata:
-      name: letsencrypt-wildcard-cert-example.com-staging
-      namespace: letsencrypt-wildcard-cert
-    spec:
-      # secretName doesn't have to match the certificate name, but it may as well, for simplicity!
-      secretName: letsencrypt-wildcard-cert-example.com-staging 
-      issuerRef:
-        name: letsencrypt-staging
-        kind: ClusterIssuer
-      dnsNames:
-        - "example.com"
-        - "*.example.com"
-    ```
+```yaml title="/letsencrypt-wildcard-cert/certificate-wildcard-cert-letsencrypt-staging.yaml"
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: letsencrypt-wildcard-cert-example.com-staging
+  namespace: letsencrypt-wildcard-cert
+spec:
+  # secretName doesn't have to match the certificate name, but it may as well, for simplicity!
+  secretName: letsencrypt-wildcard-cert-example.com-staging 
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  dnsNames:
+    - "example.com"
+    - "*.example.com"
+```
 
 ## Serving
 
@@ -91,22 +91,22 @@ If your certificate does not become `Ready` within a few minutes [^1], try watch
 
 Once you know you can happily deploy a staging certificate, it's safe enough to attempt your "prod" certificate. I save this in my flux repo as `/letsencrypt-wildcard-cert/certificate-wildcard-cert-letsencrypt-prod.yaml`
 
-    ```yaml title="/letsencrypt-wildcard-cert/certificate-wildcard-cert-letsencrypt-prod.yaml"
-    apiVersion: cert-manager.io/v1
-    kind: Certificate
-    metadata:
-      name: letsencrypt-wildcard-cert-example.com
-      namespace: letsencrypt-wildcard-cert
-    spec:
-    # secretName doesn't have to match the certificate name, but it may as well, for simplicity!
-      secretName: letsencrypt-wildcard-cert-example.com 
-      issuerRef:
-        name: letsencrypt-prod
-        kind: ClusterIssuer
-      dnsNames:
-      - "example.com"
-      - "*.example.com"
-    ```
+```yaml title="/letsencrypt-wildcard-cert/certificate-wildcard-cert-letsencrypt-prod.yaml"
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: letsencrypt-wildcard-cert-example.com
+  namespace: letsencrypt-wildcard-cert
+spec:
+# secretName doesn't have to match the certificate name, but it may as well, for simplicity!
+  secretName: letsencrypt-wildcard-cert-example.com 
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - "example.com"
+  - "*.example.com"
+```
 
 Commit the certificate and follow the steps above to confirm that your prod certificate has been issued.
 
