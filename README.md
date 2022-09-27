@@ -1,12 +1,9 @@
-
 [cookbookurl]: https://geek-cookbook.funkypenguin.co.nz
 [discourseurl]: https://forum.funkypenguin.co.nz
 [discordurl]: http://chat.funkypenguin.co.nz
 [twitchurl]: https://www.twitch.tv/funkypenguinz
 [dockerurl]: https://geek-cookbook.funkypenguin.co.nz/docker-swarm/design
 [k8surl]: https://geek-cookbook.funkypenguin.co.nz/kubernetes/
-
-
 <!-- markdownlint-disable MD033 MD041 -->
 <div align="center">
 
