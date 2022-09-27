@@ -41,4 +41,3 @@ immich:
 ## Ensure the recipe files are valid
 
 The playbook assumes that `/<recipe-name>/<recipe-name>.yml` and `/<recipe-name>/<recipe-name>.env-sample` exist. Without these (*and any other supporting files, ending in `-sample`*), unpleasant things will happen!
-
