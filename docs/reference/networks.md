@@ -42,4 +42,4 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [Duplicati](/recipes/duplicati/)                                              | 172.16.55.0/24 |
 | [Restic](/recipes/restic/)                                                    | 172.16.56.0/24 |
 | [Paperless NG](/recipes/paperless-ng/)                                        | 172.16.58.0/24 |
-| [ProjectSend](/recipes/projectsend/)                                          | 172.16.59.0/24 |
+| ProjectSend (coming soon!)                                                    | 172.16.59.0/24 |
