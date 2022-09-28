@@ -1,14 +1,14 @@
 name: 'PR Tasks Completed Check'
 on: 
   pull_request:
-    types: [opened, edited]
+    types: [opened, edited, synchronize, reopened]
 
 jobs:
   task-check:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
+    # permissions:
+    #   pull-requests: write
     steps:
-      - uses: kentaro-m/task-completed-checker-action@v0.1.0
+      - uses: Shopify/task-list-checker@main
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
