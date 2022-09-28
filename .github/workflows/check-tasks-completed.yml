@@ -1,4 +1,4 @@
-name: 'PR Tasks Completed Check'
+name: 'Confirm tasks are completed'
 on: 
   pull_request:
     types: [opened, edited, synchronize, reopened]
@@ -6,8 +6,9 @@ on:
 jobs:
   task-check:
     runs-on: ubuntu-latest
-    # permissions:
-    #   pull-requests: write
+    permissions:
+      pull-requests: write
+      checks: write
     steps:
       - uses: Shopify/task-list-checker@main
         with:
