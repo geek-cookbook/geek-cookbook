@@ -16,8 +16,8 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [Tiny Tiny RSS](/recipes/tiny-tiny-rss/)                                      | 172.16.5.0/24  |
 | [Huginn](/recipes/huginn/)                                                    | 172.16.6.0/24  |
 | [Gollum](/recipes/gollum/)                                                    | 172.16.7.0/24  |
-| Immich (coming soon!)                                                         | 172.16.8.0/24  |
-| Mastodon (coming soon!)                                                       | 172.16.9.0/24  |
+| [Immich](/recipes/immich)                                                         | 172.16.8.0/24  |
+| [Mastodon](/recipes/mastodon)                                                 | 172.16.9.0/24  |
 | [Duplicity](/recipes/duplicity/)                                              | 172.16.10.0/24 |
 | [Autopirate](/recipes/autopirate/)                                            | 172.16.11.0/24 |
 | [Nextcloud](/recipes/nextcloud/)                                              | 172.16.12.0/24 |

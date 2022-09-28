@@ -1,14 +1,9 @@
-
 [cookbookurl]: https://geek-cookbook.funkypenguin.co.nz
 [discourseurl]: https://forum.funkypenguin.co.nz
 [discordurl]: http://chat.funkypenguin.co.nz
-[patreonurl]: https://patreon.com/funkypenguin
-[blogurl]: https://www.funkypenguin.co.nz
 [twitchurl]: https://www.twitch.tv/funkypenguinz
-[twitterurl]: https://twitter.com/funkypenguin
 [dockerurl]: https://geek-cookbook.funkypenguin.co.nz/docker-swarm/design
 [k8surl]: https://geek-cookbook.funkypenguin.co.nz/kubernetes/
-
 <!-- markdownlint-disable MD033 MD041 -->
 <div align="center">
 
@@ -56,7 +51,7 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
 1. You want to upskill. You want to work with container orchestration, Prometheus and Grafana, Kubernetes
 2. You want to play. You want a safe sandbox to test new tools, keeping the ones you want and tossing the ones you don't.
-3. You want reliability. Once you go from __playing__ with a tool to actually __using__ it, you want it to be available when you need it. Having to "*quickly ssh into the basement server and restart plex*" doesn't cut it when you finally convince your wife to sit down with you to watch sci-fi.
+3. You want reliability. Once you go from **playing** with a tool to actually **using** it, you want it to be available when you need it. Having to "*quickly ssh into the basement server and restart plex*" doesn't cut it when you finally convince your wife to sit down with you to watch sci-fi.
 
 ## What have you done for me lately? (CHANGELOG)
 
@@ -74,7 +69,7 @@ I want your [support][github_sponsor], either in the [financial][github_sponsor]
 
 ### [Sponsor][github_sponsor] / [Patronize][patreon] me ❤️
 
-The best way to support this work is to become a [GitHub Sponsor](https://github.com/sponsors/funkypenguin) / [Patreon patron][patreon] (_for as little as $1/month!_) - You get :
+The best way to support this work is to become a [GitHub Sponsor](https://github.com/sponsors/funkypenguin) / [Patreon patron][patreon] (*for as little as $1/month!*) - You get :
 
 - warm fuzzies,
 - access to the pre-mix repo,
@@ -96,7 +91,6 @@ Impulsively **[click here (NOW quick do it!)][github_sponsor]** to [sponsor me][
 [discord]:          http://chat.funkypenguin.co.nz
 [patreon]:          https://www.patreon.com/bePatron?u=6982506
 [github_sponsor]:   https://github.com/sponsors/funkypenguin
-[github]:           https://github.com/sponsors/funkypenguin
 [discourse]:        https://forum.funkypenguin.co.nz/
 [twitter]:          https://twitter.com/funkypenguin
 [contact]:          https://www.funkypenguin.co.nz

@@ -1,0 +1,23 @@
+name: 'Confirm tasks are completed'
+on: 
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  task-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get GitHub API token
+        id: get-app-token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: 242301
+          private_key: ${{ secrets.PR_TASK_COMPLETED_CHECKER_APP_PRIVATE_KEY }}
+
+      - uses: Shopify/task-list-checker@main
+        with:
+          github-token: ${{ steps.get-app-token.outputs.token }}
+          readme-url: https://geek-cookbook.funkypenguin.co.nz/community/contribute/#contributing-recipes
+
+
+
