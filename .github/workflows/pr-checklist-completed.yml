@@ -11,4 +11,5 @@ jobs:
     steps:
       - uses: Shopify/task-list-checker@main
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          readme-url: https://geek-cookbook.funkypenguin.co.nz/community/contribute/#contributing-recipes
