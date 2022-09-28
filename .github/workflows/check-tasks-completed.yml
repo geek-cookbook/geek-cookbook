@@ -1,0 +1,16 @@
+name: 'Confirm tasks are completed'
+on: 
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  task-check:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      checks: write
+    steps:
+      - uses: Shopify/task-list-checker@main
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          readme-url: https://geek-cookbook.funkypenguin.co.nz/community/contribute/#contributing-recipes
