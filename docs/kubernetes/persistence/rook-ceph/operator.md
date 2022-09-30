@@ -24,13 +24,13 @@ To start off with, we need to deploy the ceph operator into the cluster, after w
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `/bootstrap/namespaces/namespace-rook-system.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `/bootstrap/namespaces/namespace-rook-ceph.yaml`:
 
 ```yaml title="/bootstrap/namespaces/namespace-rook-ceph.yaml"
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: rook-system
+  name: rook-ceph
 ```
 
 ### HelmRepository
