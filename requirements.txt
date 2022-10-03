@@ -1,5 +1,5 @@
 ## mkdocs-htmlproofer-plugin>=0.0.3
-#mkdocs-material
+mkdocs-material
 
 
 # Direct dependencies
