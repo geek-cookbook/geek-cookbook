@@ -43,3 +43,4 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [Restic](/recipes/restic/)                                                    | 172.16.56.0/24 |
 | [Paperless NG](/recipes/paperless-ng/)                                        | 172.16.58.0/24 |
 | ProjectSend (coming soon!)                                                    | 172.16.59.0/24 |
+| Uptime-Kuma (coming soon!)                                                    | 172.16.60.0/24 |
