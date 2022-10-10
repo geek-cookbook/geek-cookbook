@@ -428,32 +428,31 @@ Then work your way through the values you pasted, and change any which are speci
 
 ### HelmRelease
 
-Lastly, having set the scene above, we define the HelmRelease which will actually deploy the sealed-secrets controller into the cluster, with the config we defined above. I save this in my flux repo as `sealed-secrets/helmrelease-sealed-secrets.yaml`:
+Lastly, having set the scene above, we define the HelmRelease which will actually deploy the sealed-secrets controller into the cluster, with the config we defined above. I save this in my flux repo:
 
-??? example "Example HelmRelease (click to expand)"
-    ```yaml
-    apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    metadata:
-      name: sealed-secrets
-      namespace: sealed-secrets
+```yaml title="/sealed-secrets/helmrelease-sealed-secrets.yaml"
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: sealed-secrets
+  namespace: sealed-secrets
+spec:
+  chart:
     spec:
-      chart:
-        spec:
-          chart: sealed-secrets
-          version: 1.x
-          sourceRef:
-            kind: HelmRepository
-            name: sealed-secrets
-            namespace: flux-system
-      interval: 15m
-      timeout: 5m
-      releaseName: sealed-secrets
-      valuesFrom:
-      - kind: ConfigMap
-        name: sealed-secrets-helm-chart-value-overrides
-        valuesKey: values.yaml # This is the default, but best to be explicit for clarity
-    ```
+      chart: sealed-secrets
+      version: 1.x
+      sourceRef:
+        kind: HelmRepository
+        name: sealed-secrets
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: sealed-secrets
+  valuesFrom:
+  - kind: ConfigMap
+    name: sealed-secrets-helm-chart-value-overrides
+    valuesKey: values.yaml # This is the default, but best to be explicit for clarity
+```
 
 --8<-- "kubernetes-why-not-config-in-helmrelease.md"
 
