@@ -9,6 +9,7 @@ mkdocs>=1.3.0
 mkdocs-material-extensions>=1.0.3
 pygments>=2.12
 pymdown-extensions>=9.4
+requests>=2.26
 
 # My own dependencies
 mkdocs-git-committers-plugin-2
@@ -21,3 +22,5 @@ mkdocs-extra-sass-plugin
 mkdocs-with-pdf
 livereload
 qrcode
+pillow 
+cairosvg
