@@ -9,7 +9,7 @@ icon: fontawesome/brands/discord
 The most realtime and exciting way engage with our geeky community is in our [Discord server](http://chat.funkypenguin.co.nz)
 
 <!-- markdownlint-disable MD033 -->
-<iframe src="https://e.widgetbot.io/channels/396055506072109067/456689991326760973" height="600" width="800"></iframe>
+<iframe src="https://e.widgetbot.io/channels/396055506072109067/396055506663374849" height="600" width="800"></iframe>
 
 !!! question "Eh? What's a Discord? Get off my lawn, young whippersnappers!!"
     Yeah, I know. I also thought Discord was just for the gamer kids, but it turns out it's great for a geeky community. Why? [Let me elucidate ya.](https://www.youtube.com/watch?v=1qHoSWxVqtE)..

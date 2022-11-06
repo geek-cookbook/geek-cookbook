@@ -363,7 +363,7 @@ extra:
     deprecated: Deprecated
   social:
     - icon: 'fontawesome/brands/mastodon'
-      link: 'https://so.fnky.nz/'
+      link: 'https://so.fnky.nz/@funkypenguin'
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/funkypenguin'
     - icon: 'fontawesome/brands/twitter'
@@ -417,7 +417,6 @@ extra_css:
 extra_javascript:
   - extras/javascript/plausible.js
   # - extras/javascript/widgetbot.js # uncommented for dev
-  # - extras/javascript/rightmessage.js
   # - extras/javascript/feedback.js
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - extras/javascript/tablesort.js

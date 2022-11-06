@@ -35,7 +35,7 @@ Recipe                  | Description  | Date
 
 ## Subscribe to updates
 
-<div class="rm-area-subscribe-to-recipe"></div>
+<script async data-uid="20249aa846" src="https://funkypenguin.ck.page/20249aa846/index.js"></script>
 
 Also available via:
 
