@@ -185,7 +185,7 @@ To:
 
 ``` yaml hl_lines="2 8"
     ingress:
-      enabled: false
+      enabled: true
       className: ""
       annotations: {}
         # kubernetes.io/ingress.class: nginx
