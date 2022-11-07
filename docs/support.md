@@ -34,7 +34,7 @@ If you have a comment / question about a specific recipe, navigate to the recipe
 
 ## Request a recipe
 
-I'd love to hear your ideas for more recipes. To request/suggest a recipe, create a new issue in [GitHub](/community/github)
+I'd love to hear your ideas for more recipes. To request/suggest a recipe, create a new issue in [GitHub](/community/github/)
 
 ## Contribute a recipe
 
