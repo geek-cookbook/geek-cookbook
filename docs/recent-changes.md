@@ -8,6 +8,7 @@ hide:
 
 Recipe                   | Description                                                                                                                      | Date
 -------------------------|----------------------------------------------------------------------------------------------------------------------------------|--------------
+[Pixelfed][pixelfed] | Federated image sharing. Think "*looks like instagram, works like Mastodon*"                                                                                  | *10 Nov 2022*
 [Mastodon (K8s)][k8s/mastodon] | Kubernetes version of the Mastodon recipe below                                                                                  | *8 Aug 2022*
 [Mastodon][mastodon]     | Federated social network. Think "*twitter but like email*"                                                                       | *5 Aug 2022*
 [Kavita][kavita]         | "Rocket-fueled" reader for manga/comics/ebooks, able to save reading position across devices/sessions                            | *27 Jul 2022*

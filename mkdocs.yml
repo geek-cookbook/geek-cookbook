@@ -156,6 +156,7 @@ nav:
         - OwnTracks: recipes/owntracks.md
         - Paperless NG: recipes/paperless-ng.md
         - Photoprism: recipes/photoprism.md
+        - Pixelfed: recipes/pixelfed.md
         - Plex: recipes/plex.md        
         - phpIPAM: recipes/phpipam.md        
         - Portainer: recipes/portainer.md  
