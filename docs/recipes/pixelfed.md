@@ -460,12 +460,7 @@ Launch the pixelfed stack by running:
 docker stack deploy pixelfed -c /var/data/config/pixelfed/pixelfed.yml
 ```
 
-Now hit the URL you defined in your config, and you should see your beautiful new pixelfed instance! Login with the credentials you just setup, and have fun tweaking and snapping away! [^1]
-
-Once you're done, "toot" me by mentioning [funkypenguin@so.fnky.nz](https://so.fnky.nz/@funkypenguin) in a toot! :wave:
-
-!!! tip
-    If your instance feels lonely, try using some [relays](https://github.com/brodi1/activitypub-relays) to bring in the federated firehose!
+Now hit the URL you defined in your config, and you should see your beautiful new pixelfed instance! Login with the credentials you just setup, and have fun tweaking and snapping some selfies! [^1]
 
 ## Summary
 
