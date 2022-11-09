@@ -50,7 +50,7 @@ mkdir -p /var/data/runtime/mastodon/postgres
 !!! question "Why `/var/data/runtime/mastodon` and not just `/var/data/mastodon`?"
     The data won't be able to be backed up by a regular filesystem backup, because it'll be in use. We still need to store it **somewhere** though, so we use `/var/data/runtime`, which is excluded from automated backups. See [Data Layout](/reference/data_layout/) for details.
 
-### Setup Mastodon enviroment
+### Setup Mastodon environment
 
 Create `/var/data/config/mastodon/mastodon.env` something like the example below..
 

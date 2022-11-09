@@ -72,7 +72,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: rook-ceph-cluster-helm-chart-value-overrides
-  namespace: rook-ceph-cluster
+  namespace: rook-ceph
 data:
   values.yaml: |-  # (1)!
     # <upstream values go here>

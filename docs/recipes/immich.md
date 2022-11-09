@@ -43,7 +43,7 @@ mkdir -p /var/data/immich/upload
 mkdir -p /var/data/runtime/immich/database
 ```
 
-### Setup Immich enviroment
+### Setup Immich environment
 
 Create `/var/data/config/immich/immich.env` something like the example below..
 

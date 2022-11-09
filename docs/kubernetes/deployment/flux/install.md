@@ -91,6 +91,19 @@ flux bootstrap github \
   --path bootstrap
 ```
 
+!!! tip "What if SSH is blocked?"
+    Per [@jmmassou](https://forum.funkypenguin.co.nz/t/install/1541/2?u=funkypenguin), if you're behind a restrictive firewall which may block outgoing SSH, you might see an error like this:
+
+    ```
+    SSH key scan for host github.com:443 failed, error: ssh: handshake failed: EOF
+    ```
+
+    A clever workaround is to use SSH over port 443 instead (*apparently GitHub is configured to make this work*)[^2], by appending the following to your bootstrap command:
+
+    ```
+    --ssh-hostname ssh.github.com:443
+    ```
+
 Once the flux bootstrap is completed without errors, list the pods in the cluster again, with `kubectl get pods -A`. This time, you see something like this:
 
 ```bash
@@ -134,3 +147,4 @@ That's best explained on the [next page](/kubernetes/deployment/flux/design/), d
 --8<-- "recipe-footer.md"
 
 [^1]: The [template repo](https://github.com/geek-cookbook/template-flux/) also "bootstraps" a simple example re how to [operate flux](/kubernetes/deployment/flux/operate/), by deploying the podinfo helm chart.
+[^2]: TIL that GitHub listens for SSH on `ssh.github.com` on port 443!

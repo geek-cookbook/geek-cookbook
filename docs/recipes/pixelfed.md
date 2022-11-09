@@ -59,7 +59,7 @@ chown www-data /var/data/pixelfed/
 !!! question "Why `/var/data/runtime/pixelfed` and not just `/var/data/pixelfed`?"
     The data won't be able to be backed up by a regular filesystem backup, because it'll be in use. We still need to store it **somewhere** though, so we use `/var/data/runtime`, which is excluded from automated backups. See [Data Layout](/reference/data_layout/) for details.
 
-### Setup Pixelfed enviroment
+### Setup Pixelfed environment
 
 Create `/var/data/config/pixelfed/pixelfed.env` something like the example below.. (*see the [official documentation](https://docs.pixelfed.org/technical-documentation/config/) for a list of all possible variables and details*)
 
