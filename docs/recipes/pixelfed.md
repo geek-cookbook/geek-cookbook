@@ -24,7 +24,6 @@ Much like Mastodon, Pixelfed implements chronological timelines with no implemen
 
     
     Having said this, there are[ 271 known instances with over 100,000 users](https://fedidb.org/software/pixelfed), some of which have been operational for over 2 years. [pixelfed.de](https://pixelfed.de) is one such instance, and the images and docker-compose configuration used in this recipe were originally found in a [2020 blog post](https://blog.pixelfed.de/2020/05/29/pixelfed-in-docker/).
- 
 
 ## Pixelfed requirements
 
