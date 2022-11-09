@@ -46,6 +46,7 @@
 [patreon]:              https://www.patreon.com/bePatron?u=6982506
 [photoprism]:           /recipes/photoprism/
 [plex]:                 /recipes/plex/
+[pixelfed]:             /recipes/pixelfed/
 [portainer]:            /recipes/portainer/
 [prowlarr]:             /recipes/autopirate/prowlarr/
 [radarr]:               /recipes/autopirate/radarr/
