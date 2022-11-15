@@ -16,12 +16,12 @@ then
 else
   echo "GH_TOKEN passed, doing an insiders build.."
   pip install git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
-  ENABLE_PDF_EXPORT=0 mkdocs build -f mkdocs-insiders.yml
+  ENABLE_PDF_EXPORT=1 mkdocs build -f mkdocs-insiders.yml
 fi
 
 # Setup any necessary netlify redirects
 cp netlify_redirects.txt site/_redirects
 
 # Put the PDF into secret location
-# mkdir -p site/${PDF_PATH}
-# mv site/funkypenguins-geek-cookbook.pdf site/${PDF_PATH}/
+mkdir -p site/${PDF_PATH}
+mv site/funkypenguins-geek-cookbook.pdf site/${PDF_PATH}/
