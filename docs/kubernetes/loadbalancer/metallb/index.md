@@ -13,7 +13,7 @@ MetalLB does two jobs:
 
 !!! summary "Ingredients"
 
-    * [x] A [Kubernetes cluster](/kubernetes/cluster/) 
+    * [x] A [Kubernetes cluster](/kubernetes/cluster/)
     * [x] [Flux deployment process](/kubernetes/deployment/flux/) bootstrapped
     * [x] If k3s is used, then it was deployed with `--disable servicelb`
 
@@ -32,59 +32,55 @@ You'll need to make some decisions re IP allocations.
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/namespaces/namespace-metallb-system.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
 
-??? example "Example NameSpace (click to expand)"
-    ```yaml
-    apiVersion: v1
-    kind: Namespace
-    metadata:
-      name: metallb-system
-    ```
+```yaml title="/bootstrap/namespaces/namespace-metallb-system.yaml"
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: metallb-system
+```
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the (*prolific*) [bitnami chart repository](https://github.com/bitnami/charts/tree/master/bitnami), so per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/helmrepositories/helmrepository-bitnami.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the (*prolific*) [bitnami chart repository](https://github.com/bitnami/charts/tree/master/bitnami), so per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
 
-??? example "Example HelmRepository (click to expand)"
-    ```yaml
-    apiVersion: source.toolkit.fluxcd.io/v1beta1
-    kind: HelmRepository
-    metadata:
-      name: bitnami
-      namespace: flux-system
-    spec:
-      interval: 15m
-      url: https://charts.bitnami.com/bitnami
-    ```
+```yaml title="/bootstrap/helmrepositories/helmrepository-bitnami.yaml"
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: bitnami
+  namespace: flux-system
+spec:
+  interval: 15m
+  url: https://charts.bitnami.com/bitnami
+```
 
 ### Kustomization
 
-Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/metallb-system`. I create this example Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-metallb.yaml`:
+Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/metallb-system`. I create this example Kustomization in my flux repo:
 
-??? example "Example Kustomization (click to expand)"
-    ```yaml
-    apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-    kind: Kustomization
-    metadata:
-      name: metallb--metallb-system
-      namespace: flux-system
-    spec:
-      interval: 15m
-      path: ./metallb-system
-      prune: true # remove any elements later removed from the above path
-      timeout: 2m # if not set, this defaults to interval duration, which is 1h
-      sourceRef:
-        kind: GitRepository
-        name: flux-system
-      validation: server
-      healthChecks:
-        - apiVersion: apps/v1
-          kind: Deployment
-          name: metallb-controller
-          namespace: metallb-system
-
-    ```
+```yaml title="/bootstrap/kustomizations/kustomization-metallb.yaml"
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: metallb--metallb-system
+  namespace: flux-system
+spec:
+  interval: 15m
+  path: ./metallb-system
+  prune: true # remove any elements later removed from the above path
+  timeout: 2m # if not set, this defaults to interval duration, which is 1h
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  validation: server
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: metallb-controller
+      namespace: metallb-system
+```
 
 !!! question "What's with that screwy name?"
     > Why'd you call the kustomization `metallb--metallb-system`?
@@ -93,52 +89,20 @@ Now that the "global" elements of this deployment (*Namespace and HelmRepository
 
 ### ConfigMap (for HelmRelease)
 
-Now we're into the metallb-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami/charts/blob/master/bitnami/metallb/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `metallb-system/configmap-metallb-helm-chart-value-overrides.yaml`:
+Now we're into the metallb-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami/charts/blob/master/bitnami/metallb/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at ``:
 
-??? example "Example ConfigMap (click to expand)"
-    ```yaml
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      creationTimestamp: null
-      name: metallb-helm-chart-value-overrides
-      namespace: metallb-system
-    data:
-      values.yaml: |-
-        ## @section Global parameters
-        ## Global Docker image parameters
-        ## Please, note that this will override the image parameters, including dependencies, configured to use the global value
-        ## Current available global Docker image parameters: imageRegistry, imagePullSecrets and storageClass
+```yaml title="/metallb-system/configmap-metallb-helm-chart-value-overrides.yaml"
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: metallb-helm-chart-value-overrides
+  namespace: metallb-system
+data:
+  values.yaml: |-  # (1)!
+    # <upstream values go here>
+```
 
-        ## @param global.imageRegistry Global Docker image registry
-        ## @param global.imagePullSecrets Global Docker registry secret names as an array
-        ##
-        global:
-        imageRegistry: ""
-        ## E.g.
-        ## imagePullSecrets:
-        ##   - myRegistryKeySecretName
-        <snip>
-        prometheus:
-            ## Prometheus Operator service monitors
-            ##
-            serviceMonitor:
-            ## @param speaker.prometheus.serviceMonitor.enabled Enable support for Prometheus Operator
-            ##
-            enabled: false
-            ## @param speaker.prometheus.serviceMonitor.jobLabel Job label for scrape target
-            ##
-            jobLabel: "app.kubernetes.io/name"
-            ## @param speaker.prometheus.serviceMonitor.interval Scrape interval. If not set, the Prometheus default scrape interval is used
-            ##
-            interval: ""
-            ## @param speaker.prometheus.serviceMonitor.metricRelabelings Specify additional relabeling of metrics
-            ##
-            metricRelabelings: []
-            ## @param speaker.prometheus.serviceMonitor.relabelings Specify general relabeling
-            ##
-            relabelings: []
-    ```
+1. Paste in the contents of the upstream `values.yaml` here, intended 4 spaces, and then change the values you need as illustrated below.
 
 --8<-- "kubernetes-why-full-values-in-configmap.md"
 
@@ -149,32 +113,31 @@ Then work your way through the values you pasted, and change any which are speci
 
 ### ConfigMap (for MetalLB)
 
-Finally, it's time to actually configure MetalLB! As discussed above, I prefer to configure the helm chart to apply config from an existing ConfigMap, so that I isolate my application configuration from my chart configuration (*and make tracking changes easier*). In my setup, I'm using BGP against a pair of pfsense[^1] firewalls, so per the [official docs](https://metallb.universe.tf/configuration/), I use the following configuration, saved in my flux repo as `metallb-system/configmap-metallb-config.yaml`:
+Finally, it's time to actually configure MetalLB! As discussed above, I prefer to configure the helm chart to apply config from an existing ConfigMap, so that I isolate my application configuration from my chart configuration (*and make tracking changes easier*). In my setup, I'm using BGP against a pair of pfsense[^1] firewalls, so per the [official docs](https://metallb.universe.tf/configuration/), I use the following configuration, saved in my flux repo:
 
-??? example "Example ConfigMap (click to expand)"
-    ```yaml
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      namespace: metallb-system
-      name: metallb-config
-    data:
-      config: |
-        peers:
-        - peer-address: 192.168.33.2  
-          peer-asn: 64501
-          my-asn: 64500
-        - peer-address: 192.168.33.4  
-          peer-asn: 64501
-          my-asn: 64500
+```yaml title="metallb-system/configmap-metallb-config.yaml"
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: metallb-config
+data:
+  config: |
+    peers:
+    - peer-address: 192.168.33.2
+      peer-asn: 64501
+      my-asn: 64500
+    - peer-address: 192.168.33.4
+      peer-asn: 64501
+      my-asn: 64500
 
-        address-pools:
-        - name: default
-          protocol: bgp
-          avoid-buggy-ips: true
-          addresses:
-          - 192.168.32.0/24
-    ```
+    address-pools:
+    - name: default
+      protocol: bgp
+      avoid-buggy-ips: true
+      addresses:
+      - 192.168.32.0/24
+```
 
 !!! question "What does that mean?"
     In the config referenced above, I define one pool of addresses (`192.168.32.0/24`) which MetalLB is responsible for allocating to my services. MetalLB will then "advertise" these addresses to my firewalls (`192.168.33.2` and `192.168.33.4`), in an eBGP relationship where the firewalls' ASN is `64501` and MetalLB's ASN is `64500`. Provided I'm using my firewalls as my default gateway (*a VIP*), when I try to access one of the `192.168.32.x` IPs from any subnet connected to my firewalls, the traffic will be routed from the firewall to one of the cluster nodes running the pods selected by that service.
@@ -182,7 +145,7 @@ Finally, it's time to actually configure MetalLB! As discussed above, I prefer t
 !!! note "Dude, that's too complicated!"
     There's an easier way, with some limitations. If you configure MetalLB in L2 mode, all you need to do is to define a range of IPs within your existing node subnet, like this:
 
-    ```yaml
+    ```yaml title="metallb-system/configmap-metallb-config.yaml"
     apiVersion: v1
     kind: ConfigMap
     metadata:
@@ -199,32 +162,33 @@ Finally, it's time to actually configure MetalLB! As discussed above, I prefer t
 
 ### HelmRelease
 
-Lastly, having set the scene above, we define the HelmRelease which will actually deploy MetalLB into the cluster, with the config and extra ConfigMap we defined above. I save this in my flux repo as `metallb-system/helmrelease-metallb.yaml`:
+Lastly, having set the scene above, we define the HelmRelease which will actually deploy MetalLB into the cluster, with the config and extra ConfigMap we defined above. I save this in my flux repo:
 
-??? example "Example HelmRelease (click to expand)"
-    ```yaml
-    apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    metadata:
-      name: metallb
-      namespace: metallb-system
+```yaml title="/metallb-system/helmrelease-metallb.yaml"
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: metallb
+  namespace: metallb-system
+spec:
+  chart:
     spec:
-      chart:
-        spec:
-          chart: metallb
-          version: 2.x
-          sourceRef:
-            kind: HelmRepository
-            name: bitnami
-            namespace: flux-system
-      interval: 15m
-      timeout: 5m
-      releaseName: metallb
-      valuesFrom:
-      - kind: ConfigMap
-        name: metallb-helm-chart-value-overrides
-        valuesKey: values.yaml # This is the default, but best to be explicit for clarity
-    ```
+      chart: metallb
+      version: 2.x # (1)!
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: metallb
+  valuesFrom:
+  - kind: ConfigMap
+    name: metallb-helm-chart-value-overrides
+    valuesKey: values.yaml # This is the default, but best to be explicit for clarity
+```
+
+1. This recipe was written when the chart was at version 2, it's now at v4.x, which introduces some breaking changes. Stay tuned for an upcoming refresh!
 
 --8<-- "kubernetes-why-not-config-in-helmrelease.md"
 
