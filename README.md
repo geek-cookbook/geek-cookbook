@@ -64,7 +64,7 @@ I want your [support][github_sponsor], either in the [financial][github_sponsor]
 ### Get in touch 👋
 
 - Come and say hi to me and the friendly geeks in the [Discord][discord] chat or the [Discourse][discourse] forums - say hi, ask a question, or suggest a new recipe!
-- Tweet me up, I'm [@funkypenguin][twitter]! 🐦
+- Toot me up, I'm [@funkypenguin][mastodon]! 🐦
 - [Contact me][contact] by a variety of channels
 
 ### [Sponsor][github_sponsor] / [Patronize][patreon] me ❤️
@@ -92,5 +92,5 @@ Impulsively **[click here (NOW quick do it!)][github_sponsor]** to [sponsor me][
 [patreon]:          https://www.patreon.com/bePatron?u=6982506
 [github_sponsor]:   https://github.com/sponsors/funkypenguin
 [discourse]:        https://forum.funkypenguin.co.nz/
-[twitter]:          https://twitter.com/funkypenguin
 [contact]:          https://www.funkypenguin.co.nz
+[mastodon]:         https://so.fnky.nz/@funkypenguin

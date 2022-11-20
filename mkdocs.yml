@@ -367,8 +367,6 @@ extra:
       link: 'https://so.fnky.nz/@funkypenguin'
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/funkypenguin'
-    - icon: 'fontawesome/brands/twitter'
-      link: 'https://twitter.com/funkypenguin'
     - icon: 'fontawesome/brands/stack-overflow'
       link: 'https://stackoverflow.com/cv/funkypenguin'
     - icon: 'material/rss'
