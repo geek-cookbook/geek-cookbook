@@ -96,7 +96,7 @@ Then work your way through the values you pasted, and change any which are speci
 
 Lastly, having set the scene above, we define the HelmRelease which will actually deploy the cert-manager controller into the cluster, with the config we defined above. I save this in my flux repo:
 
-```yaml title="/cert-manager/helmrelease-cert-manager.yaml'
+```yaml title="/cert-manager/helmrelease-cert-manager.yaml"
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
