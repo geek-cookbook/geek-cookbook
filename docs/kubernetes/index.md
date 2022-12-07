@@ -27,7 +27,7 @@ For years now, [I've provided Kubernetes design consulting](https://www.funkypen
 
 * **CLI drives API from anywhere**. From my laptop, I can use my credentials to manage any number of Kubernetes clusters, simply by switching kubectl "context". Each interaction is an API call against an HTTPS endpoint. No SSHing to hosts and manually running docker command as root!
 * **GitOps is magic**. There are multiple ways to achieve it, but having changes you commit to a repo automatically applied to a cluster, "Just Works(tm)". The process removes so much friction from making changes that it makes you more productive, and a better "gitizen" ;P
-* **Controllers are trustworthy**. I've come to trust that when I tell Kubernetes to run 3 replicas on separate hosts, to scale up a set of replicas based on CPU load metrics, or provision a blob of storage for a given workloa, that this will be done in a consistent and visible way. I'll be able to see logs / details for each action taken by the controller, and adjust my own instructions/configuration accordingly if necessary.
+* **Controllers are trustworthy**. I've come to trust that when I tell Kubernetes to run 3 replicas on separate hosts, to scale up a set of replicas based on CPU load metrics, or provision a blob of storage for a given workload, that this will be done in a consistent and visible way. I'll be able to see logs / details for each action taken by the controller, and adjust my own instructions/configuration accordingly if necessary.
 
 ## Uggh, it's so complicated!
 
