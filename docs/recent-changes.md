@@ -12,20 +12,15 @@ Recipe                   | Description                                          
 [Mastodon (K8s)][k8s/mastodon] | Kubernetes version of the Mastodon recipe below                                                                                  | *8 Aug 2022*
 [Mastodon][mastodon]     | Federated social network. Think "*twitter but like email*"                                                                       | *5 Aug 2022*
 [Kavita][kavita]         | "Rocket-fueled" reader for manga/comics/ebooks, able to save reading position across devices/sessions                            | *27 Jul 2022*
-[Authelia][authelia]     | Authentication and two factor authorization server with Authelia                                                                 | *1 Nov 2021*
-[Prowlarr][prowlarr]     | An indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with the [AutoPirate][autopirate] friends | *27 Oct 2021*
-[Archivebox][archivebox] | Website Archiving service to save websites to view offline                                                                       | *19 Oct 2021*
-[Readarr][readarr]       | [Autopirate][autopirate] component to grab and manage eBooks (*think "Sonarr/Radarr for books*")                                 | *18 Oct 2021*
 
 ## Recent updates
 
 Recipe                      | Description                                                                  | Date
 ----------------------------|------------------------------------------------------------------------------|--------------
+[MetalLB][metallb]          | Updated for CRDs required from v0.13, added diagrams explaining L3 vs L2                                   | *16 Jan 2023*
 [Nextcloud][nextcloud]      | Updated for version 24, improve Redis / cron support                                   | *24 Aug 2022*
 [Authelia][authelia]        | Updated with test services, fixed errors                                     | *27 Jul 2022*
 [Minio][minio]              | Major update to Minio recipe, for new Console UI and Traefik v2              | *22 Oct 2021*
-[Traefik Forward Auth][tfa] | Major update for Traefik v2, included instructions for Dex, Google, Keycloak | *29 Jan 2021*
-[Autopirate][autopirate]    | Updated all components for Traefik v2 labels                                 | *29 Jan 2021*
 
 ## Recent reviews
 

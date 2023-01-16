@@ -21,6 +21,30 @@ MetalLB does two jobs:
 
     * [ ] Network firewall/router supporting BGP (*ideal but not required*)
 
+## L3 vs L2
+
+MetalLB can be configured to operate in either Layer 2 or Layer 3 mode (below). See my highly accurate and technically appropriate diagrams below to understand the difference:
+
+### Layer 3 (recommended)
+
+![MetalLB Layer 3 Routing](/images/metallb-l3-routing.png){ loading=lazy }
+
+When configuring MetalLB for Layer 3, you define a dedicated subnet to be advertised from your MetalLB pods to your BGP-speaking router/firewall. This subnet **shouldn't** be configured on any nodes, or any of your network equipment. We are taking advantage of [a protocol first designed in 1989](https://www.rfc-editor.org/rfc/rfc1105) to allow MetalLB to tell your router where to send traffic to this new subnet (*it should send it to the Kubernetes nodes, of course, which are on the same network as the router already is*).
+
+If you need to access your services externally, then perform NAT on your firewall to the external IP assigned to your `LoadBalancerIP` Kubernetes service by MetalLB.
+
+Use BGP if possible - it's far easier to debug / monitor than Layer 2 (*below*)
+
+### Layer 2
+
+![MetalLB Layer 2 Routing](/images/metallb-l2-routing.png){ loading=lazy }
+
+Now we are taking advantage of [a protocol first designed in 1982](https://www.rfc-editor.org/rfc/rfc826) to "lie to" other devices on your subnet, telling them that the MAC address for a given IP belongs whichever MetalLB pod has the "leader" role for this virtual IP.
+
+As above, if you need to access your services externally, then perform NAT on your firewall to the external IP assigned to your `LoadBalancerIP` Kubernetes service by MetalLB.
+
+Use Layer 2 if your firewall / router can't support BGP.
+
 ## MetalLB Requirements
 
 ### Allocations
@@ -108,57 +132,117 @@ data:
 
 Then work your way through the values you pasted, and change any which are specific to your configuration. I'd recommend changing the following:
 
-* `existingConfigMap: metallb-config`: I prefer to set my MetalLB config independently of the chart config, so I set this to `metallb-config`, which I then define below.
 * `commonAnnotations`: Anticipating the future use of Reloader to bounce applications when their config changes, I add the `configmap.reloader.stakater.com/reload: "metallb-config"` annotation to all deployed objects, which will instruct Reloader to bounce the daemonset if the ConfigMap changes.
 
-### ConfigMap (for MetalLB)
+### Kustomization for CRs (Config)
 
-Finally, it's time to actually configure MetalLB! As discussed above, I prefer to configure the helm chart to apply config from an existing ConfigMap, so that I isolate my application configuration from my chart configuration (*and make tracking changes easier*). In my setup, I'm using BGP against a pair of pfsense[^1] firewalls, so per the [official docs](https://metallb.universe.tf/configuration/), I use the following configuration, saved in my flux repo:
+Older versions of MetalLB were configured by a simple ConfigMap, which could be deployed into Kubernetes **alongside** the helmrelease, since a ConfigMap is a standard Kubernetes primitive.
 
-```yaml title="metallb-system/configmap-metallb-config.yaml"
-apiVersion: v1
-kind: ConfigMap
+Since v0.13 though, MetalLB is [configured exclusively using CRDs](https://metallb.universe.tf/configuration/migration_to_crds/) (*this allows for syntax validation, among other advantages*). This means that the custom resources (*CRs*) have to be applied **after** MetalLB's helm chart has been deployed, since it's the chart which creates the CRD definitions. So we can't deploy the config CRs in the same kustomization as we deploy the helmrelease (*because the CRDs won't exist yet!*)
+
+The simplest way to solve this chicken-and-egg problem is to create a **second** Kustomization for the MetalLB CRs, and make it depend on the **first** Kustomization (*MetalLB itself*).
+
+I create this example Kustomization in my flux repo:
+
+```yaml title="/bootstrap/kustomizations/kustomization-metallb.yaml"
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
 metadata:
-  namespace: metallb-system
-  name: metallb-config
-data:
-  config: |
-    peers:
-    - peer-address: 192.168.33.2
-      peer-asn: 64501
-      my-asn: 64500
-    - peer-address: 192.168.33.4
-      peer-asn: 64501
-      my-asn: 64500
-
-    address-pools:
-    - name: default
-      protocol: bgp
-      avoid-buggy-ips: true
-      addresses:
-      - 192.168.32.0/24
+  name: config--metallb-system
+  namespace: flux-system
+spec:
+  interval: 15m
+  dependsOn: # (1)!
+  - name: metallb--metallb-system  
+  path: ./metallb-config
+  prune: true # remove any elements later removed from the above path
+  timeout: 2m # if not set, this defaults to interval duration, which is 1h
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  validation: server
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: metallb-controller
+      namespace: metallb-system
 ```
 
-!!! question "What does that mean?"
-    In the config referenced above, I define one pool of addresses (`192.168.32.0/24`) which MetalLB is responsible for allocating to my services. MetalLB will then "advertise" these addresses to my firewalls (`192.168.33.2` and `192.168.33.4`), in an eBGP relationship where the firewalls' ASN is `64501` and MetalLB's ASN is `64500`. Provided I'm using my firewalls as my default gateway (*a VIP*), when I try to access one of the `192.168.32.x` IPs from any subnet connected to my firewalls, the traffic will be routed from the firewall to one of the cluster nodes running the pods selected by that service.
+1. The `dependsOn` key will prevent Flux from trying to reconcile this Kustomization until the kustomizations it depends on, have successfully reconcilled.
 
-!!! note "Dude, that's too complicated!"
-    There's an easier way, with some limitations. If you configure MetalLB in L2 mode, all you need to do is to define a range of IPs within your existing node subnet, like this:
+### Custom Resources
 
-    ```yaml title="metallb-system/configmap-metallb-config.yaml"
-    apiVersion: v1
-    kind: ConfigMap
+Finally, it's time to actually configure MetalLB! In my setup, I'm using BGP against a pair of pfsense[^1] firewalls, so per the [official docs](https://metallb.universe.tf/configuration/), I use the following configurations, saved in my flux repo:
+
+#### IPAddressPool
+
+```yaml title="/metallb-config/ipaddresspool.yaml"
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: metallb-pool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 192.168.32.0/24
+```
+
+#### BGPAdvertisment
+
+```yaml title="/metallb-config/bgpadvertisment.yaml"
+apiVersion: metallb.io/v1beta1
+kind: BGPAdvertisement
+metadata:
+  name: metallb-advertisment
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - metallb-pool # (1)!
+  aggregationLength: 32
+  localPref: 100
+  communities:
+  - 65535:65282
+```
+
+1. This must be the same as the name of the `IPAddressPool` defined above
+
+#### BGPPeer(s)
+
+You need separate `BGPPeer` resource for every BGP peer, from MetalLB's perspective. Because I use dual pfsense firewalls, I maintain two files, each identifying its peer in its filename, like this:
+
+```yaml title="/metallb-config/bgppeer-192.168.33.2.yaml"
+apiVersion: metallb.io/v1beta2
+kind: BGPPeer
+metadata:
+  name: bgppeer-192.168.33.2
+  namespace: metallb-system
+spec:
+  myASN: 64500
+  peerASN: 64501
+  peerAddress: 192.168.33.2
+```
+
+#### Summary
+
+In the config referenced above, I define one pool of addresses (`192.168.32.0/24`) which MetalLB is responsible for allocating to my services. MetalLB will then "advertise" these addresses to my firewalls (`192.168.33.2` and `192.168.33.4`), in an eBGP relationship where the firewalls' ASN is `64501` and MetalLB's ASN is `64500`.
+
+Provided I'm using my firewalls as my default gateway (*a VIP*), when I try to access one of the `192.168.32.x` IPs from any subnet connected to my firewalls, the traffic will be routed from the firewall to one of the cluster nodes running the pods selected by that service.
+
+!!! note "Dude, BGP is too complicated!"
+    There's an easier way, with some limitations. If you configure MetalLB in L2 mode, all you need to do is to define your `IPAddressPool`, and then an `L2Advertisment`, like this:
+
+    ```yaml title="/metallb-config/l2advertisment.yaml"
+    apiVersion: metallb.io/v1beta1
+    kind: L2Advertisement
     metadata:
+      name: my-l2-advertisment
       namespace: metallb-system
-      name: metallb-config
-    data:
-      config: |
-        address-pools:
-        - name: default
-          protocol: layer2
-          addresses:
-          - 192.168.1.240-192.168.1.250
+    spec:
+      ipAddressPools:
+      - metallb-pool # (1)!
     ```
+
+    1. This must be the same as the name of the `IPAddressPool` defined above, although docs indicate it's optional, and leaving it out will simply use **all** `IPAddressPools`.
 
 ### HelmRelease
 
@@ -174,7 +258,7 @@ spec:
   chart:
     spec:
       chart: metallb
-      version: 2.x # (1)!
+      version: 4.x 
       sourceRef:
         kind: HelmRepository
         name: bitnami
@@ -187,8 +271,6 @@ spec:
     name: metallb-helm-chart-value-overrides
     valuesKey: values.yaml # This is the default, but best to be explicit for clarity
 ```
-
-1. This recipe was written when the chart was at version 2, it's now at v4.x, which introduces some breaking changes. Stay tuned for an upcoming refresh!
 
 --8<-- "kubernetes-why-not-config-in-helmrelease.md"
 
