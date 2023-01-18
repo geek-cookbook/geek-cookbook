@@ -38,7 +38,7 @@ To deal with these gaps, we need a front-end load-balancer, and in this design, 
 
 While it's possible to configure traefik via docker command arguments, I prefer to create a config file (`traefik.toml`). This allows me to change traefik's behaviour by simply changing the file, and keeps my docker config simple.
 
-Create `/var/data/traefikv2/traefik.toml` as per the following example:
+Create `/var/data/config/traefikv2/traefik.toml` as per the following example:
 
 ```bash
 [global]
