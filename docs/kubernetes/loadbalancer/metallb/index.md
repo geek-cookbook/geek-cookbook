@@ -174,6 +174,9 @@ spec:
 
 Finally, it's time to actually configure MetalLB! In my setup, I'm using BGP against a pair of pfsense[^1] firewalls, so per the [official docs](https://metallb.universe.tf/configuration/), I use the following configurations, saved in my flux repo:
 
+!!! warning "Special location for custom resources"
+    Note that the 3 types of custom resources defined below are saved into a new folder, `/metallb-config/`, which is referenced by the `config--metallb-system` Kustomization created above.
+
 #### IPAddressPool
 
 ```yaml title="/metallb-config/ipaddresspool.yaml"
