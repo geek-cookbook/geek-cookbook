@@ -144,7 +144,7 @@ The simplest way to solve this chicken-and-egg problem is to create a **second**
 
 I create this example Kustomization in my flux repo:
 
-```yaml title="/bootstrap/kustomizations/kustomization-metallb.yaml"
+```yaml title="/bootstrap/kustomizations/kustomization-config--metallb-system.yaml"
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
