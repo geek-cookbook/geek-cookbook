@@ -92,6 +92,9 @@ data:
 
 Then work your way through the values you pasted, and change any which are specific to your configuration.
 
+!!! tip "set installCRDs to true"
+    An upstream value of particular note is `installCRDs` - set this to `true`, unless you plan to deploy the cert-manager certs another way.
+
 ### HelmRelease
 
 Lastly, having set the scene above, we define the HelmRelease which will actually deploy the cert-manager controller into the cluster, with the config we defined above. I save this in my flux repo:
