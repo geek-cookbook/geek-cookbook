@@ -79,12 +79,13 @@ spec:
   interval: 15m
   url: https://charts.bitnami.com/bitnami
 ```
+
 <br>
 
 <details><summary>Note: If running an environment that has <strong>arm nodes</strong> (Raspberry Pi) you will need to use the metallb chart from metallb as seen by clicking here:</summary>
 
-
 The 3 differences from using bitnami are:
+
 1. Create a bootstrap/helmrepository-metallb.yaml file
 
 ```yaml title="/bootstrap/helmrepositories/helmrepository-metallb.yaml"
@@ -126,7 +127,9 @@ spec:
     valuesKey: values.yaml # This is the default, but best to be explicit for clarity
 ```
     
- 3. Your configmap-metallb-helm-chart-value-overrides.yaml will have the values from [Metallb's values.yaml](https://github.com/metallb/metallb/blob/main/charts/metallb/values.yaml)
+3. Your configmap-metallb-helm-chart-value-overrides.yaml will have the values from [Metallb's values.yaml](https://github.com/metallb/metallb/blob/main/charts/metallb/values.yaml)
+
+</details>
 
 ### Kustomization
 
@@ -153,6 +156,7 @@ spec:
       name: metallb-controller
       namespace: metallb-system
 ```
+
 </details>
 
 <br>
