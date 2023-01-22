@@ -86,6 +86,7 @@ spec:
 
 The 3 differences from using bitnami are:
 1. Create a bootstrap/helmrepository-metallb.yaml file
+
 ```yaml title="/bootstrap/helmrepositories/helmrepository-metallb.yaml"
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
@@ -100,6 +101,7 @@ spec:
 ```
 
 2. Your helmrelease-metallb will point to that chart.
+
 ```yaml title="/bootstrap/helmrepo
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
