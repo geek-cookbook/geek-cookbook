@@ -96,7 +96,7 @@ The 3 differences from using bitnami are:
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: metallb-charts
+  name: metallb-charts #Notice named differently so it's easier to spot the chart name since otherwise it woudld be metallb
   namespace: flux-system
 spec:
   interval: 30m
@@ -119,7 +119,7 @@ spec:
       version: 0.13.7
       sourceRef:
         kind: HelmRepository
-        name: metallb-charts #bitnami 
+        name: metallb-charts #bitnami #New chart name
         namespace: flux-system
   interval: 15m
   timeout: 5m
