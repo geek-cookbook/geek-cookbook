@@ -79,6 +79,52 @@ spec:
   interval: 15m
   url: https://charts.bitnami.com/bitnami
 ```
+<br>
+
+<details><summary>Note: If running an environment that has <strong>arm nodes</strong> (Raspberry Pi) you will need to use the metallb chart from metallb as seen by clicking here:</summary>
+
+
+The 3 differences from using bitnami are:
+1. Create a bootstrap/helmrepository-metallb.yaml file
+```yaml title="/bootstrap/helmrepositories/helmrepository-metallb.yaml"
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: metallb-charts
+  namespace: flux-system
+spec:
+  interval: 30m
+  url: https://metallb.github.io/metallb
+  timeout: 3m
+```
+
+2. Your helmrelease-metallb will point to that chart.
+```yaml title="/bootstrap/helmrepo
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: metallb
+  namespace: metallb-system
+spec:
+  chart:
+    spec:
+      chart: metallb
+      version: 0.13.7
+      sourceRef:
+        kind: HelmRepository
+        name: metallb-charts #bitnami 
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: metallb
+  valuesFrom:
+  - kind: ConfigMap
+    name: metallb-helm-chart-value-overrides
+    valuesKey: values.yaml # This is the default, but best to be explicit for clarity
+```
+    
+ 3. Your configmap-metallb-helm-chart-value-overrides.yaml will have the values from [Metallb's values.yaml](https://github.com/metallb/metallb/blob/main/charts/metallb/values.yaml)
 
 ### Kustomization
 
@@ -105,6 +151,9 @@ spec:
       name: metallb-controller
       namespace: metallb-system
 ```
+</details>
+
+<br>
 
 !!! question "What's with that screwy name?"
     > Why'd you call the kustomization `metallb--metallb-system`?
