@@ -87,7 +87,11 @@ spec:
 The 3 differences from using bitnami are:
 
 1. Create a bootstrap/helmrepository-metallb.yaml file
+2. Your helmrelease-metallb will point to that chart
+3. Your configmap-metallb-helm-chart-value-overrides.yaml will have the values from [Metallb's values.yaml](https://github.com/metallb/metallb/blob/main/charts/metallb/values.yaml)
 
+ <strong>Create a bootstrap/helmrepository-metallb.yaml file</strong>
+ 
 ```yaml title="/bootstrap/helmrepositories/helmrepository-metallb.yaml"
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
@@ -101,7 +105,7 @@ spec:
   timeout: 3m
 ```
 
-2. Your helmrelease-metallb will point to that chart.
+<strong>Your helmrelease-metallb will point to that chart.</strong>
 
 ```yaml title="/bootstrap/helmrepo
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
@@ -127,7 +131,7 @@ spec:
     valuesKey: values.yaml # This is the default, but best to be explicit for clarity
 ```
     
-3. Your configmap-metallb-helm-chart-value-overrides.yaml will have the values from [Metallb's values.yaml](https://github.com/metallb/metallb/blob/main/charts/metallb/values.yaml)
+<strong>Your configmap-metallb-helm-chart-value-overrides.yaml will have the values from [Metallb's values.yaml](https://github.com/metallb/metallb/blob/main/charts/metallb/values.yaml)</strong>
 
 </details>
 
