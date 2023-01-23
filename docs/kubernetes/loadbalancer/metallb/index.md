@@ -85,7 +85,7 @@ spec:
     * [x] Create a bootstrap/helmrepository-metallb.yaml file
     * [x] Your helmrelease-metallb will point to that chart
     * [x] Your configmap-metallb-helm-chart-value-overrides.yaml will have the values from [Metallb's values.yaml](https://github.com/metallb/metallb/blob/main/charts/metallb/values.yaml)
-    * [ ] The Namespace, Kustomization, and HelmRelease templates will otherwise be the same.
+    * [ ] The Namespace, Kustomization and other configmap templates will otherwise be the same.
 
 ??? example "For arm nodes: Create a bootstrap/helmrepository-metallb.yaml file (click to expand)"
     ```yaml title="/bootstrap/helmrepositories/helmrepository-metallb.yaml"
@@ -100,8 +100,8 @@ spec:
       timeout: 3m
     ```
 
-??? example "For arm nodes: Your helmrelease-metallb will point to that chart (click to expand)"
-    ```yaml title="/bootstrap/helmrepo"
+??? example "For arm nodes: Your metallb helmrelease will point to that chart (click to expand)"
+    ```yaml title="/metallb-system/helmrelease-metallb.yaml"
     apiVersion: helm.toolkit.fluxcd.io/v2beta1
     kind: HelmRelease
     metadata:
