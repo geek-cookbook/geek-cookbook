@@ -131,6 +131,7 @@ data:
 --8<-- "kubernetes-why-full-values-in-configmap.md"
 
 Then work your way through the values you pasted, and change any which are specific to your configuration.
+
 ### Kustomization for CRs (Config)
 
 Older versions of MetalLB were configured by a simple ConfigMap, which could be deployed into Kubernetes **alongside** the helmrelease, since a ConfigMap is a standard Kubernetes primitive.
