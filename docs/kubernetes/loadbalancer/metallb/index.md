@@ -130,10 +130,7 @@ data:
 
 --8<-- "kubernetes-why-full-values-in-configmap.md"
 
-Then work your way through the values you pasted, and change any which are specific to your configuration. I'd recommend changing the following:
-
-* `commonAnnotations`: Anticipating the future use of Reloader to bounce applications when their config changes, I add the `configmap.reloader.stakater.com/reload: "metallb-config"` annotation to all deployed objects, which will instruct Reloader to bounce the daemonset if the ConfigMap changes.
-
+Then work your way through the values you pasted, and change any which are specific to your configuration.
 ### Kustomization for CRs (Config)
 
 Older versions of MetalLB were configured by a simple ConfigMap, which could be deployed into Kubernetes **alongside** the helmrelease, since a ConfigMap is a standard Kubernetes primitive.
