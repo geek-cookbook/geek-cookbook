@@ -75,8 +75,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   creationTimestamp: null
-  name: traefik-helm-chart-value-overrides
-  namespace: traefik
+  name: external-dns-helm-chart-value-overrides
+  namespace: external-dns
 data:
   values.yaml: |-
     # <upstream values go here>

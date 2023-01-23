@@ -136,7 +136,7 @@ spec:
 
 ## Deploy traefik
 
-Having committed the above to your flux repository, you should shortly see a traefik kustomization, and in the `traefik` namespace, a controller and a speaker pod for every node:
+Having committed the above to your flux repository, you should shortly see a traefik kustomization, and in the `traefik` namespace, traefik pods happily running:
 
 ```bash
 demo@shredder:~$ kubectl get pods -n traefik
