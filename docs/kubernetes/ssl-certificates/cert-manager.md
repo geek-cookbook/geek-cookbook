@@ -93,7 +93,7 @@ data:
 Then work your way through the values you pasted, and change any which are specific to your configuration.
 
 !!! tip "set installCRDs to true"
-    An upstream value of particular note is `installCRDs` - set this to `true`, unless you plan to deploy the cert-manager certs another way.
+    An upstream value of particular note is `installCRDs` - set this to `true`, unless you plan to deploy the cert-manager CRDs another way.
 
 ### HelmRelease
 
