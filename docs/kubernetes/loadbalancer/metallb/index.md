@@ -124,10 +124,7 @@ spec:
         name: metallb-helm-chart-value-overrides
         valuesKey: values.yaml # This is the default, but best to be explicit for clarity
     ```
-
-
-
-
+    
 ### Kustomization
 
 Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/metallb-system`. I create this example Kustomization in my flux repo:
