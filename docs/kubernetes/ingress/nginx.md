@@ -132,7 +132,7 @@ Lastly, having set the scene above, we define the HelmRelease which will actuall
 
 ## Deploy nginx-ingress-controller
 
-Having committed the above to your flux repository, you should shortly see a nginx-ingress-controller kustomization, and in the `nginx-ingress-controller` namespace, a controller and a speaker pod for every node:
+Having committed the above to your flux repository, you should shortly see a nginx-ingress-controller kustomization, and in the `nginx-ingress-controller` namespace, the expected pods happily running:
 
 ```bash
 demo@shredder:~$ kubectl get pods -n nginx-ingress-controller
