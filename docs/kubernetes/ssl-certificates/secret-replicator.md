@@ -82,12 +82,12 @@ data:
     # Declare variables to be passed into your templates.
 
     image:
-    repository: kiwigrid/secret-replicator
-    tag: 0.2.0
-    pullPolicy: IfNotPresent
-    ## Specify ImagePullSecrets for Pods
-    ## ref: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
-    # pullSecrets: myregistrykey
+      repository: kiwigrid/secret-replicator
+      tag: latest #0.2.0 It's 0.1.0 and latest listed in dockerhub. No 0.2.0 anymore 
+      pullPolicy: IfNotPresent 
+      ## Specify ImagePullSecrets for Pods
+      ## ref: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
+      # pullSecrets: myregistrykey
 
     # csv list of secrets
     secretList: "letsencrypt-wildcard-cert"
@@ -96,7 +96,7 @@ data:
     ignoreNamespaces: "kube-system,kube-public"
 
     # If defined, allow secret-replicator to watch for secrets in _another_ namespace
-    secretNamespace: letsencrypt-wildcard-cert"
+    secretNamespace: "letsencrypt-wildcard-cert"
 
     rbac:
     enabled: true
