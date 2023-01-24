@@ -37,70 +37,67 @@ vgcreate VG-topolvm /dev/sdb
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/namespaces/namespace-topolvm.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
 
-??? example "Example NameSpace (click to expand)"
-    ```yaml
-    apiVersion: v1
-    kind: Namespace
-    metadata:
-      name: topolvm-system
-    ```
+```yaml title="/bootstrap/namespaces/namespace-topolvm.yaml"
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: topolvm-system
+```
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the official [TopoLVM helm chart](https://github.com/topolvm/topolvm/tree/main/charts/topolvm), so per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `bootstrap/helmrepositories/helmrepository-topolvm.yaml`:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the official [TopoLVM helm chart](https://github.com/topolvm/topolvm/tree/main/charts/topolvm), so per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
 
-??? example "Example HelmRepository (click to expand)"
-    ```yaml
-    apiVersion: source.toolkit.fluxcd.io/v1beta1
-    kind: HelmRepository
-    metadata:
-      name: topolvm
-      namespace: flux-system
-    spec:
-      interval: 15m
-      url: https://topolvm.github.io/topolvm
-    ```
+```yaml title="/bootstrap/helmrepositories/helmrepository-topolvm.yaml"
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: topolvm
+  namespace: flux-system
+spec:
+  interval: 15m
+  url: https://topolvm.github.io/topolvm
+```
 
 ### Kustomization
 
-Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/topolvm`. I create this example Kustomization in my flux repo at `bootstrap/kustomizations/kustomization-topolvm.yaml`:
+Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/topolvm`. I create this example Kustomization in my flux repo:
 
-??? example "Example Kustomization (click to expand)"
-    ```yaml
-    apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-    kind: Kustomization
-    metadata:
-      name: topolvm--topolvm-system
-      namespace: flux-system
-    spec:
-      interval: 15m
-      path: ./topolvm-system
-      prune: true # remove any elements later removed from the above path
-      timeout: 2m # if not set, this defaults to interval duration, which is 1h
-      sourceRef:
-        kind: GitRepository
-        name: flux-system
-      validation: server
-      healthChecks:
-        - apiVersion: apps/v1
-          kind: Deployment
-          name: topolvm-controller
-          namespace: topolvm-system
-        - apiVersion: apps/v1
-          kind: DaemonSet
-          name: topolvm-lvmd-0
-          namespace: topolvm-system
-        - apiVersion: apps/v1
-          kind: DaemonSet
-          name: topolvm-node
-          namespace: topolvm-system
-        - apiVersion: apps/v1
-          kind: DaemonSet
-          name: topolvm-scheduler
-          namespace: topolvm-system
-    ```
+```yaml title="/bootstrap/kustomizations/kustomization-topolvm.yaml"
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: topolvm--topolvm-system
+  namespace: flux-system
+spec:
+  interval: 15m
+  path: ./topolvm-system
+  prune: true # remove any elements later removed from the above path
+  timeout: 2m # if not set, this defaults to interval duration, which is 1h
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  validation: server
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: topolvm-controller
+      namespace: topolvm-system
+    - apiVersion: apps/v1
+      kind: DaemonSet
+      name: topolvm-lvmd-0
+      namespace: topolvm-system
+    - apiVersion: apps/v1
+      kind: DaemonSet
+      name: topolvm-node
+      namespace: topolvm-system
+    - apiVersion: apps/v1
+      kind: DaemonSet
+      name: topolvm-scheduler
+      namespace: topolvm-system
+```
 
 !!! question "What's with that screwy name?"
     > Why'd you call the kustomization `topolvm--topolvm-system`?
@@ -109,20 +106,19 @@ Now that the "global" elements of this deployment (*Namespace and HelmRepository
 
 ### ConfigMap
 
-Now we're into the topolvm-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/topolvm/topolvm/blob/main/charts/topolvm/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `topolvm/configmap-topolvm-helm-chart-value-overrides.yaml`:
+Now we're into the topolvm-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/topolvm/topolvm/blob/main/charts/topolvm/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo:
 
-??? example "Example ConfigMap (click to expand)"
-    ```yaml
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      creationTimestamp: null
-      name: topolvm-helm-chart-value-overrides
-      namespace: topolvm
-    data:
-      values.yaml: |-
-        # paste chart values.yaml (indented) here and alter as required>
-    ```
+```yaml title="/topolvm/configmap-topolvm-helm-chart-value-overrides.yaml"
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: topolvm-helm-chart-value-overrides
+  namespace: topolvm-system
+data:
+  values.yaml: |-
+    # paste chart values.yaml (indented) here and alter as required>
+```
 
 --8<-- "kubernetes-why-full-values-in-configmap.md"
 
@@ -146,32 +142,31 @@ lvmd:
 
 ### HelmRelease
 
-Lastly, having set the scene above, we define the HelmRelease which will actually deploy TopoLVM into the cluster, with the config we defined above. I save this in my flux repo as `topolvm/helmrelease-topolvm.yaml`:
+Lastly, having set the scene above, we define the HelmRelease which will actually deploy TopoLVM into the cluster, with the config we defined above. I save this in my flux repo:
 
-??? example "Example HelmRelease (click to expand)"
-    ```yaml
-    apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    metadata:
-      name: topolvm
-      namespace: topolvm-system
+```yaml title="/topolvm/helmrelease-topolvm.yaml"
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: topolvm
+  namespace: topolvm-system
+spec:
+  chart:
     spec:
-      chart:
-        spec:
-          chart: topolvm
-          version: 3.x
-          sourceRef:
-            kind: HelmRepository
-            name: topolvm
-            namespace: flux-system
-      interval: 15m
-      timeout: 5m
-      releaseName: topolvm
-      valuesFrom:
-      - kind: ConfigMap
-        name: topolvm-helm-chart-value-overrides
-        valuesKey: values.yaml # This is the default, but best to be explicit for clarity
-    ```
+      chart: topolvm
+      version: 3.x
+      sourceRef:
+        kind: HelmRepository
+        name: topolvm
+        namespace: flux-system
+  interval: 15m
+  timeout: 5m
+  releaseName: topolvm
+  valuesFrom:
+  - kind: ConfigMap
+    name: topolvm-helm-chart-value-overrides
+    valuesKey: values.yaml # This is the default, but best to be explicit for clarity
+```
 
 --8<-- "kubernetes-why-not-config-in-helmrelease.md"
 
