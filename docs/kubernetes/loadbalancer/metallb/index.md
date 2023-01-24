@@ -67,17 +67,17 @@ metadata:
 
 ### HelmRepository
 
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the (*prolific*) [bitnami chart repository](https://github.com/bitnami/charts/tree/master/bitnami), so per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
+Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the (*prolific*) [metallb chart repository](https://github.com/metallb/metallb/tree/main/charts/metallb), so per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
 
-```yaml title="/bootstrap/helmrepositories/helmrepository-bitnami.yaml"
-apiVersion: source.toolkit.fluxcd.io/v1beta1
+```yaml title="/bootstrap/helmrepositories/helmrepository-metallb.yaml"
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: bitnami
+  name: metallb
   namespace: flux-system
 spec:
   interval: 15m
-  url: https://charts.bitnami.com/bitnami
+  url: https://metallb.github.io/metallb
 ```
 
 ### Kustomization
@@ -113,7 +113,7 @@ spec:
 
 ### ConfigMap (for HelmRelease)
 
-Now we're into the metallb-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami/charts/blob/master/bitnami/metallb/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at ``:
+Now we're into the metallb-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/metallb/metallb/blob/main/charts/metallb/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at ``:
 
 ```yaml title="/metallb-system/configmap-metallb-helm-chart-value-overrides.yaml"
 apiVersion: v1
@@ -130,9 +130,7 @@ data:
 
 --8<-- "kubernetes-why-full-values-in-configmap.md"
 
-Then work your way through the values you pasted, and change any which are specific to your configuration. I'd recommend changing the following:
-
-* `commonAnnotations`: Anticipating the future use of Reloader to bounce applications when their config changes, I add the `configmap.reloader.stakater.com/reload: "metallb-config"` annotation to all deployed objects, which will instruct Reloader to bounce the daemonset if the ConfigMap changes.
+Then work your way through the values you pasted, and change any which are specific to your configuration.
 
 ### Kustomization for CRs (Config)
 
@@ -261,10 +259,10 @@ spec:
   chart:
     spec:
       chart: metallb
-      version: 4.x 
+      version: 0.13.7
       sourceRef:
         kind: HelmRepository
-        name: bitnami
+        name: metallb
         namespace: flux-system
   interval: 15m
   timeout: 5m
