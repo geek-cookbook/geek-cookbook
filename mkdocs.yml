@@ -28,7 +28,7 @@ plugins:
     categories:
       - categories
       - tags
-    abstract_chars_count: -1
+    abstract_chars_count: 200
   extra-sass:
   # privacy:
   search:
@@ -392,14 +392,15 @@ extra:
       link: 'https://github.com/funkypenguin'
     - icon: 'fontawesome/brands/stack-overflow'
       link: 'https://stackoverflow.com/cv/funkypenguin'
-    - icon: 'material/rss'
-      link: 'https://www.funkypenguin.co.nz/'
     - icon: 'fontawesome/brands/linkedin'
       link: 'https://www.linkedin.com/in/funkypenguin'
     - icon: 'fontawesome/brands/facebook'
       link: 'https://www.facebook.com/funkypenguinnz'
     - icon: 'material/mailbox'
       link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'
+    - icon: 'material/rss'
+      link: 'https://geek-cookbook.funkypenguin.co.nz/rss/'
+
   generator: false
   # Plausible doesn't use cookies, so no need for this!
   # consent:
