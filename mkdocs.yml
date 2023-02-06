@@ -28,6 +28,7 @@ plugins:
     categories:
       - categories
       - tags
+    abstract_chars_count: -1
   extra-sass:
   # privacy:
   search:
