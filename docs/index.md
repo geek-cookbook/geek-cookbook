@@ -49,7 +49,7 @@ Running such a platform enables you to run selfhosted services such as the [Auto
 - [Automated backup](/recipes/elkarbackup/) of configuration and data
 - [Monitoring and metrics](/recipes/swarmprom/) collection, graphing and alerting
 
-Recent updates and additions are posted on the [CHANGELOG](/recent-changes/), and there's a friendly community of like-minded geeks in the [Discord server](http://chat.funkypenguin.co.nz).
+Recent updates and additions are posted on the [blog](/blog/), and there's a friendly community of like-minded geeks in the [Discord server](http://chat.funkypenguin.co.nz).
 
 ## How will this benefit me?
 
@@ -79,11 +79,7 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
     I have no hesitation in recommending him for your project, and I'll certainly be calling on him again in the future.
 
-    -- John McDowall, Founder, [kiso.io](https://kiso.io) 
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js"></script>
-<iframe id="p-436b4c83-aaea-41ff-889a-2f8e279ff369" src="https://www.bonjoro.com/pe/436b4c83-aaea-41ff-889a-2f8e279ff369" frameborder="0" scrolling="no" width="100%"></iframe>
-<script type="text/javascript">iFrameResize({ warningTimeout:30000, log: false,}, "#p-436b4c83-aaea-41ff-889a-2f8e279ff369");</script>
+    -- John McDowall, Founder, [kiso.io](https://kiso.io)
 
 ## Who made this?
 

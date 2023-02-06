@@ -12,10 +12,22 @@ repo_name: 'geek-cookbook'
 repo_url: 'https://github.com/geek-cookbook/geek-cookbook'
 
 # Copyright
-copyright: 'Copyright &copy; 2016 - 2022 David Young, Funky Penguin Limited'
+copyright: 'Copyright &copy; 2016 - 2023 David Young, Funky Penguin Limited'
 
 # Plugins
 plugins:
+  meta:
+  blog:
+    post_excerpt: required
+  tags:
+    tags_file: blog/tags.md
+  rss:
+    match_path: blog/posts/.*
+    date_from_meta:
+      as_creation: date
+    categories:
+      - categories
+      - tags
   extra-sass:
   # privacy:
   search:
@@ -23,6 +35,7 @@ plugins:
     minify_html: true
   git-revision-date-localized:
     type: date
+    fallback_to_build_date: true
   autolinks:
   macros:
     verbose: true
@@ -31,7 +44,7 @@ plugins:
     # raise_error_excludes:
     #   504: ['https://www.mkdocs.org/']
     #   404: ['https://github.com/manuzhang/mkdocs-htmlproofer-plugin']
-    #   400: ['*']  
+    #   400: ['*']
   # git-committers: # This seems to create double-ups
   #     repository: geek-cookbook/geek-cookbook
   #     token: !ENV GH_TOKEN
@@ -65,17 +78,20 @@ plugins:
 #    two_columns_level: 3
     render_js: false
     # headless_chrome_path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
-    
+
     output_path: funkypenguins-geek-cookbook.pdf
     debug_html: false
     show_anchors: true
-    verbose: false  
+    verbose: false
     enabled_if_env: ENABLE_PDF_EXPORT
+  optimize:
+    enabled:
+  privacy:
 
 #theme_dir: mkdocs-material
 nav:
-    - Home: index.md         
-    - 🐳 Docker Swarm: 
+    - Home: index.md
+    - 🐳 Docker Swarm:
       - docker-swarm/index.md
       - Preparation:
         - Design: docker-swarm/design.md
@@ -86,10 +102,10 @@ nav:
         - Docker Swarm Mode: docker-swarm/docker-swarm-mode.md
       - Essentials:
         - Traefik: docker-swarm/traefik.md
-        - Traefik Forward Auth: 
-            - docker-swarm/traefik-forward-auth/index.md 
-            - Dex (static): docker-swarm/traefik-forward-auth/dex-static.md    
-            - Google: docker-swarm/traefik-forward-auth/google.md      
+        - Traefik Forward Auth:
+            - docker-swarm/traefik-forward-auth/index.md
+            - Dex (static): docker-swarm/traefik-forward-auth/dex-static.md
+            - Google: docker-swarm/traefik-forward-auth/google.md
             - Keycloak: docker-swarm/traefik-forward-auth/keycloak.md
         - Authelia: docker-swarm/authelia.md
         - Registry: docker-swarm/registry.md
@@ -106,14 +122,14 @@ nav:
           - Mylar: recipes/autopirate/mylar.md
           - NZBGet: recipes/autopirate/nzbget.md
           - NZBHydra: recipes/autopirate/nzbhydra.md
-          - Prowlarr: recipes/autopirate/prowlarr.md          
+          - Prowlarr: recipes/autopirate/prowlarr.md
           - Ombi: recipes/autopirate/ombi.md
           - Radarr: recipes/autopirate/radarr.md
-          - Readarr: recipes/autopirate/readarr.md          
+          - Readarr: recipes/autopirate/readarr.md
           - Rtorrent: recipes/autopirate/rtorrent.md
           - SABnzbd: recipes/autopirate/sabnzbd.md
           - Sonarr: recipes/autopirate/sonarr.md
-          - End: recipes/autopirate/end.md      
+          - End: recipes/autopirate/end.md
         - Archive Box: recipes/archivebox.md
         - Bitwarden: recipes/bitwarden.md
         - Bookstack: recipes/bookstack.md
@@ -124,7 +140,7 @@ nav:
         - ElkarBackup: recipes/elkarbackup.md
         - Emby: recipes/emby.md
         - Home Assistant: recipes/homeassistant.md
-        - Huginn: recipes/huginn.md        
+        - Huginn: recipes/huginn.md
         - Funkwhale: recipes/funkwhale.md
         - Ghost: recipes/ghost.md
         - GitLab: recipes/gitlab.md
@@ -133,59 +149,59 @@ nav:
         - Immich: recipes/immich.md
         - InstaPy: recipes/instapy.md
         - Jellyfin: recipes/jellyfin.md
-        - Keycloak: 
-          - recipes/keycloak/index.md      
-          - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
-          - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md 
+        - Keycloak:
+          - recipes/keycloak/index.md
+          - OIDC Provider: recipes/keycloak/setup-oidc-provider.md
+          - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md
         - Kanboard: recipes/kanboard.md
         - Kavita: recipes/kavita.md
-        - Keycloak: 
-          - recipes/keycloak/index.md   
-          - OIDC Provider: recipes/keycloak/setup-oidc-provider.md        
+        - Keycloak:
+          - recipes/keycloak/index.md
+          - OIDC Provider: recipes/keycloak/setup-oidc-provider.md
           - OpenLDAP: recipes/keycloak/authenticate-against-openldap.md
         - Komga: recipes/komga.md
         - Linx: recipes/linx.md
         - Mastodon: recipes/mastodon.md
         - Mealie: recipes/mealie.md
-        - Miniflux: recipes/miniflux.md        
+        - Miniflux: recipes/miniflux.md
         - Minio: recipes/minio.md
-        - Munin: recipes/munin.md        
-        - NextCloud: recipes/nextcloud.md        
+        - Munin: recipes/munin.md
+        - NextCloud: recipes/nextcloud.md
         - NightScout: recipes/nightscout.md
         - OpenLDAP: recipes/openldap.md
         - OwnTracks: recipes/owntracks.md
         - Paperless NG: recipes/paperless-ng.md
         - Photoprism: recipes/photoprism.md
         - Pixelfed: recipes/pixelfed.md
-        - Plex: recipes/plex.md        
-        - phpIPAM: recipes/phpipam.md        
-        - Portainer: recipes/portainer.md  
+        - Plex: recipes/plex.md
+        - phpIPAM: recipes/phpipam.md
+        - Portainer: recipes/portainer.md
         - PrivateBin: recipes/privatebin.md
         - Realms: recipes/realms.md
         - Restic: recipes/restic.md
-        - RSS Bridge: recipes/rss-bridge.md   
-        - Swarmprom: recipes/swarmprom.md              
+        - RSS Bridge: recipes/rss-bridge.md
+        - Swarmprom: recipes/swarmprom.md
         - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
         - Traefik: docker-swarm/traefik.md
-        - Traefik Forward Auth: 
-            - docker-swarm/traefik-forward-auth/index.md 
-            - Dex (static): docker-swarm/traefik-forward-auth/dex-static.md    
-            - Google: docker-swarm/traefik-forward-auth/google.md      
+        - Traefik Forward Auth:
+            - docker-swarm/traefik-forward-auth/index.md
+            - Dex (static): docker-swarm/traefik-forward-auth/dex-static.md
+            - Google: docker-swarm/traefik-forward-auth/google.md
             - Keycloak: docker-swarm/traefik-forward-auth/keycloak.md
         - Wallabag: recipes/wallabag.md
         - Wekan: recipes/wekan.md
-        - Wetty: recipes/wetty.md       
+        - Wetty: recipes/wetty.md
       - Reference:
         - OAuth Proxy: reference/oauth_proxy.md
         - Data Layout: reference/data_layout.md
         - Networks: reference/networks.md
         - OpenVPN : reference/openvpn.md
-        - Troubleshooting: reference/troubleshooting.md         
+        - Troubleshooting: reference/troubleshooting.md
     - ⛴ Kubernetes:
       - Preparation:
         - kubernetes/index.md
         - Introduction: kubernetes/index.md
-        - Cluster: 
+        - Cluster:
           - kubernetes/cluster/index.md
           - Digital Ocean: kubernetes/cluster/digitalocean.md
       #     - Bare Metal: kubernetes/cluster/baremetal.md
@@ -197,16 +213,16 @@ nav:
       #     - YAML: kubernetes/wip.md
       #     - Helm: kubernetes/wip.md
       #     - GitHub Actions: kubernetes/wip.md
-          - Flux: 
+          - Flux:
             - kubernetes/deployment/flux/index.md
             - Install: kubernetes/deployment/flux/install.md
             - Design: kubernetes/deployment/flux/design.md
             - Operate: kubernetes/deployment/flux/operate.md
         - Essentials:
-          - Load Balancer: 
+          - Load Balancer:
             - kubernetes/loadbalancer/index.md
             - k3s: kubernetes/loadbalancer/k3s.md
-            - MetalLB: 
+            - MetalLB:
               - kubernetes/loadbalancer/metallb/index.md
               - pfSense: kubernetes/loadbalancer/metallb/pfsense.md
           - Sealed Secrets: kubernetes/sealed-secrets.md
@@ -219,7 +235,7 @@ nav:
             - Secret Replicator: kubernetes/ssl-certificates/secret-replicator.md
           - Ingress:
             - kubernetes/ingress/index.md
-            - Traefik: 
+            - Traefik:
               - kubernetes/ingress/traefik/index.md
               # - Dashboard: kubernetes/ingress/traefik/dashboard.md
             - Nginx: kubernetes/ingress/nginx.md
@@ -228,12 +244,12 @@ nav:
             - Local Path Provisioner: kubernetes/persistence/local-path-provisioner.md
             - TopoLVM: kubernetes/persistence/topolvm.md
             # - OpenEBS: kubernetes/persistence/openebs.md
-            - Rook Ceph: 
+            - Rook Ceph:
               - kubernetes/persistence/rook-ceph/index.md
               - Operator: kubernetes/persistence/rook-ceph/operator.md
               - Cluster: kubernetes/persistence/rook-ceph/cluster.md
-            # - LongHorn: kubernetes/persistence/longhorn.md    
-      #   - Backup: 
+            # - LongHorn: kubernetes/persistence/longhorn.md
+      #   - Backup:
       #     - kubernetes/backup/index.md
       #     - kubernetes/wip.md
       #   - Logging:
@@ -274,36 +290,38 @@ nav:
       #   - Webook Receiver: kubernetes/wip.md
     - 🚀 Get Premix!:
       - premix/index.md
-      - Get Started: 
+      - Get Started:
         - Setup: premix/ansible/operation.md
         - Deploy!:
           - Swarm: premix/swarm.md
-          - Kubernetes: premix/kubernetes.md  
+          - Kubernetes: premix/kubernetes.md
       - Contribute:
         - Ansiblizing:
           - premix/ansiblizing/index.md
           - Swarm: premix/ansiblizing/swarm.md
-          - Kubernetes: premix/ansiblizing/kubernetes.md  
-      - Reference:        
+          - Kubernetes: premix/ansiblizing/kubernetes.md
+      - Reference:
         - Design: premix/ansible/design.md
-    - ☑️ Reviews:
+    - ✅ Reviews:
       - review/index.md
-      - Immich: review/immich.md  
+      - Immich: review/immich.md
       - Mastodon: review/mastodon.md
-      - Nextcloud: review/nextcloud.md          
-    - CHANGELOG: recent-changes.md
-    - Support: support.md      
+      - Nextcloud: review/nextcloud.md
+    - 🪵 Blog:
+      - Blog: blog/index.md
+      - Tags: blog/tags.md
+    - Support: support.md
     - Contribute: community/contribute.md
-    - Community: 
+    - Community:
       - community/index.md
-      - Support: support.md      
+      - Support: support.md
       - Contribute: community/contribute.md
-      - Code of Conduct: community/code-of-conduct.md 
-      - Discord: community/discord.md 
-      - Reddit: community/reddit.md 
-      - Mastodon: community/mastodon.md 
-      - Forum: community/discourse.md       
-      - GitHub: community/github.md    
+      - Code of Conduct: community/code-of-conduct.md
+      - Discord: community/discord.md
+      - Reddit: community/reddit.md
+      - Mastodon: community/mastodon.md
+      - Forum: community/discourse.md
+      - GitHub: community/github.md
 
 theme:
   name: 'material'
@@ -313,20 +331,24 @@ theme:
   favicon: 'images/site-logo.svg'
   features:
       - navigation.tabs
-      - navigation.tabs.sticky  
-      - navigation.instant 
+      - navigation.tabs.sticky
+      - navigation.instant
       - navigation.sections
       - navigation.indexes
       - navigation.top
       - navigation.pruning
       - search.suggest
       - search.share
-      - content.code.annotate      
+      - content.code.annotate
+      - content.code.copy
       - header.autohide
       - announce.dismiss
       - toc.follow
   icon:
     repo: 'fontawesome/brands/github'
+    tag:
+      kubernetes: material/kubernetes
+      js: fontawesome/brands/js
   palette:
 
     # Palette toggle for automatic mode
@@ -374,22 +396,22 @@ extra:
     - icon: 'fontawesome/brands/linkedin'
       link: 'https://www.linkedin.com/in/funkypenguin'
     - icon: 'fontawesome/brands/facebook'
-      link: 'https://www.facebook.com/funkypenguinnz'      
+      link: 'https://www.facebook.com/funkypenguinnz'
     - icon: 'material/mailbox'
-      link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'             
-  generator: false  
+      link: 'mailto:davidy@funkypenguin.co.nz?Subject=Hello%2C%20from%20a%20geek-cookbook%20reader%20%3B%29'
+  generator: false
   # Plausible doesn't use cookies, so no need for this!
   # consent:
   #   title: 'Would you like a cookie? 🍪'
-  #   description: > 
+  #   description: >
 
-  #     I know. cookies suck (<I>except the fresh, warm, choc-chip ones!</I>), and so does invasive tracking. Thing is, without cookies, 
+  #     I know. cookies suck (<I>except the fresh, warm, choc-chip ones!</I>), and so does invasive tracking. Thing is, without cookies,
   #     analytics can't record your visit, and I can't work out where/how to invest time to make the cookbook better.
 
-  #     <p>So, with your consent, I'd like to record what you look at and where you're from, so that I can make the 
+  #     <p>So, with your consent, I'd like to record what you look at and where you're from, so that I can make the
   #     cookbook even better. My analytics are public - here's <A HREF='https://plausible.io/geek-cookbook.funkypenguin.co.nz' target="_blank">all</A> I know about you! - David</p>
   #   cookies:
-  #     custom: Plausible Analytics     
+  #     custom: Plausible Analytics
   analytics:
     provider: plausible
     data_domain: geek-cookbook.funkypenguin.co.nz
@@ -405,8 +427,8 @@ extra:
           name: This page could be improved
           data: 0
           note: >-
-            Thanks for your feedback! 
-            
+            Thanks for your feedback!
+
 #            Help us improve this page by
 #            using our <a href="..." target=_blank>feedback form</a>.
 
@@ -419,7 +441,7 @@ extra_javascript:
   # - extras/javascript/feedback.js
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - extras/javascript/tablesort.js
-  
+
 # Extensions
 markdown_extensions:
   - attr_list
@@ -445,7 +467,7 @@ markdown_extensions:
   - pymdownx.magiclink:
       repo_url_shorthand: true
       user: funkypenguin
-      repo: geek-cookbook  
+      repo: geek-cookbook
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences:
@@ -456,6 +478,6 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-  - pymdownx.tabbed  
+  - pymdownx.tabbed
   - meta
   - md_in_html

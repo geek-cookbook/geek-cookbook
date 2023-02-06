@@ -11,7 +11,7 @@ icon: material/gift
 Got nothing to contribute, but want to give back to the community? Here are some ideas:
 
 1. Star :star: the [repo](https://github.com/geek-cookbook/geek-cookbook/)
-2. Tweet :bird: the [meat](https://ctt.ac/Vl6mc)!
+2. Tweet :bird: the [meat](https://ctt.ac/Vl6mc), or toot :elephant: the [loot](https://so.fnky.nz/@funkypenguin)!
 3. Send a [testimonial](https://fnky.nz/testimonial)
 
 ## Contributing moneyz 💰

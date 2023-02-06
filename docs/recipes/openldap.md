@@ -17,7 +17,7 @@ The nice thing about OpenLDAP is, like MySQL, once you've setup the server, you 
 
 This recipe combines the raw power of OpenLDAP with the flexibility and featureset of LDAP Account Manager.
 
-![OpenLDAP Screenshot](../images/openldap.jpeg)
+![OpenLDAP Screenshot](../images/openldap.png)
 
 ## What's the takeaway?
 
@@ -29,7 +29,7 @@ What you'll end up with is a directory structure which will allow integration wi
 
 ### Setup data locations
 
-We'll need several directories to bind-mount into our container, so create them in /var/data/openldap:
+We'll need several directories to bind-mount into our container, so create them in `/var/data/openldap`:
 
 ```bash
 mkdir /var/data/openldap/openldap

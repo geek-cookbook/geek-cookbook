@@ -23,7 +23,7 @@ I've been interested in running a Mastodon instance since I [read about it](http
 
 ![My 2017 Federation-debugging](/images/reviews/mastodon-back-in-2017.png){ loading=lazy }
 
-After abandoning my dreams of hosting an instance, I kept a few accounts on mastodon.social, experimenting with cross-posting from Micro.blog, and using the native RSS feature to provide a manually-created [changelog of new recipes](/recent-changes/).
+After abandoning my dreams of hosting an instance, I kept a few accounts on mastodon.social, experimenting with cross-posting from Micro.blog, and using the native RSS feature to provide a manually-created [changelog of new recipes](/blog/).
 
 In 2022, finding myself wanting to up my "social game" without tying myself into Twitter, I started assembling a typically geeky, over-engineered workflow to [cross-post between Mastodon and Twitter](https://crossposter.masto.donte.com.br/), and easily produce RSS feeds.
 

@@ -23,7 +23,7 @@
   - [What have you done for me lately? (CHANGELOG)](#what-have-you-done-for-me-lately-changelog)
   - [What do you want from me?](#what-do-you-want-from-me)
     - [Get in touch 👋](#get-in-touch-)
-    - [Sponsor me ❤️](#sponsor--patronizepatreon-me-️)
+    - [Sponsor / Patronize me ❤️](#sponsor--patronize-me-️)
     - [Work with me 🤝](#work-with-me-)
   
 # What is this?
@@ -55,7 +55,7 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
 ## What have you done for me lately? (CHANGELOG)
 
-Check out recent change at [CHANGELOG](/recent-changes/)
+Check out recent change on our [blog](/blog/)
 
 ## What do you want from me?
 

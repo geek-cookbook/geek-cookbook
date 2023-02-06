@@ -1,3 +1,6 @@
+---
+title: Premix your Kubernetes cluster!
+---
 # Warning
 
 !!! warning "This section is under construction :hammer:"

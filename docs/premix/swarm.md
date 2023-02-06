@@ -1,3 +1,6 @@
+---
+title: Premix for Docker Swarm
+---
 # Warning
 
 !!! warning "This section is under construction :hammer:"

@@ -16,6 +16,7 @@
 [discord]:              https://chat.funkypenguin.co.nz
 [duplicity]:            /recipes/autopirate/duplicity/
 [emby]:                 /recipes/emby/
+[ghost]:                /recipes/ghost/
 [funkwhale]:            /recipes/autopirate/funkwhale/
 [github_sponsor]:       https://github.com/sponsors/funkypenguin
 [headphones]:           /recipes/autopirate/headphones/

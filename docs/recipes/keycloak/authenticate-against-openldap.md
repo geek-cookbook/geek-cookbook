@@ -61,11 +61,13 @@ For each of the following mappers, click the name, and set the "_Read Only_" fla
 
 ## Summary
 
-We've setup a new realm in Keycloak, and configured read-write federation to an [OpenLDAP](/recipes/openldap/) backend. We can now manage our LDAP users using either Keycloak or LDAP directly, and we can protect vulnerable services using [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/).
+We've setup a new realm in Keycloak, and configured read-write federation to an [OpenLDAP](/recipes/openldap/) backend. We can now manage our LDAP users using either [Keycloak][keycloak] [^1] or LDAP directly, and we can protect vulnerable services using [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/).
 
 !!! Summary
     Created:
 
     * [X] Keycloak realm in read-write federation with [OpenLDAP](/recipes/openldap/) directory
+
+[^1]: A much nicer experience IMO!
 
 --8<-- "recipe-footer.md"

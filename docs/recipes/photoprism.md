@@ -7,7 +7,7 @@ description: ML-powered private photo hosting
 
 [Photoprism™](https://github.com/photoprism/photoprism) "is a server-based application for browsing, organizing and sharing your personal photo collection. It makes use of the latest technologies to automatically tag and find pictures without getting in your way. Say goodbye to solutions that force you to upload your visual memories to the cloud."
 
-![Photoprism Screenshot](../images/photoprism.png){ loading=lazy }
+![Photoprism Screenshot](../images/photoprism.jpg){ loading=lazy }
 
 --8<-- "recipe-standard-ingredients.md"
 

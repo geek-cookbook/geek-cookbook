@@ -14,7 +14,7 @@ Learn more about working with me [here](https://www.funkypenguin.co.nz/work-with
 
 ### Flirt with waiter (subscribe) 💌
 
-Want to know now when this recipe gets updated, or when future recipes are added? Subscribe to the [RSS feed](https://mastodon.social/@geekcookbook_changes.rss), or leave your email address below, and we'll keep you updated.
+Want to know now when this recipe gets updated, or when future recipes are added? Subscribe to the [RSS feed](/feed_rss_created.xml), or leave your email address below, and we'll keep you updated.
 
 <script async data-uid="20249aa846" src="https://funkypenguin.ck.page/20249aa846/index.js"></script>
 

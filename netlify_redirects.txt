@@ -19,8 +19,11 @@ https://geeks-cookbook.funkypenguin.co.nz/* https://geek-cookbook.funkypenguin.c
 /ha-docker-swarm/* /docker-swarm/:splat 301!
 
 # Having issues with mkdocs and the way it formats changelog, for some reason
-/changelog/ /recent-changes/ 301!
+/changelog/ /blog/category/changelog/ 301!
+/recent-changes/ /blog/category/changelog/ 301!
 
+# Use a better convention for RSS feed (could add more if necessary)
+/rss/ /feed_rss_created.xml
 
 # Old backlinks which we need to redirect to working URLs
 /kubernetes/start/          /kubernetes/ 301!
