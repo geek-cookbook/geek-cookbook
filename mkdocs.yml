@@ -85,7 +85,7 @@ plugins:
     enabled_if_env: ENABLE_PDF_EXPORT
   privacy:
   optimize:
-    enabled: !ENV [PROD_BUILD, true]
+    enabled: true
 
 #theme_dir: mkdocs-material
 nav:
