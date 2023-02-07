@@ -117,11 +117,11 @@ The `branchTopic` value takes the `packageFile` name (i.e., `helmrelease-mongodb
 
 Now next time renovate runs, I get a single, nice succinct PR with a list of all the chart/images changes, like this:
 
-![PR summary screenshot](https://static.funkypenguin.co.nz/2023/Update_docker.iobitnaminginx_Docker_tag_by_funkypenguin-concourse-bot__Pull_Request_1989__gerg-orgkube-cluster_2023-02-07_18-05-07.png)
+![PR summary screenshot](/images/blog/multiple-renovate-prs-summary.png)
 
 And an informative diff, like this:
 
-![PR screenshot](https://static.funkypenguin.co.nz/2023/Update_docker.iobitnaminginx_Docker_tag_by_funkypenguin-concourse-bot__Pull_Request_1989__gerg-orgkube-cluster_2023-02-07_18-07-15.png)
+![PR screenshot](/images/blog/multiple-renovate-prs-detail.png)
 
 ## Summary
 
