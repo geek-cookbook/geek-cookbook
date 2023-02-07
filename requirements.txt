@@ -25,3 +25,4 @@ livereload
 qrcode
 pillow 
 cairosvg
+htmlproofer
