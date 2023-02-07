@@ -21,8 +21,8 @@ mkdocs-macros-plugin
 mkdocs-extra-sass-plugin
 mkdocs-rss-plugin
 mkdocs-with-pdf
+mkdocs-htmlproofer-plugin
 livereload
 qrcode
 pillow 
 cairosvg
-htmlproofer
