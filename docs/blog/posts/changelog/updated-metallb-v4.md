@@ -3,9 +3,10 @@ date: 2023-01-16
 categories:
   - CHANGELOG
 tags:
-  - kavita
+  - metallb
 links:
   - MetalLB recipe: /kubernetes/loadbalancer/metallb.md
+description: Prior to v0.13, MetalLB was configured using a ConfigMap. This has all changed now, and CRDs are required to perform configuration (which improves syntax checking, abong other things)
 ---
 
 # Updated MetalLB recipe for CRDs

@@ -18,10 +18,11 @@ copyright: 'Copyright &copy; 2016 - 2023 David Young, Funky Penguin Limited'
 plugins:
   meta:
   blog:
-    post_excerpt: required
+    # post_excerpt: required
   tags:
     tags_file: blog/tags.md
   rss:
+    enabled: !ENV [PROD_BUILD, true]
     match_path: blog/posts/.*
     date_from_meta:
       as_creation: date
@@ -29,6 +30,12 @@ plugins:
       - categories
       - tags
     abstract_chars_count: 200
+    image: https://geek-cookbook.funkypenguin.co.nz/images/site-logo.png
+    url_parameters:
+      utm_source: "geek-cookbook-blog"
+      utm_medium: "RSS"
+      utm_campaign: "feed-syndication"
+          
   extra-sass:
   # privacy:
   search:
@@ -41,6 +48,7 @@ plugins:
   macros:
     verbose: true
   htmlproofer:
+    enabled: !ENV [PROD_BUILD, true]
     raise_error: false
     raise_error_excludes:
       504: ['https://www.mkdocs.org/']
@@ -86,7 +94,7 @@ plugins:
     verbose: false
     enabled_if_env: ENABLE_PDF_EXPORT
   optimize:
-    enabled:
+    enabled: !ENV [PROD_BUILD, true]
   privacy:
 
 #theme_dir: mkdocs-material
@@ -304,7 +312,7 @@ nav:
       - Reference:
         - Design: premix/ansible/design.md
     - ✅ Reviews:
-      - review/index.md
+      - blog/category/review.md
       - Immich: review/immich.md
       - Mastodon: review/mastodon.md
       - Nextcloud: review/nextcloud.md

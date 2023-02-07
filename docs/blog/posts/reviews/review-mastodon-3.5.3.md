@@ -1,21 +1,30 @@
 ---
-title: Review / Mastodon - Self-hosted twitter alternative
-description: Mastodon is a globally interconnected, federated, microblogging community / social network
+date: 2022-11-10
+categories:
+  - Review
+tags:
+  - mastodon
+links:
+  - Mastodon Kubernetes recipe: recipes/kubernetes/mastodon.md
+  - Mastodon Docker Swarm recipe: recipes/mastodon.md
+description: Mastodon is like a self-hosted Twitter on the Fediverse. Here's a review!
+image: /images/mastodon.png
 upstream_version: v3.5.3
-upstream_repo: https://github.com/mastodon/mastodon/
-review_latest_change: Initial review!
 ---
 
-# Mastodon - Open Source Twitter Alternative
-
-| Review details      |                           |
-| ----------- | ------------------------------------ |
-| :material-calendar-check: Last updated       | *{{ git_revision_date_localized }}* |
-| :octicons-number-24: Reviewed version       | *[{{ page.meta.upstream_version }}]({{ page.meta.upstream_repo }})* |
+# Review of Mastodon - Open, Federated microblogging platform
 
 Mastodon is a twitter-inspired, federated, microblogging community ("social network"), which anybody can partricipate in by joining a public instance, or running their own instance.
 
-![Mastodon 3.5 Hero](/images/reviews/mastodon.png){ loading=lazy }
+<!-- more -->
+
+![Mastodon Screenshot](/images/mastodon.png){ loading=lazy }
+
+| Review details      |                           |
+| ----------- | ------------------------------------ |
+| :octicons-number-24: Reviewed version       | *[{{ page.meta.upstream_version }}]({{ page.meta.upstream_repo }})* |
+
+Mastodon is a twitter-inspired, federated, microblogging community ("social network"), which anybody can partricipate in by joining a public instance, or running their own instance.
 
 ## Background
 
@@ -123,7 +132,7 @@ I want to "own" my content[^3], and I want to invest in the [Geek Cookbook commu
 
 Whichever path you take into the "fediverse", [toot me up](https://so.fnky.nz/@funkypenguin) when you get here!
 
---8<-- "review-footer.md"
+--8<-- "blog-footer.md"
 
 [^1]: https://blog.joinmastodon.org/2019/07/statement-on-gabs-fork-of-mastodon/
 [^2]: https://blog.joinmastodon.org/2021/10/trumps-new-social-media-platform-found-using-mastodon-code/

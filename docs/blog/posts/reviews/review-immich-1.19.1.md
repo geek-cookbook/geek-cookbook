@@ -1,16 +1,28 @@
 ---
+date: 2022-11-10
+categories:
+  - Review
+tags:
+  - immich
+description: Immich is a promising self-hosted alternative to Google Photos. Here's a review!
 title: Review / Immich - a self-hosted Google Photos alternative
 description: Immich is a polished and functional replacement for Google Photos
 upstream_version: v1.19.1
 upstream_repo: https://github.com/immich-app/immich
 review_latest_change: Initial review!
+image: /images/immich.jpg
+links:
+  - Immich Docker Swarm recipe: recipes/immich.md
 ---
 
 # I'm defz going to replace Google Photos with Immich!
 
+[Immich][review/immich] is a promising self-hosted alternative to Google Photos. Its UI and features are clearly heavily inspired by Google Photos, and like Photoprism, Immich uses tensorflow-based machine learning to auto-tag your photos!
+
+<!-- more -->
+
 | Review details      |                           |
 | ----------- | ------------------------------------ |
-| :material-calendar-check: Last updated       | *{{ git_revision_date_localized }}* |
 | :octicons-number-24: Reviewed version       | *[{{ page.meta.upstream_version }}]({{ page.meta.upstream_repo }})* |
 
 Immich is a promising self-hosted alternative to Google Photos. Its UI and features are clearly heavily inspired by Google Photos, and like [Photoprism][photoprism], Immich uses tensorflow-based machine learning to auto-tag your photos!
@@ -155,7 +167,7 @@ Based on how the pre-production development has progressed, and the massive hung
 
 Please [join me](/#sponsored-projects) in sponsoring [@alextran1502](https://github.com/sponsors/alextran1502), to support this exceptional product!
 
---8<-- "review-footer.md"
+--8<-- "blog-footer.md"
 
 [^1]: "wife-insurance": When the developer's wife is a primary user of the platform, you can bet he'll be writing quality code! :woman: :material-karate: :man: :bed: :cry:
 [^2]: There's a [friendly Discord server](https://discord.com/invite/D8JsnBEuKb) for Immich too!

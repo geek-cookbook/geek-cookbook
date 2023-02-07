@@ -3,17 +3,13 @@ date: 2022-11-10
 categories:
   - CHANGELOG
 tags:
-  - mastodon
-links:
-  - Mastodon Review: review/mastodon.md
-  - Mastodon Kubernetes recipe: recipes/kubernetes/mastodon.md
-  - Mastodon Docker Swarm recipe: recipes/mastodon.md
-  - Get Support!: support.md
+  - pixelfed
+description: Pixelfed is like a self-hosted Instagram on the Fediverse. Here's a Docker Swarm recipe!
 ---
 
-# New Review: Mastodon
+# Added Pixelfed (swarm) Federated image sharing
 
-New recipe - Pixelfed, like Instagram on the Fediverse. Check it out [here](/docs/recipes/pixelfed.md)
+New recipe - Pixelfed, like Instagram on the Fediverse. Check it out [here](/docs/recipes/pixelfed/)
 
 <!-- more -->
 

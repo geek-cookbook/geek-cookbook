@@ -18,9 +18,10 @@ https://geeks-cookbook.funkypenguin.co.nz/* https://geek-cookbook.funkypenguin.c
 # Prefer "docker-swarm" to "ha-docker-swarm"
 /ha-docker-swarm/* /docker-swarm/:splat 301!
 
-# Having issues with mkdocs and the way it formats changelog, for some reason
-/changelog/ /blog/category/changelog/ 301!
-/recent-changes/ /blog/category/changelog/ 301!
+# Consolidate previous category pages with the new blog plugin
+/changelog/         /blog/category/changelog/ 301!
+/recent-changes/    /blog/category/changelog/ 301!
+/reviews/           /blog/category/reviews/   301!
 
 # Use a better convention for RSS feed (could add more if necessary)
 /rss/ /feed_rss_created.xml
@@ -29,6 +30,3 @@ https://geeks-cookbook.funkypenguin.co.nz/* https://geek-cookbook.funkypenguin.c
 /kubernetes/start/          /kubernetes/ 301!
 /kubernetes/diycluster/     /kubernetes/cluster/ 301!
 /recipes/autopirate/mylarr/ /recipes/autopirate/mylar/ 301!
-
-
-
