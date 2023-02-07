@@ -54,9 +54,9 @@ plugins:
       504: ['https://www.mkdocs.org/']
       404: ['https://github.com/manuzhang/mkdocs-htmlproofer-plugin']
       400: ['*']
-  # git-committers: # This seems to create double-ups
-  #     repository: geek-cookbook/geek-cookbook
-  #     token: !ENV GH_TOKEN
+  git-committers: # This seems to create double-ups
+      repository: geek-cookbook/geek-cookbook
+      token: !ENV GH_TOKEN
   meta-descriptions: # If not provided, auto-generate a description (https://pypi.org/project/mkdocs-meta-descriptions-plugin/)
   with-pdf:
     #author: David Young
