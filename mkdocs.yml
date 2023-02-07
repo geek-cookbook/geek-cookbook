@@ -19,6 +19,7 @@ plugins:
   meta:
   blog:
     # post_excerpt: required
+    post_url_format: "{date}/{file}" # this allows us to change the post title in future without breaking URLs
   tags:
     tags_file: blog/tags.md
   rss:
@@ -47,16 +48,6 @@ plugins:
   autolinks:
   macros:
     verbose: true
-  htmlproofer:
-    enabled: !ENV [PROD_BUILD, true]
-    raise_error: false
-    raise_error_excludes:
-      504: ['https://www.mkdocs.org/']
-      404: ['https://github.com/manuzhang/mkdocs-htmlproofer-plugin']
-      400: ['*']
-  git-committers: # This seems to create double-ups
-      repository: geek-cookbook/geek-cookbook
-      token: !ENV GH_TOKEN
   meta-descriptions: # If not provided, auto-generate a description (https://pypi.org/project/mkdocs-meta-descriptions-plugin/)
   with-pdf:
     #author: David Young

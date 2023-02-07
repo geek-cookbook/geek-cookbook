@@ -1,5 +1,5 @@
 ---
-date: 2022-08-05
+date: 2022-08-08
 categories:
   - CHANGELOG
 tags:
@@ -8,12 +8,13 @@ links:
   - Mastodon Review: review/mastodon.md
   - Mastodon Kubernetes recipe: recipes/kubernetes/mastodon.md
   - Mastodon Docker Swarm recipe: recipes/mastodon.md
-description: New Docker Swarm Recipe - Mastodon - Federated social network. Think "like twitter but also like email"
+description: New Kubernetes Recipe - Mastodon - Federated social network. Think "like twitter but also like email"
+image: /images/mastodon.png
+title: Added tutorial for running a Mastodon instance on Kubernetes
 ---
+# New Recipe: Mastodon - Federated social network. Think "like twitter but also like email"
 
-# New Mastodon recipe (swarm)
-
-New recipe - Mastodon, like Twitter on the Fediverse. Check out the [Docker Swarm recipe][mastodon]!
+New recipe - Mastodon, like Twitter on the Fediverse. Check out the [Kubernetes recipe][k8s/mastodon]!
 
 <!-- more -->
 

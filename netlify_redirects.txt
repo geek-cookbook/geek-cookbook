@@ -23,10 +23,13 @@ https://geeks-cookbook.funkypenguin.co.nz/* https://geek-cookbook.funkypenguin.c
 /recent-changes/    /blog/category/changelog/ 301!
 /reviews/           /blog/category/reviews/   301!
 
-# Use a better convention for RSS feed (could add more if necessary)
-/rss/ /feed_rss_created.xml
 
-# Old backlinks which we need to redirect to working URLs
+# Use a better convention for RSS feed (could add more if necessary)
+/rss/ /rss/
+
+# Old URLs which we need to redirect to working URLs
 /kubernetes/start/          /kubernetes/ 301!
 /kubernetes/diycluster/     /kubernetes/cluster/ 301!
 /recipes/autopirate/mylarr/ /recipes/autopirate/mylar/ 301!
+/review/immich              /blog/2022/11/10/review-immich-1.19.1/ 301!
+/review/mastodon            /blog/2022/11/10/review-mastodon-3.5.3/

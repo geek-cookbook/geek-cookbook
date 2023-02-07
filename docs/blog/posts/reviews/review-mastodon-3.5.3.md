@@ -7,6 +7,7 @@ tags:
 links:
   - Mastodon Kubernetes recipe: recipes/kubernetes/mastodon.md
   - Mastodon Docker Swarm recipe: recipes/mastodon.md
+title: Review / Mastodon v3.5.3 - Open, Federated microblogging platform
 description: Mastodon is like a self-hosted Twitter on the Fediverse. Here's a review!
 image: /images/mastodon.png
 upstream_version: v3.5.3

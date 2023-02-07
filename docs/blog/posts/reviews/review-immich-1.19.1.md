@@ -5,11 +5,9 @@ categories:
 tags:
   - immich
 description: Immich is a promising self-hosted alternative to Google Photos. Here's a review!
-title: Review / Immich - a self-hosted Google Photos alternative
-description: Immich is a polished and functional replacement for Google Photos
+title: Review / Immich v1.19.1 - a self-hosted Google Photos alternative
 upstream_version: v1.19.1
 upstream_repo: https://github.com/immich-app/immich
-review_latest_change: Initial review!
 image: /images/immich.jpg
 links:
   - Immich Docker Swarm recipe: recipes/immich.md

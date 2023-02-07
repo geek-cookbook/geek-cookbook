@@ -4,6 +4,8 @@ categories:
   - note
 tags:
   - renovate
+title: How to consolidating multiple manager changes in Renovate PRs
+description: Here's how to configure Renovate to only create 1 PR per-file, even if multiple changes are required
 ---
 
 # Consolidating multiple manager changes in Renovate PRs
