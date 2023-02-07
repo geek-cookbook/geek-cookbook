@@ -180,7 +180,7 @@ Once you redeploy traefik-forward-auth with the above, it **should** use dex as 
 
 ### Test
 
-Browse to <https://whoami.example.com> (*obviously, customized for your domain and having created a DNS record*), and all going according to plan, you'll be redirected to a CoreOS Dex login. Once successfully logged in, you'll be directed to the basic whoami page :thumbsup:
+Browse to `https://whoami.example.com` (*obviously, customized for your domain and having created a DNS record*), and all going according to plan, you'll be redirected to a CoreOS Dex login. Once successfully logged in, you'll be directed to the basic whoami page :thumbsup:
 
 ### Protect services
 

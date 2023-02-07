@@ -12,7 +12,7 @@ I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/rev
 * Use the Bookmarklet to subscribe to a website directly from any browsers
 
 !!! abstract "2.0+ is a bit different"
-    [Some things changed](https://docs.miniflux.net/en/latest/migration.html) when Miniflux 2.0 was released. For one thing, the only supported database is now postgresql (_no more SQLite_). External themes are gone, as is PHP (_in favor of golang_). It's been a controversial change, but I'm keen on minimal and single-purpose, so I'm still very happy with the direction of development. The developer has laid out his [opinions](https://docs.miniflux.net/en/latest/opinionated.html) re the decisions he's made in the course of development.
+    [Some things changed](https://miniflux.app/docs/migration.html) when Miniflux 2.0 was released. For one thing, the only supported database is now postgresql (_no more SQLite_). External themes are gone, as is PHP (_in favor of golang_). It's been a controversial change, but I'm keen on minimal and single-purpose, so I'm still very happy with the direction of development. The developer has laid out his [opinions](https://miniflux.app/docs/opionated.html) re the decisions he's made in the course of development.
 
 ## Ingredients
 
@@ -305,7 +305,7 @@ app       miniflux.funkypenguin.co.nz             80        55d
 
 ### Access Miniflux
 
-At this point, you should be able to access your instance on your chosen DNS name (*i.e. <https://miniflux.example.com>*)
+At this point, you should be able to access your instance on your chosen DNS name (*i.e. `https://miniflux.example.com`)
 
 ### Troubleshooting
 

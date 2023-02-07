@@ -26,3 +26,6 @@
 
 # We need inline HTML to embed YouTube videos
 "MD033": false
+
+# Allow the use of links based on our common-links snippets
+"MD052": false

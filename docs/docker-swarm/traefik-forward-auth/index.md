@@ -20,7 +20,7 @@ This is the role of Traefik Forward Auth.
 
 **Normally**, Traefik proxies web requests directly to individual web apps running in containers. The user talks directly to the webapp, and the webapp is responsible for ensuring appropriate authentication.
 
-When employing Traefik Forward Auth as "[middleware](https://doc.traefik.io/traefik/middlewares/forwardauth/)", the forward-auth process sits in the middle of this transaction - traefik receives the incoming request, "checks in" with the auth server to determine whether or not further authentication is required. If the user is authenticated, the auth server returns a 200 response code, and Traefik is authorized to forward the request to the backend. If not, traefik passes the auth server response back to the user - this process will usually direct the user to an authentication provider (*[Google][tfa-google], [Keycloak][tfa-keycloak], and [Dex][tfa-dex-static] are common examples*), so that they can perform a login.
+When employing Traefik Forward Auth as "[middleware](https://doc.traefik.io/traefik/middlewares/http/forwardauth/)", the forward-auth process sits in the middle of this transaction - traefik receives the incoming request, "checks in" with the auth server to determine whether or not further authentication is required. If the user is authenticated, the auth server returns a 200 response code, and Traefik is authorized to forward the request to the backend. If not, traefik passes the auth server response back to the user - this process will usually direct the user to an authentication provider (*[Google][tfa-google], [Keycloak][tfa-keycloak], and [Dex][tfa-dex-static] are common examples*), so that they can perform a login.
 
 Illustrated below:
 ![Traefik Forward Auth](/images/traefik-forward-auth.png){ loading=lazy }
@@ -35,9 +35,9 @@ Under normal Oauth2 / OIDC auth, you have to tell your auth provider which URLs 
 
 ### How does it work?
 
-Say for example, you're protecting **radarr.example.com**. When you first browse to **<https://radarr.example.com>**, Traefik forwards your session to traefik-forward-auth, to be authenticated. Traefik-forward-auth redirects you to your OIDC provider's login, but instructs the OIDC provider to redirect a successfully authenticated session **back** to **<https://auth.example.com/_oauth>**, rather than to **<https://radarr.example.com/_oauth>**.
+Say for example, you're protecting **radarr.example.com**. When you first browse to `https://radarr.example.com`, Traefik forwards your session to traefik-forward-auth, to be authenticated. Traefik-forward-auth redirects you to your OIDC provider's login, but instructs the OIDC provider to redirect a successfully authenticated session **back** to `https://auth.example.com/_oauth`, rather than to `https://radarr.example.com/_oauth`.
 
-When you successfully authenticate against the OIDC provider, you are redirected to the "_redirect_uri_" of <https://auth.example.com>. Again, your request hits Traefik, which forwards the session to traefik-forward-auth, which **knows** that you've just been authenticated (*cookies have a role to play here*). Traefik-forward-auth also knows the URL of your **original** request (*thanks to the X-Forwarded-Host header*). Traefik-forward-auth redirects you to your original destination, and everybody is happy.
+When you successfully authenticate against the OIDC provider, you are redirected to the "_redirect_uri_" of `https://auth.example.com`. Again, your request hits Traefik, which forwards the session to traefik-forward-auth, which **knows** that you've just been authenticated (*cookies have a role to play here*). Traefik-forward-auth also knows the URL of your **original** request (*thanks to the X-Forwarded-Host header*). Traefik-forward-auth redirects you to your original destination, and everybody is happy.
 
 This clever workaround only works under 2 conditions:
 

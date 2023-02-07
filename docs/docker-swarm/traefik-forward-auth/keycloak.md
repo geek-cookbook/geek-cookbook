@@ -71,7 +71,7 @@ Redeploy traefik with `docker stack deploy traefik-app -c /var/data/traefik/trae
 
 ### Test
 
-Browse to <https://whoami.example.com> (_obviously, customized for your domain and having created a DNS record_), and all going according to plan, you'll be redirected to a Keycloak login. Once successfully logged in, you'll be directed to the basic whoami page.
+Browse to `https://whoami.example.com` (_obviously, customized for your domain and having created a DNS record_), and all going according to plan, you'll be redirected to a Keycloak login. Once successfully logged in, you'll be directed to the basic whoami page.
 
 ### Protect services
 

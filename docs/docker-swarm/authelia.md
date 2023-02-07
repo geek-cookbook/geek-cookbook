@@ -18,7 +18,7 @@ Features include
 * Lockout users after too many failed login attempts
 * Highly Customizable Access Control using rules to match criteria such as subdomain, username, groups the user is in, and Network
 * Authelia [Community](https://discord.authelia.com/) Support
-* Full list of features can be viewed [here](https://www.authelia.com/docs/features/)
+* Full list of features can be viewed [here](https://www.authelia.com/)
 
 ## Authelia requirements
 
@@ -42,7 +42,7 @@ mkdir /var/data/config/authelia
 
 ### Create Authelia config file
 
-Authelia configurations are defined in `/var/data/config/authelia/configuration.yml`. Some are required and some are optional. The following is a variation of the default example config file. Optional configuration settings can be viewed on in [Authelia's documentation](https://www.authelia.com/docs/configuration/)
+Authelia configurations are defined in `/var/data/config/authelia/configuration.yml`. Some are required and some are optional. The following is a variation of the default example config file. Optional configuration settings can be viewed on in [Authelia's documentation](https://www.authelia.com/configuration/prologue/introduction/)
 
 !!! warning
     Your variables may vary significantly from what's illustrated below, and it's best to read up and understand exactly what each option does.

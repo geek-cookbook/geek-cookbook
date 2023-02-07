@@ -40,12 +40,12 @@ plugins:
   autolinks:
   macros:
     verbose: true
-  # htmlproofer:
-    # raise_error: True
-    # raise_error_excludes:
-    #   504: ['https://www.mkdocs.org/']
-    #   404: ['https://github.com/manuzhang/mkdocs-htmlproofer-plugin']
-    #   400: ['*']
+  htmlproofer:
+    raise_error: false
+    raise_error_excludes:
+      504: ['https://www.mkdocs.org/']
+      404: ['https://github.com/manuzhang/mkdocs-htmlproofer-plugin']
+      400: ['*']
   # git-committers: # This seems to create double-ups
   #     repository: geek-cookbook/geek-cookbook
   #     token: !ENV GH_TOKEN

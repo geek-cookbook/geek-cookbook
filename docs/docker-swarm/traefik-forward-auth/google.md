@@ -18,7 +18,7 @@ This recipe will illustrate how to point Traefik Forward Auth to Google, confirm
 
 Log into <https://console.developers.google.com/>, create a new project then search for and select "**Credentials**" in the search bar.
 
- Fill out the "OAuth Consent Screen" tab, and then click, "**Create Credentials**" > "**OAuth client ID**". Select "**Web Application**", fill in the name of your app, skip "**Authorized JavaScript origins**" and fill "**Authorized redirect URIs**" with either all the domains you will allow authentication from, appended with the url-path (*e.g. <https://radarr.example.com/_oauth>, <https://radarr.example.com/_oauth>, etc*), or if you don't like frustration, use a "auth host" URL instead, like "*<https://auth.example.com/_oauth>*" (*see below for details*)
+ Fill out the "OAuth Consent Screen" tab, and then click, "**Create Credentials**" > "**OAuth client ID**". Select "**Web Application**", fill in the name of your app, skip "**Authorized JavaScript origins**" and fill "**Authorized redirect URIs**" with either all the domains you will allow authentication from, appended with the url-path (*e.g. `https://radarr.example.com/_oauth`, `https://radarr.example.com/_oauth`, etc*), or if you don't like frustration, use a "auth host" URL instead, like "`https://auth.example.com/_oauth`" (*see below for details*)
 
 #### Monkey see, monkey do 🙈
 
@@ -38,8 +38,10 @@ SECRET=<a random string, make it up>
 # comment out AUTH_HOST if you'd rather use individual redirect_uris (slightly less complicated but more work)
 AUTH_HOST=auth.example.com
 COOKIE_DOMAINS=example.com
-WHITELIST=you@yourdomain.com, me@mydomain.com
+WHITELIST=you@yourdomain.com, me@mydomain.com # (1)!
 ```
+
+1. Whitelist should match your Google account email address(es) [^1]
 
 ### Prepare the docker service config
 
@@ -118,7 +120,7 @@ Deploy traefik-forward-auth with ```docker stack deploy traefik-forward-auth -c 
 
 ### Test
 
-Browse to <https://whoami.example.com> (*obviously, customized for your domain and having created a DNS record*), and all going according to plan, you should be redirected to a Google login. Once successfully logged in, you'll be directed to the basic whoami page.
+Browse to `https://whoami.example.com` (*obviously, customized for your domain and having created a DNS record*), and all going according to plan, you should be redirected to a Google login. Once successfully logged in, you'll be directed to the basic whoami page.
 
 ## Summary
 

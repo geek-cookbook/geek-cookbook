@@ -79,7 +79,7 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
     I have no hesitation in recommending him for your project, and I'll certainly be calling on him again in the future.
 
-    -- John McDowall, Founder, [kiso.io](https://kiso.io)
+    -- John McDowall, Founder, kiso.io (*since defunct, not my fault!*)
 
 ## Who made this?
 
@@ -94,7 +94,7 @@ I want your [support](https://github.com/sponsors/funkypenguin), either in the [
 #### Get in touch 💬
 
 - Come and say hi to me and the friendly geeks in the [Discord](http://chat.funkypenguin.co.nz) chat or the [Discourse](https://forum.funkypenguin.co.nz/) forums - say hi, ask a question, or suggest a new recipe!
-- Toot me up, I'm [@funkypenguin](https://so.fnky.nz/@funkypengui)! 🐘
+- Toot me up, I'm [@funkypenguin](https://so.fnky.nz/@funkypenguin)! 🐘
 - [Contact me](https://www.funkypenguin.co.nz/contact/) by a variety of channels
 
 #### [Sponsor](https://github.com/sponsors/funkypenguin) me ❤️

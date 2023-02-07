@@ -9,7 +9,7 @@ So you've just watched a bunch of superhero movies, and you're suddenly inspired
 
 ![Kavita Screenshot](/images/kavita.png){ loading=lazy }
 
-[Kavita Reader](https://www.kavitareader.com) is a "*rocket fueled self-hosted digital library which supports a vast array of file formats*". Primarily used for cosuming Manga (*but quite capable of managing ebooks too*), Kavita's killer feature is an OPDS server for integration with other mobile apps such as [Chunky on iPad](http://chunkyreader.com/), and the ability to save your reading position across multiple devices.
+[Kavita Reader](https://www.kavitareader.com) is a "*rocket fueled self-hosted digital library which supports a vast array of file formats*". Primarily used for cosuming Manga (*but quite capable of managing ebooks too*), Kavita's killer feature is an OPDS server for integration with other mobile apps such as [Chunky on iPad](https://apps.apple.com/us/app/chunky-comic-reader/id663567628), and the ability to save your reading position across multiple devices.
 
 There's a [public demo available](https://www.kavitareader.com/#demo) too!
 

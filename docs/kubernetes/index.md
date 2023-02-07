@@ -17,7 +17,7 @@ Sorry to say, but from where I sit, there's no innovation or development happeni
 
 Yes, I know, after Docker Inc [sold its platform business to Mirantis in Nov 2019](https://www.mirantis.com/blog/mirantis-acquires-docker-enterprise-platform-business/), in Feb 2020 Mirantis [back-tracked](https://www.mirantis.com/blog/mirantis-will-continue-to-support-and-develop-docker-swarm/) on their original plan to sunset swarm after 2 years, and stated that they'd continue to invest in swarm. But seriously, look around. Nobody is interested in swarm right now...
 
-... Not even Mirantis! As of Nov 2021, the Mirantis blog tag "[kubernetes](https://www.mirantis.com/tag/kubernetes/)" had 8 posts within the past month. The tag "[docker](https://www.mirantis.com/tag/docker/)" has 8 posts in the past **2 years**, the 8th being the original announcement of the Docker aquisition. The tag "[docker swarm](https://www.mirantis.com/tag/docker-swarm/)" has only 2 posts, **ever**.
+... Not even Mirantis! As of Nov 2021, the Mirantis blog tag "[kubernetes](https://www.mirantis.com/blog/tag/kubernetes/)" had 8 posts within the past month. The tag "[docker](https://www.mirantis.com/blog/tag/docker/)" has 8 posts in the past **2 years**, the 8th being the original announcement of the Docker aquisition. The tag "[docker swarm](https://www.mirantis.com/blog/tag/docker-swarm/)" has only 2 posts, **ever**.
 
 Dead. [Extinct. Like the doodoo](https://youtu.be/NxnZC9L_YXE?t=47).
 

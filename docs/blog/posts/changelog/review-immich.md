@@ -10,7 +10,7 @@ links:
 
 # New Review: Immich
 
-New recipe - Pixelfed, like Instagram on the Fediverse. Check it out [here](/docs/recipes/pixelfed.md)
+New recipe - Pixelfed, like Instagram on the Fediverse. Check it out [here](/docs/recipes/pixelfed/)
 
 <!-- more -->
 

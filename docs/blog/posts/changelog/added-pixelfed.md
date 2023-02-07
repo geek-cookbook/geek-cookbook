@@ -10,7 +10,7 @@ links:
 
 # New Recipe: Pixelfed - Federated image sharing. Think "looks like instagram, works like Mastodon"
 
-New recipe - Pixelfed, like Instagram on the Fediverse. Check it out [here](/docs/recipes/pixelfed.md)
+New recipe - Pixelfed, like Instagram on the Fediverse. Check it out [here](/docs/recipes/pixelfed/)
 
 <!-- more -->
 

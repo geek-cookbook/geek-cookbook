@@ -59,8 +59,8 @@ The process is basically:
 1. [Fork the repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
 2. Clone your forked repo locally
 3. Make a new branch for your recipe (*not strictly necessary, but it helps to differentiate multiple in-flight recipes*)
-4. Create your new recipe as a markdown file within the existing structure of the [manuscript folder](https://github.com/geek-cookbook/geek-cookbook/tree/master/manuscript)
-5. Add your recipe to the navigation by editing [mkdocs.yml](https://github.com/geek-cookbook/geek-cookbook/blob/master/mkdocs.yml#L32)
+4. Create your new recipe as a markdown file within the existing structure of the [docs folder](https://github.com/geek-cookbook/geek-cookbook/tree/main/docs)
+5. Add your recipe to the navigation by editing [mkdocs.yml](https://github.com/geek-cookbook/geek-cookbook/blob/main/mkdocs.yml#L32)
 6. Test locally by running `./scripts/serve.sh` in the repo folder (*this launches a preview in Docker*), and navigating to <http://localhost:8123>
 7. Rinse and repeat until you're ready to submit a PR
 8. Create a pull request via the GitHub UI

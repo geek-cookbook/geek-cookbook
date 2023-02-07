@@ -152,7 +152,7 @@ k3s will have saved your kubeconfig file on the masters to `/etc/rancher/k3s/k3s
 
 Cuddle your beautiful new cluster by running `kubectl cluster-info` [^1] - if that doesn't work, check your k3s logs[^2].
 
-[^1]: Do you live in the CLI? Install the kubectl autocompletion for [bash](https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-linux/) or [zsh](https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-zsh/) to make your life much easier!
+[^1]: Do you live in the CLI? Install the kubectl autocompletion for [bash or zsh](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) to make your life much easier!
 [^2]: Looking for your k3s logs? Under Ubuntu LTS, run `journalctl -u k3s` to show your logs
 [^3]: k3s is not the only "lightweight kubernetes" game in town. Minikube (*virtualization-based*) and mikrok8s (*possibly better for Ubuntu users since it's installed in a "snap" - haha*) are also popular options. One day I'll write a "mikrok8s vs k3s" review, but it doesn't really matter for our cluster operations - as I understand it, microk8s makes HA clustering slightly easire than k3s, but you get slightly less "out-of-the-box" in return, so mikrok8s may be more suitable for experience users / production edge deployments.
 

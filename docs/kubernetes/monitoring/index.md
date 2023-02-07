@@ -305,7 +305,7 @@ app       miniflux.funkypenguin.co.nz             80        55d
 
 ### Access Miniflux
 
-At this point, you should be able to access your instance on your chosen DNS name (*i.e. <https://miniflux.example.com>*)
+At this point, you should be able to access your instance on your chosen DNS name (*i.e. `https://miniflux.example.com`)
 
 ### Troubleshooting
 
