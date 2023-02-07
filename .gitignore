@@ -1,12 +1,6 @@
 # Don't include built site
 site/
 
-# Don't include staging area for publishing
-publish/
-
-# Don't include random notes
-notes/
-
  Compiled source #
 ###################
 *.com
