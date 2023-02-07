@@ -48,7 +48,7 @@ plugins:
   macros:
     verbose: true
   htmlproofer:
-    enabled: !ENV [PROD_BUILD, true]
+    # enabled: !ENV [PROD_BUILD, true]
     raise_error: false
     raise_error_excludes:
       504: ['https://www.mkdocs.org/']
@@ -94,7 +94,7 @@ plugins:
     verbose: false
     enabled_if_env: ENABLE_PDF_EXPORT
   optimize:
-    enabled: !ENV [PROD_BUILD, true]
+    # enabled: !ENV [PROD_BUILD, true]
   # privacy:
 
 #theme_dir: mkdocs-material
