@@ -38,7 +38,6 @@ plugins:
       utm_campaign: "feed-syndication"
           
   extra-sass:
-  # privacy:
   search:
   minify:
     minify_html: true
@@ -84,9 +83,9 @@ plugins:
     show_anchors: true
     verbose: false
     enabled_if_env: ENABLE_PDF_EXPORT
+  privacy:
   optimize:
     enabled: !ENV [PROD_BUILD, true]
-  # privacy: # seems to break remote images. grr.
 
 #theme_dir: mkdocs-material
 nav:
