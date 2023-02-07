@@ -1,5 +1,4 @@
 ---
-draft: true
 date: 2023-02-07
 categories:
   - note
