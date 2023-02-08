@@ -6,6 +6,7 @@ tags:
   - kubernetes
   - velero
 title: How to use Velero in hardened Kubernetes cluster
+description: Here are some workarounds to common issues encountered when deploying Velero in a production / hardened Kubernetes cluster
 ---
 
 # Using Velero in hardened Kubernetes with Istio

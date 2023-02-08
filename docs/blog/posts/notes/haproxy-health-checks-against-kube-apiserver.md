@@ -11,7 +11,9 @@ description: It's not enough to do a TCP probe. Here's how to use the /healthz e
 
 # HAProxy health checks against kube-apiserver
 
-There are plenty of tutorials out there about how to run a highly-available kubernetes api-server behind haproxy. Without exception however, these tutorials configure haproxy to "check" the health of the backends with a simple TCP connection.
+There are plenty of tutorials out there about how to run a highly-available kubernetes api-server behind haproxy. Without exception however, these tutorials configure haproxy to "check" the health of the backends with a simple TCP connection. These can produce a false sense of security though...
+
+<!-- more -->
 
 ## Why is this a problem?
 
