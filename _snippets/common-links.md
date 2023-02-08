@@ -17,6 +17,7 @@
 [duplicity]:            /recipes/autopirate/duplicity/
 [emby]:                 /recipes/emby/
 [ghost]:                /recipes/ghost/
+[flux]:                 /kubernetes/deployment/flux/
 [funkwhale]:            /recipes/autopirate/funkwhale/
 [github_sponsor]:       https://github.com/sponsors/funkypenguin
 [headphones]:           /recipes/autopirate/headphones/

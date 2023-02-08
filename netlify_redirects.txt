@@ -25,7 +25,7 @@ https://geeks-cookbook.funkypenguin.co.nz/* https://geek-cookbook.funkypenguin.c
 
 
 # Use a better convention for RSS feed (could add more if necessary)
-/rss/ /rss/
+/rss/ /feed_rss_created.xml
 
 # Old URLs which we need to redirect to working URLs
 /kubernetes/start/          /kubernetes/ 301!

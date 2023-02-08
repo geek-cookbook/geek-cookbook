@@ -24,7 +24,7 @@ In this particular case, the following apply:
 
 ## How does Velero work?
 
-Velero runs within a cluster, listening for custom resources defining backups, restores, destinations, schedules, etc. Based on a combination of all of these, Velero scrapes the kubernetes API, works out what to backup, and does so, according to a schedule.
+Velero backup runs within a cluster, listening for custom resources defining backups, restores, destinations, schedules, etc. Based on a combination of all of these, Velero scrapes the kubernetes API, works out what to backup, and does so, according to a schedule. Typically you'd deploy the velero helm chart into your repository either manually, or using a GitOps-like tool, such as [FluxCD][flux] or ArgoCD.
 
 ## Velero backup hooks
 
