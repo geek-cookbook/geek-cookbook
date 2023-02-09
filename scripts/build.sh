@@ -4,6 +4,8 @@
 # Fetch git history so that we get last-updated timestamps
 # git fetch --unshallow
 
+set -e # abort on fail
+
 # Run python build script to check for errors
 # python3 scripts/build.py mkdocs.yml
 

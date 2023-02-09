@@ -1,9 +1,31 @@
 # This file exists for production builds where we use the mkdocs-material-insiders code, with exclusive features
 # that don't degrade for the open-source version
 INHERIT: mkdocs.yml
-# disabled for now, since I'm not convinced social cards are better than default thumbnails
 plugins:
+  meta:
+  blog:
+    # post_excerpt: required
+    post_url_format: "{date}/{file}" # this allows us to change the post title in future without breaking URLs
+  tags:
+    tags_file: blog/tags.md
+  rss:
+    enabled: !ENV [PROD_BUILD, true]
+    match_path: blog/posts/.*
+    date_from_meta:
+      as_creation: date
+    categories:
+      - categories
+      - tags
+    abstract_chars_count: 200
+    image: https://geek-cookbook.funkypenguin.co.nz/images/site-logo.png
+    url_parameters:
+      utm_source: "geek-cookbook-blog"
+      utm_medium: "RSS"
+      utm_campaign: "feed-syndication"          
   social:
     cards_color:
       fill: "#FFFFFF" 
       text: "#000000"  
+  privacy:
+  optimize:
+    enabled: true

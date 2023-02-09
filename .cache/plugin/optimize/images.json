@@ -151,5 +151,6 @@
   "images/blog/haproxy_backends.png": "eded975e1c08c346bad7d4b8177c267a121a503f",
   "images/blog/haproxy_health_checks.png": "db00b7adafb53286e7083242638155298327c0b3",
   "images/blog/haproxy_stats-1.png": "3a36d2429c752b8d4612655473820c5bb2146d3f",
-  "images/blog/mastodon_cloudflare_transform_rules.png": "b2552805791734279de05452f4b0f39088a67146"
+  "images/blog/mastodon_cloudflare_transform_rules.png": "b2552805791734279de05452f4b0f39088a67146",
+  "images/audiobookshelf.png": "d1232452659d655d85084662924ccead9b8143e5"
 }
