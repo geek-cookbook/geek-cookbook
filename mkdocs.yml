@@ -60,7 +60,7 @@ plugins:
     debug_html: false
     show_anchors: true
     verbose: false
-    enabled_if_env: ENABLE_PDF_EXPORT
+    enabled_if_env: ENABLE_PDF_EXPORTNOPE
 
 
 #theme_dir: mkdocs-material
