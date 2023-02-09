@@ -15,7 +15,6 @@ I'm approaching the end of the journey of applying Velero to a client's "hardene
 
 <!-- more -->
 
-
 ## What is a hardened Kubernetes cluster?
 
 In this particular case, the following apply:
