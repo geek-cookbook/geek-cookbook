@@ -130,6 +130,7 @@ nav:
           - Sonarr: recipes/autopirate/sonarr.md
           - End: recipes/autopirate/end.md
         - Archive Box: recipes/archivebox.md
+        - Audiobookshelf: recipes/audiobookshelf.md
         - Bitwarden: recipes/bitwarden.md
         - Bookstack: recipes/bookstack.md
         - Calibre-Web: recipes/calibre-web.md

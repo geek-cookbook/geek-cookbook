@@ -1,4 +1,5 @@
 [archivebox]:           /recipes/archivebox/
+[audiobookshelf]:       /recipes/audiobookshelf/
 [authelia]:             /docker-swarm/authelia/
 [autopirate]:           /recipes/autopirate/
 [bazarr]:               /recipes/autopirate/bazarr/
