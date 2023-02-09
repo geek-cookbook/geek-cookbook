@@ -113,7 +113,7 @@ Now hit the URL you created for Audiobookshelf, and you'll find yourself present
 
 ## Summary
 
-What have we achieved? We can now easily consume our audio books / podcasts via Audiobookshelf, securely over our Traefik-exposed service!
+What have we achieved? We can now easily consume our audio books / podcasts via Audiobookshelf, securely over our Traefik-exposed service! [^2]
 
 !!! summary "Summary"
     Created:
