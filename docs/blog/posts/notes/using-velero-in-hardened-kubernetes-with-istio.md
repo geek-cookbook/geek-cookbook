@@ -55,7 +55,7 @@ podAnnotations:
 2. This attaches the above volume at `/scratch`
 3. It's necessary to sleep for "a period" before attempting the restore, so that postegresql has time to start up and be ready to interact with the `pg_restore` command.
 
-[^1]: Details at https://github.com/bitnami/charts/tree/main/bitnami/postgresql
+[^1]: See the bitnami chart [here](https://github.com/bitnami/charts/tree/main/bitnami/postgresql)
 
 During the process of setting up the preHooks for various iterations of a postgresql instance, I discovered that Velero will not necessary check that carefully re whether the hooks returned successfully or not. It's best to completely simulate a restore/backup of your pods by execing into the pod, and running each hook command manually, ensuring that you get the expected result.
 

@@ -16,27 +16,6 @@ copyright: 'Copyright &copy; 2016 - 2023 David Young, Funky Penguin Limited'
 
 # Plugins
 plugins:
-  meta:
-  blog:
-    # post_excerpt: required
-    post_url_format: "{date}/{file}" # this allows us to change the post title in future without breaking URLs
-  tags:
-    tags_file: blog/tags.md
-  rss:
-    enabled: !ENV [PROD_BUILD, true]
-    match_path: blog/posts/.*
-    date_from_meta:
-      as_creation: date
-    categories:
-      - categories
-      - tags
-    abstract_chars_count: 200
-    image: https://geek-cookbook.funkypenguin.co.nz/images/site-logo.png
-    url_parameters:
-      utm_source: "geek-cookbook-blog"
-      utm_medium: "RSS"
-      utm_campaign: "feed-syndication"
-          
   extra-sass:
   search:
   minify:
@@ -77,15 +56,12 @@ plugins:
 #    two_columns_level: 3
     render_js: false
     # headless_chrome_path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
-
     output_path: funkypenguins-geek-cookbook.pdf
     debug_html: false
     show_anchors: true
     verbose: false
     enabled_if_env: ENABLE_PDF_EXPORT
-  privacy:
-  optimize:
-    enabled: true
+
 
 #theme_dir: mkdocs-material
 nav:
@@ -130,6 +106,7 @@ nav:
           - Sonarr: recipes/autopirate/sonarr.md
           - End: recipes/autopirate/end.md
         - Archive Box: recipes/archivebox.md
+        - Audiobookshelf: recipes/audiobookshelf.md
         - Bitwarden: recipes/bitwarden.md
         - Bookstack: recipes/bookstack.md
         - Calibre-Web: recipes/calibre-web.md
@@ -303,9 +280,6 @@ nav:
         - Design: premix/ansible/design.md
     - ✅ Reviews:
       - blog/category/review.md
-      - Immich: review/immich.md
-      - Mastodon: review/mastodon.md
-      - Nextcloud: review/nextcloud.md
     - 🪵 Blog:
       - Blog: blog/index.md
       - Tags: blog/tags.md
@@ -412,25 +386,6 @@ extra:
   #     cookbook even better. My analytics are public - here's <A HREF='https://plausible.io/geek-cookbook.funkypenguin.co.nz' target="_blank">all</A> I know about you! - David</p>
   #   cookies:
   #     custom: Plausible Analytics
-  analytics:
-    provider: plausible
-    data_domain: geek-cookbook.funkypenguin.co.nz
-    feedback:
-      title: Was this page helpful?
-      ratings:
-        - icon: material/emoticon-happy-outline
-          name: This page was helpful
-          data: 1
-          note: >-
-            Thanks for your feedback!
-        - icon: material/emoticon-sad-outline
-          name: This page could be improved
-          data: 0
-          note: >-
-            Thanks for your feedback!
-
-#            Help us improve this page by
-#            using our <a href="..." target=_blank>feedback form</a>.
 
 extra_css:
   - extras/css/icons.css
@@ -438,7 +393,6 @@ extra_css:
 extra_javascript:
   # - extras/javascript/plausible.js
   # - extras/javascript/widgetbot.js # uncommented for dev
-  # - extras/javascript/feedback.js
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - extras/javascript/tablesort.js
 
