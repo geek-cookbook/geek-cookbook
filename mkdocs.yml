@@ -280,9 +280,6 @@ nav:
         - Design: premix/ansible/design.md
     - ✅ Reviews:
       - blog/category/review.md
-      - Immich: review/immich.md
-      - Mastodon: review/mastodon.md
-      - Nextcloud: review/nextcloud.md
     - 🪵 Blog:
       - Blog: blog/index.md
       - Tags: blog/tags.md
@@ -389,25 +386,6 @@ extra:
   #     cookbook even better. My analytics are public - here's <A HREF='https://plausible.io/geek-cookbook.funkypenguin.co.nz' target="_blank">all</A> I know about you! - David</p>
   #   cookies:
   #     custom: Plausible Analytics
-  analytics:
-    provider: plausible
-    data_domain: geek-cookbook.funkypenguin.co.nz
-    feedback:
-      title: Was this page helpful?
-      ratings:
-        - icon: material/emoticon-happy-outline
-          name: This page was helpful
-          data: 1
-          note: >-
-            Thanks for your feedback!
-        - icon: material/emoticon-sad-outline
-          name: This page could be improved
-          data: 0
-          note: >-
-            Thanks for your feedback!
-
-#            Help us improve this page by
-#            using our <a href="..." target=_blank>feedback form</a>.
 
 extra_css:
   - extras/css/icons.css
@@ -415,7 +393,6 @@ extra_css:
 extra_javascript:
   # - extras/javascript/plausible.js
   # - extras/javascript/widgetbot.js # uncommented for dev
-  # - extras/javascript/feedback.js
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - extras/javascript/tablesort.js
 

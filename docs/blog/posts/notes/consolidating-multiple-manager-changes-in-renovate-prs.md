@@ -10,9 +10,9 @@ description: Here's how to configure Renovate to only create 1 PR per-file, even
 
 # Consolidating multiple manager changes in Renovate PRs
 
-I work on several large clusters, administered using [FluxCD](/kubernetes/deployment/flux/), which in which we carefully manage the update of Helm releases using Flux's `HelmRelease` CR. 
+I work on several large clusters, administered using [FluxCD](/kubernetes/deployment/flux/), which in which we carefully manage the update of Helm releases using Flux's `HelmRelease` CR.
 
-Recently, we've started using [Renovate](https://github.com/renovatebot/renovate) to alert us to pending upgrades, by creating PRs when a helm update _or_ an image update in the associated helm values.yaml is available (*I like to put the upstream chart's values in to the `HelmRelease` so that changes can be tracked in one place*)
+Recently, we've started using [Renovate](https://github.com/renovatebot/renovate) to alert us to pending upgrades, by creating PRs when a helm update *or* an image update in the associated helm values.yaml is available (*I like to put the upstream chart's values in to the `HelmRelease` so that changes can be tracked in one place*)
 
 The problem is, it's likely that the images in a chart's `values.yaml` **will** be updated when the chart is updated, but I don't need a separate PR for each image! (*imagine a helm chart with 10 image references!*)
 

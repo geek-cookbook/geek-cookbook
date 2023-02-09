@@ -1,5 +1,7 @@
 ---
 title: Docker Swarm Network allocations
+search:
+  exclude: true
 ---
 # Networks
 

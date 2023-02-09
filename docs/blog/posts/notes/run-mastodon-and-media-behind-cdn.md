@@ -10,9 +10,9 @@ description: Want to run your Mastodon instance behind Cloudflare, but put your 
 
 # Mastodon + CloudFlare + B2 Object Storage = free egress
 
-When setting up my [Mastodon instance](https://so.fnky.nz), I jumped directly to storing all media in object storage (*Backblaze B2, in my case*), because I didn't want to allocate / estimate local storage requirements. 
+When setting up my [Mastodon instance](https://so.fnky.nz), I jumped directly to storing all media in object storage (*Backblaze B2, in my case*), because I didn't want to allocate / estimate local storage requirements.
 
-This turned out to be a great decision, as my media bucket quickly grew to over 100GB, but as a result, all of my media was served behind URLs like `https://f007.backblaze.com/file/something/something-else/another-something.jpg`, and could _technically_ be scraped without using my Mastodon URL.
+This turned out to be a great decision, as my media bucket quickly grew to over 100GB, but as a result, all of my media was served behind URLs like `https://f007.backblaze.com/file/something/something-else/another-something.jpg`, and could *technically* be scraped without using my Mastodon URL.
 
 Here's how to improve this, and also serve your Mastodon instance from behind a CloudFlare proxy...
 
