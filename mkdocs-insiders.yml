@@ -9,7 +9,6 @@ plugins:
   tags:
     tags_file: blog/tags.md
   rss:
-    enabled: !ENV [PROD_BUILD, true]
     match_path: blog/posts/.*
     date_from_meta:
       as_creation: date
@@ -27,5 +26,8 @@ plugins:
       fill: "#FFFFFF" 
       text: "#000000"  
   privacy:
+    external_links_attr_map:
+      target: _blank 
+      rel: nofollow   
   optimize:
     enabled: true
