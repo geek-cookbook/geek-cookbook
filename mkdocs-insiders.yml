@@ -30,5 +30,4 @@ plugins:
       target: _blank 
       rel: nofollow   
   optimize:
-    enabled: true
-    concurrency: 1 # debug netlify failures
+    enabled: false # seems to break netlify builds :(
