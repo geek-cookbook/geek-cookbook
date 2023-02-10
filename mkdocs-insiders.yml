@@ -30,4 +30,4 @@ plugins:
       target: _blank 
       rel: nofollow   
   optimize:
-    enabled: true
+    enabled: false # seems to break netlify builds :(
