@@ -23,7 +23,7 @@ Here's how the process went:
 4. Image must be signed using [cosign](https://github.com/sigstore/cosign) on both the dev and prod infrastructure (*separate signing keys are used*). [Connaisseur](https://github.com/sse-secure-systems/connaisseur) prevents unsigned images from being run in any of our clusters[^2].
 5. Image is in the repo, now to deploy it... add a deployment template to our existing database helm chart. Deployment pipeline (*via [Concourse CI](https://concourse-ci.org/)*) fails while [kube-scor](https://github.com/zegl/kube-score)ing / [kube-conform](https://github.com/yannh/kubeconform)ing the generated manifests, because they're missing the appropriate probes and securityContexts
 6. Note that if we had been able to sneak a less-than-secure deployment past kube-score's static linting, then [Kyverno](https://kyverno.io/) would have prevented the pod from running!
-7. Fixed all the invalid / less-than-best-practice elements of the deployment. Ensure resource limits, HPAs, securityContexts are applied. 
+7. Fixed all the invalid / less-than-best-practice elements of the deployment. Ensure resource limits, HPAs, securityContexts are applied.
 8. Manifest deploys (*pipeline is green!*), pod immediately crashloops (*it's not very obtuse code!*)
 9. Examine Cilium's [Hubble](https://github.com/cilium/hubble), determine that the pod is trying to talk to FoundationDB (*duh*), and being blocked by default.
 10. Apply the appropriate labels to the deployment / pod to align with the pre-existing regime of [Cilium NetworkPolicies](https://docs.cilium.io/en/latest/security/policy/) permitting ingress/egress to services based on pod labels (*thanks [Monzo](https://monzo.com/blog/we-built-network-isolation-for-1-500-services)!*)

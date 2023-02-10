@@ -44,7 +44,7 @@ It's been a few years since I published a Docker Swarm recipe for Nextcloud, com
 
 TL;DR - It's still boring on the inside. But that's good. The outside though, is increasingly sexy and well-polished.
 
-In the process of running the latest recipe through its paces in CI, I noticed that the UX has come a long way. Under the hood, NextCloud is much the same, with some extra polish, and a few years more ecosystem maturity. Now apps like[ Nextcloud Talk](https://nextcloud.com/talk/) (which was beta at the the time) is de-facto, and the integration of 3rd-party apps is well-established.
+In the process of running the latest recipe through its paces in CI, I noticed that the UX has come a long way. Under the hood, NextCloud is much the same, with some extra polish, and a few years more ecosystem maturity. Now apps like [Nextcloud Talk](https://nextcloud.com/talk/) (which was beta at the the time) is de-facto, and the integration of 3rd-party apps is well-established.
 
 Nextcloud (*now called "Nextcloud Hub II" for some reason!*) no longer looks like a boring, corporate file collaboration suite. The default page is a "Dashboard", which can be extended with "Widgets" which integrate with the various apps (*of which there are over 100!*) which can be installed from their app store.
 
