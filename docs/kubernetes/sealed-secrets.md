@@ -588,7 +588,6 @@ Based on our [flux deployment strategy](/kubernetes/deployment/flux/), we simply
   --dry-run=client \
   --from-literal=location-of-rabbit=top-hat -o json \
   | kubeseal --cert pub-cert.pem \
-  | kubectl create -f - \
   > <path to repo>/metallb/sealedsecret-magic-password.yaml
 ```
 

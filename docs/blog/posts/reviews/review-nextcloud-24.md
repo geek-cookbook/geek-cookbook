@@ -54,7 +54,7 @@ Tell me this isn't sexy:
 
 And it's not just Nextcloud apps which can create widgets - you can hook up to external services, like this:
 
-![Nextcloud Screenshot](/images/blog/nextcloud_3.jpg)
+![Nextcloud Screenshot](/images/blog/nextcloud_2.jpg)
 
 Here's a quick demo video I made of the admin interface, in case, like me, you like evaluate your tools based on shiny screencasts:
 
