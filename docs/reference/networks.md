@@ -27,7 +27,7 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [Home Assistant](/recipes/homeassistant/)                                     | 172.16.14.0/24 |
 | [OwnTracks](/recipes/owntracks/)                                              | 172.16.15.0/24 |
 | [Plex](/recipes/plex/)                                                        | 172.16.16.0/24 |
-| [Pixelfed](/recipes/pixelfed/)                                                | 172.16.16.0/24 |
+| [Pixelfed](/recipes/pixelfed/)                                                | 172.16.17.0/24 |
 | [Calibre-Web](/recipes/calibre-web/)                                          | 172.16.18.0/24 |
 | [Wallabag](/recipes/wallabag/)                                                | 172.16.19.0/24 |
 | [InstaPy](/recipes/instapy/)                                                  | 172.16.20.0/24 |

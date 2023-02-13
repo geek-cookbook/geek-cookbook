@@ -5,7 +5,7 @@ categories:
 tags:
   - mastodon
 links:
-  - Mastodon Review: review/mastodon.md
+  - Mastodon Review: blog/posts/reviews/review-mastodon-3.5.3.md
   - Mastodon Kubernetes recipe: recipes/kubernetes/mastodon.md
   - Mastodon Docker Swarm recipe: recipes/mastodon.md
 description: New Kubernetes Recipe - Mastodon - Federated social network. Think "like twitter but also like email"
