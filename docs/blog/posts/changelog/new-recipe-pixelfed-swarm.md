@@ -9,7 +9,7 @@ description: Pixelfed is like a self-hosted Instagram on the Fediverse. Here's a
 
 # Added Pixelfed (swarm) Federated image sharing
 
-New recipe - Pixelfed, like Instagram on the Fediverse. Check it out [here](/docs/recipes/pixelfed/)
+New recipe - Pixelfed, like Instagram on the Fediverse. Check it out [here][pixelfed].
 
 <!-- more -->
 

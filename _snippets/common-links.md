@@ -55,7 +55,7 @@
 [prowlarr]:             /recipes/autopirate/prowlarr/
 [radarr]:               /recipes/autopirate/radarr/
 [readarr]:              /recipes/autopirate/readarr/
-[review/immich]:        /review/immich/
+[review/immich]:        /blog/2022/11/10/review-immich-1.19.1/
 [review/mastodon]:      /review/mastodon/
 [review/nextcloud]:     /review/nextcloud/
 [rss-bridge]:           /recipes/rss-bridge/
