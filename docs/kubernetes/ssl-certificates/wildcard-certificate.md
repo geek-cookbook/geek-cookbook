@@ -36,7 +36,6 @@ Thanks to [Sealed Secrets](/kubernetes/sealed-secrets/), we have a safe way of c
   --dry-run=client \
   --from-literal=api-token=gobbledegook -o json \
   | kubeseal --cert <path to public cert> \
-  | kubectl create -f - \
   > <path to repo>/cert-manager/sealedsecret-cloudflare-api-token-secret.yaml
 ```
 
