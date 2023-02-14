@@ -1,7 +1,6 @@
 ---
 title: Run Immich in Docker Swarm
 description: How to install your own immich instance using Docker Swarm
-status: new
 ---
 
 # Immich in Docker Swarm
