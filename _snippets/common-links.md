@@ -27,6 +27,7 @@
 [invidious]:            /recipes/invidious/
 [jackett]:              /recipes/autopirate/jackett/
 [jellyfin]:             /recipes/jellyfin/
+[k8s/invidious]:        /recipes/kubernetes/invidious/
 [k8s/mastodon]:         /recipes/kubernetes/mastodon/
 [metallb]:              /kubernetes/loadbalancer/metallb/
 [kavita]:               /recipes/kavita/

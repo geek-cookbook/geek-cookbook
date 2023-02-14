@@ -1,5 +1,5 @@
 ---
-title: Invidious, youy Youtube frontend instance in Docker Swarm
+title: Invidious, your Youtube frontend instance in Docker Swarm
 description: How to create your own private Youtube frontend using Invidious in Docker Swarm
 status: new
 ---
@@ -17,6 +17,10 @@ This is a PITA since it means I have to "self-censor" which links I'll even clic
 After playing around with [some of the available public instances](https://docs.invidious.io/instances/) for a while, today I finally deployed my own instance of [Invidious](https://invidious.io/) - an open source alternative front-end to YouTube.
 
 ![Invidious Screenshot](/images/invidious.png){ loading=lazy }
+
+Here's an example from my public instance:
+
+<iframe id='ivplayer' width='640' height='360' src='https://in.fnky.nz/embed/o-YBDTqX_ZU?t=3' style='border:none;'></iframe>
 
 ## Invidious requirements
 
@@ -153,6 +157,8 @@ docker stack deploy invidious -c /var/data/config/invidious/invidious.yml
 ```
 
 Now hit the URL you defined in your config, you'll see the basic search screen. Enter a search phrase (*"marvel movie trailer"*) to see the YouTube video results, or paste in a YouTube URL such as `https://www.youtube.com/watch?v=bxqLsrlakK8`, change the domain name from `www.youtube.com` to your instance's FQDN, and watch the fun [^2]!
+
+You can also install a range of browser add-ons to automatically redirect you from youtube.com to your Invidious instance. I'm testing "[libredirect](https://addons.mozilla.org/en-US/firefox/addon/libredirect/)" currently, which seems to work as advertised!
 
 ## Summary
 
