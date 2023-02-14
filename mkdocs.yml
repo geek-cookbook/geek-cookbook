@@ -124,6 +124,7 @@ nav:
         - Gollum: recipes/gollum.md
         - Immich: recipes/immich.md
         - InstaPy: recipes/instapy.md
+        - Invidious: recipes/invidious.md
         - Jellyfin: recipes/jellyfin.md
         - Keycloak:
           - recipes/keycloak/index.md

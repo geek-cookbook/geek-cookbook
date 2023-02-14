@@ -31,6 +31,7 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [Calibre-Web](/recipes/calibre-web/)                                          | 172.16.18.0/24 |
 | [Wallabag](/recipes/wallabag/)                                                | 172.16.19.0/24 |
 | [InstaPy](/recipes/instapy/)                                                  | 172.16.20.0/24 |
+| [Invidious](/recipes/invidious/)                                              | 172.16.21.0/24 |
 | [MiniFlux](/recipes/miniflux/)                                                | 172.16.22.0/24 |
 | [Gitlab Runner](/recipes/gitlab-runner/)                                      | 172.16.23.0/24 |
 | [Bookstack](/recipes/bookstack/)                                              | 172.16.33.0/24 |

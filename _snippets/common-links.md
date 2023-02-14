@@ -24,6 +24,7 @@
 [headphones]:           /recipes/autopirate/headphones/
 [homeassistant]:        /recipes/homeassistant/
 [immich]:               /recipes/immich/
+[invidious]:            /recipes/invidious/
 [jackett]:              /recipes/autopirate/jackett/
 [jellyfin]:             /recipes/jellyfin/
 [k8s/mastodon]:         /recipes/kubernetes/mastodon/
