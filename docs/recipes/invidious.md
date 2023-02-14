@@ -158,6 +158,8 @@ docker stack deploy invidious -c /var/data/config/invidious/invidious.yml
 
 Now hit the URL you defined in your config, you'll see the basic search screen. Enter a search phrase (*"marvel movie trailer"*) to see the YouTube video results, or paste in a YouTube URL such as `https://www.youtube.com/watch?v=bxqLsrlakK8`, change the domain name from `www.youtube.com` to your instance's FQDN, and watch the fun [^2]!
 
+You can also install a range of browser add-ons to automatically redirect you from youtube.com to your Invidious instance. I'm testing "[libredirect](https://addons.mozilla.org/en-US/firefox/addon/libredirect/)" currently, which seems to work as advertised!
+
 ## Summary
 
 What have we achieved? We have an HTTPS-protected private YouTube frontend - we can now watch whatever videos we please, without feeding Google's profile on us. We can also subscribe to channels without requiring a Google account, and we can share individual videos directly via our instance (*by generating links*).

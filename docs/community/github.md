@@ -2,7 +2,6 @@
 title: Engage with the Geek Cookbook in GitHub
 description: How to use GitHub to interact with the Geek Cookbook community
 icon: fontawesome/brands/github
-status: new
 ---
 
 # How to geek on GitHub

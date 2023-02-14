@@ -1,7 +1,6 @@
 ---
 title: How I run Pixelfed in Docker Swarm
 description: How to install your own Pixelfed instance using Docker Swarm
-status: new
 ---
 
 # Pixelfed in Docker Swarm

@@ -5,8 +5,9 @@ categories:
 tags:
   - invidious
 links:
-  - Invidious recipe: recipes/invidious.md
-description: New Recipe Added - Invidious - self-hosted audiobook / podcast server with native mobile apps
+  - Invidious on Docker: recipes/invidious.md
+  - Invidious on Kubernetes: recipes/kubernetes/invidious.md
+description: New Recipe Added - Invidious - Private YouTube frontend, running on Docker Swarm
 title: Added recipe for Invidious on Docker Swarm
 image: /images/invidious.png
 ---
@@ -19,8 +20,6 @@ Are you tired of second-guessing the YouTube links your friends send you, afraid
 
 ![Screenshot of application]({{ page.meta.image }}){ loading=lazy }
 
-[Invidious](https://invidious.io/) is an open source alternative front-end to YouTube.
-
-See the [recipe][invidious] for more!
+Invidious is an open source alternative front-end to YouTube. See the [recipe][invidious] for more!
 
 --8<-- "common-links.md"
