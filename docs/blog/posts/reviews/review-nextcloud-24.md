@@ -4,7 +4,7 @@ categories:
   - Review
 tags:
   - nextcloud
-description: My review of NextCloud 24
+description: An opinionated geek's review of NextCloud 24, how to make 'reliable' sexy!
 title: Review / Nextcloud v24 - Sexy on the outside, boring on the inside
 upstream_version: v24
 image: /images/nextcloud.jpg

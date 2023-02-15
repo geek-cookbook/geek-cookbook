@@ -1,6 +1,6 @@
 ---
 title: Funky Penguin's Geeky Communities
-description: Engage with your fellow geeks, wherever they may be!
+description: Join Funky Penguin and your fellow geeks, wherever they be in, including Discord, Reddit, Mastodon, GitHub, and more...
 ---
 
 # Geek Community

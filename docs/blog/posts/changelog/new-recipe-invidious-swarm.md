@@ -7,8 +7,8 @@ tags:
 links:
   - Invidious on Docker: recipes/invidious.md
   - Invidious on Kubernetes: recipes/kubernetes/invidious.md
-description: New Recipe Added - Invidious - Private YouTube frontend, running on Docker Swarm
-title: Added recipe for Invidious on Docker Swarm
+description: New Recipe Added - Invidious - Private YouTube frontend (won't track you or recommend embarassing videos to your mum!), running on Docker Swarm
+title: Added / Invidious on Docker Swarm
 image: /images/invidious.png
 ---
 
