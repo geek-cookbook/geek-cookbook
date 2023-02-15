@@ -1,11 +1,11 @@
 ---
 title: Join our geeky, Docker/Kubernetes-flavored Mastdon instance
-description: Looking for your geeky niche in the "fediverse"? Join our Mastodon instance!
+description: Looking for your geeky niche in the "fediverse"? Join our Mastodon instance, focussed on self-hosting, technical news, supporting full-text search!
 icon: fontawesome/brands/mastodon
 status: new
 ---
 
-# Join geeky / selfhosted Mastodon
+# Join our geeky / selfhosted Mastodon instance
 
 Mastondon is a self-hosted / open-source microblogging platform (*heavily inspired by Twitter*), which supports federation, rather than centralization. Like email, any user on any Mastodon instance can follow, "toot" (*not tweet!*), and reply to any user on any *other* instance.
 

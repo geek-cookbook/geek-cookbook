@@ -6,7 +6,7 @@ tags:
   - kavita
 links:
   - Kavita recipe: recipes/kavita.md
-description: New Recipe Added - Kavita - "Rocket-fueled" reader for manga/comics/ebooks, able to save reading position across devices/sessions
+description: New recipe added for Kavita (docker swarm) - Rocket-fueled reader for manga/comics/ebooks, able to save reading position across devices/sessions
 title: Added recipe for Kavita on Docker Swarm
 image: /images/kavita.png
 ---

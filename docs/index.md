@@ -87,17 +87,17 @@ So if you're familiar enough with the concepts above, and you've done self-hosti
 
 I’ve spent 20+ years working with technology. I’m a solution architect, with a broad range of experience and skills. I'm a full-time [AWS Certified Solution Architect (Professional)][cert_aws], a [CNCF-Certified Kubernetes Administrator][cert_cka], [Application Developer][cert_ckad] and [Security Specialist][cert_cks].
 
-### What do you want from me?
+## What do you want from me?
 
 I want your [support](https://github.com/sponsors/funkypenguin), either in the [financial](https://github.com/sponsors/funkypenguin) sense, or as a member of our [friendly geek community](http://chat.funkypenguin.co.nz) (*or both!*)
 
-#### Get in touch 💬
+### Get in touch 💬
 
 - Come and say hi to me and the friendly geeks in the [Discord](http://chat.funkypenguin.co.nz) chat or the [Discourse](https://forum.funkypenguin.co.nz/) forums - say hi, ask a question, or suggest a new recipe!
 - Toot me up, I'm [@funkypenguin](https://so.fnky.nz/@funkypenguin)! 🐘
 - [Contact me](https://www.funkypenguin.co.nz/contact/) by a variety of channels
 
-#### [Sponsor](https://github.com/sponsors/funkypenguin) me ❤️
+### [Sponsor](https://github.com/sponsors/funkypenguin) me ❤️
 
 The best way to support this work is to become a [GitHub Sponsor](https://github.com/sponsors/funkypenguin) / [Patreon patron](https://www.patreon.com/bePatron?u=6982506). You get:
 
@@ -110,15 +110,15 @@ The best way to support this work is to become a [GitHub Sponsor](https://github
 
 Impulsively **[click here (NOW quick do it!)](https://github.com/sponsors/funkypenguin)** to [sponsor me](https://github.com/sponsors/funkypenguin) via GitHub, or [patronize me via Patreon](https://www.patreon.com/bePatron?u=6982506)!
 
-#### Work with me 🤝
+### Work with me 🤝
 
 Need some Cloud / Microservices / DevOps / Infrastructure design work done? This stuff is my bread and butter! :bread: :fork_and_knife: [Get in touch][contact], and let's talk!
 
-#### Buy me a coffee ☕️
+### Buy me a coffee ☕️
 
 A sponsorship is too much commitment, and a book is TL;DR? Hit me up with a [one-time caffine shot](https://www.buymeacoffee.com/funkypenguin)!
 
-### Sponsored Projects
+### Projects I sponsor
 
 I'm supported and motivated by [GitHub Sponsors](https://github.com/sponsors/funkypenguin) and [Patreon patrons](https://www.patreon.com/funkypenguin) who have generously sponsored me.
 

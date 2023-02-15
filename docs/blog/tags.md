@@ -1,4 +1,5 @@
 ---
+title: Funky Penguin's Geeky Blog Tags
 search:
   exclude: true
 ---
