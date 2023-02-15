@@ -50,4 +50,3 @@ kubeadm doesn't seem to be able to detect that the image above is at `v1.8.6`, a
 The error can't be worked-around by ignoring a pre-flight test, since this particular failure happens "post-flight", and causes the entire install process to fail. The only viable solution currently (*I'll report this upstream, but it may end up being a "this-is-by-design" issue*), is to explicitly prevent connaisseur from meddling with pods in the `kube-system` namespace, by labelling the namespace with `securesystemsengineering.connaisseur/webhook=ignore`.
 
 Aside from the fact that kubeadm could handle this failure more gracefully, I believe that excluding `kube-system` from admissionwebhooks is a smart move anyway, since `kube-system` should really be inviolate, and any unexpected changes **may** interfere with current and future Kubernetes upgrades anyway!
-
