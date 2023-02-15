@@ -2,7 +2,6 @@
 title: Let us discourse together regarding geeky topics. Tally ho.
 description: Funky Penguin's Discourse Forums serve our geeky communtiy, and consolidate comments and discussion from either the Geek Cookbook or the blog.
 icon: fontawesome/brands/discourse
-status: new
 ---
 
 # How to geek out on Discourse

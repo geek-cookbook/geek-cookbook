@@ -257,6 +257,7 @@ nav:
       #   - Istio: recipes/kubernetes/wip.md
       #   - Jaeger: kubernetes/wip.md
       #   - Kiali: kubernetes/wip.md
+        - Invidious: recipes/kubernetes/invidious.md
         - Mastodon: recipes/kubernetes/mastodon.md
       #   - NGINX Ingress: kubernetes/wip.md
       #   - Polaris: kubernetes/wip.md
