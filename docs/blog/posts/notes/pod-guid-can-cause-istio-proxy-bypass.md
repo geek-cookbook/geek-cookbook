@@ -4,8 +4,8 @@ categories:
   - note
 tags:
   - renovate
-title: How running a pod as GID 1337 can cause a Kubernetes pod to bypass istio-proxy
-description: Is your pod bypassing istio-proxy? Check your GUID isn't set to 1337!
+title: Why your Kubernetes pod is bypassing istio-proxy
+description: Is your pod sending traffic which is unexpectedly bypassing istio-proxy? Check your GUID isn't set to 1337!
 ---
 
 # Is your pod bypassing istio-proxy? Check your GUID
