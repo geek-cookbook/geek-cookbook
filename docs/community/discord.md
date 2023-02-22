@@ -40,7 +40,6 @@ Your report message will immediately be deleted from the channel, and an alert r
 
 The following channels are automated, and provide updates for issues like new PRs, subreddit posts, etc:
 
-
 | Channel Name       | Channel Use                                                |
 |--------------------|------------------------------------------------------------|
 | #announcements     | Used for important announcements                           |
@@ -49,7 +48,6 @@ The following channels are automated, and provide updates for issues like new PR
 | #premix-updates    | Updates on all pushes to the master branch of the premix   |
 | #forum-threads     | Updates to Discourse topics                                |
 | #subreddit-posts   | New topics in r/funkypenguin                               |
-
 
 ### 💬 Discussion
 
