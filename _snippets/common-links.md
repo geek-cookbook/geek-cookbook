@@ -29,6 +29,7 @@
 [jellyfin]:             /recipes/jellyfin/
 [k8s/invidious]:        /recipes/kubernetes/invidious/
 [k8s/mastodon]:         /recipes/kubernetes/mastodon/
+[k8s/matrix]:           /recipes/kubernetes/matrix/
 [metallb]:              /kubernetes/loadbalancer/metallb/
 [kavita]:               /recipes/kavita/
 [keycloak]:             /recipes/keycloak/
