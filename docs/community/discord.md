@@ -38,13 +38,18 @@ Your report message will immediately be deleted from the channel, and an alert r
 
 ### 📔 Information
 
+The following channels are automated, and provide updates for issues like new PRs, subreddit posts, etc:
+
+
 | Channel Name       | Channel Use                                                |
 |--------------------|------------------------------------------------------------|
 | #announcements     | Used for important announcements                           |
 | #changelog         | Used for major changes to the cookbook (to be deprecated)  |
 | #cookbook-updates  | Updates on all pushes to the master branch of the cookbook |
 | #premix-updates    | Updates on all pushes to the master branch of the premix   |
-| #discourse-updates | Updates to Discourse topics                                |
+| #forum-threads     | Updates to Discourse topics                                |
+| #subreddit-posts   | New topics in r/funkypenguin                               |
+
 
 ### 💬 Discussion
 
@@ -57,30 +62,15 @@ Your report message will immediately be deleted from the channel, and an alert r
 | #docker-swarm  | Discussions about Docker Swarm                           |
 | #today-i-learned              | Post tips/tricks you've stumbled across
 | #jobs            | For seeking / advertising jobs, bounties, projects, etc |
-| #advertisements   | In here you can advertise your stream, services or websites, at a limit of 2 posts per day                           |
+| #promotion   | In here you can advertise your stream, services or websites, at a limit of 2 posts per day                           |
 | #dev              | Used for collaboratio around current development.                                                    |
-
-### Suggestions
-
-| Channel Name | Channel Use                         |
-|--------------|-------------------------------------|
-| #in-flight   | A list of all suggestions in-flight |
-| #completed   | A list of completed suggestions     |
-
-### Music
-
-| Channel Name     | Channel Use                       |
-|------------------|-----------------------------------|
-| #music           | DJs go here to control music      |
-| #listen-to-music | Jump in here to rock out to music |
 
 ## How to get help.
 
 If you need assistance at any time there are a few commands that you can run in order to get help.
 
-`!help` Shows help content.
-
-`!faq` Shows frequently asked questions.
+* `!help` Shows help content.
+* `!faq` Shows frequently asked questions.
 
 ## Spread the love (inviting others)
 
@@ -95,10 +85,3 @@ Discord supports minimal message formatting using [markdown](https://support.dis
 
 !!! tip "Editing your most recent message"
     You can edit your most-recent message by pushing the up arrow, make your edits, and then push `Enter` to save!
-
-## How do I suggest something?
-
-1. Find the #completed channel (*under the **Suggestions** category*), and confirm that your suggestion hasn't already been voted on.
-2. Find the #in-flight channel (*also under **Suggestions***), and confirm that your suggestion isn't already in-flight (*but not completed yet*)
-3. In any channel, type `!suggest [your suggestion goes here]`. A post will be created in #in-flight for other users to vote on your suggestion. Suggestions change color as more users vote on them.
-4. When your suggestion is completed (*or a decision has been made*), you'll receive a DM from carl-bot

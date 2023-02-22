@@ -259,6 +259,7 @@ nav:
       #   - Kiali: kubernetes/wip.md
         - Invidious: recipes/kubernetes/invidious.md
         - Mastodon: recipes/kubernetes/mastodon.md
+        # - Matrix: recipes/kubernetes/matrix.md
       #   - NGINX Ingress: kubernetes/wip.md
       #   - Polaris: kubernetes/wip.md
       #   - Portainer: kubernetes/wip.md
@@ -293,6 +294,8 @@ nav:
       - Contribute: community/contribute.md
       - Code of Conduct: community/code-of-conduct.md
       - Discord: community/discord.md
+      # - Slack: community/slack.md
+      # - Matrix: community/matrix.md
       - Reddit: community/reddit.md
       - Mastodon: community/mastodon.md
       - Forum: community/discourse.md
@@ -364,7 +367,13 @@ extra:
       link: 'https://so.fnky.nz/@funkypenguin'
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/funkypenguin'
-    - icon: 'fontawesome/brands/stack-overflow'
+    - icon: 'fontawesome/brands/discord'
+      link: 'http://chat.funkypenguin.co.nz' 
+    - icon: 'simple/matrix'
+      link: 'http://m.fnky.nz' 
+    - icon: 'fontawesome/brands/slack'
+      link: 'https://communityinviter.com/apps/funkypenguin/geek-with-us'       
+    - icon: 'fontawesome/brands/stack-overflow'         
       link: 'https://stackoverflow.com/cv/funkypenguin'
     - icon: 'fontawesome/brands/linkedin'
       link: 'https://www.linkedin.com/in/funkypenguin'
