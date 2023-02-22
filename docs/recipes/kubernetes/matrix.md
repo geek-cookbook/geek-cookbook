@@ -6,7 +6,7 @@ status: new
 
 # Install Invidious in Kubernetes
 
-# gotchas
+## gotchas
 
 Create signing key first. Else you'll ban yourself from the federation!
 
@@ -14,7 +14,6 @@ Create signing key first. Else you'll ban yourself from the federation!
 ~ ❯ docker run --rm -it ananace/matrix-synapse generate_signing_key                                                                                             ed25519 a_cQgt sOaAmEl7a9s2S0RCr7FT9nzuSjEjYVRrNNzwIKsutzA
 ~ ❯
 ```
-
 
 Thanks to [Sealed Secrets](/kubernetes/sealed-secrets/), we have a safe way of committing secrets into our repository, so to create this cloudflare secret, you'd run something like this:
 
@@ -27,12 +26,9 @@ Thanks to [Sealed Secrets](/kubernetes/sealed-secrets/), we have a safe way of c
   > <path to repo>/matrix/sealedsecret-matrix-synapse-signingkey.yaml
 ```
 
-
-echo -e ed25519 a_oDEG IiFDnZsM4TaROTdnFmcfa15Ee/srcF/J2bQ9VP5o0Pk
 Why not Dendrite?
 
 AFAIK, it woen't yet work with SSO (login with GitHub), and requires nats for messaging, which will consume more PVCs on my limited DO cluster!
-
 
 ### Create matrix_media_repo database
 
@@ -64,8 +60,6 @@ Sending registration request...
 Success!
 root@matrix-synapse-5d7cf8579-zjk7c:/#
 ```
-
-
 
 YouTube is ubiquitious now. Almost every video I'm sent, takes me to YouTube. Worse, every YouTube video I watch feeds Google's profile about me, so shortly after enjoying the latest Marvel movie trailers, I find myself seeing related adverts on **unrelated** websites.
 
@@ -608,5 +602,4 @@ What have we achieved? We have an HTTPS-protected private YouTube frontend - we 
 
 --8<-- "recipe-footer.md"
 
-[^1]: There is also a 3rd option, using the Flux webhook receiver to trigger a reconcilliation - to be covered in a future recipe!
 [^2]: Gotcha!

@@ -28,7 +28,6 @@ If you're hesitant to dip your toes into the wall-garden of our [Discord server]
 
 Maybe it's just my years of using Discord, but I expected to be able to enter any search string in the main "search" field in my Matrix client, and have the relevant messages surfaced. Turns out, that's not how it works! The primary "search" field in the Elements UI, for example, searches **room names** (*i.e., show me all the rooms matching the string "chat"*). To search **within** a room, it's necessary to first navigate to that room, and then "room search" is a contextual action you can take **within** the room. I've not yet found out how do a partial string match though (*"chatgpt" matches, but "chatgp" does no*t).
 
-
 ## Code of Conduct
 
 With the goal of creating a safe and inclusive community, we've adopted the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/), as described [here](/community/code-of-conduct/), and use of the Matrix instance is subject to this code of conduct.
