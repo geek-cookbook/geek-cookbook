@@ -26,7 +26,7 @@ Here's how it went down...
 
 We're using Hashicorp vault in HA mode with [integrated (raft) storage](https://developer.hashicorp.com/vault/docs/concepts/integrated-storage), and [AWSKMS auto-unsealing](https://developer.hashicorp.com/vault/docs/configuration/seal/awskms). All you have to do is initialize vault on your first node, and then include something like this in other nodes:
 
-```
+```text
 storage "raft" {
   path = "/var/lib/vault"
   node_id = "grumpy"
