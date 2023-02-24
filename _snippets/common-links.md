@@ -12,6 +12,8 @@
 [community/discourse]:  /community/discourse/
 [community/github]:     /community/github/
 [community/mastodon]:   /community/mastodon/
+[community/matrix]:     /community/matrix/
+[community/slack]:      /community/slack/
 [contact]:              https://www.funkypenguin.co.nz/contact
 [cyberchef]:            /recipes/cyberchef/
 [discord]:              https://chat.funkypenguin.co.nz
