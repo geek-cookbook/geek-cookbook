@@ -79,10 +79,10 @@ If you need assistance at any time there are a few commands that you can run in 
 
 ## Spread the love (inviting others)
 
-Invite your co-geeks to Discord by:
+Invite your co-geeks to Matrix by:
 
-1. Sending them a link to <http://chat.funkypenguin.co.nz>, or
-2. Right-click on the Discord server name and click "Invite People"
+1. Sending them a link to <http://matrix.funkypenguin.co.nz>, or
+2. Send them a direct link to our "space", [#geek-cookbook](https://matrix.to/#/#geek-cookook:matrix.funkypenguin.co.nz) 
 
 ## How do I search?
 
