@@ -82,7 +82,7 @@ If you need assistance at any time there are a few commands that you can run in 
 Invite your co-geeks to Matrix by:
 
 1. Sending them a link to <http://matrix.funkypenguin.co.nz>, or
-2. Send them a direct link to our "space", [#geek-cookbook](https://matrix.to/#/#geek-cookook:matrix.funkypenguin.co.nz) 
+2. Send them a direct link to our "space", [#geek-cookbook](https://matrix.to/#/#geek-cookook:matrix.funkypenguin.co.nz)
 
 ## How do I search?
 
