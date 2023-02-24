@@ -4,9 +4,18 @@ description: The most realtime and exciting way engage with our geeky community 
 icon: fontawesome/brands/discord
 ---
 
-# How to geek out in Discord
+# Community Geeking out in Discord
 
-The most realtime and exciting way engage with our geeky community is in our [Discord server](http://chat.funkypenguin.co.nz)
+Do you want to talk to somebody, stat!? Are you a fan of group messaging / chat platforms?
+
+One of the most realtime and exciting way engage with our geeky community is in our [Discord server][community/discord] (*which is also synced with our [Matrix][community/matrix] and [Slack][community/slack] servers*)
+
+---
+[![Matrix](https://img.shields.io/matrix/geek-cookbook:matrix.funkypenguin.co.nz?label=geeks&logo=matrix&logoColor=white)][community/matrix]
+[![Discord](https://img.shields.io/discord/396055506072109067?label=geeks&logo=discord&logoColor=white)][community/discord]
+[![Slack](https://img.shields.io/badge/geeks-42-green?style=flat&logo=slack)][community/slack]
+
+Here's what Discord looks like:
 
 <!-- markdownlint-disable MD033 -->
 <iframe src="https://e.widgetbot.io/channels/396055506072109067/396055506663374849" height="600" width="800"></iframe>
@@ -18,6 +27,8 @@ The most realtime and exciting way engage with our geeky community is in our [Di
     2. Drag-drop screenshots
     3. Costs nothing, no ads
     4. Mobile notifications are reliable, individual channels mutable, etc
+
+    However, if Discord is not your thing, take a look at [Matrix][community/matrix] or [Slack][community/slack] ;)
 
 ## How do I join the Discord server?
 
@@ -36,32 +47,42 @@ Your report message will immediately be deleted from the channel, and an alert r
 
 ## Channels
 
-### 📔 Information
+### 📔 Information (read-only)
 
 The following channels are automated, and provide updates for issues like new PRs, subreddit posts, etc:
 
 | Channel Name       | Channel Use                                                |
 |--------------------|------------------------------------------------------------|
-| #announcements     | Used for important announcements                           |
-| #changelog         | Used for major changes to the cookbook (to be deprecated)  |
-| #cookbook-updates  | Updates on all pushes to the master branch of the cookbook |
-| #premix-updates    | Updates on all pushes to the master branch of the premix   |
-| #forum-threads     | Updates to Discourse topics                                |
-| #subreddit-posts   | New topics in r/funkypenguin                               |
+| [#announcements](https://discord.com/channels/396055506072109067/456690093886013471)     | Used for community announcements                           |
+| [#blog-posts](https://discord.com/channels/396055506072109067/456589284342890506)         | Receives announcemnets about new [Geek Cookbook Blog Posts](/blog/)  |
+| [#cookbook-updates](https://discord.com/channels/396055506072109067/454567388759982091)  | Issues, PRs, commits on the [geek-cookbook/geek-cookbook](https://github.com/geek-cookbook/geek-cookbook) repo |
+| [#premix-updates](https://discord.com/channels/396055506072109067/459291605460058112)    | Issues, PRs, commits on the [funkypenguin/geek-cookbook-premix](https://github.com/funkypenguin/geek-cookbook-premix) repo  |
+|[#forum-threads](https://discord.com/channels/396055506072109067/515827101589569541)     | New and updated [forum threads](https://forum.funkypenguin.co.nz)                                |
+| [#subreddit-posts](https://discord.com/channels/396055506072109067/1015041696033157210)   | New topics in [r/funkypenguin](https://reddit.com/r/funkypenguin)                               |
 
-### 💬 Discussion
+### 💬 Discussion (read-write)
 
 | Channel Name   | Channel Use                                              |
 |----------------|----------------------------------------------------------|
-| #introductions | New? Pop in here and say hi :)                           |
-| #general       | General chat - anything goes                             |
-| #cookbook      | Discussions specifically around the cookbook and recipes |
-| #kubernetes    | Discussions about Kubernetes                             |
-| #docker-swarm  | Discussions about Docker Swarm                           |
-| #today-i-learned              | Post tips/tricks you've stumbled across
-| #jobs            | For seeking / advertising jobs, bounties, projects, etc |
-| #promotion   | In here you can advertise your stream, services or websites, at a limit of 2 posts per day                           |
-| #dev              | Used for collaboratio around current development.                                                    |
+| [#introductions](https://discord.com/channels/396055506072109067/586796820685127680) | New? Pop in here and say hi :)                           |
+| [#general](https://discord.com/channels/396055506072109067/396055506663374849)       | General chat - anything goes                             |
+| [#cookbook](https://discord.com/channels/396055506072109067/456689991326760973)      | Discussions specifically around the cookbook and recipes |
+| [#kubernetes](https://discord.com/channels/396055506072109067/720432577823113237)    | Discussions about Kubernetes                             |
+| [#docker-swarm](https://discord.com/channels/396055506072109067/720432631853875251)  | Discussions about Docker Swarm                           |
+| [#today-i-learned](https://discord.com/channels/396055506072109067/647643207932313620)              | Post tips/tricks you've stumbled across
+| [#jobs](https://discord.com/channels/396055506072109067/566348370466308096)            | For seeking / advertising jobs, bounties, projects, etc |
+| [#promotion](https://discord.com/channels/396055506072109067/645577294223769620)   | In here you can advertise your stream, services or websites, at a limit of 2 posts per day                           |
+| [#dev](https://discord.com/channels/396055506072109067/473408473497993236)              | Used for collaboration around current development.
+
+### ❤️ Premium ([sponsors][github_sponsor])
+
+[Sponsors][github_sponsor] get extra super-duper secrit access to the following:
+
+| Channel Name   | Channel Use                                              |
+|----------------|----------------------------------------------------------|
+| [#premium-chat](https://discord.com/channels/396055506072109067/396058059182440448) | Premium discussion |
+| [#premium-support](https://discord.com/channels/396055506072109067/1024789060348284989) | Premium support (*Discord forums, not synced*) |
+                                            |
 
 ## How to get help.
 
@@ -83,3 +104,5 @@ Discord supports minimal message formatting using [markdown](https://support.dis
 
 !!! tip "Editing your most recent message"
     You can edit your most-recent message by pushing the up arrow, make your edits, and then push `Enter` to save!
+
+--8<-- "common-links.md"

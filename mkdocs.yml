@@ -294,8 +294,8 @@ nav:
       - Contribute: community/contribute.md
       - Code of Conduct: community/code-of-conduct.md
       - Discord: community/discord.md
-      # - Slack: community/slack.md
-      # - Matrix: community/matrix.md
+      - Slack: community/slack.md
+      - Matrix: community/matrix.md
       - Reddit: community/reddit.md
       - Mastodon: community/mastodon.md
       - Forum: community/discourse.md
