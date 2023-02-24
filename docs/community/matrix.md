@@ -23,7 +23,7 @@ Scratch your itch for realtime communication, without tech obligarch vanity conc
 ## How do I join the Matrix server?
 
 1. If you already have an account on a matrix server (*a "home server"*), you can use it to access our server (*the magic of federation*). See the channels list below for details
-2. If you don't have an account yet, [create one](https://m.fnky.nz), using your email address, or just login with GitHub
+2. If you don't have an account yet, [create one](https://matrix.funkypenguin.co.nz), using your email address, or just login with GitHub
 3. Use the WebUI, or get one of the [many available](https://matrix.org/clients/) mobile / desktop clients
 4. Join the channels you're interested in (*below*)! and say hi!
 
