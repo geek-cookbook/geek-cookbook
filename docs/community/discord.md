@@ -72,7 +72,7 @@ The following channels are automated, and provide updates for issues like new PR
 | [#today-i-learned](https://discord.com/channels/396055506072109067/647643207932313620)              | Post tips/tricks you've stumbled across
 | [#jobs](https://discord.com/channels/396055506072109067/566348370466308096)            | For seeking / advertising jobs, bounties, projects, etc |
 | [#promotion](https://discord.com/channels/396055506072109067/645577294223769620)   | In here you can advertise your stream, services or websites, at a limit of 2 posts per day                           |
-| [#dev](https://discord.com/channels/396055506072109067/473408473497993236)              | Used for collaboration around current development.        
+| [#dev](https://discord.com/channels/396055506072109067/473408473497993236)              | Used for collaboration around current development.
 
 ### ❤️ Premium ([sponsors][github_sponsor])
 

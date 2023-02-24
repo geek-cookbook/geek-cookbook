@@ -7,7 +7,7 @@ status: new
 
 # Join our Geeky Slack server
 
-Do you live in Slack? Are you a master of the search, filter, status, and mobile notifications? 
+Do you live in Slack? Are you a master of the search, filter, status, and mobile notifications?
 
 One of the most realtime and exciting way engage with our geeky community is in our Slack server (*which is also synced with our [Discord][community/discord] and [Matrix][community/matrix] servers*)
 
