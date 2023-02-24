@@ -370,7 +370,7 @@ extra:
     - icon: 'fontawesome/brands/discord'
       link: 'http://chat.funkypenguin.co.nz' 
     - icon: 'simple/matrix'
-      link: 'http://m.fnky.nz' 
+      link: 'http://matrix.funkypenguin.co.nz' 
     - icon: 'fontawesome/brands/slack'
       link: 'https://communityinviter.com/apps/funkypenguin/geek-with-us'       
     - icon: 'fontawesome/brands/stack-overflow'         
