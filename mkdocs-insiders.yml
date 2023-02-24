@@ -29,5 +29,7 @@ plugins:
     external_links_attr_map:
       target: _blank 
       rel: nofollow   
+    external_assets_exclude:
+      - shields.io/*      
   optimize:
     enabled: false # seems to break netlify builds :(
