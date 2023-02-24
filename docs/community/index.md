@@ -9,7 +9,9 @@ Looking for friends / compatriates?
 
 Find details about our communities below:
 
-* [Discord](/community/discord/) - Realtime chat, multiple channels
+* [Discord](/community/discord/) - Realtime chat, multiple channels, bridged with...
+* [Matrix](/community/matrix/) - Realtime chat (**federated!**), multiple channels, bridged with...
+* [Slack](/community/slack/) - Realtime chat, multiple channels
 * [Reddit](/community/reddit/) - Geek out old-skool
 * [Mastodon](/community/mastodon/) - Federated, open-source microblogging platform
 * [Discourse](/community/discourse/) - Forums - asyncronous communition
