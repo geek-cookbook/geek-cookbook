@@ -120,7 +120,7 @@ You should now be able to access the PWA at the URL you chose - at this point, y
 
 ## Setup CouchDB
 
-### Initialize CouchDB 
+### Initialize CouchDB
 
 CouchDB doesn't come setup (*because the Docker image has no way of knowing whether it's a single node, or a shard of a larger cluster*), so we need to set it up. Point your browser at `https://<fqdn-to-your-couchdb-instance>/_utils/#setup/singlenode`, and initialize the "cluster" as follows:
 
