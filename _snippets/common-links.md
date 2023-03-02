@@ -29,6 +29,7 @@
 [invidious]:            /recipes/invidious/
 [jackett]:              /recipes/autopirate/jackett/
 [jellyfin]:             /recipes/jellyfin/
+[kofi]:                 https://ko-fi.com/funkypenguin/
 [k8s/invidious]:        /recipes/kubernetes/invidious/
 [k8s/mastodon]:         /recipes/kubernetes/mastodon/
 [k8s/matrix]:           /recipes/kubernetes/matrix/
