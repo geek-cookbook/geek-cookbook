@@ -1,6 +1,6 @@
 ---
-title: Engage with the Geek Cookbook in GitHub
-description: How to use GitHub to interact with the Geek Cookbook community
+title: Join Funky Penguin's Slack Server
+description: Use Slack to interact with the Geek Cookbook community
 icon: fontawesome/brands/slack
 status: new
 ---

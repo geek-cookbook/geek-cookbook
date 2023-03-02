@@ -44,8 +44,9 @@
 [miniflux]:             /recipes/miniflux/
 [minio]:                /recipes/minio/
 [mylar]:                /recipes/autopirate/mylar/
-[nightscout]:           /recipes/nightscout/
 [nextcloud]:            /recipes/nextcloud/
+[nightscout]:           /recipes/nightscout/
+[nomie]:                /recipes/nomie/
 [nzbget]:               /recipes/autopirate/nzbget/
 [nzbhydra]:             /recipes/autopirate/nzbhydra/
 [ombi]:                 /recipes/autopirate/ombi/
@@ -61,7 +62,7 @@
 [radarr]:               /recipes/autopirate/radarr/
 [readarr]:              /recipes/autopirate/readarr/
 [review/immich]:        /blog/2022/11/10/review-immich-1.19.1/
-[review/mastodon]:      /review/mastodon/
+[review/mastodon]:      /blog/2022/11/10/review-mastodon-3.5.3/
 [review/nextcloud]:     /review/nextcloud/
 [rss-bridge]:           /recipes/rss-bridge/
 [rtorrent]:             /recipes/autopirate/rtorrent/
