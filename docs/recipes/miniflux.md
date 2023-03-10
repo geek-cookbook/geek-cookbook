@@ -1,5 +1,6 @@
 ---
 title: Read RSS in peace with miniflux on Docker
+recipe: Miniflux
 ---
 
 # Miniflux
@@ -17,6 +18,8 @@ I've [reviewed Miniflux in detail on my blog](https://www.funkypenguin.co.nz/rev
 
 !!! abstract "2.0+ is a bit different"
     [Some things changed](https://docs.miniflux.net/en/latest/migration.html) when Miniflux 2.0 was released. For one thing, the only supported database is now postgresql (_no more SQLite_). External themes are gone, as is PHP (_in favor of golang_). It's been a controversial change, but I'm keen on minimal and single-purpose, so I'm still very happy with the direction of development. The developer has laid out his [opinions](https://docs.miniflux.net/en/latest/opinionated.html) re the decisions he's made in the course of development.
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -62,9 +65,9 @@ BACKUP_FREQUENCY=1d
 
 The entire application is configured using environment variables, including the initial username. Once you've successfully deployed once, comment out ```CREATE_ADMIN``` and the two successive lines.
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

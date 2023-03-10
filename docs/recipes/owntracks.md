@@ -1,5 +1,6 @@
 ---
 title: Run OwnTracks under Docker
+recipe: OwnTracks
 ---
 
 # OwnTracks
@@ -13,6 +14,8 @@ Using a smartphone app, OwnTracks allows you to collect and analyse your own loc
 * Sharing family locations without relying on Apple Find-My-friends
 * Performing automated actions in [HomeAssistant](/recipes/homeassistant/) when you arrive/leave home
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -25,7 +28,7 @@ We'll need a directory so store OwnTracks' data , so create  ```/var/data/owntra
 mkdir /var/data/owntracks
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create owntracks.env, and populate with the following variables
 
@@ -35,9 +38,9 @@ OTR_PASS=yourpassword
 OTR_HOST=owntracks.example.com
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

@@ -1,6 +1,7 @@
 ---
 title: Kavita Reader in Docker - Read ebooks / Manga / Comics
 description: Here's a recipe to run Kavita under Docker Swarm to read your comics / manga / ebooks
+recipe: Kavita
 ---
 
 # Kavita Reader in Docker Swarm
@@ -13,8 +14,11 @@ So you've just watched a bunch of superhero movies, and you're suddenly inspired
 
 There's a [public demo available](https://www.kavitareader.com/#demo) too!
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
-    *[X] [AutoPirate](/recipes/autopirate/) components (*specifically [Mylar](/recipes/autopirate/mylar/)*), for searching for, downloading, and managing comic books
+
+    * [X] [AutoPirate](/recipes/autopirate/) components (*specifically [Mylar](/recipes/autopirate/mylar/)*), for searching for, downloading, and managing comic books
 
 ## Preparation
 
@@ -26,9 +30,9 @@ First we create a directory to hold the kavita database, logs and other persiste
 mkdir /var/data/kavita
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

@@ -1,6 +1,7 @@
 ---
 title: Run OpenLDAP in Docker
 description: How to run an OpenLDAP server in Docker Swarm, with LDAP Account Manager. Authenticate like it's 1990!
+recipe: OpenLDAP
 ---
 
 # OpenLDAP
@@ -23,6 +24,8 @@ This recipe combines the raw power of OpenLDAP with the flexibility and features
 
 What you'll end up with is a directory structure which will allow integration with popular tools (_[NextCloud](/recipes/nextcloud/), [Kanboard](/recipes/kanboard/), [Gitlab](/recipes/gitlab/), etc_), as well as with Keycloak (_an upcoming recipe_), for **true** SSO.
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -39,7 +42,7 @@ mkdir /var/data/runtime/openldap/
 !!! note "Why 2 directories?"
     For rationale, see my [data layout explanation](/reference/data_layout/)
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create /var/data/openldap/openldap.env, and populate with the following variables, customized for your own domain structure. Take care with LDAP_DOMAIN, this is core to your directory structure, and can't easily be changed later.
 
@@ -316,9 +319,9 @@ Create yours profile (_you chose a default profile in config.cfg above, remember
     tools: tool_hide_toolMultiEdit: false
     ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this, at  (```/var/data/config/openldap/openldap.yml```)
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below.., at  (```/var/data/config/openldap/openldap.yml```)
 
 --8<-- "premix-cta.md"
 

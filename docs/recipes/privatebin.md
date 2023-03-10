@@ -1,6 +1,7 @@
 ---
 title: Run PrivateBin on Docker
 description: A private imgur/pastebin, running on Docker
+recipe: PrivateBin
 ---
 
 # PrivateBin
@@ -8,6 +9,8 @@ description: A private imgur/pastebin, running on Docker
 PrivateBin is a minimalist, open source online pastebin where the server (can) has zero knowledge of pasted data. We all need to paste data / log files somewhere when it doesn't make sense to paste it inline. With PrivateBin, you can own the hosting, access, and eventual deletion of this data.
 
 ![PrivateBin Screenshot](../images/privatebin.png){ loading=lazy }
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -22,9 +25,9 @@ mkdir /var/data/privatebin
 chmod 777 /var/data/privatebin/
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

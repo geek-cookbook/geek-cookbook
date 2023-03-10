@@ -1,11 +1,15 @@
 ---
-title: How to run Gitlab in Docker
+title: How to run GitLab in Docker Swarm
+description: Need your own GitHub-like experience? Try GitLab in Docker Swarm!
+recipe: GitLab
 ---
 # GitLab
 
 GitLab is a self-hosted [alternative to GitHub](https://about.gitlab.com/pricing/self-managed/feature-comparison/). The most common use case is (a set of) developers with the desire for the rich feature-set of GitHub, but with unlimited private repositories.
 
 Docker does maintain an [official "Omnibus" container](https://docs.gitlab.com/omnibus/docker/README.html), but for this recipe I prefer the "[dockerized gitlab](https://github.com/sameersbn/docker-gitlab)" project, since it allows distribution of the various Gitlab components across multiple swarm nodes.
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -22,7 +26,7 @@ cd gitlab
 mkdir -p {postgresql,redis,gitlab}
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 You'll need to know the following:
 
@@ -52,9 +56,9 @@ GITLAB_SECRETS_OTP_KEY_BASE=t9LPjnLzbkJ7Nt6LZJj6hptdpgG58MPJPwnMMMDdx27KSwLWHDrz
 GITLAB_ROOT_PASSWORD=changeme
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

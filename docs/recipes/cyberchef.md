@@ -1,6 +1,7 @@
 ---
 title: Run an online a1z26 decoder with cyberchef (among others)
 description: Be a l33t h@xor with this toolkit from the GHCQ. Run your own online instance of cyberchef, and decode / encode those nasty a1z26s!
+recipe: CyberChef
 ---
 
 # CyberChef
@@ -22,13 +23,15 @@ Here are some examples of fancy hax0r tricks you can do with CyberChef:
 
 Here's a [live demo](https://gchq.github.io/CyberChef)!
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-CyberChef doesn't require any persistent storage, or fancy configuration, so simply create a docker swarm config file in docker-compose syntax (v3), something like this:
+CyberChef doesn't require any persistent storage, or fancy configuration, so simply create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

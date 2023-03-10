@@ -59,7 +59,7 @@ AUDIOBOOKSHELF_GID=100
 
 ### Audiobookshelf Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this example:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below.. example:
 
 --8<-- "premix-cta.md"
 

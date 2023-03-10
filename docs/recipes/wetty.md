@@ -1,6 +1,7 @@
 ---
 title: Use wetty under Docker for SSH in the browser
 description: Use weTTY to run a terminal in a browser, baby!
+recipe: Wetty
 ---
 
 # Wetty
@@ -19,6 +20,8 @@ Here are some other possible use cases:
 2. Access to long-running processes inside a tmux session (_like [irrsi](https://irssi.org/)_)
 3. Remote access to a VM / [container running Kali linux](https://gitlab.com/kalilinux/build-scripts/kali-docker), for penetration testing
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -32,7 +35,7 @@ mkdir /var/data/config/wetty
 cd /var/data/config/wetty
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create `/var/data/config/wetty.env`, and populate with the following variables
 
@@ -44,9 +47,9 @@ SSHUSER=batman
 
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

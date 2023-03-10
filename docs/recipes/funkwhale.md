@@ -1,6 +1,7 @@
 ---
 title: Install funkwhale with docker-compose / swarm
 description: Funkwhale is a decentralized, federated music streaming platform
+recipe: Funkywhale
 ---
 
 # Funkwhale
@@ -12,6 +13,8 @@ description: Funkwhale is a decentralized, federated music streaming platform
 The idea is that you run a "pod" (*just like whales, Funkwhale users gather in pods*).  A pod is a website running the Funkwhale server software. You join the network by registering an account on a pod (*sometimes called "server" or "instance"*), which will be your home.
 
 You will be then able to interact with other people regardless of which pod they are using.
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -25,7 +28,7 @@ First we create a directory to hold our funky data:
 mkdir /var/data/funkwhale
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Funkwhale is configured using environment variables. Create `/var/data/config/funkwhale/funkwhale.env`, by running something like this:
 
@@ -54,7 +57,7 @@ EOF
 chmod 600 /var/data/funkwhale/funkwhale.env  
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
 Create a docker swarm config file in docker-compose syntax (v3) (*I store all my config files as `/var/data/config/<stack name\>/<stack name\>.yml`*), something like this:
 

@@ -4,7 +4,7 @@
 
 ### Tip your waiter (sponsor) 👏
 
-Did you receive excellent service? Want to compliment the chef? (_..and support development of current and future recipes!_) Sponsor me on [Github][github_sponsor] / [Ko-Fi][ko-fi] / [Patreon][patreon], or see the [contribute](/community/contribute/) page for more (_free or paid)_ ways to say thank you! 👏
+Did you receive excellent service? Want to compliment the chef? (_..and support development of current and future recipes!_) Sponsor me on [Github][github_sponsor] / [Ko-Fi][kofi] / [Patreon][patreon], or see the [contribute](/community/contribute/) page for more (_free or paid)_ ways to say thank you! 👏
 
 ### Employ your chef (engage) 🤝
 

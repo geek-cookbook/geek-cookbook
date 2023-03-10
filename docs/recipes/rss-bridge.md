@@ -1,5 +1,7 @@
 ---
+title: Run RSS Bridge in Docker Swarm
 description: Stalk your ex on Facebook in your feedreader!
+recipe: RSS Bridge
 ---
 
 # RSS Bridge
@@ -7,6 +9,8 @@ description: Stalk your ex on Facebook in your feedreader!
 Do you hate having to access multiple sites to view specific content? [RSS-Bridge](https://github.com/RSS-Bridge/rss-bridge) can convert content from a wide variety of websites (*such as Reddit, Facebook, Twitter*) so that it can be viewed in a structured and consistent way, all from one place (Your feed reader)
 
 ![RSS-Bridge Screenshot](../images/rssbridge.png){ loading=lazy }
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -21,9 +25,9 @@ mkdir /var/data/config/rssbridge
 cd /var/data/config/rssbridge
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

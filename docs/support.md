@@ -49,9 +49,11 @@ Found a bug in your soup? Tell the chef by either:
 
 ## Tip the chef
 
-### [Sponsor][7] / [Ko-Fi][ko-fi] / [Patreonize][8] me 💰
+### [Sponsor][7] / [Ko-Fi][kofi] / [Patreonize][8] me 💰
 
-The best way to support this work is to become a [Sponsor][11] (_GitHub_) or a [Patron][10] (_Patreon_). Sponsors get:
+The best way to support this work is via [GitHub Sponsors][11], [Ko-Fi][kofi], a [Patron][10] (_Patreon_).
+
+Sponsors get:
 
 * warm fuzzies,
 * access to the pre-mix repo,

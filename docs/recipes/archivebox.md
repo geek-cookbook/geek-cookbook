@@ -1,6 +1,9 @@
 ---
-title: Archivebox - bookmark manager for your self-hosted stack
+title: Run Archivebox on Docker Swarm
+description: Archivebox - bookmark manager for your self-hosted stack
+recipe: Archivebox
 ---
+
 # Archivebox
 
 [ArchiveBox](https://github.com/ArchiveBox/ArchiveBox) is a self-hosted internet archiving solution to collect and save sites you wish to view offline.
@@ -13,6 +16,8 @@ Features include:
 - Ability to autosave to [archive.org](https://github.com/ArchiveBox/ArchiveBox/wiki/Configuration#submit_archive_dot_org)
 - Supports Scheduled importing
 - Supports Realtime importing
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -30,7 +35,7 @@ cd /var/data/config/archivebox
 
 ### Create docker-compose.yml
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

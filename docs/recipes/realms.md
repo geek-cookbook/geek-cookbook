@@ -1,6 +1,7 @@
 ---
 title: Realms is a git-based wiki, and it runs under Docker!
 description: A git-based wiki with auth and registration
+recipe: Realms
 ---
 
 # Realms
@@ -25,6 +26,8 @@ Features include:
 
     Also of note is that the docker image is 1.17GB in size, and the handful of commits to the [source GitHub repo](https://github.com/scragg0x/realms-wiki/commits/master)  in the past year has listed TravisCI build failures. This has many of the hallmarks of an abandoned project, to my mind.
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -37,9 +40,9 @@ Since we'll start with a basic Realms install, let's just create a single direct
 mkdir /var/data/realms/
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

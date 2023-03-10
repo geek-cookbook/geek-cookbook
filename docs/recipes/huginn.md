@@ -1,5 +1,6 @@
 ---
 title: Run Huggin in Docker
+recipe: Huginn
 ---
 
 # Huginn
@@ -8,6 +9,8 @@ Huginn is a system for building agents that perform automated tasks for you onli
 
 <!-- markdownlint-disable MD033 -->
 <iframe src="https://player.vimeo.com/video/61976251" width="640" height="433" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -33,7 +36,7 @@ cd /var/data/docker-mailserver/
 cat config/opendkim/keys/huginn.example.com/mail.txt
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create /var/data/config/huginn/huginn.env, and populate with the following variables. Set the "INVITATION_CODE" variable if you want to require users to enter a code to sign up (protects the UI from abuse) (The full list of Huginn environment variables is available [here](https://github.com/huginn/huginn/blob/master/.env.example))
 
@@ -64,9 +67,9 @@ BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

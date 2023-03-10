@@ -1,6 +1,7 @@
 ---
 title: How to run Nextcloud in Docker (behind Traefik)
 description: We can now run Nextcloud in our Docker Swarm, with LetsEncrypt SSL termination handled by Traefik
+recipe: NextCloud
 ---
 
 # NextCloud Docker Compose / Swarm Install
@@ -12,6 +13,8 @@ It also now supports a sweet, customizable dashboard:
 ![NextCloud Screenshot](/images/nextcloud.png){ loading=lazy }
 
 This recipe uses the official NextCloud docker hub image, and includes separate docker containers for the database (*MariaDB*), Redis (*for transactional locking*), automated database backup, (*you backup the stuff you care about, right?*) and a separate cron container for running NextCloud's 15-min background tasks.
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 

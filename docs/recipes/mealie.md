@@ -1,6 +1,7 @@
 ---
 title: Mealie recipe manager on Docker
 description: A tasty tool to manage your meals and shopping list, on Docker swarm
+recipe: Mealie
 ---
 
 # Mealie
@@ -15,6 +16,8 @@ Mealie also provides a secure API for interactions from 3rd party applications.
 
 !!! question "Why does my recipe manager need an API?"
      An API allows integration into applications like Home Assistant that can act as notification engines to provide custom notifications based of Meal Plan data to remind you to defrost the chicken, marinade the steak, or start the CrockPot. See the [official docs](https://hay-kot.github.io/mealie/) for more information. Additionally, you can access any available API from the backend server. To explore the API spin up your server and navigate to <http://yourserver.com/docs> for interactive API documentation.
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -39,9 +42,9 @@ db_type=sqlite
 EOF
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

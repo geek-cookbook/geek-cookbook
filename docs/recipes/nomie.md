@@ -2,6 +2,7 @@
 title: Quantify your self using Nomie 6 in Docker Swarm with CouchDB
 description: How to use Nomie 6 to "life-track" yourself, deployed in Docker Swarm
 status: new
+recipe: Nomie
 ---
 
 # Nomie in Docker Swarm with CouchDB
@@ -22,6 +23,8 @@ The latest version (Nomie 6) which offered a paid cloud hosting / sync service, 
     Yes, you **could** just use <https://open-nomie.github.io/>, and since the PWA stores your data in your local browser store anyway, you'd get all the functionality without having to deploy a thing. However, if you want to use Nomie from **multiple browsers**, (*i.e., your phone **and** your desktop*), you'll need a way to sync the data, which, in this case, requires your own CouchDB instance. And if you're going to self-host CouchDB, you may as well self-host the PWA too!
 
     To this end, in this recipe, I'll assume we want CouchDB syncing (*after all, who only uses one device these days?*)
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -66,7 +69,7 @@ headers = accept, authorization, content-type, origin, referer, x-csrf-token
 
 ### Setup Nomie Docker config
 
-Finally, create a docker swarm config file in docker-compose syntax (v3), something like this:
+Finally, create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

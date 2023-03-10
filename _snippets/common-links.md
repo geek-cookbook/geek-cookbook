@@ -68,6 +68,7 @@
 [rss-bridge]:           /recipes/rss-bridge/
 [rtorrent]:             /recipes/autopirate/rtorrent/
 [sabnzbd]:              /recipes/autopirate/sabnzbd/
+[searxng]:              /recipes/searxng/
 [sonarr]:               /recipes/autopirate/sonarr/
 [tfa-dex-static]:       /docker-swarm/traefik-forward-auth/dex-static/
 [tfa-google]:           /docker-swarm/traefik-forward-auth/google/

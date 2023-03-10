@@ -1,6 +1,7 @@
 ---
 title: Run phpIPAM under Docker
 description: Is that IP address in use? Do some DHP / Discovery with phpIPAM under Docker
+recipe: phpIPAM
 ---
 
 # phpIPAM
@@ -21,6 +22,8 @@ And that [HomeAssistant](/recipes/homeassistant/) config, which you so carefully
 
 Enter phpIPAM. A tool designed to help home keeps as well as large organisations keep track of their IP (_and VLAN, VRF, and AS number_) allocations.
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -34,7 +37,7 @@ mkdir /var/data/phpipam/databases-dump -p
 mkdir /var/data/runtime/phpipam -p
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create `phpipam.env`, and populate with the following variables
 
@@ -75,9 +78,9 @@ BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

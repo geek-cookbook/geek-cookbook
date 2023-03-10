@@ -1,5 +1,6 @@
 ---
 title: Run Wekan under Docker
+recipe: Wekan
 ---
 
 # Wekan
@@ -15,6 +16,8 @@ There's a [video](https://www.youtube.com/watch?v=N3iMLwCNOro) of the developer 
 !!! note
     For added privacy, this design secures wekan behind a [traefik-forward-auth](/docker-swarm/traefik-forward-auth/), so that in order to gain access to the wekan UI at all, authentication must have already occurred.
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -29,7 +32,7 @@ cd /var/data/wekan
 mkdir -p {wekan-db,wekan-db-dump}
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create `/var/data/config/wekan.env`, and populate with the following variables:
 
@@ -44,9 +47,9 @@ BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

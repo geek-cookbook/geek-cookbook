@@ -1,6 +1,7 @@
 ---
 title: How to run Bitwarden / bitwardenrs self hosted in Docker
 description: Bitwarden / bitwardenrs is a self-hosted internet archiving solution
+recipe: Bitwarden
 ---
 
 # Bitwarden, self hosted in Docker Swarm
@@ -25,6 +26,8 @@ Bitwarden is a free and open source password management solution for individuals
 * Secure password generator
 * Self-host on your own server (optional)
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -44,9 +47,9 @@ Create `/var/data/config/bitwarden/bitwarden.env`, and **leave it empty for now*
 !!! question
     What, why an empty env file? Well, the container supports lots of customizations via environment variables, for things like toggling self-registration, 2FA, etc. These are too complex to go into for this recipe, but readers are recommended to review the [dani-garcia/vaultwarden wiki](https://github.com/dani-garcia/vaultwarden/wiki), and customize their installation to suite.
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

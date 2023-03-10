@@ -39,7 +39,7 @@ mkdir /var/data/duplicati
 cd /var/data/config/duplicati
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 1. Generate a random passphrase to use to encrypt your data. **Save this somewhere safe**, without it you won't be able to restore!
 2. Seriously, **save**. **it**. **somewhere**. **safe**.
@@ -55,9 +55,9 @@ CLI_ARGS= #optional
 !!! question "Excuse me! Why are we running Duplicati as root?"
     That's a great question! We're running Duplicati as the `root` user of the host system because we need Duplicati to be able to read files of all the other services no matter which user that service is running as. After all, Duplicati can't backup your exciting stuff if it can't read the files.
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

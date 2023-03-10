@@ -1,5 +1,6 @@
 ---
-title: Run Gollum in Docker
+title: Run Gollum in Docker Swarm
+recipe: Gollum
 ---
 
 # Gollum
@@ -31,6 +32,8 @@ Gollum meets all these requirements, and as an added bonus, is extremely fast an
 !!! note
     Since Gollum itself offers no user authentication, this design secures gollum behind [traefik-forward-auth](/docker-swarm/traefik-forward-auth/), so that in order to gain access to the Gollum UI at all, authentication must have already occurred.
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -47,9 +50,9 @@ git init
 
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

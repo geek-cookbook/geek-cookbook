@@ -1,6 +1,7 @@
 ---
 title: Backup with restic in Docker Swarm
 description: Don't be like Cameron. Back up your shizz.
+recipe: Restic
 ---
 
 # Restic
@@ -14,7 +15,7 @@ Don't be like [Cameron](http://haltandcatchfire.wikia.com/wiki/Cameron_Howe). Ba
 
 Restic is one of the more popular open-source backup solutions, and is often [compared favorable](https://www.reddit.com/r/golang/comments/6mfe4q/a_performance_comparison_of_duplicacy_restic/dk2pkoj/?context=8&depth=9) to "freemium" products by virtue of its [licence](https://github.com/restic/restic/blob/master/LICENSE).
 
-## Details
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
     * [X] Credentials for one of Restic's [supported repositories](https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html)
@@ -34,7 +35,7 @@ echo /var/data/runtime >> /var/data/restic/restic.exclude
 !!! note
     `/var/data/restic/restic.exclude` details which files / directories to **exclude** from the backup. Per our [data layout](/reference/data_layout/), runtime data such as database files are stored in `/var/data/runtime/[recipe]`, and excluded from backups, since we can't safely backup/restore data-in-use. Databases should be backed up by taking dumps/snapshots, and backing up _these_ dumps/snapshots instead.
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create `/var/data/config/restic/restic-backup.env`, and populate with the following variables:
 
@@ -100,7 +101,7 @@ RESTIC_PASSWORD=<repo_password>
 !!! question "Why create two separate .env files?"
     Although there's duplication involved, maintaining 2 files for the two services within the stack keeps it clean, and allows you to potentially alter the behaviour of one service without impacting the other in future
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
 Create a docker swarm config file in docker-compose syntax (v3) in `/var/data/config/restic/restic.yml` , something like this:
 

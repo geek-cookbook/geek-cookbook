@@ -1,5 +1,7 @@
 ---
 description: Neat one-sentence description of recipe for social media previews
+recipe: Recipe Name
+title: Short, punchy title for search engine results / social previews
 ---
 
 # <///RECIPE NAME>
@@ -13,6 +15,8 @@ description: Neat one-sentence description of recipe for social media previews
 - :white_check_mark: Documented API with keys for restricting uploads
 - :white_check_mark: Torrent download of files using web seeding
 - :white_check_mark: File expiry, deletion key, file access key, and random filename options
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -38,9 +42,9 @@ cleanup-every-minutes = 5
 EOF
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 
