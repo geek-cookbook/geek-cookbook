@@ -51,7 +51,7 @@ Found a bug in your soup? Tell the chef by either:
 
 ### [Sponsor][7] / [Ko-Fi][kofi] / [Patreonize][8] me 💰
 
-The best way to support this work is via [GitHub Sponsors][11], [Ko-Fi][kofi], a [Patron][10] (_Patreon_). 
+The best way to support this work is via [GitHub Sponsors][11], [Ko-Fi][kofi], a [Patron][10] (_Patreon_).
 
 Sponsors get:
 
