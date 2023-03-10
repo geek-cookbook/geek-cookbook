@@ -1,6 +1,7 @@
 ---
 title: Run Emby server with docker compose (using swarm)
 description: Kick-ass media player!
+recipe: Emby
 ---
 
 # Emby
@@ -10,6 +11,8 @@ description: Kick-ass media player!
 ![Emby Screenshot](../images/emby.png){ loading=lazy }
 
 I've started experimenting with Emby as an alternative to Plex, because of the advanced [parental controls](https://github.com/MediaBrowser/Wiki/wiki/Parental-Controls) it offers. Based on my experimentation thus far, I have a "**kid-safe**" profile which automatically logs in, and only displays kid-safe content, based on ratings.
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -23,7 +26,7 @@ We'll need a location to store Emby's library data, config files, logs and tempo
 mkdir /var/data/emby
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create emby.env, and populate with PUID/GUID for the user who owns the /var/data/emby directory (_above_) and your actual media content (_in this example, the media content is at **/srv/data**_)
 
@@ -32,9 +35,9 @@ PUID=
 GUID=
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

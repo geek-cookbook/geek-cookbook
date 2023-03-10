@@ -158,6 +158,7 @@ nav:
         - Realms: recipes/realms.md
         - Restic: recipes/restic.md
         - RSS Bridge: recipes/rss-bridge.md
+        - SearXNG: recipes/searxng.md
         - Swarmprom: recipes/swarmprom.md
         - Tiny Tiny RSS: recipes/tiny-tiny-rss.md
         - Traefik: docker-swarm/traefik.md

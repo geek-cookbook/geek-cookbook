@@ -1,5 +1,6 @@
 ---
 title: Run Wallabag under Docker (compose), mate!
+recipe: Wallabag
 ---
 
 # Wallabag
@@ -13,6 +14,8 @@ All saved data (_pages, annotations, images, tags, etc_) are stored on your own 
 There are plugins for [Chrome](https://chrome.google.com/webstore/detail/wallabagger/gbmgphmejlcoihgedabhgjdkcahacjlj) and [Firefox](https://addons.mozilla.org/firefox/addon/wallabagger/), as well as apps for [iOS](https://appsto.re/fr/YeqYfb.i), [Android](https://play.google.com/store/apps/details?id=fr.gaulupeau.apps.InThePoche), etc. Wallabag will also integrate nicely with my favorite RSS reader,  [Miniflux](https://miniflux.net/) (_for which there is an [existing recipe][miniflux]_).
 
 [Here's a video](https://player.vimeo.com/video/167435064) which shows off the UI a bit more.
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -28,7 +31,7 @@ cd /var/data/wallabag
 mkdir -p {images,db-dump}
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create `/var/data/config/wallabag/wallabag.env`, and populate with the following variables. The only variable you **have** to change is SYMFONY__ENV__DOMAIN_NAME - this **must** be the URL that your Wallabag instance will be available at (_else you'll have no CSS_)
 
@@ -64,9 +67,9 @@ BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

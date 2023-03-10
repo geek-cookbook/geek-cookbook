@@ -1,6 +1,7 @@
 ---
 title: Run Photoprism on Docker
 description: ML-powered private photo hosting
+recipe: Photoprism
 ---
 
 # Photoprism on Docker
@@ -8,6 +9,8 @@ description: ML-powered private photo hosting
 [Photoprism™](https://github.com/photoprism/photoprism) "is a server-based application for browsing, organizing and sharing your personal photo collection. It makes use of the latest technologies to automatically tag and find pictures without getting in your way. Say goodbye to solutions that force you to upload your visual memories to the cloud."
 
 ![Photoprism Screenshot](../images/photoprism.jpg){ loading=lazy }
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -42,7 +45,7 @@ mkdir /var/data/runtime/photoprism/db
 mkdir /var/data/photoprism/database-dump
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create ```photoprism.env```, and populate with the following variables. Change passwords
 
@@ -86,9 +89,9 @@ BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
 ````
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

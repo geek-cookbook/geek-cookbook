@@ -1,5 +1,7 @@
 ---
 description: Geeky RSS reader
+recipe: Tiny Tiny RSS
+title: Run Tiny Tiny RSS in Docker Swarm
 ---
 
 # Tiny Tiny RSS
@@ -11,6 +13,8 @@ description: Geeky RSS reader
 * Sharing articles via a unique public URL/feed
 
 ![Tiny Tiny RSS Screenshot](../images/tiny-tiny-rss.png){ loading=lazy }
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -28,7 +32,7 @@ mkdir /var/data/config/ttrss
 cd /var/data/config/ttrss
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create `/var/data/config/ttrs/ttrss.env`, and populate with the following variables, customizing at least the database password (POSTGRES_PASSWORD **and** DB_PASS) and the TTRSS_SELF_URL to point to your installation.
 
@@ -56,9 +60,9 @@ TTRSS_REPO=https://github.com/funkypenguin/tt-rss.git
 S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 ```
 
-### Setup docker swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

@@ -1,6 +1,7 @@
 ---
 title: How to run Kanboard using Docker
 description: Run Kanboard with Docker to get your personal kanban on!
+recipe: Kanboard
 ---
 
 # Kanboard
@@ -22,6 +23,8 @@ Features include:
 
 ![Kanboard screenshot](/images/kanboard.png){ loading=lazy }
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -34,9 +37,9 @@ Create the location for the bind-mount of the application data, so that it's per
 mkdir -p /var/data/kanboard
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

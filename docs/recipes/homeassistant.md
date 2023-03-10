@@ -1,5 +1,6 @@
 ---
 description: Assist your home automation
+recipe: Home Assistant
 ---
 
 # Home Assistant
@@ -9,6 +10,8 @@ Home Assistant is a home automation platform written in Python, with extensive s
 ![Home Assistant Screenshot](../images/homeassistant.png){ loading=lazy }
 
 This recipie combines the [extensibility](https://home-assistant.io/components/) of [Home Assistant](https://home-assistant.io/) with the flexibility of [InfluxDB](https://docs.influxdata.com/influxdb/v1.4/) (_for time series data store_) and [Grafana](https://grafana.com/) (_for **beautiful** visualisation of that data_).
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -30,7 +33,7 @@ Now create a directory for the influxdb realtime data:
 mkdir /var/data/runtime/homeassistant/influxdb
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create /var/data/config/homeassistant/grafana.env, and populate with the following - this is to enable grafana to work with oauth2_proxy without requiring an additional level of authentication:
 
@@ -38,9 +41,9 @@ Create /var/data/config/homeassistant/grafana.env, and populate with the followi
 GF_AUTH_BASIC_ENABLED=false
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

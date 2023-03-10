@@ -1,6 +1,7 @@
 ---
 title: How to run your own Nightscout instance using Docker
 description: CGM data with an API, for diabetic quality-of-life improvements
+recipe: Nightscout
 ---
 
 # Nightscout Setup with Docker
@@ -21,6 +22,8 @@ Nightscout is "*...an open source, DIY project that allows real time access to a
 [Nightscout](https://nightscout.github.io/) is _the_ standard for open-source CGM data collection, used by diabetics and those who love them, to store, share, and retrieve blood-glocuse data, in order to live healthier and happier lives. It's used as the data sharing/syncing backend for all the popular smartphone apps, including [xDrip+](https://github.com/NightscoutFoundation/xDrip) (*Android*) and [Spike App](https://spike-app.com/) (*iOS*).
 
 Most NightScout users will deploy to Heroko, using MongoDB Atlas, which is a [well-documented solution](https://nightscout.github.io/nightscout/new_user/). If you wanted to run NightScout on your own Docker stack though, then this recipe is for you!
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -92,9 +95,9 @@ BACKUP_FREQUENCY=1d
 
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

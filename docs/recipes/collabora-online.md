@@ -47,7 +47,7 @@ mkdir /var/data/collabora/
 mkdir /var/data/config/collabora/
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create /var/data/config/collabora/collabora.env, and populate with the following variables, customized for your installation.
 
@@ -153,7 +153,7 @@ The way we do this is we mount
 
 Create an empty `/var/data/collabora/loolwsd.xml` by running `touch /var/data/collabora/loolwsd.xml`. We'll populate this in the next section...
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
 Create `/var/data/config/collabora/collabora.yml` as per the following example, changing the traefik frontend_rule as necessary:
 

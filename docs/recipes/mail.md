@@ -93,7 +93,7 @@ Create the necessary DNS TXT entries for your domain(s). Note that although open
 "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYuQqDg2ZG8ZOfI1PvarF1Gcr5cJnCR8BeCj5HYgeRohSrxKL5utPEF/AWAxXYwnKpgYN837fu74GfqsIuOhu70lPhGV+O2gFVgpXYWHELvIiTqqO0QgarIN63WE2gzE4s0FckfLrMuxMoXr882wuzuJhXywGxOavybmjpnNHhbQIDAQAB"
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
 Create a docker swarm config file in docker-compose syntax (_v3.2 - because we need to expose mail ports in "host mode"_), something like this:
 

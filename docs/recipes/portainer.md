@@ -1,6 +1,7 @@
 ---
 title: Run Portainer in Docker Swarm (now with Dark Mode!)
 description: Portainer is a UI to make Docker less geeky, runs under Docker Swarm (and Kubernetes!) and most importantly, now supports dark mode!
+recipe: Portainer
 ---
 
 # Portainer
@@ -17,6 +18,8 @@ Portainer attempts to take the "geekiness" out of containers, by wrapping all th
 
 ![Portainer Screenshot](../images/portainer.png){ loading=lazy }
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -29,9 +32,9 @@ Create a folder to store portainer's persistent data:
 mkdir /var/data/portainer
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

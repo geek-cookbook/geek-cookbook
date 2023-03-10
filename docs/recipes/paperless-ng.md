@@ -1,6 +1,7 @@
 ---
 title: Run paperless-ngx under Docker
 description: Easily index, search, and view archive all of your scanned dead-tree documents with Paperless NGX, under Docker, now using the linuxserver image since the fork from from paperless-ng to paperless-ngx!
+recipe: Paperless NGX
 ---
 
 # Paperless NGX
@@ -11,6 +12,8 @@ Paper is a nightmare. Environmental issues aside, there’s no excuse for it in 
 
 !!! question "What's this fork 🍴 thing about, and is it Paperless, Paperless-NG, or Paperless-NGX?"
     It's now.. Paperless-NGX. Paperless-ngx is a fork of paperless-ng, which itself was a fork of paperless. As I understand it, the original "forker" of paperless to paperless-ng has "gone dark", and [stopped communicating](https://github.com/jonaswinkler/paperless-ng/issues/1599), so while all are hopeful that he's OK and just busy/distracted, the [community formed paperless-ngx](https://github.com/jonaswinkler/paperless-ng/issues/1632) to carry on development work under a shared responsibility model. To save some typing though, we'll just call it "Paperless", although you'll note belowe that we're using the linuxserver paperless-ngx image. (Also, if you use the automated tooling in the Premix Repo, Ansible *really* doesn't like the hypen!)
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -56,7 +59,7 @@ You'll need to replace some of the text in the snippet above:
 * `<admin_password>` - Password of the superuser account above.
 * `<admin_email>` - Email address of the superuser account above.
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
 Create a docker swarm config file in docker-compose syntax (v3), something like the following example:
 

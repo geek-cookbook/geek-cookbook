@@ -1,6 +1,7 @@
 ---
 title: Run Plex in Docker
 description: Play back all your media on all your devices
+recipe: Plex
 ---
 
 # Plex in Docker
@@ -8,6 +9,8 @@ description: Play back all your media on all your devices
 [Plex](https://www.plex.tv/) is a client-server media player system and software suite comprising two main components (a media server and client applications)
 
 ![Plex Screenshot](../images/plex.jpg)
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -21,7 +24,7 @@ We'll need a directories to bind-mount into our container for Plex to store its 
 mkdir /var/data/plex
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create plex.env, and populate with the following variables. Set PUID and GUID to the UID and GID of the user who owns your media files, on the local filesystem
 
@@ -32,9 +35,9 @@ PUID=42
 PGID=42
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

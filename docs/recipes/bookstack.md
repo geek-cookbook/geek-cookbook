@@ -1,6 +1,7 @@
 ---
 title: How to run BookStack in Docker
 description: BookStack is a simple, self-hosted, easy-to-use platform for organising and storing information. Here's how to integrate linuxserver's bookstack image into your Docker Swarm stack.
+recipe: BookStack
 ---
 
 # BookStack in Docker
@@ -12,6 +13,8 @@ A friendly middle ground between heavyweights like MediaWiki or Confluence and [
 ![BookStack Screenshot](../images/bookstack.png){ loading=lazy }
 
 I like to protect my public-facing web UIs with an [oauth_proxy](/reference/oauth_proxy/), ensuring that if an application bug (or a user misconfiguration) exposes the app to unplanned public scrutiny, I have a second layer of defense.
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -26,7 +29,7 @@ mkdir -p /var/data/bookstack/database-dump
 mkdir -p /var/data/runtime/bookstack/db
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create bookstack.env, and populate with the following variables. Set the [oauth_proxy](/reference/oauth_proxy/) variables provided by your OAuth provider (if applicable.)
 
@@ -49,9 +52,9 @@ DB_USERNAME=bookstack
 DB_PASSWORD=secret
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

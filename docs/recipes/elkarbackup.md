@@ -1,6 +1,7 @@
 ---
 title: Use elkarbackup in Docker to backup to backblaze / b2 and friends
 description: ElkarBackup is a free open-source backup solution based on RSync/RSnapshot. It's basically a web wrapper around rsync/rsnapshot, which means that your backups are just files on a filesystem, utilising hardlinks for tracking incremental changes.
+recipe: Elkar Backup
 ---
 
 # Elkar Backup
@@ -14,7 +15,7 @@ ElkarBackup is a free open-source backup solution based on RSync/RSnapshot. It's
 
 ![ElkarBackup Screenshot](../images/elkarbackup.png){ loading=lazy }
 
-## Details
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -30,7 +31,7 @@ mkdir -p /var/data/runtime/elkarbackup/db
 mkdir -p /var/data/config/elkarbackup
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create /var/data/config/elkarbackup/elkarbackup.env, and populate with the following variables
 
@@ -66,9 +67,9 @@ BACKUP_NUM_KEEP=7
 BACKUP_FREQUENCY=1d
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

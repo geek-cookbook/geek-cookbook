@@ -1,6 +1,7 @@
 ---
 title: How to run Komga with Docker
 description: Run Komga under Docker Swarm in docker-compose syntax
+recipe: Komga
 ---
 
 # Komga in Docker Swarm
@@ -11,10 +12,11 @@ So you've just watched a bunch of superhero movies, and you're suddenly inspired
 
 [Komga](https://komga.org/) is a media server with a beautifully slick interface, allowing you to read your comics / manga in CBZ, CBR, PDF and epub format. Komga includes an integrated web reader, as well as a [Tachiyomi](https://tachiyomi.org/) plugin and an OPDS server for integration with other mobile apps such as [Chunky on iPad](https://apps.apple.com/us/app/chunky-comic-reader/id663567628).
 
-## Ingredients
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
-    *[X] [AutoPirate](/recipes/autopirate/) components (*specifically [Mylar](/recipes/autopirate/mylar/)*), for searching for, downloading, and managing comic books
+
+    * [X] [AutoPirate](/recipes/autopirate/) components (*specifically [Mylar](/recipes/autopirate/mylar/)*), for searching for, downloading, and managing comic books
 
 ## Preparation
 
@@ -26,9 +28,9 @@ First we create a directory to hold the komga database, logs and other persisten
 mkdir /var/data/komga
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

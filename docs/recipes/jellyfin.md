@@ -1,6 +1,7 @@
 ---
 title: Run Jellyfin in Docker with docker compose / swarm
 description: Jellyfin is best described as "like Emby but really FOSS"
+recipe: Jellyfin
 ---
 
 # Jellyfin
@@ -10,6 +11,8 @@ description: Jellyfin is best described as "like Emby but really FOSS"
 ![Jellyfin Screenshot](../images/jellyfin.png){ loading=lazy }
 
 If it looks very similar as Emby, is because it started as a fork of it, but it has evolved since them. For a complete explanation of the why, look [here](https://jellyfin.org/docs/general/about.html).
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -29,7 +32,7 @@ Also if we want to avoid the cache to be part of the backup, we should create a 
 mkdir /var/data/runtime/jellyfin
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create jellyfin.env, and populate with PUID/GUID for the user who owns the /var/data/jellyfin directory (_above_) and your actual media content (_in this example, the media content is at **/srv/data**_)
 
@@ -38,9 +41,9 @@ PUID=
 GUID=
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

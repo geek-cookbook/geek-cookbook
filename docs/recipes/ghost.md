@@ -1,6 +1,7 @@
 ---
 title: Blog with Ghost in Docker
 description: How to run the beautiful, publication-focused blogging engine "Ghost" using Docker
+recipe: Ghost
 ---
 
 # Ghost
@@ -8,6 +9,8 @@ description: How to run the beautiful, publication-focused blogging engine "Ghos
 [Ghost](https://ghost.org) is "a fully open source, hackable platform for building and running a modern online publication."
 
 ![Ghost screenshot](/images/ghost.png){ loading=lazy }
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -21,9 +24,9 @@ Create the location for the bind-mount of the application data, so that it's per
 mkdir -p /var/data/ghost
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

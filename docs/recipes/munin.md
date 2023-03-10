@@ -1,6 +1,7 @@
 ---
 title: How to run Munin in Docker
 description: Network resource monitoring tool for quick analysis
+recipe: Munin
 ---
 
 # Munin in Docker
@@ -12,6 +13,8 @@ Munin is a networked resource monitoring tool that can help analyze resource tre
 Using Munin you can easily monitor the performance of your computers, networks, SANs, applications, weather measurements and whatever comes to mind. It makes it easy to determine "what's different today" when a performance problem crops up. It makes it easy to see how you're doing capacity-wise on any resources.
 
 Munin uses the excellent ​RRDTool (written by Tobi Oetiker) and the framework is written in Perl, while plugins may be written in any language. Munin has a master/node architecture in which the master connects to all the nodes at regular intervals and asks them for data. It then stores the data in RRD files, and (if needed) updates the graphs. One of the main goals has been ease of creating new plugins (graphs).
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -44,7 +47,7 @@ cd /var/data/munin
 mkdir -p {log,lib,run,cache}
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create /var/data/config/munin/munin.env, and populate with the following variables. Set at a **minimum** the `MUNIN_USER`, `MUNIN_PASSWORD`, and `NODES` values:
 
@@ -65,9 +68,9 @@ NODES="node1:192.168.1.1 node2:192.168.1.2 node3:192.168.1.3"
 SNMP_NODES="router1:10.0.0.254:9999"
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

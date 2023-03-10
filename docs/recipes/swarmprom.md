@@ -1,5 +1,7 @@
 ---
-description: Data is beautiful
+description: Because data is beautiful
+recipe: Swarmprom
+title: Manage your Docker Swarm like a GitOps ninja with Swarmprom
 ---
 
 # Swarmprom
@@ -21,6 +23,8 @@ cAdvisor (Container Advisor) provides container users an understanding of the re
 ## How does this magic work?
 
 I'd encourage you to spend some time reading <https://github.com/stefanprodan/swarmprom>. Stefan has included detailed explanations about which elements perform which functions, as well as how to customize your stack. (_This is only a starting point, after all_)
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -90,7 +94,7 @@ GF_SECURITY_ADMIN_USER=admin
 GF_SECURITY_ADMIN_PASSWORD=ilovemybatmanunderpants
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
 Create a docker swarm config file in docker-compose syntax (v3), based on the original swarmprom [docker-compose.yml](https://github.com/stefanprodan/swarmprom/blob/master/docker-compose.yml) file
 

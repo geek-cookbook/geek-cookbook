@@ -72,7 +72,7 @@ BACKUP_FREQUENCY=1d
 
 ### Invidious Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this example[^1]:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below.. example[^1]:
 
 --8<-- "premix-cta.md"
 

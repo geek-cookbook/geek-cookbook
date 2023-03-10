@@ -51,7 +51,7 @@ I didn't already have an archival/backup provider, so I chose Google Cloud "clou
 1. [Sign up](https://cloud.google.com/storage/docs/getting-started-console), create an empty project, enable billing, and create a bucket. Give your bucket a unique name, example "**jack-and-jills-bucket**" (_it's unique across the entire Google Cloud_)
 2. Under "Storage" section > "[Settings](https://console.cloud.google.com/project/_/storage/settings)" > "Interoperability" tab > click "Enable interoperable access" and then "Create a new key" button and note both Access Key and Secret.
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 1. Generate a random passphrase to use to encrypt your data. **Save this somewhere safe**, without it you won't be able to restore!
 2. Seriously, **save**. **it**. **somewhere**. **safe**.
@@ -116,9 +116,9 @@ tecnativa/duplicity duplicity restore \
 
 Examine the contents of /var/data/duplicity/tmp/traefik-restored.yml to confirm it contains valid data.
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Now that we have confidence in our backup/restore process, let's automate it by creating a docker swarm config file in docker-compose syntax (v3), something like this:
+Now that we have confidence in our backup/restore process, let's automate it by creating a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

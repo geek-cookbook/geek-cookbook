@@ -27,7 +27,7 @@ Here's a [screencast I recorded](https://static.funkypenguin.co.nz/2021/screenca
 !!! tip
     Store your client ID and secret safely - you'll need them for the next step.
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.env` as per the following example:
 

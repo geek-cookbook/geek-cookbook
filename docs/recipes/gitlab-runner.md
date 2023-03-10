@@ -28,9 +28,9 @@ We'll need several directories to bind-mount into our runner containers, so crea
 mkdir -p /var/data/gitlab/runners/{1,2}
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

@@ -1,6 +1,7 @@
 ---
 title: Run Minio on Docker (using compose format in swarm)
 description: How to run Minio's self-hosted S3-compatible object storage under Docker Swarm, using docker-compose v3 syntax
+recipe: Minio
 ---
 
 # Minio
@@ -20,6 +21,8 @@ Possible use-cases:
 2. Simulating S3 in a dev environment
 3. Mirroring an S3 bucket locally
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -32,7 +35,7 @@ We'll need a directory to hold our minio file store. You can create a blank dire
 mkdir /var/data/minio
 ```
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create `minio.env`, and populate with the variables below.
 
@@ -46,9 +49,9 @@ MINIO_SERVER_URL=https://minio.example.com
 !!! note "If minio redirects you to :9001"
     `MINIO_BROWSER_REDIRECT_URL` is especially important since recent versions of Minio will redirect web browsers to this URL when they hit the API directly. (*If you find yourself redirected to `http://your-minio-url:9001`, then you've not set this value correctly!*)
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

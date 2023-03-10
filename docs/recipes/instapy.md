@@ -1,6 +1,7 @@
 ---
 title: How to run InstaPy in Docker
 description: Automate your fake Instagram life with automated fakery using InstaPy in Docker
+recipe: InstaPy
 ---
 
 # InstaPy
@@ -12,6 +13,8 @@ What's an Instagram bot? Basically, you feed the bot your Instagram user/passwor
 ![InstaPy Screenshot](../images/instapy.png){ loading=lazy }
 
 Great power, right? A client (_yes, you can [hire](https://www.funkypenguin.co.nz/) me!_) asked me to integrate InstaPy into their swarm, and this recipe is the result.
+
+## {{ page.meta.recipe }} Requirements
 
 --8<-- "recipe-standard-ingredients.md"
 
@@ -25,9 +28,9 @@ We need a data location to store InstaPy's config, as well as its log files. Cre
 mkdir -p /var/data/instapy/logs
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 

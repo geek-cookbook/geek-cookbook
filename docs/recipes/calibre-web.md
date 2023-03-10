@@ -1,6 +1,7 @@
 ---
 title: Run calibre-web in Docker
 description: Manage your ebook collection. Like a BOSS.
+recipe: Calibre-Web
 ---
 
 # Calibre-Web in Docker
@@ -23,6 +24,8 @@ Support for editing eBook metadata and deleting eBooks from Calibre library
 * Support for reading eBooks directly in the browser (.txt, .epub, .pdf, .cbr, .cbt, .cbz)
 * Upload new books in PDF, epub, fb2 format
 
+## {{ page.meta.recipe }} Requirements
+
 --8<-- "recipe-standard-ingredients.md"
 
 ## Preparation
@@ -38,7 +41,7 @@ chown calibre:calibre /var/data/calibre-web # for example
 
 Ensure that your Calibre library is accessible to the swarm (_i.e., exists on shared storage_), and that the same user who owns the config directory above, also owns the actual calibre library data (_including the ebooks managed by Calibre_).
 
-### Prepare environment
+### Prepare {{ page.meta.recipe }} environment
 
 Create `/var/data/config/calibre-web/calibre-web.env`, and populate with the following variables
 
@@ -48,9 +51,9 @@ PUID=
 PGID=
 ```
 
-### Setup Docker Swarm
+### {{ page.meta.recipe }} Docker Swarm config
 
-Create a docker swarm config file in docker-compose syntax (v3), something like this:
+Create a docker swarm config file in docker-compose syntax (v3), something like the example below:
 
 --8<-- "premix-cta.md"
 
