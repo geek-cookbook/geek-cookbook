@@ -48,6 +48,7 @@
 [nextcloud]:            /recipes/nextcloud/
 [nightscout]:           /recipes/nightscout/
 [nomie]:                /recipes/nomie/
+[nitter]:               /recipes/nitter/
 [nzbget]:               /recipes/autopirate/nzbget/
 [nzbhydra]:             /recipes/autopirate/nzbhydra/
 [ombi]:                 /recipes/autopirate/ombi/
@@ -70,6 +71,7 @@
 [sabnzbd]:              /recipes/autopirate/sabnzbd/
 [searxng]:              /recipes/searxng/
 [sonarr]:               /recipes/autopirate/sonarr/
+[tiny-tiny-rss]:        /recipes/tiny-tiny-rss/
 [tfa-dex-static]:       /docker-swarm/traefik-forward-auth/dex-static/
 [tfa-google]:           /docker-swarm/traefik-forward-auth/google/
 [tfa-keycloak]:         /docker-swarm/traefik-forward-auth/keycloak/

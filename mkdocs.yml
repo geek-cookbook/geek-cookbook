@@ -145,6 +145,7 @@ nav:
         - Munin: recipes/munin.md
         - NextCloud: recipes/nextcloud.md
         - NightScout: recipes/nightscout.md
+        - Nitter: recipes/nitter.md        
         - Nomie: recipes/nomie.md
         - OpenLDAP: recipes/openldap.md
         - OwnTracks: recipes/owntracks.md
