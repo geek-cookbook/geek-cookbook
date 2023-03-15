@@ -35,6 +35,7 @@ In order to avoid IP addressing conflicts as we bring swarm networks up/down, we
 | [MiniFlux](/recipes/miniflux/)                                                | 172.16.22.0/24 |
 | [Gitlab Runner](/recipes/gitlab-runner/)                                      | 172.16.23.0/24 |
 | [Bookstack](/recipes/bookstack/)                                              | 172.16.33.0/24 |
+| [Nitter](/recipes/nitter/)                                                    | 172.16.33.0/24 |
 | [Swarmprom](/recipes/swarmprom/)                                              | 172.16.34.0/24 |
 | [Realms](/recipes/realms/)                                                    | 172.16.35.0/24 |
 | [ElkarBackup](/recipes/elkarbackup/)                                          | 172.16.36.0/24 |

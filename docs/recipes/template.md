@@ -2,11 +2,12 @@
 description: Neat one-sentence description of recipe for social media previews
 recipe: Recipe Name
 title: Short, punchy title for search engine results / social previews
+image: /images/<recipe name>.png
 ---
 
-# <///RECIPE NAME>
+# {{ page.meta.recipe }} on Docker Swarm
 
-![Linx Screenshot](../images/linx.png){ loading=lazy }
+![Screenshot of {{ page.meta.recipe }}]({{ page.meta.image }}){ loading=lazy }
 
 [Linx](https://github.com/andreimarcu/linx-server) is self-hosted file/media-sharing service, which features:
 
