@@ -3,6 +3,7 @@ description: Neat one-sentence description of recipe for social media previews
 recipe: Nitter
 title: Short, punchy title for search engine results / social previews
 image: /images/nitter.png
+status: new
 ---
 
 # {{ page.meta.recipe }} on Docker Swarm
