@@ -1,7 +1,7 @@
 ---
-description: Neat one-sentence description of recipe for social media previews
+description: Avoid Twitter tracking and advertising by running your own private frontend, Nitter, on Docker Swarm
 recipe: Nitter
-title: Short, punchy title for search engine results / social previews
+title: How to run Nitter on Docker Swarm
 image: /images/nitter.png
 status: new
 ---
