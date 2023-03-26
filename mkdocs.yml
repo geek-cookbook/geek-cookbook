@@ -16,51 +16,16 @@ copyright: 'Copyright &copy; 2016 - 2023 David Young, Funky Penguin Limited'
 
 # Plugins
 plugins:
-  extra-sass:
   search:
   minify:
     minify_html: true
+  autolinks:
   git-revision-date-localized:
     type: date
-    fallback_to_build_date: true
-  autolinks:
+    fallback_to_build_date: true  
   macros:
     verbose: true
   meta-descriptions: # If not provided, auto-generate a description (https://pypi.org/project/mkdocs-meta-descriptions-plugin/)
-  with-pdf:
-    #author: David Young
-    #copyright: ANY TEXT
-    # cover: true
-    back_cover: true
-    #cover_title: TITLE TEXT
-    #cover_subtitle: SUBTITLE TEXT
-    # cover_logo: images/cover_logo.png
-    custom_template_path: with_pdf_template
-    #toc_title: TOC TITLE TEXT
-    #heading_shift: true
-    toc_level: 3
-    ordered_chapter_level: 4
-    excludes_children:
-        - '*/:discourse-comments'
-        - '*/:employ-your-chef-engage'
-        - '*/:flirt-with-waiter-subscribe'
-        - '*/:fn:1'
-    exclude_pages:
-        - 'reference/oauth_proxy/'
-        - 'appendix/contribute/'
-    convert_iframe:
-        - src: IFRAME SRC
-          img: POSTER IMAGE URL
-          text: ALTERNATE TEXT
-        - src: ...
-#    two_columns_level: 3
-    render_js: false
-    # headless_chrome_path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
-    output_path: funkypenguins-geek-cookbook.pdf
-    debug_html: false
-    show_anchors: true
-    verbose: false
-    enabled_if_env: ENABLE_PDF_EXPORT
 
 
 #theme_dir: mkdocs-material
