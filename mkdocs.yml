@@ -185,6 +185,7 @@ nav:
               # - Dashboard: kubernetes/ingress/traefik/dashboard.md
             - Nginx: kubernetes/ingress/nginx.md
           - Persistence:
+            - NFS-Subdirectory-Provider: kubernetes/persistence/nfs-subdirectory-provider.md
             - kubernetes/persistence/index.md
             - Local Path Provisioner: kubernetes/persistence/local-path-provisioner.md
             - TopoLVM: kubernetes/persistence/topolvm.md
