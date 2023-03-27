@@ -15,7 +15,7 @@ This storage provider allows you to use an NFS server like a native K8s storage 
 
     Already deployed:
 
-    * [x] A [Kubernetes cluster](/kubernetes/cluster/) (*not running Kubernetes? Use the [Docker Swarm recipe instead][invidious]*)
+    * [x] A [Kubernetes cluster](/kubernetes/cluster/)
     * [x] [Flux deployment process](/kubernetes/deployment/flux/) bootstrapped
 
     New:
@@ -48,7 +48,7 @@ Note that I have shortened the name to nfs-subdir, a theme you will find running
 
 ### Namespace
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `/bootstrap/namespaces/namespace-invidious.yaml`:
+We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo at `/bootstrap/namespaces/namespace-nfs-subdir.yaml`:
 
 ```yaml title="/bootstrap/namespaces/namespace-nfs-subdir.yaml"
 apiVersion: v1
@@ -83,9 +83,9 @@ Needs some sort of health check!
 
 ### ConfigMap
 
-Now we're into the invidious-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner/blob/master/charts/nfs-subdir-external-provisioner/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo:
+Now we're into the nfs-subdir-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner/blob/master/charts/nfs-subdir-external-provisioner/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo:
 
-```yaml title="invidious/configmap-invidious-helm-chart-value-overrides.yaml"
+```yaml title="nfs-subdir/configmap-nfs-subdir-helm-chart-value-overrides.yaml"
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -110,9 +110,9 @@ Values you will want to change from the default are:
 
 ### HelmRelease
 
-Finally, having set the scene above, we define the HelmRelease which will actually deploy the invidious into the cluster. I save this in my flux repo:
+Finally, having set the scene above, we define the HelmRelease which will actually deploy the provider into the cluster. I save this in my flux repo:
 
-```yaml title="/invidious/helmrelease-nfs-subdir.yaml"
+```yaml title="/nfs-subdir/helmrelease-nfs-subdir.yaml"
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
