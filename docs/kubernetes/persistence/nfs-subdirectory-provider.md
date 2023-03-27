@@ -24,7 +24,7 @@ This storage provider allows you to use an NFS server like a native K8s storage 
 
 ## Preparation
 
-!!! warning
+!!! warning "SQLite hates NFS"
 
 This recpie assumes you have an NFS server ready to go with a username and a password. Setting this up is outside the current scope of this recipe. This provider is also not to be used for persisting SQLite databases, as storing them on NFS will cause the database to corrupt.
 
@@ -76,10 +76,12 @@ spec:
     kind: GitRepository
     name: flux-system
   validation: server
+    healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: nfs-subdir-external-provisioner
 ```
-!!! warning
 
-Needs some sort of health check!
 
 ### ConfigMap
 
