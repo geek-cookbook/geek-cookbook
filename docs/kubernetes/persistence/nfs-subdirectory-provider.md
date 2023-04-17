@@ -7,7 +7,7 @@ image: /images/<recipe name>.png
 
 # {{ page.meta.recipe }} on Kubernetes 
 
-This storage provider allows you to use an NFS server like a native K8s storage provider, allowing you to use non-duplicated mass storage for things like media or other large files
+This storage provider allows you to use an NFS server like a native K8s storage provider, letting you to use mass storage for things like media or other large files.  Why would this be useful? Things that you don't want to be replicated, for example, media (replicating 4.5TB can get expensive quick) or large data such as game servers! Of course, this does add a singe point of failure, but a lot less expensive than replicating data out to many nodes.
 
 ## {{ page.meta.recipe }} requirements
 
@@ -79,6 +79,7 @@ spec:
     - apiVersion: apps/v1
       kind: Deployment
       name: nfs-subdir-external-provisioner
+      namespace: nfs-suibdir
 ```
 
 
@@ -103,11 +104,14 @@ Values you will want to change from the default are:
 
 ```yaml
     nfs:
-      server: #insert server IP or DNS name here
-      path: #Insert mount path here
-      mountOptions: #Set things like your user or specific versions here
+      server: # (1)!
+      path: # (2)!
+      mountOptions: # (3)!
 ```
 
+1. Insert server IP or DNS name
+2. Insert mount path here
+3. Set things like your user or specific versions here
 
 ### HelmRelease
 
@@ -137,7 +141,7 @@ spec:
     valuesKey: values.yaml # This is the default, but best to be explicit for clarity
 ```
 
-## :octicons-video-16: Install the provider.
+## Install the provider.
 
 Commit the changes to your flux repository, and either wait for the reconciliation interval, or force  a reconcilliation using `flux reconcile source git flux-system`. You should see the kustomization appear...
 
@@ -165,7 +169,73 @@ nfs-subdir-external-provisioner-9cf9d78b5-6zd7r   1/1     Running   22 (4d11h ag
 ~ ❯
 ```
 
-You can now use this new provider to use an extrernal NFS server for storage. Why would this be useful? Things that you don't want to be replicated, for example, media or large data such as game servers! Of course, this does add a singe point of failure, but a lot less expensive than replicaing data out to many nodes.
+You can now use this new provider to use an external NFS server for storage.
+
+### How do I know it's working?
+
+So the provisioner is running, but how do we know we can actually provision volumes?
+
+#### Create PVC
+
+Create a PVC, by running:
+
+```bash
+cat <<EOF | kubectl create -f -
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-subdir-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: nfs-client
+  resources:
+    requests:
+      storage: 128Mi
+EOF
+```
+
+Examine the PVC by running `kubectl describe pvc nfs-subdir-pvc`
+
+#### Create Pod
+
+Now create a pod to consume the PVC, by running:
+
+```bash
+cat <<EOF | kubectl create -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nfs-subdir-test
+spec:
+  containers:
+  - name: volume-test
+    image: nginx:stable-alpine
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+    - name: nfs-subdir-rocks
+      mountPath: /data
+    ports:
+    - containerPort: 80
+  volumes:
+  - name: nfs-subdir-rocks
+    persistentVolumeClaim:
+      claimName: nfs-subdir-pvc
+EOF
+```
+
+Examine the pod by running `kubectl describe pod nfs-subdir-test`.
+
+#### Clean up
+
+Assuming that the pod is in a `Running` state, then nfs-subdir is working!
+
+Clean up by running:
+
+```bash
+kubectl delete pod nfs-subdir-test
+kubectl delete pvc nfs-subdir-pvc
+```
 
 ## Summary
 
