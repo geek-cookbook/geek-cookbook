@@ -5,7 +5,7 @@ title: Use an NFS server for your storage in Kubernetes
 image: /images/<recipe name>.png
 ---
 
-# {{ page.meta.recipe }} on Kubernetes 
+# {{ page.meta.recipe }} on Kubernetes
 
 This storage provider allows you to use an NFS server like a native K8s storage provider, letting you to use mass storage for things like media or other large files.  Why would this be useful? Things that you don't want to be replicated, for example, media (replicating 4.5TB can get expensive quick) or large data such as game servers! Of course, this does add a singe point of failure, but a lot less expensive than replicating data out to many nodes.
 
@@ -24,13 +24,12 @@ This storage provider allows you to use an NFS server like a native K8s storage 
 
 ## Preparation
 
-!!! warning "SQLite hates NFS" 
+!!! warning "SQLite hates NFS"
     This recpie assumes you have an NFS server ready to go with a username and a password. Setting this up is outside the current scope of this recipe. This provider is also not to be used for persisting SQLite databases, as storing them on NFS will cause the database to corrupt.
 
 ### HelmRepository
 
 We're going to install a helm chart from the NFS Subdirectory External Provisioner chart repository, so I create the following in my flux repo:
-
 
 ```yaml title="/bootstrap/helmrepositories/nfs-subdir-provider.yaml"
 apiVersion: source.toolkit.fluxcd.io/v1beta1
@@ -81,7 +80,6 @@ spec:
       name: nfs-subdir-external-provisioner
       namespace: nfs-suibdir
 ```
-
 
 ### ConfigMap
 
