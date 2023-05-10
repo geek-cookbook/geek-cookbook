@@ -29,7 +29,7 @@ The advantage under this design is additional security. If I'm deploying a web a
 
 ## AuthHost mode
 
-Under normal Oauth2 / OIDC auth, you have to tell your auth provider which URLs it may redirect an authenticated user back to, post-authentication. This is a security feture of the OIDC spec, preventing a malicious landing page from capturing your session and using it to impersonate you. When you're securing many URLs though, explicitly listing them can be a PITA.
+Under normal Oauth2 / OIDC auth, you have to tell your auth provider which URLs it may redirect an authenticated user back to, post-authentication. This is a security feature of the OIDC spec, preventing a malicious landing page from capturing your session and using it to impersonate you. When you're securing many URLs though, explicitly listing them can be a PITA.
 
 [@thomaseddon's traefik-forward-auth](https://github.com/thomseddon/traefik-forward-auth) includes an ingenious mechanism to simulate an "_auth host_" in your OIDC authentication, so that you can protect an unlimited amount of DNS names (_with a common domain suffix_), without having to manually maintain a list.
 
