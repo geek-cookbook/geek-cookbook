@@ -22,7 +22,7 @@ plugins:
       utm_source: "geek-cookbook-blog"
       utm_medium: "RSS"
       utm_campaign: "feed-syndication"          
-  social:
+  # social:
     # cards_layout_options:
       # font_family: Ubuntu  
   # cards_color:
