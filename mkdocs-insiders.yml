@@ -23,11 +23,11 @@ plugins:
       utm_medium: "RSS"
       utm_campaign: "feed-syndication"          
   social:
-    # cards_layout_options:
-      # font_family: Ubuntu  
-  # cards_color:
-    #   fill: "#FFFFFF" 
-    #   text: "#000000"  
+    cards_layout_options:
+      font_family: Ubuntu  
+    cards_color:
+        fill: "#FFFFFF" 
+        text: "#000000"  
   privacy:
     external_links_attr_map:
       target: _blank 
