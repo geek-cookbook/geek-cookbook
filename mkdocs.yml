@@ -236,6 +236,11 @@ nav:
       #   - Traefik: kubernetes/wip.md
       #   - Vault: kubernetes/wip.md
       #   - Webook Receiver: kubernetes/wip.md
+    # - 🧝 Elf Hosted:
+    #   - elfhosted/index.md
+    #   - Build Story:
+    #     - elfhosted/build/index.md
+    #     - A bastion of hope: elfhosted/build/bastion.md
     - 🚀 Get Premix!:
       - premix/index.md
       - Get Started:
@@ -413,6 +418,9 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true 
   - meta
   - md_in_html
+
+
