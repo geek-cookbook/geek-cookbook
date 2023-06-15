@@ -1,0 +1,5 @@
+!!! question "What is ElfHosted? :elf:"
+
+    Elf hosted is "self-hosting as a service" (*SHAAS?* ) - Using our [Kubernetes](/kubernetes/) / [GitOps](kubernetes/deployment/flux/design/) designs, we've build infrastructure and automation to run popular self-hosted apps (*think "Plex, Radarr, Mattermost.."*) and attach your own cloud storage ("bring-your-own-storage").
+
+    We're at the rapid-prototyping phase currently, follow the progress on the [blog](/blog/tags/#elfhosted) or via the [#elfhosted](https://discord.com/channels/396055506072109067/1118645576884572303) channel in [Discord](https://chat.funkypenguin.co.nz). During "test mode" (*June 2023 - <as-soon-as-its-stable\>*), you can [sign up](https://dev.elfhosted.com) using "play money", and {--perform unpaid QA for me--} {++try it out for free++}! :thumbsup:
