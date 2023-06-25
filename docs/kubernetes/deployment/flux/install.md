@@ -64,6 +64,9 @@ This section is a [direct copy of the official docs](https://fluxcd.io/docs/inst
 
 Create a GitHub [personal access token](https://github.com/settings/tokens) that can create repositories by checking all permissions under repo, as well as all options under `admin:public_key `. (*we'll use the token in the bootstrapping step below*)
 
+``` tip
+    A **personal token**, not one of these new-fangled "fine grained access tokens", which don't work with Flux (yet) :)
+
 ### Create GitHub Repo
 
 Now we'll create a repo for flux - it can (*and probably should!*) be private. I've created a [template repo to get you started](https://github.com/geek-cookbook/template-flux/generate), but you could simply start with a blank repo too (*although you'll need at least a `bootstrap` directory included or the command below will fail*).[^1]
@@ -85,8 +88,8 @@ Now, run a customized version of the following:
 ```bash
 GITHUB_TOKEN=<your-token>
 flux bootstrap github \
-  --owner=my-github-username \ 
-  --repository=my-github-username/my-repository \
+  --owner=my-github-username \
+  --repository=my-repository \
   --personal \
   --path bootstrap
 ```
