@@ -10,6 +10,8 @@ set -x # debug failed builds
 # Run python build script to check for errors
 # python3 scripts/build.py mkdocs.yml
 
+apt-get install -y pngquant # we need this for optimizing images
+
 # install mkdocs (or insiders version, if we're passed a GH_TOKEN var)
 if [ -z "$GH_TOKEN" ]
 then
@@ -19,7 +21,6 @@ then
 else
   echo "GH_TOKEN passed, doing an insiders build.."
   pip install git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
-  pip install pngquant
   ENABLE_PDF_EXPORT=1 mkdocs build -f mkdocs-insiders.yml
 
   # Put the PDF into secret location
