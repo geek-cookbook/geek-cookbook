@@ -4,7 +4,7 @@ categories:
   - note
 tags:
   - elfhosted
-title: Introducing the ElfHosted experiment
+title: Kubectl deploy ElfHosted
 description: Every journey has a beginning. This is the beginning of the ElfHosted journey
 ---
 
@@ -61,18 +61,18 @@ Our original appbox platform invested in a custom user dashboard, which handled:
 1. Account setup and payment
 2. App install/uninstall/restart
 
-This ended up being a big investment, and an ongoing source of frustration[^1]. Since we want to iterate ElfHosted quickly, we need an "off-the-shelf" billing system which will "just work". I looked into Shopify, Woocommerce, and several other open-source billing systems.
+This ended up being a big investment, and an ongoing source of frustration[^1]. Since we want to iterate ElfHosted quickly, we need an "off-the-shelf" billing system which will "*just work*". I looked into Shopify, Woocommerce, and several other open-source billing systems.
 
-My philosophy here is that I want as little as possible to do with billing - it's soul-sucking, anti-fun to debug why customer **X** was charged **$Y** instead of **$Z** :rage:!
+My philosophy here is that I want as little as possible to do with billing - it's soul-sucking, anti-fun to debug why customer **X** was charged **\$Y** instead of **\$Z** :rage:!
 
 I settled on the pragmatic approach of using [Woocommerce](https://woocommerce.com/marketplace-sale/) on Wordpress. It's extensible enough for the customization I'll need for service provision, but it's polished / supported enough to handle all the weird edge cases a billing system needs. I paid for the Subscriptions and Bundles addons, after doing some rudimentary testing to confirm that I could get a webhook sent on a user creation / subscription event.
 
-### SSO
+### Single Sign On (SSO)
 
 One of the killer features of the appbox service was our ability to secure otherwise-insecure applications (*[Gatus](https://github.com/TwiN/gatus), for example*) behind a layer of authentication, in this case driven by Traefik Forward Auth and Auth0. I needed to replace the Auth0 integration with _something_, and in the spirit of quick iteration, I discovered two Wordpress plugins which will allow Wordpress to act as a OIDC authentication server (*sign in with Wordpress*):
 
 * [This one](https://wordpress.org/plugins/miniorange-oauth-20-server/), which is highly polished but the free version is intended to upsell you to an expensive paid version
-*[ This other one](https://wordpress.org/plugins/openid-connect-server/), which is very bare-bones, and requires editing Wordpress's config to get it going.
+* [This other one](https://wordpress.org/plugins/openid-connect-server/), which is very bare-bones, and requires editing Wordpress's config to get it going.
 
 Again, in the interests of expediency, I'm starting with the polished-but-naggy extension!
 
