@@ -10,6 +10,8 @@ set -x # debug failed builds
 # Run python build script to check for errors
 # python3 scripts/build.py mkdocs.yml
 
+brew install pngquant
+
 # install mkdocs (or insiders version, if we're passed a GH_TOKEN var)
 if [ -z "$GH_TOKEN" ]
 then
