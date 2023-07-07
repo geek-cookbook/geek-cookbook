@@ -76,3 +76,8 @@
 [tfa-google]:           /docker-swarm/traefik-forward-auth/google/
 [tfa-keycloak]:         /docker-swarm/traefik-forward-auth/keycloak/
 [tfa]:                  /docker-swarm/traefik-forward-auth/
+[elfhosted]:            https://elfhosted.com
+[elfhosted/apps]:       https://elfhosted.com/app/
+[elfhosted/elfbot]:     https://elfhosted.com/app/elfbot/
+[elfhosted/discord]:    https://discord.elfhosted.com
+[elfhosted/store]:      https://dev.elfhosted.com
