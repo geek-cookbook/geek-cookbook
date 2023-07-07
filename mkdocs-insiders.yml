@@ -35,7 +35,7 @@ plugins:
     external_assets_exclude:
       - shields.io/*      
   optimize:
-    enabled: true # seems to break netlify builds :(
+    enabled: false # seems to break netlify builds :(
   with-pdf:
     #author: David Young
     #copyright: ANY TEXT

@@ -26,4 +26,3 @@ livereload
 qrcode
 pillow 
 cairosvg
-pngquant
