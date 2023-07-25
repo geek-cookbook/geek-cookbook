@@ -1,9 +1,12 @@
 ---
 title: Run nzbhydra2 in Docker
 description: NZBHydra is a meta search engine for NZB indexers, and can be used to provide aggregated search results to usenet search tools such as Radarr, Sonarr, etc. Here's how to deploy NZBHydra2 in the Docker Swarm Autopirate stack
+slug: NZBHydra
 ---
 
 # NZBHydra 2 in Autopirate Docker Swarm stack
+
+{% include 'try-in-elfhosted.md' %}
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.

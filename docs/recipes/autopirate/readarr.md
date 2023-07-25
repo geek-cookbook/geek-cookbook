@@ -1,9 +1,12 @@
 ---
 title: Run Readarr (Sonarr for books / audiobooks) in Docker
 description: Readarr is "Sonarr/Radarr for eBooks and audiobooks, and plays perfectly with the rest of the Autopirate Docker Swarm stack"
+slug: Readarr
 ---
 
 # Readarr in Autopirate Docker Swarm stack
+
+{% include 'try-in-elfhosted.md' %}
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.

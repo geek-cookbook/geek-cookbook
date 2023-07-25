@@ -25,8 +25,9 @@ plugins:
     fallback_to_build_date: true  
   macros:
     verbose: true
+    include_dir: _includes
   meta-descriptions: # If not provided, auto-generate a description (https://pypi.org/project/mkdocs-meta-descriptions-plugin/)
-
+  meta:
 
 #theme_dir: mkdocs-material
 nav:
@@ -195,6 +196,10 @@ nav:
               - Operator: kubernetes/persistence/rook-ceph/operator.md
               - Cluster: kubernetes/persistence/rook-ceph/cluster.md
             # - LongHorn: kubernetes/persistence/longhorn.md
+          - OIDC Authentication:
+              - kubernetes/oidc/index.md
+              - Authentik: kubernetes/oidc/authentik.md
+              # - Keycloak: kubernetes/oidc/authentik.md
       #   - Backup:
       #     - kubernetes/backup/index.md
       #     - kubernetes/wip.md
@@ -289,6 +294,7 @@ theme:
       - navigation.indexes
       - navigation.top
       - navigation.pruning
+      - navigation.path
       - search.suggest
       - search.share
       - content.code.annotate

@@ -1,9 +1,12 @@
 ---
 title: Install rutorrent / rtorrent in Docker
 description: ruTorrent (looks like uTorrent) is a popular web UI frontend to rtorrent, the de-facto ncurses-based CLI torrent client. And it's a handy addition to our Autopirate Docker Swarm stack!
+slug: ruTorrent
 ---
 
 # RTorrent / ruTorrent in Autopirate Docker Swarm stack
+
+{% include 'try-in-elfhosted.md' %}
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.

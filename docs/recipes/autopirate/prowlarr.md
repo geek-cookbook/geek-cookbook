@@ -1,9 +1,12 @@
 ---
 title: Install Prowlarr in Docker
 description: Prowlarr aggregates nzb/torrent searches. Imagine NZBHydra and Jackett had a baby, but it came out Arrr. Here's how you install Prowlarr into the Docker Swarm Autopirate stack
+slug: Prowlarr
 ---
 
 # Prowlarr in Autopirate Docker Swarm stack
+
+{% include 'try-in-elfhosted.md' %}
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.

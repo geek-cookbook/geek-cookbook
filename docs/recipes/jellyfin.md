@@ -2,9 +2,12 @@
 title: Run Jellyfin in Docker with docker compose / swarm
 description: Jellyfin is best described as "like Emby but really FOSS"
 recipe: Jellyfin
+slug: Jellyfin
 ---
 
 # Jellyfin
+
+{% include 'try-in-elfhosted.md' %}
 
 [Jellyfin](https://jellyfin.org/) is best described as "_like [Emby][emby] but really [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software)_".
 

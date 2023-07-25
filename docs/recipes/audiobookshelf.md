@@ -1,9 +1,12 @@
 ---
 title: Run Audiobookshelf app in Docker
 description: Audiobookshelf is a self-hosted audiobook and podcast server, with native Android and iOS (Testflight) apps, supporting offline syncing
+slug: Audiobookshelf
 ---
 
 # Audiobookshelf in Docker Swarm
+
+{% include 'try-in-elfhosted.md' %}
 
 [Audiobookshelf](https://www.audiobookshelf.org/) is a powerful audiobook / podcast streaming server, whose strength lies in its native app support on [Android](https://play.google.com/store/apps/details?id=com.audiobookshelf.app) / [iOS](https://testflight.apple.com/join/wiic7QIW) (*Testflight required*).
 

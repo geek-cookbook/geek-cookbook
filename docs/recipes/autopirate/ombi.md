@@ -1,9 +1,12 @@
 ---
 title: Run Ombi in Docker (protecting the API with SSL)
 description: Ombi is like your media butler - it recommends, finds what you want to watch! It includes a rich API, and since it's behind our traefik proxy, it inherits the same automatic SSL certificate generation as the rest of the Autopirate Docker Swarm stack.
+slug: Ombi
 ---
 
 # Ombi in Autopirate Docker Swarm stack
+
+{% include 'try-in-elfhosted.md' %}
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.

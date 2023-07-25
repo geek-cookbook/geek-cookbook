@@ -2,9 +2,12 @@
 title: How to run Bitwarden / bitwardenrs self hosted in Docker
 description: Bitwarden / bitwardenrs is a self-hosted internet archiving solution
 recipe: Bitwarden
+slug: Vaultwarden
 ---
 
 # Bitwarden, self hosted in Docker Swarm
+
+{% include 'try-in-elfhosted.md' %}
 
 Heard about the [latest password breach](https://www.databreaches.net) (*since lunch*)? [HaveYouBeenPowned](http://haveibeenpwned.com) yet (*today*)? [Passwords are broken](https://www.theguardian.com/technology/2008/nov/13/internet-passwords), and as the amount of sites for which you need to store credentials grows exponetially, so does the risk of using a common password.
 

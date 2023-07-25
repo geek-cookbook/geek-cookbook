@@ -1,9 +1,12 @@
 ---
 title: How to run Radarr in Docker
 description: Radarr is a tool for finding, downloading and managing movies, and is a valuable addition to the docker-swarm AutoPirate stack
+slug: Radarr
 ---
 
 # Radarr in Autopirate Docker Swarm stack
+
+{% include 'try-in-elfhosted.md' %}
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.
@@ -62,3 +65,4 @@ radarr:
 --8<-- "premix-cta.md"
 --8<-- "recipe-autopirate-toc.md"
 --8<-- "recipe-footer.md"
+--8<-- "common-links.md"

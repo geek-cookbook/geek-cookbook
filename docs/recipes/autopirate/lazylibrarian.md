@@ -1,9 +1,12 @@
 ---
 title: How to install Lazy Librarian in Docker
 description: LazyLibrarian is a tool to follow authors and manage your ebook / audiobook collection. It's a handy addition to the Autopirate Docker Swarm stack!
+slug: LazyLibrarian
 ---
 
 # LazyLibrarian in Autopirate Docker Swarm stack
+
+{% include 'try-in-elfhosted.md' %}
 
 !!! warning
     This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.

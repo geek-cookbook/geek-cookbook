@@ -2,9 +2,12 @@
 title: Run Plex in Docker
 description: Play back all your media on all your devices
 recipe: Plex
+slug: Plex
 ---
 
 # Plex in Docker
+
+{% include 'try-in-elfhosted.md' %}
 
 [Plex](https://www.plex.tv/) is a client-server media player system and software suite comprising two main components (a media server and client applications)
 

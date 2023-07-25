@@ -1,9 +1,12 @@
 ---
 title: How to setup Sonarr v3 in Docker
 description: Sonarr is a tool for finding, downloading and managing TV series*, and is a valuable addition to the docker-swarm AutoPirate stack
+slug: Sonarr
 ---
 
 # Sonarr in Autopirate Docker Swarm stack
+
+{% include 'try-in-elfhosted.md' %}
 
 !!! warning
     This is not a complete recipe - it's a component of the [AutoPirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.

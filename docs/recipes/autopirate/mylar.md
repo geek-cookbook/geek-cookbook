@@ -1,9 +1,12 @@
 ---
 title: How to run Mylar3 in Docker
 description: Mylar is a tool for downloading and managing digital comic books, and is a valuable addition to the docker-swarm AutoPirate stack
+slug: Mylar
 ---
 
 # Mylar3 in Autopirate Docker Swarm stack
+
+{% include 'try-in-elfhosted.md' %}
 
 !!! warning
     This is not a complete recipe - it's a component of the [autopirate](/recipes/autopirate/) "_uber-recipe_", but has been split into its own page to reduce complexity.

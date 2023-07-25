@@ -2,9 +2,12 @@
 title: Kavita Reader in Docker - Read ebooks / Manga / Comics
 description: Here's a recipe to run Kavita under Docker Swarm to read your comics / manga / ebooks
 recipe: Kavita
+slug: Kavita
 ---
 
 # Kavita Reader in Docker Swarm
+
+{% include 'try-in-elfhosted.md' %}
 
 So you've just watched a bunch of superhero movies, and you're suddenly inspired to deep-dive into the weird world of comic books? You're already rocking [AutoPirate](/recipes/autopirate/) with [Mylar](/recipes/autopirate/mylar/) and [NZBGet](/recipes/autopirate/nzbget/) to grab content, but how to manage and enjoy your growing collection?
 

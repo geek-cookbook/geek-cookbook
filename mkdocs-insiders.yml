@@ -3,7 +3,6 @@
 INHERIT: mkdocs.yml
 plugins:
   extra-sass:  
-  meta:
   blog:
     # post_excerpt: required
     post_url_format: "{date}/{file}" # this allows us to change the post title in future without breaking URLs

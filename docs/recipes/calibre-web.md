@@ -2,9 +2,12 @@
 title: Run calibre-web in Docker
 description: Manage your ebook collection. Like a BOSS.
 recipe: Calibre-Web
+slug: CalibreWeb
 ---
 
 # Calibre-Web in Docker
+
+{% include 'try-in-elfhosted.md' %}
 
 The [AutoPirate](/recipes/autopirate/) recipe includes [Lazy Librarian](https://github.com/itsmegb/LazyLibrarian), a tool for tracking, finding, and downloading eBooks. However, after the eBooks are downloaded, Lazy Librarian is not much use for organising, tracking, and actually **reading** them.
 
