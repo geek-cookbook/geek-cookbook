@@ -95,7 +95,7 @@ Insert your secret values into this file (*refer to `group_vars/all/01_fake_vaul
 vault_proxmox_host_password: mysekritpassword
 ```
 
-(You can always re-edit the file by running `ansible-vault edit vars/vault.yml`)
+(You can always re-edit the file by running `ansible-vault edit group_vars/<your-username>/vault.yml`)
 
 The vault file is encrypted using a secret you store outside the repo, and now you can safely check in and version `group_vars/<your-username>/vault.yml` without worrying about exposing secrets in cleartext!
 
