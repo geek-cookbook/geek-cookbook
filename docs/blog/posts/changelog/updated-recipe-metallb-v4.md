@@ -16,7 +16,7 @@ Prior to v0.13, [MetalLB][metallb] was configured using a ConfigMap. This has al
 
 <!-- more -->
 
-[MetalLB](https://metallb.universe.tf/) offers a network [load balancer](/kubernetes/loadbalancer/) implementation which workes on "bare metal" (*as opposed to a cloud provider*).
+[MetalLB](https://metallb.universe.tf/) offers a network [load balancer](/kubernetes/loadbalancer/) implementation which works on "bare metal" (*as opposed to a cloud provider*).
 
 MetalLB does two jobs:
 
