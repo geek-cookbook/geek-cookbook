@@ -85,7 +85,7 @@ spec:
 Now that the "global" elements of this deployment (*Namespace and HelmRepository*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/metallb-system`. I create this example Kustomization in my flux repo:
 
 ```yaml title="/bootstrap/kustomizations/kustomization-metallb.yaml"
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: metallb--metallb-system
@@ -98,7 +98,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  validation: server
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
@@ -143,7 +142,7 @@ The simplest way to solve this chicken-and-egg problem is to create a **second**
 I create this example Kustomization in my flux repo:
 
 ```yaml title="/bootstrap/kustomizations/kustomization-config--metallb-system.yaml"
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: config--metallb-system
@@ -158,7 +157,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  validation: server
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
