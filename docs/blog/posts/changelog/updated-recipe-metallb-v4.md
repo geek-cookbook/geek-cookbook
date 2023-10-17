@@ -5,7 +5,7 @@ categories:
 tags:
   - metallb
 links:
-  - MetalLB recipe: /kubernetes/loadbalancer/metallb/
+  - MetalLB recipe: kubernetes/loadbalancer/metallb/index.md
 title: Updated MetalLB recipe for CRDs with v0.13
 description: Prior to v0.13, MetalLB was configured using a ConfigMap. This has all changed now, and CRDs are required to perform configuration (which improves syntax checking, abong other things)
 ---
@@ -16,7 +16,7 @@ Prior to v0.13, [MetalLB][metallb] was configured using a ConfigMap. This has al
 
 <!-- more -->
 
-[MetalLB](https://metallb.universe.tf/) offers a network [load balancer](/kubernetes/loadbalancer/) implementation which workes on "bare metal" (*as opposed to a cloud provider*).
+[MetalLB](https://metallb.universe.tf/) offers a network [load balancer](/kubernetes/loadbalancer/) implementation which works on "bare metal" (*as opposed to a cloud provider*).
 
 MetalLB does two jobs:
 
