@@ -20,7 +20,9 @@ then
   ENABLE_PDF_EXPORT=0 mkdocs build -f mkdocs.yml
 else
   echo "GH_TOKEN passed, doing an insiders build.."
-  pip install git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
+  # latest version is broken against python 3.8
+  # pip install git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
+  pip install git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git@9.3.1-insiders-4.41.0
   ENABLE_PDF_EXPORT=1 mkdocs build -f mkdocs-insiders.yml
 
   # Put the PDF into secret location
