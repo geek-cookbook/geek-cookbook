@@ -56,7 +56,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  validation: server
 ```
 
 1. Note that we use the `spec.dependsOn` to ensure that this Kustomization is only applied **after** the rook-ceph operator is deployed and operational. This ensures that the necessary CRDs are in place, and avoids a dry-run error on the reconciliation.

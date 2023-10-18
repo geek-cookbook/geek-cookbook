@@ -3,24 +3,6 @@
 INHERIT: mkdocs.yml
 plugins:
   extra-sass:  
-  blog:
-    # post_excerpt: required
-    post_url_format: "{date}/{file}" # this allows us to change the post title in future without breaking URLs
-  tags:
-    tags_file: blog/tags.md
-  rss:
-    match_path: blog/posts/.*
-    date_from_meta:
-      as_creation: date
-    categories:
-      - categories
-      - tags
-    abstract_chars_count: 200
-    image: https://geek-cookbook.funkypenguin.co.nz/images/site-logo.png
-    url_parameters:
-      utm_source: "geek-cookbook-blog"
-      utm_medium: "RSS"
-      utm_campaign: "feed-syndication"          
   social:
     cards_layout_options:
       font_family: Ubuntu  

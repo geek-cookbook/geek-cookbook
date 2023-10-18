@@ -1,4 +1,5 @@
-funkypenguin:
-  name: David Young
-  description: Geek Chef
-  avatar: https://github.com/funkypenguin.png
+authors:
+  funkypenguin:
+    name: David Young
+    description: Geek Chef
+    avatar: https://github.com/funkypenguin.png
