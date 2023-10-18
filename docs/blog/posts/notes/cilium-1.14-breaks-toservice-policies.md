@@ -15,7 +15,7 @@ I've been working with a client on upgrading a Cilium v1.13 instance to v1.14.. 
 ## What happened?
 
 !!! summary "Background"
-		We use CiliumNetworkPolicies selectively, locking down some namespaces to permitted ingress/egress only, and allowing others free reign (*we also use [Istio for namespace isolation](https://www.funkypenguin.co.nz/blog/istio-namespace-isolation-tricks/)*)
+    We use CiliumNetworkPolicies selectively, locking down some namespaces to permitted ingress/egress only, and allowing others free reign (*we also use [Istio for namespace isolation](https://www.funkypenguin.co.nz/blog/istio-namespace-isolation-tricks/)*)
 
 The first clue was, things broke. Pods with istio-proxy sidecars weren't able to talk to istiod, and consequently pods were crashlooping all over the place. The second clue was this line in cilium's output:
 
@@ -73,7 +73,7 @@ The solution was to flip the switch on the toServices/toPorts combo, making it u
 In my case, this meant a bulk update of 40-50 policies, but it turns out that a "supported" fix was relatively simple. The `toEndpoints` egress selector can achieve the same result. The gotcha is you need to match on your target services' label, as well as the cilium-specific `k8s:io.kubernetes.pod.namespace` label, which indicates which namespace the target pods can be found in.
 
 !!! note "What about targeting services in the same namespace?"
-		It seems that unless the `k8s:io.kubernetes.pod.namespace` is found in the policy, the policy will only apply to pods in the namespace in which is found. This is a subtle change in behaviour which could easily result in confusion - i.e., you'd assume that omitting the `k8s:io.kubernetes.pod.namespace` tag would result in matching endpoints across the **entire** cluster (*and why would you do that?*)
+    It seems that unless the `k8s:io.kubernetes.pod.namespace` is found in the policy, the policy will only apply to pods in the namespace in which is found. This is a subtle change in behavior which could easily result in confusion - i.e., you'd assume that omitting the `k8s:io.kubernetes.pod.namespace` tag would result in matching endpoints across the **entire** cluster (*and why would you do that?*)
 
 So I changed this:
 
