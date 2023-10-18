@@ -55,13 +55,20 @@ Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.env` per the 
 
 ```bash
 DEFAULT_PROVIDER=oidc
-PROVIDERS_OIDC_CLIENT_ID=foo                         # This is the staticClients.id value in config.yml above
-PROVIDERS_OIDC_CLIENT_SECRET=bar                     # This is the staticClients.secret value in config.yml above
-PROVIDERS_OIDC_ISSUER_URL=https://dex.example.com    # This is the issuer value in config.yml above, and it has to be reachable via a browser
-SECRET=imtoosexyformyshorts                          # Make this up. It's not configured anywhere else
-AUTH_HOST=auth.example.com                           # This should match the value of the traefik hosts labels in Traefik Forward Auth
-COOKIE_DOMAIN=example.com                            # This should match your base domain
+PROVIDERS_OIDC_CLIENT_ID=foo # (1)!
+PROVIDERS_OIDC_CLIENT_SECRET=bar #(2)!
+PROVIDERS_OIDC_ISSUER_URL=https://dex.example.com # (3)!
+SECRET=imtoosexyformyshorts # (4)! 
+AUTH_HOST=auth.example.com #(5)! 
+COOKIE_DOMAIN=example.com #(6)!
 ```
+
+1. This is the staticClients.id value in config.yml above
+2. This is the staticClients.secret value in config.yml above
+3. This is the issuer value in config.yml above, and it has to be reachable via a browser
+4. Make this up. It's not configured anywhere else
+5. This should match the value of the traefik hosts labels in Traefik Forward Auth
+6. This should match your base domain
 
 ### Setup Docker Stack for Dex
 
