@@ -54,13 +54,13 @@ staticPasswords:
 Create `/var/data/config/traefik-forward-auth/traefik-forward-auth.env` per the following example configuration:
 
 ```bash
-DEFAULT_PROVIDER: oidc
-PROVIDERS_OIDC_CLIENT_ID: foo                         # This is the staticClients.id value in config.yml above
-PROVIDERS_OIDC_CLIENT_SECRET: bar                     # This is the staticClients.secret value in config.yml above
-PROVIDERS_OIDC_ISSUER_URL: https://dex.example.com    # This is the issuer value in config.yml above, and it has to be reachable via a browser
-SECRET: imtoosexyformyshorts                          # Make this up. It's not configured anywhere else
-AUTH_HOST: auth.example.com                           # This should match the value of the traefik hosts labels in Traefik Forward Auth
-COOKIE_DOMAIN: example.com                            # This should match your base domain
+DEFAULT_PROVIDER=oidc
+PROVIDERS_OIDC_CLIENT_ID=foo                         # This is the staticClients.id value in config.yml above
+PROVIDERS_OIDC_CLIENT_SECRET=bar                     # This is the staticClients.secret value in config.yml above
+PROVIDERS_OIDC_ISSUER_URL=https://dex.example.com    # This is the issuer value in config.yml above, and it has to be reachable via a browser
+SECRET=imtoosexyformyshorts                          # Make this up. It's not configured anywhere else
+AUTH_HOST=auth.example.com                           # This should match the value of the traefik hosts labels in Traefik Forward Auth
+COOKIE_DOMAIN=example.com                            # This should match your base domain
 ```
 
 ### Setup Docker Stack for Dex
@@ -82,15 +82,8 @@ services:
     deploy:
       labels:
       # traefik
-      - traefik.enable=true
-      - traefik.docker.network=traefik_public
-
-      # traefikv1
-      - traefik.frontend.rule=Host:dex.example.com
-      - traefik.port=5556
-      - traefik.docker.network=traefik_public
-
-      # and for traefikv2:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_public"
       - "traefik.http.routers.dex.rule=Host(`dex.example.com`)"
       - "traefik.http.routers.dex.entrypoints=https"
       - "traefik.http.services.dex.loadbalancer.server.port=5556"  
