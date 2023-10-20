@@ -1,3 +1,17 @@
+---
+title: Support CSI VolumeSnapshots with snapshot-controller
+description: Add CSI VolumeSnapshot support with snapshot support
+values_yaml_url: https://github.com/bitnami/charts/blob/master/bitnami/external-dns/values.yaml
+helm_chart_version: 5.1.x
+helm_chart_name: external-dns
+helm_chart_repo_name: bitnami
+helm_chart_repo_url: https://charts.bitnami.com/bitnami
+helmrelease_name: external-dns
+helmrelease_namespace: external-dns
+kustomization_name: external-dns
+slug: External DNS
+---
+
 # External DNS
 
 Kubernetes' internal DNS / service-discovery means that every service is resolvable within the cluster. You can create a Wordpress pod with a database URL pointing to "mysql", and trust that it'll find the service named "mysql" in the same namespace. (*Or "mysql.weirdothernamespace" if you prefer*)
@@ -12,81 +26,14 @@ ExternalDNS is a controller for Kubernetes which watches the objects you create 
     * [x] [Flux deployment process](/kubernetes/deployment/flux/) bootstrapped
     * [x] API credentials for a [supported DNS provider](https://github.com/kubernetes-sigs/external-dns)
 
-## Preparation
+{% include 'kubernetes-flux-namespace.md' %}
+{% include 'kubernetes-flux-helmrepository.md' %}
+{% include 'kubernetes-flux-kustomization.md' %}
+{% include 'kubernetes-flux-helmrelease.md' %}
 
-### Namespace
+#### Configure External DNS
 
-We need a namespace to deploy our HelmRelease and associated ConfigMaps into. Per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
-
-```yaml title="/bootstrap/namespaces/namespace-external-dns.yaml"
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: external-dns
-```
-
-### HelmRepository
-
-Next, we need to define a HelmRepository (*a repository of helm charts*), to which we'll refer when we create the HelmRelease. We only need to do this once per-repository. In this case, we're using the (*prolific*) [bitnami chart repository](https://github.com/bitnami/charts/tree/master/bitnami), so per the [flux design](/kubernetes/deployment/flux/), I create this example yaml in my flux repo:
-
-```yaml title="/bootstrap/helmrepositories/helmrepository-bitnami.yaml"
-apiVersion: source.toolkit.fluxcd.io/v1beta1
-kind: HelmRepository
-metadata:
-  name: bitnami
-  namespace: flux-system
-spec:
-  interval: 15m
-  url: https://charts.bitnami.com/bitnami
-```
-
-### Kustomization
-
-Now that the "global" elements of this deployment (*just the HelmRepository in this case*z*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/external-dns`. I create this example Kustomization in my flux repo:
-
-```yaml title="/bootstrap/kustomizations/kustomization-external-dns.yaml"
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-kind: Kustomization
-metadata:
-  name: external-dns
-  namespace: flux-system
-spec:
-  interval: 15m
-  path: ./external-dns
-  prune: true # remove any elements later removed from the above path
-  timeout: 2m # if not set, this defaults to interval duration, which is 1h
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  validation: server
-  healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: external-dns
-      namespace: external-dns
-```
-
-### ConfigMap
-
-Now we're into the external-dns-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami/charts/blob/master/bitnami/external-dns/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 spaces (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo:
-
-```yaml title="/external-dns/configmap-external-dns-helm-chart-value-overrides.yaml"
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  creationTimestamp: null
-  name: external-dns-helm-chart-value-overrides
-  namespace: external-dns
-data:
-  values.yaml: |-
-    # <upstream values go here>
-```
-
---8<-- "kubernetes-why-full-values-in-configmap.md"
-
-Then work your way through the values you pasted, and change any which are specific to your configuration.
-
-I recommend changing:
+I recommend changing at least:
 
 ```yaml
         sources:
@@ -113,10 +60,11 @@ To:
 
 ### Secret
 
-As you work your way through `values.yaml`, you'll notice that it contains specific placholders for credentials for various DNS providers.
+As you work your way through `values.yaml`, you'll notice that it contains specific placeholders for credentials for various DNS providers.
+
 Take for example, this config for cloudflare:
 
-```yaml title="Example snippet of CloudFlare config from ConfigMap"
+```yaml title="Example snippet of CloudFlare config from upstream values.yaml"
         cloudflare:
           ## @param cloudflare.apiToken When using the Cloudflare provider, `CF_API_TOKEN` to set (optional)
           ##
@@ -151,39 +99,7 @@ Thanks to [Sealed Secrets](/kubernetes/sealed-secrets/), we have a safe way of c
 
 And your sealed secret would end up in `external-dns/sealedsecret-cloudflare-api-token.yaml`.
 
-### HelmRelease
-
-Lastly, having set the scene above, we define the HelmRelease which will actually deploy the external-dns controller into the cluster, with the config we defined above. I save this in my flux repo as:
-
-```yaml title="/external-dns/helmrelease-external-dns.yaml"
-  apiVersion: helm.toolkit.fluxcd.io/v2beta1
-  kind: HelmRelease
-  metadata:
-    name: external-dns
-    namespace: external-dns
-  spec:
-    chart:
-      spec:
-        chart: external-dns
-        version: 4.x
-        sourceRef:
-          kind: HelmRepository
-          name: bitnami
-          namespace: flux-system
-    interval: 15m
-    timeout: 5m
-    releaseName: external-dns
-    valuesFrom:
-    - kind: ConfigMap
-      name: external-dns-helm-chart-value-overrides
-      valuesKey: values.yaml # This is the default, but best to be explicit for clarity
-```
-
---8<-- "kubernetes-why-not-config-in-helmrelease.md"
-
-## Serving
-
-Once you've committed your YAML files into your repo, you should soon see some pods appear in the `external-dns` namespace!
+{% include 'kubernetes-flux-check.md' %}
 
 ### Using CRDs
 
@@ -228,6 +144,15 @@ spec:
 ### Troubleshooting
 
 If DNS entries **aren't** created as you expect, then the best approach is to check the external-dns logs, by running `kubectl logs -n external-dns -l app.kubernetes.io/name=external-dns`.
+
+## Summary
+
+What have we achieved? By simply creating another YAML in our flux repo alongside our app HelmReleases, we can record and create the necessary DNS entries, without fiddly manual intervetion!
+
+!!! summary "Summary"
+    Created:
+
+    * [X] DNS records are created automatically based on YAMLs (*or even just on services and ingresses!*)
 
 --8<-- "recipe-footer.md"
 
