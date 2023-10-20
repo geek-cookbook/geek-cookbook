@@ -76,6 +76,7 @@
 [tfa-google]:           /docker-swarm/traefik-forward-auth/google/
 [tfa-keycloak]:         /docker-swarm/traefik-forward-auth/keycloak/
 [tfa]:                  /docker-swarm/traefik-forward-auth/
+[velero]:               /kubernetes/backup/velero/
 [elfhosted]:            https://elfhosted.com
 [elfhosted/apps]:       https://elfhosted.com/app/
 [elfhosted/elfbot]:     https://elfhosted.com/app/elfbot/

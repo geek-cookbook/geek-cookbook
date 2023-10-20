@@ -15,12 +15,11 @@ status: new
 
 # Velero
 
-Don't be like [Cameron](http://haltandcatchfire.wikia.com/wiki/Cameron_Howe). Backup your stuff.
-
-<!-- markdownlint-disable MD033 -->
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1UtFeMoqVHQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 [Velero](https://velero.io/), a VMWare-backed open-source project, is a mature cloud-native backup solution, able to selectively backup / restore your various workloads / data.
+
+For [ElfHosted][elfhosted], I rely on Velero to automatically snapshot TBs of data, so that in the event of a disaster which impacts user-managed data[^2], I'll be able to perform a quick restore.
+
+--8<-- "what-is-elfhosted.md"
 
 !!! summary "Ingredients"
 
@@ -324,5 +323,7 @@ What have we achieved? We've got scheduled backups running, and we've successful
 
     * [X] Velero running and creating restorable backups on schedule
 
-
 [^1]: This is where you'd add multiple Volume Groups if you wanted a storageclass per Volume Group
+[^2]: But not the rook-ceph cluster. If that dies, the snapshots are toast :toast: too!
+
+--8<-- "recipe-footer.md"
