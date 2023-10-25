@@ -1,6 +1,6 @@
 ---
-title: FIXMEHow to use Rook Ceph for Persistent Storage in Kubernetes
-description: FIXMEHow to deploy Rook Ceph into your Kubernetes cluster for persistent storage
+title: Creating CSI snapshots on bare-metal Kubernetes
+description: How to use snapshot controller on your bare-metal Kubernetes to create volume snapshots
 ---
 # Creating CSI snapshots
 

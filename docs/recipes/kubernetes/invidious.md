@@ -1,7 +1,6 @@
 ---
 title: Install Invidious in Kubernetes
 description: How to install your own Invidious instance using Kubernetes
-status: new
 ---
 
 # Install Invidious in Kubernetes
@@ -73,7 +72,7 @@ metadata:
 Now that the "global" elements of this deployment (*just the GitRepository in this case*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/invidious`. I create this example Kustomization in my flux repo:
 
 ```yaml title="/bootstrap/kustomizations/kustomization-invidious.yaml"
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: invidious
@@ -86,7 +85,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  validation: server
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment

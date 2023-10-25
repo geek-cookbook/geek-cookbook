@@ -1,5 +1,10 @@
 # Backup
 
+Don't be like [Cameron](http://haltandcatchfire.wikia.com/wiki/Cameron_Howe). Backup your stuff.
+
+<!-- markdownlint-disable MD033 -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1UtFeMoqVHQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 > Waitasec, what happened to "cattle :cow:, not pets"? Why should you need backup in your cluster?
 
 Ha. good question. If you're happily running Kubernetes in a cloud provider and using managed services for all your stateful workloads (*managed databases, etc*) then you don't need backup.

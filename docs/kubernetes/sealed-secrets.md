@@ -83,7 +83,7 @@ Now that the "global" elements of this deployment (*just the HelmRepository in t
 
 ??? example "Example Kustomization (click to expand)"
     ```yaml
-    apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+    apiVersion: kustomize.toolkit.fluxcd.io/v1
     kind: Kustomization
     metadata:
       name: sealed-secrets
@@ -96,7 +96,6 @@ Now that the "global" elements of this deployment (*just the HelmRepository in t
       sourceRef:
         kind: GitRepository
         name: flux-system
-      validation: server
       healthChecks:
         - apiVersion: apps/v1
           kind: Deployment

@@ -64,7 +64,7 @@ This section is a [direct copy of the official docs](https://fluxcd.io/docs/inst
 
 Create a GitHub [personal access token](https://github.com/settings/tokens) that can create repositories by checking all permissions under repo, as well as all options under `admin:public_key `. (*we'll use the token in the bootstrapping step below*)
 
-``` tip
+!!! tip
     A **personal token**, not one of these new-fangled "fine grained access tokens", which don't work with Flux (yet) :)
 
 ### Create GitHub Repo
@@ -86,7 +86,7 @@ kube-system   metrics-server-86cbb8457f-25688           1/1     Running   0     
 Now, run a customized version of the following:
 
 ```bash
-GITHUB_TOKEN=<your-token>
+GITHUB_TOKEN=<your-token> \
 flux bootstrap github \
   --owner=my-github-username \
   --repository=my-repository \

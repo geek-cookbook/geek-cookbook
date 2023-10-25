@@ -69,7 +69,7 @@ Create a kustomization for the chart, pointing flux to a path in the repo where 
 ??? example "Here's an example Kustomization..."
 
     ```yaml
-    apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+    apiVersion: kustomize.toolkit.fluxcd.io/v1
     kind: Kustomization
     metadata:
       name: podinfo
@@ -82,7 +82,6 @@ Create a kustomization for the chart, pointing flux to a path in the repo where 
       sourceRef:
         kind: GitRepository
         name: flux-system
-      validation: server
       healthChecks:
         - apiVersion: apps/v1
           kind: Deployment

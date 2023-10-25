@@ -56,7 +56,7 @@ Now that the "global" elements of this deployment (*Namespace and HelmRepository
 
 ??? example "Example Kustomization (click to expand)"
     ```yaml
-    apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+    apiVersion: kustomize.toolkit.fluxcd.io/v1
     kind: Kustomization
     metadata:
       name: nginx-ingress-controller
@@ -69,7 +69,6 @@ Now that the "global" elements of this deployment (*Namespace and HelmRepository
       sourceRef:
         kind: GitRepository
         name: flux-system
-      validation: server
       healthChecks:
         - apiVersion: apps/v1
           kind: Deployment
