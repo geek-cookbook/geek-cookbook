@@ -13,7 +13,6 @@ draft: true
 
 In this post, we continue our adventure setting up an app hosting platform running on Kubernetes.
 
---8<-- "blog-series-elfhosted.md"
 
 My two physical servers were "delivered" (to my inbox), along with instructions re SSHing to the "rescueimage" environment, which looks like this:
 
