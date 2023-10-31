@@ -16,7 +16,7 @@ links:
 - name: Discord
   uri: https://goauthentik.io/discord
 - name: GitHub Repo
-  uri: [https://goauthentik.io/discord  ](https://github.com/goauthentik/authentik)
+  uri: https://github.com/goauthentik/authentik
 ---
 
 # Authentik on Kubernetes
