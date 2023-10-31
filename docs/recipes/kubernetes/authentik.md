@@ -11,11 +11,12 @@ helmrelease_namespace: authentik
 kustomization_name: authentik
 slug: Authentik
 status: new
-github_repo: https://github.com/goauthentik/authentik
 upstream: https://goauthentik.io
 links:
 - name: Discord
   uri: https://goauthentik.io/discord
+- name: GitHub Repo
+  uri: [https://goauthentik.io/discord  ](https://github.com/goauthentik/authentik)
 ---
 
 # Authentik on Kubernetes
