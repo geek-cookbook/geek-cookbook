@@ -1,6 +1,6 @@
 ---
-title: How to deploy Authentik on Kubernetes
-description: Deploy Authentik on Kubernetes to provide SSO to your cluster and workloads
+title: How to deploy authentik on Kubernetes
+description: Deploy authentik on Kubernetes to provide SSO to your cluster and workloads
 values_yaml_url: https://github.com/goauthentik/helm/blob/main/charts/authentik/values.yaml
 helm_chart_version: 2023.10.x
 helm_chart_name: authentik
@@ -9,7 +9,7 @@ helm_chart_repo_url: https://charts.goauthentik.io/
 helmrelease_name: authentik
 helmrelease_namespace: authentik
 kustomization_name: authentik
-slug: Authentik
+slug: authentik
 status: new
 upstream: https://goauthentik.io
 links:
@@ -19,11 +19,15 @@ links:
   uri: https://github.com/goauthentik/authentik
 ---
 
-# Authentik on Kubernetes
+# authentik on Kubernetes
 
-Authentik is an open-source Identity Provider focused on flexibility and versatility. It not only supports modern authentication standards (*like OIDC*), but includes "outposts" to provide support for less-modern  protocols such as [LDAP][openldap] :t_rex:, or basic authentication proxies.
+authentik[^1] is an open-source Identity Provider, focused on flexibility and versatility. With authentik, site administrators, application developers, and security engineers have a dependable and secure solution for authentication in almost any type of environment.
 
-![Authentik login](/images/authentik.png){ loading=lazy }
+![authentik login](/images/authentik.png){ loading=lazy }
+
+There are robust recovery actions available for the users and applications, including user profile and password management. You can quickly edit, deactivate, or even impersonate a user profile, and set a new password for new users or reset an existing password.
+
+You can use authentik in an existing environment to add support for new protocols, so introducing authentik to your current tech stack doesn't present re-architecting challenges. We already support all of the major providers, such as OAuth2, SAML, [LDAP][openldap] :t_rex:, and SCIM, so you can pick the protocol that you need for each application.
 
 See a comparison with other IDPs [here](https://goauthentik.io/#comparison).
 
@@ -47,18 +51,18 @@ See a comparison with other IDPs [here](https://goauthentik.io/#comparison).
 {% include 'kubernetes-flux-dnsendpoint.md' %}
 {% include 'kubernetes-flux-helmrelease.md' %}
 
-## Configure Authentik Helm Chart
+## Configure authentik Helm Chart
 
 The following sections detail suggested changes to the values pasted into `/{{ page.meta.helmrelease_namespace }}/helmrelease-{{ page.meta.helmrelease_name }}.yaml` from the {{ page.meta.slug }} helm chart's [values.yaml]({{ page.meta.values_yaml_url }}). The values are already indented correctly to be copied, pasted into the HelmRelease, and adjusted as necessary.
 
 !!! tip
-    Confusingly, the Authentik helm chart defaults to having the bundled redis and postgresql **disabled**, but the [Authentik Kubernetes install](https://goauthentik.io/docs/installation/kubernetes/) docs require that they be enabled. Take care to change the respective `enabled: false` values to `enabled: true` below.
+    Confusingly, the authentik helm chart defaults to having the bundled redis and postgresql **disabled**, but the [authentik Kubernetes install](https://goauthentik.io/docs/installation/kubernetes/) docs require that they be enabled. Take care to change the respective `enabled: false` values to `enabled: true` below.
 
 ### Set bootstrap credentials
 
-By default, when you install the Authentik helm chart, you'll get to set your admin user's (`akadmin`) when you first login. You can pre-configure this password by setting the `AUTHENTIK_BOOTSTRAP_PASSWORD` env var as illustrated below.
+By default, when you install the authentik helm chart, you'll get to set your admin user's (`akadmin`) when you first login. You can pre-configure this password by setting the `AUTHENTIK_BOOTSTRAP_PASSWORD` env var as illustrated below.
 
-If you're after a more hands-off implementation[^1], you can also pre-set a "bootstrap token", which can be used to interact with the Authentik API programatically (*see example below*):
+If you're after a more hands-off implementation, you can also pre-set a "bootstrap token", which can be used to interact with the authentik API programatically (*see example below*):
 
 ```yaml hl_lines="2-3" title="Optionally pre-configure your bootstrap secrets"
     env:
@@ -66,9 +70,9 @@ If you're after a more hands-off implementation[^1], you can also pre-set a "boo
       AUTHENTIK_BOOTSTRAP_TOKEN: "iamusedbymachinez"
 ```
 
-### Configure Redis for Authentik
+### Configure Redis for authentik
 
-Authentik uses Redis as the broker for [Celery](https://docs.celeryq.dev/en/stable/) background tasks. The Authentik helm chart defaults to provisioning an 8Gi PVC for redis, which seems like overkill for a simple broker. You can tweak the size of the Redis PVC by setting:
+authentik uses Redis as the broker for [Celery](https://docs.celeryq.dev/en/stable/) background tasks. The authentik helm chart defaults to provisioning an 8Gi PVC for redis, which seems like overkill for a simple broker. You can tweak the size of the Redis PVC by setting:
 
 ```yaml hl_lines="4" title="1Gi should be fine for redis"
     redis:
@@ -77,7 +81,7 @@ Authentik uses Redis as the broker for [Celery](https://docs.celeryq.dev/en/stab
           size: 1Gi
 ```
 
-### Configure PostgreSQL for Authentik
+### Configure PostgreSQL for authentik
 
 Depending on your risk profile / exposure, you may want to set a secure PostgreSQL password, or you may be content to leave the default password blank.
 
@@ -102,7 +106,7 @@ As with Redis above, you may feel (*like I do*) that provisioning an 8Gi PVC for
 
 ### Ingress
 
-Setup your ingress for the Authentik UI. If you plan to add outposts to proxy other un-authenticated endpoints later, this is where you'll add them:
+Setup your ingress for the authentik UI. If you plan to add outposts to proxy other un-authenticated endpoints later, this is where you'll add them:
 
 ```yaml hl_lines="3 7" title="Configure your ingress"
     ingress:
@@ -152,7 +156,7 @@ authentik-worker-7bb8f55bcb-5jwrr   1/1     Running     0               23h
 ~ ❯
 ```
 
-Browse to the URL you configured in your ingress above, and confirm that the Authentik UI is displayed.
+Browse to the URL you configured in your ingress above, and confirm that the authentik UI is displayed.
 
 ## Create your admin user
 
@@ -166,16 +170,16 @@ Next, navigate to **Directory** --> **Groups**, and edit the **authentik Admins*
 
 Eureka! :tada: 
 
-Your user is now an Authentik superuser. Confirm this by logging out as **akadmin**, and logging back in with your own credentials.
+Your user is now an authentik superuser. Confirm this by logging out as **akadmin**, and logging back in with your own credentials.
 
 ## Summary
 
-What have we achieved? We've got Authentik running and accessible, we've created a superuser account, and we're ready to flex :muscle: the power of Authentik to deploy an OIDC provider for Kubernetes, or simply secure unprotected UIs with proxy outposts!
+What have we achieved? We've got authentik running and accessible, we've created a superuser account, and we're ready to flex :muscle: the power of authentik to deploy an OIDC provider for Kubernetes, or simply secure unprotected UIs with proxy outposts!
 
 !!! summary "Summary"
     Created:
 
-    * [X] Authentik running and ready to "authentikate" :lock: !
+    * [X] authentik running and ready to "authentikate" :lock: !
 
     Next:
 
@@ -183,4 +187,4 @@ What have we achieved? We've got Authentik running and accessible, we've created
 
 {% include 'recipe-footer.md' %}
 
-[^1]: I use the bootstrap token with an ansible playbook which provisions my users / apps using the Authentik API
+[^1]: Yes, the lower-case thing bothers me too. That's how the official docs do it though, so I'm following suit.

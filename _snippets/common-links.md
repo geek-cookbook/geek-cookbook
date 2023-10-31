@@ -33,6 +33,7 @@
 [k8s/invidious]:        /recipes/kubernetes/invidious/
 [k8s/mastodon]:         /recipes/kubernetes/mastodon/
 [k8s/matrix]:           /recipes/kubernetes/matrix/
+[k8s/authentik]:        /recipes/kubernetes/authentik/
 [metallb]:              /kubernetes/loadbalancer/metallb/
 [kavita]:               /recipes/kavita/
 [keycloak]:             /recipes/keycloak/

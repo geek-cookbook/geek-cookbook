@@ -2,17 +2,6 @@
 
 ///Footnotes Go Here///
 
-{% if page.meta.upstream %}
-### {{ page.meta.slug }} resources
-
-* [{{ page.meta.slug }} (official site)]({{ page.meta.upstream }})
-{% endif %}
-{% if page.meta.links %}
-{% for link in page.meta.links %}
-* [{{ page.meta.slug }} {{ link.name }}]({{ link.uri }})
-{% endfor %}
-{% endif %}
-
 ### Tip your waiter (sponsor) 👏
 
 Did you receive excellent service? Want to compliment the chef? (_..and support development of current and future recipes!_) Sponsor me on [Github][github_sponsor] / [Ko-Fi][kofi] / [Patreon][patreon], or see the [contribute](/community/contribute/) page for more (_free or paid)_ ways to say thank you! 👏
@@ -28,6 +17,17 @@ Learn more about working with me [here](https://www.funkypenguin.co.nz/work-with
 Want to know now when this recipe gets updated, or when future recipes are added? Subscribe to the [RSS feed](/rss/), or leave your email address below, and we'll keep you updated.
 
 <script async data-uid="20249aa846" src="https://funkypenguin.ck.page/20249aa846/index.js"></script>
+
+{% if page.meta.upstream %}
+### {{ page.meta.slug }} resources 📝
+
+* [{{ page.meta.slug }} (official site)]({{ page.meta.upstream }})
+{% endif %}
+{% if page.meta.links %}
+{% for link in page.meta.links %}
+* [{{ page.meta.slug }} {{ link.name }}]({{ link.uri }})
+{% endfor %}
+{% endif %}
 
 ## Your comments? 💬
 
