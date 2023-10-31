@@ -15,6 +15,8 @@ The first of our imported improvements covers how to ensure that you have a trus
 
 Check out the [Velero][velero] recipe for a detailed guide re applying the same to your cluster!
 
+<!-- more -->
+
 [^1]: For ongoing maintenance, that is. New features still take time!
 
 --8<-- "blog-footer.md"
