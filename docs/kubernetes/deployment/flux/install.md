@@ -147,7 +147,7 @@ If you used my template repo, some extra things also happened..
 
 That's best explained on the [next page](/kubernetes/deployment/flux/design/), describing the design we're using...
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: The [template repo](https://github.com/geek-cookbook/template-flux/) also "bootstraps" a simple example re how to [operate flux](/kubernetes/deployment/flux/operate/), by deploying the podinfo helm chart.
 [^2]: TIL that GitHub listens for SSH on `ssh.github.com` on port 443!

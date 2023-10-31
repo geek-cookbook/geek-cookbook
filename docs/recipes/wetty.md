@@ -102,4 +102,4 @@ Browse to your new browser-cli-terminal at https://**YOUR-FQDN**. Authenticate w
 
 [^2]: The inclusion of Wetty was due to the efforts of @gpulido in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Gabriel!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

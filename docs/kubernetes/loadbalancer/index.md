@@ -50,6 +50,6 @@ Assuming you only had a single Kubernetes node (*say, a small k3s deployment*), 
 
 (*This is [the way k3s works](/kubernetes/loadbalancer/k3s/) by default, although it's still called a LoadBalancer*)
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: It is possible to be prescriptive about which port is used for a Nodeport-exposed service, and this is occasionally [a valid deployment strategy](https://github.com/portainer/k8s/#using-nodeport-on-a-localremote-cluster), but you're usually limited to ports between 30000 and 32768.

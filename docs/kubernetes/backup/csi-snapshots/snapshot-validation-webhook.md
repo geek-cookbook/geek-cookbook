@@ -45,4 +45,4 @@ What have we achieved? We now have the snapshot validation admission webhook run
 
     * [ ] Deploy [snapshot-controller]( (/kubernetes/backup/csi-snapshots/snapshot-controller/)) itself
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

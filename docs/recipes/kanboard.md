@@ -84,4 +84,4 @@ Log into your new instance at https://**YOUR-FQDN**. Default credentials are adm
 [^1]: The default theme can be significantly improved by applying the [ThemePlus](https://github.com/phsteffen/kanboard-themeplus) plugin.
 [^2]: Kanboard becomes more useful when you integrate in/outbound email with [MailGun](https://github.com/kanboard/plugin-mailgun), [SendGrid](https://github.com/kanboard/plugin-sendgrid), or [Postmark](https://github.com/kanboard/plugin-postmark).
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

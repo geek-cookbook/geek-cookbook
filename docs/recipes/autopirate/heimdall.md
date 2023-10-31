@@ -48,6 +48,6 @@ To include Heimdall in your [AutoPirate](/recipes/autopirate/) stack, include th
 
 --8<-- "premix-cta.md"
 --8<-- "recipe-autopirate-toc.md"
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^2:] The inclusion of Heimdall was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz). Thanks gkoerk!

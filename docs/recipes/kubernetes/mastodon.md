@@ -24,7 +24,7 @@ description: How to install your own Mastodon instance using Kubernetes
 
     * [x] A [Kubernetes cluster](/kubernetes/cluster/) (*not running Kubernetes? Use the [Docker Swarm recipe instead][mastodon]*)
     * [x] [Flux deployment process](/kubernetes/deployment/flux/) bootstrapped
-    * [x] An [Ingress](/kubernetes/ingress/) to route incoming traffic to services
+    * [x] An [Ingress controller](/kubernetes/ingress/) to route incoming traffic to services
     * [x] [Persistent storage](/kubernetes/persistence/) to store persistent stuff
     * [x] [External DNS](/kubernetes/external-dns/) to create an DNS entry
 
@@ -271,6 +271,6 @@ What have we achieved? We now have a fully-swarmed Mastodon instance, ready to f
 
     * [X] Mastodon configured, running, and ready to toot!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: There is also a 3rd option, using the Flux webhook receiver to trigger a reconcilliation - to be covered in a future recipe!

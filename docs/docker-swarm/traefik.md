@@ -250,4 +250,4 @@ You should now be able to access[^1] your traefik instance on `https://traefik.<
 
 [^1]: Did you notice how no authentication was required to view the Traefik dashboard? Eek! We'll tackle that in the next section, regarding [Traefik Forward Authentication](/docker-swarm/traefik-forward-auth/)!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

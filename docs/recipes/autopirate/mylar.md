@@ -50,6 +50,6 @@ mylar:
 
 --8<-- "premix-cta.md"
 --8<-- "recipe-autopirate-toc.md"
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^2]. If you intend to configure Mylar to perform its own NZB searches and push the hits to a downloader such as SABnzbd, then in addition to configuring the connection to SAB with host, port and api key, you will need to set the parameter `host_return` parameter to the fully qualified Mylar address (e.g. `http://mylar:8090`).

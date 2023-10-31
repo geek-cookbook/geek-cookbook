@@ -164,6 +164,6 @@ Look for secrets across the whole cluster, by running `kubectl get secrets -A | 
 
 If your certificate is not created **aren't** created as you expect, then the best approach is to check the secret-replicator logs, by running `kubectl logs -n secret-replicator -l app.kubernetes.io/name=secret-replicator`.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: To my great New Zealandy confusion, "Kiwigrid GmbH" is a German company :shrug:

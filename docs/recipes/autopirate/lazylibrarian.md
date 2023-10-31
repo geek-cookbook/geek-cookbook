@@ -64,6 +64,6 @@ calibre-server:
 
 --8<-- "premix-cta.md"
 --8<-- "recipe-autopirate-toc.md"
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^2]: The calibre-server container co-exists within the Lazy Librarian (LL) containers so that LL can automatically add a book to Calibre using the calibre-server interface. The calibre library can then be properly viewed using the [calibre-web][calibre-web] recipe.

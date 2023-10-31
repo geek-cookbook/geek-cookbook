@@ -64,4 +64,4 @@ ombi_proxy:
 
 --8<-- "premix-cta.md"
 --8<-- "recipe-autopirate-toc.md"
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

@@ -146,4 +146,4 @@ Log into your new instance at https://**YOUR-FQDN**, using the credentials you s
 
 [^1]: Find the bookmarklet under the **Settings -> Integration** page.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

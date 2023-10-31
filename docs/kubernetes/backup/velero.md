@@ -11,6 +11,8 @@ helmrelease_namespace: velero
 kustomization_name: velero
 slug: Velero
 status: new
+upstream: https://velero.io/
+github_repo: https://github.com/vmware-tanzu/velero
 ---
 
 # Velero
@@ -326,4 +328,4 @@ What have we achieved? We've got scheduled backups running, and we've successful
 [^1]: This is where you'd add multiple Volume Groups if you wanted a storageclass per Volume Group
 [^2]: But not the rook-ceph cluster. If that dies, the snapshots are toast :toast: too!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

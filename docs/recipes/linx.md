@@ -93,4 +93,4 @@ Launch the Linx stack by running ```docker stack deploy linx -c <path -to-docker
 
 [^1]: Since the whole purpose of media/file sharing is to share stuff with **strangers**, this recipe doesn't take into account any sort of authentication using [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/).
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

@@ -71,4 +71,4 @@ Create your first administrative account at https://**YOUR-FQDN**/admin/
 
 [^1]: A default using the SQlite database takes 548k of space
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

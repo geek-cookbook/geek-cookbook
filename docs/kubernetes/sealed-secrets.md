@@ -624,6 +624,6 @@ root@shredder:~#
 
 And now when you create your seadsecrets, refer to the public key you just created using `--cert <path to cert>`. These secrets will be decryptable by **any** sealedsecrets controller bootstrapped with the same keypair (*above*).
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: There's no harm in storing the **public** key in the repo though, which means it's easy to refer to when sealing secrets.

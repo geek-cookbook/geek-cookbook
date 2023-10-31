@@ -154,6 +154,6 @@ Commit your changes, and once again do the waiting / impatient-reconciling jig. 
 
 We did it. The Holy Grail. We deployed an application into the cluster, without touching the cluster. Pinch yourself, and then prove it worked by running `flux get kustomizations`, or `kubectl get helmreleases -n podinfo`.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: Got suggestions for improvements here? Shout out in the comments below!

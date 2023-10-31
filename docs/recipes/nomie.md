@@ -185,4 +185,4 @@ What have we achieved? We have our own instance of Nomie, syncing multi-device a
 
     * [X] Our own Nomie instance, synced with own own CouchDB for multi-device access. Finally, nobody else will be able to tell how much you poop! :poo:
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

@@ -94,4 +94,4 @@ Launch the GitLab Runner stack by running `docker stack deploy gitlab-runner -c 
 [^1]: You'll note that I setup 2 runners. One is locked to a single project (_this cookbook build_), and the other is a shared runner. I wanted to ensure that one runner was always available to run CI for this project, even if I'd tied up another runner on something heavy-duty, like a container build. Customize this to your use case.
 [^2]: Originally I deployed runners in the same stack as GitLab, but I found that they would frequently fail to start properly when I launched the stack. I think that this was because the runners started so quickly (_and GitLab starts **sooo** slowly!_), that they always started up reporting that the GitLab instance was invalid or unavailable. I had issues with CI builds stuck permanently in a "pending" state, which were only resolved by restarting the runner. Having the runners deployed in a separate stack to GitLab avoids this problem.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

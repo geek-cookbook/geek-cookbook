@@ -40,6 +40,6 @@ A few things you should know:
 
 In summary, Local Path Provisioner is fine if you have very specifically sized workloads and you don't care about node redundancy.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: [TopoLVM](/kubernetes/persistence/topolvm/) also creates per-node volumes which aren't "portable" between nodes, but because it relies on LVM, it is "capacity-aware", and is able to distribute storage among multiple nodes based on available capacity.

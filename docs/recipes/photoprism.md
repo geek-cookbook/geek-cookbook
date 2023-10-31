@@ -184,4 +184,4 @@ Browse to your new browser-cli-terminal at https://**YOUR-FQDN**, with user "adm
 
 [^1]: Once it is running, you probably will want to launch an scan to index the originals photos. Go to *library -> index* and do a complete rescan (it will take a while, depending on your collection size)
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

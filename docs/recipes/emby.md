@@ -92,4 +92,4 @@ Log into your new instance at https://**YOUR-FQDN**, and complete the wizard-bas
 [^2]: Got an NVIDIA GPU? See [this blog post](https://www.funkypenguin.co.nz/note/gpu-transcoding-with-emby-plex-using-docker-nvidia/) re how to use your GPU to transcode your media!
 [^3]: We don't bother exposing the HTTPS port for Emby, since [Traefik](/docker-swarm/traefik/) is doing the SSL termination for us already.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

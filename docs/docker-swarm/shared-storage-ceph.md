@@ -227,4 +227,4 @@ Here's a screencast of the playbook in action. I sped up the boring parts, it ac
 [patreon]:         <https://www.patreon.com/bePatron?u=6982506>
 [github_sponsor]:   <https://github.com/sponsors/funkypenguin>
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

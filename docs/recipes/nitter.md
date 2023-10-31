@@ -174,4 +174,4 @@ What have we achieved? We have our own instance of Nitter[^1], and we can anonym
 
 [^1]: Since Nitter is private and read-only anyway, this recipe doesn't take into account any sort of authentication using [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/). If you wanted to protect your Nitter instance behind either Traefik Forward Auth or [Authelia][authelia], you'll just need to add the appropriate `traefik.http.routers.nitter.middlewares` label.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

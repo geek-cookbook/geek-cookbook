@@ -470,6 +470,6 @@ What have we achieved? Even though we had to jump through some extra hoops to se
 
     * [X] Pixelfed configured, running, and ready for selfies!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: There's an iOS mobile app [currently in beta](https://testflight.apple.com/join/5HpHJD5l)

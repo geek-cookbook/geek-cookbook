@@ -103,4 +103,4 @@ Log into your new instance at https://**YOUR-FQDN**, with user "root" and the pa
 [^2]: I'm using my own image rather than owntracks/recorderd, because of a [potentially swarm-breaking bug](https://github.com/owntracks/recorderd/issues/14) I found in the official container. If this gets resolved (_or if I was mistaken_) I'll update the recipe accordingly.
 [^3]: By default, you'll get a fully accessible, unprotected MQTT broker. This may not be suitable for public exposure, so you'll want to look into securing mosquitto with TLS and ACLs.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

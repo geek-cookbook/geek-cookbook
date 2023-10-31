@@ -70,4 +70,4 @@ We've setup a new realm in Keycloak, and configured read-write federation to an 
 
 [^1]: A much nicer experience IMO!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

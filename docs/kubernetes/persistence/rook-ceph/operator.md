@@ -178,4 +178,4 @@ What have we achieved? We're half-way to getting a ceph cluster, having deployed
 
     * [ ] Deploy the ceph [cluster](/kubernetes/persistence/rook-ceph/cluster/) using a CR
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

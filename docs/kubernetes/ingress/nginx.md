@@ -234,6 +234,6 @@ Commit your changes, wait for the reconciliation, and the next time you point yo
 
 Are things not working as expected? Watch the nginx-ingress-controller's logs with ```kubectl logs -n nginx-ingress-controller -l app.kubernetes.io/name=nginx-ingress-controller -f```.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: The beauty of this design is that the same process will now work for any other application you deploy, without any additional manual effort for DNS or SSL setup!

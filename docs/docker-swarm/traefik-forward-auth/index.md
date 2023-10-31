@@ -52,6 +52,6 @@ Traefik Forward Auth needs to authenticate an incoming user against a provider. 
 * [Authenticate Traefik Forward Auth against a whitelist of Google accounts][tfa-google]
 * [Authenticate Traefik Forward Auth against a self-hosted Keycloak instance][tfa-keycloak] with an optional [OpenLDAP backend][openldap]
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: Authhost mode is specifically handy for Google authentication, since Google doesn't permit wildcard redirect_uris, like [Keycloak][keycloak] does.

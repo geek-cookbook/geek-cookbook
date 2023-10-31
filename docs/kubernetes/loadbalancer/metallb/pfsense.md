@@ -75,6 +75,6 @@ If you're not receiving any routes from MetalLB, or if the neighbors aren't in a
 2. Examine the metallb speaker logs in the cluster, by running `kubectl logs -n metallb-system -l app.kubernetes.io/name=metallb`
 3. SSH to the pfsense, start a shell and launch the FFR shell by running `vtysh`. Now you're in a cisco-like console where commands like `show ip bgp sum` and `show ip bgp neighbors <neighbor ip> received-routes` will show you interesting debugging things.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: If you decide to deploy some policy with route-maps, prefix-lists, etc, it's all found under **Services -> FRR Global/Zebra** 🦓

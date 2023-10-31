@@ -133,4 +133,4 @@ What have we achieved? By adding an additional three simple labels to any servic
 
 [^1]: Be sure to populate `WHITELIST` in `traefik-forward-auth.env`, else you'll happily be granting **any** authenticated Google account access to your services!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

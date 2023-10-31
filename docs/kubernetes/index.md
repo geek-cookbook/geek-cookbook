@@ -46,6 +46,6 @@ Primarily you need 2 things:
 
 Practically, you need some extras too, but you can mix-and-match these.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: Of course, if you **do** enjoy understanding the intricacies of how your tools work, you're in good company!

@@ -110,4 +110,4 @@ Once you've created your account, jump over to <https://bitwarden.com/#download>
 [^2]: As mentioned above, readers should refer to the [dani-garcia/vaultwarden wiki](https://github.com/dani-garcia/vaultwarden) for details on customizing the behaviour of Bitwarden.
 [^3]: The inclusion of Bitwarden was due to the efforts of @gkoerk in our [Discord server](http://chat.funkypenguin.co.nz)- Unfortunately on the 22nd August 2020 Jerry passed away. Jerry was very passionate and highly regarded in the field of Information Technology. He will be missed.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

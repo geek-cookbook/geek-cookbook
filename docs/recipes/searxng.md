@@ -140,4 +140,4 @@ For one, anyone who wanted to build their own crude "Google Alerts" - you'd perf
 
 [^1]: Combine SearXNG's RSS results with [Huggin](/recipes/huginn/) for a more feature-full alternative to Google Alerts! 💪
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

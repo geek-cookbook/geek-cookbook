@@ -271,6 +271,6 @@ Are things not working as expected? Try one of the following to look for issues:
 3. Watch the scheduler logs, by running `kubectl logs -f -n topolvm-system -l app.kubernetes.io/name=scheduler`
 4. Watch the controller node logs, by running `kubectl logs -f -n topolvm-system -l app.kubernetes.io/name=controller`
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: This is where you'd add multiple Volume Groups if you wanted a storageclass per Volume Group

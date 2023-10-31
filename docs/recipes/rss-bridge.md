@@ -68,4 +68,4 @@ Launch the RSS Bridge stack by running ```docker stack deploy rssbridge -c <path
 [^1]: The inclusion of RSS Bridge was due to the efforts of @bencey in [Discord](http://chat.funkypenguin.co.nz) (Thanks Ben!)
 [^2]: This delicious recipe is well-paired with an RSS reader such as [Miniflux][miniflux]
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

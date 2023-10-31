@@ -56,4 +56,4 @@ We've setup an OIDC client in Keycloak, which we can now use to protect vulnerab
 
     * [X] Client ID and Client Secret used to authenticate against Keycloak with OpenID Connect
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

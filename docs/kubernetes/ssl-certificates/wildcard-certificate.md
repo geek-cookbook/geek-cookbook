@@ -108,6 +108,6 @@ spec:
 
 Commit the certificate and follow the steps above to confirm that your prod certificate has been issued.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: This process can take a frustratingly long time, and watching the cert-manager logs at least gives some assurance that it's progressing!

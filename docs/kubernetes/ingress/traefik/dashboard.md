@@ -15,6 +15,6 @@ One of the advantages [Traefik](/kubernetes/ingress/traefik/) offers over [Nginx
     * [x] A [load-balancer](/kubernetes/loadbalancer/) solution (*either [k3s](/kubernetes/loadbalancer/k3s/) or [MetalLB](/kubernetes/loadbalancer/metallb/)*)
     * [x] [Traefik](/kubernetes/ingress/traefik/) deployed per-design
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: The beauty of this design is that the same process will now work for any other application you deploy, without any additional manual effort for DNS or SSL setup!

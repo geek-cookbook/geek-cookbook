@@ -76,4 +76,4 @@ That's it. You have a beautiful new kubernetes cluster ready for some action!
 
 [^1]: Do you live in the CLI? Install the kubectl autocompletion for [bash or zsh](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) to make your life much easier!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

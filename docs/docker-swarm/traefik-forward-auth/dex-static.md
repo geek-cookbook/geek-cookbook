@@ -203,4 +203,4 @@ What have we achieved? By adding an additional label to any service, we can secu
 
 [^1]: You can remove the `whoami` container once you know Traefik Forward Auth is working properly
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

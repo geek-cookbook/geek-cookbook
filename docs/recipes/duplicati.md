@@ -126,4 +126,4 @@ Once we authenticate through the traefik-forward-auth provider, we can start con
 [^1]: Quote attributed to Mila Kunis
 [^2]: The [Duplicati 2 User's Manual](https://duplicati.readthedocs.io/en/latest/) contains all the information you'll need to configure backup endpoints, restore jobs, scheduling and advanced properties for your backup jobs.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

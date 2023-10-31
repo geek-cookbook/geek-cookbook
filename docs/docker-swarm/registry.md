@@ -110,4 +110,4 @@ Then restart docker itself, by running `systemctl restart docker`
 
 [^1]: Note the extra comma required after "false" above
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

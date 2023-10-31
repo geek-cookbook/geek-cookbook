@@ -427,4 +427,4 @@ Create your users using the "**New User**" button.
 
 [^1]: [The Keycloak](/recipes/keycloak/authenticate-against-openldap/) recipe illustrates how to integrate Keycloak with your LDAP directory, giving you a cleaner interface to manage users, and a raft of SSO / OAuth features.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

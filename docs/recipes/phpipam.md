@@ -163,4 +163,4 @@ Log into your new instance at https://**YOUR-FQDN**, and follow the on-screen pr
 
 [^1]: If you wanted to expose the phpIPAM UI directly, you could remove the `traefik.http.routers.api.middlewares` label from the app container :thumbsup:
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

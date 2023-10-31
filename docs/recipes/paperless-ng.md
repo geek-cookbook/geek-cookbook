@@ -182,4 +182,4 @@ Head over to the [Paperless documentation](https://paperless-ng.readthedocs.io/e
 [^1]: Taken directly from [Paperless documentation](https://paperless-ng.readthedocs.io/en/latest)
 [^2]: This particular stack configuration was chosen because it includes a "real" database in PostgreSQL versus the more lightweight SQLite database. After all, if you go to the trouble of scanning and importing a pile of documents, you want to know the database is robust enough to keep your data safe.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

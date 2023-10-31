@@ -183,4 +183,4 @@ Even with all these elements in place, you still need to enable Redis under Inte
 
 [^2]: I've not tested the email integration, but you'd need an SMTP server listening on port 25 (_since we can't change the port_) to use it
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

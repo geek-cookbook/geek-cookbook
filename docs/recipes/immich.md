@@ -251,7 +251,7 @@ What have we achieved? We have an HTTPS-protected endpoint to target with the na
 Sponsors have access to a [Premix](/premix/) playbook, which will set up Immich in under 60s (*see below*):
 <iframe width="560" height="315" src="https://www.youtube.com/embed/s-NZjYrNOPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: "wife-insurance": When the developer's wife is a primary user of the platform, you can bet he'll be writing quality code! :woman: :material-karate: :man: :bed: :cry:
 [^2]: There's a [friendly Discord server](https://discord.com/invite/D8JsnBEuKb) for Immich too!

@@ -63,4 +63,4 @@ Good! I describe how to put this design into action on the [next page](/kubernet
 
 [^1]: ERDs are fancy diagrams for nERDs which [represent cardinality between entities](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model#Crow's_foot_notation) scribbled using the foot of a crow 🐓
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

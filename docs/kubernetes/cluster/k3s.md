@@ -156,4 +156,4 @@ Cuddle your beautiful new cluster by running `kubectl cluster-info` [^1] - if th
 [^2]: Looking for your k3s logs? Under Ubuntu LTS, run `journalctl -u k3s` to show your logs
 [^3]: k3s is not the only "lightweight kubernetes" game in town. Minikube (*virtualization-based*) and mikrok8s (*possibly better for Ubuntu users since it's installed in a "snap" - haha*) are also popular options. One day I'll write a "mikrok8s vs k3s" review, but it doesn't really matter for our cluster operations - as I understand it, microk8s makes HA clustering slightly easire than k3s, but you get slightly less "out-of-the-box" in return, so mikrok8s may be more suitable for experience users / production edge deployments.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

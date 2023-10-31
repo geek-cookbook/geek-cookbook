@@ -190,4 +190,4 @@ Log into your new instance at https://**YOUR-FQDN**, and setup your admin userna
 [^1]: Since many of my other recipes use PostgreSQL, I'd have preferred to use Postgres over MariaDB, but MariaDB seems to be the [preferred database type](https://github.com/nextcloud/server/issues/5912).
 [^2]: If you want better performance when using Photos in Nextcloud, have a look at [this detailed write-up](https://rayagainstthemachine.net/linux%20administration/nextcloud-photos/)!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

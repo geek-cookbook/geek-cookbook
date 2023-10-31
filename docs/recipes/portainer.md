@@ -122,4 +122,4 @@ Log into your new instance at https://**YOUR-FQDN**. You'll be prompted to set y
 
 [^1]: There are [some schenanigans](https://www.reddit.com/r/docker/comments/au9wnu/linuxserverio_templates_for_portainer/) you can do to install LinuxServer.io templates in Portainer. Don't go crying to them for support though! :crying_cat_face:
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

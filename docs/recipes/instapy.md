@@ -130,4 +130,4 @@ You can **also** watch the bot at work by VNCing to your docker swarm, password 
 
 [^1]: Amazingly, my bot has ended up tagging more _non-penguins_ than actual penguins. I don't understand how Instagrammers come up with their hashtags!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

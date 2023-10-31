@@ -68,4 +68,4 @@ What have we achieved? We've got snapshot-controller running, and ready to manag
 
     * [ ] Configure [Velero](/kubernetes/backup/velero/) with a VolumeSnapshotLocation, so that volume snapshots can be made as part of a BackupSchedule!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

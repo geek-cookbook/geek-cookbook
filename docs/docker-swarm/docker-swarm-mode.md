@@ -180,4 +180,4 @@ What have we achieved?
 
     * [X] [Docker swarm cluster](/docker-swarm/design/)
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

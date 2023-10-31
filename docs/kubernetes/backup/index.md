@@ -17,4 +17,4 @@ For your backup needs, I present, Velero, by VMWare:
 
 * [Velero](/kubernetes/backup/velero/)
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

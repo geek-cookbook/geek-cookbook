@@ -181,6 +181,6 @@ Something didn't work? Try the following:
 
 1. Confirm that Keycloak did, in fact, start, by looking at the state of the stack, with `docker stack ps keycloak --no-trunc`
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: For more geeky {--pain--}{++fun++}, try integrating Keycloak with [OpenLDAP][openldap] for an authentication backend!

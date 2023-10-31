@@ -1,4 +1,4 @@
-### Kustomization
+### {{ page.meta.slug }} Kustomization
 
 Now that the "global" elements of this deployment (*just the HelmRepository in this case*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/{{ page.meta.helmrelease_namespace }}/`. I create this example Kustomization in my flux repo:
 

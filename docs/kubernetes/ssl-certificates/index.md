@@ -17,6 +17,6 @@ I've split this section, conceptually, into 3 separate tasks:
 2. Setup "[Issuers](/kubernetes/ssl-certificates/letsencrypt-issuers/)" for LetsEncrypt, which Cert Manager will use to request certificates
 3. Setup a [wildcard certificate](/kubernetes/ssl-certificates/wildcard-certificate/) in such a way that it can be used by Ingresses like Traefik or Nginx
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: I had a really annoying but smart boss once who taught me this. Hi Mark! :wave:

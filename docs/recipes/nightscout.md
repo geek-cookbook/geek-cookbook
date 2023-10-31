@@ -174,4 +174,4 @@ Launch the nightscout stack by running ```docker stack deploy nightscout -c <pat
 
 [^1]: Most of the time, you'll need an app which syncs to Nightscout, and these apps won't support OIDC auth, so this recipe doesn't take into account any sort of authentication using [Traefik Forward Auth](/docker-swarm/traefik-forward-auth/). Instead, NightScout is secured entirely with your `API_SECRET` above (*although it is possible to add more users once you're an admin*)
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

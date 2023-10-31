@@ -32,7 +32,7 @@ metadata:
 Now we need a kustomization to tell Flux to install any YAMLs it finds in `/letsencrypt-wildcard-cert`. I create this example Kustomization in my flux repo:
 
 ```yaml title="/bootstrap/kustomizations/kustomization-letsencrypt-wildcard-cert.yaml"
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: letsencrypt-wildcard-cert
@@ -48,7 +48,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  validation: server
 ```
 
 !!! tip
@@ -140,6 +139,6 @@ Events:                    <none>
 
 Provided your account is registered, you're ready to proceed with [creating a wildcard certificate](/kubernetes/ssl-certificates/wildcard-certificate/)!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: Since a ClusterIssuer is not a namespaced resource, it doesn't exist in any specific namespace. Therefore, my assumption is that the `apiTokenSecretRef` secret is only "looked for" when a certificate (*which **is** namespaced*) requires validation.

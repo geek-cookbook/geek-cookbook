@@ -124,4 +124,4 @@ Log into your new instance at https://**YOUR-FQDN**, with user and password pass
 
 [^1]: If you wanted to expose the Munin UI directly, you could remove the traefik-forward-auth from the design.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

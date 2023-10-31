@@ -274,4 +274,4 @@ What have we achieved? By adding a simple label to any service, we can secure an
 
 [^1]: The initial inclusion of Authelia was due to the efforts of @bencey in Discord (Thanks Ben!)
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

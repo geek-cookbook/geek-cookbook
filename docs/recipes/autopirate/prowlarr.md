@@ -75,6 +75,6 @@ Prowlarr and [Jackett][jackett] perform similar roles (*they help you aggregate 
 2. Given app API keys, Prowlarr can auto-configuer your Arr apps, adding its indexers. Prowlarr currently auto-configures [Radarr][radarr], [Sonarr][sonarr], [Lidarr][lidarr], [Mylar][mylar], [Readarr][Readarr], and [LazyLibrarian][lazylibrarian]
 3. Prowlarr can integrate with Flaresolverr to make it possible to query indexers behind Cloudflare "are-you-a-robot" protection, which would otherwise not be possible.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: Because Prowlarr is so young (*just a little kitten! :cat:*), there is no `:latest` image tag yet, so we're using the `:nightly` tag instead. Don't come crying to me if baby-Prowlarr bites your ass!

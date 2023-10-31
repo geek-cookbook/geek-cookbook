@@ -1,7 +1,6 @@
 ---
 title: Invidious, your Youtube frontend instance in Docker Swarm
 description: How to create your own private Youtube frontend using Invidious in Docker Swarm
-status: new
 ---
 
 # Invidious: Private Youtube frontend instance in Docker Swarm
@@ -169,7 +168,7 @@ What have we achieved? We have an HTTPS-protected private YouTube frontend - we 
 
     * [X] We are free of the creepy tracking attached to YouTube videos!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: Check out the [official config docs](https://github.com/iv-org/invidious/blob/master/config/config.example.yml) for comprehensive details on how to configure / tweak your instance!
 [^2]: Gotcha!

@@ -23,6 +23,6 @@ Yes, to get you started. But consider the following limitations:
 
 To tackle these issues, you need some more advanced network configuration, along with [MetalLB](/kubernetes/loadbalancer/metallb/).
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: And seriously, if you're building a Kubernetes cluster, of **course** you'll want more than one host!

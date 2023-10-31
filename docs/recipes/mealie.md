@@ -97,4 +97,4 @@ Launch the mealie stack by running ```docker stack deploy mealie -c <path -to-do
 [^1]: If you plan to use Mealie for fancy things like an early-morning alarm to defrost the chicken, you may need to customize the [Traefik Forward Auth][tfa] rules, or even remove them entirely, for unauthenticated API access.
 [^2]: If you think Mealie is tasty, encourage the developer :cook: to keep on cookin', by [sponsoring him](https://github.com/sponsors/hay-kot) :heart:
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

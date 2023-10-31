@@ -23,7 +23,7 @@ You too, action-geek, can save the day, by...
 
 Ready to enter the matrix? Jump in on one of the links above, or start reading the [design](/docker-swarm/design/)
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: This was an [iconic movie](https://www.imdb.com/title/tt0111257/). It even won 2 Oscars! (*but not for the acting*)
 [^2]: There are significant advantages to using Docker Swarm, even on just a single node.

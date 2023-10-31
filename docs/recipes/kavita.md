@@ -92,4 +92,4 @@ Log into your new instance at https://**YOUR-FQDN**. Since it's a fresh installa
 
 [^2]: There's an [active subreddit](https://www.reddit.com/r/KavitaManga/) for Kavita
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

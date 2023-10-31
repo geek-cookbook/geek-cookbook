@@ -59,4 +59,4 @@ Lidarr and [Headphones][headphones] perform the same basic function. The primary
 
 I've not tried this yet, but it seems that it's possible to [integrate Lidarr with Beets](https://www.reddit.com/r/Lidarr/comments/rahcer/my_lidarrbeets_automation_setup/)
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

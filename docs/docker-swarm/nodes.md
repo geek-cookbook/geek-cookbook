@@ -77,4 +77,4 @@ After completing the above, you should have:
           * At least 20GB disk space (_but it'll be tight_)
     * [X] Connectivity to each other within the same subnet, and on a low-latency link (_i.e., no WAN links_)
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

@@ -53,4 +53,4 @@ Still with me? Good. Move on to understanding Helm charts...
 
 [^1]: Of course, you can have lots of fun deploying all sorts of things via Helm. Check out <https://artifacthub.io> for some examples.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

@@ -191,4 +191,4 @@ Launch the mail server stack by running ```docker stack deploy docker-mailserver
 
 [^2]: If you're using sieve with Rainloop, take note of the [workaround](https://forum.funkypenguin.co.nz/t/mail-server-funky-penguins-geek-cookbook/70/15) identified by [ggilley](https://forum.funkypenguin.co.nz/u/ggilley)
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

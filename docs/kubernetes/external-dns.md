@@ -154,6 +154,6 @@ What have we achieved? By simply creating another YAML in our flux repo alongsid
 
     * [X] DNS records are created automatically based on YAMLs (*or even just on services and ingresses!*)
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: Why yes, I **have** accidentally caused outages / conflicts by "leaking" DNS entries automatically!

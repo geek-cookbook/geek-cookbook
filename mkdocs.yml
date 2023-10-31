@@ -216,10 +216,9 @@ nav:
               - Operator: kubernetes/persistence/rook-ceph/operator.md
               - Cluster: kubernetes/persistence/rook-ceph/cluster.md
             # - LongHorn: kubernetes/persistence/longhorn.md
-          - OIDC Authentication:
-              - kubernetes/oidc/index.md
-              - Authentik: kubernetes/oidc/authentik.md
-              # - Keycloak: kubernetes/oidc/authentik.md
+          # - OIDC Authentication:
+          #     - kubernetes/oidc-authentication/index.md
+          #     - Authentik: kubernetes/oidc-authentication/authentik.md
           - Backup:
             - kubernetes/backup/index.md
             - CSI Snapshots:
@@ -256,6 +255,7 @@ nav:
       #   - Istio: recipes/kubernetes/wip.md
       #   - Jaeger: kubernetes/wip.md
       #   - Kiali: kubernetes/wip.md
+        - Authentik: recipes/kubernetes/authentik.md
         - Invidious: recipes/kubernetes/invidious.md
         - Mastodon: recipes/kubernetes/mastodon.md
         # - Matrix: recipes/kubernetes/matrix.md

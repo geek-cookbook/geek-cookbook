@@ -307,4 +307,4 @@ Now browse your NextCloud files. Click the plus (+) sign to create a new documen
 
 [^1]: Yes, this recipe is complicated. And you probably only care if you feel strongly about using Open Source rich document editing in the browser, vs using something like Google Docs. It works impressively well however, once it works. I hope to make this recipe simpler once the CODE developers have documented how to pass optional parameters as environment variables.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

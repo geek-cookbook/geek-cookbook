@@ -172,4 +172,4 @@ After completing the above, you should have:
     1. Migration of shared storage from GlusterFS to Ceph
     2. Correct the fact that volumes don't automount on boot
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

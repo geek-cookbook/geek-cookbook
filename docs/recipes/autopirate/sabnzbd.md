@@ -61,4 +61,4 @@ sabnzbd:
     For example, mine simply reads ```host_whitelist = sabnzbd.funkypenguin.co.nz, sabnzbd```
 
 --8<-- "recipe-autopirate-toc.md"
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

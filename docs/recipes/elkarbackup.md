@@ -225,4 +225,4 @@ This takes you to a list of backup names and file paths. You can choose to downl
 [^1]: If you wanted to expose the ElkarBackup UI directly, you could remove the traefik-forward-auth from the design.
 [^2]: The original inclusion of ElkarBackup was due to the efforts of @gpulido in our [Discord server](http://chat.funkypenguin.co.nz). Thanks Gabriel!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

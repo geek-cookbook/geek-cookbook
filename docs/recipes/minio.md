@@ -208,4 +208,4 @@ goofys#bucket   /mnt/mountpoint        fuse     _netdev,allow_other,--file-mode=
 [^2]: Some applications (_like [NextCloud](/recipes/nextcloud/)_) can natively mount S3 buckets
 [^3]: Some backup tools (_like [Duplicity](/recipes/duplicity/)_) can backup directly to S3 buckets
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

@@ -151,4 +151,4 @@ Log into your new instance at https://**YOUR-FQDN**. You'll need to use the "Sig
 
 [^1]: I initially considered putting an oauth proxy in front of Huginn, but since the invitation code logic prevents untrusted access, and since using a proxy would break oauth for features such as Twitter integration, I left it out.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

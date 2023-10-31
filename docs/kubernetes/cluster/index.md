@@ -62,4 +62,4 @@ You'll learn more about how to care for and feed your cluster if you build it yo
 
 Go with a self-hosted cluster if you want to learn more, you'd rather spend time than money, or you've already got significant investment in local infructure and technical skillz.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

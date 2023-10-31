@@ -138,4 +138,4 @@ Launch the TTRSS stack by running ```docker stack deploy ttrss -c <path -to-dock
 
 Log into your new instance at https://**YOUR-FQDN** - the first user you create will be an administrative user.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

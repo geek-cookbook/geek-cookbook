@@ -311,4 +311,4 @@ At this point, you should be able to access your instance on your chosen DNS nam
 
 To look at the Miniflux pod's logs, run ```kubectl logs -n miniflux <name of pod per above> -f```. For further troubleshooting hints, see [Troubleshooting](/reference/kubernetes/troubleshooting/).
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

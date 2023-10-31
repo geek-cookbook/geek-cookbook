@@ -328,6 +328,6 @@ To:
 
 Commit your changes, wait for a reconciliation, and run `kubectl get services -n podinfo`. All going well, you should see that the service now has an IP assigned from the pool you chose for MetalLB!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: I've documented an example re [how to configure BGP between MetalLB and pfsense](/kubernetes/loadbalancer/metallb/pfsense/).

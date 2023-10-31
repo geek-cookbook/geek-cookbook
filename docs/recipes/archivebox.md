@@ -90,4 +90,4 @@ Launch the Archivebox stack by running ```docker stack deploy archivebox -c <pat
 
 [^1]: The inclusion of Archivebox was due to the efforts of @bencey in Discord (Thanks Ben!)
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

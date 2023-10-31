@@ -126,4 +126,4 @@ What have we achieved? We can now easily consume our audio books / podcasts via 
 [^1]: The apps also allow you to download entire books to your device, so that you can listen without being directly connected!
 [^2]: Audiobookshelf pairs very nicely with [Readarr][readarr], and [Prowlarr][prowlarr], to automate your audio book sourcing and management!
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}

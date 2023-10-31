@@ -52,7 +52,7 @@ spec:
 Now that the "global" elements of this deployment (*just the HelmRepository in this case*) have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization, telling flux to deploy any YAMLs found in the repo at `/cert-manager`. I create this example Kustomization in my flux repo:
 
 ```yaml title="/bootstrap/kustomizations/kustomization-cert-manager.yaml"
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: cert-manager
@@ -65,7 +65,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  validation: server
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
@@ -135,6 +134,6 @@ What do we have now? Well, we've got the cert-manager controller **running**, bu
 
 If your certificate is not created **aren't** created as you expect, then the best approach is to check the cert-manager logs, by running `kubectl logs -n cert-manager -l app.kubernetes.io/name=cert-manager`.
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: Why yes, I **have** accidentally rate-limited myself by deleting/recreating my prod certificates a few times!

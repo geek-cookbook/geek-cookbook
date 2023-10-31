@@ -243,6 +243,6 @@ What have we achieved? We have a storage provider that can use an NFS server as 
 
     * [X] We have a new storage provider
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: The reason I shortened it is so I didn't have to type nfs-subdirectory-provider each time. If you want that sort of pain in your life, feel free to change it!

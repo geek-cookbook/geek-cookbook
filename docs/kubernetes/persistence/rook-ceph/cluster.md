@@ -415,6 +415,6 @@ What have we achieved? We're half-way to getting a ceph cluster, having deployed
     * [X] StorageClasses are available so that the cluster storage can be consumed by your pods
     * [X] Pretty graphs are viewable in the Ceph Dashboard
 
---8<-- "recipe-footer.md"
+{% include 'recipe-footer.md' %}
 
 [^1]: Unless you **wanted** to deploy your cluster components in a separate namespace to the operator, of course!
