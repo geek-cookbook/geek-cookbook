@@ -2,6 +2,7 @@
 title: Sync, share and publish your Joplin notes with joplin-server
 description: joplin-server is a free open-source backup solution based on RSync/RSnapshot. It's basically a web wrapper around rsync/rsnapshot, which means that your backups are just files on a filesystem, utilising hardlinks for tracking incremental changes.
 recipe: Joplin Server
+slug: Joplin
 ---
 
 # Joplin Server
