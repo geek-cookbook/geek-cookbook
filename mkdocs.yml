@@ -171,7 +171,7 @@ nav:
           - kubernetes/cluster/index.md
           - Digital Ocean: kubernetes/cluster/digitalocean.md
       #     - Bare Metal: kubernetes/cluster/baremetal.md
-      #     - Home Lab: kubernetes/cluster/baremetal.md
+          - EKS: kubernetes/cluster/eks.md
           - k3s: kubernetes/cluster/k3s.md
       #     - The Hard Way: kubernetes/cluster/the-hard-way.md
         - Deployment:
@@ -210,15 +210,20 @@ nav:
             - kubernetes/persistence/index.md
             - Local Path Provisioner: kubernetes/persistence/local-path-provisioner.md
             - TopoLVM: kubernetes/persistence/topolvm.md
+            - AWS EBS: kubernetes/persistence/aws-ebs.md
             # - OpenEBS: kubernetes/persistence/openebs.md
             - Rook Ceph:
               - kubernetes/persistence/rook-ceph/index.md
               - Operator: kubernetes/persistence/rook-ceph/operator.md
               - Cluster: kubernetes/persistence/rook-ceph/cluster.md
             # - LongHorn: kubernetes/persistence/longhorn.md
-          # - OIDC Authentication:
-          #     - kubernetes/oidc-authentication/index.md
-          #     - Authentik: kubernetes/oidc-authentication/authentik.md
+          - OIDC Authentication:
+              - Guide: kubernetes/oidc-authentication/index.md
+              - Providers:
+                - authentik: kubernetes/oidc-authentication/authentik.md
+              - Platforms:
+                - EKS (authentik): kubernetes/oidc-authentication/eks-authentik.md
+                - K3s (authentik): kubernetes/oidc-authentication/k3s-authentik.md
           - Backup:
             - kubernetes/backup/index.md
             - CSI Snapshots:

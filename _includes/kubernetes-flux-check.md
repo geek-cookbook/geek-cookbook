@@ -21,7 +21,7 @@ NAME     	READY	MESSAGE                         	REVISION	SUSPENDED
 And you should have happy pods in the {{ page.meta.helmrelease_namespace }} namespace:
 
 ```bash
-~ ❯ k get pods -n {{ page.meta.helmrelease_namespace }} -l release={{ page.meta.helmrelease_name }}
+~ ❯ k get pods -n {{ page.meta.helmrelease_namespace }} -l app.kubernetes.io/name={{ page.meta.helmrelease_name }}
 NAME                                  READY   STATUS    RESTARTS   AGE
 {{ page.meta.helmrelease_name }}-7c94b7446d-nwsss   1/1     Running   0          5m14s
 ~ ❯

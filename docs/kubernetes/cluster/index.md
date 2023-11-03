@@ -14,7 +14,7 @@ Popular options are:
 
 * [DigitalOcean](/kubernetes/cluster/digitalocean/)
 * Google Kubernetes Engine (GKE)
-* Amazon Elastic Kubernetes Service (EKS)
+* [Amazon Elastic Kubernetes Service (EKS)](/kubernetes/cluster/eks/)
 * Azure Kubernetes Service (AKS)
 
 ### Upgrades
@@ -47,7 +47,7 @@ Go with a managed provider if you want your infrastructure to be resilient to yo
 
 Popular options are:
 
-* Rancher's K3s
+* [Rancher's K3s](/kubernetes/cluster/k3s/)
 * Ubuntu's Charmed Kubernetes
 
 ### Flexible

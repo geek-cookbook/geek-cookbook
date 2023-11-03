@@ -58,6 +58,19 @@ The following sections detail suggested changes to the values pasted into `/{{ p
 !!! tip
     Confusingly, the authentik helm chart defaults to having the bundled redis and postgresql **disabled**, but the [authentik Kubernetes install](https://goauthentik.io/docs/installation/kubernetes/) docs require that they be enabled. Take care to change the respective `enabled: false` values to `enabled: true` below.
 
+### Set authentik secret key
+
+Authentik needs a secret key for signing cookies (*not singing for cookies! :cookie:*), so set it below, and don't change it later (*or feed it after midnight!*):
+
+```yaml hl_lines="6" title="Set mandatory secret key"
+    authentik:
+      # -- Log level for server and worker
+      log_level: info
+      # -- Secret key used for cookie singing and unique user IDs,
+      # don't change this after the first install
+      secret_key: "ilovesingingcookies"
+```
+
 ### Set bootstrap credentials
 
 By default, when you install the authentik helm chart, you'll get to set your admin user's (`akadmin`) when you first login. You can pre-configure this password by setting the `AUTHENTIK_BOOTSTRAP_PASSWORD` env var as illustrated below.
@@ -83,7 +96,7 @@ authentik uses Redis as the broker for [Celery](https://docs.celeryq.dev/en/stab
 
 ### Configure PostgreSQL for authentik
 
-Depending on your risk profile / exposure, you may want to set a secure PostgreSQL password, or you may be content to leave the default password blank.
+Although technically you **can** leave the PostgreSQL password blank, authentik-server will just error with an error like `fe_sendauth: no password supplied`, so ensure you set the password, both in `authentik.postgresql.password` and in `postgresql.postgresqlPassword`:
 
 At the very least, you'll want to set the following
 
@@ -171,6 +184,24 @@ Next, navigate to **Directory** --> **Groups**, and edit the **authentik Admins*
 Eureka! :tada: 
 
 Your user is now an authentik superuser. Confirm this by logging out as **akadmin**, and logging back in with your own credentials.
+
+## Add "groups" scope
+
+Since you'll probably want to use authentik for OIDC-secured access to various tools like the [kube-apiserver](/kubernetes/authentication/), Grafana, etc, you'll want authentik to be able to support the "groups" scope, telling OIDC clients what groups the logging-in user belongs to.
+
+Curiously, the OIDC groups scope is **not** a default feature of authentik (*there are [requests](https://github.com/goauthentik/authentik/issues/6184) underway to address this*). There's a simple workaround to add a groups scope though, until such support becomes native...
+
+As your new superuser, navigate to **Customization** -> **Property Mapping**, and create a new **Scope Mapping**. You can pick whatever name you want (*I used `oidc-groups`*), but you'll want to set the scope name to `groups`, since this is the convention for OIDC clients.
+
+Set the expression to:
+
+```python
+return {
+  "groups": [group.name for group in user.ak_groups.all()]
+}
+```
+
+That's it! Now if your OIDC clients request the `groups` scope, they'll get a list of all the authentik groups the user is a member of.
 
 ## Summary
 
