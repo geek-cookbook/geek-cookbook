@@ -9,7 +9,7 @@ helm_chart_repo_url: https://charts.fairwinds.com/stable
 helmrelease_name: polaris
 helmrelease_namespace: polaris
 kustomization_name: polaris
-slug: polaris
+slug: Polaris
 status: new
 upstream: https://www.fairwinds.com/polaris
 links:
