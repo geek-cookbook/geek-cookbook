@@ -263,6 +263,7 @@ nav:
         - Authentik: recipes/kubernetes/authentik.md
         - Invidious: recipes/kubernetes/invidious.md
         - Mastodon: recipes/kubernetes/mastodon.md
+        - Polaris: recipes/kubernetes/polaris.md
         # - Matrix: recipes/kubernetes/matrix.md
       #   - NGINX Ingress: kubernetes/wip.md
       #   - Polaris: kubernetes/wip.md
