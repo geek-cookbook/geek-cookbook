@@ -7,7 +7,7 @@ tags:
 links:
   - OAuth2 Proxy: recipes/kubernetes/oauth2-proxy.md
   - Kubernetes Dashboard: recipes/kubernetes/dashboard.md
-description: New Recipe Added - authentik - Flexible Identity Provider, running on Kubernetes
+description: How to add OAuth2 Proxy and Kubernetes Dashboard to your OIDC-enabled cluster for a seamless and secure web UI
 title: Added Kubernetes Dashboard and OAuth2 Proxy
 image: /images/kubernetes-dashboard.png
 ---
