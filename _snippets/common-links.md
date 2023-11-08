@@ -34,6 +34,9 @@
 [k8s/mastodon]:         /recipes/kubernetes/mastodon/
 [k8s/matrix]:           /recipes/kubernetes/matrix/
 [k8s/authentik]:        /recipes/kubernetes/authentik/
+[k8s/matrix]:           /recipes/kubernetes/matrix/
+[k8s/dashboard]:        /recipes/kubernetes/dashboard/
+[k8s/oauth2proxy]:      /recipes/kubernetes/oauth2-proxy/
 [metallb]:              /kubernetes/loadbalancer/metallb/
 [kavita]:               /recipes/kavita/
 [keycloak]:             /recipes/keycloak/

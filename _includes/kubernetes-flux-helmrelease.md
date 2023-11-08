@@ -11,7 +11,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: {{ page.meta.helmrelease_namespace }}
+      chart: {{ page.meta.helm_chart_name }}
       version: {{ page.meta.helm_chart_version }} # auto-update to semver bugfixes only (1)
       sourceRef:
         kind: HelmRepository
@@ -19,7 +19,7 @@ spec:
         namespace: flux-system
   interval: 15m
   timeout: 5m
-  releaseName: {{ page.meta.helmrelease_namespace }}
+  releaseName: {{ page.meta.helm_chart_name }}
   values: # paste contents of upstream values.yaml below, indented 4 spaces (2)
 ```
 

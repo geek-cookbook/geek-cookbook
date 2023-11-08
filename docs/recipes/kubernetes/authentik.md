@@ -47,6 +47,7 @@ See a comparison with other IDPs [here](https://goauthentik.io/#comparison).
     * [ ] [External DNS](/kubernetes/external-dns/) to create an DNS entry the "flux" way
 
 {% include 'kubernetes-flux-namespace.md' %}
+{% include 'kubernetes-flux-helmrepository.md' %}
 {% include 'kubernetes-flux-kustomization.md' %}
 {% include 'kubernetes-flux-dnsendpoint.md' %}
 {% include 'kubernetes-flux-helmrelease.md' %}

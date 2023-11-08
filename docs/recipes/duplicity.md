@@ -91,7 +91,7 @@ Repeat after me: "If you don't verify your backup, **it's not a backup**".
 !!! warning
 Depending on what tier of storage you chose from your provider (_i.e., Google Coldline, or Amazon S3_), you may be charged for downloading data.
 
-Run a variation of the following to confirm a file you expect to be backed up, **is** backed up. (_I used traefik.yml from the [traefik recipie](/docker-swarm/traefik/), since this is likely to exist for every reader_).
+Run a variation of the following to confirm a file you expect to be backed up, **is** backed up. (_I used traefik.yml from the [traefik recipe](/docker-swarm/traefik/), since this is likely to exist for every reader_).
 
 ```yaml
 docker run --env-file duplicity.env -it --rm \

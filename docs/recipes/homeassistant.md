@@ -9,7 +9,7 @@ Home Assistant is a home automation platform written in Python, with extensive s
 
 ![Home Assistant Screenshot](../images/homeassistant.png){ loading=lazy }
 
-This recipie combines the [extensibility](https://home-assistant.io/components/) of [Home Assistant](https://home-assistant.io/) with the flexibility of [InfluxDB](https://docs.influxdata.com/influxdb/v1.4/) (_for time series data store_) and [Grafana](https://grafana.com/) (_for **beautiful** visualisation of that data_).
+This recipe combines the [extensibility](https://home-assistant.io/components/) of [Home Assistant](https://home-assistant.io/) with the flexibility of [InfluxDB](https://docs.influxdata.com/influxdb/v1.4/) (_for time series data store_) and [Grafana](https://grafana.com/) (_for **beautiful** visualisation of that data_).
 
 ## {{ page.meta.recipe }} Requirements
 

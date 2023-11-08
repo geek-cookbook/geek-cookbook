@@ -261,7 +261,9 @@ nav:
       #   - Jaeger: kubernetes/wip.md
       #   - Kiali: kubernetes/wip.md
         - Authentik: recipes/kubernetes/authentik.md
+        - Dashboard: recipes/kubernetes/dashboard.md
         - Invidious: recipes/kubernetes/invidious.md
+        - OAuth2 Proxy: recipes/kubernetes/oauth2-proxy.md
         - Mastodon: recipes/kubernetes/mastodon.md
         - Polaris: recipes/kubernetes/polaris.md
         # - Matrix: recipes/kubernetes/matrix.md

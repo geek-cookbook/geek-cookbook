@@ -33,5 +33,7 @@ Once you've configured your OIDC provider, review the following, based on your p
 #### Authentik
 
 * [Authenticate K3s with Authentik as an OIDC provider](/kubernetes/oidc-authentication/k3s-authentik/)
-* Authenticate EKS with Authentik as an OIDC provider
-* Authenticate a kubeadm cluster using Authentik as an OIDC provider
+* [Authenticate EKS with Authentik as an OIDC provider](/kubernetes/oidc-authentication/eks-authentik/)
+* Authenticate a kubeadm cluster using Authentik as an OIDC provider (*coming soon*)
+
+--8<-- "common-links.md"
