@@ -41,14 +41,9 @@ Scroll down, and set:
 
 ![](/images/authentik-kube-apiserver-3.png)
 
-Under **Advanced Protocol Settings**, below the set the scopes to include the built-in `email` scope, as well as the extra `oidc-groups` scope you added when [initially setting up authentik][k8s/authentik]:
-
-![](/images/authentik-kube-apiserver-4.png)
-
 Finally, enable **Include claims in id_token**, instructing authentik to send the user claims back with the id token:
 
 ![](/images/authentik-kube-apiserver-5.png)
-
 
 ..and click **Finish**. On the following summary page, under **OAuth2 Provider**, take note of the **OpenID Configuration** URL (*`/application/o/kube-apiserver/.well-known/openid-configuration` if you followed my conventions above*) - you'll need this when configuring Kubernetes.
 

@@ -64,7 +64,7 @@ kubectl config set-credentials oidc \
  --exec-arg=--oidc-issuer-url=https://authentik.example.com/application/o/kube-apiserver/ \
  --exec-arg=--oidc-client-id=kube-apiserver \
  --exec-arg=--oidc-client-secret=<your client secret> \
- --exec-arg=--oidc-extra-scope=groups \
+ --exec-arg=--oidc-extra-scope=profile \
  --exec-arg=--oidc-extra-scope=email
 ```
 

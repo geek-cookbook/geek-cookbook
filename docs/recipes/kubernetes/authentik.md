@@ -186,24 +186,6 @@ Eureka! :tada:
 
 Your user is now an authentik superuser. Confirm this by logging out as **akadmin**, and logging back in with your own credentials.
 
-## Add "groups" scope
-
-Since you'll probably want to use authentik for OIDC-secured access to various tools like the [kube-apiserver](/kubernetes/authentication/), Grafana, etc, you'll want authentik to be able to support the "groups" scope, telling OIDC clients what groups the logging-in user belongs to.
-
-Curiously, the OIDC groups scope is **not** a default feature of authentik (*there are [requests](https://github.com/goauthentik/authentik/issues/6184) underway to address this*). There's a simple workaround to add a groups scope though, until such support becomes native...
-
-As your new superuser, navigate to **Customization** -> **Property Mapping**, and create a new **Scope Mapping**. You can pick whatever name you want (*I used `oidc-groups`*), but you'll want to set the scope name to `groups`, since this is the convention for OIDC clients.
-
-Set the expression to:
-
-```python
-return {
-  "groups": [group.name for group in user.ak_groups.all()]
-}
-```
-
-That's it! Now if your OIDC clients request the `groups` scope, they'll get a list of all the authentik groups the user is a member of.
-
 ## Summary
 
 What have we achieved? We've got authentik running and accessible, we've created a superuser account, and we're ready to flex :muscle: the power of authentik to deploy an OIDC provider for Kubernetes, or simply secure unprotected UIs with proxy outposts!
@@ -215,7 +197,7 @@ What have we achieved? We've got authentik running and accessible, we've created
 
     Next:
 
-    * [ ] Configure Kubernetes for OIDC authentication, unlocking production readiness as well as the Kubernetes Dashboard in Weave GitOps UIs (*coming soon*)
+    * [ ] Configure [Kubernetes OIDC authentication](/kubernetes/oidc-authentication/), unlocking production readiness as well as the [Kubernetes Dashboard][k8s/dashboard] and Weave GitOps UIs (*coming soon*)
 
 {% include 'recipe-footer.md' %}
 

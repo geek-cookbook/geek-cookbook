@@ -76,7 +76,7 @@ kubectl oidc-login setup \
 All going well, your browser will open a new window, logging you into authentik, and on the CLI you should get output something like this:
 
 ```
-~ ❯ kubectl oidc-login setup --oidc-issuer-url=https://authentik.example.com/application/o/kube-apiserver/ --oidc-client-id=kube-apiserver --oidc-client-secret=cVj4YqmB4VPcq6e7 --oidc-extra-scope=groups,email
+~ ❯ kubectl oidc-login setup --oidc-issuer-url=https://authentik.example.com/application/o/kube-apiserver/ --oidc-client-id=kube-apiserver --oidc-client-secret=cVj4YqmB4VPcq6e7 --oidc-extra-scope=profile,email
 authentication in progress...
 
 ## 2. Verify authentication
@@ -126,7 +126,7 @@ kubectl config set-credentials oidc \
  --exec-arg=--oidc-issuer-url=https://authentik.example.com/application/o/kube-apiserver/ \
  --exec-arg=--oidc-client-id=kube-apiserver \
  --exec-arg=--oidc-client-secret=<your client secret> \
- --exec-arg=--oidc-extra-scope=groups \
+ --exec-arg=--oidc-extra-scope=profile \
  --exec-arg=--oidc-extra-scope=email
 ```
 
