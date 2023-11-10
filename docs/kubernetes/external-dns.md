@@ -31,9 +31,23 @@ ExternalDNS is a controller for Kubernetes which watches the objects you create 
 {% include 'kubernetes-flux-kustomization.md' %}
 {% include 'kubernetes-flux-helmrelease.md' %}
 
-#### Configure External DNS
+#### Enable CRDs
 
-I recommend changing at least:
+By default, the helm chart doesn't install the DNSEndpoint CRD.
+
+If you intend to use CRDs, enable it in the HelmRelease like the example below:
+
+```yaml hl_lines="4" title="Enable CRD creation"
+    crd:
+      ## @param crd.create Install and use the integrated DNSEndpoint CRD
+      ##
+      create: true
+```
+  
+
+#### Configure sources
+
+I recommend changing:
 
 ```yaml
         sources:
