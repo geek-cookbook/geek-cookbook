@@ -61,22 +61,13 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/data/jellyfin:/config
       - /var/data/runtime/jellyfin:/cache
-      - /var/data/jellyfin/jellyfin:/config
       - /srv/data/:/data
     deploy:
       labels:
-        # traefik common
-        - traefik.enable=true
-        - traefik.docker.network=traefik_public
-
-        # traefikv1
-        - traefik.frontend.rule=Host:jellyfin.example.com
-        - traefik.port=8096     
-
-        # traefikv2
+        - "traefik.enable=true"
+        - "traefik.docker.network=traefik_public"
         - "traefik.http.routers.jellyfin.rule=Host(`jellyfin.example.com`)"
         - "traefik.http.services.jellyfin.loadbalancer.server.port=8096"
-        - "traefik.enable=true"
 
     networks:
         - traefik_public
