@@ -24,7 +24,7 @@ Here's all the pieces you need..
 
 <!-- more -->
 
-* [x] An OIDC Provider, like [authentik][k8s/authentik] or [KeyCloak][keycloak] (*Kubernetes recipe coming soon*)
+* [x] An OIDC Provider, like [authentik][k8s/authentik] or [Keycloak][keycloak] (*Kubernetes recipe coming soon*)
 * [x] An OIDC-enabled cluster, using [K3s](/kubernetes/cluster/k3s/), [EKS](/kubernetes/cluster/eks/), or (*coming soon*) kubeadm 
 * [x] [OAuth2-Proxy][k8s/oauth2proxy] to provide the Kubernetes Dashboard token
 

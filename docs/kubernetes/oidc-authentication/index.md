@@ -19,12 +19,12 @@ True to form, Kubernetes doesn't provide any turnkey access solution, but all th
 
 ## Requirements
 
-Securing access to Kubernetes' API server requires an OIDC provider, be it an external service like Auth0 or Octa, or a self-hosted, open-source IDP like KeyCloak or [authentik][k8s/authentik].
+Securing access to Kubernetes' API server requires an OIDC provider, be it an external service like Auth0 or Octa, or a self-hosted, open-source IDP like Keycloak or [authentik][k8s/authentik].
 
 ### Setup Provider
 
 1. Setup [Authentik for Kubernetes API authentication](/kubernetes/authentication/authentik/)
-2. KeyCloak (*coming soon*)
+2. Keycloak (*coming soon*)
 
 ### Configure Kubernetes for OIDC auth
 

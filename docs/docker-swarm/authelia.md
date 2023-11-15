@@ -5,7 +5,7 @@ description: Authelia is an open-source authentication and authorization server 
 
 # Authelia in Docker Swarm
 
-[Authelia](https://github.com/authelia/authelia) is an open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal. Like [Traefik Forward Auth][tfa], Authelia acts as a companion of reverse proxies like Nginx, [Traefik](/docker-swarm/traefik/), or HAProxy to let them know whether queries should pass through. Unauthenticated users are redirected to Authelia Sign-in portal instead. Authelia is a popular alternative to a heavyweight such as [KeyCloak][keycloak].
+[Authelia](https://github.com/authelia/authelia) is an open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal. Like [Traefik Forward Auth][tfa], Authelia acts as a companion of reverse proxies like Nginx, [Traefik](/docker-swarm/traefik/), or HAProxy to let them know whether queries should pass through. Unauthenticated users are redirected to Authelia Sign-in portal instead. Authelia is a popular alternative to a heavyweight such as [Keycloak][keycloak].
 
 ![Authelia Screenshot](/images/authelia.png){ loading=lazy }
 
@@ -270,7 +270,7 @@ What have we achieved? By adding a simple label to any service, we can secure an
 
 ### Authelia vs Keycloak
 
-[KeyCloak][keycloak] is the "big daddy" of self-hosted authentication platforms - it has a beautiful GUI, and a very advanced and mature featureset. Like Authelia, KeyCloak can [use an LDAP server](/recipes/keycloak/authenticate-against-openldap/) as a backend, but *unlike* Authelia, KeyCloak allows for 2-way sync between that LDAP backend, meaning KeyCloak can be used to *create* and *update* the LDAP entries (*Authelia's is just a one-way LDAP lookup - you'll need another tool to actually administer your LDAP database*).
+[Keycloak][keycloak] is the "big daddy" of self-hosted authentication platforms - it has a beautiful GUI, and a very advanced and mature featureset. Like Authelia, Keycloak can [use an LDAP server](/recipes/keycloak/authenticate-against-openldap/) as a backend, but *unlike* Authelia, Keycloak allows for 2-way sync between that LDAP backend, meaning Keycloak can be used to *create* and *update* the LDAP entries (*Authelia's is just a one-way LDAP lookup - you'll need another tool to actually administer your LDAP database*).
 
 [^1]: The initial inclusion of Authelia was due to the efforts of @bencey in Discord (Thanks Ben!)
 

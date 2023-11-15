@@ -221,12 +221,12 @@ nav:
               - Guide: kubernetes/oidc-authentication/index.md
               - Providers:
                 - authentik: kubernetes/oidc-authentication/authentik.md
-                - KeyCloak: kubernetes/oidc-authentication/keycloak.md
+                - Keycloak: kubernetes/oidc-authentication/keycloak.md
               - Platforms:
                 - EKS (authentik): kubernetes/oidc-authentication/eks-authentik.md
-                - EKS (KeyCloak): kubernetes/oidc-authentication/eks-keycloak.md
+                - EKS (Keycloak): kubernetes/oidc-authentication/eks-keycloak.md
                 - K3s (authentik): kubernetes/oidc-authentication/k3s-authentik.md
-                - K3s (KeyCloak): kubernetes/oidc-authentication/k3s-keycloak.md
+                - K3s (Keycloak): kubernetes/oidc-authentication/k3s-keycloak.md
           - Backup:
             - kubernetes/backup/index.md
             - CSI Snapshots:
@@ -267,7 +267,7 @@ nav:
         - Dashboard: recipes/kubernetes/dashboard.md
         - Descheduler: recipes/kubernetes/descheduler.md
         - Invidious: recipes/kubernetes/invidious.md
-        - KeyCloak: recipes/kubernetes/keycloak.md
+        - Keycloak: recipes/kubernetes/keycloak.md
         - OAuth2 Proxy: recipes/kubernetes/oauth2-proxy.md
         - Mastodon: recipes/kubernetes/mastodon.md
         - Polaris: recipes/kubernetes/polaris.md

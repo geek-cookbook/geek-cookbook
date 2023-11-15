@@ -4,7 +4,7 @@ description: How to configure your Kubernetes cluster for OIDC authentication wi
 ---
 # Authenticate to Kubernetes with OIDC on K3s
 
-This recipe describes how to configure K3s for OIDC authentication against a [keycloak][k8s/keycloak] instance. 
+This recipe describes how to configure K3s for OIDC authentication against a [Keycloak][k8s/keycloak] instance. 
 
 For details on **why** you'd want to do this, see the [Kubernetes Authentication Guide](/kubernetes/oidc-authentication/).
 
@@ -33,7 +33,7 @@ Of course, it won't work yet, so there are a few tweaks we'll need..
 
 #### Access Type
 
-Change **Access Type** to `confidential` - this indicates to KeyCloak that your client can be trusted to keep a secret safe, and thus that secret can be used in the OIDC credentials exchange.
+Change **Access Type** to `confidential` - this indicates to Keycloak that your client can be trusted to keep a secret safe, and thus that secret can be used in the OIDC credentials exchange.
 
 ![](/images/keycloak-kube-apiserver-2.png)
 

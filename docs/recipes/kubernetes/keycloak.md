@@ -9,7 +9,7 @@ helm_chart_repo_url: oci://registry-1.docker.io/bitnamicharts/keycloak
 helmrelease_name: keycloak
 helmrelease_namespace: keycloak
 kustomization_name: keycloak
-slug: KeyCloak
+slug: Keycloak
 status: new
 upstream: https://www.keycloak.org
 links:
@@ -17,7 +17,7 @@ links:
   uri: https://github.com/keycloak/keycloak
 ---
 
-# KeyCloak installation on Kubernetes
+# Keycloak installation on Kubernetes
 
 [Keycloak](https://www.keycloak.org/) is "_an open source identity and access management solution_". Using a local database, or a variety of backends (_think [OpenLDAP](/recipes/openldap/)_), you can provide Single Sign-On (SSO) using OpenID, OAuth 2.0, and SAML.
 
@@ -52,7 +52,7 @@ The following sections detail suggested changes to the values pasted into `/{{ p
 
 ### Ingress
 
-Setup your ingress for the KeyCloak UI, enabling at least `ingress.enabled` as below, and additional TLS options as necessary[^1]:
+Setup your ingress for the Keycloak UI, enabling at least `ingress.enabled` as below, and additional TLS options as necessary[^1]:
 
 ```yaml hl_lines="4" title="Configure your ingress"
     ingress:
@@ -93,7 +93,7 @@ keycloak-postgresql-0               1/1     Running     1 (3d17h ago)   26d
 ~ ❯
 ```
 
-Browse to the URL you configured in your ingress above, and confirm that the KeyCloak UI is displayed. Login with the admin user you defined above, and confirm a successful login.
+Browse to the URL you configured in your ingress above, and confirm that the Keycloak UI is displayed. Login with the admin user you defined above, and confirm a successful login.
 
 ### Create Keycloak user
 

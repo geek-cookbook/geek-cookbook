@@ -13,7 +13,7 @@ image: /images/authentik.png
 
 # Added recipe for authentik (Kubernetes)
 
-Too young (*and sensible!*) for [OpenLDAP][openldap] :t_rex:, and don't need the java-based headaches of [KeyCloak][keycloak]?
+Too young (*and sensible!*) for [OpenLDAP][openldap] :t_rex:, and don't need the java-based headaches of [Keycloak][keycloak]?
 
 Up your IDP game with [authentik][k8s/authentik], your own "flexible and versatile" Identity Provider, in your Kubernetes Cluster.
 
