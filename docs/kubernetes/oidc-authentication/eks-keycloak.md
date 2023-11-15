@@ -1,10 +1,10 @@
 ---
-title: Configure EKS for OIDC authentication with Authentik
-description: How to configure your EKS Kubernetes cluster for OIDC authentication with Authentik
+title: Configure EKS for OIDC authentication with Keycloak
+description: How to configure your EKS Kubernetes cluster for OIDC authentication with Keycloak
 ---
-# Authenticate to Kubernetes with authentik OIDC on EKS
+# Authenticate to Kubernetes with keycloak OIDC on EKS
 
-This recipe describes how to configure an EKS cluster for OIDC authentication against an [authentik][k8s/authentik] instance. 
+This recipe describes how to configure an EKS cluster for OIDC authentication against a [Keycloak][k8s/keycloak] instance. 
 
 For details on **why** you'd want to do this, see the [Kubernetes Authentication Guide](/kubernetes/oidc-authentication/).
 
@@ -13,8 +13,8 @@ For details on **why** you'd want to do this, see the [Kubernetes Authentication
 !!! summary "Ingredients"
 
     * [x] A [Kubernetes cluster](/kubernetes/cluster/) deployed on Amazon EKS
-    * [x] [authentik][k8s/authentik] deployed per the recipe, secured with a valid SSL cert (*no self-signed schenanigans will work here!*)
-    * [x] authentik [configured as an OIDC provider for kube-apiserver](/kubernetes/oidc-authentication/authentik/)
+    * [x] [Keycloak][k8s/keycloak] deployed per the recipe, secured with a valid SSL cert (*no self-signed schenanigans will work here!*)
+    * [x] Keycloak additionally [configured as an OIDC provider for kube-apiserver](/kubernetes/oidc-authentication/keycloak/)
     * [x] `eksctl` tool configured and authorized for your IAM account
 
 ## Setup EKS for OIDC auth
@@ -36,12 +36,10 @@ metadata:
 identityProviders:
   - name: authentik
     type: oidc
-    issuerUrl: https://authentik.funkypenguin.de/application/o/kube-apiserver/ # (1)! 
+    issuerUrl: https://keycloak.funkypenguin.de/auth/realms/master/ # (1)! 
     clientId: kube-apiserver
     usernameClaim: email
-    usernamePrefix: 'oidc:'
     groupsClaim: groups
-    groupsPrefix: 'oidc:'
 ```
 
 1. Make sure this ends in a `/`, and doesn't include `.well-known/openid-configuration`
@@ -58,7 +56,7 @@ That's it! It may take a few minutes (you can verify it's ready on your EKS cons
 
 What have we achieved? 
 
-We've setup our EKS cluster to authenticate against authentik, running on that same cluster! We can now create multiple users (*with multiple levels of access*) without having to provide them with tricky IAM accounts, and deploy kube-apiserver-integrated tools like Kubernetes Dashboard or Weaveworks GitOps for nice secured UIs.
+We've setup our EKS cluster to authenticate against Keycloak, running on that same cluster! We can now create multiple users (*with multiple levels of access*) without having to provide them with tricky IAM accounts, and deploy kube-apiserver-integrated tools like Kubernetes Dashboard or Weaveworks GitOps for nice secured UIs.
 
 !!! summary "Summary"
     Created:

@@ -1,10 +1,10 @@
 ---
-title: Configure K3s for OIDC authentication with Authentik
-description: How to configure your K3s Kubernetes cluster for OIDC authentication with Authentik
+title: Configure K3s for OIDC authentication with Keycloak
+description: How to configure your K3s Kubernetes cluster for OIDC authentication with Keycloak
 ---
-# Authenticate to Kubernetes with authentik OIDC on K3s
+# Authenticate to Kubernetes with Keycloak OIDC on K3s
 
-This recipe describes how to configure K3s for OIDC authentication against an [authentik][k8s/authentik] instance. 
+This recipe describes how to configure K3s for OIDC authentication against a [Keycloak][k8s/keycloak] instance.
 
 For details on **why** you'd want to do this, see the [Kubernetes Authentication Guide](/kubernetes/oidc-authentication/).
 
@@ -13,8 +13,8 @@ For details on **why** you'd want to do this, see the [Kubernetes Authentication
 !!! summary "Ingredients"
 
     * [x] A [Kubernetes cluster](/kubernetes/cluster/) deployed using [K3S](/kubernetes/cluster/k3s)
-    * [x] [authentik][k8s/authentik] deployed per the recipe
-    * [x] authentik [configured as an OIDC provider for kube-apiserver](/kubernetes/oidc-authentication/authentik/)
+    * [x] [Keycloak][k8s/keycloak] deployed per the recipe
+    * [x] Keycloak additionally [configured as an OIDC provider for kube-apiserver](/kubernetes/oidc-authentication/keycloak/)
 
 ## Setup K3s for OIDC auth
 
@@ -34,7 +34,7 @@ To configure the apiserver to perform OIDC authentication, you need to add some 
 Here's the lunatic option:
 
 ```bash title="Lunatic curl | bash option"
---kube-apiserver-arg=oidc-issuer-url=https://authentik.example.com/application/o/kube-apiserver/
+--kube-apiserver-arg=oidc-issuer-url=https://keycloak.example.com/auth/realms/master/
 --kube-apiserver-arg=oidc-client-id=kube-apiserver
 --kube-apiserver-arg=oidc-username-claim=email
 --kube-apiserver-arg=oidc-groups-claim=groups
@@ -46,7 +46,7 @@ Create `/etc/rancher/k3s/config.yaml`, and add:
 
 ```yaml title="Gentlemanly YAML config option"
 kube-apiserver-arg:
-- "oidc-issuer-url=https://authentik.infra.example.com/application/o/kube-apiserver/"
+- "oidc-issuer-url=https://keycloak.example.com/auth/realms/master/"
 - "oidc-client-id=kube-apiserver"
 - "oidc-username-claim=email"
 - "oidc-groups-claim=groups"
@@ -69,10 +69,10 @@ kubectl oidc-login setup \
   --oidc-client-secret=YOUR_CLIENT_SECRET
 ```
 
-All going well, your browser will open a new window, logging you into authentik, and on the CLI you should get output something like this:
+All going well, your browser will open a new window, logging you into Keycloak, and on the CLI you should get output something like this:
 
 ```
-~ ❯ kubectl oidc-login setup --oidc-issuer-url=https://authentik.example.com/application/o/kube-apiserver/ --oidc-client-id=kube-apiserver --oidc-client-secret=<your secret> --oidc-extra-scope=profile,email
+~ ❯ kubectl oidc-login setup --oidc-issuer-url=https://keycloak.example.com/auth/realms/master/ --oidc-client-id=kube-apiserver --oidc-client-secret=<your secret>
 authentication in progress...
 
 ## 2. Verify authentication
@@ -80,28 +80,42 @@ authentication in progress...
 You got a token with the following claims:
 
 {
-  "iss": "https://authentik.example.com/application/o/kube-apiserver/",
-  "sub": "363d4d0814dbad2d930308dc848342e328b76f925ebba0978a51ddad699022b",
+  "exp": 1700008379,
+  "iat": 1700007479,
+  "auth_time": 1700006251,
+  "jti": "80760d79-3404-406c-bfd9-5c41783b0a5a",
+  "iss": "https://keycloak.example/auth/realms/master",
   "aud": "kube-apiserver",
-  "exp": 1701511022,
-  "iat": 1698919022,
-  "auth_time": 1698891834,
-  "acr": "goauthentik.io/providers/oauth2/default",
-  "nonce": "qgKevTR1gU9Mh14HzOPPCTaP_Mgu9nvY7ZhJkCeFpGY",
-  "at_hash": "TRZOLHHxFxl9HB7SHCIcMw",
-  "email": "davidy@example.com",
-  "email_verified": true,
+  "sub": "a612b1ae-63e1-4698-bcc8-9ba8b8b7fb84",
+  "typ": "ID",
+  "azp": "kube-apiserver",
+  "nonce": "fwXjVCFM6xosn9yctYEducYBdy4KcnOqbaDxHPRWsTg",
+  "session_state": "851804e4-e479-46ac-93b4-c89ac37aa7a3",
+  "at_hash": "7lv4QY3h54maW6S5E--kgg",
+  "acr": "0",
+  "sid": "851804e4-e479-46ac-93b4-c89ac37aa7a3",
+  "email_verified": false,
+  "name": "David Young",
   "groups": [
-    "authentik Admins",
-    "admin-kube-apiserver"
-  ]
+    "admin-kiali",
+    "admin-harbor",
+    "admin-graylog",
+    "admin-kubernetes",
+    "concourse-main",
+    "admin-keycloak",
+    "admin-grafana"
+  ],
+  "preferred_username": "davidy",
+  "given_name": "David",
+  "family_name": "Young",
+  "email": "davidy@funkypenguin.co.nz"
 }
 ```
 
 Huzzah, authentication works! :partying_face: 
 
 !!! tip 
-    Make sure you see a groups claim in the output above, and if you don't revisit your scope mapper and your claims in the provider under advanced protocol settings!
+    Make sure you see a groups claim in the output above, and if you don't, revisit your client's mapper settings as when you [configured as an OIDC provider for kube-apiserver](/kubernetes/oidc-authentication/keycloak/).
 
 ### Assemble your kubeconfig
 
@@ -119,11 +133,9 @@ kubectl config set-credentials oidc \
  --exec-command=kubectl \
  --exec-arg=oidc-login \
  --exec-arg=get-token \
- --exec-arg=--oidc-issuer-url=https://authentik.example.com/application/o/kube-apiserver/ \
+ --exec-arg=--oidc-issuer-url=https://keycloak.example.com/auth/realms/master/ \
  --exec-arg=--oidc-client-id=kube-apiserver \
- --exec-arg=--oidc-client-secret=<your client secret> \
- --exec-arg=--oidc-extra-scope=profile \
- --exec-arg=--oidc-extra-scope=email
+ --exec-arg=--oidc-client-secret=<your client secret>
 ```
 
 Test your OIDC powerz by running `kubectl --user=oidc cluster-info`.
@@ -175,12 +187,12 @@ You now have OIDC-secured CLI access to your cluster!
 
 What have we achieved?
 
-We've setup our K3s cluster to authenticate against authentik, running on that same cluster! We can now create multiple users (*with multiple levels of access*) without having to provide them with tricky IAM accounts, and deploy kube-apiserver-integrated tools like Kubernetes Dashboard or Weaveworks GitOps for nice secured UIs.
+We've setup our K3s cluster to authenticate against Keycloak, running on that same cluster! We can now create multiple users (*with multiple levels of access*) without having to provide them with more access than they need, and we can deploy kube-apiserver-integrated tools like Kubernetes Dashboard or Weaveworks GitOps for nice secured UIs.
 
 !!! summary "Summary"
     Created:
 
-    * [X] K3s cluster with OIDC authentication against [authentik][k8s/authentik]
+    * [X] K3s cluster with OIDC authentication against [Keycloak][k8s/keycloak]
     * [X] Ability to support:
         * [X] [Kubernetes Dashboard][k8s/dashboard]
         * [X] Weave GitOps (*coming soon*)
