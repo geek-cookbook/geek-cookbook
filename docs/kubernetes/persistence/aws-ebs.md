@@ -41,9 +41,9 @@ The Amazon Elastic Block Store Container Storage Interface (CSI) Driver provides
 
 ### Setup IRSA
 
-Before you deploy aws-ebs-csi-driver, it's necessary to perform some AWS IAM acronym-salad first..
+Before you deploy aws-ebs-csi-driver, it's necessary to perform some AWS IAM acronym-salad first :salad: ..
 
-The CSI driver pods need access to your AWS account in order to provision EBS volumes. You **could** feed them with classic access key/secret keys, but a more "sophisticated" method is to use "[IAM roles for service accounts]"(https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html), or IRSA. 
+The CSI driver pods need access to your AWS account in order to provision EBS volumes. You **could** feed them with classic access key/secret keys, but a more "sophisticated" method is to use "[IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)", or IRSA.
 
 IRSA lets you associate a Kubernetes service account with an IAM role, so instead of stashing access secrets somewhere in a namespace (*and in your GitOps repo[^1]*), you simply tell AWS "grant the service account `batcave-music` in the namespace `bat-ertainment` the ability to use my `streamToAlexa` IAM role.
 
