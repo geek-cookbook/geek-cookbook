@@ -265,7 +265,7 @@ nav:
       #   - Kiali: kubernetes/wip.md
         - Authentik: recipes/kubernetes/authentik.md
         - Dashboard: recipes/kubernetes/dashboard.md
-        - Descheduler: recipes/kubernetes/descheduler.md
+        # - Descheduler: recipes/kubernetes/descheduler.md
         - Invidious: recipes/kubernetes/invidious.md
         - Keycloak: recipes/kubernetes/keycloak.md
         - OAuth2 Proxy: recipes/kubernetes/oauth2-proxy.md
