@@ -23,7 +23,7 @@ Securing access to Kubernetes' API server requires an OIDC provider, be it an ex
 
 ### Setup Provider
 
-1. Setup [Authentik for Kubernetes API authentication](/kubernetes/authentication/authentik/)
+1. Setup [Authentik for Kubernetes API authentication](/kubernetes/oidc-authentication/authentik/)
 2. Keycloak (*coming soon*)
 
 ### Configure Kubernetes for OIDC auth
