@@ -64,9 +64,9 @@ Use kubelogin to test your OIDC parameters, by running:
 
 ```bash
 kubectl oidc-login setup \
-  --oidc-issuer-url=ISSUER_URL \
-  --oidc-client-id=YOUR_CLIENT_ID \
-  --oidc-client-secret=YOUR_CLIENT_SECRET
+--oidc-issuer-url=ISSUER_URL \
+--oidc-client-id=YOUR_CLIENT_ID \
+--oidc-client-secret=YOUR_CLIENT_SECRET
 ```
 
 All going well, your browser will open a new window, logging you into authentik, and on the CLI you should get output something like this:
