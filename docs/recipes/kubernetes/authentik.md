@@ -80,7 +80,7 @@ If you're after a more hands-off implementation, you can also pre-set a "bootstr
 
 ```yaml hl_lines="2-3" title="Optionally pre-configure your bootstrap secrets"
     env:
-      AUTHENTIK_BOOTSTRAP_PASSWORD: "iamusedbyhumanz"
+      AUTHENTIK_BOOTSTRAP_PASSWORD: "iamusedbyhumanz",
       AUTHENTIK_BOOTSTRAP_TOKEN: "iamusedbymachinez"
 ```
 
