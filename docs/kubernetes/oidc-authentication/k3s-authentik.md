@@ -56,6 +56,9 @@ Now restart k3s (*`systemctl restart k3s` on Ubuntu*), and confirm it starts cor
 
 Assuming nothing explodes, you're good-to-go on attempting to actually connect...
 
+!!! note "Let's Do This Again!"
+    The above process needs to be completed on each API server node in your cluster.
+
 ### Install kubelogin
 
 For CLI-based access to your cluster, you'll need a "helper" to perform the OIDC magic on behalf of kubectl. Install [int128/kubelogin](https://github.com/int128/kubelogin), which is design suited to this purpose.
