@@ -115,15 +115,15 @@ Amend the kubeconfig file for your OIDC user, by running a variation of:
 
 ```bash
 kubectl config set-credentials oidc \
- --exec-api-version=client.authentication.k8s.io/v1beta1 \
- --exec-command=kubectl \
- --exec-arg=oidc-login \
- --exec-arg=get-token \
- --exec-arg=--oidc-issuer-url=https://authentik.example.com/application/o/kube-apiserver/ \
- --exec-arg=--oidc-client-id=kube-apiserver \
- --exec-arg=--oidc-client-secret=<your client secret> \
- --exec-arg=--oidc-extra-scope=profile \
- --exec-arg=--oidc-extra-scope=email
+  --exec-api-version=client.authentication.k8s.io/v1beta1 \
+  --exec-command=kubectl \
+  --exec-arg=oidc-login \
+  --exec-arg=get-token \
+  --exec-arg=--oidc-issuer-url=https://authentik.example.com/application/o/kube-apiserver/ \
+  --exec-arg=--oidc-client-id=kube-apiserver \
+  --exec-arg=--oidc-client-secret=<your client secret> \
+  --exec-arg=--oidc-extra-scope=profile \
+  --exec-arg=--oidc-extra-scope=email
 ```
 
 Test your OIDC powerz by running `kubectl --user=oidc cluster-info`.
