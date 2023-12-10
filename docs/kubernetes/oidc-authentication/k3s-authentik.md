@@ -105,7 +105,7 @@ Huzzah, authentication works! :partying_face:
 
 ### Assemble your kubeconfig
 
-Your kubectl access to k3s uses a kubeconfig file at `/etc/rancher/k3s/k3s.yaml`. Treat this file as a root password - it's includes a long-lived token which gives you clusteradmin ("*god mode*" on your cluster.)
+Your kubectl access to k3s uses a kubeconfig file at `/etc/rancher/k3s/k3s.yaml`. Treat this file as a root password - it includes a long-lived token which gives you clusteradmin ("*god mode*" on your cluster.)
 
 Copy the `k3s.yaml` file to your local desktop (*the one with a web browser*), into `$HOME/.kube/config`, and modify it, changing `server: https://127.0.0.1:6443` to match the URL of (*one of*) your control-plane node(*s*).
 
