@@ -46,10 +46,10 @@ Create `/etc/rancher/k3s/config.yaml`, and add:
 
 ```yaml title="Gentlemanly YAML config option"
 kube-apiserver-arg:
-- "oidc-issuer-url=https://authentik.infra.example.com/application/o/kube-apiserver/"
-- "oidc-client-id=kube-apiserver"
-- "oidc-username-claim=email"
-- "oidc-groups-claim=groups"
+  - "oidc-issuer-url=https://authentik.infra.example.com/application/o/kube-apiserver/"
+  - "oidc-client-id=kube-apiserver"
+  - "oidc-username-claim=email"
+  - "oidc-groups-claim=groups"
 ```
 
 Now restart k3s (*`systemctl restart k3s` on Ubuntu*), and confirm it starts correctly by watching the logs (*`journalctl -u k3s -f` on Ubuntu*)
