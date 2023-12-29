@@ -41,7 +41,7 @@ With the goal of creating a safe and inclusive community, we've adopted the [Con
 
 ### Reporting abuse
 
-To report a violation of our code of conduct in our Discord server, type `!report <thing to report>` in any channel.
+To report a violation of our code of conduct in our Discord server, type `/moderation report <thing to report>` in any channel.
 
 Your report message will immediately be deleted from the channel, and an alert raised to moderators, who will address the issue as detailed in the [enforcement guidelines](/community/code-of-conduct/#enforcement-guidelines).
 
