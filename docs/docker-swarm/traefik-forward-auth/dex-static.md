@@ -85,7 +85,7 @@ services:
       - /var/data/config/dex/config.yml:/config.yml:ro
     networks:
       - traefik_public
-    command: ['serve','/config.yml']
+    command: ['dex', 'serve','/config.yml']
     deploy:
       labels:
       # traefik
