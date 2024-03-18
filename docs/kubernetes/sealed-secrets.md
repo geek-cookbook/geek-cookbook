@@ -46,7 +46,8 @@ A "[SealedSecret](https://github.com/bitnami-labs/sealed-secrets)" can only be d
     (Update for whatever the [latest release](https://github.com/bitnami-labs/sealed-secrets/releases) is)
 
     ```bash
-    wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.17.0/kubeseal-linux-amd64 -O kubeseal
+    wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.17.0/kubeseal-0.26.1-linux-amd64.tar.gz -O kubeseal.tgz
+    tar xzvf kubeseal.tgz
     sudo install -m 755 kubeseal /usr/local/bin/kubeseal
     ```
 
