@@ -177,9 +177,9 @@ You'll notice that there are several items under "services" in this stack. Let's
 
 Launch the paperless stack by running ```docker stack deploy paperless -c <path -to-docker-compose.yml>```. You can then log in with the username and password that you specified in the environment variables file above.
 
-Head over to the [Paperless documentation](https://paperless-ng.readthedocs.io/en/latest) to see how to configure and use the application then revel in the fact you can now search all your scanned documents to to your heart's content.
+Head over to the [Paperless documentation](https://docs.paperless-ngx.com) to see how to configure and use the application then revel in the fact you can now search all your scanned documents to to your heart's content.
 
-[^1]: Taken directly from [Paperless documentation](https://paperless-ng.readthedocs.io/en/latest)
+[^1]: Taken directly from [Paperless documentation](https://docs.paperless-ngx.com)
 [^2]: This particular stack configuration was chosen because it includes a "real" database in PostgreSQL versus the more lightweight SQLite database. After all, if you go to the trouble of scanning and importing a pile of documents, you want to know the database is robust enough to keep your data safe.
 
 {% include 'recipe-footer.md' %}
