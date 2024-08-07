@@ -23,11 +23,13 @@ else
   # latest version is broken against python 3.8
   pip install git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
   # pip install git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git@9.5.2-insiders-4.47.1
-  ENABLE_PDF_EXPORT=1 mkdocs build -f mkdocs-insiders.yml
 
-  # Put the PDF into secret location
-  mkdir -p site/${PDF_PATH}
-  mv site/funkypenguins-geek-cookbook.pdf site/${PDF_PATH}/
+  # PDF disabled for now
+  ENABLE_PDF_EXPORT=0 mkdocs build -f mkdocs-insiders.yml
+
+  # # Put the PDF into secret location
+  # mkdir -p site/${PDF_PATH}
+  # mv site/funkypenguins-geek-cookbook.pdf site/${PDF_PATH}/
 fi
 
 # Setup any necessary netlify redirects
