@@ -6,7 +6,6 @@ tags:
   - matrix
 links:
   - Matrix Community: community/matrix.md
-  - Slack Community: community/slack.md
 description: Not into Discord? Now we're bridged to Matrix and Slack!
 title: Our Discord server is now bridged to Matrix and Slack
 image: /images/bridge-ception.png

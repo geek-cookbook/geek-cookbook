@@ -39,58 +39,6 @@ The Amazon Elastic Block Store Container Storage Interface (CSI) Driver provides
 {% include 'kubernetes-flux-kustomization.md' %}
 {% include 'kubernetes-flux-helmrelease.md' %}
 
-### Setup IRSA
-
-Before you deploy aws-ebs-csi-driver, it's necessary to perform some AWS IAM acronym-salad first :salad: ..
-
-The CSI driver pods need access to your AWS account in order to provision EBS volumes. You **could** feed them with classic access key/secret keys, but a more "sophisticated" method is to use "[IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)", or IRSA.
-
-IRSA lets you associate a Kubernetes service account with an IAM role, so instead of stashing access secrets somewhere in a namespace (*and in your GitOps repo[^1]*), you simply tell AWS "grant the service account `batcave-music` in the namespace `bat-ertainment` the ability to use my `streamToAlexa` IAM role.
-
-Before we start, we have to use `eksctl` to generate an IAM OIDC provider for your cluster. I ran:
-
-```bash
-eksctl utils associate-iam-oidc-provider --cluster=funkypenguin-authentik-test --approve
-```
-
-(*It's harmless to run it more than once, if you already have an IAM OIDC provider associated, the command will just error*)
-
-Once complete, I ran the following to grant the `aws-ebs-csi-driver` service account in the `aws-ebs-csi-driver` namespace the power to use the AWS-managed `AmazonEBSCSIDriverPolicy` policy, which exists for exactly this purpose:
-
-```bash
-eksctl create iamserviceaccount \
-    --name ebs-csi-controller-sa \
-    --namespace aws-ebs-csi-driver \
-    --cluster funkypenguin-authentik-test \
-    --role-name AmazonEKS_EBS_CSI_DriverRole \
-    --role-only \
-    --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
-    --approve
-```
-
-Part of what this does is **creates** the target service account in the target namespace - before we've deployed aws-ebs-csi-driver's HelmRelease.
-
-Confirm it's worked by **describing** the serviceAccount - you should see an annotation indicating the role attached, like this:
-
-```
-Annotations:         eks.amazonaws.com/role-arn: arn:aws:iam::6831384437293:role/AmazonEKS_EBS_CSI_DriverRole
-```
-
-Now there's a problem - when the HelmRelease is installed, it'll try to create the serviceaccount, which we've just created. Flux's helm controller will then refuse to install the HelmRelease, because it can't "adopt" the service account as its own, under management.
-
-The simplest fix I found for this was to run the following **before** reconciling the HelmRelease:
-
-```bash
-kubectl label serviceaccounts -n  aws-ebs-csi-driver \
-    ebs-csi-controller-sa app.kubernetes.io/managed-by=Helm --overwrite
-kubectl annotate serviceaccounts -n aws-ebs-csi-driver \
-    ebs-csi-controller-sa meta.helm.sh/release-name=aws-ebs-csi-driver
-kubectl annotate serviceaccounts -n aws-ebs-csi-driver\
-    kube-system ebs-csi-controller-sa meta.helm.sh/release-namespace=kube-system
-```
-
-Once these labels/annotations are added, the HelmRelease will happily deploy, without altering the all-important annotation which lets the EBS driver work!
-
 ## Install {{ page.meta.slug }}!
 
 Commit the changes to your flux repository, and either wait for the reconciliation interval, or force  a reconcilliation using `flux reconcile source git flux-system`. You should see the kustomization appear...
@@ -122,6 +70,58 @@ ebs-csi-node-4f8kz                    3/3     Running   0             37h
 ebs-csi-node-fq8bn                    3/3     Running   0             37h
 ~ ❯
 ```
+
+### Setup IRSA
+
+Before you can attach EBS volumes with aws-ebs-csi-driver, it's necessary to perform some AWS IAM acronym-salad first :salad: ..
+
+The CSI driver pods need access to your AWS account in order to provision EBS volumes. You **could** feed them with classic access key/secret keys, but a more "sophisticated" method is to use "[IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)", or IRSA.
+
+IRSA lets you associate a Kubernetes service account with an IAM role, so instead of stashing access secrets somewhere in a namespace (*and in your GitOps repo[^1]*), you simply tell AWS "grant the service account `batcave-music` in the namespace `bat-ertainment` the ability to use my `streamToAlexa` IAM role.
+
+Before we start, we have to use `eksctl` to generate an IAM OIDC provider for your cluster, in case we don't have one. I ran:
+
+```bash
+eksctl utils associate-iam-oidc-provider --cluster=funkypenguin-authentik-test --approve
+```
+
+(*It's harmless to run it more than once, if you already have an IAM OIDC provider associated, the command will just error*)
+
+Once complete, I ran the following to grant the `aws-ebs-csi-driver` service account in the `aws-ebs-csi-driver` namespace the power to use the AWS-managed `AmazonEBSCSIDriverPolicy` policy, which exists for exactly this purpose:
+
+```bash
+eksctl create iamserviceaccount \
+    --name ebs-csi-controller-sa \
+    --namespace aws-ebs-csi-driver \
+    --cluster funkypenguin-authentik-test \
+    --role-name AmazonEKS_EBS_CSI_DriverRole \
+    --override-existing-serviceaccounts \
+    --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
+    --approve
+```
+
+This will annotate the existing serviceaccount in the `aws-ebs-csi-driver` namespace, with the role to be attached.
+
+Confirm it's worked by **describing** the serviceAccount - you should see an annotation indicating the role attached, like this:
+
+```
+Annotations:         eks.amazonaws.com/role-arn: arn:aws:iam::6831384437293:role/AmazonEKS_EBS_CSI_DriverRole
+```
+
+#### Troubleshooting
+
+If it **doesn't** work for some reason (*like you ran the command once with a typo!*), you may find yourself unable to re-run the command. Cloudformation logs will show you that the action is failing because the role name already exits. To work around this, grab the ARN of the existing role, and change the command slightly:
+
+```bash
+eksctl create iamserviceaccount \
+    --name ebs-csi-controller-sa \
+    --namespace aws-ebs-csi-driver \
+    --cluster funkypenguin-authentik-test \
+    --attach-role-arn arn:aws:iam::683179697293:role/AmazonEKS_EBS_CSI_DriverRole \
+    --override-existing-serviceaccounts \
+    --approve
+```
+
 
 ## How do I know it's working?
 

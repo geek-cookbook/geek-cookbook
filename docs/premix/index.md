@@ -3,15 +3,9 @@ title: Pre-made ansible playbooks to deploy our self-hosted recipes
 ---
 # Premix Repository
 
-"Premix" is a private repository shared with [GitHub sponsors](https://github.com/sponsors/funkypenguin), which contains the necessary files and automation to quickly deploy any recipe, or even an entire [swarm](/docker-swarm/) / [cluster](/kubernetes/)! :muscle:
-
-![Screenshot of premix repo](/images/premix.png){ loading=lazy }
+"Premix" is a git repository which contains the necessary files and automation to quickly deploy any recipe, or even an entire [swarm](/docker-swarm/) / [cluster](/kubernetes/)! :muscle:
 
 ## Benefits
-
-### 🎁 Early access
-
-Recipes are usually "baked" in premix first, before they are published on the website. Having access to premix means having access to all the freshest recipes!
 
 ### ⛳️ Eliminate toil
 
@@ -31,18 +25,4 @@ Typically you'd fork the repository to overlay your own config and changes. As m
 
 ## How to get Premix
 
-To get invited to the premix repo, follow these steps:
-
-1. Become a **public** [sponsor](https://github.com/sponsors/funkypenguin) on GitHub
-2. Join us in the [Discord server](http://chat.funkypenguin.co.nz)
-3. Link your accounts at [PenguinPatrol](https://penguinpatrol.funkypenguin.co.nz)
-4. Say something in any of the discord channels (*this triggers the bot*)
-
-You'll receive an invite to premix to the email address associated with your GitHub account, and a fancy VIP role in the Discord server! 💪
-
-!!! question "Why require public sponsorship?"
-    Public sponsorship is required for the bot to realize that you're a sponsor, based on what the GitHub API provides
-
-### Without a credit card
-
-Got no credit card / GitHubz? We got you covered, with this nifty [PayPal-based subscription](https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-95D29301K5084144PMKCWFEY)
+Premix used to be sponsors-only (*I'd still love it if you [sponsored](https://github.com/sponsors/funkypenguin)!*), but is now open to all geeks, at https://github.com/geek-cookbook/premix.
