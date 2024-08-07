@@ -287,6 +287,8 @@ nav:
     #   - Build Story:
     #     - elfhosted/build/index.md
     #     - A bastion of hope: elfhosted/build/bastion.md
+    - 🪄 ElfHosted:
+      - elfhosted/index.md    
     - 🚀 Get Premix!:
       - premix/index.md
       - Get Started:
