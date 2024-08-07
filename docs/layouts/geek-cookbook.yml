@@ -1,0 +1,97 @@
+definitions:
+  - &page_title >-
+    {%- if not page.is_homepage -%}
+      {{ page.meta.get("slug", page.title) }}
+    {%- else -%}
+      {{ page.meta.get("title", page.title) }}
+    {%- endif -%}
+
+  - &page_description >-
+    {%- if not page.is_homepage -%}
+      {{ page.meta.get("description", page.title) }}
+    {%- else -%}
+      {{ page.meta.get("title", page.title) }}
+    {%- endif -%}  
+
+  - &page_background >-
+    {%- if not page.is_homepage -%}
+      docs/images/screenshots/{{ page.meta.get("slug", "notifiarr") | lower }}.png
+    {%- else -%}
+      {{ page.meta.get("title", page.title) }}
+    {%- endif -%}    
+
+size: { width: 1200, height: 630 }
+layers:
+
+  - background:
+      color: "#8B877F1A"
+      image: layouts/geek-cookbook.jpg      
+
+  - size: { width: 1800, height: 1800 }
+    offset: { x: 0, y: -300 }
+    icon:
+      value: material/triangle
+      color: "#B4822BD0"  
+    origin: start bottom
+
+  # logo
+  - size: { width: 200, height: 200 }
+    offset: { x: 0, y: 0 }
+    icon:
+      value: funkypenguin
+      # color: "#889f2bDB"  
+    origin: start bottom
+
+  - size: { width: 500, height: 50 }
+    offset: { x: 20, y: 70 }
+    typography:
+      content: Funky Penguin's
+      color: "black"
+      align: end bottom
+      font: 
+        family: Ubuntu
+        style: Bold
+    origin: end bottom        
+
+  - size: { width: 700, height: 80 }
+    offset: { x: 20, y: 0 }
+    typography:
+      content: Geek Cookbook
+      align: end bottom
+      color: "black"
+      font: 
+        family: Ubuntu       
+        style: Bold
+    origin: end bottom        
+
+  # Slug
+  - size: { width: 700, height: 200 }
+    offset: { x: 20, y: 20 }
+    typography:
+      content: *page_title
+      overflow: shrink
+      align: center
+      color: "#000000"
+      font: 
+        family: Ubuntu       
+        style: Bold  
+      line:
+        amount: 1
+        height: 1.25        
+    origin: end top       
+
+  - size: { width: 850, height: 300 }
+    offset: { x: 20, y: 220 }
+    typography:
+      content: "I am a lot of very fancy text describing how to do things"
+      overflow: shrink
+      align: start center
+      color: "#000000"
+      font: 
+        family: Ubuntu       
+        style: Light  
+    origin: end top   
+
+
+  # - size: { width: 1200, height: 630 }
+  #   offset: { x: 0, y: 0 }
