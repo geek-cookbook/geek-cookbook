@@ -74,7 +74,7 @@ spec:
 
 ### ConfigMap
 
-Now we're into the cert-manager-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/bitnami/charts/blob/master/bitnami/cert-manager/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `cert-manager/configmap-cert-manager-helm-chart-value-overrides.yaml`:
+Now we're into the cert-manager-specific YAMLs. First, we create a ConfigMap, containing the entire contents of the helm chart's [values.yaml](https://github.com/cert-manager/cert-manager/blob/master/deploy/charts/cert-manager/values.yaml). Paste the values into a `values.yaml` key as illustrated below, indented 4 tabs (*since they're "encapsulated" within the ConfigMap YAML*). I create this example yaml in my flux repo at `cert-manager/configmap-cert-manager-helm-chart-value-overrides.yaml`:
 
 ```yaml title="/cert-manager/configmap-cert-manager-helm-chart-value-overrides.yaml"
 apiVersion: v1
@@ -108,7 +108,7 @@ spec:
   chart:
     spec:
       chart: cert-manager
-      version: v1.6.x
+      version: v1.15.x
       sourceRef:
         kind: HelmRepository
         name: jetstack
