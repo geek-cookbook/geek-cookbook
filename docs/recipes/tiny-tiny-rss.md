@@ -34,7 +34,7 @@ cd /var/data/config/ttrss
 
 ### Prepare {{ page.meta.recipe }} environment
 
-Create `/var/data/config/ttrs/ttrss.env`, and populate with the following variables, customizing at least the database password (POSTGRES_PASSWORD **and** DB_PASS) and the TTRSS_SELF_URL to point to your installation.
+Create `/var/data/config/ttrss/ttrss.env`, and populate with the following variables, customizing at least the database password (POSTGRES_PASSWORD **and** DB_PASS) and the TTRSS_SELF_URL to point to your installation.
 
 ```yaml
 # Variables for postgres:latest
@@ -89,7 +89,7 @@ services:
 
           # traefikv1
           - traefik.frontend.rule=Host:ttrss.example.com
-          - traefik.port=8080     
+          - traefik.port=8080
 
           # traefikv2
           - "traefik.http.routers.ttrss.rule=Host(`ttrss.example.com`)"
