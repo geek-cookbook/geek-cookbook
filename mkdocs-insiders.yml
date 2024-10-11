@@ -16,7 +16,7 @@ plugins:
     external_assets_exclude:
       - shields.io/*      
   optimize:
-    enabled: true
+    enabled: false # pngquant errors
   with-pdf:
     #author: David Young
     #copyright: ANY TEXT
