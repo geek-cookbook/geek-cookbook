@@ -1,6 +1,6 @@
 # ElfHosted
 
-Do you enjoy tinkering with Docker, Kubernetes, and self-hosting, but there are some things you want to "Just Work(tm)"? That's what [ElfHosted][elfhosted] is about - combining out extensive (*and growing!*) collection of recipes with the Kubernetes / GitOps-managed architecture, and making them available in a well-packaged, automated, continuously-delivered bundle!
+Do you enjoy tinkering with Docker, Kubernetes, and self-hosting, but there are some things you want to "Just Work(tm)"? That's what [ElfHosted][elfhosted] is about - combining our extensive (*and growing!*) collection of recipes with the Kubernetes / GitOps-managed architecture, and making them available in a well-packaged, automated, continuously-delivered bundle!
 
 ## What can I do with ElfHosted?
 
@@ -18,6 +18,14 @@ Here are a few popular utilities for ElfHosted:
 *(from https://elfhosted.com/testimonials/)*
 
 Here's what some of our {--users--}{++friends++} say..
+
+> I am new here, but today I learned realized that Elfhosted is one of the best free and open source software communities I've seen, and FOSS communities have been at the center of my life since the 90s (Perl, PHP, Symfony, Drupal, Ethereum, etc.). Great open software built by great people who care = great community, and that is something special. 
+> 
+> You've done an amazing job @Funky Penguelf with the platform you provide and this place has an awesome mix of active community caretakers and software creators that I've seen here so far like BSM, Spoked, LayeZee and other elf vengers. Keep up the energy, productivity and community and take time to enjoy it and appreciate each other!
+
+:star::star::star::star::star: [\@skwah (Discord)](https://discord.com/channels/396055506072109067/647643207932313620/1296489163801104496)
+
+
 > I recently found ElfHosted and decided to start out with the Infinite Starter Kit. Within a week I realized that this was for me and upgraded to the Hobbit plan. Give it another week and I was up to the Ranger plan. 
 >
 > I just love the simplicity and the fact that things just work. For years I've ran a home server and between the constant maintenance and always upgrading harddrives, it became apparent I wanted to make it easier on my self. Enter ElfHosted. 
