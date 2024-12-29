@@ -13,6 +13,6 @@ K8s-sig-storage publishes [external-snapshotter](https://github.com/kubernetes-c
 
 There are two components required in order to bring snapshot-taking powerz to your bare-metal cluster, detailed below:
 
-1. First, install the [snapshot validation webhook](/kubernetes/csi-snapshots/snapshot-validation-webhook.md/)
-2. Then, install the [snapshot controller](/kubernetes/csi-snapshots/snapshot-controller.md)
+1. First, install the [snapshot validation webhook](/kubernetes/backup/csi-snapshots/snapshot-validation-webhook.md/)
+2. Then, install the [snapshot controller](/kubernetes/backup/csi-snapshots/snapshot-controller.md)
 3. Install a snapshot-supporting :camera: [backup tool](/kubernetes/backup/) 
