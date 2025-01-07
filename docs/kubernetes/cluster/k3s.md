@@ -111,7 +111,7 @@ Now that the first master is deploy, add additional masters (*remember to keep t
 ```bash
 MYSECRET=iambatman
 curl -fL https://get.k3s.io | K3S_TOKEN=${MYSECRET} \
-    sh -s - server --disable servicelb --server https://<IP OF FIRST MASTER>:6443
+    sh -s - server --disable traefik --disable servicelb --server https://<IP OF FIRST MASTER>:6443
 ```
 
 Run `k3s kubectl get nodes` to see your new master node make friends with the others:
