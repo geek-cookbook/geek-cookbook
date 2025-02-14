@@ -34,7 +34,7 @@ mkdir -p {wekan-db,wekan-db-dump}
 
 ### Prepare {{ page.meta.recipe }} environment
 
-Create `/var/data/config/wekan.env`, and populate with the following variables:
+Create `/var/data/config/wekan/wekan.env`, and populate with the following variables:
 
 ```yaml
 MONGO_URL=mongodb://wekandb:27017/wekan
@@ -80,7 +80,7 @@ services:
 
         # traefikv1
         - traefik.frontend.rule=Host:wekan.example.com
-        - traefik.port=4180     
+        - traefik.port=4180
 
         # traefikv2
         - "traefik.http.routers.wekan.rule=Host(`wekan.example.com`)"
@@ -107,7 +107,7 @@ services:
       done
       EOF'
     networks:
-    - internal    
+    - internal
 
 networks:
   traefik_public:
