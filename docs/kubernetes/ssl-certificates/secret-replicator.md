@@ -98,7 +98,7 @@ data:
     secretNamespace: "letsencrypt-wildcard-cert"
 
     rbac:
-    enabled: true
+      enabled: true
 
     resources: {}
     # limits:
