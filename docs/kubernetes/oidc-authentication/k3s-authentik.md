@@ -46,15 +46,18 @@ Create `/etc/rancher/k3s/config.yaml`, and add:
 
 ```yaml title="Gentlemanly YAML config option"
 kube-apiserver-arg:
-- "oidc-issuer-url=https://authentik.infra.example.com/application/o/kube-apiserver/"
-- "oidc-client-id=kube-apiserver"
-- "oidc-username-claim=email"
-- "oidc-groups-claim=groups"
+  - "oidc-issuer-url=https://authentik.infra.example.com/application/o/kube-apiserver/"
+  - "oidc-client-id=kube-apiserver"
+  - "oidc-username-claim=email"
+  - "oidc-groups-claim=groups"
 ```
 
 Now restart k3s (*`systemctl restart k3s` on Ubuntu*), and confirm it starts correctly by watching the logs (*`journalctl -u k3s -f` on Ubuntu*)
 
 Assuming nothing explodes, you're good-to-go on attempting to actually connect...
+
+!!! note "Let's Do This Again!"
+    The above process needs to be completed on each API server node in your cluster.
 
 ### Install kubelogin
 
@@ -64,9 +67,9 @@ Use kubelogin to test your OIDC parameters, by running:
 
 ```bash
 kubectl oidc-login setup \
-  --oidc-issuer-url=ISSUER_URL \
-  --oidc-client-id=YOUR_CLIENT_ID \
-  --oidc-client-secret=YOUR_CLIENT_SECRET
+--oidc-issuer-url=ISSUER_URL \
+--oidc-client-id=YOUR_CLIENT_ID \
+--oidc-client-secret=YOUR_CLIENT_SECRET
 ```
 
 All going well, your browser will open a new window, logging you into authentik, and on the CLI you should get output something like this:
@@ -105,7 +108,7 @@ Huzzah, authentication works! :partying_face:
 
 ### Assemble your kubeconfig
 
-Your kubectl access to k3s uses a kubeconfig file at `/etc/rancher/k3s/k3s.yaml`. Treat this file as a root password - it's includes a long-lived token which gives you clusteradmin ("*god mode*" on your cluster.)
+Your kubectl access to k3s uses a kubeconfig file at `/etc/rancher/k3s/k3s.yaml`. Treat this file as a root password - it includes a long-lived token which gives you clusteradmin ("*god mode*" on your cluster.)
 
 Copy the `k3s.yaml` file to your local desktop (*the one with a web browser*), into `$HOME/.kube/config`, and modify it, changing `server: https://127.0.0.1:6443` to match the URL of (*one of*) your control-plane node(*s*).
 
@@ -115,15 +118,15 @@ Amend the kubeconfig file for your OIDC user, by running a variation of:
 
 ```bash
 kubectl config set-credentials oidc \
- --exec-api-version=client.authentication.k8s.io/v1beta1 \
- --exec-command=kubectl \
- --exec-arg=oidc-login \
- --exec-arg=get-token \
- --exec-arg=--oidc-issuer-url=https://authentik.example.com/application/o/kube-apiserver/ \
- --exec-arg=--oidc-client-id=kube-apiserver \
- --exec-arg=--oidc-client-secret=<your client secret> \
- --exec-arg=--oidc-extra-scope=profile \
- --exec-arg=--oidc-extra-scope=email
+  --exec-api-version=client.authentication.k8s.io/v1beta1 \
+  --exec-command=kubectl \
+  --exec-arg=oidc-login \
+  --exec-arg=get-token \
+  --exec-arg=--oidc-issuer-url=https://authentik.example.com/application/o/kube-apiserver/ \
+  --exec-arg=--oidc-client-id=kube-apiserver \
+  --exec-arg=--oidc-client-secret=<your client secret> \
+  --exec-arg=--oidc-extra-scope=profile \
+  --exec-arg=--oidc-extra-scope=email
 ```
 
 Test your OIDC powerz by running `kubectl --user=oidc cluster-info`.

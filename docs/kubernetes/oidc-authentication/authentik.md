@@ -37,7 +37,7 @@ Scroll down, and set:
 
 * Client ID: `kube-apiserver` *take note, this is non-default*
 * Client Secret: `<pick a secret, or use the randomly generated one>`
-* Redirect URIs/Origins (RegEx): `http://localhost:18000` [^1]
+* Redirect URIs/Origins (RegEx): `http://localhost:8000` [^1]
 
 ![](/images/authentik-kube-apiserver-3.png)
 
