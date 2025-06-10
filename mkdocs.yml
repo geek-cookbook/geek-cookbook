@@ -384,6 +384,9 @@ extra:
   status:
     new: Recently added
     deprecated: Deprecated
+  analytics:
+    provider: google
+    property: G-N2YBGGF31R    
   social:
     - icon: 'fontawesome/brands/mastodon'
       link: 'https://so.fnky.nz/@funkypenguin'

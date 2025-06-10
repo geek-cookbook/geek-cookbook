@@ -5,11 +5,6 @@
   <div align="center">Too. Much. YAML? 😡 <A HREF='https://store.elfhosted.com/'>Skip the YAML and get a 7-day free trial of an ElfHosted stack</A>! 🎉<BR/>
 {% endblock %}
 
-{% block analytics %}
-<script src="/js/i-am-groot.js"></script>
-<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-{% endblock %}
-
 <!-- Add little penguin ascii-art to titles instead of 20-character-long site name -->
 {% block htmltitle %}
   {% if page.meta and page.meta.title %}
@@ -19,8 +14,4 @@
   {% else %}
   <title>{{ config.site_name }}</title>
   {% endif %}
-{% endblock %}
-
-{% block extrahead %}
-<!-- <script async data-uid="3c340b4df7" src="https://funkypenguin.ck.page/3c340b4df7/index.js"></script> -->
 {% endblock %}
