@@ -11,7 +11,7 @@ Using flux to manage deployments into the cluster means:
 
 1. All change is version-controlled (*i.e. "GitOps"*)
 2. It's not necessary to expose the cluster API (*i.e., which would otherwise be the case if you were using CI*)
-3. Deployments can be paused, rolled back, examine, debugged using Kubernetes primitives and tooling
+3. Deployments can be paused, rolled back, examined, debugged using Kubernetes primitives and tooling
 
 !!! summary "Ingredients"
 
