@@ -37,7 +37,7 @@ cd /var/data/config/wetty
 
 ### Prepare {{ page.meta.recipe }} environment
 
-Create `/var/data/config/wetty.env`, and populate with the following variables
+Create `/var/data/config/wetty/wetty.env`, and populate with the following variables
 
 ```yaml
 
@@ -67,7 +67,7 @@ services:
 
         # traefikv1
         - traefik.frontend.rule=Host:wetty.example.com
-        - traefik.port=3000     
+        - traefik.port=3000
 
         # traefikv2
         - "traefik.http.routers.wetty.rule=Host(`wetty.example.com`)"
