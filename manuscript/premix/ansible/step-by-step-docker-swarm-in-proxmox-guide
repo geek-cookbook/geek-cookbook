@@ -1,0 +1,249 @@
+WIP - 
+
+### Create Proxmox hosts
+
+Create Proxmox hosts on each device where VMs will be required.
+
+##### Installation Instructions
+
+xyz
+
+<p class="callout warning">The hostname (FQDN) will be used for ansible scripts</p>
+
+##### Configuration Instructions
+
+xyz
+
+---
+
+### Create Ansible host
+
+Only one Ansible host is required for the script.
+
+<p class="callout info">Suggest installing this on the primary Proxmox host which is accessible and will be used to create other VMs</p>
+
+##### Create VM
+
+1. Download the latest version of Ubuntu Server, ensuring that the correct architecture is selected, from [https://ubuntu.com/download/server](https://ubuntu.com/download/server)
+2. <p class="callout info">Ubuntu Server 22.04 AMD64 was used previously</p>
+3. Upload the iso onto the Proxmox host that will be housing the Ansible host 
+    1. Navigate to disk "local ( {hostname} )
+    2. Click on upload
+    3. Select ISO, fill in details and click upload
+4. Create a new VM for the Ansible host 
+    1. Click on 'Create VM'
+    2. Populate 'General' tab with details of the VM.
+    3. On the 'OS' tab, select the ISO stored previously
+    4. Default values can be used in the remaining tabs
+
+#### Install OS
+
+1. Start VM
+2. Go through installation steps
+
+#### Update OS
+
+1. ```bash
+    sudo apt update
+    sudo apt upgrade
+    ```
+
+<p class="callout info">Run `sudo apt-get install <list of packages kept back>` to install packages that could not be installed</p>
+
+---
+
+### Install Dependencies
+
+#### Ansible
+
+1. Install pip a [package installer for Python](https://packaging.python.org/guides/tool-recommendations/)
+    
+    ```bash
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    python3 get-pip.py --user
+    ```
+2. Install Ansible
+    
+    ```bash
+    sudo apt install ansible
+    ```
+
+<span style="color: rgb(34, 34, 34); font-size: 1.666em;">Terraform</span>
+
+Steps to install terraform on Ubuntu / Ubuntu cloud server :
+
+1. Install unzip
+    
+    ```bash
+    sudo apt-get install unzip
+    ```
+2. Confirm the latest version number on the terraform website:
+    
+    ```bash
+    https://www.terraform.io/downloads.html
+    ```
+3. Download latest version of the terraform (substituting newer version number if needed)
+    
+    ```bash
+    wget https://releases.hashicorp.com/terraform/1.0.7/terraform_1.0.7_linux_amd64.zip
+    ```
+4. Extract the downloaded file archive
+    
+    ```bash
+    unzip terraform_1.0.7_linux_amd64.zip
+    ```
+5. Move the executable into a directory searched for executables
+    
+    ```bash
+    sudo mv terraform /usr/local/bin/
+    ```
+6. Run it
+    
+    ```bash
+    terraform --version 
+    ```
+
+---
+
+### Clone Ansible playbook
+
+<p class="callout info">This step assumes that the playbook has been modified as required or will be updated directly on the Ansible host</p>
+
+1. Generate a Personal Access Token from [https://github.com/settings/tokens](https://github.com/settings/tokens) which functions as a password to access the private GitHub repo
+2. Log onto the Ansible host and clone the private repository using the following command
+
+```bash
+git clone https://adriankylam@github.com/adriankylam/geek-cookbook-premix
+```
+
+---
+
+### Generate and Publish SSH Keys for the Ansible host
+
+#### Generate Public and Private Keys
+
+Generate public and private SSH keys for the Ansible host. SSH keys can be generated using the **ssh-keygen** tool, which by default generates RSA public and private keys within the **.ssh/** folder of the current user's home directory. The public key is named **id\_rsa.pub** for the public key and **id\_rsa** for the private key.
+
+<p class="callout info">**Ensure there is no passphrase; Ansible scripts don't allow for interactive input**</p>
+
+#### Add Public Key to each Proxmox node
+
+Add the Public Key to each Proxmox host to enable Ansible / Terraform to create and configure each Ansible node
+
+##### On the Ansible host:
+
+1. Open the Public Key generated previously
+2. <p class="callout info">If the SSH keys were generated using default settings this is usually located within ~/.ssh/id\_rsa.pub</p>
+3. ```bash
+    vi ~/.ssh/id_rsa.pub
+    ```
+4. Copy the entire contents of the file into the clipboard
+
+##### For each Proxmox node:
+
+1. Access the corresponding node's shell (i.e. Select the Node, Click on 'Shell')
+2. Edit the Authorized\_Keys file for the root user
+3. ```bash
+    vi ~/.ssh/authorized_keys
+    ```
+4. Add the Public Key to the end of this file
+
+#### Add Public Key to the Ansible Playbook
+
+Add the Public Key to the Ansible Playbook so that the Ansible Host can access the generated VMs / swarm nodes via SSH.
+
+1. Access the Ansible Host
+2. Open the hosts file of the Ansible Playbook
+3. ```bash
+    vi ~/geek-cookbook-premix/ansible/group_vars/user/main.yaml
+    ```
+4. For the line ```bash
+    # admin_ssh_key: <your-public-key>
+    ```
+    
+    Uncomment the line, and replace &lt;your-public-key&gt; with the Ansible Host's public key
+
+---
+
+### Updating Secrets for the Ansible Playbook[¶](https://geek-cookbook.funkypenguin.co.nz/premix/ansible/operation/#secrets "Permanent link")
+
+Use [Ansible Vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html#creating-encrypted-files) to encrypt and store secrets required for the Ansible Playbook, such as the Proxmox admin credentials. We want to do this in a way which is safe from accidental git commits, as well as convenient for repeated iterations, without having to pass secrets as variables on the command-line.
+
+1. Create a password file, containing a vault password (*just generate one yourself*), and store it *outside* of the repo:
+    
+    ```bash
+    echo mysecretpassword > ~/.ansible/vault-password-geek-cookbook-premix
+    ```
+2. Create an ansible-vault encrypted file in the `group_vars/<your-username>/vault.yml` using this password file:
+    
+    ```bash
+    ansible-vault create --encrypt-vault-id geek-cookbook-premix group_vars/<your-username>/vault.yml
+    ```
+3. Insert your secret values into this file (*refer to `group_vars/all/01_fake_vault.yml` for placeholders*), using a prefix of `vault_`, like this: ```bash
+    vault_proxmox_host_password: mysekritpassword
+    ```
+
+The vault file is encrypted using a secret you store outside the repo, and now you can safely check in and version `group_vars/<your-username>/vault.yml` without worrying about exposing secrets in cleartext!
+
+<p class="callout info">You can always re-edit the file by running `ansible-vault edit vars/vault.yml`</p>
+
+---
+
+### DNS Configuration
+
+#### Add DNS records to external DNS server (e.g. Cloudflare)
+
+#### Port Forward Ports 80 and 443 to the Virtual IP established by Keepalived
+
+- <p class="callout info">Refer to your router manual for instructions on how to port forward. Instructions for some routers can be found here [https://setuprouter.com](https://setuprouter.com)</p>
+- <p class="callout danger">Consider the implications of port forwarding to your server, and consider server hardening such as deployment of multi-layered firewall rules</p>
+
+---
+
+### Deploy
+
+#### Complete Playbook[¶](https://geek-cookbook.funkypenguin.co.nz/premix/ansible/operation/#deploy-on-autopilot "Permanent link")
+
+To deploy the playbook, run `ansible-playbook -i hosts.your-username deploy.yml`. This will deploy *everything* on autopilot, including attempting to create VMs using Proxmox, if you've the necessary hosts.
+
+```bash
+ansible-playbook -i hosts.user deploy.yml -u user
+```
+
+#### Infrastructure Only[¶](https://geek-cookbook.funkypenguin.co.nz/premix/ansible/operation/#deploy-semi-autopilot "Permanent link")
+
+Deploying on full autopilot above installs *a lot* of stuff (and more is being added every day). There's a good chance you don't want everything that is or will be included in the playbook. We've created a special tag that will install the base infrastructure up to a point that you can then choose which recipes to install with the "selective" deploy method described above.
+
+To deploy the base infrastructure:
+
+```
+ansible-playbook -i hosts.your-username deploy.yml -t infrastructure
+```
+
+This will run the playbook up through the `traefik-forward-auth` role and leave you with a fresh "blank canvas" that you can then populate with the recipes of your choosing using the "selective" deploy method.
+
+<span style="color: rgb(34, 34, 34); font-size: 1.666em;">Selectively</span>[¶](https://geek-cookbook.funkypenguin.co.nz/premix/ansible/operation/#deploy-selectively "Permanent link")
+
+To run the playbook selectively (i.e., maybe just deploy traefik), add the name of the role(s) to the `-t` value. This leverages ansible tags to only run tasks which match these tags (*in our case, there's a 1:1 relationship between tags and roles*).
+
+i.e., to deploy only ceph:
+
+```
+ansible-playbook -i hosts.your-username deploy.yml -t ceph
+```
+
+To deploy traefik (overlay), traefikv1, and traefik-forward-auth:
+
+```
+ansible-playbook -i hosts.your-username deploy.yml -t traefik,traefikv1,traefik-forward-auth
+```
+
+#### With debugging[¶](https://geek-cookbook.funkypenguin.co.nz/premix/ansible/operation/#deploy-with-debugging "Permanent link")
+
+If something went wrong and you want to remove all the VMs:
+
+```
+ansible-playbook -i hosts.your-username carefully_destroy.yml
+```
+
+<p class="callout danger">This will also destroy any information stored within the Ceph mount</p>
