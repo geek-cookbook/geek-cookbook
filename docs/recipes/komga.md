@@ -13,7 +13,7 @@ So you've just watched a bunch of superhero movies, and you're suddenly inspired
 
 ![Komga Screenshot](../images/komga.png){ loading=lazy }
 
-[Komga](https://komga.org/) is a media server with a beautifully slick interface, allowing you to read your comics / manga in CBZ, CBR, PDF and epub format. Komga includes an integrated web reader, as well as a [Tachiyomi](https://tachiyomi.org/) plugin and an OPDS server for integration with other mobile apps such as [Chunky on iPad](https://apps.apple.com/us/app/chunky-comic-reader/id663567628).
+[Komga](https://komga.org/) is a media server with a beautifully slick interface, allowing you to read your comics / manga in CBZ, CBR, PDF and epub format. Komga includes an integrated web reader, as well as a [Tachiyomi](https://tachiyomi.org/) plugin and an OPDS server for integration with other mobile apps such as [Chunky on iPad](https://apps.apple.com/us/app/chunky-comic-reader/id663567628) or [ComicVerse on iPhone and iPad](https://apps.apple.com/app/id6753079682).
 
 ## {{ page.meta.recipe }} Requirements
 
